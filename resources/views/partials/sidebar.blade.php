@@ -29,29 +29,18 @@
                 </a>
             </li>
             <li class="heading">
-                <h3 class="uppercase">Quản Lý</h3>
+                <h3 class="uppercase">QUẢN LÝ</h3>
             </li>
-            <li class="nav-item ">
-                <a href="" class="nav-link nav-toggle">
+            @permission('read-users')
+            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/users' ? 'active open' : '' }}">
+                <a href="{{ route('user.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-user"></i>
-                    <span class="title">Quản Lý Giảng Viên</span>
+                    <span class="title">Giảng Viên</span>
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a href="" class="nav-link nav-toggle">
-                    <i class="fa fa-users"></i>
-                    <span class="title">Quản Lý Lớp</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a href="" class="nav-link nav-toggle">
-                    <i class="fa fa-users"></i>
-                    <span class="title">Quản trị nhân sự</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
+            @endpermission
+           
             <li class="heading">
                 <h3 class="uppercase">NCKH</h3>
             </li>
@@ -84,20 +73,8 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a href="" class="nav-link nav-toggle">
-                    <i class="fa fa-user"></i>
-                    <span class="title">Người dùng ứng dụng</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a href="" class="nav-link nav-toggle">
-                    <i class="fa fa-user-secret"></i>
-                    <span class="title">Nhóm & phân quyền</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
+           
+            
             <li class="heading">
                 <h3 class="uppercase">THÔNG TIN KHOA</h3>
             </li>
