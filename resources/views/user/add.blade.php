@@ -20,7 +20,7 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('user.index') }}">Danh Sách Giảng Viên</a>
+                    <a href="{{ route('user.index') }}">Danh Sách Người Dùng</a>
                 </li>
             </ul>
         </div>
@@ -28,7 +28,7 @@
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
             <i class="fa fa-plus"></i>
-            Thêm Giảng Viên
+            Thêm Người Dùng
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->

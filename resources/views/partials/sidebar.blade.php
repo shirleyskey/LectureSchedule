@@ -31,9 +31,10 @@
             <li class="heading">
                 <h3 class="uppercase">QUẢN LÝ</h3>
             </li>
-            @permission('read-users')
-            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/users' ? 'active open' : '' }}">
-                <a href="{{ route('user.index') }}" class="nav-link nav-toggle">
+          
+            @permission('read-giangvien')
+            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : '' }}">
+                <a href="{{ route('giangvien.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-user"></i>
                     <span class="title">Giảng Viên</span>
                     <span class="selected"></span>
@@ -63,25 +64,34 @@
                 </a>
             </li>
            
+            @permission('update-file-manager')
             <li class="heading">
                 <h3 class="uppercase">Quản trị nâng cao</h3>
             </li>
-            <li class="nav-item ">
-                <a href="" class="nav-link nav-toggle">
+            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/file-manager' ? 'active open' : '' }}">
+                <a href="{{ route('file-manager.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-folder-open"></i>
                     <span class="title">Tập tin & hình ảnh</span>
                     <span class="selected"></span>
                 </a>
             </li>
-           
-            
+            @endpermission
+            @permission('read-users')
+            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/users' ? 'active open' : '' }}">
+                <a href="{{ route('user.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-user"></i>
+                    <span class="title">Người Dùng</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            @endpermission
             <li class="heading">
                 <h3 class="uppercase">THÔNG TIN KHOA</h3>
             </li>
             <li class="nav-item ">
                 <a href="" class="nav-link nav-toggle">
                     <i class="fa fa-building"></i>
-                    <span class="title">KHOA ANĐT</span>
+                    <span class="title">KHOA AN</span>
                     <span class="selected"></span>
                 </a>
             </li>

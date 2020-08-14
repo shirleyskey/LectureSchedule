@@ -23,7 +23,7 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>Danh Sách Giảng Viên</span>
+                    <span>Danh Sách Người Dùng</span>
                 </li>
             </ul>
         </div>
@@ -31,7 +31,7 @@
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
             <i class="fa fa-list-ul"></i>
-            Danh Sách Giảng Viên
+            Danh Sách Người Dùng
         </h1>
 
         <!-- MESSAGE -->
@@ -76,12 +76,9 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Họ Tên </th>
-                                    <th> Chức Vụ </th>
-                                    <th> Hệ Số Lương </th>
-                                    <th> Địa Chỉ</th>
-                                    <th> Chức Danh</th>
-                                    <th> Trình Độ</th>
-                                    <th> Có Thể Giảng </th>
+                                    <th> Email </th>
+                                    <th> Quyền </th>
+                                    <th> Trạng thái</th>
                                     <th> Hành động</th>
                                 </tr>
                             </thead>
@@ -91,19 +88,21 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->name }} </td>
-                                        <td> {{ $v->chucvu }} </td>
-                                        <td> {{ $v->hesoluong }} </td>
-                                        <td> {{ $v->diachi }} </td>
-                                        <td> {{ $v->chucdanh }} </td>
-                                        <td> {{ $v->trinhdo }} </td>
-                                        <td> 
-                                            @if ($v->cothegiang == 0)
-                                                {{ 'Không Giảng' }}
+                                        <td> {{ $v->email }} </td>
+                                        <td>
+                                            @foreach($v->roles as $role)
+                                                {{ $role->display_name }}
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @if($v->active)
+                                                <span class="label label-sm label-success"> Kích hoạt </span>
                                             @else
-                                                {{ 'Giảng' }}
+                                                <span class="label label-sm label-danger"> Vô hiệu hóa </span>
                                             @endif
                                         </td>
                                         <td>
+                                            
                                             <a class="btn btn-xs yellow-gold" href="{{ route('user.edit.get', $v->id) }}" title="Xem"> <i class="fa fa-edit"></i> Sửa</a>
                                             <a class="btn btn-xs red-mint" href="{{ route('user.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                         </td>

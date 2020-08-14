@@ -41,7 +41,7 @@
                 </label>
             </div>
         </form>
-        {{-- <table class="table">
+        <table class="table">
             <thead>
             <tr>
                 <th>Email</th>
@@ -66,7 +66,7 @@
                 <td><a class="copy-account" href="#" data-account="user@app.com" data-password="password">copy</a></td>
             </tr>
             </tbody>
-        </table> --}}
+        </table>
         <!-- END LOGIN FORM -->
     </div>
     {{-- <div class="copyright"> v1.0.0-beta - 2018 © <a href="{{ setting('company.website','') }}" target="_blank">{{ setting('company.name','') }}</a></div> --}}
@@ -79,7 +79,7 @@
 @endsection
 
 @section('script')
-    {{-- <script>
+    <script>
         $(document).ready(function()
         {
             $('.copy-account').on('click', function(e){
@@ -91,5 +91,5 @@
                 $('.login-form input[name="password"]').val($password);
             });
         });
-    </script> --}}
+    </script>
 @endsection()

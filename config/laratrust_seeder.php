@@ -11,7 +11,9 @@ return [
             'hocphan'  => 'c,r,u,d',
             'bai'=> 'c,r,u,d',
             'tiet'   => 'c,r,u,d',
-            'nckh' => 'c,r,u,d'
+            'nckh' => 'c,r,u,d',
+            'giangvien' => 'c,r,u,d',
+            'file-manager' => 'u'
         ],
         'administrator' => [
             'dashboard' => 'r',
@@ -20,7 +22,9 @@ return [
             'hocphan'  => 'r,u',
             'bai'=> 'r,u',
             'tiet'   => 'r,u',
-            'nckh' => 'r,u'
+            'nckh' => 'r,u',
+            'giangvien' => 'c,r,u',
+            'file-manager' => 'u'
             
         ],
         'user' => [
@@ -30,7 +34,8 @@ return [
             'hocphan'  => 'r,u',
             'bai'=> 'r,u',
             'tiet'   => 'r,u',
-            'nckh' => 'r,u'
+            'nckh' => 'r,u',
+            'giangvien' => 'r,u',
         ],
     ],
     'permission_structure' => [],
