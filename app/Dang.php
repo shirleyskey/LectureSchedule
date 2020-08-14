@@ -8,4 +8,10 @@ class Dang extends Model
 {
     //
     protected $table = 'dangs';
+
+    public function giangviens()
+    {
+        return $this->belongsTo('App\GiangVien', 'id_giangvien');
+    }
+
 }

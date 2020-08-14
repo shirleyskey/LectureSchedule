@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\GiangVien;
+use App\ChamBai;
+use App\CongTac;
+use App\Dang;
+use App\DayGioi;
+use App\DotXuat;
+use App\HocTap;
+use App\Nckh;
+use App\SangKien;
+use App\XayDung;
 
 class GiangVienController extends Controller
 {
@@ -21,8 +30,15 @@ class GiangVienController extends Controller
         $giangvien = GiangVien::findOrFail($id);
         return view('giangvien.read.index', [
             'giangvien' => $giangvien,
-            // 'ds_hop_dong'   => HopDong::getByNhanSuId($id)->get(),
-            // 'ds_quyet_dinh' => QuyetDinh::getByNhanSuId($id)->get()
+            'chambai' => ChamBai::where('id_giangvien', $id)->get(),
+            'congtac' => CongTac::where('id_giangvien', $id)->get(),
+            'dang' => Dang::where('id_giangvien', $id)->get(),
+            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
+            'dotxuat' => DotXuat::where('id_giangvien', $id)->get(),
+            'hoctap' => HocTap::where('id_giangvien', $id)->get(),
+            'nckh' => Nckh::where('id_giangvien', $id)->get(),
+            'sangkien' => SangKien::where('id_giangvien', $id)->get(),
+            'xaydung' => XayDung::where('id_giangvien', $id)->get(),
         ]);
     }
 
@@ -66,12 +82,15 @@ class GiangVienController extends Controller
 
         return view('giangvien.edit.index', [
             'giangvien'       => GiangVien::findOrFail($id), 
-            // 'ds_phong_ban'  => PhongBan::all(),
-            // 'ds_ho_so'      => HoSo::all()->pluck('ten','id'),
-            // 'ds_hop_dong'   => HopDong::getByNhanSuId($id)->get(),
-            // 'ds_loai_hd'    => LoaiHopDong::all(),
-            // 'ds_quyet_dinh' => QuyetDinh::getByNhanSuId($id)->get(),
-            // 'ds_loai_qd'    => LoaiQuyetDinh::all()
+            'chambai' => ChamBai::where('id_giangvien', $id)->get(),
+            'congtac' => CongTac::where('id_giangvien', $id)->get(),
+            'dang' => Dang::where('id_giangvien', $id)->get(),
+            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
+            'dotxuat' => DotXuat::where('id_giangvien', $id)->get(),
+            'hoctap' => HocTap::where('id_giangvien', $id)->get(),
+            'nckh' => Nckh::where('id_giangvien', $id)->get(),
+            'sangkien' => SangKien::where('id_giangvien', $id)->get(),
+            'xaydung' => XayDung::where('id_giangvien', $id)->get(),
         ]);
     }
 

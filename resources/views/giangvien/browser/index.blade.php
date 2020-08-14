@@ -82,6 +82,7 @@
                                     <th> Chức Danh</th>
                                     <th> Trình Độ</th>
                                     <th> Có Thể Giảng</th>
+                                    <th> Hành Động</th>
                                 </tr>
                             </thead>
                             <tbody>
