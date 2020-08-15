@@ -13,6 +13,14 @@ return [
             'tiet'   => 'c,r,u,d',
             'nckh' => 'c,r,u,d',
             'giangvien' => 'c,r,u,d',
+            'chambai' => 'c,r,u,d',
+            'congtac' => 'c,r,u,d',
+            'dang' => 'c,r,u,d',
+            'daygioi' => 'c,r,u,d',
+            'dotxuat' => 'c,r,u,d',
+            'sangkien' => 'c,r,u,d',
+            'xaydung' => 'c,r,u,d',
+            'hoctap' => 'c,r,u,d',
             'file-manager' => 'u'
         ],
         'administrator' => [

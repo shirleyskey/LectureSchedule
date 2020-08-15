@@ -31,7 +31,20 @@
             <li class="heading">
                 <h3 class="uppercase">QUẢN LÝ</h3>
             </li>
-          
+            <li class="nav-item {{ Request::is('lichgiang/phancong') ? 'active open' : '' }}">
+                <a href="{{ route('lichgiang.phancong') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-calendar"></i>
+                    <span class="title">Phân Công Lịch Giảng</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item {{ Request::is('lichgiang/lichgiangtuan') ? 'active open' : '' }}">
+                <a href="{{ route('lichgiang.lichgiangtuan') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-calendar-check-o"></i>
+                    <span class="title">Lịch Giảng Tuần</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
             @permission('read-giangvien')
             <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : '' }}">
                 <a href="{{ route('giangvien.index') }}" class="nav-link nav-toggle">

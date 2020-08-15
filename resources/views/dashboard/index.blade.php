@@ -40,13 +40,13 @@
             </div> --}}
             {{-- Giảng Viên  --}}
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 yellow" href="">
+                <a class="dashboard-stat dashboard-stat-v2 yellow" href="{{ route('giangvien.index') }}">
                     <div class="visual">
                         <i class="fa fa-users"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup" data-value="">0</span>
+                        <span data-counter="counterup" data-value="{{ $giangvien->count()}}"></span>
                         </div>
                         <div class="desc"> GIẢNG VIÊN</div>
                     </div>
@@ -54,13 +54,13 @@
             </div>
              {{-- Lớp  --}}
              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 blue" href="">
+                <a class="dashboard-stat dashboard-stat-v2 blue" href="{{ route('dashboard.read') }}">
                     <div class="visual">
                         <i class="fa fa-users"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup" data-value="">0</span>
+                            <span data-counter="counterup" data-value="{{ $lop->count()}}"></span>
                         </div>
                         <div class="desc"> LỚP</div>
                     </div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup" data-value="">0</span>
+                        <span data-counter="counterup" data-value="{{ $hocphan->count()}}">0</span>
                         </div>
                         <div class="desc"> HỌC PHẦN GIẢNG DẠY</div>
                     </div>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup" data-value="">0</span>
+                            <span data-counter="counterup" data-value="{{ $nckh->count()}}">0</span>
                         </div>
                         <div class="desc"> NCKH</div>
                     </div>
@@ -105,7 +105,7 @@
                         <div class="number">
                             <span data-counter="counterup" data-value="">0</span>
                         </div>
-                        <div class="desc"> GIỜ GIẢNG</div>
+                        <div class="desc"> TỔNG GIỜ GIẢNG</div>
                     </div>
                 </a>
             </div>
@@ -117,8 +117,8 @@
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup" data-value="10">0</span> </div>
-                        <div class="desc"> None </div>
+                            <span data-counter="counterup" data-value="{{ $chambai->count()}}">0</span> </div>
+                        <div class="desc"> CHẤM BÀI </div>
                     </div>
                 </a>
             </div>
@@ -129,9 +129,9 @@
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup" data-value="549">0</span>
+                            <span data-counter="counterup" data-value="{{ $congtac->count()}}">0</span>
                         </div>
-                        <div class="desc"> None </div>
+                        <div class="desc"> CÔNG TÁC</div>
                     </div>
                 </a>
             </div>
@@ -142,8 +142,56 @@
                     </div>
                     <div class="details">
                         <div class="number">
-                            <span data-counter="counterup" data-value="89"></span> </div>
-                        <div class="desc"> None </div>
+                            <span data-counter="counterup" data-value="{{ $dang->count()}}"></span> </div>
+                        <div class="desc"> HOẠT ĐỘNG ĐẢNG ĐOÀN </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                    <div class="visual">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="{{ $daygioi->count()}}"></span> </div>
+                        <div class="desc"> DẠY GIỎI </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                    <div class="visual">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="{{ $dotxuat->count()}}"></span> </div>
+                        <div class="desc"> CÔNG VIỆC ĐỘT XUẤT </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                    <div class="visual">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="{{ $sangkien->count()}}"></span> </div>
+                        <div class="desc"> SÁNG KIẾN CẢI TIẾN</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+                    <div class="visual">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="{{ $xaydung->count()}}"></span> </div>
+                        <div class="desc"> XÂY DỰNG CHƯƠNG TRÌNH</div>
                     </div>
                 </a>
             </div>

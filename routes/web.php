@@ -49,6 +49,12 @@ Route::get('dashboard', [
     'as'         => 'dashboard'
 ])->middleware(['auth','only_active_user']);
 
+Route::get('dashboard/read', [
+    'middleware' => ['permission:read-dashboard'],
+    'uses'       => 'DashboardController@readDashboard',
+    'as'         => 'dashboard.read'
+])->middleware(['auth','only_active_user']);
+
 // User Routes...
 Route::prefix('users')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/', ['middleware' => ['permission:read-users'], 'uses'=>'UserController@index','as'=>'user.index']);
@@ -78,4 +84,12 @@ Route::prefix('giangvien')->middleware(['auth', 'only_active_user'])->group(func
     Route::get('/export-excel', ['middleware' => ['permission:create-giangvien'], 'uses'=>'GiangVienController@exportExcel','as'=>'giangvien.export-excel.get']);
     Route::get('/import-excel', ['middleware' => ['permission:create-giangvien'], 'uses'=>'GiangVienController@importExcel','as'=>'giangvien.import-excel.get']);
     Route::post('/import-excel', ['middleware' => ['permission:create-giangvien'], 'uses'=>'GiangVienController@postImportExcel','as'=>'giangvien.import-excel.post']);
+});
+
+Route::prefix('lichgiang')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/phancong', ['uses'=>'LichGiangController@phancong','as'=>'lichgiang.phancong']);
+    Route::get('/lichgiangtuan', ['uses'=>'LichGiangController@getLichTuan','as'=>'lichgiang.lichgiangtuan']);
+    Route::post('/lichgiangtuan/create', ['uses'=>'LichGiangController@store','as'=>'lichgiang.lichgiangtuan']);
+    Route::post('/lichgiangtuan/update', ['uses'=>'LichGiangController@update','as'=>'lichgiang.lichgiangtuan']);
+    Route::post('/lichgiangtuan/delete', ['uses'=>'LichGiangController@destroy','as'=>'lichgiang.lichgiangtuan']);
 });
