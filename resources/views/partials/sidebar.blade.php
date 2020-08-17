@@ -22,7 +22,7 @@
             <!-- END SIDEBAR TOGGLER BUTTON -->
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
             <li class="nav-item start ">
-                <a href="" class="nav-link">
+                <a href="{{ route('dashboard') }}" class="nav-link">
                     <i class="fa fa-dashboard"></i>
                     <span class="title">BẢNG ĐIỀU KHIỂN</span>
                     <span class="selected"></span>
@@ -58,9 +58,9 @@
             <li class="heading">
                 <h3 class="uppercase">NCKH</h3>
             </li>
-            <li class="nav-item ">
-                <a href="" class="nav-link nav-toggle">
-                    <i class="fa fa-user"></i>
+            <li class="nav-item {{ Request::is('nckh') ? 'active open' : '' }}">
+                <a href="{{ route('nckh.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-briefcase "></i>
                     <span class="title">Quản Lý NCKH</span>
                     <span class="selected"></span>
                 </a>
@@ -71,7 +71,7 @@
             </li>
             <li class="nav-item ">
                 <a href="" class="nav-link nav-toggle">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-plus-circle "></i>
                     <span class="title">Quản Lý Công Việc Khác</span>
                     <span class="selected"></span>
                 </a>

@@ -16,49 +16,66 @@ use App\HocTap;
 use App\Nckh;
 use App\SangKien;
 use App\XayDung;
-use Carbon\Carbon;
-class CongTacController extends Controller
+
+class NckhController extends Controller
 {
 
     public function index()
     {
-        return view('congtac.browser.index', ['ds_congtac' => CongTac::all()]);
+        return view('nckh.browser.index', ['ds_nckh' => Nckh::all()]);
     }
 
+    public function read($id)
+    {
+        $nckh = GiangVien::findOrFail($id);
+        return view('giangvien.read.index', [
+            'giangvien' => $giangvien,
+            'chambai' => ChamBai::where('id_giangvien', $id)->get(),
+            'congtac' => CongTac::where('id_giangvien', $id)->get(),
+            'dang' => Dang::where('id_giangvien', $id)->get(),
+            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
+            'dotxuat' => DotXuat::where('id_giangvien', $id)->get(),
+            'hoctap' => HocTap::where('id_giangvien', $id)->get(),
+            'nckh' => Nckh::where('id_giangvien', $id)->get(),
+            'sangkien' => SangKien::where('id_giangvien', $id)->get(),
+            'xaydung' => XayDung::where('id_giangvien', $id)->get(),
+        ]);
+    }
+
+    // AJAX function
+    // public function dsBoPhanTheoPhongBan(Request $request)
+	// {
+	// 	if ($request->ajax()) {
+	// 		return response()->json(BoPhan::getByPhongBanId($request->phongban_id)->get());
+	// 	}
+    // }
+    // END AJAX
+
     public function create(){
-        return view('congtac.add.index', [
-            'ds_giangvien' => GiangVien::all(),
+        return view('giangvien.add.index', [
+            // 'ds_phong_ban' => PhongBan::all(),
+            // 'ds_ho_so' => HoSo::all()
         ]);
     }
 
     public function store(Request $request){
-        $request->validate([
-            'id_giangvien'     => 'required',
-            'ten'    => 'required',
-            
-        ],[
-            'id_giangvien.required'     => 'Bạn chưa chọn "Giảng Viên"',
-            'ten.required'    => 'Bạn chưa nhập "Tên công tác"',
-        ]);
-
-        $congtac = new CongTac;
-        $congtac->id_giangvien = $request->id_giangvien;
-        $congtac->ten = $request->ten;
-        $congtac->tiendo = $request->tiendo;
-        if($request->thoigian != null){
-            $congtac->thoigian = Carbon::parse($request->thoigian)->format('Y-m-d');
-        }
-        else {
-            $congtac->thoigian = null;
-        }
-        try{
-            $congtac->save();
-            return redirect()->route('congtac.index')->with('status_success', 'Tạo mới Công Tác thành công!');
-        }
-        catch(\Exception $e){
-            Log::error($e);
-            return redirect()->route('congtac.index')->with('status_error', 'Xảy ra lỗi khi thêm Công Tác!');
-        }
+        // $request->validate([
+        //     'ma_nv'        => 'unique:nhan_sus',
+        //     'so_cmnd'        => 'unique:nhan_sus'
+        // ],[
+        //     'ma_nv.unique' => '"Mã nhân viên" đã tồn tại',
+        //     'so_cmnd.unique' => '"Số CMND" đã tồn tại'
+        // ]);
+        
+        // try{
+        //     $giangvien = GiangVien::saveNhanSu(0, $request->all());
+        //     Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm nhân sự ID:'.$nhan_su->id.'-'.$nhan_su->ho_ten);
+        //     return redirect()->route('nhan_su.index')->with('status_success', 'Tạo mới nhân sự thành công!');
+        // }
+        // catch(\Exception $e){
+        //     Log::error($e);
+        //     return redirect()->route('nhan_su.index')->with('status_error', 'Xảy ra lỗi khi thêm nhân sự!');
+        // }
     }
 
     public function edit($id){

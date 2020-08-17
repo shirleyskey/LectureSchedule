@@ -1,26 +1,14 @@
 @extends('layouts.master')
-
 @section('title', 'Bảng điều khiển')
-<link rel="stylesheet" href="{{ asset('assets/global/plugins/fullcalendar/lib/main.css') }}">
-@section('script')
+{{-- <link rel="stylesheet" href="{{ asset('assets/global/plugins/fullcalendar/lib/main.css') }}"> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+<style>
+  .fc-day-grid-event .fc-time {
+    font-weight: bold;
+    display: none;
+}
+</style>
 
-   <script src="{{ asset('assets/global/plugins/jquery.min.js') }}"></script>
-   <script src="{{ asset('assets/global/plugins/moment/moment-with-locales.min.js') }}"></script>
-   <script src="{{ asset('assets/global/plugins/fullcalendar/lib/main.js') }}"></script>
-   <script>
-
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth'
-      });
-      calendar.render();
-    });
-
-  </script>
-
-
-@endsection
 @section('content')
 <!-- BEGIN CONTENT -->
 <div class="page-content-wrapper">
@@ -44,6 +32,7 @@
         <!-- BEGIN DASHBOARD STATS 1-->
         <div class="row">
            <div class="col-md-12">
+            <div class="response"></div>
             <div id='calendar'></div>
         </div>
         </div>
@@ -56,98 +45,93 @@
 @endsection
 @section('script')
 <script>
-$(document).ready(function () {
-         
+  jQuery(document).ready(function() {
     var SITEURL = "{{url('/')}}";
     $.ajaxSetup({
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    var calendar = $('#calendar').fullCalendar({
+      initialView: 'dayGridMonth',
+      editable: true,
+      events: SITEURL + "/lichgiang/lichgiangtuan",
+      displayEventTime: true,
+      editable: true,
+      eventRender: function (event, element, view) {
+          if (event.allDay === 'true') {
+              event.allDay = true;
+          } else {
+              event.allDay = false;
+          }
+      },
+      selectable: true,
+      selectHelper: true,
+      //Thêm
+      select: function (start, end, allDay) {
+          var title = prompt('Nhập Tiết:');
+      
+          if (title) {
+              var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+              var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+      
+              $.ajax({
+                  url: SITEURL + "lichgiangtuan/create",
+                  data: {'title' : title, 'start': start, 'end': end},
+                  type: "POST",
+                  success: function (data) {
+                      displayMessage("Thêm thành công");
+                  }
+              });
+              calendar.fullCalendar('renderEvent',
+                  {
+                      title: title,
+                      start: start,
+                      end: end,
+                      allDay: allDay
+                  },
+                  true
+              );
+          }
+          calendar.fullCalendar('unselect');
+      },
+      //Sửa
+      eventDrop: function (event, delta) {
+          var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+          var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+          $.ajax({
+              url: SITEURL + 'lichgiangtuan/update',
+              data: {'ten': event.title, 'start': start, 'end': end, 'id': event.id},
+              type: "POST",
+              success: function (response) {
+                  displayMessage("Cập nhật thành công!");
+              }
+          });
+      },
+      //Xóa
+      eventClick: function (event) {
+          var deleteMsg = confirm("Bạn có chắc chắn muốn xóa?");
+          if (deleteMsg) {
+              $.ajax({
+                  type: "POST",
+                  url: SITEURL + 'lichgiangtuan/delete',
+                  data: {'id': event.id},
+                  success: function (response) {
+                      if(parseInt(response) > 0) {
+                          $('#calendar').fullCalendar('removeEvents', event.id);
+                          displayMessage("Xóa thành công!");
+                      }
+                  }
+              });
+          }
       }
     });
-
-    var calendar = $('#calendar').fullCalendar({
-        editable: true,
-        events: SITEURL + "fullcalendar",
-        displayEventTime: true,
-        editable: true,
-        eventRender: function (event, element, view) {
-            if (event.allDay === 'true') {
-                event.allDay = true;
-            } else {
-                event.allDay = false;
-            }
-        },
-        selectable: true,
-        selectHelper: true,
-        select: function (start, end, allDay) {
-            var title = prompt('Event Title:');
-
-            if (title) {
-                var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-                var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-
-                $.ajax({
-                    url: SITEURL + "fullcalendar/create",
-                    data: 'title=' + title + '&amp;start=' + start + '&amp;end=' + end,
-                    type: "POST",
-                    success: function (data) {
-                        displayMessage("Added Successfully");
-                    }
-                });
-                calendar.fullCalendar('renderEvent',
-                        {
-                            title: title,
-                            start: start,
-                            end: end,
-                            allDay: allDay
-                        },
-                true
-                        );
-            }
-            calendar.fullCalendar('unselect');
-        },
-         
-        eventDrop: function (event, delta) {
-                    var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-                    var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-                    $.ajax({
-                        url: SITEURL + 'fullcalendar/update',
-                        data: 'title=' + event.title + '&amp;start=' + start + '&amp;end=' + end + '&amp;id=' + event.id,
-                        type: "POST",
-                        success: function (response) {
-                            displayMessage("Updated Successfully");
-                        }
-                    });
-                },
-        eventClick: function (event) {
-            var deleteMsg = confirm("Do you really want to delete?");
-            if (deleteMsg) {
-                $.ajax({
-                    type: "POST",
-                    url: SITEURL + 'fullcalendar/delete',
-                    data: "&amp;id=" + event.id,
-                    success: function (response) {
-                        if(parseInt(response) > 0) {
-                            $('#calendar').fullCalendar('removeEvents', event.id);
-                            displayMessage("Deleted Successfully");
-                        }
-                    }
-                });
-            }
-        }
-
-    });
-});
-
-function displayMessage(message) {
-$(".response").html("<div class='success'>"+message+"</div>");
-setInterval(function() { $(".success").fadeOut(); }, 1000);
-}
+  });
+    function displayMessage(message) {
+      $(".response").html("<div class='success'>"+message+"</div>");
+      setInterval(function() { $(".success").fadeOut(); }, 1000);
+      }
 </script>
-
-
-<!-- <script src="{{ asset('assets/global/scripts/datatable.js') }}" type="text/javascript"></script> -->
-<script src="{{ asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js') }}" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js" type="text/javascript"></script>
 @endsection

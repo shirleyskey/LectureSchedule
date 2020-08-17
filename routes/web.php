@@ -88,8 +88,52 @@ Route::prefix('giangvien')->middleware(['auth', 'only_active_user'])->group(func
 
 Route::prefix('lichgiang')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/phancong', ['uses'=>'LichGiangController@phancong','as'=>'lichgiang.phancong']);
-    Route::get('/lichgiangtuan', ['uses'=>'LichGiangController@getLichTuan','as'=>'lichgiang.lichgiangtuan']);
-    Route::post('/lichgiangtuan/create', ['uses'=>'LichGiangController@store','as'=>'lichgiang.lichgiangtuan']);
-    Route::post('/lichgiangtuan/update', ['uses'=>'LichGiangController@update','as'=>'lichgiang.lichgiangtuan']);
-    Route::post('/lichgiangtuan/delete', ['uses'=>'LichGiangController@destroy','as'=>'lichgiang.lichgiangtuan']);
+    Route::get('/lichgiangtuan', ['uses'=>'LichGiangController@index','as'=>'lichgiang.lichgiangtuan']);
+    Route::post('/lichgiangtuan/create', ['uses'=>'LichGiangController@store','as'=>'lichgiang.lichgiangtuan.create']);
+    Route::post('/lichgiangtuan/update', ['uses'=>'LichGiangController@update','as'=>'lichgiang.lichgiangtuan.update']);
+    Route::post('/lichgiangtuan/delete', ['uses'=>'LichGiangController@destroy','as'=>'lichgiang.lichgiangtuan.delete']);
+});
+
+// NCKH Routes...
+Route::prefix('nckh')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/', ['middleware' => ['permission:read-nckh'], 'uses'=>'NckhController@index','as'=>'nckh.index']);
+    Route::get('/read/{id}', ['middleware' => ['permission:read-nckh'], 'uses'=>'NckhController@read','as'=>'nckh.read.get']);
+    Route::get('/add', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@create','as'=>'nckh.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@store','as'=>'nckh.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:update-nckh'], 'uses' =>'NckhController@edit','as'=>'nckh.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:update-nckh'], 'uses'=>'NckhController@update','as'=>'nckh.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:delete-nckh'], 'uses'=>'NckhController@destroy','as'=>'nckh.delete.get']);
+    Route::get('/export-excel', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@exportExcel','as'=>'nckh.export-excel.get']);
+    Route::get('/import-excel', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@importExcel','as'=>'nckh.import-excel.get']);
+    Route::post('/import-excel', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@postImportExcel','as'=>'nckh.import-excel.post']);
+});
+
+
+// Nhân Sự Routes...
+Route::prefix('congtac')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/', ['middleware' => ['permission:read-congtac'], 'uses'=>'CongTacController@index','as'=>'congtac.index']);
+    Route::get('/read/{id}', ['middleware' => ['permission:read-congtac'], 'uses'=>'CongTacController@read','as'=>'congtac.read.get']);
+    Route::get('/add', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongTacController@create','as'=>'congtac.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongTacController@store','as'=>'congtac.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:update-congtac'], 'uses' =>'CongTacController@edit','as'=>'congtac.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:update-congtac'], 'uses'=>'CongTacController@update','as'=>'congtac.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:delete-congtac'], 'uses'=>'CongTacController@destroy','as'=>'congtac.delete.get']);
+    Route::get('/export-excel', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongTacController@exportExcel','as'=>'congtac.export-excel.get']);
+    Route::get('/import-excel', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongTacController@importExcel','as'=>'congtac.import-excel.get']);
+    Route::post('/import-excel', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongTacController@postImportExcel','as'=>'congtac.import-excel.post']);
+});
+
+// Ajax Routes...
+Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::post('/dsGiangVien', ['uses'=>'CongTacController@dsGiangVien','as'=>'dsGiangVien']);
+    // Route::post('/postThemHopDong', ['middleware' => ['permission:create-hop-dong'], 'uses'=>'HopDongController@postThemHopDong','as'=>'postThemHopDong']);
+    // Route::post('/postTimHopDongTheoId', ['uses'=>'HopDongController@postTimHopDongTheoId','as'=>'postTimHopDongTheoId']);
+    // Route::post('/postSuaHopDong', ['middleware' => ['permission:update-hop-dong'], 'uses'=>'HopDongController@postSuaHopDong','as'=>'postSuaHopDong']);
+    // Route::post('/postXoaHopDong', ['middleware' => ['permission:delete-hop-dong'], 'uses'=>'HopDongController@postXoaHopDong','as'=>'postXoaHopDong']);
+
+    // Route::post('/postThemQuyetDinh', ['middleware' => ['permission:create-quyet-dinh'], 'uses'=>'QuyetDinhController@postThemQuyetDinh','as'=>'postThemQuyetDinh']);
+    // Route::post('/postTimQuyetDinhTheoId', ['uses'=>'QuyetDinhController@postTimQuyetDinhTheoId','as'=>'postTimQuyetDinhTheoId']);
+    // Route::post('/postSuaQuyetDinh', ['middleware' => ['permission:update-quyet-dinh'], 'uses'=>'QuyetDinhController@postSuaQuyetDinh','as'=>'postSuaQuyetDinh']);
+    // Route::post('/postXoaQuyetDinh', ['middleware' => ['permission:delete-quyet-dinh'], 'uses'=>'QuyetDinhController@postXoaQuyetDinh','as'=>'postXoaQuyetDinh']);
+
 });

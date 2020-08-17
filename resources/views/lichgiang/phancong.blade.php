@@ -18,7 +18,7 @@
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title text-center"> Bảng Phân Công Lịch Giảng
+        <h1 class="page-title text-center"> Bảng Phân Công Lịch Giảng theo năm học
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
