@@ -142,17 +142,12 @@ class UserController extends Controller
     {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
-    public function getImport() 
-    {
-        // $import = Excel::import(new UsersImport, request()->file('user_file'));
-        // return redirect()->back()->with('success', 'Success!!!');
-    }
-
     public function import() 
     {
         $import = Excel::import(new UsersImport, request()->file('user_file'));
         return redirect()->back()->with('success', 'Success!!!');
     }
 
+   
     
 }

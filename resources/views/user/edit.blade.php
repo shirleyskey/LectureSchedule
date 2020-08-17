@@ -75,67 +75,6 @@
                                         </span>
                                     </div>
                                 </div>
-                                {{-- Chức Vụ  --}}
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="chucvu" value="{{ $user->chucvu }}">
-                                        <label for="form_control_1"> Chức Vụ </label>
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                 {{-- Hệ Số Lương  --}}
-                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="hesoluong" value="{{ $user->hesoluong }}">
-                                        <label for="form_control_1">Hệ Số Lương</label>
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                {{-- Địa Chỉ  --}}
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="diachi" value="{{ $user->diachi }}">
-                                        <label for="form_control_1">Địa Chỉ</label>
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                {{-- Chức Danh --}}
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="chucdanh" value="{{ $user->chucdanh }}">
-                                        <label for="form_control_1">Chức Danh</label>
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                 {{-- Trình Độ --}}
-                                 <div class="form-group form-md-line-input form-md-floating-label">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="trinhdo" value="{{ $user->trinhdo }}">
-                                        <label for="form_control_1">Trình Độ</label>
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                {{-- Có Thể Giảng --}}
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="cothegiang" value="{{ $user->name }}">
-                                        <label for="form_control_1"><span class=""> ( Có thể giảng nhập 1, không thể nhập 0 )</span></label>
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                </div>
-
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="email" value="{{ $user->email }}">

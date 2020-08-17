@@ -64,7 +64,7 @@ Route::prefix('users')->middleware(['auth', 'only_active_user'])->group(function
     Route::post('/edit', ['middleware' => ['permission:update-users'], 'uses'=>'UserController@update','as'=>'user.edit.post']);
     Route::get('/delete/{id}', ['middleware' => ['permission:delete-users'], 'uses'=>'UserController@destroy','as'=>'user.delete.get']);
     Route::get('/export-user', ['uses'=>'UserController@export','as'=>'user.export']);
-    Route::get('/import-user', ['uses'=>'UserController@getImport','as'=>'user.import.get']);
+    Route::post('/import-user', ['uses'=>'UserController@import','as'=>'user.import']);
 });
 
 // File Manager
@@ -126,7 +126,7 @@ Route::prefix('congtac')->middleware(['auth', 'only_active_user'])->group(functi
 // Ajax Routes...
 Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::post('/dsGiangVien', ['uses'=>'CongTacController@dsGiangVien','as'=>'dsGiangVien']);
-    // Route::post('/postThemHopDong', ['middleware' => ['permission:create-hop-dong'], 'uses'=>'HopDongController@postThemHopDong','as'=>'postThemHopDong']);
+    Route::post('/postThemNckh', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@postThemNckh','as'=>'postThemNckh']);
     // Route::post('/postTimHopDongTheoId', ['uses'=>'HopDongController@postTimHopDongTheoId','as'=>'postTimHopDongTheoId']);
     // Route::post('/postSuaHopDong', ['middleware' => ['permission:update-hop-dong'], 'uses'=>'HopDongController@postSuaHopDong','as'=>'postSuaHopDong']);
     // Route::post('/postXoaHopDong', ['middleware' => ['permission:delete-hop-dong'], 'uses'=>'HopDongController@postXoaHopDong','as'=>'postXoaHopDong']);

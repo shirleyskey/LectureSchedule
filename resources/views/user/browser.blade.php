@@ -47,6 +47,7 @@
                     <div class="portlet-body">
                         <div class="table-toolbar">
                             <div class="row">
+                                
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" href="{{ route('user.add.get') }}"><i class="fa fa-plus"></i> Thêm mới
@@ -60,13 +61,25 @@
                                             <i class="fa fa-angle-down"></i>
                                         </button>
                                         <ul class="dropdown-menu pull-right">
-                                            <li>
-                                                <a id="import-excel" href="#"><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
-                                            </li>
-                                            <li>
+                                            {{-- <li>
+                                                <a id="{{ route('user.import.get')}}" href="#"><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
+                                            </li>--}}
+                                            <form action="{{route('user.import')}}" method="POST" enctype="multipart/form-data">
+                                                {{ csrf_field() }}
+                                                <label for="user-file">
+                                                    <div class="btn sbold green"> Add
+                                                        <i class="fa fa-plus"></i>
+                                                    </div>
+                                                </label>
+                                                <input id="user-file" type="file" name="user_file" accept=".xlsx, .xls, .csv, .ods">
+                                                <button type="submit">Import</button>
+                                            </form>
+                                            <li> 
                                             <a href="{{ route('user.export')}}"><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
                                             </li>
+                                           
                                         </ul>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +191,7 @@
                 closeOnConfirm: false
                 },
                 function(){
-                    window.location.href = "{{ route('user.import.get') }}";
+                    window.location.href = "{{ route('user.import') }}";
                 });
         });
     });

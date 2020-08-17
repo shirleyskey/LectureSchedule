@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Thêm mới nhân sự')
+@section('title', 'Thêm mới Giảng Viên')
 
 @section('style')
     <!-- <link href="{{ asset('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css" /> -->
@@ -19,14 +19,14 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('nhan_su.index') }}">Nhân Sự Công Ty</a>
+                    <a href="{{ route('giangvien.index') }}">Giảng Viên</a>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-plus"></i> Thêm Nhân Sự
+            <i class="fa fa-plus"></i> Thêm Giảng Viên
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -46,23 +46,12 @@
                         <li class="active">
                             <a href="#tab1" data-toggle="tab">Thông tin</a>
                         </li>
-                        <li>
-                            <a href="#tab2" data-toggle="tab">Trình độ</a>
-                        </li>
-                        <li>
-                            <a href="#tab3" data-toggle="tab">Hồ sơ</a>
-                        </li>
-                        <li>
-                            <a href="#tab4" data-toggle="tab">HĐLĐ</a>
-                        </li>
-                        <li>
-                            <a href="#tab5" data-toggle="tab">Quyết định</a>
-                        </li>
+                        
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        @include('nhan_su.add.form')
+                        @include('giangvien.add.form')
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->
@@ -82,43 +71,7 @@
 <script>
     $(document).ready(function()
     {
-        $("#ngay_sinh").inputmask("d-m-y", {
-            // autoUnmask: true
-        });
-        $("#ngay_cap_cmnd").inputmask("d-m-y", {
-            // autoUnmask: true
-        });
-        $("#ngay_bat_dau_lam").inputmask("d-m-y", {
-            // autoUnmask: true
-        });
-        $("#ngay_lam_viec_cuoi").inputmask("d-m-y", {
-            // autoUnmask: true
-        });
-
-        var url = "{{ route('dsBoPhanTheoPhongBan') }}";
-        $("select[name='phongban_id']").change(function(){
-            var phongban_id = $(this).val();
-            var token = $("input[name='_token']").val();
-            $.ajax({
-                url: url,
-                method: 'POST',
-                data: {
-                    phongban_id: phongban_id,
-                    _token: token
-                },
-                success: function(data) {
-                    $("select[name='bophan_id'").html('');
-                    $("select[name='bophan_id']").append(
-                        "<option value='0'>-------- Chọn bộ phận --------</option>"
-                    );
-                    $.each(data, function(key, value){
-                        $("select[name='bophan_id']").append(
-                            "<option value=" + value.id + ">" + value.ten + "</option>"
-                        );
-                    });
-                }
-            });
-        });
+       
     })
 </script>
 <script src="{{ asset('assets/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js') }}" type="text/javascript"></script>

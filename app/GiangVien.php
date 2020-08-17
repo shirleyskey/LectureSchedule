@@ -9,6 +9,7 @@ class GiangVien extends Model
     //
     protected $table = 'giangviens';
 
+    public $timestamps = false;
     public function chambais()
     {
         return $this->hasMany('App\ChamBai', 'id_giangvien');
@@ -43,6 +44,26 @@ class GiangVien extends Model
     {
         return $this->hasMany('App\XayDung', 'id_giangvien');
     }
+
+    public static function saveGiangVien($id, $data){
+        if($id == 0 || $id == -1){
+            $giangvien = new GiangVien;
+        }else{
+            $giangvien = GiangVien::findOrFail($id);
+        }
+        $giangvien->ten              = $data['ten'];
+        $giangvien->chucvu             = $data['chucvu'];
+        $giangvien->hesoluong = $data['hesoluong'];
+        $giangvien->diachi    = $data['diachi'];
+        $giangvien->chucdanh         = $data['chucdanh'];
+        $giangvien->trinhdo              = $data['trinhdo'];
+        $giangvien->cothegiang          = $data['cothegiang'];
+        
+        $giangvien->save();
+        return $giangvien;
+    }
+
+
 }
 
 

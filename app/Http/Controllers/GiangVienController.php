@@ -59,29 +59,36 @@ class GiangVienController extends Controller
     }
 
     public function store(Request $request){
-        // $request->validate([
-        //     'ma_nv'        => 'unique:nhan_sus',
-        //     'so_cmnd'        => 'unique:nhan_sus'
-        // ],[
-        //     'ma_nv.unique' => '"Mã nhân viên" đã tồn tại',
-        //     'so_cmnd.unique' => '"Số CMND" đã tồn tại'
-        // ]);
+        $request->validate([
+            'ten'        => 'required',
+            'cothegiang'        => 'required'
+        ],[
+            'ten.required' => '"Tên Giảng Viên" Phải nhập',
+            'cothegiang.required' => '"Có thể giảng" phải nhập'
+        ]);
+        $giangvien = new GiangVien;
+        $giangvien->ten = $request->ten;
+        $giangvien->chucvu = $request->chucvu;
+        $giangvien->hesoluong = $request->hesoluong;
+        $giangvien->diachi = $request->diachi;
+        $giangvien->chucdanh = $request->chucdanh;
+        $giangvien->trinhdo = $request->trinhdo;
+        $giangvien->cothegiang = $request->cothegiang;
         
-        // try{
-        //     $giangvien = GiangVien::saveNhanSu(0, $request->all());
-        //     Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm nhân sự ID:'.$nhan_su->id.'-'.$nhan_su->ho_ten);
-        //     return redirect()->route('nhan_su.index')->with('status_success', 'Tạo mới nhân sự thành công!');
-        // }
-        // catch(\Exception $e){
-        //     Log::error($e);
-        //     return redirect()->route('nhan_su.index')->with('status_error', 'Xảy ra lỗi khi thêm nhân sự!');
-        // }
+        try{
+            $giangvien->save();
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);
+            return redirect()->route('giangvien.index')->with('status_success', 'Tạo mới giảng viên thành công!');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi thêm giảng viên!');
+        }
     }
 
     public function edit($id){
-
         return view('giangvien.edit.index', [
-            'giangvien'       => GiangVien::findOrFail($id), 
+            'giangvien' => GiangVien::findOrFail($id), 
             'chambai' => ChamBai::where('id_giangvien', $id)->get(),
             'congtac' => CongTac::where('id_giangvien', $id)->get(),
             'dang' => Dang::where('id_giangvien', $id)->get(),
@@ -96,22 +103,22 @@ class GiangVienController extends Controller
 
     public function update(Request $request, $id){
         // $request->validate([
-        //     'ma_nv'        => 'unique:nhan_sus,ma_nv,'.$id,
+        //     'ten'        => 'unique:nhan_sus,ma_nv,'.$id,
         //     'so_cmnd'        => 'unique:nhan_sus,so_cmnd,'.$id
         // ],[
         //     'ma_nv.unique' => '"Mã nhân viên" đã tồn tại',
         //     'so_cmnd.unique' => '"Số CMND" đã tồn tại'
         // ]);
 
-        // try{
-        //     $nhan_su = NhanSu::saveNhanSu($id, $request->all());
-        //     Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa nhân sự ID:'.$nhan_su->id.'-'.$nhan_su->ho_ten);
-        //     return redirect()->route('nhan_su.index')->with('status_success', 'Chỉnh sửa nhân sự thành công!');
-        // }
-        // catch(\Exception $e){
-        //     Log::error($e);
-        //     return redirect()->route('nhan_su.index')->with('status_error', 'Xảy ra lỗi khi sửa nhân sự!');
-        // }
+        try{
+            $giangvien = GiangVien::saveGiangVien($id, $request->all());
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);
+            return redirect()->route('giangvien.index')->with('status_success', 'Chỉnh sửa Giảng Viên thành công!');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi sửa Giảng viên!');
+        }
         
     }
 

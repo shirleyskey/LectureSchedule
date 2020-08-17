@@ -32,7 +32,7 @@ return [
             'tiet'   => 'r,u',
             'nckh' => 'r,u',
             'giangvien' => 'c,r,u',
-            'file-manager' => 'u'
+            'file-manager' => 'c,r,u'
             
         ],
         'user' => [
@@ -44,6 +44,7 @@ return [
             'tiet'   => 'r,u',
             'nckh' => 'r,u',
             'giangvien' => 'r,u',
+            'file-manager' => 'r',
         ],
     ],
     'permission_structure' => [],

@@ -1,5 +1,5 @@
-<!-- /.modal -->
-{{-- <div class="modal fade bs-modal-lg" id="modal_read_hd" tabindex="-1" role="dialog" aria-hidden="true">
+ <!-- /.modal -->
+ <div class="modal fade bs-modal-lg" id="modal_read_nckh" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -449,5 +449,5 @@
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
-</div> --}}
-<!-- /.modal -->
+</div> 
+<!-- /.modal --> 
