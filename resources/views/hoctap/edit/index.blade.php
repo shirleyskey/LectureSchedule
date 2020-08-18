@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Chỉnh sửa Thông tin Xây Dựng Chương Trình')
+@section('title', 'Chỉnh sửa Tham Gia Học Tập')
 
 @section('style')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -23,14 +23,14 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('xaydung.index') }}">Sửa Thông Tin Xây Dựng</a>
+                    <a href="{{ route('hoctap.index') }}">Sửa Thông Tin Tham Gia Học Tập</a>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $xaydung->ten }} 
+            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $hoctap->ten }} 
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -55,7 +55,7 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        @include('xaydung.edit.form')
+                        @include('hoctap.edit.form')
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->

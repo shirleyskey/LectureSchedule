@@ -69,50 +69,50 @@
             <li class="heading">
                 <h3 class="uppercase">Công Việc Khác</h3>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item {{ Request::is('chambai') ? 'active open' : '' }}">
                 <a href="{{ route('chambai.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-plus-circle "></i>
                     <span class="title">Chấm Bài</span>
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item {{ Request::is('dang') ? 'active open' : '' }}">
                 <a href="{{ route('dang.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-file-code-o"></i>
                     <span class="title">Hoạt Động Đảng Đoàn</span>
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item {{ Request::is('daygioi') ? 'active open' : '' }}">
                 <a href="{{ route('daygioi.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-bookmark "></i>
                     <span class="title">Dạy Giỏi</span>
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item {{ Request::is('xaydung') ? 'active open' : '' }}">
                 <a href="{{ route('xaydung.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-plus-circle "></i>
                     <span class="title">Xây Dựng Chương Trình</span>
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a href="{{ route('chambai.index') }}" class="nav-link nav-toggle">
+            <li class="nav-item {{ Request::is('dotxuat') ? 'active open' : '' }}">
+                <a href="{{ route('dotxuat.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-building-o"></i>
                     <span class="title">Công Việc Đột Xuất</span>
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a href="{{ route('chambai.index') }}" class="nav-link nav-toggle">
+            <li class="nav-item {{ Request::is('sangkien') ? 'active open' : '' }}">
+                <a href="{{ route('sangkien.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-check-square"></i>
                     <span class="title">Sáng Kiến</span>
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a href="{{ route('chambai.index') }}" class="nav-link nav-toggle">
+            <li class="nav-item {{ Request::is('hoctap') ? 'active open' : '' }}">
+                <a href="{{ route('hoctap.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-cloud "></i>
                     <span class="title">Tham Gia Học Tập</span>
                     <span class="selected"></span>

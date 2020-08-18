@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Thêm mới Xây Dựng Chương Trình')
+@section('title', 'Thêm mới Công Việc Đột Xuất')
 
 @section('style')
     <!-- <link href="{{ asset('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css" /> -->
@@ -19,7 +19,7 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('xaydung.index') }}">Danh Sách Xây Dựng Chương Trình</a>
+                    <a href="{{ route('dotxuat.index') }}">Danh Sách Công Việc Đột Xuất</a>
                 </li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        <form action="{{ route('xaydung.add.post') }}" method="post" id="form_sample_2" class="form-horizontal">
+                        <form action="{{ route('dotxuat.add.post') }}" method="post" id="form_sample_2" class="form-horizontal">
                             @csrf
                             <div class="tab-content">
                                 <!-- BEGIN TAB 1-->
@@ -78,7 +78,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Tên Xây Dựng Chương Trình:
+                                                    <label class="control-label col-md-4">Tên Công Việc Đột Xuất:
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">

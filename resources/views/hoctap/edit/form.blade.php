@@ -1,4 +1,4 @@
-<form action="{{ route('xaydung.edit.post', $xaydung->id) }}" method="post" id="form_sample_2" class="form-horizontal">
+<form action="{{ route('hoctap.edit.post', $hoctap->id) }}" method="post" id="form_sample_2" class="form-horizontal">
     @csrf
     <div class="tab-content">
         <!-- BEGIN TAB 1-->
@@ -26,13 +26,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Tên Xây Dựng:
+                            <label class="control-label col-md-4">Tên Tham Gia Học Tập:
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="ten" required maxlength="191" value="{{ $xaydung->ten }}" /> </div>
+                                    <input type="text" class="form-control" name="ten" required maxlength="191" value="{{ $hoctap->ten }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -41,7 +41,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <input type="date" class="form-control" name="thoigian" value="{{ $xaydung->thoigian }}" /> </div>
+                                    <input type="date" class="form-control" name="thoigian" value="{{ $hoctap->thoigian }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -50,7 +50,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <input type="text" class="form-control" name="ghichu" value="{{ $xaydung->ghichu }}" /> </div>
+                                    <input type="text" class="form-control" name="ghichu" value="{{ $hoctap->ghichu }}" /> </div>
                             </div>
                         </div>
                        

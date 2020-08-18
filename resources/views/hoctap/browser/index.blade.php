@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Danh sách Xây Dựng Chương Trình')
+@section('title', 'Danh sách Sáng Kiến Cải Tiến')
 
 @section('style')
     <link href="{{ asset('assets/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>Danh Sách Xây Dựng Chương Trình</span>
+                    <span>Danh Sách Tham Gia Học Tập</span>
                 </li>
             </ul>
         </div>
@@ -30,7 +30,7 @@
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
             <i class="fa fa-list-ul"></i>
-            Danh Sách Xây Dựng Chương Trình
+            Danh Sách Tham Gia Học Tập
         </h1>
 
         <!-- MESSAGE -->
@@ -44,12 +44,12 @@
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">
                     <div class="portlet-body">
-                        @permission('create-xaydung')
+                        @permission('create-hoctap')
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" href="{{ route('xaydung.add.get') }}"><i class="fa fa-plus"></i> Thêm mới
+                                        <a id="sample_editable_1_new" class="btn green" href="{{ route('hoctap.add.get') }}"><i class="fa fa-plus"></i> Thêm mới
                                         </a>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                                 <a id="import-excel" href="#"><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('xaydung.export-excel.get') }}"><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
+                                                <a href="{{ route('hoctap.export-excel.get') }}"><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -76,7 +76,7 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Tên Công Tác</th>
+                                    <th> Tên Công Việc</th>
                                     <th> Thời Gian </th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
@@ -84,9 +84,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if( $ds_xaydung->count() > 0 )
+                                @if( $ds_hoctap->count() > 0 )
                                     @php $stt = 1; @endphp
-                                    @foreach( $ds_xaydung as $v )
+                                    @foreach( $ds_hoctap as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> 
@@ -97,11 +97,11 @@
                                         <td> {{ $v->ghichu }} </td>
                                       
                                         <td>
-                                            @permission('update-xaydung')
-                                            <a class="btn btn-xs yellow-gold" href="{{ route('xaydung.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
+                                            @permission('update-hoctap')
+                                            <a class="btn btn-xs yellow-gold" href="{{ route('hoctap.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             @endpermission
-                                            @permission('delete-xaydung')
-                                            <a class="btn btn-xs red-mint" href="{{ route('xaydung.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Công tác này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                            @permission('delete-hoctap')
+                                            <a class="btn btn-xs red-mint" href="{{ route('hoctap.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Công tác này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                             @endpermission
                                         </td>
                                     </tr>
