@@ -70,9 +70,51 @@
                 <h3 class="uppercase">Công Việc Khác</h3>
             </li>
             <li class="nav-item ">
-                <a href="" class="nav-link nav-toggle">
+                <a href="{{ route('chambai.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-plus-circle "></i>
-                    <span class="title">Quản Lý Công Việc Khác</span>
+                    <span class="title">Chấm Bài</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a href="{{ route('dang.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-file-code-o"></i>
+                    <span class="title">Hoạt Động Đảng Đoàn</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a href="{{ route('daygioi.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-bookmark "></i>
+                    <span class="title">Dạy Giỏi</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a href="{{ route('xaydung.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-plus-circle "></i>
+                    <span class="title">Xây Dựng Chương Trình</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a href="{{ route('chambai.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-building-o"></i>
+                    <span class="title">Công Việc Đột Xuất</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a href="{{ route('chambai.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-check-square"></i>
+                    <span class="title">Sáng Kiến</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a href="{{ route('chambai.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-cloud "></i>
+                    <span class="title">Tham Gia Học Tập</span>
                     <span class="selected"></span>
                 </a>
             </li>

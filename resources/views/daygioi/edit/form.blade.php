@@ -1,4 +1,4 @@
-<form action="{{ route('congtac.edit.post', $congtac->id) }}" method="post" id="form_sample_2" class="form-horizontal">
+<form action="{{ route('daygioi.edit.post', $daygioi->id) }}" method="post" id="form_sample_2" class="form-horizontal">
     @csrf
     <div class="tab-content">
         <!-- BEGIN TAB 1-->
@@ -26,22 +26,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Tên Công Tác:
+                            <label class="control-label col-md-4">Tên Dạy Giỏi:
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="ten" required maxlength="191" value="{{ $congtac->ten }}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Tiến Độ:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="tiendo" value="{{ $congtac->tiendo }}" /> </div>
+                                    <input type="text" class="form-control" name="ten" required maxlength="191" value="{{ $daygioi->ten }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -50,7 +41,16 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <input type="date" class="form-control" name="thoigian" value="{{ $congtac->thoigian }}" /> </div>
+                                    <input type="date" class="form-control" name="thoigian" value="{{ $daygioi->thoigian }}" /> </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Ghi Chú:
+                            </label>
+                            <div class="col-md-7">
+                                <div class="input-icon right">
+                                    <i class="fa fa-phone"></i>
+                                    <input type="text" class="form-control" name="ghichu" value="{{ $daygioi->ghichu }}" /> </div>
                             </div>
                         </div>
                        

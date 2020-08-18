@@ -62,18 +62,9 @@ class CongTacController extends Controller
     }
 
     public function edit($id){
-
-        return view('giangvien.edit.index', [
-            'giangvien'       => GiangVien::findOrFail($id), 
-            'chambai' => ChamBai::where('id_giangvien', $id)->get(),
-            'congtac' => CongTac::where('id_giangvien', $id)->get(),
-            'dang' => Dang::where('id_giangvien', $id)->get(),
-            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
-            'dotxuat' => DotXuat::where('id_giangvien', $id)->get(),
-            'hoctap' => HocTap::where('id_giangvien', $id)->get(),
-            'nckh' => Nckh::where('id_giangvien', $id)->get(),
-            'sangkien' => SangKien::where('id_giangvien', $id)->get(),
-            'xaydung' => XayDung::where('id_giangvien', $id)->get(),
+        return view('congtac.edit.index', [
+            'congtac' => CongTac::findOrFail($id),
+            'giangvien' => GiangVien::all(),
         ]);
     }
 
@@ -86,29 +77,29 @@ class CongTacController extends Controller
         //     'so_cmnd.unique' => '"Số CMND" đã tồn tại'
         // ]);
 
-        // try{
-        //     $nhan_su = NhanSu::saveNhanSu($id, $request->all());
-        //     Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa nhân sự ID:'.$nhan_su->id.'-'.$nhan_su->ho_ten);
-        //     return redirect()->route('nhan_su.index')->with('status_success', 'Chỉnh sửa nhân sự thành công!');
-        // }
-        // catch(\Exception $e){
-        //     Log::error($e);
-        //     return redirect()->route('nhan_su.index')->with('status_error', 'Xảy ra lỗi khi sửa nhân sự!');
-        // }
+        try{
+            $congtac = CongTac::saveCongTac($id, $request->all());
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Công tác:'.$congtac->id.'-'.$congtac->ten);
+            return redirect()->route('congtac.index')->with('status_success', 'Chỉnh sửa Thông tin Công Tác thành công!');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('congtac.index')->with('status_error', 'Xảy ra lỗi khi sửa Công Tác!');
+        }
         
     }
 
     public function destroy($id){
-        $giangvien = GiangVien::findOrFail($id);
-        $name = $giangvien->ten;
+        $congtac = CongTac::findOrFail($id);
+        $name = $congtac->ten;
         try{
-            $giangvien->delete();
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa nhân sự id:'.$id.'-'.$name);
-            return redirect()->route('nhan_su.index')->with('status_success', 'Xóa nhân sự thành công!');
+            $congtac->delete();
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Công Tác id:'.$id.'-'.$name);
+            return redirect()->route('congtac.index')->with('status_success', 'Xóa Công Tác thành công!');
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('nhan_su.index')->with('status_error', 'Xảy ra lỗi khi xóa nhân sự!');
+            return redirect()->route('congtac.index')->with('status_error', 'Xảy ra lỗi khi xóa Công Tác!');
         }
     }
 

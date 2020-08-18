@@ -94,14 +94,11 @@
                                         <td> {{ $v->tiendo }}  </td>
                                         <td> {{ $v->thoigian }} </td>
                                         <td>
-                                            @permission('read-giangvien')
-                                            <a class="btn btn-xs blue-sharp" href="{{ route('giangvien.read.get', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
+                                            @permission('update-nckh')
+                                            <a class="btn btn-xs yellow-gold" href="{{ route('nckh.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             @endpermission
-                                            @permission('update-giangvien')
-                                            <a class="btn btn-xs yellow-gold" href="{{ route('giangvien.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
-                                            @endpermission
-                                            @permission('delete-giangvien')
-                                            <a class="btn btn-xs red-mint" href="{{ route('giangvien.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Giảng Viên này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                            @permission('delete-nckh')
+                                            <a class="btn btn-xs red-mint" href="{{ route('nckh.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa NCKH này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                             @endpermission
                                         </td>
                                     </tr>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Nckh extends Model
@@ -9,7 +9,7 @@ class Nckh extends Model
     //
     protected $table = 'nckhs';
     public $timestamps = false;
-    
+    protected $fillable = ['id_giangvien','tiendo', 'ten', 'thoigian'];
     public function giangviens()
     {
         return $this->belongsTo('App\GiangVien', 'id_giangvien');

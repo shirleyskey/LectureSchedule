@@ -123,8 +123,8 @@
                                         <td> {{ $v->thoigian }} </td>
                                         <td> </td>
                                         <td>
-                                            <a data-hd-id="{{ $v->id }}" class="btn_edit_hd btn btn-xs yellow-gold" href="#" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_hd btn btn-xs red-mint" href="#" data-hd-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -159,8 +159,8 @@
 
 </form>
  @include('nckh.modals.add')
- {{--
 @include('nckh.modals.edit')
+{{--
 @include('nckh.modals.read')  --}}
 {{-- @include('quyet_dinh.modals.add')
 @include('quyet_dinh.modals.edit')

@@ -25,72 +25,30 @@ class NckhController extends Controller
         return view('nckh.browser.index', ['ds_nckh' => Nckh::all()]);
     }
 
-    public function read($id)
-    {
-        $nckh = GiangVien::findOrFail($id);
-        return view('giangvien.read.index', [
-            'giangvien' => $giangvien,
-            'chambai' => ChamBai::where('id_giangvien', $id)->get(),
-            'congtac' => CongTac::where('id_giangvien', $id)->get(),
-            'dang' => Dang::where('id_giangvien', $id)->get(),
-            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
-            'dotxuat' => DotXuat::where('id_giangvien', $id)->get(),
-            'hoctap' => HocTap::where('id_giangvien', $id)->get(),
-            'nckh' => Nckh::where('id_giangvien', $id)->get(),
-            'sangkien' => SangKien::where('id_giangvien', $id)->get(),
-            'xaydung' => XayDung::where('id_giangvien', $id)->get(),
-        ]);
-    }
-
-    // AJAX function
-    // public function dsBoPhanTheoPhongBan(Request $request)
-	// {
-	// 	if ($request->ajax()) {
-	// 		return response()->json(BoPhan::getByPhongBanId($request->phongban_id)->get());
-	// 	}
-    // }
-    // END AJAX
-
     public function create(){
-        return view('giangvien.add.index', [
-            // 'ds_phong_ban' => PhongBan::all(),
+        return view('nckh.add.index', [
+            'giangvien' => GiangVien::all(),
             // 'ds_ho_so' => HoSo::all()
         ]);
     }
 
     public function store(Request $request){
-        // $request->validate([
-        //     'ma_nv'        => 'unique:nhan_sus',
-        //     'so_cmnd'        => 'unique:nhan_sus'
-        // ],[
-        //     'ma_nv.unique' => '"Mã nhân viên" đã tồn tại',
-        //     'so_cmnd.unique' => '"Số CMND" đã tồn tại'
-        // ]);
         
-        // try{
-        //     $giangvien = GiangVien::saveNhanSu(0, $request->all());
-        //     Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm nhân sự ID:'.$nhan_su->id.'-'.$nhan_su->ho_ten);
-        //     return redirect()->route('nhan_su.index')->with('status_success', 'Tạo mới nhân sự thành công!');
-        // }
-        // catch(\Exception $e){
-        //     Log::error($e);
-        //     return redirect()->route('nhan_su.index')->with('status_error', 'Xảy ra lỗi khi thêm nhân sự!');
-        // }
+        try{
+            $nckh = Nckh::saveNckh(0, $request->all());
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm NCKH ID:'.$nckh->id.'-'.$nckh->ten);
+            return redirect()->route('nckh.index')->with('status_success', 'Tạo mới NCKH thành công!');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('nckh.index')->with('status_error', 'Xảy ra lỗi khi thêm Nghiên Cứu Khoa Học!');
+        }
     }
 
     public function edit($id){
-
-        return view('giangvien.edit.index', [
-            'giangvien'       => GiangVien::findOrFail($id), 
-            'chambai' => ChamBai::where('id_giangvien', $id)->get(),
-            'congtac' => CongTac::where('id_giangvien', $id)->get(),
-            'dang' => Dang::where('id_giangvien', $id)->get(),
-            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
-            'dotxuat' => DotXuat::where('id_giangvien', $id)->get(),
-            'hoctap' => HocTap::where('id_giangvien', $id)->get(),
-            'nckh' => Nckh::where('id_giangvien', $id)->get(),
-            'sangkien' => SangKien::where('id_giangvien', $id)->get(),
-            'xaydung' => XayDung::where('id_giangvien', $id)->get(),
+        return view('nckh.edit.index', [
+            'nckh'=> Nckh::findOrFail($id), 
+            'giangvien' => GiangVien::all(),
         ]);
     }
 
@@ -102,30 +60,29 @@ class NckhController extends Controller
         //     'ma_nv.unique' => '"Mã nhân viên" đã tồn tại',
         //     'so_cmnd.unique' => '"Số CMND" đã tồn tại'
         // ]);
-
-        // try{
-        //     $nhan_su = NhanSu::saveNhanSu($id, $request->all());
-        //     Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa nhân sự ID:'.$nhan_su->id.'-'.$nhan_su->ho_ten);
-        //     return redirect()->route('nhan_su.index')->with('status_success', 'Chỉnh sửa nhân sự thành công!');
-        // }
-        // catch(\Exception $e){
-        //     Log::error($e);
-        //     return redirect()->route('nhan_su.index')->with('status_error', 'Xảy ra lỗi khi sửa nhân sự!');
-        // }
+        try{
+            $nckh = Nckh::saveNckh($id, $request->all());
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa NckhID:'.$nckh->id.'-'.$nckh->ten);
+            return redirect()->route('nckh.index')->with('status_success', 'Chỉnh sửa Nckh thành công!');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('nckh.index')->with('status_error', 'Xảy ra lỗi khi sửa NCKH!');
+        }
         
     }
 
     public function destroy($id){
-        $giangvien = GiangVien::findOrFail($id);
-        $name = $giangvien->ten;
+        $nckh = Nckh::findOrFail($id);
+        $name = $nckh->ten;
         try{
-            $giangvien->delete();
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa nhân sự id:'.$id.'-'.$name);
-            return redirect()->route('nhan_su.index')->with('status_success', 'Xóa nhân sự thành công!');
+            $nckh->delete();
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Nghiên Cứu Khoa Học id:'.$id.'-'.$name);
+            return redirect()->route('nckh.index')->with('status_success', 'Xóa Nghiên Cứu KH thành công!');
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('nhan_su.index')->with('status_error', 'Xảy ra lỗi khi xóa nhân sự!');
+            return redirect()->route('nckh.index')->with('status_error', 'Xảy ra lỗi khi xóa NCKH!');
         }
     }
 
@@ -276,4 +233,53 @@ class NckhController extends Controller
             }
 		}
     }
+
+    public function postTimNckhTheoId(Request $request){
+        $nckh = Nckh::findOrFail($request->input('id'));
+            return response()->json([
+                'status' => true,
+                'data'   => $nckh
+            ]);
+        
+        return response()->json([
+            'status' => false
+        ]); 
+    }
+
+    public function postSuaNckh(Request $request)
+	{
+		if ($request->ajax()) {
+           
+            try{
+                $nckh = Nckh::saveNckh($request->input('id'), $request->all());
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Nckh ID:'.$nckh->id.'-'.$nckh->ten);
+                return response()->json([
+                    'status' => true
+                ]);
+            }
+            catch(\Exception $e){
+                Log::error($e);
+            }
+		}
+    }
+
+    public function postXoaNckh(Request $request){
+        $nckh = Nckh::findOrFail($request->input('id'));
+        $id = $nckh->id;
+        try{
+            $nckh->delete();
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa NCKH id:'.$request->input('id').'-'.$nckh->ten);
+            return response()->json([
+                'status' => true
+            ]);
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return response()->json([
+                'status' => false,
+                'data' => 'Xảy ra lỗi trong quá trình xóa!'
+            ]);
+        }
+    }
+    // END AJAX
 }

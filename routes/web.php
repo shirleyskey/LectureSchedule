@@ -97,7 +97,6 @@ Route::prefix('lichgiang')->middleware(['auth', 'only_active_user'])->group(func
 // NCKH Routes...
 Route::prefix('nckh')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/', ['middleware' => ['permission:read-nckh'], 'uses'=>'NckhController@index','as'=>'nckh.index']);
-    Route::get('/read/{id}', ['middleware' => ['permission:read-nckh'], 'uses'=>'NckhController@read','as'=>'nckh.read.get']);
     Route::get('/add', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@create','as'=>'nckh.add.get']);
     Route::post('/add', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@store','as'=>'nckh.add.post']);
     Route::get('/edit/{id}', ['middleware' => ['permission:update-nckh'], 'uses' =>'NckhController@edit','as'=>'nckh.edit.get']);
@@ -106,6 +105,73 @@ Route::prefix('nckh')->middleware(['auth', 'only_active_user'])->group(function 
     Route::get('/export-excel', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@exportExcel','as'=>'nckh.export-excel.get']);
     Route::get('/import-excel', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@importExcel','as'=>'nckh.import-excel.get']);
     Route::post('/import-excel', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@postImportExcel','as'=>'nckh.import-excel.post']);
+});
+
+//Công Tác Routes
+Route::prefix('congtac')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/', ['middleware' => ['permission:read-congtac'], 'uses'=>'CongtacController@index','as'=>'congtac.index']);
+    Route::get('/read/{id}', ['middleware' => ['permission:read-congtac'], 'uses'=>'CongtacController@read','as'=>'congtac.read.get']);
+    Route::get('/add', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongtacController@create','as'=>'congtac.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongtacController@store','as'=>'congtac.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:update-congtac'], 'uses' =>'CongtacController@edit','as'=>'congtac.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:update-congtac'], 'uses'=>'CongtacController@update','as'=>'congtac.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:delete-congtac'], 'uses'=>'CongtacController@destroy','as'=>'congtac.delete.get']);
+    Route::get('/export-excel', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongtacController@exportExcel','as'=>'congtac.export-excel.get']);
+    Route::get('/import-excel', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongtacController@importExcel','as'=>'congtac.import-excel.get']);
+    Route::post('/import-excel', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongtacController@postImportExcel','as'=>'congtac.import-excel.post']);
+});
+
+//Chấm Bài Routes
+Route::prefix('chambai')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/', ['middleware' => ['permission:read-chambai'], 'uses'=>'ChamBaiController@index','as'=>'chambai.index']);
+    Route::get('/read/{id}', ['middleware' => ['permission:read-chambai'], 'uses'=>'ChamBaiController@read','as'=>'chambai.read.get']);
+    Route::get('/add', ['middleware' => ['permission:create-chambai'], 'uses'=>'ChamBaiController@create','as'=>'chambai.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-chambai'], 'uses'=>'ChamBaiController@store','as'=>'chambai.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:update-chambai'], 'uses' =>'ChamBaiController@edit','as'=>'chambai.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:update-chambai'], 'uses'=>'ChamBaiController@update','as'=>'chambai.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:delete-chambai'], 'uses'=>'ChamBaiController@destroy','as'=>'chambai.delete.get']);
+    Route::get('/export-excel', ['middleware' => ['permission:create-chambai'], 'uses'=>'ChamBaiController@exportExcel','as'=>'chambai.export-excel.get']);
+    Route::get('/import-excel', ['middleware' => ['permission:create-chambai'], 'uses'=>'ChamBaiController@importExcel','as'=>'chambai.import-excel.get']);
+    Route::post('/import-excel', ['middleware' => ['permission:create-chambai'], 'uses'=>'ChamBaiController@postImportExcel','as'=>'chambai.import-excel.post']);
+});
+
+//Đảng Routes
+Route::prefix('dang')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/', ['middleware' => ['permission:read-dang'], 'uses'=>'DangController@index','as'=>'dang.index']);
+    Route::get('/add', ['middleware' => ['permission:create-dang'], 'uses'=>'DangController@create','as'=>'dang.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-dang'], 'uses'=>'DangController@store','as'=>'dang.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:update-dang'], 'uses' =>'DangController@edit','as'=>'dang.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:update-dang'], 'uses'=>'DangController@update','as'=>'dang.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:delete-dang'], 'uses'=>'DangController@destroy','as'=>'dang.delete.get']);
+    Route::get('/export-excel', ['middleware' => ['permission:create-dang'], 'uses'=>'DangController@exportExcel','as'=>'dang.export-excel.get']);
+    Route::get('/import-excel', ['middleware' => ['permission:create-dang'], 'uses'=>'DangController@importExcel','as'=>'dang.import-excel.get']);
+    Route::post('/import-excel', ['middleware' => ['permission:create-dang'], 'uses'=>'DangController@postImportExcel','as'=>'dang.import-excel.post']);
+});
+
+//Dạy Giỏi Routes
+Route::prefix('daygioi')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/', ['middleware' => ['permission:read-daygioi'], 'uses'=>'DayGioiController@index','as'=>'daygioi.index']);
+    Route::get('/add', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@create','as'=>'daygioi.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@store','as'=>'daygioi.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:update-daygioi'], 'uses' =>'DayGioiController@edit','as'=>'daygioi.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:update-daygioi'], 'uses'=>'DayGioiController@update','as'=>'daygioi.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:delete-daygioi'], 'uses'=>'DayGioiController@destroy','as'=>'daygioi.delete.get']);
+    Route::get('/export-excel', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@exportExcel','as'=>'daygioi.export-excel.get']);
+    Route::get('/import-excel', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@importExcel','as'=>'daygioi.import-excel.get']);
+    Route::post('/import-excel', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@postImportExcel','as'=>'daygioi.import-excel.post']);
+});
+
+//Dạy Giỏi Routes
+Route::prefix('xaydung')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/', ['middleware' => ['permission:read-xaydung'], 'uses'=>'XayDungController@index','as'=>'xaydung.index']);
+    Route::get('/add', ['middleware' => ['permission:create-xaydung'], 'uses'=>'XayDungController@create','as'=>'xaydung.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-xaydung'], 'uses'=>'XayDungController@store','as'=>'xaydung.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:update-xaydung'], 'uses' =>'XayDungController@edit','as'=>'xaydung.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:update-xaydung'], 'uses'=>'XayDungController@update','as'=>'xaydung.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:delete-xaydung'], 'uses'=>'XayDungController@destroy','as'=>'xaydung.delete.get']);
+    Route::get('/export-excel', ['middleware' => ['permission:create-xaydung'], 'uses'=>'XayDungController@exportExcel','as'=>'xaydung.export-excel.get']);
+    Route::get('/import-excel', ['middleware' => ['permission:create-xaydung'], 'uses'=>'XayDungController@importExcel','as'=>'xaydung.import-excel.get']);
+    Route::post('/import-excel', ['middleware' => ['permission:create-xaydung'], 'uses'=>'XayDungController@postImportExcel','as'=>'xaydung.import-excel.post']);
 });
 
 
@@ -127,9 +193,9 @@ Route::prefix('congtac')->middleware(['auth', 'only_active_user'])->group(functi
 Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::post('/dsGiangVien', ['uses'=>'CongTacController@dsGiangVien','as'=>'dsGiangVien']);
     Route::post('/postThemNckh', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@postThemNckh','as'=>'postThemNckh']);
-    // Route::post('/postTimHopDongTheoId', ['uses'=>'HopDongController@postTimHopDongTheoId','as'=>'postTimHopDongTheoId']);
-    // Route::post('/postSuaHopDong', ['middleware' => ['permission:update-hop-dong'], 'uses'=>'HopDongController@postSuaHopDong','as'=>'postSuaHopDong']);
-    // Route::post('/postXoaHopDong', ['middleware' => ['permission:delete-hop-dong'], 'uses'=>'HopDongController@postXoaHopDong','as'=>'postXoaHopDong']);
+    Route::post('/postTimNckhTheoId', ['uses'=>'NckhController@postTimNckhTheoId','as'=>'postTimNckhTheoId']);
+    Route::post('/postSuaNckh', ['middleware' => ['permission:update-nckh'], 'uses'=>'NckhController@postSuaNckh','as'=>'postSuaNckh']);
+    Route::post('/postXoaNckh', ['middleware' => ['permission:delete-nckh'], 'uses'=>'NckhController@postXoaNckh','as'=>'postXoaNckh']);
 
     // Route::post('/postThemQuyetDinh', ['middleware' => ['permission:create-quyet-dinh'], 'uses'=>'QuyetDinhController@postThemQuyetDinh','as'=>'postThemQuyetDinh']);
     // Route::post('/postTimQuyetDinhTheoId', ['uses'=>'QuyetDinhController@postTimQuyetDinhTheoId','as'=>'postTimQuyetDinhTheoId']);

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Chỉnh sửa Thông tin Công tác')
+@section('title', 'Chỉnh sửa Thông tin Dạy Giỏi')
 
 @section('style')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -23,14 +23,14 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('congtac.index') }}">Sửa Thông Tin Công tác</a>
+                    <a href="{{ route('daygioi.index') }}">Sửa Thông Tin Dạy Giỏi</a>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $congtac->ten }} 
+            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $daygioi->ten }} 
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -55,7 +55,7 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        @include('congtac.edit.form')
+                        @include('daygioi.edit.form')
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->

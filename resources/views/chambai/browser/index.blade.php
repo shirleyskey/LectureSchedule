@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Danh sách Công Tác')
+@section('title', 'Danh sách Thông tin Chấm Bài')
 
 @section('style')
     <link href="{{ asset('assets/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>Danh Sách Công Tác</span>
+                    <span>Danh Sách Chấm Bài</span>
                 </li>
             </ul>
         </div>
@@ -30,7 +30,7 @@
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
             <i class="fa fa-list-ul"></i>
-            Danh Sách Công Tác
+            Danh Sách Chấm Bài
         </h1>
 
         <!-- MESSAGE -->
@@ -44,12 +44,12 @@
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">
                     <div class="portlet-body">
-                        @permission('create-giangvien')
+                        @permission('create-chambai')
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" href="{{ route('congtac.add.get') }}"><i class="fa fa-plus"></i> Thêm mới
+                                        <a id="sample_editable_1_new" class="btn green" href="{{ route('chambai.add.get') }}"><i class="fa fa-plus"></i> Thêm mới
                                         </a>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                                 <a id="import-excel" href="#"><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('congtac.export-excel.get') }}"><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
+                                                <a href="{{ route('chambai.export-excel.get') }}"><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -76,32 +76,29 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Tên Công Tác</th>
-                                    <th> Tiến Độ</th>
-                                    <th> Thời Gian </th>
+                                    <th> Thời Gian</th>
+                                    <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                @if( $ds_congtac->count() > 0 )
+                                @if( $ds_chambai->count() > 0 )
                                     @php $stt = 1; @endphp
-                                    @foreach( $ds_congtac as $v )
+                                    @foreach( $ds_chambai as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> 
                                             {{($v->id_giangvien) ? $v->giangviens->ten : ''}}
                                         </td>
-                                        <td> {{ $v->ten }}  </td>
-                                        <td> {{ $v->tiendo }} </td>
-                                        <td> {{ $v->thoigian }} </td>
-                                      
+                                        <td> {{ $v->thoigian }}  </td>
+                                        <td> {{ $v->ghichu }} </td>
                                         <td>
-                                            @permission('update-congtac')
-                                            <a class="btn btn-xs yellow-gold" href="{{ route('congtac.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
+                                            @permission('update-chambai')
+                                            <a class="btn btn-xs yellow-gold" href="{{ route('chambai.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             @endpermission
-                                            @permission('delete-congtac')
-                                            <a class="btn btn-xs red-mint" href="{{ route('congtac.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Công tác này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                            @permission('delete-chambai')
+                                            <a class="btn btn-xs red-mint" href="{{ route('chambai.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Chấm Bài này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                             @endpermission
                                         </td>
                                     </tr>
@@ -162,23 +159,6 @@
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
-        });
-
-        $("#import-excel").on("click", function(e){
-            e.preventDefault();
-            swal({
-                title: "Bạn có chắc không?",
-                text: "Vui lòng tham khảo người quản trị trước khi làm điều này!",
-                type: "warning",
-                showCancelButton: true,
-                cancelButtonText: 'Hủy bỏ',
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Chắc chắn!",
-                closeOnConfirm: false
-                },
-                function(){
-                    window.location.href = "{{ route('congtac.import-excel.get') }}";
-                });
         });
     });
 </script>

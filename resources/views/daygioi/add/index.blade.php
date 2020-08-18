@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Thêm mới Công Tác')
+@section('title', 'Thêm mới Dạy Giỏi')
 
 @section('style')
     <!-- <link href="{{ asset('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css" /> -->
@@ -19,14 +19,14 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('congtac.index') }}">Danh Sách Đi Công Tác</a>
+                    <a href="{{ route('daygioi.index') }}">Danh Sách Dạy Giỏi</a>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-plus"></i> Thêm Công Tác Mới
+            <i class="fa fa-plus"></i> Thêm Hoạt Động Mới
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -51,7 +51,7 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        <form action="{{ route('congtac.add.post') }}" method="post" id="form_sample_2" class="form-horizontal">
+                        <form action="{{ route('daygioi.add.post') }}" method="post" id="form_sample_2" class="form-horizontal">
                             @csrf
                             <div class="tab-content">
                                 <!-- BEGIN TAB 1-->
@@ -78,7 +78,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Tên Công Tác
+                                                    <label class="control-label col-md-4">Tên Dạy Giỏi:
                                                         <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">
@@ -87,16 +87,7 @@
                                                             <input type="text" class="form-control" name="ten" value="{{ old('ten') }}" required maxlength="191" /> </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-4">Tiến Độ
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-icon right">
-                                                            <i class="fa fa-home"></i>
-                                                            <input type="number" class="form-control" name="tiendo" required maxlength="191" value="{{ old('tiendo') }}" /> </div>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Thời Gian
                                                     </label>
@@ -104,6 +95,15 @@
                                                         <div class="input-icon right">
                                                             <i class="fa fa-home"></i>
                                                             <input type="date" class="form-control" name="thoigian" value="{{ old('thoigian') }}" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Ghi Chú:
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-home"></i>
+                                                            <input type="text" class="form-control" name="ghichu" value="{{ old('thoigian') }}" /> </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,23 +144,7 @@
 <script>
     $(document).ready(function()
     {
-        // var url = "{{ route('dsGiangVien') }}";
-        // $("select[name='id_giangvien']").change(function(){
-        //     var id_giangvien = $(this).val();
-        //     var token = $("input[name='_token']").val();
-        //     $.ajax({
-        //         url: url,
-        //         method: 'POST',
-        //         data: {
-        //             id_giangvien: id_giangvien,
-        //             _token: token
-        //         },
-        //         success: function(data) {
-        //         }
-        //     });
-        // });
-        
-
+       
     })
 </script>
 <script src="{{ asset('assets/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js') }}" type="text/javascript"></script>
