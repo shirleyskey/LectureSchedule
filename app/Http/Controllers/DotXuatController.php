@@ -14,7 +14,6 @@ use App\DotXuat;
 use App\HocTap;
 use App\Nckh;
 use App\SangKien;
-use App\XayDung;
 use Carbon\Carbon;
 class DotXuatController extends Controller
 {
@@ -219,4 +218,83 @@ class DotXuatController extends Controller
         //     return $array_export;
         // });
     }
+
+     //AJAX
+     public function postThemDotXuat(Request $request)
+     {
+         if ($request->ajax()) {
+             // echo "Shi shi";
+             // $validator = Validator::make($request->all(), [
+             //     'ten'  => 'required',
+             // ],[
+             //     'ten.required' => 'Vui lòng nhập Tên NCKH',
+             // ]);
+             // if($validator->fails()){
+             //     return response()->json([
+             //         'status' => false,
+             //         'data'   => $validator->errors()
+             //     ]);
+             // }
+ 
+             try{
+                 $dotxuat = DotXuat::saveDotXuat(0, $request->all());
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Xây Dựng ID:'.$dotxuat->id.'-'.$dotxuat->ten);
+                 return response()->json([
+                     'status' => true
+                 ]);
+             }
+             catch(\Exception $e){
+                 Log::error($e);
+             }
+         }
+     }
+ 
+     public function postTimDotXuatTheoId(Request $request){
+         $dotxuat = DotXuat::findOrFail($request->input('id'));
+             return response()->json([
+                 'status' => true,
+                 'data'   => $dotxuat
+             ]);
+         
+         return response()->json([
+             'status' => false
+         ]); 
+     }
+ 
+     public function postSuaDotXuat(Request $request)
+     {
+         if ($request->ajax()) {
+            
+             try{
+                 $dotxuat = DotXuat::saveDotXuat($request->input('id'), $request->all());
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Xây Dựng ID:'.$dotxuat->id.'-'.$dotxuat->ten);
+                 return response()->json([
+                     'status' => true
+                 ]);
+             }
+             catch(\Exception $e){
+                 Log::error($e);
+             }
+         }
+     }
+ 
+     public function postXoaDotXuat(Request $request){
+         $dotxuat = DotXuat::findOrFail($request->input('id'));
+         $id = $dotxuat->id;
+         try{
+             $dotxuat->delete();
+             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Xây Dựng id:'.$request->input('id').'-'.$dotxuat->ten);
+             return response()->json([
+                 'status' => true
+             ]);
+         }
+         catch(\Exception $e){
+             Log::error($e);
+             return response()->json([
+                 'status' => false,
+                 'data' => 'Xảy ra lỗi trong quá trình xóa!'
+             ]);
+         }
+     }
+     // END AJAX
 }

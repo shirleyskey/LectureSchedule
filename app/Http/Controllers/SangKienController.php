@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use App\GiangVien;
 use App\ChamBai;
 use App\Dang;
-use App\DayGioi;
 use App\DotXuat;
 use App\HocTap;
 use App\Nckh;
@@ -219,4 +218,84 @@ class sangkienController extends Controller
         //     return $array_export;
         // });
     }
+
+       
+    //AJAX
+    public function postThemSangKien(Request $request)
+	{
+		if ($request->ajax()) {
+            // echo "Shi shi";
+            // $validator = Validator::make($request->all(), [
+            //     'ten'  => 'required',
+            // ],[
+            //     'ten.required' => 'Vui lòng nhập Tên NCKH',
+            // ]);
+            // if($validator->fails()){
+            //     return response()->json([
+            //         'status' => false,
+            //         'data'   => $validator->errors()
+            //     ]);
+            // }
+
+            try{
+                $sangkien = SangKien::saveSangKien(0, $request->all());
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Dạy Giỏi ID:'.$sangkien->id.'-'.$sangkien->ten);
+                return response()->json([
+                    'status' => true
+                ]);
+            }
+            catch(\Exception $e){
+                Log::error($e);
+            }
+		}
+    }
+
+    public function postTimSangKienTheoId(Request $request){
+        $sangkien = SangKien::findOrFail($request->input('id'));
+            return response()->json([
+                'status' => true,
+                'data'   => $sangkien
+            ]);
+        
+        return response()->json([
+            'status' => false
+        ]); 
+    }
+
+    public function postSuaSangKien(Request $request)
+	{
+		if ($request->ajax()) {
+           
+            try{
+                $sangkien = SangKien::saveSangKien($request->input('id'), $request->all());
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Nckh ID:'.$sangkien->id.'-'.$sangkien->ten);
+                return response()->json([
+                    'status' => true
+                ]);
+            }
+            catch(\Exception $e){
+                Log::error($e);
+            }
+		}
+    }
+
+    public function postXoaSangKien(Request $request){
+        $sangkien = SangKien::findOrFail($request->input('id'));
+        $id = $sangkien->id;
+        try{
+            $sangkien->delete();
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Dạy Giỏi id:'.$request->input('id').'-'.$sangkien->ten);
+            return response()->json([
+                'status' => true
+            ]);
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return response()->json([
+                'status' => false,
+                'data' => 'Xảy ra lỗi trong quá trình xóa!'
+            ]);
+        }
+    }
+    // END AJAX
 }

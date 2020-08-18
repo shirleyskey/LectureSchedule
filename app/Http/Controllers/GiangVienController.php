@@ -128,11 +128,11 @@ class GiangVienController extends Controller
         try{
             $giangvien->delete();
             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa nhân sự id:'.$id.'-'.$name);
-            return redirect()->route('nhan_su.index')->with('status_success', 'Xóa nhân sự thành công!');
+            return redirect()->route('giangvien.index')->with('status_success', 'Xóa Giảng Viên thành công!');
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('nhan_su.index')->with('status_error', 'Xảy ra lỗi khi xóa nhân sự!');
+            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi xóa Giảng Viên!');
         }
     }
 

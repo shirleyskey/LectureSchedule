@@ -219,4 +219,84 @@ class DayGioiController extends Controller
         //     return $array_export;
         // });
     }
+
+    
+    //AJAX
+    public function postThemDayGioi(Request $request)
+	{
+		if ($request->ajax()) {
+            // echo "Shi shi";
+            // $validator = Validator::make($request->all(), [
+            //     'ten'  => 'required',
+            // ],[
+            //     'ten.required' => 'Vui lòng nhập Tên NCKH',
+            // ]);
+            // if($validator->fails()){
+            //     return response()->json([
+            //         'status' => false,
+            //         'data'   => $validator->errors()
+            //     ]);
+            // }
+
+            try{
+                $daygioi = DayGioi::saveDayGioi(0, $request->all());
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Dạy Giỏi ID:'.$daygioi->id.'-'.$daygioi->ten);
+                return response()->json([
+                    'status' => true
+                ]);
+            }
+            catch(\Exception $e){
+                Log::error($e);
+            }
+		}
+    }
+
+    public function postTimDayGioiTheoId(Request $request){
+        $daygioi = DayGioi::findOrFail($request->input('id'));
+            return response()->json([
+                'status' => true,
+                'data'   => $daygioi
+            ]);
+        
+        return response()->json([
+            'status' => false
+        ]); 
+    }
+
+    public function postSuaDayGioi(Request $request)
+	{
+		if ($request->ajax()) {
+           
+            try{
+                $daygioi = DayGioi::saveDayGioi($request->input('id'), $request->all());
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Nckh ID:'.$daygioi->id.'-'.$daygioi->ten);
+                return response()->json([
+                    'status' => true
+                ]);
+            }
+            catch(\Exception $e){
+                Log::error($e);
+            }
+		}
+    }
+
+    public function postXoaDayGioi(Request $request){
+        $daygioi = DayGioi::findOrFail($request->input('id'));
+        $id = $daygioi->id;
+        try{
+            $daygioi->delete();
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Dạy Giỏi id:'.$request->input('id').'-'.$daygioi->ten);
+            return response()->json([
+                'status' => true
+            ]);
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return response()->json([
+                'status' => false,
+                'data' => 'Xảy ra lỗi trong quá trình xóa!'
+            ]);
+        }
+    }
+    // END AJAX
 }

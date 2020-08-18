@@ -72,7 +72,7 @@ Route::prefix('file-manager')->middleware(['auth', 'only_active_user'])->group(f
     Route::get('/', ['middleware' => ['permission:update-file-manager'], 'uses'=>'FileManagerController@index','as'=>'file-manager.index']);
 });
 
-// Nhân Sự Routes...
+// Giảng Viên Routes...
 Route::prefix('giangvien')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/', ['middleware' => ['permission:read-giangvien'], 'uses'=>'GiangVienController@index','as'=>'giangvien.index']);
     Route::get('/read/{id}', ['middleware' => ['permission:read-giangvien'], 'uses'=>'GiangVienController@read','as'=>'giangvien.read.get']);
@@ -237,9 +237,43 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postSuaNckh', ['middleware' => ['permission:update-nckh'], 'uses'=>'NckhController@postSuaNckh','as'=>'postSuaNckh']);
     Route::post('/postXoaNckh', ['middleware' => ['permission:delete-nckh'], 'uses'=>'NckhController@postXoaNckh','as'=>'postXoaNckh']);
 
-    // Route::post('/postThemQuyetDinh', ['middleware' => ['permission:create-quyet-dinh'], 'uses'=>'QuyetDinhController@postThemQuyetDinh','as'=>'postThemQuyetDinh']);
-    // Route::post('/postTimQuyetDinhTheoId', ['uses'=>'QuyetDinhController@postTimQuyetDinhTheoId','as'=>'postTimQuyetDinhTheoId']);
-    // Route::post('/postSuaQuyetDinh', ['middleware' => ['permission:update-quyet-dinh'], 'uses'=>'QuyetDinhController@postSuaQuyetDinh','as'=>'postSuaQuyetDinh']);
-    // Route::post('/postXoaQuyetDinh', ['middleware' => ['permission:delete-quyet-dinh'], 'uses'=>'QuyetDinhController@postXoaQuyetDinh','as'=>'postXoaQuyetDinh']);
+    Route::post('/postThemCongTac', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongTacController@postThemCongTac','as'=>'postThemCongTac']);
+    Route::post('/postTimCongTacTheoId', ['uses'=>'CongTacController@postTimCongTacTheoId','as'=>'postTimCongTacTheoId']);
+    Route::post('/postSuaCongTac', ['middleware' => ['permission:update-congtac'], 'uses'=>'CongTacController@postSuaCongTac','as'=>'postSuaCongTac']);
+    Route::post('/postXoaCongTac', ['middleware' => ['permission:delete-congtac'], 'uses'=>'CongTacController@postXoaCongTac','as'=>'postXoaCongTac']);
 
+    Route::post('/postThemChamBai', ['middleware' => ['permission:create-chambai'], 'uses'=>'ChamBaiController@postThemChamBai','as'=>'postThemChamBai']);
+    Route::post('/postTimChamBaiTheoId', ['uses'=>'ChamBaiController@postTimChamBaiTheoId','as'=>'postTimChamBaiTheoId']);
+    Route::post('/postSuaChamBai', ['middleware' => ['permission:update-chambai'], 'uses'=>'ChamBaiController@postSuaChamBai','as'=>'postSuaChamBai']);
+    Route::post('/postXoaChamBai', ['middleware' => ['permission:delete-chambai'], 'uses'=>'ChambaiController@postXoaChamBai','as'=>'postXoaChamBai']);
+
+    Route::post('/postThemDang', ['middleware' => ['permission:create-dang'], 'uses'=>'DangController@postThemDang','as'=>'postThemDang']);
+    Route::post('/postTimDangTheoId', ['uses'=>'DangController@postTimDangTheoId','as'=>'postTimDangTheoId']);
+    Route::post('/postSuaDang', ['middleware' => ['permission:update-dang'], 'uses'=>'DangController@postSuaDang','as'=>'postSuaDang']);
+    Route::post('/postXoaDang', ['middleware' => ['permission:delete-dang'], 'uses'=>'DangController@postXoaDang','as'=>'postXoaDang']);
+
+    Route::post('/postThemDayGioi', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@postThemDayGioi','as'=>'postThemDayGioi']);
+    Route::post('/postTimDayGioiTheoId', ['uses'=>'DayGioiController@postTimDayGioiTheoId','as'=>'postTimDayGioiTheoId']);
+    Route::post('/postSuaDayGioi', ['middleware' => ['permission:update-daygioi'], 'uses'=>'DayGioiController@postSuaDayGioi','as'=>'postSuaDayGioi']);
+    Route::post('/postXoaDayGioi', ['middleware' => ['permission:delete-daygioi'], 'uses'=>'DayGioiController@postXoaDayGioi','as'=>'postXoaDayGioi']);
+
+    Route::post('/postThemXayDung', ['middleware' => ['permission:create-xaydung'], 'uses'=>'XayDungController@postThemXayDung','as'=>'postThemXayDung']);
+    Route::post('/postTimXayDungTheoId', ['uses'=>'XayDungController@postTimXayDungTheoId','as'=>'postTimXayDungTheoId']);
+    Route::post('/postSuaXayDung', ['middleware' => ['permission:update-xaydung'], 'uses'=>'XayDungController@postSuaXayDung','as'=>'postSuaXayDung']);
+    Route::post('/postXoaXayDung', ['middleware' => ['permission:delete-xaydung'], 'uses'=>'XayDungController@postXoaXayDung','as'=>'postXoaXayDung']);
+
+    Route::post('/postThemDotXuat', ['middleware' => ['permission:create-dotxuat'], 'uses'=>'DotXuatController@postThemDotXuat','as'=>'postThemDotXuat']);
+    Route::post('/postTimDotXuatTheoId', ['uses'=>'DotXuatController@postTimDotXuatTheoId','as'=>'postTimDotXuatTheoId']);
+    Route::post('/postSuaDotXuat', ['middleware' => ['permission:update-xaydung'], 'uses'=>'DotXuatController@postSuaDotXuat','as'=>'postSuaDotXuat']);
+    Route::post('/postXoaDotXuat', ['middleware' => ['permission:delete-xaydung'], 'uses'=>'DotXuatController@postXoaDotXuat','as'=>'postXoaDotXuat']);
+
+    Route::post('/postThemSangKien', ['middleware' => ['permission:create-dotxuat'], 'uses'=>'SangKienController@postThemSangKien','as'=>'postThemSangKien']);
+    Route::post('/postTimSangKienTheoId', ['uses'=>'SangKienController@postTimSangKienTheoId','as'=>'postTimSangKienTheoId']);
+    Route::post('/postSuaSangKien', ['middleware' => ['permission:update-xaydung'], 'uses'=>'SangKienController@postSuaSangKien','as'=>'postSuaSangKien']);
+    Route::post('/postXoaSangKien', ['middleware' => ['permission:delete-xaydung'], 'uses'=>'SangKienController@postXoaSangKien','as'=>'postXoaSangKien']);
+
+    Route::post('/postThemHocTap', ['middleware' => ['permission:create-dotxuat'], 'uses'=>'HocTapController@postThemHocTap','as'=>'postThemHocTap']);
+    Route::post('/postTimHocTapTheoId', ['uses'=>'HocTapController@postTimHocTapTheoId','as'=>'postTimHocTapTheoId']);
+    Route::post('/postSuaHocTap', ['middleware' => ['permission:update-xaydung'], 'uses'=>'HocTapController@postSuaHocTap','as'=>'postSuaHocTap']);
+    Route::post('/postXoaHocTap', ['middleware' => ['permission:delete-xaydung'], 'uses'=>'HocTapController@postXoaHocTap','as'=>'postXoaHocTap']);
 });
