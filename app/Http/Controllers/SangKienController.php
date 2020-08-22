@@ -7,13 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\GiangVien;
-use App\ChamBai;
-use App\Dang;
-use App\DotXuat;
-use App\HocTap;
-use App\Nckh;
 use App\SangKien;
-use App\XayDung;
 use Carbon\Carbon;
 class sangkienController extends Controller
 {

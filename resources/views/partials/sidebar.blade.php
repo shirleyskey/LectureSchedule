@@ -54,6 +54,24 @@
                 </a>
             </li>
             @endpermission
+            @permission('read-hocphan')
+            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/hocphan' ? 'active open' : '' }}">
+                <a href="{{ route('hocphan.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-file-code-o"></i>
+                    <span class="title">Học Phần</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            @endpermission
+            @permission('read-lop')
+            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/lop' ? 'active open' : '' }}">
+                <a href="{{ route('lop.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-building-o"></i>
+                    <span class="title">Lớp</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            @endpermission
            
             <li class="heading">
                 <h3 class="uppercase">NCKH</h3>

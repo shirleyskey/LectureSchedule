@@ -45,6 +45,11 @@ class GiangVien extends Model
         return $this->hasMany('App\XayDung', 'id_giangvien');
     }
 
+    public function bais()
+    {
+        return $this->hasMany('App\Bai', 'id_giangvien');
+    }
+
     public static function saveGiangVien($id, $data){
         if($id == 0 || $id == -1){
             $giangvien = new GiangVien;

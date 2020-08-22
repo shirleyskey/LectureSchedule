@@ -42,15 +42,6 @@ class GiangVienController extends Controller
         ]);
     }
 
-    // AJAX function
-    // public function dsBoPhanTheoPhongBan(Request $request)
-	// {
-	// 	if ($request->ajax()) {
-	// 		return response()->json(BoPhan::getByPhongBanId($request->phongban_id)->get());
-	// 	}
-    // }
-    // END AJAX
-
     public function create(){
         return view('giangvien.add.index', [
             // 'ds_phong_ban' => PhongBan::all(),
