@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Role;
+use App\GiangVien;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -25,17 +26,21 @@ class UserController extends Controller
 
     public function create(){
         $roles = Role::all();
-        return view('user.add')->withRoles($roles);
+        return view('user.add', [
+        'giangvien' => GiangVien::all(),
+        ])->withRoles($roles);
     }
 
     public function store(Request $request){
         
         $request->validate([
             'name'     => 'required',
+            'id_giangvien'     => 'required',
             'email'    => 'required|email|unique:users',
             'password' => 'required|min:6|max:32'
         ],[
             'name.required'     => 'Bạn chưa nhập "Họ tên"',
+            'id_giangvien.required'     => 'Bạn chưa chọn "Giảng Viên"',
             'email.required'    => 'Bạn chưa nhập "Email"',
             'email.email'       => '"Email" không đúng định dạng',
             'email.unique'      => '"Email" người dùng đã tồn tại',
@@ -47,6 +52,7 @@ class UserController extends Controller
         $user = new User;
 
         $user->name = $request->name;
+        $user->id_giangvien = $request->id_giangvien;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         // $user->role = $request->role;
@@ -66,7 +72,9 @@ class UserController extends Controller
     public function edit($id){
         $user = User::where('id', $id)->with('roles')->first();
         $roles = Role::all();
-        return view('user.edit')->withUser($user)->withRoles($roles);
+        return view('user.edit', [
+            'giangvien' => GiangVien::all(),
+        ])->withUser($user)->withRoles($roles);
     }
 
     public function update(Request $request){

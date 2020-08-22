@@ -61,6 +61,21 @@
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <div class="input-group">
+                                        <select class="form-control" name="id_giangvien">
+                                            <option value="0">-------- Chọn Giảng Viên --------</option>
+                                            @if($giangvien->count()>0)
+                                                @foreach($giangvien as $v)
+                                                <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-md-line-input form-md-floating-label">
+                                    <div class="input-group">
                                         <input type="text" class="form-control" name="email" value="{{ old('email') }}">
                                         <label for="form_control_1">Email <span class="required"> * </span></label>
                                         <span class="input-group-addon">

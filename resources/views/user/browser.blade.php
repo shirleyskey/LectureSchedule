@@ -88,7 +88,7 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Họ Tên </th>
+                                    <th> Giáo Viên</th> </th>
                                     <th> Email </th>
                                     <th> Quyền </th>
                                     <th> Trạng thái</th>
@@ -100,7 +100,7 @@
                                     @foreach( $users as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
-                                        <td> {{ $v->name }} </td>
+                                        <td> {{ $v->giangviens->ten }} </td>
                                         <td> {{ $v->email }} </td>
                                         <td>
                                             @foreach($v->roles as $role)

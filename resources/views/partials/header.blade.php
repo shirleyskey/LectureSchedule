@@ -30,19 +30,19 @@
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        {{-- <img alt="" class="img-circle" src="{{ asset('uploads/avatars/'.Auth::user()->avatar) }}" /> --}}
-                        <span class="username username-hide-on-mobile"> {{ (Auth::user())?(Auth::user()->name):'' }} </span>
+                        <img alt="" class="img-circle" src="{{ asset('uploads/avatars/default-avatar.jpg')}}" />
+                        <span class="username username-hide-on-mobile"> {{ (Auth::user())?(Auth::user()->giangviens->ten):'' }} </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                            <a href="#">
-                                <i class="icon-user"></i> Trang Cá Nhân </a>
+                        <a href="{{route('profile.edit.get', Auth::user()->id_giangvien)}}">
+                                <i class="fa fa-user"></i> Trang Cá Nhân </a>
                         </li>
                         <li class="divider"> </li>
-                        <li>
-                            
-                                <a href="{{ route('logout.get') }}">
+                        <li >
+                                <a href="{{ route('logout.get') }}" style="color: #CC0000">
+                                    <i class="fa fa-sign-out" style="color: #CC0000"></i> 
                                     Đăng Xuất
                                 </a>
                         </li>

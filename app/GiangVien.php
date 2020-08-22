@@ -20,6 +20,11 @@ class GiangVien extends Model
         return $this->hasMany('App\CongTac', 'id_giangvien');
     }
 
+    public function users()
+    {
+        return $this->hasMany('App\User', 'id_giangvien');
+    }
+
     public function dangs()
     {
         return $this->hasMany('App\Dang', 'id_giangvien');
