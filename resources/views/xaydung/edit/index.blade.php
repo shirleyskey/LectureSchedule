@@ -82,8 +82,6 @@
             localStorage.removeItem('activeTab');
         }
         // END Reload trang và giữ nguyên tab đã active
-        
-
        
     });
 </script>

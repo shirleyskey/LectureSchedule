@@ -92,6 +92,12 @@ Route::prefix('profile')->middleware(['auth', 'only_active_user'])->group(functi
     Route::post('/edit/{id}', ['uses'=>'ProfileController@update','as'=>'profile.edit.post']);
 });
 
+// Công Việc Khác Routes...
+Route::prefix('khac')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/edit', ['uses' =>'KhacController@edit','as'=>'khac.edit.get']);
+   
+});
+
 // Lớp Routes...
 Route::prefix('lop')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/', ['middleware' => ['permission:read-lop'], 'uses'=>'LopController@index','as'=>'lop.index']);
