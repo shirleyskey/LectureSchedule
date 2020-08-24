@@ -2,20 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\GiangVien;
-use App\ChamBai;
 use App\CongTac;
-use App\Dang;
-use App\DayGioi;
-use App\DotXuat;
-use App\HocTap;
-use App\Nckh;
-use App\SangKien;
-use App\XayDung;
 use Carbon\Carbon;
 class CongTacController extends Controller
 {
@@ -69,14 +60,6 @@ class CongTacController extends Controller
     }
 
     public function update(Request $request, $id){
-        // $request->validate([
-        //     'ma_nv'        => 'unique:nhan_sus,ma_nv,'.$id,
-        //     'so_cmnd'        => 'unique:nhan_sus,so_cmnd,'.$id
-        // ],[
-        //     'ma_nv.unique' => '"Mã nhân viên" đã tồn tại',
-        //     'so_cmnd.unique' => '"Số CMND" đã tồn tại'
-        // ]);
-
         try{
             $congtac = CongTac::saveCongTac($id, $request->all());
             Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Công tác:'.$congtac->id.'-'.$congtac->ten);
@@ -119,19 +102,6 @@ class CongTacController extends Controller
      public function postThemCongTac(Request $request)
      {
          if ($request->ajax()) {
-             // echo "Shi shi";
-             // $validator = Validator::make($request->all(), [
-             //     'ten'  => 'required',
-             // ],[
-             //     'ten.required' => 'Vui lòng nhập Tên NCKH',
-             // ]);
-             // if($validator->fails()){
-             //     return response()->json([
-             //         'status' => false,
-             //         'data'   => $validator->errors()
-             //     ]);
-             // }
- 
              try{
                  $congtac = CongTac::saveCongTac(0, $request->all());
                  Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Nckh ID:'.$congtac->id.'-'.$congtac->ten);

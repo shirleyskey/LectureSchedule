@@ -20,7 +20,7 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('giangvien.index') }}">Danh Sách Học Phần Chuyên Môn</a>
+                    <a href="{{ route('hocphan.index') }}">Danh Sách Học Phần Chuyên Môn</a>
                 </li>
             </ul>
         </div>

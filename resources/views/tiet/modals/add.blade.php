@@ -18,11 +18,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input name="start" type="date" class="form-control" required>
+                                    <input name="start" type="datetime-local" class="form-control" required>
                                 </div> 
                                 <div class="form-group">
                                     <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input name="end" type="date" class="form-control" required>
+                                    <input name="end" type="datetime-local" class="form-control" required>
                                 </div> 
                             </div>
                             <div class="col-md-6">

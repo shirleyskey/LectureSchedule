@@ -42,7 +42,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
-                    <a href="#" class="btn green" id="btn_add_bai"><i class="fa fa-save"></i> Lưu</a>
+                    <a href="#" class="btn green" id="btn_add_baihoc"><i class="fa fa-save"></i> Lưu</a>
                 </div>
             </form>
         </div>

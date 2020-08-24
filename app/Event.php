@@ -20,10 +20,14 @@ class Event extends Model
         }else{
             $tiet = Event::findOrFail($id);
         }
+        $tiet->id_bai = $data['id_lop'];
+        $tiet->id_bai = $data['id_hocphan'];
         $tiet->id_bai = $data['id_bai'];
+        $tiet->thoigian = $data['thoigian'];
+        $tiet->lession = $data['lession'];
         $tiet->title = $data['title'];
-        $tiet->start = Carbon::parse($data['start'])->format('Y-m-d');
-        $tiet->end = Carbon::parse($data['end'])->format('Y-m-d');
+        $tiet->start = Carbon::parse($data['start'])->format('Y-m-d\TH:i');
+        $tiet->end = Carbon::parse($data['end'])->format('Y-m-d\TH:i');
         $tiet->save();
         return $tiet;
     }

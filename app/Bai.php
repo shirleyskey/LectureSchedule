@@ -8,6 +8,7 @@ class Bai extends Model
 {
     //
     protected $table = 'bais';
+     public $timestamps = false;
 
     public function hocphans()
     {

@@ -60,10 +60,10 @@
                                         </button>
                                         <ul class="dropdown-menu pull-right">
                                             <li>
-                                                <a id="import-excel" href="#"><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
+                                                <a href=""><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('giangvien.export-excel.get') }}"><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
+                                                <a href=""><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         @endpermission
-                        <table class="table table-striped table-hover table-bordered" id="ds_nguoi_dung">
+                        <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -111,7 +111,7 @@
                                             @permission('read-giangvien')
                                             <a class="btn btn-xs blue-sharp" href="{{ route('giangvien.read.get', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
                                             @endpermission
-                                            @permission('update-giangvien')
+                                            @permission('delete-giangvien')
                                             <a class="btn btn-xs yellow-gold" href="{{ route('giangvien.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             @endpermission
                                             @permission('delete-giangvien')
@@ -135,13 +135,12 @@
     <!-- END CONTENT BODY -->
 </div>
 <!-- END CONTENT -->
-
 @endsection
 
 @section('script')
 <script>
     jQuery(document).ready(function() {
-        var table = $('#ds_nguoi_dung');
+        var table = $('#ds_giangvien');
 
         var oTable = table.dataTable({
 
@@ -155,7 +154,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng nhân sự: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Giảng Viên: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -177,27 +176,8 @@
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
-
-        $("#import-excel").on("click", function(e){
-            e.preventDefault();
-            swal({
-                title: "Bạn có chắc không?",
-                text: "Vui lòng tham khảo người quản trị trước khi làm điều này!",
-                type: "warning",
-                showCancelButton: true,
-                cancelButtonText: 'Hủy bỏ',
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Chắc chắn!",
-                closeOnConfirm: false
-                },
-                function(){
-                    window.location.href = "{{ route('giangvien.import-excel.get') }}";
-                });
-        });
     });
 </script>
-
-<!-- <script src="{{ asset('assets/global/scripts/datatable.js') }}" type="text/javascript"></script> -->
 <script src="{{ asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js') }}" type="text/javascript"></script>

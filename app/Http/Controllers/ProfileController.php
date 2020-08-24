@@ -18,7 +18,6 @@ use App\XayDung;
 
 class ProfileController extends Controller
 {
-    //
     public function edit($id){
         return view('user.edit.index', [
             'giangvien' => GiangVien::findOrFail($id), 

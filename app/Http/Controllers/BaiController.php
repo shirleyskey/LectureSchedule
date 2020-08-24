@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use App\Bai;
 use App\Event;
 use App\GiangVien;
 class BaiController extends Controller
 {
-    //
     public function index()
     {
         return view('bai.browser.index', ['ds_bai' => GiangVien::all()]);
@@ -32,25 +33,12 @@ class BaiController extends Controller
     }
 
      //AJAX
-     public function postThemNck(Request $request)
+     public function postThemBai(Request $request)
      {
          if ($request->ajax()) {
-             // echo "Shi shi";
-             // $validator = Validator::make($request->all(), [
-             //     'ten'  => 'required',
-             // ],[
-             //     'ten.required' => 'Vui lòng nhập Tên NCKH',
-             // ]);
-             // if($validator->fails()){
-             //     return response()->json([
-             //         'status' => false,
-             //         'data'   => $validator->errors()
-             //     ]);
-             // }
- 
              try{
-                 $nckh = Nckh::saveNckh(0, $request->all());
-                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Nckh ID:'.$nckh->id.'-'.$nckh->ten);
+                 $bai = Bai::saveBai(0, $request->all());
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Bài ID:'.$bai->id.'-'.$bai->ten);
                  return response()->json([
                      'status' => true
                  ]);
@@ -61,11 +49,11 @@ class BaiController extends Controller
          }
      }
  
-     public function postTimNckhTheoId(Request $request){
-         $nckh = Nckh::findOrFail($request->input('id'));
+     public function postTimBaiTheoId(Request $request){
+         $bai = Bai::findOrFail($request->input('id'));
              return response()->json([
                  'status' => true,
-                 'data'   => $nckh
+                 'data'   => $bai
              ]);
          
          return response()->json([
@@ -73,13 +61,13 @@ class BaiController extends Controller
          ]); 
      }
  
-     public function postSuaNckh(Request $request)
+     public function postSuaBai(Request $request)
      {
          if ($request->ajax()) {
             
              try{
-                 $nckh = Nckh::saveNckh($request->input('id'), $request->all());
-                 Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Nckh ID:'.$nckh->id.'-'.$nckh->ten);
+                 $bai = Bai::saveBai($request->input('id'), $request->all());
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Bài ID:'.$bai->id.'-'.$bai->ten);
                  return response()->json([
                      'status' => true
                  ]);
@@ -90,12 +78,12 @@ class BaiController extends Controller
          }
      }
  
-     public function postXoaNckh(Request $request){
-         $nckh = Nckh::findOrFail($request->input('id'));
-         $id = $nckh->id;
+     public function postXoaBai(Request $request){
+         $bai = Bai::findOrFail($request->input('id'));
+         $id = $bai->id;
          try{
-             $nckh->delete();
-             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa NCKH id:'.$request->input('id').'-'.$nckh->ten);
+             $bai->delete();
+             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Bài id:'.$request->input('id').'-'.$bai->tenbai);
              return response()->json([
                  'status' => true
              ]);

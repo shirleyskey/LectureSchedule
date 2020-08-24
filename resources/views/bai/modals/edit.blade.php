@@ -25,7 +25,7 @@
                                 <div class="form-group">
                                     <label>Giảng Viên:<span class="required">*</span></label>
                                 <select class="form-control" name="id_giangvien">
-                                        <option value="0">-------- Chọn Giảng Viên --------</option>
+                                <option value="">-------- Chọn Giảng Viên --------</option>
                                         @if($ds_giangvien->count()>0)
                                             @foreach($ds_giangvien as $v)
                                             <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>

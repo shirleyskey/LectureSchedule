@@ -8,6 +8,7 @@ class HocPhan extends Model
 {
     //
     protected $table = 'hocphans';
+    public $timestamps = false;
 
     public function lops()
     {
@@ -31,10 +32,10 @@ class HocPhan extends Model
             $hocphan = HocPhan::findOrFail($id);
         }
         $hocphan->id_lop = $data['id_lop'];
-        $hocphan->sotiet = $data['sotiet'];
+        $hocphan->mahocphan = $data['mahocphan'];
         $hocphan->tenhocphan = $data['tenhocphan'];
+        $hocphan->sotiet = $data['sotiet'];
         $hocphan->sotinchi = $data['sotinchi'];
-        $hocphan->sobai = $data['sobai'];
         $hocphan->start = Carbon::parse($data['start'])->format('Y-m-d');
         $hocphan->end = Carbon::parse($data['end'])->format('Y-m-d');
         $hocphan->save();

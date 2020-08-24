@@ -7,39 +7,57 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label col-md-4">Tên Bài Học:
+                            <label class="control-label col-md-4">Tên Bài:
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-user"></i>
-                                    <input type="text" class="form-control" name="tenbai" value="{{ $bai->tenbai }}" required maxlength="191" /> </div>
+                                    <input type="text" class="form-control" name="tenbai" value="{{ $bai->tenbai }}" required /> </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Tên Học Phần:
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-7">
+                                <div class="input-icon right">
+                                    <i class="fa fa-home"></i>
+                                    <input type="text" class="form-control" name="tenhocphan" readonly value="{{ $bai->hocphans->tenhocphan }}" /> </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Tên Lớp:
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-7">
+                                <div class="input-icon right">
+                                    <i class="fa fa-home"></i>
+                                    <input type="text" class="form-control" name="tenhocphan" readonly value="{{ $bai->hocphans->lops->tenlop }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-4">Số Tiết:
-                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="sotiet" required maxlength="191" value="{{ $bai->sotiet }}" /> </div>
+                                    <input type="number" class="form-control" name="sotiet" value="{{ $bai->sotiet }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Giảng Viên:
-                                <span class="required"> * </span>
+                            <label class="control-label col-md-4">Địa Chỉ:
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
+                                    <i class="fa fa-phone"></i>
                                     <select class="form-control" name="id_giangvien">
-                                        <option value="0">-------- Chọn Giảng Viên --------</option>
-                                        @if($ds_giangvien->count()>0)
-                                            @foreach($ds_giangvien as $v)
+                                        <option value="{{$bai->id_giangvien}}">{{$bai->giangviens->ten}}</option>
+                                            @if($ds_giangvien->count()>0)
+                                                @foreach($ds_giangvien as $v)
                                             <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                            @endforeach
-                                        @endif
+                                                @endforeach
+                                            @endif
                                     </select>
                             </div>
                         </div>
@@ -52,7 +70,6 @@
         <!-- END TAB 1-->
         <!-- BEGIN TAB 2 NCKH-->
         <div class="tab-pane" id="tab2">
-           
             @if($tiet->isNotEmpty())
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">
@@ -61,14 +78,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Thêm Tiết Học Mới
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học
                                             
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_tiet">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -88,7 +105,7 @@
                                         <td> {{ $v->start }} </td>
                                         <td> {{ $v->end }} </td>
                                         <td>
-                                            <a data-tiet-id="{{ $v->id }}" class="btn_edit_tiet btn btn-xs yellow-gold" href="#modal_edit_tiet" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a data-tiet-id="{{ $v->id }}" class="btn_edit_tiet btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_tiet btn btn-xs red-mint" href="#" data-tiet-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                         </td>
                                     </tr>
@@ -102,7 +119,7 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Học Phần này chưa có bài học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học Mới</a></p>
+                    <p> Bài Học này chưa có tiết học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học Mới</a></p>
                 </div>
             @endif
         </div>
@@ -119,3 +136,4 @@
 </form>
 @include('tiet.modals.add')
 @include('tiet.modals.edit')
+ 

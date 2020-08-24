@@ -18,8 +18,6 @@ use App\Lop;
 class DashboardController extends Controller
 {
     //
-     
-
     public function getDashboard(){
         $giangvien = GiangVien::all();
         $hocphan = Hocphan::all();

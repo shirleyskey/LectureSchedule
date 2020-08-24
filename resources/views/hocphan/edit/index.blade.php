@@ -84,35 +84,65 @@
             localStorage.removeItem('activeTab');
         }
         // END Reload trang và giữ nguyên tab đã active
+        //START CẤU HÌNH bảng Danh sách Bài Học
+        var table = $('#table_ds_bai');
 
-         // Ajax thêm Học Phần
-    $("#btn_add_hocphan").on('click', function(e){
-        
+        var oTable = table.dataTable({
+
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+
+            "pageLength": 10,
+
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng nhân sự: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        //END Cấu Hình bảng danh sách bài học
+        // Ajax thêm Bài Học mới
+    $("#btn_add_baihoc").on('click', function(e){
        e.preventDefault();
-       $("#btn_add_hocphan").attr("disabled", "disabled");
-       $("#btn_add_hocphan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+       $("#btn_add_baihoc").attr("disabled", "disabled");
+       $("#btn_add_baihoc").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
        $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
        $.ajax({
-           
-           url: '{{route('postThemHocPhan')}}',
+           url: '{{route('postThemBai')}}',
            method: 'POST',
            data: {
-               id_lop: $("#form_add_hocphan input[name='id_lop']").val(),
-               tenhocphan: $("#form_add_hocphan input[name='tenhocphan']").val(),
-               sotiet: $("#form_add_hocphan input[name='sotiet']").val(),
-               sotinchi: $("#form_add_hocphan input[name='sotinchi']").val(),
-               sobai: $("#form_add_hocphan input[name='sobai']").val(),
-               start: $("#form_add_hocphan input[name='start']").val(),
-               end: $("#form_add_hocphan input[name='end']").val(),
-              
+               id_hocphan: $("#form_add_bai input[name='id_hocphan']").val(),
+               tenbai: $("#form_add_bai input[name='tenbai']").val(),
+               sotiet: $("#form_add_bai input[name='sotiet']").val(),
+               id_giangvien: $("#form_add_bai select[name='id_giangvien']").val(),
            success: function(data) {
-               console.log("Hihi");
-               $("#btn_add_hocphan").removeAttr("disabled"); 
-               $("#btn_add_hocphan").html('<i class="fa fa-save"></i> Lưu');
+               $("#btn_add_baihoc").removeAttr("disabled"); 
+               $("#btn_add_baihoc").html('<i class="fa fa-save"></i> Lưu');
                if(data.status == false){
                    var errors = "";
                    $.each(data.data, function(key, value){
@@ -137,10 +167,10 @@
                    toastr["error"](errors, "Lỗi")
                }
                 if(data.status == true){
-                    $('#modal_add_hocphan').modal('hide');
+                    $('#modal_add_bai').modal('hide');
                     swal({
                         "title":"Đã tạo!", 
-                        "text":"Bạn đã tạo thành công HOCPHAN!",
+                        "text":"Bạn đã tạo thành công Bài!",
                         "type":"success"
                     }, function() {
                             localStorage.setItem('activeTab', '#tab2');
@@ -152,68 +182,60 @@
            }
        });
    });
-
-   // END Ajax thêm Học Phần
-   //AJAX Tìm Học Phần Theo ID
-        $(".btn_edit_hocphan").on("click", function(e){
+   // END Ajax thêm Bài Học
+   //AJAX Tìm Bài Học Theo ID
+        $(".btn_edit_bai").on("click", function(e){
             e.preventDefault();
-            var hocphan_id = $(this).data("hocphan-id");
+            var bai_id = $(this).data("bai-id");
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
             $.ajax({
-                url: '{{ route('postTimHocPhanTheoId') }}',
+                url: '{{ route('postTimBaiTheoId') }}',
                 method: 'POST',
                 data: {
-                    id: hocphan_id
+                    id: bai_id
                 },
                 success: function(data) {
                     if(data.status == true){
                         // console.log(data.data);
-                        $("#form_edit_hocphan input[name='id_lop']").val(data.data.id_lop);
-                        $("#form_edit_hocphan input[name='id']").val(data.data.id);
-                        $("#form_edit_hocphan input[name='tenhocphan']").val(data.data.tenhocphan);
-                        $("#form_edit_hocphan input[name='sotiet']").val(data.data.sotiet);
-                        $("#form_edit_hocphan input[name='sotinchi']").val(data.data.sotinchi);
-                        $("#form_edit_hocphan input[name='sobai']").val(data.data.sobai);
-                        $("#form_edit_hocphan input[name='start']").val(data.data.start);
-                        $("#form_edit_hocphan input[name='end']").val(data.data.end);
-                        $('#modal_edit_hocphan').modal('show');
+                        $("#form_edit_bai input[name='id_hocphan']").val(data.data.id_hocphan);
+                        $("#form_edit_bai input[name='id']").val(data.data.id);
+                        $("#form_edit_bai input[name='tenbai']").val(data.data.tenbai);
+                        $("#form_edit_bai input[name='sotiet']").val(data.data.sotiet);
+                        $("#form_edit_bai select[name='id_giangvien']").val(data.data.id_giangvien);
+                        $('#modal_edit_bai').modal('show');
                     }
                 }
             });
         });
-        // END Khi click vào nút sửa HOCPHAN, tìm HOCPHAN theo id và đỗ dữ liệu vào form
+        // END Khi click vào nút sửa BAI, tìm BAI theo id và đỗ dữ liệu vào form
 
-        
-        // Ajax sửa HOCPHAN
-        $("#btn_edit_hocphan").on('click', function(e){
+        // Ajax sửa BAI
+        $("#btn_edit_bai").on('click', function(e){
             e.preventDefault();
-            $("#btn_edit_hocphan").attr("disabled", "disabled");
-            $("#btn_edit_hocphan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+            $("#btn_edit_bai").attr("disabled", "disabled");
+            $("#btn_edit_bai").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
             $.ajax({
-                url: '{{ route('postSuaHocPhan') }}',
+                url: '{{ route('postSuaBai') }}',
                 method: 'POST',
                 data: {
-                    id: $("#form_edit_hocphan input[name='id']").val(),
-                    id_lop: $("#form_edit_hocphan input[name='id_lop']").val(),
-                    sotiet: $("#form_edit_hocphan input[name='sotiet']").val(),
-                    tenhocphan: $("#form_edit_hocphan input[name='tenhocphan']").val(),
-                    sotinchi: $("#form_edit_hocphan input[name='sotinchi']").val(),
-                    sobai: $("#form_edit_hocphan input[name='sobai']").val(),
-                    start: $("#form_edit_hocphan input[name='start']").val(),
-                    end: $("#form_edit_hocphan input[name='end']").val(),
+                    id: $("#form_edit_bai input[name='id']").val(),
+                    id_hocphan: $("#form_edit_bai input[name='id_hocphan']").val(),
+                    sotiet: $("#form_edit_bai input[name='sotiet']").val(),
+                    tenbai: $("#form_edit_bai input[name='tenbai']").val(),
+                    id_giangvien: $("#form_edit_bai select[name='id_giangvien']").val(),
                 },
                 success: function(data) {
-                    $("#btn_edit_hocphan").removeAttr("disabled"); 
-                    $("#btn_edit_hocphan").html('<i class="fa fa-save"></i> Lưu');
+                    $("#btn_edit_bai").removeAttr("disabled"); 
+                    $("#btn_edit_bai").html('<i class="fa fa-save"></i> Lưu');
                     if(data.status == false){
                         var errors = "";
                         $.each(data.data, function(key, value){
@@ -238,10 +260,10 @@
                         toastr["error"](errors, "Lỗi")
                     }
                     if(data.status == true){
-                        $('#modal_edit_hocphan').modal('hide');
+                        $('#modal_edit_bai').modal('hide');
                         swal({
                             "title":"Đã sửa!", 
-                            "text":"Bạn đã sửa thành công Học Phần!",
+                            "text":"Bạn đã sửa thành công Bài Học!",
                             "type":"success"
                         }, function() {
                                 localStorage.setItem('activeTab', '#tab2');
@@ -252,13 +274,13 @@
                 }
             });
         });
-        // END Ajax sửa HOCPHAN
+        // END Ajax sửa BAI
         
-        // Xử lý khi click nút xóa HOCPHAN
-        $(".btn_delete_hocphan").on("click", function(e){
+        // Xử lý khi click nút xóa BAI
+        $(".btn_delete_bai").on("click", function(e){
             e.preventDefault();
 
-            var hocphan_id = $(this).data("hocphan-id");
+            var bai_id = $(this).data("bai-id");
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -277,17 +299,17 @@
                 function(isConfirm){
                     if (isConfirm) {
                         $.ajax({
-                            url: '{{ route('postXoaHocPhan') }}',
+                            url: '{{ route('postXoaBai') }}',
                             method: 'POST',
                             data: {
-                                id: hocphan_id
+                                id: bai_id
                             },
                             success: function(data) {
                                 console.log(data);
                                 if(data.status == true){
                                     swal({
                                         "title":"Đã xóa!", 
-                                        "text":"Bạn đã xóa thành công HOCPHAN!",
+                                        "text":"Bạn đã xóa thành công Bài Học!",
                                         "type":"success"
                                     }, function() {
                                             localStorage.setItem('activeTab', '#tab2');

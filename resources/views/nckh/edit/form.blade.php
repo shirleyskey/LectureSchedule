@@ -15,7 +15,7 @@
                                 <div class="input-icon right">
                                     <i class="fa fa-user"></i>
                                     <select class="form-control" name="id_giangvien">
-                                        <option value="0">-------- Chọn Giảng Viên --------</option>
+                                    <option value="{{$nckh->id_giangvien}}">{{$nckh->giangviens->ten}}</option>
                                         @if($giangvien->count()>0)
                                             @foreach($giangvien as $v)
                                             <option value="{{ $v->id }}">{{ $v->ten }}</option>
@@ -32,7 +32,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="ten" required maxlength="191" value="{{ $nckh->ten }}" /> </div>
+                                    <input type="text" class="form-control" name="ten" required value="{{ $nckh->ten }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">

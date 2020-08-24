@@ -23,14 +23,14 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    {{-- <a href="{{ route('bai.index') }}">Danh Sách Các Tiết Học</a> --}}
+                    <a href="{{ route('hocphan.index') }}">Học Phần Giảng Dạy</a>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $bai->tenbai }} - {{ $bai->sotiet }}
+            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $bai->tenbai }} - {{ $bai->hocphans->tenhocphan }}
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -48,7 +48,10 @@
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin Danh Sách Tiết Học</a>
+                            <a href="#tab1" data-toggle="tab">Thông tin Bài Học</a>
+                        </li>
+                        <li>
+                            <a href="#tab2" data-toggle="tab">Danh Sách Tiết Học</a>
                         </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
@@ -82,7 +85,46 @@
         }
         // END Reload trang và giữ nguyên tab đã active
 
-         // Ajax thêm Tiết Học
+        //Cấu hình bảng danh sách tiết học
+        var table = $('#table_ds_tiet');
+
+        var oTable = table.dataTable({
+
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+
+            "pageLength": 10,
+
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Tiết Học: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        //End Cấu hình bảng danh sách tiết học
+    
+         // Ajax thêm TIET
     $("#btn_add_tiet").on('click', function(e){
         
        e.preventDefault();
@@ -102,7 +144,7 @@
                title: $("#form_add_tiet input[name='title']").val(),
                start: $("#form_add_tiet input[name='start']").val(),
                end: $("#form_add_tiet input[name='end']").val(),
-              
+           },
            success: function(data) {
                console.log("Hihi");
                $("#btn_add_tiet").removeAttr("disabled"); 
@@ -130,25 +172,23 @@
                    }
                    toastr["error"](errors, "Lỗi")
                }
-                if(data.status == true){
-                    $('#modal_add_tiet').modal('hide');
-                    swal({
-                        "title":"Đã tạo!", 
-                        "text":"Bạn đã tạo thành công TIET!",
-                        "type":"success"
-                    }, function() {
-                            localStorage.setItem('activeTab', '#tab2');
-                            location.reload();
-                        }
-                    );
-                }
-           }
+               if(data.status == true){
+                   $('#modal_add_tiet').modal('hide');
+                   swal({
+                       "title":"Đã tạo!", 
+                       "text":"Bạn đã tạo thành công Tiết Học!",
+                       "type":"success"
+                   }, function() {
+                           localStorage.setItem('activeTab', '#tab2');
+                           location.reload();
+                       }
+                   );
+               }
            }
        });
    });
-
-   // END Ajax thêm Học Phần
-   //AJAX Tìm Học Phần Theo ID
+   // END Ajax thêm TIET
+   //AJAX Tìm TIET Theo ID
         $(".btn_edit_tiet").on("click", function(e){
             e.preventDefault();
             var tiet_id = $(this).data("tiet-id");
@@ -196,8 +236,9 @@
                     id: $("#form_edit_tiet input[name='id']").val(),
                     id_bai: $("#form_edit_tiet input[name='id_bai']").val(),
                     title: $("#form_edit_tiet input[name='title']").val(),
-                    start: $("#form_edit_tiet input[name='start']").val(),
-                    end: $("#form_edit_tiet input[name='end']").val(),
+                    start: $("#form_edit_tiet input[name='start'").val(),
+                    end: $("#form_edit_tiet input[name='end'").val(),
+                   
                 },
                 success: function(data) {
                     $("#btn_edit_tiet").removeAttr("disabled"); 
@@ -229,7 +270,7 @@
                         $('#modal_edit_tiet').modal('hide');
                         swal({
                             "title":"Đã sửa!", 
-                            "text":"Bạn đã sửa thành công Học Phần!",
+                            "text":"Bạn đã sửa thành công Tiết Học!",
                             "type":"success"
                         }, function() {
                                 localStorage.setItem('activeTab', '#tab2');
@@ -245,7 +286,6 @@
         // Xử lý khi click nút xóa TIET
         $(".btn_delete_tiet").on("click", function(e){
             e.preventDefault();
-
             var tiet_id = $(this).data("tiet-id");
             $.ajaxSetup({
                 headers: {
@@ -253,7 +293,7 @@
                 }
             });
             swal({
-                title: "Xóa Học Phần này?",
+                title: "Xóa TIET này?",
                 text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                 type: "warning",
                 showCancelButton: true,
@@ -275,7 +315,7 @@
                                 if(data.status == true){
                                     swal({
                                         "title":"Đã xóa!", 
-                                        "text":"Bạn đã xóa thành công TIET!",
+                                        "text":"Bạn đã xóa thành công Tiết Học!",
                                         "type":"success"
                                     }, function() {
                                             localStorage.setItem('activeTab', '#tab2');
@@ -294,8 +334,6 @@
 
    
 </script>
-
-
 <script src="{{ asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js') }}" type="text/javascript"></script>

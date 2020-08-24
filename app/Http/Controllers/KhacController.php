@@ -34,14 +34,6 @@ class KhacController extends Controller
     }
 
     public function update(Request $request, $id){
-        // $request->validate([
-        //     'ten'        => 'unique:nhan_sus,ma_nv,'.$id,
-        //     'so_cmnd'        => 'unique:nhan_sus,so_cmnd,'.$id
-        // ],[
-        //     'ma_nv.unique' => '"Mã nhân viên" đã tồn tại',
-        //     'so_cmnd.unique' => '"Số CMND" đã tồn tại'
-        // ]);
-
         try{
             $giangvien = GiangVien::saveGiangVien($id, $request->all());
             Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);
