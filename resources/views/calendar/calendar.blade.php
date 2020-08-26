@@ -267,8 +267,8 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-body">
-                                                    <form action="/calendar/import" method="POST" role="form" enctype="multipart/form-data">
-                                                        <legend>Import file</legend>
+                                                <form action="{{route('lichgiang.lichgiangtuan.import')}}" method="POST" role="form" enctype="multipart/form-data">
+                                                        <legend>Nhập Lịch Học</legend>
                                                         @csrf
                                                         <div class="form-group">
                                                             <input type="file" class="form-control" name="calendar" id="" placeholder="Input field">

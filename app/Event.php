@@ -9,6 +9,7 @@ class Event extends Model
     //
     protected $table = 'events';
     public $timestamps = false;
+    protected $fillable = ['id','id_lop','id_hocphan','thoigian','lesson'];
     public function bais()
     {
         return $this->belongsTo('App\Bai', 'id_bai');

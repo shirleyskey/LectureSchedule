@@ -8,18 +8,12 @@ use App\Bai;
 use App\Event;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
-use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Carbon\Carbon;
 use DateTime;
 
-class CalenderImport implements ToCollection, ToModel
+class CalenderImport implements ToCollection, WithHeadingRow
 {
-
-    public function headingRow(): int
-    {
-        return 2;
-    }
 
     /**
     * @param Collection $collection
@@ -27,44 +21,32 @@ class CalenderImport implements ToCollection, ToModel
 
     public function collection(Collection $rows)
     {
-         /* 1. Lấy Mã Lớp. 
-                    + Dùng vòng lặp để kiểm tra trong database mã lớp
-                    + Nếu có mã lớp trùng thì k insert mà lấy ra ID lớp 
-                    + 
-               2. Lấy mã Học Phần
-                    + Dùng vòng lặp để kiểm tra ID lớp đó có mã học phần nào chưa
-                    + Nếu có thì lấy ID của học phần đó
-                    + Nếu không thì insert và lấy ID học phần
-                    + 
-               3. Lấy tên bài và số tiết để insert vào database
-               4. Lấy tên tiết và thời gian để insert vào database
-
-        */
         $ds_lop = Lop::all();
         foreach($rows as $row){
             // THEM LOP: 
             $trunglop = false;
-            $malop = $row[1];
+            $malop = $row["ma_lop"];
             foreach($ds_lop as $lop){
                 if($malop == $lop->malop){
                     $trunglop = true;
                     $idloptrung = $lop->id;
                 }
             }
+
             if($trunglop == false){
                $themlop =  Lop::create([
-                    'malop' => $row[1],
-                    'tenlop' => $row[2]
+                    'malop' => $row["ma_lop"],
+                    'tenlop' => $row["ten_lop"]
                 ]);
                $themlop->save();
             }
             else {
                 $themlop = Lop::findOrFail($idloptrung);
             }
-
+           
             //THEM HOC PHAN
             $ds_hocphan = HocPhan::where('id_lop', $themlop->id );
-            $mahocphan = $row[3];
+            $mahocphan = $row["ma_hoc_phan"];
             $trunghocphan = false;
             foreach($ds_hocphan as $hocphan){
                 if($mahocphan == $hocphan->mahocphan){
@@ -76,11 +58,11 @@ class CalenderImport implements ToCollection, ToModel
                 $themhocphan = HocPhan::create([
                     'id_lop' => $themlop->id,
                     'mahocphan' => $mahocphan,
-                    'tenhocphan' => $row[4],
-                    'sotiet' => $row[5],
-                    'sotinchi' => $row[6],
-                    'start' => $row[7],
-                    'end' => $row[8]
+                    'tenhocphan' => $row["ten_hoc_phan"],
+                    'sotiet' => $row["so_tiet"],
+                    'sotinchi' => $row["so_tin_chi"],
+                    'start' => $row["start"],
+                    'end' => $row["end"]
                 ]);
                 $themhocphan->save();
             }
@@ -89,12 +71,16 @@ class CalenderImport implements ToCollection, ToModel
             }
 
             //THEM BAI
-            $periodbai = explode("Bài", $row[9]);
-            for($i = 0; $i < count($periodbai); $i++){
+            $periodbai = explode("Bài", $row["bai"]);
+            var_dump($periodbai);
+            die();
+            for($i = 1; $i < count($periodbai); $i++){
                 $bai = trim($periodbai[$i]);
                 $bai = explode("có", $bai);
+                var_dump($bai);
+                die();
                 $tenbai = trim($bai[0]);
-                $sotietbai = (int)(trim($bai[1]));
+                $sotietbai = trim($bai[1]);
                 $thembai = Bai::create([
                     'id_hocphan' => $themhocphan->id,
                     'tenbai' => $tenbai,
@@ -104,8 +90,8 @@ class CalenderImport implements ToCollection, ToModel
                
             }
             // THEM TIET
-            $periodtiet = explode("Từ", $row[10]);
-            for($i = 0; $i < count($periodtiet); $i++){
+            $periodtiet = explode("Từ", $row["thoi_gian"]);
+            for($i = 1; $i < count($periodtiet); $i++){
                 $dateRange = explode(":", $periodtiet[$i]);
                 $date = explode("đến", $dateRange[0]);
                 $dateFormat = DateTime::createFromFormat('d/m/Y', trim($date[0]))->format('Y-m-d');
@@ -114,7 +100,7 @@ class CalenderImport implements ToCollection, ToModel
                 $endDate = Carbon::create($newformat);
                 $dayOfWeek = explode("Thứ", $dateRange[1]);
                 
-                for($j = 0; j < count($dayOfWeek); $j++){
+                for($j = 1; $j < count($dayOfWeek); $j++){
                     $studyTime = explode(" tiết", trim($dayOfWeek[$j]));
                     $lesson = explode(" tại ", trim($studyTime[1]));
                     $startDate = Carbon::create($dateFormat);
@@ -131,6 +117,15 @@ class CalenderImport implements ToCollection, ToModel
                     }
                 }
             }
+            
         }
     }
+    
+
+    
+    public function headingRow(): int
+    {
+        return 1;
+    }
+
 }

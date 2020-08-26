@@ -9,6 +9,7 @@ class Lop extends Model
     //
     protected $table = 'lops';
     public $timestamps = false;
+    protected $fillable = ['id','malop','tenlop'];
     
     public function hocphans()
     {
