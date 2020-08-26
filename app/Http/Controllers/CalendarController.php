@@ -24,7 +24,7 @@ class CalendarController extends Controller
                 $startDate = Carbon::parse($tiet->thoigian);
                 $time = explode(",", trim($tiet->lesson));
                 //Start for tiết
-                for($i = 1 ; $i < count($time); $i++){
+                for($i = 0 ; $i < count($time); $i++){
                     $startDate = Carbon::parse($tiet->thoigian);
                     //Start Switch case 
                     switch ((int)$time[$i]) {
@@ -50,7 +50,7 @@ class CalendarController extends Controller
                         case 6:
                             $startDate->addHours(14);
                             break;
-                        case 57:
+                        case 7:
                             $startDate->addHours(15);
                             break;
                         case 8:
@@ -63,13 +63,14 @@ class CalendarController extends Controller
                     }
                     //End Switch case
                     // dd($tiet->lops->tenlop);
-                    $title = $tiet->lops->malop." - ". $tiet->hocphans->mahocphan."- Tiết".$time[$i];
+                    $thututiet = (int)$time[$i] + 1;
+                    $title = $tiet->lops->malop." - ". $tiet->hocphans->mahocphan."- Tiết ".$thututiet;
                     $events[] = Calendar::event(
                         $title,
-                        false,
+                        true,
                         new DateTime($startDate),
                         new DateTime($startDate->addMinute(50)),
-                        null,
+                        1,
                         [
                             'color' => '#ff6100',
                         ]
