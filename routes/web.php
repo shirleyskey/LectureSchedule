@@ -142,10 +142,7 @@ Route::prefix('bai')->middleware(['auth', 'only_active_user'])->group(function (
 Route::prefix('lichgiang')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/phancong', ['uses'=>'LichGiangController@phancong','as'=>'lichgiang.phancong']);
     Route::get('/lichgiangtuan', ['uses'=>'CalendarController@index','as'=>'lichgiang.lichgiangtuan']);
-    Route::post('/lichgiangtuan/create', ['uses'=>'LichGiangController@store','as'=>'lichgiang.lichgiangtuan.create']);
     Route::post('/lichgiangtuan/import', ['uses'=>'CalenderController@import','as'=>'lichgiang.lichgiangtuan.import']);
-    Route::post('/lichgiangtuan/update', ['uses'=>'LichGiangController@update','as'=>'lichgiang.lichgiangtuan.update']);
-    Route::post('/lichgiangtuan/delete', ['uses'=>'LichGiangController@destroy','as'=>'lichgiang.lichgiangtuan.delete']);
 });
 
 // NCKH Routes...

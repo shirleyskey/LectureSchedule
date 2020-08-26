@@ -15,6 +15,10 @@
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label>Mã Học Phần: <span class="required">*</span></label>
+                                    <input  name="mahocphan" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
                                     <label>Tên Học Phần: <span class="required">*</span></label>
                                     <input  name="tenhocphan" type="text" class="form-control" required>
                                 </div>
@@ -25,10 +29,6 @@
                                 <div class="form-group">
                                     <label>Số Tín Chỉ:<span class="required">*</span></label>
                                     <input class="form-control" name="sotinchi" type="number" required />
-                                </div>
-                                <div class="form-group">
-                                    <label>Số Bài:<span class="required">*</span></label>
-                                    <input class="form-control" name="sobai" type="number" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Bắt Đầu:<span class="required">*</span></label>

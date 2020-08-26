@@ -61,6 +61,10 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Mã Lớp:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $lop->malop }}</label>
+                                            </div>
+                                            <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Tên Lớp:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $lop->tenlop }}</label>
                                             </div>
@@ -93,10 +97,10 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
+                                                    <th> Mã Học Phần</th>
                                                     <th> Tên Học Phần</th>
                                                     <th> Số Tiết</th>
                                                     <th> Số Tín Chỉ</th>
-                                                    <th> Số Bài</th>
                                                     <th> Bắt Đầu</th>
                                                     <th> Kết Thúc</th>
                                                     <th> Hành Động</th>
@@ -108,10 +112,10 @@
                                                     @foreach( $hocphan as $v )
                                                     <tr>
                                                         <td> {{ $stt }} </td>
+                                                        <td> {{ $v->mahocphan }} </td>
                                                         <td> {{ $v->tenhocphan }} </td>
                                                         <td> {{ $v->sotiet }} </td>
                                                         <td> {{ $v->sotinchi }} </td>
-                                                        <td> {{ $v->sobai }} </td>
                                                         <td> {{ $v->start }} </td>
                                                         <td> {{ $v->end }} </td>
                                                         <td>

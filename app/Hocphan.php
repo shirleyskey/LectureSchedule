@@ -20,9 +20,9 @@ class HocPhan extends Model
         return $this->hasMany('App\Bai', 'id_hocphan');
     }
 
-    public function tiets()
+    public function events()
     {
-        return $this->hasMany('App\Tiet', 'id_hocphan');
+        return $this->hasMany('App\Event', 'id_hocphan');
     }
 
     public static function saveHocPhan($id, $data){

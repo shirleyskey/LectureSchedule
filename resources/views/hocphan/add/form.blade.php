@@ -25,6 +25,15 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-md-4">Mã Học Phần:
+                            </label>
+                            <div class="col-md-7">
+                                <div class="input-icon right">
+                                    <i class="fa fa-phone"></i>
+                                    <input type="text" class="form-control" name="mahocphan" value="{{ old('mahocphan') }}" /> </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-4">Tên Học Phần:
                             </label>
                             <div class="col-md-7">

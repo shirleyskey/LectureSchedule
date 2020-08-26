@@ -34,6 +34,7 @@ class LopController extends Controller
         $lop = new Lop;
         $lop->tenlop = $request->tenlop;
         $lop->quymo = $request->quymo;
+        $lop->malop = $request->malop;
         $lop->songuoi = $request->songuoi;
         try{
             $lop->save();

@@ -7,6 +7,16 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label class="control-label col-md-4">Mã Lớp:
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-7">
+                                <div class="input-icon right">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" class="form-control" name="malop" value="{{ $lop->malop }}" required maxlength="191" /> </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-4">Tên Lớp:
                                 <span class="required"> * </span>
                             </label>
@@ -64,10 +74,10 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
+                                    <th> Mã Học Phần</th>
                                     <th> Tên Học Phần</th>
                                     <th> Số Tiết</th>
                                     <th> Số Tín Chỉ</th>
-                                    <th> Số Bài</th>
                                     <th> Bắt Đầu</th>
                                     <th> Kết Thúc</th>
                                     <th> Hành Động</th>
@@ -79,10 +89,10 @@
                                     @foreach( $hocphan as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
+                                        <td> {{ $v->mahocphan }} </td>
                                         <td> {{ $v->tenhocphan }} </td>
                                         <td> {{ $v->sotiet }} </td>
                                         <td> {{ $v->sotinchi }} </td>
-                                        <td> {{ $v->sobai }} </td>
                                         <td> {{ $v->start }} </td>
                                         <td> {{ $v->end }} </td>
                                         <td> 

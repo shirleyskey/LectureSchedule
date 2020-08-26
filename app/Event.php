@@ -13,6 +13,14 @@ class Event extends Model
     {
         return $this->belongsTo('App\Bai', 'id_bai');
     }
+    public function lops()
+    {
+        return $this->belongsTo('App\Lop', 'id_lop');
+    }
+    public function hocphans()
+    {
+        return $this->belongsTo('App\HocPhan', 'id_hocphan');
+    }
 
     public static function saveTiet($id, $data){
         if($id == 0){

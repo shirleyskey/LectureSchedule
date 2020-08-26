@@ -40,7 +40,7 @@ class HocPhanController extends Controller
         $hocphan->sotiet = $request->sotiet;
         $hocphan->sotinchi = $request->sotinchi;
         $hocphan->tenhocphan = $request->tenhocphan;
-        $hocphan->sobai = $request->sobai;
+        $hocphan->mahocphan = $request->mahocphan;
         $hocphan->start = Carbon::parse($request->start)->format('Y-m-d');
         $hocphan->end = Carbon::parse($request->end)->format('Y-m-d');
       

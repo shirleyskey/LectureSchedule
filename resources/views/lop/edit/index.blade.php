@@ -105,7 +105,7 @@
                tenhocphan: $("#form_add_hocphan input[name='tenhocphan']").val(),
                sotiet: $("#form_add_hocphan input[name='sotiet']").val(),
                sotinchi: $("#form_add_hocphan input[name='sotinchi']").val(),
-               sobai: $("#form_add_hocphan input[name='sobai']").val(),
+               mahocphan: $("#form_add_hocphan input[name='mahocphan']").val(),
                start: $("#form_add_hocphan input[name='start']").val(),
                end: $("#form_add_hocphan input[name='end']").val(),
               
@@ -177,7 +177,7 @@
                         $("#form_edit_hocphan input[name='tenhocphan']").val(data.data.tenhocphan);
                         $("#form_edit_hocphan input[name='sotiet']").val(data.data.sotiet);
                         $("#form_edit_hocphan input[name='sotinchi']").val(data.data.sotinchi);
-                        $("#form_edit_hocphan input[name='sobai']").val(data.data.sobai);
+                        $("#form_edit_hocphan input[name='mahocphan']").val(data.data.mahocphan);
                         $("#form_edit_hocphan input[name='start']").val(data.data.start);
                         $("#form_edit_hocphan input[name='end']").val(data.data.end);
                         $('#modal_edit_hocphan').modal('show');
@@ -207,7 +207,7 @@
                     sotiet: $("#form_edit_hocphan input[name='sotiet']").val(),
                     tenhocphan: $("#form_edit_hocphan input[name='tenhocphan']").val(),
                     sotinchi: $("#form_edit_hocphan input[name='sotinchi']").val(),
-                    sobai: $("#form_edit_hocphan input[name='sobai']").val(),
+                    mahocphan: $("#form_edit_hocphan input[name='mahocphan']").val(),
                     start: $("#form_edit_hocphan input[name='start']").val(),
                     end: $("#form_edit_hocphan input[name='end']").val(),
                 },

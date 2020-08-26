@@ -75,6 +75,7 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
+                                    <th> Mã Lớp (Duy Nhất)</th>
                                     <th> Tên Lớp</th>
                                     <th> Quy Mô </th>
                                     <th> Số Học Viên</th>
@@ -87,6 +88,7 @@
                                     @foreach( $ds_lop as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
+                                        <td> {{ $v->malop }}  </td>
                                         <td> {{ $v->tenlop }}  </td>
                                         <td> {{ $v->quymo }} </td>
                                         <td> {{ $v->songuoi }} </td>

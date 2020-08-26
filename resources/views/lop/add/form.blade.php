@@ -7,6 +7,16 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label class="control-label col-md-4">Mã Lớp (Duy Nhất):
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-7">
+                                <div class="input-icon right">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" class="form-control" name="malop" value="{{ old('malop') }}" required  /> </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-4">Tên Lớp:
                                 <span class="required"> * </span>
                             </label>

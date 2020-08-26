@@ -65,6 +65,10 @@
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->lops->tenlop }}</label>
                                             </div>
                                             <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Mã Học Phần:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $hocphan->mahocphan }}</label>
+                                            </div>
+                                            <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Tên Học Phần:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->tenhocphan }}</label>
                                             </div>

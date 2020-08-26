@@ -76,9 +76,10 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Lớp </th>
+                                    <th> Mã Học Phần </th>
+                                    <th> Tên Học Phần </th>
                                     <th> Số Tiết </th>
                                     <th> Số Tín Chỉ</th>
-                                    <th> Tên Học Phần </th>
                                     <th> Số Bài</th>
                                     <th> Bắt Đầu</th>
                                     <th> Kết Thúc</th>
@@ -94,9 +95,10 @@
                                         <td> 
                                             {{ ($v->id_lop) ? ($v->lops->tenlop) : '' }}
                                         </td>
+                                        <td> {{ $v->mahocphan }} </td>
+                                        <td> {{ $v->tenhocphan }} </td>
                                         <td> {{ $v->sotiet }}  </td>
                                         <td> {{ $v->sotinchi }} </td>
-                                        <td> {{ $v->tenhocphan }} </td>
                                         <td> {{ $v->sobai }} </td>
                                         <td> {{ $v->start }} </td>
                                         <td> {{ $v->end }} </td>
