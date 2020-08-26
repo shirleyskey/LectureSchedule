@@ -62,7 +62,8 @@ class CalendarController extends Controller
                             break;
                     }
                     //End Switch case
-                    $title = $tiet->lops->malop . " - " . $tiet->hocphans->mahocphan ."- Tiết". $time[$i];
+                    // dd($tiet->lops->tenlop);
+                    $title = $tiet->lops->malop." - ". $tiet->hocphans->mahocphan."- Tiết".$time[$i];
                     $events[] = Calendar::event(
                         $title,
                         false,
@@ -89,7 +90,7 @@ public function import(Request $request)
     Excel::import(new CalenderImport, $request->calendar);
     // Excel::import(new LopImport, $request->calendar);
 
-    return redirect()->route('lichgiang.lichgiangtuan.import');
+    return redirect()->route('lichgiang.lichgiangtuan');
 }
     
 }

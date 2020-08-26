@@ -15,70 +15,50 @@ use DateTime;
 class CalenderImport implements ToCollection, WithHeadingRow
 {
 
+       
+    public function headingRow(): int
+    {
+        return 1;
+    }
+
     /**
     * @param Collection $collection
     */
 
     public function collection(Collection $rows)
     {
-        $ds_lop = Lop::all();
         foreach($rows as $row){
-            // THEM LOP: 
-            $trunglop = false;
-            $malop = $row["ma_lop"];
-            foreach($ds_lop as $lop){
-                if($malop == $lop->malop){
-                    $trunglop = true;
-                    $idloptrung = $lop->id;
+            if($row["ma_lop"]){
+                if(Lop::where('malop', $row["ma_lop"])->exists()){
+                    $themlop = Lop::where('malop', $row["ma_lop"])->first();
                 }
-            }
-
-            if($trunglop == false){
-               $themlop =  Lop::create([
-                    'malop' => $row["ma_lop"],
-                    'tenlop' => $row["ten_lop"]
-                ]);
-               $themlop->save();
+                else {
+                    $themlop = Lop::create([
+                        'malop' => $row["ma_lop"],
+                        'tenlop' => $row["ten_lop"]
+                    ]);
+                }
+        // echo $themlop;
+            if(HocPhan::where('id_lop', $themlop->id)->where('mahocphan',$row["ma_hoc_phan"])->exists()){
+                $themhocphan = HocPhan::where('id_lop', $themlop->id)->where('mahocphan',$row["ma_hoc_phan"])->first();
             }
             else {
-                $themlop = Lop::findOrFail($idloptrung);
-            }
-           
-            //THEM HOC PHAN
-            $ds_hocphan = HocPhan::where('id_lop', $themlop->id );
-            $mahocphan = $row["ma_hoc_phan"];
-            $trunghocphan = false;
-            foreach($ds_hocphan as $hocphan){
-                if($mahocphan == $hocphan->mahocphan){
-                    $trunghocphan = true;
-                    $idhocphantrung = $hocphan->id;
-                }
-            }
-            if($trunghocphan == false){
                 $themhocphan = HocPhan::create([
                     'id_lop' => $themlop->id,
-                    'mahocphan' => $mahocphan,
+                    'mahocphan' => $row["ma_hoc_phan"],
                     'tenhocphan' => $row["ten_hoc_phan"],
                     'sotiet' => $row["so_tiet"],
                     'sotinchi' => $row["so_tin_chi"],
                     'start' => $row["start"],
                     'end' => $row["end"]
                 ]);
-                $themhocphan->save();
             }
-            else {
-                $themhocphan = HocPhan::findOrFail($idhocphantrung);
-            }
-
+            // echo($themhocphan);
             //THEM BAI
             $periodbai = explode("Bài", $row["bai"]);
-            var_dump($periodbai);
-            die();
             for($i = 1; $i < count($periodbai); $i++){
                 $bai = trim($periodbai[$i]);
                 $bai = explode("có", $bai);
-                var_dump($bai);
-                die();
                 $tenbai = trim($bai[0]);
                 $sotietbai = trim($bai[1]);
                 $thembai = Bai::create([
@@ -86,9 +66,9 @@ class CalenderImport implements ToCollection, WithHeadingRow
                     'tenbai' => $tenbai,
                     'sotiet' => $sotietbai
                 ]);
-                $thembai->save();
-               
+                // echo($thembai);
             }
+          
             // THEM TIET
             $periodtiet = explode("Từ", $row["thoi_gian"]);
             for($i = 1; $i < count($periodtiet); $i++){
@@ -104,7 +84,7 @@ class CalenderImport implements ToCollection, WithHeadingRow
                     $studyTime = explode(" tiết", trim($dayOfWeek[$j]));
                     $lesson = explode(" tại ", trim($studyTime[1]));
                     $startDate = Carbon::create($dateFormat);
-                    for ( ; $startDate < $endDate; $startDate->addDay()) {
+                    for ( ; $startDate <= $endDate; $startDate->addDay()) {
                         //Thứ 7 là ngày thứ 6 trong tuần
                         if($startDate->dayOfWeek == trim($studyTime[0]) - 1){
                             $data["thoigian"] = $startDate;
@@ -112,20 +92,16 @@ class CalenderImport implements ToCollection, WithHeadingRow
                             $data["id_lop"] = $themlop->id;
                             $data["id_hocphan"] = $themhocphan->id;
                             $themtiet = Event::create($data);
-                            $themtiet->save();
+                            echo($themtiet);
                         };
                     }
+                   
                 }
+                // die();
             }
             
         }
     }
-    
-
-    
-    public function headingRow(): int
-    {
-        return 1;
-    }
-
+}
+     
 }
