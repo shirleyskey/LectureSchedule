@@ -18,8 +18,8 @@
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title"> Bảng điều khiển
-            <small>Phân công giảng dạy. Thống kê giờ giảng, Nghiên cứu khoa học và Công việc khác.</small>
+        <h1 class="page-title"> <strong>Bảng điều khiển</strong>
+            <small>Phân công giảng dạy. Thống kê giờ giảng, thống kê Khoa học và Công việc khác.</small>
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->

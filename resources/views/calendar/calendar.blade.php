@@ -54,6 +54,11 @@
         <link href="{{ asset('assets/layouts/layout/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/layouts/layout/css/custom-calendar.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+        <style>
+            body{
+                font-family: "Open Sans",sans-serif;
+            }
+        </style>
 
     </head>
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">

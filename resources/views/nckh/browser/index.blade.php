@@ -43,65 +43,116 @@
         <!-- BEGIN DASHBOARD STATS 1-->
         <div class="row">
             <div class="col-md-12">
-                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-body">
-                        @permission('create-giangvien')
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" href="{{ route('nckh.add.get') }}"><i class="fa fa-plus"></i> Thêm mới
-                                        </a>
+                <div class="tabbable tabbable-tabdrop">
+                    <ul class="nav nav-pills" id="#myTab">
+                        <li class="active">
+                            <a href="#tab1" data-toggle="tab">Đề Tài Cấp Bộ</a>
+                        </li>
+                        <li>
+                            <a href="#tab11" data-toggle="tab">Đề Tài Cấp Cơ Sở</a>
+                        </li>
+                        <li>
+                            <a href="#tab12" data-toggle="tab">Tập Bài Giảng</a>
+                        </li>
+                        <li>
+                            <a href="#tab2" data-toggle="tab">Chuyên Đề</a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab">Tài Liệu Tham Khảo</a>
+                        </li>
+                        <li>
+                            <a href="#tab4" data-toggle="tab">Sáng Kiến Cải Tiến</a>
+                        </li>
+                        <li>
+                            <a href="#tab5" data-toggle="tab">Bài Báo Khoa Học</a>
+                        </li>
+                    </ul>
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
+                        <!-- BEGIN FORM-->
+                        <div class="tab-content">
+                            <!-- BEGIN TAB 1 NCKH-->
+                            <div class="tab-pane" id="tab1">
+                                @if($capbo->isNotEmpty())
+                                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                    <div class="portlet light portlet-fit bordered">
+                                        <div class="portlet-body">
+                                            <div class="table-toolbar">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="btn-group">
+                                                            <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH
+                                                                
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                                <thead>
+                                                    <tr>
+                                                        <th> STT</th>
+                                                        <th style="width: 20%;"> Tên Đề Tài</th>
+                                                        <th> Chủ Biên</th>
+                                                        <th> Tham Gia</th>
+                                                        <th> Bắt Đầu</th>
+                                                        <th> Kết Thúc</th>
+                                                        <th> Số Trang</th>
+                                                        <th> Số Giờ</th>
+                                                        <th> Hành Động</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if( $capbo->count() > 0 )
+                                                        @php $stt = 1; @endphp
+                                                        @foreach( $capbo as $v )
+                                                        <tr>
+                                                            <td> {{ $stt }} </td>
+                                                            <td> {{ $v->ten }} </td>
+                                                            <td> 
+                                                                @php
+                                                                    $chubien = json_decode( $v->chubien, true);
+                                                                @endphp
+                                                                    @foreach($chubien as $key => $value)
+                                                                       {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} 
+                                                                       
+                                                                        
+                                                                    @endforeach
+                                                            </td>
+                                                            <td> {{ $v->thamgia }} </td>
+                                                            <td> {{$v->batdau}}</td>
+                                                            <td> {{$v->ketthuc}}</td>
+                                                            <td> {{$v->sotrang}}</td>
+                                                            <td> </td>
+                                                            <td>
+                                                                <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                            </td>
+                                                        </tr>
+                                                        @php $stt++; @endphp
+                                                        @endforeach
+                                                    @endif
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                   
-                                </div>
-                            </div>
-                        </div>
-                        @endpermission
-                        <table class="table table-striped table-hover table-bordered" id="ds_nckh">
-                            <thead>
-                                <tr>
-                                    <th> STT</th>
-                                    <th> Tên </th>
-                                    <th> Tiến Độ </th>
-                                    <th> Thời Gian</th>
-                                    
-                                    <th> Hành Động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if( $ds_nckh->count() > 0 )
-                                    @php $stt = 1; @endphp
-                                    @foreach( $ds_nckh as $v )
-                                    <tr>
-                                        <td> {{ $stt }} </td>
-                                        <td> 
-                                            <a href="{{ route('giangvien.read.get', $v->id) }}">{{ $v->ten }}</a> 
-                                        </td>
-                                        <td> {{ $v->tiendo }}  </td>
-                                        <td> {{ $v->thoigian }} </td>
-                                        <td>
-                                            @permission('update-nckh')
-                                            <a class="btn btn-xs yellow-gold" href="{{ route('nckh.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
-                                            @endpermission
-                                            @permission('delete-nckh')
-                                            <a class="btn btn-xs red-mint" href="{{ route('nckh.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa NCKH này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
-                                            @endpermission
-                                        </td>
-                                    </tr>
-                                    @php $stt++; @endphp
-                                    @endforeach
+                                    <!-- END EXAMPLE TABLE PORTLET-->
+                                @else
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Không có đề tài cấp bộ nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo Đề Tài</a></p>
+                                    </div>
                                 @endif
-                            </tbody>
-                        </table>
+                            </div>
+                            <!-- END TAB 2-->
+
+                        </div>
+                        <!-- END FORM-->
                     </div>
+                    <!-- END VALIDATION STATES-->
                 </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
             </div>
         </div>
+     
         <div class="clearfix"></div>
         <!-- END DASHBOARD STATS 1-->
     </div>

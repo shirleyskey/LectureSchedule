@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <div class="input-group">
-                                        <select class="form-control" name="id_giangvien">
+                                        <select class="form-control" name="id_giangvien" readonly>
                                         <option value="{{$user->giangviens->id}}">{{$user->giangviens->ten}}</option>
                                             @if($giangvien->count()>0)
                                                 @foreach($giangvien as $v)

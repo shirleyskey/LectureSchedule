@@ -9,6 +9,11 @@
     <link href="{{ asset('assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
+    <style>
+        body{
+            font-family: "Open Sans",sans-serif;
+        }
+    </style>
 @endsection()
 
 @section('content')

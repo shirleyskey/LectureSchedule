@@ -13,8 +13,24 @@ class NckhController extends Controller
 {
 
     public function index()
+
     {
-        return view('nckh.browser.index', ['ds_nckh' => Nckh::all()]);
+        $capbo = Nckh::where('capbo', true)->get();
+        $capcoso = Nckh::where('capcoso', true)->get();
+        $tapbaigiang = Nckh::where('tapbaigiang', true)->get();
+        $chuyende = Nckh::where('chuyende', true)->get();
+        $thamkhao = Nckh::where('thamkhao', true)->get();
+        $sangkien = Nckh::where('sangkien', true)->get();
+        $bao = Nckh::where('bao', true)->get();
+        return view('nckh.browser.index', [
+            'capbo' => $capbo,
+            'capcoso' => $capcoso,
+            'tapbaigiang' => $tapbaigiang,
+            'chuyende' => $chuyende,
+            'thamkhao' => $thamkhao,
+            'sangkien' => $sangkien,
+            'bao' => $bao
+        ]);
     }
 
     public function create(){
