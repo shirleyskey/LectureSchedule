@@ -29,8 +29,10 @@
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-list-ul"></i>
-            Danh Sách Lớp Học
+            <strong>
+                <i class="fa fa-building-o"></i>
+                Danh Sách Lớp Học
+            </strong>
         </h1>
 
         <!-- MESSAGE -->
@@ -54,19 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="btn-group pull-right">
-                                        <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Công cụ
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li>
-                                                <a id="import-excel" href="#"><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('lop.export-excel.get') }}"><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>

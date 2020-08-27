@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Event;
-use App\EventModel;
 use App\Lop;
 use App\Bai;
+use App\Nckh;
 use Calendar;
-use App\Imports\CalenderImport;
-use App\Imports\LopImport;
 use Carbon\Carbon;
 use DateTime;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
-class CalendarController extends Controller
+class ThongBaoController extends Controller
 {
     //
-    public function index(){
+    public function index($id){
         $events = [];
         $tiets = Event::all();
+       
         if($tiets->count()){
             foreach($tiets as $tiet){
                 $startDate = Carbon::parse($tiet->thoigian);
@@ -83,18 +83,29 @@ class CalendarController extends Controller
             }
             //end foreach Event
         }
+
+        $nckhs = Nckh::where('id_giangvien',$id )->get();
+        if($nckhs->count()){
+            foreach($nckhs as $nckh){
+                $nckhDate = Carbon::parse($nckh->thoigian);
+                $title = "NCKH: ".$nckh->ten;
+                $events[] = Calendar::event(
+                    $title,
+                    false,
+                    new DateTime($nckhDate->subDays(7)),
+                    new DateTime($nckhDate),
+                    $nckh->id,
+                    [
+                        'color' => '#ff6100',
+                        'url' => route('nckh.edit.get', $nckh->id)
+                    ]
+                );
+            }
+        }
       
 
         $calendar = Calendar::addEvents($events)->setOptions(['lang' => 'vi']);
-        return view('calendar.calendar', ['calendar' => $calendar]);
+        return view('calendar.thongbao', ['calendar' => $calendar]);
     }
-
-public function import(Request $request)
-{
-    Excel::import(new CalenderImport, $request->calendar);
-    // Excel::import(new LopImport, $request->calendar);
-
-    return redirect()->route('lichgiang.lichgiangtuan');
-}
     
 }

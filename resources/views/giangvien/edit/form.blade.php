@@ -22,7 +22,7 @@
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
+                                    <i class="fa fa-building-o"></i>
                                     <input type="text" class="form-control" name="chucvu" required maxlength="191" value="{{ $giangvien->chucvu }}" /> </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
+                                    <i class="fa fa-plus-circle"></i>
                                     <input type="number" step="any" class="form-control" name="hesoluong" value="{{ $giangvien->hesoluong }}" /> </div>
                             </div>
                         </div>
@@ -44,11 +44,14 @@
                                     <input type="text" class="form-control" name="diachi" value="{{ $giangvien->diachi }}" /> </div>
                             </div>
                         </div>
+                       
+                    </div>
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label col-md-4">Chức Danh:</label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
-                                    <i class="fa fa-envelope"></i>
+                                    <i class="fa fa-briefcase"></i>
                                     <input type="text" class="form-control" name="chucdanh" value="{{ $giangvien->chucdanh }}" /> </div>
                             </div>
                         </div>
@@ -56,7 +59,7 @@
                             <label class="control-label col-md-4">Trình Độ:</label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
-                                    <i class="fa fa-envelope"></i>
+                                    <i class="fa fa-book"></i>
                                     <input type="text" class="form-control" name="trinhdo" value="{{ $giangvien->trinhdo }}" /> </div>
                             </div>
                         </div>
@@ -68,8 +71,6 @@
                                     <input type="number" class="form-control" name="cothegiang" value="{{ $giangvien->cothegiang }}" /> </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
                     </div>
                 </div>
             </div>

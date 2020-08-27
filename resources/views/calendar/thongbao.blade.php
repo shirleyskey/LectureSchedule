@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Lịch Giảng Tuần| </title>
+        <title>Lịch Trình Cá Nhân| </title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Ứng dụng quản lý khoa, lịch trình giảng dạy" name="description" />
@@ -202,15 +202,11 @@
                         
                             <li class="heading">
                                 <h3 class="uppercase">NCKH</h3>
-
                             </li>
                             <li class="nav-item {{ Request::is('nckh') ? 'active open' : '' }}">
-
                                 <a href="{{ route('nckh.index') }}" class="nav-link nav-toggle">
-
                                     <i class="fa fa-briefcase "></i>
                                     <span class="title">Quản Lý NCKH</span>
-
                                     <span class="selected"></span>
                                 </a>
                             </li>
@@ -267,9 +263,8 @@
                         </div>
                         <!-- END PAGE BAR -->
                         <!-- BEGIN PAGE TITLE-->
-                        <h1 class="page-title"> Bảng điều khiển
-                            <small>Thống kê tổng giờ giảng, NCKH và Công việc khác</small>
-
+                        <h1 class="page-title">Lịch Trình Cá Nhân
+                            <small>Lịch trình giảng dạy, NCKH và các công việc khác</small>
                         </h1>
                         <!-- END PAGE TITLE-->
                         <!-- END PAGE HEADER-->
@@ -277,24 +272,15 @@
                         <div class="row">
                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="content" style="margin: 50px">
-                                    <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
                                     <div class="modal fade" id="modal-add">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-body">
-                                                <form action="{{route('lichgiang.lichgiangtuan.import')}}" method="POST" role="form" enctype="multipart/form-data">
-                                                        <legend>Nhập Lịch Học</legend>
-                                                        @csrf
-                                                        <div class="form-group">
-                                                            <input type="file" class="form-control" name="calendar" id="" placeholder="Input field">
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                                    </form>
+                                               
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                        
                                     {!! $calendar->calendar() !!}
                                     {!! $calendar->script() !!}
                                 </div>
@@ -389,8 +375,10 @@
                 }
             });
 
-            
-            
+            $('#calendar').fullCalendar({
+                locale: 'vi'
+            });
+
         });
         </script>
        

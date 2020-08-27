@@ -20,15 +20,17 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('user.index') }}">Danh Sách Giảng Viên</a>
+                    <a href="{{ route('user.index') }}">Người Dùng Hệ Thống</a>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
+            <strong>
             <i class="fa fa-edit"></i>
-            Sửa Giảng Viên
+            Sửa Thông Tin Người Dùng
+        </strong>
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -47,19 +49,7 @@
             <input type="hidden" name="id" value="{{ $user->id }}">
             <div class="row">
                 <div class="col-md-4 text-center col-md-push-8">
-                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
-                            <img src="<?php if(!empty($user->avatar))echo asset('uploads/avatars').'/'.$user->avatar; else echo 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image'; ?>" alt="" />
-                        </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 200px;"> </div>
-                        <div>
-                            <span class="btn default btn-file">
-                                <span class="fileinput-new"> Chọn ảnh </span>
-                                <span class="fileinput-exists"> Thay đổi </span>
-                                <input type="file" name="avatar"> </span>
-                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Hủy </a>
-                        </div>
-                    </div>
+                   
                 </div>
                 <div class="col-md-8 col-md-pull-4">
                     <!-- BEGIN VALIDATION STATES-->

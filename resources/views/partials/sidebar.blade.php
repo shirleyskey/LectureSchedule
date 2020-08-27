@@ -24,41 +24,32 @@
             <li class="nav-item start ">
                 <a href="{{ route('dashboard') }}" class="nav-link">
                     <i class="fa fa-dashboard"></i>
-                    <span class="title">BẢNG ĐIỀU KHIỂN</span>
+                    <span class="title"> <strong>BẢNG ĐIỀU KHIỂN</strong></span>
                     <span class="selected"></span>
                 </a>
             </li>
             <li class="heading">
                 <h3 class="uppercase">QUẢN LÝ</h3>
             </li>
-            <li class="nav-item {{ Request::is('lichgiang/phancong') ? 'active open' : '' }}">
+            {{-- <li class="nav-item {{ Request::is('lichgiang/phancong') ? 'active open' : '' }}">
                 <a href="{{ route('lichgiang.phancong') }}" class="nav-link nav-toggle">
                     <i class="fa fa-calendar"></i>
                     <span class="title">Phân Công Lịch Giảng</span>
                     <span class="selected"></span>
                 </a>
-            </li>
-            <li class="nav-item {{ Request::is('lichgiang/lichgiangtuan') ? 'active open' : '' }}">
+            </li> --}}
+            {{-- <li class="nav-item {{ Request::is('lichgiang/lichgiangtuan') ? 'active open' : '' }}">
                 <a href="{{ route('lichgiang.lichgiangtuan') }}" class="nav-link nav-toggle">
                     <i class="fa fa-calendar-check-o"></i>
                     <span class="title">Lịch Giảng Tuần</span>
                     <span class="selected"></span>
                 </a>
-            </li>
+            </li> --}}
             @permission('read-giangvien')
             <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : '' }}">
                 <a href="{{ route('giangvien.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-user"></i>
                     <span class="title">Giảng Viên</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
-            @endpermission
-            @permission('read-hocphan')
-            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/hocphan' ? 'active open' : '' }}">
-                <a href="{{ route('hocphan.index') }}" class="nav-link nav-toggle">
-                    <i class="fa fa-file-code-o"></i>
-                    <span class="title">Học Phần</span>
                     <span class="selected"></span>
                 </a>
             </li>
@@ -72,6 +63,16 @@
                 </a>
             </li>
             @endpermission
+            @permission('read-hocphan')
+            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/hocphan' ? 'active open' : '' }}">
+                <a href="{{ route('hocphan.index') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-file-code-o"></i>
+                    <span class="title">Học Phần</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            @endpermission
+           
            
             <li class="heading">
                 <h3 class="uppercase">NCKH</h3>
@@ -110,7 +111,7 @@
             <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/users' ? 'active open' : '' }}">
                 <a href="{{ route('user.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-user"></i>
-                    <span class="title">Người Dùng</span>
+                    <span class="title">Người Dùng Hệ Thống</span>
                     <span class="selected"></span>
                 </a>
             </li>

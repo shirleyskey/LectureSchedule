@@ -23,15 +23,17 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>Danh Sách Người Dùng</span>
+                    <span>Người Dùng Hệ Thống</span>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-list-ul"></i>
+            <strong>
+            <i class="fa fa-user"></i>
             Danh Sách Người Dùng
+        </strong>
         </h1>
 
         <!-- MESSAGE -->
@@ -56,31 +58,6 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="btn-group pull-right">
-                                        <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Công cụ
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right">
-                                            {{-- <li>
-                                                <a id="{{ route('user.import.get')}}" href="#"><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
-                                            </li>--}}
-                                            <form action="{{route('user.import')}}" method="POST" enctype="multipart/form-data">
-                                                {{ csrf_field() }}
-                                                <label for="user-file">
-                                                    <div class="btn sbold green"> Add
-                                                        <i class="fa fa-plus"></i>
-                                                    </div>
-                                                </label>
-                                                <input id="user-file" type="file" name="user_file" accept=".xlsx, .xls, .csv, .ods">
-                                                <button type="submit">Import</button>
-                                            </form>
-                                            <li> 
-                                            <a href="{{ route('user.export')}}"><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
-                                            </li>
-                                           
-                                        </ul>
-                                       
-                                    </div>
                                 </div>
                             </div>
                         </div>

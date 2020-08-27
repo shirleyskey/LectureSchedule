@@ -14,7 +14,7 @@ class DangController extends Controller
 
     public function index()
     {
-        return view('dang.browser.index', ['ds_dang' => Dang::all()]);
+        return view('dang.browser.index', ['ds_dang' => Dang::apache_lookup_uri(filename)l()]);
     }
 
     public function create(){

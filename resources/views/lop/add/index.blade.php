@@ -19,14 +19,16 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('lop.index') }}">Lớp Học</a>
+                    <a href="{{ route('lop.index') }}">Quản Lý Lớp Học</a>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
+            <strong>
             <i class="fa fa-plus"></i> Thêm Lớp Học
+        </strong>
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->

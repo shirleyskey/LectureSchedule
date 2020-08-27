@@ -30,7 +30,7 @@
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $giangvien->ten }} - {{ $giangvien->chucvu }}
+           <strong> <i class="fa fa-edit"></i> Chỉnh sửa </strong> | {{ $giangvien->ten }} - {{ $giangvien->chucvu }}
             @if( $giangvien->cothegiang == 1 )
             <span class="label label-sm bg-green-jungle"> Có thể giảng </span>
             @else

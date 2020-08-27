@@ -19,14 +19,15 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('giangvien.index') }}">Giảng Viên</a>
+                    <a href="{{ route('giangvien.index') }}">Quản Lý Giảng Viên</a>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-plus"></i> Thêm Giảng Viên
+            <strong> 
+            <i class="fa fa-plus"></i> Thêm Giảng Viên</strong>
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->

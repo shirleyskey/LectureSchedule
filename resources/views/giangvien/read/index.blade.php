@@ -20,14 +20,14 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('giangvien.index') }}">Danh Sách Giảng Viên</a>
+                    <a href="{{ route('giangvien.index') }}">Quản Lý Giảng Viên</a>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title">
-            <i class="fa fa-user"></i> {{ $giangvien->ten }} - {{ $giangvien->chucvu }}
+        <h1 class="page-title"> <strong>
+            <i class="fa fa-user"></i> {{ $giangvien->ten }} - {{ $giangvien->chucvu }}</strong>
             @if( $giangvien->cothegiang ==1 )
             <span class="label label-sm bg-green-jungle"> Có Thể giảng </span>
             @else
@@ -108,6 +108,9 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Hệ Số Lương:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $giangvien->hesoluong }}</label>
                                             </div>
+                                            
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Địa chỉ liên hệ:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $giangvien->diachi }}</label>
@@ -120,40 +123,6 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Trình Độ:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $giangvien->trinhdo }}</label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            {{-- <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Giới tính:</label>
-                                                @if($nhan_su->gioi_tinh)
-                                                    <label class="control-label col-md-7 col-xs-6">Nam</label>
-                                                @else
-                                                    <label class="control-label col-md-7 col-xs-6">Nữ</label>
-                                                @endif
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Ngày sinh:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $nhan_su->ngay_sinh }}</label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Số CMND:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $nhan_su->so_cmnd }}</label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Ngày cấp CMND:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $nhan_su->ngay_cap_cmnd }}</label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Nơi cấp CMND:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $nhan_su->noi_cap_cmnd }}</label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Ngày bắt đầu làm:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $nhan_su->ngay_bat_dau_lam }}</label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Ngày làm việc cuối:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $nhan_su->ngay_lam_viec_cuoi }}</label>
-                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>

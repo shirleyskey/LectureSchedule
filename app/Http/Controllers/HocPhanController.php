@@ -23,7 +23,7 @@ class HocPhanController extends Controller
         $hocphan = HocPhan::findOrFail($id);
         return view('hocphan.read.index', [
             'hocphan' => $hocphan,
-            'bai' => Bai::where('id_giangvien', $id)->get(),
+            'bai' => Bai::where('id_hocphan', $id)->get(),
         ]);
     }
 

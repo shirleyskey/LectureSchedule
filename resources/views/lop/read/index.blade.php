@@ -27,7 +27,9 @@
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-user"></i> {{ $lop->tenlop }} - QUY MÔ: {{ $lop->quymo }}
+            <strong>
+            <i class="fa fa-building-o"></i> {{ $lop->tenlop }}
+        </strong>
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -72,6 +74,9 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Quy Mô:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $lop->quymo }}</label>
                                             </div>
+                                           
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Người:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $lop->songuoi }}</label>
@@ -80,8 +85,6 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Học Phần:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->count() }}</label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
                                         </div>
                                     </div>
                                 </div>

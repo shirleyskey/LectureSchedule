@@ -12,8 +12,8 @@
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
-                                    <i class="fa fa-user"></i>
-                                    <input type="text" class="form-control" name="malop" value="{{ $lop->malop }}" required maxlength="191" /> </div>
+                                    <i class="fa fa-file-code-o"></i>
+                                    <input type="text" class="form-control" readonly name="malop" value="{{ $lop->malop }}" required maxlength="191" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -22,13 +22,12 @@
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
-                                    <i class="fa fa-user"></i>
+                                    <i class="fa fa-building-o"></i>
                                     <input type="text" class="form-control" name="tenlop" value="{{ $lop->tenlop }}" required maxlength="191" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-4">Quy Mô:
-                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
@@ -41,7 +40,7 @@
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
+                                    <i class="fa fa-user"></i>
                                     <input type="number" step="any" class="form-control" name="songuoi" value="{{ $lop->songuoi }}" /> </div>
                             </div>
                         </div>
@@ -113,7 +112,7 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Lớp này chưa có Học Phần nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH</a></p>
+                    <p> Lớp này chưa có Học Phần nào. </p>
                 </div>
             @endif
         </div>

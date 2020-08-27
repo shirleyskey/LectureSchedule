@@ -29,8 +29,8 @@
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-list-ul"></i>
-            Danh Sách Giảng Viên
+            <i class="fa fa-book"></i>
+            <strong>Danh Sách Giảng Viên</strong>
         </h1>
 
         <!-- MESSAGE -->
@@ -54,19 +54,6 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="btn-group pull-right">
-                                        <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Công cụ
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li>
-                                                <a href=""><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
-                                            </li>
-                                            <li>
-                                                <a href=""><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>

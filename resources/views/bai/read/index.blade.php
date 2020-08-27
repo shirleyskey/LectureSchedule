@@ -27,7 +27,9 @@
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-user"></i> Bài: {{ $bai->tenbai }}
+            <strong>
+                <i class="fa fa-briefcase"></i> Bài: {{ $bai->tenbai }}
+            </strong>
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -70,7 +72,7 @@
                                             </div>
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Tên Giáo Viên Giảng Dạy:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $bai->giangviens->ten }}</label>
+                                                <label class="control-label col-md-7 col-xs-6"></label>
                                             </div>
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Tiết:</label>

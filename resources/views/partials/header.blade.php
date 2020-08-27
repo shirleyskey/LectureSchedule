@@ -36,15 +36,22 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                        <a href="{{route('profile.edit.get', Auth::user()->id_giangvien)}}">
-                                <i class="fa fa-user"></i> Trang Cá Nhân </a>
+                            <a href="{{route('profile.edit.get', Auth::user()->id_giangvien)}}">
+                                <i class="fa fa-user"></i> Thông Tin Cá Nhân
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <a href="{{route('profile.thongbao.get', Auth::user()->id_giangvien)}}">
+                                <i class="fa fa-calendar-minus-o"></i> Lịch Trình
+                            </a>
                         </li>
                         <li class="divider"> </li>
                         <li >
-                                <a href="{{ route('logout.get') }}" style="color: #CC0000">
-                                    <i class="fa fa-sign-out" style="color: #CC0000"></i> 
-                                    Đăng Xuất
-                                </a>
+                            <a href="{{ route('logout.get') }}" style="color: #CC0000">
+                                <i class="fa fa-sign-out" style="color: #CC0000"></i> 
+                                Đăng Xuất
+                            </a>
                         </li>
                     </ul>
                 </li>

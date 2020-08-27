@@ -30,7 +30,9 @@
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $lop->tenlop }} - QUY MÔ: {{ $lop->quymo }}
+            <strong>
+            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $lop->tenlop }} 
+        </strong>
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->

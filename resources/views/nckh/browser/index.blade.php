@@ -22,15 +22,17 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <span>Danh Sách NCKH</span>
+                    <span>Thống kê Khoa Học</span>
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-list-ul"></i>
-            Danh Sách NCKH
+            <strong>
+                <i class="fa fa-file-code-o"></i>
+                THỐNG KÊ KHOA HỌC
+            </strong>
         </h1>
 
         <!-- MESSAGE -->
@@ -54,19 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="btn-group pull-right">
-                                        <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Công cụ
-                                            <i class="fa fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li>
-                                                <a id="import-excel" href="#"><i class="glyphicon glyphicon-folder-open"></i> Nhập Excel </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('nckh.export-excel.get') }}"><i class="glyphicon glyphicon-download-alt"></i> Xuất Excel </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>

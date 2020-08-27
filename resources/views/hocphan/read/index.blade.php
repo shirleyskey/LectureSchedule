@@ -27,7 +27,8 @@
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
-            <i class="fa fa-user"></i>Học Phần: {{ $hocphan->tenhocphan }} - {{ ($hocphan->id_lop) ? $hocphan->lops->tenlop : ''}}
+            <strong>
+            <i class="fa fa-book"></i> {{ $hocphan->tenhocphan }} </strong> - {{ ($hocphan->id_lop) ? $hocphan->lops->tenlop : ''}}
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
@@ -76,13 +77,16 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Tiết:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->sotiet }}</label>
                                             </div>
+                                           
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Tín Chỉ:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->sotinchi }}</label>
                                             </div>
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Bài:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $hocphan->sobai }}</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $hocphan->bais->count() }}</label>
                                             </div>
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Bắt Đầu:</label>:</label>
@@ -92,8 +96,6 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Kết Thúc:</label>:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->end }}</label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
                                         </div>
                                     </div>
                                 </div>
