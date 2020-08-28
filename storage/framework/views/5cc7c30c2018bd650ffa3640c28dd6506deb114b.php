@@ -21,7 +21,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="tenhocphan" readonly value="<?php echo e($bai->hocphans->tenhocphan); ?>" /> </div>
+                                    <input type="text" class="form-control" name="id_hocphan" value="<?php echo e($bai->hocphans->id); ?>" hidden/> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -48,7 +48,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <select class="form-control" name="id_giangvien">
+                                    <select class="form-control" name="gvchinh">
                                         <option value="<?php echo e($bai->gvchinh); ?>"><?php echo e($bai->giangvienchinhs->ten); ?></option>
                                             <?php if($ds_giangvien->count()>0): ?>
                                                 <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -65,7 +65,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <select class="form-control" name="id_giangvien">
+                                    <select class="form-control" name="gvphu">
                                         <option value="<?php echo e($bai->gvphu); ?>"><?php echo e($bai->giangvienphus->ten); ?></option>
                                             <?php if($ds_giangvien->count()>0): ?>
                                                 <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -79,12 +79,12 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label col-md-4">Giờ LýT GVC:
+                            <label class="control-label col-md-4">LýT GVC:
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="lythuyet" readonly value="<?php echo e($bai->lythuyet); ?>" /> </div>
+                                    <input type="number" class="form-control" name="lythuyet" value="<?php echo e($bai->lythuyet); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -93,7 +93,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="xemina" readonly value="<?php echo e($bai->xemina); ?>" /> </div>
+                                    <input type="number" class="form-control" name="xemina" value="<?php echo e($bai->xemina); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -102,16 +102,16 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="thuchanh" readonly value="<?php echo e($bai->thuchanh); ?>" /> </div>
+                                    <input type="number" class="form-control" name="thuchanh" value="<?php echo e($bai->thuchanh); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Giờ LýT GV Tham Gia:
+                            <label class="control-label col-md-4">LýT GV Tham Gia:
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="lythuyet_phu" readonly value="<?php echo e($bai->lythuyet_phu); ?>" /> </div>
+                                    <input type="number" class="form-control" name="lythuyet_phu" value="<?php echo e($bai->lythuyet_phu); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -120,7 +120,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="xemina_phu" readonly value="<?php echo e($bai->xemina_phu); ?>" /> </div>
+                                    <input type="number" class="form-control" name="xemina_phu" value="<?php echo e($bai->xemina_phu); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -129,7 +129,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="thuchanh_phu" readonly value="<?php echo e($bai->thuchanh_phu); ?>" /> </div>
+                                    <input type="number" class="form-control" name="thuchanh_phu" value="<?php echo e($bai->thuchanh_phu); ?>" /> </div>
                             </div>
                         </div>
                     </div>

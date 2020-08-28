@@ -37,10 +37,10 @@ class LuanVan extends Model
             $data['uyvien'][$key] = (int)$value;         
         }
         $luanvan->huongdan = json_encode($data['huongdan']);
-        $luanvan->chutichcham = json_encode($data['chutich']);
-        $luanvan->phanbiencham = json_encode($data['phanbien']);
-        $luanvan->thukycham = json_encode($data['thuky']);
-        $luanvan->uyviencham = json_encode($data['uyvien']);
+        $luanvan->chutich = json_encode($data['chutich']);
+        $luanvan->phanbien = json_encode($data['phanbien']);
+        $luanvan->thuky = json_encode($data['thuky']);
+        $luanvan->uyvien = json_encode($data['uyvien']);
         $luanvan->ghichu = $data['ghichu'];
         $luanvan->save();
         return $luanvan;

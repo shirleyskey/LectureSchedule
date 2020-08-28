@@ -76,65 +76,7 @@
             </div>
         </div>
         <!-- END TAB 1-->
-        <!-- BEGIN TAB 2 NCKH-->
-        <div class="tab-pane" id="tab2">
-           
-            <?php if($nckh->isNotEmpty()): ?>
-                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-body">
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH
-                                            
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                            <thead>
-                                <tr>
-                                    <th> STT</th>
-                                    <th> Tên NCKH</th>
-                                    <th> Tiến Độ</th>
-                                    <th> Thời Gian</th>
-                                    <th> Số Giờ</th>
-                                    <th> Hành Động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if( $nckh->count() > 0 ): ?>
-                                    <?php $stt = 1; ?>
-                                    <?php $__currentLoopData = $nckh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr>
-                                        <td> <?php echo e($stt); ?> </td>
-                                        <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->tiendo); ?> </td>
-                                        <td> <?php echo e($v->thoigian); ?> </td>
-                                        <td> </td>
-                                        <td>
-                                            <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                        </td>
-                                    </tr>
-                                    <?php $stt++; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
-            <?php else: ?>
-                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không có Nghiên cứu khoa học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH</a></p>
-                </div>
-            <?php endif; ?>
-        </div>
-        <!-- END TAB 2-->
+    
 
         <!-- BEGIN TAB 3-->
         <div class="tab-pane" id="tab3">
@@ -542,8 +484,6 @@
     </div>
 
 </form>
-<?php echo $__env->make('nckh.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php echo $__env->make('nckh.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
  <?php echo $__env->make('congtac.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('congtac.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('chambai.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -558,5 +498,4 @@
 <?php echo $__env->make('sangkien.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('hoctap.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('hoctap.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
 <?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/giangvien/edit/form.blade.php ENDPATH**/ ?>

@@ -101,8 +101,621 @@
     <!-- END CONTENT BODY -->
 </div>
 <!-- END CONTENT -->
+<!-- -------------------------------------LUận Văn ADD ----------------------------------------->
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_luanvan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_luanvan">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><strong><i class="fa fa-plus"></i> Thêm mới Luận Văn</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><b>Tên Luận Văn:</b> <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Người Việt hoặc Nước Ngoài:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="vietnam" name="vietnam">
+                                        <label class="form-check-label" for="vietnam">Người Việt:</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Hướng Dẫn:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="huongdan">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Chủ Tịch:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chutich">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Phản Biện: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="phanbien">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Thư Ký: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thuky">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Ủy Viên: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="uyvien">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Ghi Chú:</b></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_luanvan"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END Luận Văn ADD -------------------------------------->
+<!-- -------------------------------------LUận ÁN ADD ----------------------------------------->
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_luanan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_luanan">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><strong><i class="fa fa-plus"></i> Thêm mới Luận Án</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><b>Tên Luận Án:</b> <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Người Việt hoặc Nước Ngoài:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="vietnam" name="vietnam">
+                                        <label class="form-check-label" for="vietnam">Người Việt:</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Cấp:</b> <span class="required">*</span></label>
+                                    <input  name="cap" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Hướng Dẫn Chính:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="huongdanchinh">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Hướng Dẫn Phụ:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="huongdanphu">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Đọc và Nhận Xét:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="docnhanxet">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Chủ Tịch Hội Thảo: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chutichhoithao">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Thành Viên Hội Thảo: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thanhvienhoithao">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Chủ Tịch Chấm: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chutichcham">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Thành Viên Chấm: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thanhviencham">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Ghi Chú:</b></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_luanan"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END Luận ÁN ADD -------------------------------------->
+
+<!-- -------------------------------------Start Luận Văn EDIT -------------------------------------->
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_luanvan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_luanvan">
+                @csrf
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Luận Văn</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><b>Tên Luận Văn:</b> <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Người Việt hoặc Nước Ngoài:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="vietnam" name="vietnam">
+                                        <label class="form-check-label" for="vietnam">Người Việt:</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Hướng Dẫn:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="huongdan">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Chủ Tịch:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chutich">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Phản Biện: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="phanbien">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Thư Ký: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thuky">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Ủy Viên: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="uyvien">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Ghi Chú:</b></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_luanvan"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END Luận Văn EDIT -------------------------------------->
+<!-- -------------------------------------Start Luận Án EDIT -------------------------------------->
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_luanan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_luanan">
+                @csrf
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Luận Văn</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><b>Tên Luận Án:</b> <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Người Việt hoặc Nước Ngoài:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="vietnam" name="vietnam">
+                                        <label class="form-check-label" for="vietnam">Người Việt:</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Cấp:</b> <span class="required">*</span></label>
+                                    <input  name="cap" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Hướng Dẫn Chính:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="huongdanchinh">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Hướng Dẫn Phụ:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="huongdanphu">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Đọc và Nhận Xét:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="docnhanxet">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Chủ Tịch Hội Thảo: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chutichhoithao">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Thành Viên Hội Thảo: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thanhvienhoithao">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Chủ Tịch Chấm: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chutichcham">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Thành Viên Chấm: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thanhviencham">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Ghi Chú:</b></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_luanan"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END Luận Án EDIT -------------------------------------->
+
+<!-- -------------------------------------START NGHIÊN CỨU SINH ADD -------------------------------------->
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_ncs" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_ncs">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><strong><i class="fa fa-plus"></i> Thêm mới Khóa Luận</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><b>Tên Nghiên Cứu Sinh:</b> <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Thành Viên:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thanhvien">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Thư Ký: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thuky">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Ghi Chú:</b></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
+                                </div>
+                                </div>
+                            <div class="col-md-6">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_ncs"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END NGHIÊN CỨU SINH ADD -------------------------------------->
+
+
+
+
 @include('khoaluan.modals-khac.edit')
-@include('luanvan.modals-khac.edit')
 
 @endsection
 
@@ -325,6 +938,210 @@
         // END Xử lý khi click nút XÓA KHÓA LUẬN
 
         
+          //BEGIN ADD NGHIÊN CỨU SINH
+    $("#btn_add_ncs").on('click', function(e){
+        e.preventDefault();
+        $("#btn_add_ncs").attr("disabled", "disabled");
+        $("#btn_add_ncs").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+        $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+        $.ajax({
+            url: '{{route('postThemNcs')}}',
+            method: 'POST',
+            data: {
+                ten: $("#form_add_ncs input[name='ten']").val(),
+                thanhvien: $("#form_add_ncs select[name='thanhvien']").val(),
+                thuky: $("#form_add_ncs select[name='thuky']").val(),
+                ghichu: $("#form_add_ncs input[name='ghichu']").val(),
+            },
+            success: function(data) {
+                console.log("Hihi");
+                $("#btn_add_ncs").removeAttr("disabled"); 
+                $("#btn_add_ncs").html('<i class="fa fa-save"></i> Lưu');
+                if(data.status == false){
+                    var errors = "";
+                    $.each(data.data, function(key, value){
+                        $.each(value, function(key2, value2){
+                            errors += value2 +"<br>";
+                        });
+                    });
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "positionClass": "toast-top-center",
+                        "onclick": null,
+                        "showDuration": "1000",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    toastr["error"](errors, "Lỗi")
+                }
+                if(data.status == true){
+                    $('#modal_add_ncs').modal('hide');
+                    swal({
+                        "title":"Đã tạo!", 
+                        "text":"Bạn đã tạo thành công Nghiên Cứu Sinh!",
+                        "type":"success"
+                    }, function() {
+                            localStorage.setItem('activeTab', '#tab14');
+                            location.reload();
+                        }
+                    );
+                }
+            }
+        });
+    });
+    // END ADD NGHIÊN CỨU SINh
+    $(".btn_edit_ncs").on("click", function(e){
+            e.preventDefault();
+            var ncs_id = $(this).data("ncs-id");
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('postTimNcsTheoId') }}',
+                method: 'POST',
+                data: {
+                    id: ncs_id
+                },
+                success: function(data) {
+                    if(data.status == true){
+                        // console.log(data.data);
+                        $("#form_edit_ncs input[name='id']").val(data.data.id);
+                        $("#form_edit_ncs input[name='ten']").val(data.data.ten);
+                        $("#form_edit_ncs select[name='thanhvien']").val($.parseJSON(data.data.thanhvien));
+                        $("#form_edit_ncs select[name='thuky']").val($.parseJSON(data.data.thuky));
+                        $("#form_edit_ncs input[name='ghichu']").val(data.data.ghichu);
+                        $('#modal_edit_ncs').modal('show');
+                    }
+                }
+            });
+        });
+        // END Khi click vào nút sửa NCS, tìm NCS theo id và đỗ dữ liệu vào form
+
+        
+        // Ajax SỬA KHÓA LUẬN
+        $("#btn_edit_ncs").on('click', function(e){
+            e.preventDefault();
+            $("#btn_edit_ncs").attr("disabled", "disabled");
+            $("#btn_edit_ncs").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('postSuaNcs') }}',
+                method: 'POST',
+                data: {
+                    id: $("#form_edit_ncs input[name='id']").val(),
+                    ten: $("#form_edit_ncs input[name='ten']").val(),
+                    thanhvien: $("#form_edit_ncs select[name='thanhvien']").val(),
+                    thuky: $("#form_edit_ncs select[name='thuky']").val(),
+                    ghichu: $("#form_edit_ncs input[name='ghichu']").val(),
+                },
+                success: function(data) {
+                    $("#btn_edit_ncs").removeAttr("disabled"); 
+                    $("#btn_edit_ncs").html('<i class="fa fa-save"></i> Lưu');
+                    if(data.status == false){
+                        var errors = "";
+                        $.each(data.data, function(key, value){
+                            $.each(value, function(key2, value2){
+                                errors += value2 +"<br>";
+                            });
+                        });
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "positionClass": "toast-top-center",
+                            "onclick": null,
+                            "showDuration": "1000",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        }
+                        toastr["error"](errors, "Lỗi")
+                    }
+                    if(data.status == true){
+                        $('#modal_edit_ncs').modal('hide');
+                        swal({
+                            "title":"Đã sửa!", 
+                            "text":"Bạn đã sửa thành công Nghiên Cứu Sinh!",
+                            "type":"success"
+                        }, function() {
+                                localStorage.setItem('activeTab', '#tab14');
+                                location.reload();
+                            }
+                        );
+                    }
+                }
+            });
+        });
+        // END Ajax SỬA Nghiên Cứu SInh
+
+         // Xử lý khi click nút xóa Nghiên Cứu Sinh
+         $(".btn_delete_ncs").on("click", function(e){
+            e.preventDefault();
+            var ncs_id = $(this).data("ncs-id");
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            swal({
+                title: "Xóa NCS này?",
+                text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonText: 'Không',
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Có, xóa ngay!",
+                closeOnConfirm: false
+                },
+                function(isConfirm){
+                    if (isConfirm) {
+                        $.ajax({
+                            url: '{{ route('postXoaNcs') }}',
+                            method: 'POST',
+                            data: {
+                                id: ncs_id
+                            },
+                            success: function(data) {
+                                console.log(data);
+                                if(data.status == true){
+                                    swal({
+                                        "title":"Đã xóa!", 
+                                        "text":"Bạn đã xóa thành công NCS!",
+                                        "type":"success"
+                                    }, function() {
+                                            localStorage.setItem('activeTab', '#tab14');
+                                            location.reload();
+                                        }
+                                    );
+                                }
+                            }
+                        });
+                    }   
+            });
+
+        });
+        // END Xử lý khi click nút XÓA KHÓA LUẬN
+
+        
           //BEGIN ADD LUẬN VĂN
     $("#btn_add_luanvan").on('click', function(e){
         e.preventDefault();
@@ -382,7 +1199,7 @@
                         "text":"Bạn đã tạo thành công Luận Văn!",
                         "type":"success"
                     }, function() {
-                            localStorage.setItem('activeTab', '#tab1');
+                            localStorage.setItem('activeTab', '#tab12');
                             location.reload();
                         }
                     );
@@ -441,11 +1258,12 @@
                 data: {
                     id: $("#form_edit_luanvan input[name='id']").val(),
                     ten: $("#form_edit_luanvan input[name='ten']").val(),
+                    vietnam:  ($("#form_edit_luanvan input[name='vietnam']").is(':checked')) ? 1 : 0,
                     huongdan: $("#form_edit_luanvan select[name='huongdan']").val(),
                     chutich: $("#form_edit_luanvan select[name='chutich']").val(),
                     phanbien: $("#form_edit_luanvan select[name='chutich']").val(),
                     thuky: $("#form_edit_luanvan select[name='chutich']").val(),
-                    uyvien: $("#form_edit_luanvan select[name='']").val(),
+                    uyvien: $("#form_edit_luanvan select[name='uyvien']").val(),
                     ghichu: $("#form_edit_luanvan input[name='ghichu']").val(),
                 },
                 success: function(data) {
@@ -481,7 +1299,7 @@
                             "text":"Bạn đã sửa thành công Khóa Luận!",
                             "type":"success"
                         }, function() {
-                                localStorage.setItem('activeTab', '#tab11');
+                                localStorage.setItem('activeTab', '#tab12');
                                 location.reload();
                             }
                         );
@@ -513,7 +1331,7 @@
                 function(isConfirm){
                     if (isConfirm) {
                         $.ajax({
-                            url: '{{ route('postXoaLuanvan') }}',
+                            url: '{{ route('postXoaLuanVan') }}',
                             method: 'POST',
                             data: {
                                 id: luanvan_id
@@ -526,7 +1344,7 @@
                                         "text":"Bạn đã xóa thành công LUANVAN!",
                                         "type":"success"
                                     }, function() {
-                                            localStorage.setItem('activeTab', '#tab11');
+                                            localStorage.setItem('activeTab', '#tab12');
                                             location.reload();
                                         }
                                     );
@@ -537,7 +1355,232 @@
             });
 
         });
-        // END Xử lý khi click nút XÓA KHÓA LUẬN
+        // END Xử lý khi click nút XÓA Luận Văn
+
+          
+          //=========BEGIN ADD LUẬN ÁN
+    $("#btn_add_luanan").on('click', function(e){
+        e.preventDefault();
+        $("#btn_add_luanan").attr("disabled", "disabled");
+        $("#btn_add_luanan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+        $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+        $.ajax({
+            url: '{{route('postThemLuanAn')}}',
+            method: 'POST',
+            data: {
+                ten: $("#form_add_luanan input[name='ten']").val(),
+                cap: $("#form_add_luanan input[name='cap']").val(),
+                huongdanchinh: $("#form_add_luanan select[name='huongdanchinh']").val(),
+                huongdanphu: $("#form_add_luanan select[name='huongdanphu']").val(),
+                vietnam: ($("#form_add_luanan input[name='vietnam']").is(':checked')) ? 1 : 0,
+                docnhanxet: $("#form_add_luanan select[name='docnhanxet']").val(),
+                chutichhoithao: $("#form_add_luanan select[name='chutichhoithao']").val(),
+                thanhvienhoithao: $("#form_add_luanan select[name='thanhvienhoithao']").val(),
+                chutichcham: $("#form_add_luanan select[name='chutichcham']").val(),
+                thanhviencham: $("#form_add_luanan select[name='thanhviencham']").val(),
+                ghichu: $("#form_add_luanan input[name='ghichu']").val(),
+            },
+            success: function(data) {
+                console.log("Hihi");
+                $("#btn_add_luanan").removeAttr("disabled"); 
+                $("#btn_add_luanan").html('<i class="fa fa-save"></i> Lưu');
+                if(data.status == false){
+                    var errors = "";
+                    $.each(data.data, function(key, value){
+                        $.each(value, function(key2, value2){
+                            errors += value2 +"<br>";
+                        });
+                    });
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "positionClass": "toast-top-center",
+                        "onclick": null,
+                        "showDuration": "1000",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    toastr["error"](errors, "Lỗi")
+                }
+                if(data.status == true){
+                    $('#modal_add_luanan').modal('hide');
+                    swal({
+                        "title":"Đã tạo!", 
+                        "text":"Bạn đã tạo thành công Luận Án!",
+                        "type":"success"
+                    }, function() {
+                            localStorage.setItem('activeTab', '#tab13');
+                            location.reload();
+                        }
+                    );
+                }
+            }
+        });
+    });
+    // END ADD Luận Án
+    $(".btn_edit_luanan").on("click", function(e){
+            e.preventDefault();
+            var luanan_id = $(this).data("luanan-id");
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('postTimLuanAnTheoId') }}',
+                method: 'POST',
+                data: {
+                    id: luanan_id
+                },
+                success: function(data) {
+                    if(data.status == true){
+                        // console.log(data.data);
+                        $("#form_edit_luanan input[name='id']").val(data.data.id);
+                        $("#form_edit_luanan input[name='ten']").val(data.data.ten);
+                        $("#form_edit_luanan input[name='cap']").val(data.data.cap);
+                        $("#form_edit_luanan select[name='huongdanchinh']").val(data.data.huongdanchinh);
+                        $("#form_edit_luanan select[name='huongdanphu']").val(data.data.huongdanphu);
+                        $("#form_edit_luanan input[name='vietnam']").prop('checked', (data.data.vietnam == 1) ? true : false);
+                        $("#form_edit_luanan select[name='docnhanxet']").val($.parseJSON(data.data.docnhanxet));
+                        $("#form_edit_luanan select[name='chutichhoithao']").val($.parseJSON(data.data.chutichhoithao));
+                        $("#form_edit_luanan select[name='thanhvienhoithao']").val($.parseJSON(data.data.thanhvienhoithao));
+                        $("#form_edit_luanan select[name='chutichcham']").val($.parseJSON(data.data.chutichcham));
+                        $("#form_edit_luanan select[name='thanhviencham']").val($.parseJSON(data.data.thanhviencham));
+                        $("#form_edit_luanan input[name='ghichu']").val(data.data.ghichu);
+                        $('#modal_edit_luanan').modal('show');
+                    }
+                }
+            });
+        });
+        // END Khi click vào nút sửa LUANAN, tìm LUANAN theo id và đỗ dữ liệu vào form
+
+        
+        // Ajax SỬA Án
+        $("#btn_edit_luanan").on('click', function(e){
+            e.preventDefault();
+            $("#btn_edit_luanan").attr("disabled", "disabled");
+            $("#btn_edit_luanan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('postSuaLuanAn') }}',
+                method: 'POST',
+                data: {
+                    id: $("#form_edit_luanan input[name='id']").val(),
+                    ten: $("#form_edit_luanan input[name='ten']").val(),
+                    cap: $("#form_edit_luanan input[name='cap']").val(),
+                    vietnam:  ($("#form_edit_luanan input[name='vietnam']").is(':checked')) ? 1 : 0,
+                    huongdanchinh: $("#form_edit_luanan select[name='huongdanchinh']").val(),
+                    huongdanphu: $("#form_edit_luanan select[name='huongdanphu']").val(),
+                    chutichhoithao: $("#form_edit_luanan select[name='chutichhoithao']").val(),
+                    thanhvienhoithao: $("#form_edit_luanan select[name='thanhvienhoithao']").val(),
+                    docnhanxet: $("#form_edit_luanan select[name='docnhanxet']").val(),
+                    chutichcham: $("#form_edit_luanan select[name='chutichcham']").val(),
+                    thanhviencham: $("#form_edit_luanan select[name='thanhviencham']").val(),
+                    ghichu: $("#form_edit_luanan input[name='ghichu']").val(),
+                },
+                success: function(data) {
+                    $("#btn_edit_luanan").removeAttr("disabled"); 
+                    $("#btn_edit_luanan").html('<i class="fa fa-save"></i> Lưu');
+                    if(data.status == false){
+                        var errors = "";
+                        $.each(data.data, function(key, value){
+                            $.each(value, function(key2, value2){
+                                errors += value2 +"<br>";
+                            });
+                        });
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "positionClass": "toast-top-center",
+                            "onclick": null,
+                            "showDuration": "1000",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        }
+                        toastr["error"](errors, "Lỗi")
+                    }
+                    if(data.status == true){
+                        $('#modal_edit_luanan').modal('hide');
+                        swal({
+                            "title":"Đã sửa!", 
+                            "text":"Bạn đã sửa thành công Luận Án!",
+                            "type":"success"
+                        }, function() {
+                                localStorage.setItem('activeTab', '#tab13');
+                                location.reload();
+                            }
+                        );
+                    }
+                }
+            });
+        });
+        // END Ajax SỬA LUẬN ÁN
+
+         // Xử lý khi click nút xóa LUẬN ÁN
+         $(".btn_delete_luanan").on("click", function(e){
+            e.preventDefault();
+            var luanan_id = $(this).data("luanan-id");
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            swal({
+                title: "Xóa LUANAN này?",
+                text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonText: 'Không',
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Có, xóa ngay!",
+                closeOnConfirm: false
+                },
+                function(isConfirm){
+                    if (isConfirm) {
+                        $.ajax({
+                            url: '{{ route('postXoaLuanAn') }}',
+                            method: 'POST',
+                            data: {
+                                id: luanan_id
+                            },
+                            success: function(data) {
+                                console.log(data);
+                                if(data.status == true){
+                                    swal({
+                                        "title":"Đã xóa!", 
+                                        "text":"Bạn đã xóa thành công LUANAN!",
+                                        "type":"success"
+                                    }, function() {
+                                            localStorage.setItem('activeTab', '#tab13');
+                                            location.reload();
+                                        }
+                                    );
+                                }
+                            }
+                        });
+                    }   
+            });
+
+        });
+        // END Xử lý khi click nút XÓA Luận Án
          // Ajax thêm Công Tác
          $("#btn_add_congtac").on('click', function(e){
         

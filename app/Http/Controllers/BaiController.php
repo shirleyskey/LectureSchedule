@@ -32,6 +32,19 @@ class BaiController extends Controller
         ]);
     }
 
+    public function update(Request $request, $id){
+        try{
+            $bai = Bai::saveBai($id, $request->all());
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Công tác:'.$bai->id);
+            return redirect()->route('hocphan.index')->with('status_success', 'Chỉnh sửa Thông tin Bài thành công!');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('hocphan.index')->with('status_error', 'Xảy ra lỗi khi sửa Bài!');
+        }
+        
+    }
+
      //AJAX
      public function postThemBai(Request $request)
      {

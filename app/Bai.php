@@ -44,7 +44,15 @@ class Bai extends Model
         $bai->id_hocphan = $data['id_hocphan'];
         $bai->sotiet = $data['sotiet'];
         $bai->tenbai = $data['tenbai'];
-        $bai->id_giangvien = $data['id_giangvien'];
+        $bai->gvchinh = $data['gvchinh'];
+        $bai->gvphu = $data['gvphu'];
+        $bai->lythuyet = $data['lythuyet'];
+        $bai->xemina = $data['xemina'];
+        $bai->thuchanh = $data['thuchanh'];
+        $bai->lythuyet_phu = $data['lythuyet_phu'];
+        $bai->xemina_phu = $data['xemina_phu'];
+        $bai->thuchanh_phu = $data['thuchanh_phu'];
+        
         $bai->save();
         return $bai;
     }

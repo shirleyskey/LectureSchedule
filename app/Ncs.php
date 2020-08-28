@@ -20,6 +20,12 @@ class Ncs extends Model
             $ncs = Ncs::findOrFail($id);
         }
         $ncs->ten = $data['ten'];
+        foreach ($data['thanhvien'] as $key => $value) {
+            $data['thanhvien'][$key] = (int)$value;         
+        }
+        foreach ($data['thuky'] as $key => $value) {
+            $data['thuky'][$key] = (int)$value;         
+        }
         $ncs->thanhvien = json_encode($data['thanhvien']);
         $ncs->thuky = json_encode($data['thuky']);
         $ncs->ghichu = $data['ghichu'];

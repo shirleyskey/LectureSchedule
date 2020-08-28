@@ -20,11 +20,26 @@ class LuanAn extends Model
             $luanan = LuanAn::findOrFail($id);
         }
         $luanan->ten = $data['ten'];
-        $luanan->ten = $data['huongdanchinh'];
-        $luanan->ten = $data['huongdanphu'];
-        $luanan->ten = $data['vietnam'];
+        $luanan->huongdanchinh = (int)$data['huongdanchinh'];
+        $luanan->huongdanphu = (int)$data['huongdanphu'];
+        $luanan->vietnam = $data['vietnam'];
+        foreach ($data['docnhanxet'] as $key => $value) {
+            $data['docnhanxet'][$key] = (int)$value;         
+        }
+        foreach ($data['chutichhoithao'] as $key => $value) {
+            $data['chutichhoithao'][$key] = (int)$value;         
+        }
+        foreach ($data['thanhvienhoithao'] as $key => $value) {
+            $data['thanhvienhoithao'][$key] = (int)$value;         
+        }
+        foreach ($data['chutichcham'] as $key => $value) {
+            $data['chutichcham'][$key] = (int)$value;         
+        }
+        foreach ($data['thanhviencham'] as $key => $value) {
+            $data['thanhviencham'][$key] = (int)$value;         
+        }
         $luanan->docnhanxet = json_encode($data['docnhanxet']);
-        $luanan->chutichhoithao = json_encode($data['chutichcham']);
+        $luanan->chutichhoithao = json_encode($data['chutichhoithao']);
         $luanan->thanhvienhoithao = json_encode($data['thanhvienhoithao']);
         $luanan->chutichcham = json_encode($data['chutichcham']);
         $luanan->thanhviencham = json_encode($data['thanhviencham']);

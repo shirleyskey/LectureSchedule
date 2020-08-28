@@ -21,7 +21,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="tenhocphan" readonly value="{{ $bai->hocphans->tenhocphan }}" /> </div>
+                                    <input type="text" class="form-control" name="id_hocphan" value="{{ $bai->hocphans->id }}" hidden/> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -48,7 +48,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <select class="form-control" name="id_giangvien">
+                                    <select class="form-control" name="gvchinh">
                                         <option value="{{$bai->gvchinh}}">{{$bai->giangvienchinhs->ten}}</option>
                                             @if($ds_giangvien->count()>0)
                                                 @foreach($ds_giangvien as $v)
@@ -65,7 +65,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <select class="form-control" name="id_giangvien">
+                                    <select class="form-control" name="gvphu">
                                         <option value="{{$bai->gvphu}}">{{$bai->giangvienphus->ten}}</option>
                                             @if($ds_giangvien->count()>0)
                                                 @foreach($ds_giangvien as $v)
@@ -79,12 +79,12 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="control-label col-md-4">Giờ LýT GVC:
+                            <label class="control-label col-md-4">LýT GVC:
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="lythuyet" readonly value="{{ $bai->lythuyet}}" /> </div>
+                                    <input type="number" class="form-control" name="lythuyet" value="{{ $bai->lythuyet}}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -93,7 +93,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="xemina" readonly value="{{ $bai->xemina}}" /> </div>
+                                    <input type="number" class="form-control" name="xemina" value="{{ $bai->xemina}}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -102,16 +102,16 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="thuchanh" readonly value="{{ $bai->thuchanh}}" /> </div>
+                                    <input type="number" class="form-control" name="thuchanh" value="{{ $bai->thuchanh}}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Giờ LýT GV Tham Gia:
+                            <label class="control-label col-md-4">LýT GV Tham Gia:
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="lythuyet_phu" readonly value="{{ $bai->lythuyet_phu}}" /> </div>
+                                    <input type="number" class="form-control" name="lythuyet_phu" value="{{ $bai->lythuyet_phu}}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -120,7 +120,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="xemina_phu" readonly value="{{ $bai->xemina_phu}}" /> </div>
+                                    <input type="number" class="form-control" name="xemina_phu" value="{{ $bai->xemina_phu}}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -129,7 +129,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="thuchanh_phu" readonly value="{{ $bai->thuchanh_phu}}" /> </div>
+                                    <input type="number" class="form-control" name="thuchanh_phu" value="{{ $bai->thuchanh_phu}}" /> </div>
                             </div>
                         </div>
                     </div>
