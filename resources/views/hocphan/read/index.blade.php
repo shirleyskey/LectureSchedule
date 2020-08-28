@@ -113,7 +113,8 @@
                                                     <th> STT</th>
                                                     <th> Tên Bài</th>
                                                     <th> Số Tiết</th>
-                                                    <th> Giảng Viên</th>
+                                                    <th> Giảng Viên Chính</th>
+                                                    <th> Giảng Viên Phụ</th>
                                                     <th> Hành Động</th>
                                                 </tr>
                                             </thead>
@@ -125,7 +126,8 @@
                                                         <td> {{ $stt }} </td>
                                                         <td> {{ $v->tenbai }} </td>
                                                         <td> {{ $v->sotiet }} </td>
-                                                        <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : '' }} </td>
+                                                        <td> {{ ($v->gvchinh) ? $v->giangvienchinhs->ten : '' }} </td>
+                                                        <td> {{ ($v->gvphu) ? $v->giangvienphus->ten : '' }} </td>
                                                         <td>
                                                             @permission('read-bai')
                                                             <a class="btn btn-xs blue-sharp" href="{{ route('bai.read.get', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Xem</a>

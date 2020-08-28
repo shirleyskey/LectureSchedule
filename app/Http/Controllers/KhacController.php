@@ -15,6 +15,10 @@ use App\HocTap;
 use App\Nckh;
 use App\SangKien;
 use App\XayDung;
+use App\KhoaLuan;
+use App\LuanVan;
+use App\LuanAn;
+use App\Ncs;
 class KhacController extends Controller
 {
     //
@@ -28,8 +32,12 @@ class KhacController extends Controller
             'hoctap' => HocTap::all(),
             'nckh' => Nckh::all(),
             'sangkien' => SangKien::all(),
+            'khoaluan' => KhoaLuan::all(),
+            'luanvan' => LuanVan::all(),
+            'luanan' => LuanAn::all(),
+            'ncs' => Ncs::all(),
             'xaydung' => XayDung::all(),
-            'dotxuat' => DotXuat::all()
+            'dotxuat' => DotXuat::all(),
         ]);
     }
 

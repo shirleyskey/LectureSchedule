@@ -77,18 +77,6 @@ class ChamBaiController extends Controller
         }
     }
 
-    public function importExcel(){
-        return view('giangvien.import.index');
-    }
-
-    public function postImportExcel(Request $request){
-        
-    }
-
-    public function exportExcel(){
-       
-    }
-
      //AJAX
      public function postThemChamBai(Request $request)
      {

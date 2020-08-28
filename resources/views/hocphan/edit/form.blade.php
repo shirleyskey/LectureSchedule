@@ -113,8 +113,14 @@
                                     <th> STT</th>
                                     <th> Tên Bài</th>
                                     <th> Số Tiết</th>
-                                    <th> Tên Giảng Viên</th>
-                                    <th> Hành Động</th>
+                                    <th> GV Chính</th>
+                                    <th> GV Tham Gia</th>
+                                    <th> LýT GVC</th>
+                                    <th> Xemina GVC</th>
+                                    <th> Th/TL GVC</th>
+                                    <th> LýT TrG</th>
+                                    <th> Xemina TrG</th>
+                                    <th> TH/TL TrG</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -125,7 +131,14 @@
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->tenbai }} </td>
                                         <td> {{ $v->sotiet }} </td>
-                                        <td> {{ ($v->id_giangvien != 0) ? ($v->giangviens->ten) : '' }} </td>
+                                        <td> {{ ($v->gvchinh) ? ($v->giangvienchinhs->ten) : '' }} </td>
+                                        <td> {{ ($v->gvphu) ? ($v->giangvienphus->ten) : '' }} </td>
+                                        <td> {{ $v->lythuyet }} </td>
+                                        <td> {{ $v->xemina }} </td>
+                                        <td> {{ $v->thuchanh }} </td>
+                                        <td> {{ $v->lythuyet_phu }} </td>
+                                        <td> {{ $v->xemina_phu }} </td>
+                                        <td> {{ $v->thuchanh_phu }} </td>
                                         <td>
                                         <a  class="btn_edit_bai btn btn-xs yellow-gold" data-bai-id="{{ $v->id }}" href="{{route('bai.edit.get', $v->id)}}" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                         <a class="btn_delete_bai btn btn-xs red-mint" data-bai-id="{{ $v->id }}" href="{{route('bai.delete.get', $v->id)}}"  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>

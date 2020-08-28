@@ -346,4 +346,30 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postTimTietTheoId', ['uses'=>'EventController@postTimTietTheoId','as'=>'postTimTietTheoId']);
     Route::post('/postSuaTiet', ['middleware' => ['permission:update-hocphan'], 'uses'=>'EventController@postSuaTiet','as'=>'postSuaTiet']);
     Route::post('/postXoaTiet', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'EventController@postXoaTiet','as'=>'postXoaTiet']);
+
+    //Khoa Luan
+    Route::post('/postThemKhoaLuan', ['middleware' => ['permission:create-hocphan'], 'uses'=>'KhoaLuanController@postThemKhoaLuan','as'=>'postThemKhoaLuan']);
+    Route::post('/postTimKhoaLuanTheoId', ['uses'=>'KhoaLuanController@postTimKhoaLuanTheoId','as'=>'postTimKhoaLuanTheoId']);
+    Route::post('/postSuaKhoaLuan', ['middleware' => ['permission:update-hocphan'], 'uses'=>'KhoaLuanController@postSuaKhoaLuan','as'=>'postSuaKhoaLuan']);
+    Route::post('/postXoaKhoaLuan', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'KhoaLuanController@postXoaKhoaLuan','as'=>'postXoaKhoaLuan']);
+
+    //Luan Van
+    Route::post('/postThemLuanVan', ['middleware' => ['permission:create-hocphan'], 'uses'=>'LuanVanController@postThemLuanVan','as'=>'postThemLuanVan']);
+    Route::post('/postTimLuanVanTheoId', ['uses'=>'LuanVanController@postTimLuanVanTheoId','as'=>'postTimLuanVanTheoId']);
+    Route::post('/postSuaLuanVan', ['middleware' => ['permission:update-hocphan'], 'uses'=>'LuanVanController@postSuaLuanVan','as'=>'postSuaLuanVan']);
+    Route::post('/postXoaLuanVan', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'LuanVanController@postXoaLuanVan','as'=>'postXoaLuanVan']);
+
+    //Luan An
+    
+    Route::post('/postThemLuanAn', ['middleware' => ['permission:create-hocphan'], 'uses'=>'LuanAnController@postThemLuanAn','as'=>'postThemLuanAn']);
+    Route::post('/postTimLuanAnTheoId', ['uses'=>'LuanAnController@postTimLuanAnTheoId','as'=>'postTimLuanAnTheoId']);
+    Route::post('/postSuaLuanAn', ['middleware' => ['permission:update-hocphan'], 'uses'=>'LuanAnController@postSuaLuanAn','as'=>'postSuaLuanAn']);
+    Route::post('/postXoaLuanAn', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'LuanAnController@postXoaLuanAn','as'=>'postXoaLuanAn']);
+
+    //NCS
+    
+    Route::post('/postThemNcs', ['middleware' => ['permission:create-hocphan'], 'uses'=>'NcsController@postThemNcs','as'=>'postThemNcs']);
+    Route::post('/postTimNcsTheoId', ['uses'=>'NcsController@postTimNcsTheoId','as'=>'postTimNcsTheoId']);
+    Route::post('/postSuaNcs', ['middleware' => ['permission:update-hocphan'], 'uses'=>'NcsController@postSuaNcs','as'=>'postSuaNcs']);
+    Route::post('/postXoaNcs', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'NcsController@postXoaNcs','as'=>'postXoaNcs']);
 });

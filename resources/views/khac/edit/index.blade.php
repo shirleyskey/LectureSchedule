@@ -47,11 +47,24 @@
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
+                       
                         <li>
-                            <a href="#tab3" data-toggle="tab">Công Tác</a>
+                            <a href="#tab11" data-toggle="tab">Khóa Luận</a>
+                        </li>
+                        <li>
+                            <a href="#tab12" data-toggle="tab">Luận Văn</a>
+                        </li>
+                        <li>
+                            <a href="#tab13" data-toggle="tab">Luận Án</a>
+                        </li>
+                        <li>
+                            <a href="#tab14" data-toggle="tab">Nghiên Cứu Sinh</a>
                         </li>
                         <li class="active">
                             <a href="#tab4" data-toggle="tab">Chấm Bài</a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab">Công Tác</a>
                         </li>
                         <li>
                             <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
@@ -88,6 +101,8 @@
     <!-- END CONTENT BODY -->
 </div>
 <!-- END CONTENT -->
+@include('khoaluan.modals-khac.edit')
+@include('luanvan.modals-khac.edit')
 
 @endsection
 
@@ -103,6 +118,426 @@
         }
         // END Reload trang và giữ nguyên tab đã active
 
+          //BEGIN ADD KHÓA LUẬN
+    $("#btn_add_khoaluan").on('click', function(e){
+        e.preventDefault();
+        $("#btn_add_khoaluan").attr("disabled", "disabled");
+        $("#btn_add_khoaluan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+        $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+        $.ajax({
+            url: '{{route('postThemKhoaLuan')}}',
+            method: 'POST',
+            data: {
+                ten: $("#form_add_khoaluan input[name='ten']").val(),
+                huongdan: $("#form_add_khoaluan select[name='huongdan']").val(),
+                chutichcham: $("#form_add_khoaluan select[name='chutichcham']").val(),
+                thamgiacham: $("#form_add_khoaluan select[name='thamgiacham']").val(),
+                ghichu: $("#form_add_khoaluan input[name='ghichu']").val(),
+            },
+            success: function(data) {
+                console.log("Hihi");
+                $("#btn_add_khoaluan").removeAttr("disabled"); 
+                $("#btn_add_khoaluan").html('<i class="fa fa-save"></i> Lưu');
+                if(data.status == false){
+                    var errors = "";
+                    $.each(data.data, function(key, value){
+                        $.each(value, function(key2, value2){
+                            errors += value2 +"<br>";
+                        });
+                    });
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "positionClass": "toast-top-center",
+                        "onclick": null,
+                        "showDuration": "1000",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    toastr["error"](errors, "Lỗi")
+                }
+                if(data.status == true){
+                    $('#modal_add_khoaluan').modal('hide');
+                    swal({
+                        "title":"Đã tạo!", 
+                        "text":"Bạn đã tạo thành công Khóa Luận!",
+                        "type":"success"
+                    }, function() {
+                            localStorage.setItem('activeTab', '#tab11');
+                            location.reload();
+                        }
+                    );
+                }
+            }
+        });
+    });
+    // END ADD KHÓA LUẬN
+    $(".btn_edit_khoaluan").on("click", function(e){
+            e.preventDefault();
+            var khoaluan_id = $(this).data("khoaluan-id");
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('postTimKhoaLuanTheoId') }}',
+                method: 'POST',
+                data: {
+                    id: khoaluan_id
+                },
+                success: function(data) {
+                    if(data.status == true){
+                        // console.log(data.data);
+                        $("#form_edit_khoaluan input[name='id']").val(data.data.id);
+                        $("#form_edit_khoaluan input[name='ten']").val(data.data.ten);
+                        $("#form_edit_khoaluan select[name='huongdan']").val($.parseJSON(data.data.huongdan));
+                        $("#form_edit_khoaluan select[name='chutichcham']").val($.parseJSON(data.data.chutichcham));
+                        $("#form_edit_khoaluan select[name='thamgiacham']").val($.parseJSON(data.data.thamgiacham));
+                        $("#form_edit_khoaluan input[name='ghichu']").val(data.data.ghichu);
+                        $('#modal_edit_khoaluan').modal('show');
+                    }
+                }
+            });
+        });
+        // END Khi click vào nút sửa KHOALUAN, tìm KHOALUAN theo id và đỗ dữ liệu vào form
+
+        
+        // Ajax SỬA KHÓA LUẬN
+        $("#btn_edit_khoaluan").on('click', function(e){
+            e.preventDefault();
+            $("#btn_edit_khoaluan").attr("disabled", "disabled");
+            $("#btn_edit_khoaluan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('postSuaKhoaLuan') }}',
+                method: 'POST',
+                data: {
+                    id: $("#form_edit_khoaluan input[name='id']").val(),
+                    ten: $("#form_edit_khoaluan input[name='ten']").val(),
+                    huongdan: $("#form_edit_khoaluan select[name='huongdan']").val(),
+                    chutichcham: $("#form_edit_khoaluan select[name='chutichcham']").val(),
+                    thamgiacham: $("#form_edit_khoaluan select[name='thamgiacham']").val(),
+                    ghichu: $("#form_edit_khoaluan input[name='ghichu']").val(),
+                },
+                success: function(data) {
+                    $("#btn_edit_khoaluan").removeAttr("disabled"); 
+                    $("#btn_edit_khoaluan").html('<i class="fa fa-save"></i> Lưu');
+                    if(data.status == false){
+                        var errors = "";
+                        $.each(data.data, function(key, value){
+                            $.each(value, function(key2, value2){
+                                errors += value2 +"<br>";
+                            });
+                        });
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "positionClass": "toast-top-center",
+                            "onclick": null,
+                            "showDuration": "1000",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        }
+                        toastr["error"](errors, "Lỗi")
+                    }
+                    if(data.status == true){
+                        $('#modal_edit_khoaluan').modal('hide');
+                        swal({
+                            "title":"Đã sửa!", 
+                            "text":"Bạn đã sửa thành công Khóa Luận!",
+                            "type":"success"
+                        }, function() {
+                                localStorage.setItem('activeTab', '#tab11');
+                                location.reload();
+                            }
+                        );
+                    }
+                }
+            });
+        });
+        // END Ajax SỬA KHÓA LUẬN
+
+         // Xử lý khi click nút xóa KHÓA LUẬN
+         $(".btn_delete_khoaluan").on("click", function(e){
+            e.preventDefault();
+            var khoaluan_id = $(this).data("khoaluan-id");
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            swal({
+                title: "Xóa KHOALUAN này?",
+                text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonText: 'Không',
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Có, xóa ngay!",
+                closeOnConfirm: false
+                },
+                function(isConfirm){
+                    if (isConfirm) {
+                        $.ajax({
+                            url: '{{ route('postXoaKhoaLuan') }}',
+                            method: 'POST',
+                            data: {
+                                id: khoaluan_id
+                            },
+                            success: function(data) {
+                                console.log(data);
+                                if(data.status == true){
+                                    swal({
+                                        "title":"Đã xóa!", 
+                                        "text":"Bạn đã xóa thành công KHOALUAN!",
+                                        "type":"success"
+                                    }, function() {
+                                            localStorage.setItem('activeTab', '#tab11');
+                                            location.reload();
+                                        }
+                                    );
+                                }
+                            }
+                        });
+                    }   
+            });
+
+        });
+        // END Xử lý khi click nút XÓA KHÓA LUẬN
+
+        
+          //BEGIN ADD LUẬN VĂN
+    $("#btn_add_luanvan").on('click', function(e){
+        e.preventDefault();
+        $("#btn_add_luanvan").attr("disabled", "disabled");
+        $("#btn_add_luanvan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+        $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+        $.ajax({
+            url: '{{route('postThemLuanVan')}}',
+            method: 'POST',
+            data: {
+                ten: $("#form_add_luanvan input[name='ten']").val(),
+                vietnam: ($("#form_add_luanvan input[name='vietnam']").is(':checked')) ? 1 : 0,
+                huongdan: $("#form_add_luanvan select[name='huongdan']").val(),
+                chutich: $("#form_add_luanvan select[name='chutich']").val(),
+                phanbien: $("#form_add_luanvan select[name='phanbien']").val(),
+                thuky: $("#form_add_luanvan select[name='thuky']").val(),
+                uyvien: $("#form_add_luanvan select[name='uyvien']").val(),
+                ghichu: $("#form_add_luanvan input[name='ghichu']").val(),
+            },
+            success: function(data) {
+                console.log("Hihi");
+                $("#btn_add_luanvan").removeAttr("disabled"); 
+                $("#btn_add_luanvan").html('<i class="fa fa-save"></i> Lưu');
+                if(data.status == false){
+                    var errors = "";
+                    $.each(data.data, function(key, value){
+                        $.each(value, function(key2, value2){
+                            errors += value2 +"<br>";
+                        });
+                    });
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "positionClass": "toast-top-center",
+                        "onclick": null,
+                        "showDuration": "1000",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    toastr["error"](errors, "Lỗi")
+                }
+                if(data.status == true){
+                    $('#modal_add_luanvan').modal('hide');
+                    swal({
+                        "title":"Đã tạo!", 
+                        "text":"Bạn đã tạo thành công Luận Văn!",
+                        "type":"success"
+                    }, function() {
+                            localStorage.setItem('activeTab', '#tab1');
+                            location.reload();
+                        }
+                    );
+                }
+            }
+        });
+    });
+    // END ADD Luận Văn
+    $(".btn_edit_luanvan").on("click", function(e){
+            e.preventDefault();
+            var luanvan_id = $(this).data("luanvan-id");
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('postTimLuanVanTheoId') }}',
+                method: 'POST',
+                data: {
+                    id: luanvan_id
+                },
+                success: function(data) {
+                    if(data.status == true){
+                        // console.log(data.data);
+                        $("#form_edit_luanvan input[name='id']").val(data.data.id);
+                        $("#form_edit_luanvan input[name='ten']").val(data.data.ten);
+                        $("#form_edit_luanvan input[name='vietnam']").prop('checked', (data.data.vietnam == 1) ? true : false);
+                        $("#form_edit_luanvan select[name='huongdan']").val($.parseJSON(data.data.huongdan));
+                        $("#form_edit_luanvan select[name='chutich']").val($.parseJSON(data.data.chutich));
+                        $("#form_edit_luanvan select[name='phanbien']").val($.parseJSON(data.data.phanbien));
+                        $("#form_edit_luanvan select[name='thuky']").val($.parseJSON(data.data.thuky));
+                        $("#form_edit_luanvan select[name='uyvien']").val($.parseJSON(data.data.uyvien));
+                        $("#form_edit_luanvan input[name='ghichu']").val(data.data.ghichu);
+                        $('#modal_edit_luanvan').modal('show');
+                    }
+                }
+            });
+        });
+        // END Khi click vào nút sửa LUANVAN, tìm LUANVAN theo id và đỗ dữ liệu vào form
+
+        
+        // Ajax SỬA Luận Văn
+        $("#btn_edit_luanvan").on('click', function(e){
+            e.preventDefault();
+            $("#btn_edit_luanvan").attr("disabled", "disabled");
+            $("#btn_edit_luanvan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('postSuaLuanVan') }}',
+                method: 'POST',
+                data: {
+                    id: $("#form_edit_luanvan input[name='id']").val(),
+                    ten: $("#form_edit_luanvan input[name='ten']").val(),
+                    huongdan: $("#form_edit_luanvan select[name='huongdan']").val(),
+                    chutich: $("#form_edit_luanvan select[name='chutich']").val(),
+                    phanbien: $("#form_edit_luanvan select[name='chutich']").val(),
+                    thuky: $("#form_edit_luanvan select[name='chutich']").val(),
+                    uyvien: $("#form_edit_luanvan select[name='']").val(),
+                    ghichu: $("#form_edit_luanvan input[name='ghichu']").val(),
+                },
+                success: function(data) {
+                    $("#btn_edit_luanvan").removeAttr("disabled"); 
+                    $("#btn_edit_luanvan").html('<i class="fa fa-save"></i> Lưu');
+                    if(data.status == false){
+                        var errors = "";
+                        $.each(data.data, function(key, value){
+                            $.each(value, function(key2, value2){
+                                errors += value2 +"<br>";
+                            });
+                        });
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "positionClass": "toast-top-center",
+                            "onclick": null,
+                            "showDuration": "1000",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        }
+                        toastr["error"](errors, "Lỗi")
+                    }
+                    if(data.status == true){
+                        $('#modal_edit_luanvan').modal('hide');
+                        swal({
+                            "title":"Đã sửa!", 
+                            "text":"Bạn đã sửa thành công Khóa Luận!",
+                            "type":"success"
+                        }, function() {
+                                localStorage.setItem('activeTab', '#tab11');
+                                location.reload();
+                            }
+                        );
+                    }
+                }
+            });
+        });
+        // END Ajax SỬA KHÓA LUẬN
+
+         // Xử lý khi click nút xóa KHÓA LUẬN
+         $(".btn_delete_luanvan").on("click", function(e){
+            e.preventDefault();
+            var luanvan_id = $(this).data("luanvan-id");
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            swal({
+                title: "Xóa LUANVAN này?",
+                text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonText: 'Không',
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Có, xóa ngay!",
+                closeOnConfirm: false
+                },
+                function(isConfirm){
+                    if (isConfirm) {
+                        $.ajax({
+                            url: '{{ route('postXoaLuanvan') }}',
+                            method: 'POST',
+                            data: {
+                                id: luanvan_id
+                            },
+                            success: function(data) {
+                                console.log(data);
+                                if(data.status == true){
+                                    swal({
+                                        "title":"Đã xóa!", 
+                                        "text":"Bạn đã xóa thành công LUANVAN!",
+                                        "type":"success"
+                                    }, function() {
+                                            localStorage.setItem('activeTab', '#tab11');
+                                            location.reload();
+                                        }
+                                    );
+                                }
+                            }
+                        });
+                    }   
+            });
+
+        });
+        // END Xử lý khi click nút XÓA KHÓA LUẬN
          // Ajax thêm Công Tác
          $("#btn_add_congtac").on('click', function(e){
         

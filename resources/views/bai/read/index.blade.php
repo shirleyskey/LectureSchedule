@@ -71,15 +71,43 @@
                                                 <label class="control-label col-md-7 col-xs-6">{{ $bai->hocphans->tenhocphan }}</label>
                                             </div>
                                             <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Tên Giáo Viên Giảng Dạy:</label>
-                                                <label class="control-label col-md-7 col-xs-6"></label>
-                                            </div>
-                                            <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Tiết:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $bai->sotiet }}</label>
                                             </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Giảng Viên Chính:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ ($bai->gvchinh) ? $bai->giangvienchinhs->ten : '' }}</label>
+                                            </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Số Giờ Lý Thuyết GV Chính:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $bai->lythuyet }}</label>
+                                            </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Số giờ Xemina GV Chính:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $bai->xemina }}</label>
+                                            </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Số Giờ TLTH GV Chính:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $bai->thuchanh }}</label>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Giảng Viên Tham Gia:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ ($bai->gvphu) ? $bai->giangvienphus->ten : ''  }}</label>
+                                            </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Số Giờ Lý Thuyết GV Tham Gia:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $bai->lythuyet_phu }}</label>
+                                            </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Số giờ Xemina GV Tham Gia:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $bai->xemina_phu }}</label>
+                                            </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Số Giờ TLTH GV Tham Gia:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $bai->thuchanh_phu }}</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

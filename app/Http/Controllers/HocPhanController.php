@@ -91,19 +91,6 @@ class HocPhanController extends Controller
             return redirect()->route('hocphan.index')->with('status_error', 'Xảy ra lỗi khi xóa Học Phần!');
         }
     }
-
-    public function importExcel(){
-        return view('giangvien.import.index');
-    }
-
-    public function postImportExcel(Request $request){
-      
-    }
-
-    public function exportExcel(){
-       
-    }
-
      //AJAX
      public function postThemHocPhan(Request $request)
      {

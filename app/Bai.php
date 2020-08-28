@@ -20,9 +20,14 @@ class Bai extends Model
         return $this->belongsTo('App\Lop', 'id_lop');
     }
 
-    public function giangviens()
+    public function giangvienphus()
     {
-        return $this->belongsTo('App\GiangVien', 'id_giangvien');
+        return $this->belongsTo('App\GiangVien', 'gvphu');
+    }
+
+    public function giangvienchinhs()
+    {
+        return $this->belongsTo('App\GiangVien', 'gvchinh');
     }
 
     public function events()

@@ -9,7 +9,7 @@ class Nckh extends Model
     //
     protected $table = 'nckhs';
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','tiendo', 'ten', 'thoigian'];
+    protected $fillable = ['ten'];
     
     public function giangviens()
     {
@@ -22,10 +22,26 @@ class Nckh extends Model
         }else{
             $nckh = Nckh::findOrFail($id);
         }
-        $nckh->id_giangvien = $data['id_giangvien'];
-        $nckh->ten = $data['ten'];
-        $nckh->tiendo = $data['tiendo'];
-        $nckh->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
+        $nckh->ten = $data["ten"];
+        $nckh->capbo = $data['capbo'];
+        $nckh->capcoso = $data['capcoso'];
+        $nckh->tapbaigiang = $data['tapbaigiang'];
+        $nckh->chuyende = $data['chuyende'];
+        $nckh->thamkhao = $data['thamkhao'];
+        $nckh->sangkien = $data['sangkien'];
+        $nckh->bao = $data['bao'];
+        $nckh->sotrang = $data['sotrang'];
+        $nckh->tapchi = $data['tapchi'];
+        foreach ($data['chubien'] as $key => $value) {
+            $data['chubien'][$key] = (int)$value;         
+        }
+        foreach ($data['thamgia'] as $key => $value) {
+            $data['thamgia'][$key] = (int)$value;         
+        }
+        $nckh->chubien = json_encode($data['chubien']);
+        $nckh->thamgia = json_encode($data['thamgia']);
+        $nckh->batdau = Carbon::parse($data['batdau'])->format('Y-m-d');
+        $nckh->ketthuc = Carbon::parse($data['ketthuc'])->format('Y-m-d');
         $nckh->save();
         return $nckh;
     }

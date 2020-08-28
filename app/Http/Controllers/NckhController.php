@@ -22,6 +22,7 @@ class NckhController extends Controller
         $thamkhao = Nckh::where('thamkhao', true)->get();
         $sangkien = Nckh::where('sangkien', true)->get();
         $bao = Nckh::where('bao', true)->get();
+        $giangvien = GiangVien::all();
         return view('nckh.browser.index', [
             'capbo' => $capbo,
             'capcoso' => $capcoso,
@@ -29,7 +30,8 @@ class NckhController extends Controller
             'chuyende' => $chuyende,
             'thamkhao' => $thamkhao,
             'sangkien' => $sangkien,
-            'bao' => $bao
+            'bao' => $bao,
+            'giangvien' => $giangvien
         ]);
     }
 
@@ -87,18 +89,7 @@ class NckhController extends Controller
         }
     }
 
-    public function importExcel(){
-        return view('giangvien.import.index');
-    }
-
-    public function postImportExcel(Request $request){
-       
-    }
-
-    public function exportExcel(){
-       
-    }
-
+  
     //AJAX
     public function postThemNckh(Request $request)
 	{

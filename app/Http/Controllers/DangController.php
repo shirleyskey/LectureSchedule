@@ -14,7 +14,7 @@ class DangController extends Controller
 
     public function index()
     {
-        return view('dang.browser.index', ['ds_dang' => Dang::apache_lookup_uri(filename)l()]);
+        return view('dang.browser.index', ['ds_dang' => Dang::all()]);
     }
 
     public function create(){
@@ -84,18 +84,6 @@ class DangController extends Controller
             Log::error($e);
             return redirect()->route('dang.index')->with('status_error', 'Xảy ra lỗi khi xóa Công Tác!');
         }
-    }
-
-    public function importExcel(){
-        return view('giangvien.import.index');
-    }
-
-    public function postImportExcel(Request $request){
-       
-    }
-
-    public function exportExcel(){
-       
     }
 
      //AJAX

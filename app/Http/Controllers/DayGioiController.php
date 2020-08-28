@@ -86,19 +86,6 @@ class DayGioiController extends Controller
         }
     }
 
-    public function importExcel(){
-        return view('daygioi.import.index');
-    }
-
-    public function postImportExcel(Request $request){
-       
-    }
-
-    public function exportExcel(){
-       
-    }
-
-    
     //AJAX
     public function postThemDayGioi(Request $request)
 	{

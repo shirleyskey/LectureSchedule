@@ -469,6 +469,369 @@
             @endif
         </div>
         <!-- END TAB 10-->
+          <!-- BEGIN TAB 11 KHÓA LUẬN-->
+          <div class="tab-pane" id="tab11">
+            @if($khoaluan->isNotEmpty())
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_khoaluan"><i class="fa fa-plus"></i> Thêm Khóa Luân
+                                            
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_khoaluan">
+                            <thead>
+                                <tr>
+                                    <th> STT</th>
+                                    <th style="width: 20%;"> Tên Khóa Luận</th>
+                                    <th> Hướng Dẫn</th>
+                                    <th> Chủ Tịch Chấm</th>
+                                    <th> Tham Gia Chấm</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if( $khoaluan->count() > 0 )
+                                    @php $stt = 1; @endphp
+                                    @foreach( $khoaluan as $v )
+                                    <tr>
+                                        <td> {{ $stt }} </td>
+                                        <td> {{ $v->ten }} </td>
+                                        <td> 
+                                            @php
+                                                $huongdan = json_decode( $v->huongdan, true);
+                                            @endphp
+                                                @foreach($huongdan as $key => $value)
+                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @endforeach
+                                        </td>
+                                        <td>
+                                            @php
+                                                $chutichcham = json_decode( $v->chutichcham, true);
+                                            @endphp
+                                                @foreach($chutichcham as $key => $value)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                @endforeach
+                                        </td>
+                                        <td>
+                                            @php
+                                                $thamgiacham = json_decode( $v->thamgiacham, true);
+                                            @endphp
+                                                @foreach($thamgiacham as $key => $value)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                @endforeach
+                                            </td>
+                                        
+                                        <td> {{$v->ghichu}}</td>
+                                        <td>
+                                            <a data-khoaluan-id="{{ $v->id }}" class="btn_edit_khoaluan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_khoaluan btn btn-xs red-mint" href="#" data-khoaluan-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        </td>
+                                    </tr>
+                                    @php $stt++; @endphp
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            @else
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không có Khóa Luận nào. </p>
+                </div>
+            @endif
+        </div>
+        <!-- END TAB 11-->
+
+         <!-- BEGIN TAB 12 LUẬN VĂN-->
+         <div class="tab-pane" id="tab12">
+            @if($luanvan->isNotEmpty())
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_luanvan"><i class="fa fa-plus"></i> Thêm Luận Văn
+                                            
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_luanvan">
+                            <thead>
+                                <tr>
+                                    <th> STT</th>
+                                    <th style="width: 20%;"> Tên Luận Văn</th>
+                                    <th> Hướng Dẫn</th>
+                                    <th> Chủ Tịch Chấm</th>
+                                    <th> Phản Biện Chấm</th>
+                                    <th> Thư Ký Chấm</th>
+                                    <th> Ủy Viên Chấm</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if( $luanvan->count() > 0 )
+                                    @php $stt = 1; @endphp
+                                    @foreach( $luanvan as $v )
+                                    <tr>
+                                        <td> {{ $stt }} </td>
+                                        <td> {{ $v->ten }} </td>
+                                        <td> 
+                                            @php
+                                                $huongdan = json_decode( $v->huongdan, true);
+                                            @endphp
+                                                @foreach($huongdan as $key => $value)
+                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @endforeach
+                                        </td>
+                                        <td>
+                                        @php
+                                            $chutich = json_decode( $v->chutich, true);
+                                        @endphp
+                                            @foreach($chutich as $key => $value)
+                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @php
+                                                $phanbien = json_decode( $v->phanbien, true);
+                                            @endphp
+                                                @foreach($phanbien as $key => $value)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                @endforeach
+                                        </td>
+                                        <td>
+                                            @php
+                                                $thuky = json_decode( $v->thuky, true);
+                                            @endphp
+                                                @foreach($thuky as $key => $value)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                @endforeach
+                                        </td>
+                                        <td>
+                                            @php
+                                                $uyvien = json_decode( $v->uyvien, true);
+                                            @endphp
+                                                @foreach($uyvien as $key => $value)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                @endforeach
+                                        </td>
+                                        
+                                        <td> {{$v->ghichu}}</td>
+                                        <td>
+                                            <a data-luanvan-id="{{ $v->id }}" class="btn_edit_luanvan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_luanvan btn btn-xs red-mint" href="#" data-luanvan-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        </td>
+                                    </tr>
+                                    @php $stt++; @endphp
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            @else
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không có Luận Văn nào. </p>
+                </div>
+            @endif
+        </div>
+        <!-- END TAB 12-->
+
+          <!-- BEGIN TAB 13 LUẬN ÁN-->
+          <div class="tab-pane" id="tab13">
+            @if($luanan->isNotEmpty())
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_luanan"><i class="fa fa-plus"></i> Thêm Luận Án
+                                            
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_luanan">
+                            <thead>
+                                <tr>
+                                    <th> STT</th>
+                                    <th style="width: 20%;"> Tên Luận Án</th>
+                                    <th> Hướng Dẫn</th>
+                                    <th> Đọc và NX</th>
+                                    <th> Chủ Tịch HT</th>
+                                    <th> Thành Viên HT</th>
+                                    <th> Chủ Tịch Chấm</th>
+                                    <th> Thành Viên Chấm</th>
+                                    <th> Cấp</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if( $luanan->count() > 0 )
+                                    @php $stt = 1; @endphp
+                                    @foreach( $luanan as $v )
+                                    <tr>
+                                        <td> {{ $stt }} </td>
+                                        <td> {{ $v->ten }} </td>
+                                        <td> 
+                                            <p>{{ ($v->huongdanchinh) ? ($tengv = App\GiangVien::where('id', $v->huongdanchinh)->first()->ten) : ''}}</p>
+                                            <p>{{ ($v->huongdanphu) ? ($tengv = App\GiangVien::where('id', $v->huongdanphu)->first()->ten) : ''}}</p>
+                                        </td>
+                                        <td> 
+                                            @php
+                                                $docnhanxet = json_decode( $v->docnhanxet, true);
+                                            @endphp
+                                                @foreach($docnhanxet as $key => $value)
+                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @endforeach
+                                        </td>
+                                        <td> 
+                                            @php
+                                                $chutichhoithao = json_decode( $v->chutichhoithao, true);
+                                            @endphp
+                                                @foreach($chutichhoithao as $key => $value)
+                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @endforeach
+                                        </td>
+                                        <td> 
+                                            @php
+                                                $thanhvienhoithao = json_decode( $v->thanhvienhoithao, true);
+                                            @endphp
+                                                @foreach($thanhvienhoithao as $key => $value)
+                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @endforeach
+                                        </td>
+                                        <td>
+                                        @php
+                                            $chutichcham = json_decode( $v->chutichcham, true);
+                                        @endphp
+                                            @foreach($chutichcham as $key => $value)
+                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @php
+                                                $thanhviencham = json_decode( $v->thanhviencham, true);
+                                            @endphp
+                                                @foreach($thanhviencham as $key => $value)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                @endforeach
+                                            </td>
+                                        
+                                        <td> {{$v->ghichu}}</td>
+                                        <td>
+                                            <a data-luanan-id="{{ $v->id }}" class="btn_edit_luanan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_luanan btn btn-xs red-mint" href="#" data-luanan-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        </td>
+                                    </tr>
+                                    @php $stt++; @endphp
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            @else
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không có Luận Án nào. </p>
+                </div>
+            @endif
+        </div>
+        <!-- END TAB 13-->
+
+          <!-- BEGIN TAB 14 NCS-->
+          <div class="tab-pane" id="tab14">
+            @if($ncs->isNotEmpty())
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_ncs"><i class="fa fa-plus"></i> Thêm Nghiên Cứu Sinh
+                                            
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_ncs">
+                            <thead>
+                                <tr>
+                                    <th> STT</th>
+                                    <th style="width: 20%;"> Tên Nghiên Cứu</th>
+                                    <th> Thành Viên</th>
+                                    <th> Thư Ký</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if( $ncs->count() > 0 )
+                                    @php $stt = 1; @endphp
+                                    @foreach( $ncs as $v )
+                                    <tr>
+                                        <td> {{ $stt }} </td>
+                                        <td> {{ $v->ten }} </td>
+                                        <td> 
+                                            @php
+                                                $thanhvien = json_decode( $v->thanhvien, true);
+                                            @endphp
+                                                @foreach($thanhvien as $key => $value)
+                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @endforeach
+                                        </td>
+                                        <td>
+                                        @php
+                                            $thuky = json_decode( $v->thuky, true);
+                                        @endphp
+                                            @foreach($thuky as $key => $value)
+                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                            @endforeach
+                                        </td>
+                                        <td> {{$v->ghichu}}</td>
+                                        <td>
+                                            <a data-ncs-id="{{ $v->id }}" class="btn_edit_ncs btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_ncs btn btn-xs red-mint" href="#" data-ncs-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        </td>
+                                    </tr>
+                                    @php $stt++; @endphp
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            @else
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không có Nghiên Cứu nào. </p>
+                </div>
+            @endif
+        </div>
+        <!-- END TAB 11-->
     </div>
     <div class="form-actions">
         <div class="row">
@@ -494,3 +857,5 @@
 @include('sangkien.modals-khac.edit')
 @include('hoctap.modals-khac.add')
 @include('hoctap.modals-khac.edit')
+@include('khoaluan.modals-khac.add')
+@include('luanvan.modals-khac.add')
