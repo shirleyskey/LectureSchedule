@@ -48,11 +48,9 @@
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin</a>
+                            <a href="" data-toggle="tab">Thông tin</a>
                         </li>
-                        <li>
-                            <a href="#tab2" data-toggle="tab">Danh Sách Bài Học</a>
-                        </li>
+                        {{--  --}}
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
@@ -85,48 +83,14 @@
         }
         // END Reload trang và giữ nguyên tab đã active
         //START CẤU HÌNH bảng Danh sách Bài Học
-        var table = $('#table_ds_bai');
-
-        var oTable = table.dataTable({
-
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-
-            "pageLength": 10,
-
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng nhân sự: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
+       
         //END Cấu Hình bảng danh sách bài học
         // Ajax thêm Bài Học mới
-    $("#btn_add_baihoc").on('click', function(e){
+    $("#btn_add_bai").on('click', function(e){
        e.preventDefault();
-       $("#btn_add_baihoc").attr("disabled", "disabled");
-       $("#btn_add_baihoc").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+       console.log("hihi");
+       $("#btn_add_bai").attr("disabled", "disabled");
+       $("#btn_add_bai").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
        $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -139,10 +103,18 @@
                id_hocphan: $("#form_add_bai input[name='id_hocphan']").val(),
                tenbai: $("#form_add_bai input[name='tenbai']").val(),
                sotiet: $("#form_add_bai input[name='sotiet']").val(),
-               id_giangvien: $("#form_add_bai select[name='id_giangvien']").val(),
+               gvchinh: $("#form_add_bai select[name='gvchinh']").val(),
+               gvphu: $("#form_add_bai select[name='gvphu']").val(),
+               lythuyet:null,
+               xemina:null,
+               thuchanh:null,
+               lythuyet_phu:null,
+               xemina_phu:null,
+               thuchanh_phu:null,
            success: function(data) {
-               $("#btn_add_baihoc").removeAttr("disabled"); 
-               $("#btn_add_baihoc").html('<i class="fa fa-save"></i> Lưu');
+               console.log("haua");
+               $("#btn_add_bai").removeAttr("disabled"); 
+               $("#btn_add_bai").html('<i class="fa fa-save"></i> Lưu');
                if(data.status == false){
                    var errors = "";
                    $.each(data.data, function(key, value){
@@ -205,7 +177,8 @@
                         $("#form_edit_bai input[name='id']").val(data.data.id);
                         $("#form_edit_bai input[name='tenbai']").val(data.data.tenbai);
                         $("#form_edit_bai input[name='sotiet']").val(data.data.sotiet);
-                        $("#form_edit_bai select[name='id_giangvien']").val(data.data.id_giangvien);
+                        $("#form_edit_bai select[name='gvchinh']").val(data.data.gvchinh);
+                        $("#form_edit_bai select[name='gvphu']").val(data.data.gvphu);
                         $('#modal_edit_bai').modal('show');
                     }
                 }
@@ -231,7 +204,14 @@
                     id_hocphan: $("#form_edit_bai input[name='id_hocphan']").val(),
                     sotiet: $("#form_edit_bai input[name='sotiet']").val(),
                     tenbai: $("#form_edit_bai input[name='tenbai']").val(),
-                    id_giangvien: $("#form_edit_bai select[name='id_giangvien']").val(),
+                    gvchinh: $("#form_edit_bai select[name='gvchinh']").val(),
+                    gvphu: $("#form_edit_bai select[name='gvphu']").val(),
+                    lythuyet:null,
+                    xemina:null,
+                    thuchanh:null,
+                    lythuyet_phu:null,
+                    xemina_phu:null,
+                    thuchanh_phu:null,
                 },
                 success: function(data) {
                     $("#btn_edit_bai").removeAttr("disabled"); 

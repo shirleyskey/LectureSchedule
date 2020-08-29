@@ -90,8 +90,12 @@
         </div>
         <!-- END TAB 1-->
         <!-- BEGIN TAB 2 NCKH-->
-        <div class="tab-pane" id="tab2">
-           
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a  href="" data-toggle="" >Danh Sách Bài Học</a>
+            </li>
+        </ul>
+        <div id="tab2">
             @if($bai->isNotEmpty())
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">

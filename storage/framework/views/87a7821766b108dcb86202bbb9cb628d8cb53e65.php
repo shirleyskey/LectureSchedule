@@ -47,9 +47,6 @@
                         <li class="active">
                             <a href="#tab1" data-toggle="tab">Thông tin</a>
                         </li>
-                        <li>
-                            <a href="#tab2" data-toggle="tab">Danh Sách Các Bài Học</a>
-                        </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
@@ -101,7 +98,12 @@
                             </div>
                             <!-- END TAB 1-->
                             <!-- BEGIN TAB 2-->
-                            <div class="tab-pane" id="tab2">
+                            <ul class="nav nav-pills">
+                                <li class="active">
+                                    <a href="" data-toggle="">Danh Sách Các Bài Học</a>
+                                </li>
+                            </ul>
+                            <div class="" id="">
                                 <?php if($bai->isNotEmpty()): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
@@ -132,6 +134,54 @@
                                                             <a class="btn btn-xs blue-sharp" href="<?php echo e(route('bai.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
                                                             <?php endif; // app('laratrust')->can ?>
                                                         </td>
+                                                    </tr>
+                                                    <?php $stt++; ?>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                                <?php else: ?>
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Chưa có bài học nào!</p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                            <!-- END BEGIN TAB 2-->
+
+                             <!-- BEGIN TAB 3 DANH SÁCH TIẾT HỌC-->
+                             <ul class="nav nav-pills">
+                                <li class="active">
+                                    <a href="" data-toggle="">Danh Sách Các Tiết Học</a>
+                                </li>
+                            </ul>
+                            <div class="" id="">
+                                <?php if($tiet->isNotEmpty()): ?>
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                            <thead>
+                                                <tr>
+                                                    <th> STT</th>
+                                                    <th> Tên Bài</th>
+                                                    <th> Thời Gian</th>
+                                                    <th> Tên Tiết</th>
+                                                    <th> Giảng Viên</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php if( $tiet->count() > 0 ): ?>
+                                                    <?php $stt = 1; ?>
+                                                    <?php $__currentLoopData = $tiet; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <tr>
+                                                        <td> <?php echo e($stt); ?> </td>
+                                                        <td> <?php echo e(($v->id_bai) ? $v->bais->tenbai : ''); ?> </td>
+                                                        <td> <?php echo e($thoigian = Carbon\Carbon::parse($v->thoigian)->format('Y-d-m')); ?> </td>
+                                                        <td> <?php echo e($v->lesson); ?> </td>
+                                                        <td> <?php echo e(($v->id_giangvien) ? $v->giangviens->ten : ''); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

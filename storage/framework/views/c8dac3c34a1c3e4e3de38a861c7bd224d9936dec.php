@@ -21,7 +21,7 @@
                 <li>
                     <a href="<?php echo e(route('dashboard')); ?>">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="<?php echo e(route('hocphan.index')); ?>">Học Phần Giảng Dạy</a>
+                    <a href="<?php echo e(route('hocphan.edit.get', $bai->hocphans->id)); ?>">Học Phần Giảng Dạy</a>
                 </li>
             </ul>
         </div>
@@ -46,12 +46,10 @@
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
-                        <li class="active">
+                        <li  class="active">
                             <a href="#tab1" data-toggle="tab">Thông tin Bài Học</a>
                         </li>
-                        <li>
-                            <a href="#tab2" data-toggle="tab">Danh Sách Tiết Học</a>
-                        </li>
+                        
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">

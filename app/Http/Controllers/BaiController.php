@@ -36,11 +36,11 @@ class BaiController extends Controller
         try{
             $bai = Bai::saveBai($id, $request->all());
             Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Công tác:'.$bai->id);
-            return redirect()->route('hocphan.index')->with('status_success', 'Chỉnh sửa Thông tin Bài thành công!');
+            return redirect()->route('hocphan.edit.get', $bai->hocphans->id)->with('status_success', 'Chỉnh sửa Thông tin Bài thành công!');
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('hocphan.index')->with('status_error', 'Xảy ra lỗi khi sửa Bài!');
+            return redirect()->route('hocphan.edit.get', $bai->hocphans->id)->with('status_error', 'Xảy ra lỗi khi sửa Bài!');
         }
         
     }
@@ -51,7 +51,7 @@ class BaiController extends Controller
          if ($request->ajax()) {
              try{
                  $bai = Bai::saveBai(0, $request->all());
-                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Bài ID:'.$bai->id.'-'.$bai->ten);
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Bài ID:'.$bai->id.'-'.$bai->tenbai);
                  return response()->json([
                      'status' => true
                  ]);

@@ -10,6 +10,7 @@ use App\HocPhan;
 use App\Lop;
 use App\Bai;
 use App\GiangVien;
+use App\Event;
 
 class HocPhanController extends Controller
 {
@@ -24,6 +25,7 @@ class HocPhanController extends Controller
         return view('hocphan.read.index', [
             'hocphan' => $hocphan,
             'bai' => Bai::where('id_hocphan', $id)->get(),
+            'tiet' => Event::where('id_hocphan', $id)->get(),
         ]);
     }
 

@@ -22,8 +22,19 @@
                                 </div> 
                                
                                 <div class="form-group">
-                                    <label>Giảng Viên:<span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
+                                    <label>Giảng Viên Chính:</label>
+                                    <select class="form-control" name="gvchinh">
+                                        <option value="0">-------- Chọn Giảng Viên --------</option>
+                                        @if($ds_giangvien->count()>0)
+                                            @foreach($ds_giangvien as $v)
+                                            <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giảng Viên Tham Gia:</label>
+                                    <select class="form-control" name="gvphu">
                                         <option value="0">-------- Chọn Giảng Viên --------</option>
                                         @if($ds_giangvien->count()>0)
                                             @foreach($ds_giangvien as $v)
@@ -42,7 +53,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
-                    <a href="#" class="btn green" id="btn_add_baihoc"><i class="fa fa-save"></i> Lưu</a>
+                    <a href="#" class="btn green" id="btn_add_bai"><i class="fa fa-save"></i> Lưu</a>
                 </div>
             </form>
         </div>

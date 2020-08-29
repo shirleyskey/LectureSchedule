@@ -138,7 +138,12 @@
         </div>
         <!-- END TAB 1-->
         <!-- BEGIN TAB 2 NCKH-->
-        <div class="tab-pane" id="tab2">
+        <ul class="nav nav-pills" id="">
+            <li  class="active">
+                <a href="" data-toggle="">Danh Sách Tiết Học</a>
+            </li>
+        </ul>
+        <div class="" id="">
             @if($tiet->isNotEmpty())
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">

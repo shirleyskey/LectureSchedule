@@ -22,6 +22,10 @@ class Event extends Model
     {
         return $this->belongsTo('App\HocPhan', 'id_hocphan');
     }
+     public function giangviens()
+    {
+        return $this->belongsTo('App\GiangVien', 'id_giangvien');
+    }
 
     public static function saveTiet($id, $data){
         if($id == 0){

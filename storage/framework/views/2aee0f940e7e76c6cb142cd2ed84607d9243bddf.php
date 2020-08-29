@@ -23,8 +23,19 @@
                                     <input value="" name="sotiet" type="number" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Giảng Viên:<span class="required">*</span></label>
-                                <select class="form-control" name="id_giangvien">
+                                    <label>Giảng Viên Chính:</label>
+                                <select class="form-control" name="gvchinh">
+                                <option value="">-------- Chọn Giảng Viên --------</option>
+                                        <?php if($ds_giangvien->count()>0): ?>
+                                            <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                 <div class="form-group">
+                                    <label>Giảng Viên Phụ:</label>
+                                <select class="form-control" name="gvphu">
                                 <option value="">-------- Chọn Giảng Viên --------</option>
                                         <?php if($ds_giangvien->count()>0): ?>
                                             <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -52,4 +63,4 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
+<!-- /.modal --><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/bai/modals/edit.blade.php ENDPATH**/ ?>

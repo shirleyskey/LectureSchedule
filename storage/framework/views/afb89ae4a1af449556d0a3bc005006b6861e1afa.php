@@ -22,8 +22,19 @@
                                 </div> 
                                
                                 <div class="form-group">
-                                    <label>Giảng Viên:<span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
+                                    <label>Giảng Viên Chính:</label>
+                                    <select class="form-control" name="gvchinh">
+                                        <option value="0">-------- Chọn Giảng Viên --------</option>
+                                        <?php if($ds_giangvien->count()>0): ?>
+                                            <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giảng Viên Tham Gia:</label>
+                                    <select class="form-control" name="gvphu">
                                         <option value="0">-------- Chọn Giảng Viên --------</option>
                                         <?php if($ds_giangvien->count()>0): ?>
                                             <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -42,7 +53,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
-                    <a href="#" class="btn green" id="btn_add_baihoc"><i class="fa fa-save"></i> Lưu</a>
+                    <a href="#" class="btn green" id="btn_add_bai"><i class="fa fa-save"></i> Lưu</a>
                 </div>
             </form>
         </div>
@@ -50,4 +61,4 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
+<!-- /.modal --><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/bai/modals/add.blade.php ENDPATH**/ ?>

@@ -48,9 +48,6 @@
                         <li class="active">
                             <a href="#tab1" data-toggle="tab">Thông tin</a>
                         </li>
-                        <li>
-                            <a href="#tab2" data-toggle="tab">Danh Sách Tiết Học</a>
-                        </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
@@ -113,7 +110,12 @@
                             </div>
                             <!-- END TAB 1-->
                             <!-- BEGIN TAB 2-->
-                            <div class="tab-pane" id="tab2">
+                            <ul class="nav nav-pills">
+                                <li class="active">
+                                    <a href="" data-toggle="">Danh Sách Các Tiết Học</a>
+                                </li>
+                            </ul>
+                            <div class="" id="">
                                 <?php if($tiet->isNotEmpty()): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
