@@ -88,6 +88,18 @@
                         <li>
                             <a href="#tab10" data-toggle="tab">Học Tập</a>
                         </li>
+                        <li>
+                            <a href="#tab11" data-toggle="tab">Khóa Luận</a>
+                        </li>
+                        <li>
+                            <a href="#tab12" data-toggle="tab">Luận Văn</a>
+                        </li>
+                        <li>
+                            <a href="#tab13" data-toggle="tab">Luận Án</a>
+                        </li>
+                        <li>
+                            <a href="#tab14" data-toggle="tab">NCS</a>
+                        </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">

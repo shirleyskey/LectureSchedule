@@ -137,6 +137,13 @@
             </div>
         </div>
         <!-- END TAB 1-->
+        <div class="form-actions">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
+                </div>
+            </div>
+        </div>
         <!-- BEGIN TAB 2 NCKH-->
         <ul class="nav nav-pills" id="">
             <li  class="active">
@@ -151,11 +158,7 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học
-                                            
-                                        </a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -164,9 +167,10 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Tên Tiết Học</th>
-                                    <th> Bắt Đầu</th>
-                                    <th> Kết Thúc</th>
+                                    <th> Thời Gian</th>
+                                    <th> Tên Giảng Viên</th>
                                     <th> Hành Động</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
@@ -175,12 +179,11 @@
                                     <?php $__currentLoopData = $tiet; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
-                                        <td> <?php echo e($v->title); ?> </td>
-                                        <td> <?php echo e($v->start); ?> </td>
-                                        <td> <?php echo e($v->end); ?> </td>
+                                        <td> <?php echo e($v->lesson); ?> </td>
+                                        <td> <?php echo e($v->thoigian); ?> </td>
+                                        <td> <?php echo e(($v->id_giangvien) ? $v->giangviens->ten : ''); ?> </td>
                                         <td>
-                                            <a data-tiet-id="<?php echo e($v->id); ?>" class="btn_edit_tiet btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_tiet btn btn-xs red-mint" href="#" data-tiet-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            <a class="btn btn-xs yellow-gold" href="<?php echo e(route('lichgiang.lichgiangtuan.get', $v->id)); ?>" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>
@@ -193,19 +196,13 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             <?php else: ?>
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Bài Học này chưa có tiết học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học Mới</a></p>
+                    <p> Bài Học này chưa có tiết học nào. </p>
                 </div>
             <?php endif; ?>
         </div>
         <!-- END TAB 2-->
     </div>
-    <div class="form-actions">
-        <div class="row">
-            <div class="col-md-12">
-                <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
-            </div>
-        </div>
-    </div>
+   
 
 </form>
 <?php echo $__env->make('tiet.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

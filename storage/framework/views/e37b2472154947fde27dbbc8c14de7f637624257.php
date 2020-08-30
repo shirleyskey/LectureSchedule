@@ -87,11 +87,23 @@
                         <li>
                             <a href="#tab10" data-toggle="tab">Học Tập</a>
                         </li>
+                        <li>
+                            <a href="#tab11" data-toggle="tab">Khóa Luận</a>
+                        </li>
+                        <li>
+                            <a href="#tab12" data-toggle="tab">Luận Văn</a>
+                        </li>
+                        <li>
+                            <a href="#tab13" data-toggle="tab">Luận Án</a>
+                        </li>
+                        <li>
+                            <a href="#tab14" data-toggle="tab">NCS</a>
+                        </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        <?php echo $__env->make('user.edit.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <?php echo $__env->make('user.edit.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->
@@ -2004,4 +2016,4 @@
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-toastr/toastr.min.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js')); ?>" type="text/javascript"></script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/user/edit/index.blade.php ENDPATH**/ ?>

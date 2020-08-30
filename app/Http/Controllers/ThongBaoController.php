@@ -18,7 +18,7 @@ class ThongBaoController extends Controller
     //
     public function index($id){
         $events = [];
-        $tiets = Event::all();
+        $tiets = Event::where('id_giangvien', $id)->get();
        
         if($tiets->count()){
             foreach($tiets as $tiet){
@@ -47,15 +47,19 @@ class ThongBaoController extends Controller
                             break;
                         case 5:
                             $startDate->addHours(13);
+                            $startDate->addMinute(00);
                             break;
                         case 6:
                             $startDate->addHours(14);
+                            $startDate->addMinute(00);
                             break;
                         case 7:
                             $startDate->addHours(15);
+                            $startDate->addMinute(00);
                             break;
                         case 8:
                             $startDate->addHours(16);
+                            $startDate->addMinute(00);
                             break;
                         default:
                             $startDate->addHours(7);
@@ -65,7 +69,7 @@ class ThongBaoController extends Controller
                     //End Switch case
                     // dd($tiet->lops->tenlop);
                     $thututiet = (int)$time[$i];
-                    $title = $tiet->lops->malop." - ". $tiet->hocphans->mahocphan."- Tiết ".$thututiet;
+                    $title = $tiet->lops->malop."-".$tiet->hocphans->mahocphan."-".$tiet->bais->tenbai;
                     $events[] = Calendar::event(
                         $title,
                         false,
@@ -83,26 +87,6 @@ class ThongBaoController extends Controller
             }
             //end foreach Event
         }
-
-        $nckhs = Nckh::where('id_giangvien',$id )->get();
-        if($nckhs->count()){
-            foreach($nckhs as $nckh){
-                $nckhDate = Carbon::parse($nckh->thoigian);
-                $title = "NCKH: ".$nckh->ten;
-                $events[] = Calendar::event(
-                    $title,
-                    false,
-                    new DateTime($nckhDate->subDays(7)),
-                    new DateTime($nckhDate),
-                    $nckh->id,
-                    [
-                        'color' => '#ff6100',
-                        'url' => route('nckh.edit.get', $nckh->id)
-                    ]
-                );
-            }
-        }
-      
 
         $calendar = Calendar::addEvents($events)->setOptions(['lang' => 'vi']);
         return view('calendar.thongbao', ['calendar' => $calendar]);

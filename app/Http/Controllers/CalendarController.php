@@ -65,7 +65,8 @@ class CalendarController extends Controller
                     //End Switch case
                     // dd($tiet->lops->tenlop);
                     $thututiet = (int)$time[$i];
-                    $title = $tiet->lops->malop." - ". $tiet->hocphans->mahocphan."- Tiết ".$thututiet;
+                    $giaovien = ($tiet->id_giangvien) ? $tiet->giangviens->ten : 'Chưa phân';
+                    $title = $tiet->lops->malop." - ". $tiet->bais->tenbai." - ".$giaovien;
                     $events[] = Calendar::event(
                         $title,
                         false,

@@ -60,13 +60,15 @@ class CalenderImport implements ToCollection, WithHeadingRow
                 $bai = trim($periodbai[$i]);
                 $bai = explode("có", $bai);
                 $tenbai = trim($bai[0]);
-                $sotietbai = trim($bai[1]);
-                $thembai = Bai::create([
+                if(!Bai::where('id_hocphan',$themhocphan->id)->where('tenbai',$tenbai)->exists()){
+                    $sotietbai = trim($bai[1]);
+                    $thembai = Bai::create([
                     'id_hocphan' => $themhocphan->id,
                     'tenbai' => $tenbai,
                     'sotiet' => $sotietbai
                 ]);
                 // echo($thembai);
+                }
             }
           
             // THEM TIET
@@ -82,15 +84,19 @@ class CalenderImport implements ToCollection, WithHeadingRow
                 
                 for($j = 1; $j < count($dayOfWeek); $j++){
                     $studyTime = explode(" tiết", trim($dayOfWeek[$j]));
-                    $lesson = explode(" tại ", trim($studyTime[1]));
+                    $lesson = explode(" bài ", trim($studyTime[1]));
                     $startDate = Carbon::create($dateFormat);
                     for ( ; $startDate <= $endDate; $startDate->addDay()) {
                         //Thứ 7 là ngày thứ 6 trong tuần
                         if($startDate->dayOfWeek == trim($studyTime[0]) - 1){
+                            $mabai = trim($lesson[1]);
+                            $bai_of_tiet = Bai::where('id_hocphan', $themhocphan->id)->where('tenbai',$mabai)->first();
+                            $id_bai = $bai_of_tiet->id;
                             $data["thoigian"] = $startDate;
                             $data["lesson"] = $lesson[0];
                             $data["id_lop"] = $themlop->id;
                             $data["id_hocphan"] = $themhocphan->id;
+                            $data["id_bai"] = $id_bai;
                             $themtiet = Event::create($data);
                             echo($themtiet);
                         };

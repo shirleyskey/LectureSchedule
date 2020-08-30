@@ -75,65 +75,309 @@
             </div>
         </div>
         <!-- END TAB 1-->
-        <!-- BEGIN TAB 2 NCKH-->
+        <!-- BEGIN TAB 2-->
         <div class="tab-pane" id="tab2">
-           
-            <?php if($nckh->isNotEmpty()): ?>
-                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-body">
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH
-                                            
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                            <thead>
+            <?php if(!empty($nckh)): ?>
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-body">
+                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                        <thead>
+                            <tr>
+                                <th> STT</th>
+                                <th> Tên NCKH</th>
+                                <th> Chủ Biên</th>
+                                <th> Tham Gia</th>
+                                <th> Bắt Đầu</th>
+                                <th> Kết Thúc</th>
+                                <th> Số Trang</th>
+                                <th> Số Giờ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if( count($nckh) > 0 ): ?>
+                                <?php $stt = 1; ?>
+                                <?php $__currentLoopData = $nckh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <th> STT</th>
-                                    <th> Tên NCKH</th>
-                                    <th> Tiến Độ</th>
-                                    <th> Thời Gian</th>
-                                    <th> Số Giờ</th>
-                                    <th> Hành Động</th>
+                                    <td> <?php echo e($stt); ?> </td>
+                                    <td> <?php echo e($v->ten); ?> </td>
+                                    <td> 
+                                        <?php
+                                        $chubien = json_decode( $v->chubien, true);
+                                    ?>
+                                        <?php $__currentLoopData = $chubien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        $thamgia = json_decode( $v->thamgia, true);
+                                    ?>
+                                        <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </td>
+                                    <td> <?php echo e($v->batdau); ?></td>
+                                    <td> <?php echo e($v->ketthuc); ?></td>
+                                    <td> <?php echo e($v->sotrang); ?></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php if( $nckh->count() > 0 ): ?>
-                                    <?php $stt = 1; ?>
-                                    <?php $__currentLoopData = $nckh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr>
-                                        <td> <?php echo e($stt); ?> </td>
-                                        <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->tiendo); ?> </td>
-                                        <td> <?php echo e($v->thoigian); ?> </td>
-                                        <td> </td>
-                                        <td>
-                                            <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                        </td>
-                                    </tr>
-                                    <?php $stt++; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                <?php $stt++; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
                 </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
             <?php else: ?>
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không có Nghiên cứu khoa học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH</a></p>
+                    <p> Không có Nghiên cứu khoa học nào!</p>
                 </div>
             <?php endif; ?>
         </div>
-        <!-- END TAB 2-->
+        <!-- END BEGIN TAB 2-->
+          <!-- BEGIN TAB 11-->
+          <div class="tab-pane" id="tab11">
+            <?php if(!empty($khoaluan)): ?>
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-body">
+                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                        <thead>
+                            <tr>
+                                <th> STT</th>
+                                <th> Tên Khóa Luận</th>
+                                <th> Vai Trò</th>
+                                <th>Ghi Chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if( count($khoaluan) > 0 ): ?>
+                                <?php $stt = 1; ?>
+                                <?php $__currentLoopData = $khoaluan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tr>
+                                    <td> <?php echo e($stt); ?> </td>
+                                    <td> <?php echo e($v->ten); ?> </td>
+                                    <td> 
+                                        <?php
+                                        $huongdan = json_decode( $v->huongdan, true);
+                                        $chutichcham = json_decode( $v->chutichcham, true);
+                                        $thamgiacham = json_decode( $v->thamgiacham, true);
+                                        if(in_array($giangvien->id, $huongdan)){
+                                            echo "<p>Hướng Dẫn</p> ";
+                                        };
+                                        if(in_array($giangvien->id, $chutichcham) ){
+                                            echo "<p>Chủ Tịch Chấm</p>";
+                                        };
+                                        if(in_array($giangvien->id, $thamgiacham) ){
+                                            echo "<p>Tham Gia Chấm</p>";
+                                        };
+                                        ?>
+                                       
+                                    </td>
+                                    <td> <?php echo e($v->ghichu); ?></td>
+                                </tr>
+                                <?php $stt++; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+            <?php else: ?>
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không tham gia Khóa Luận nào!</p>
+                </div>
+            <?php endif; ?>
+        </div>
+        <!-- END BEGIN TAB 11-->
+          <!-- BEGIN TAB 12-->
+          <div class="tab-pane" id="tab12">
+            <?php if(!empty($luanvan)): ?>
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-body">
+                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                        <thead>
+                            <tr>
+                                <th> STT</th>
+                                <th> Tên Luận Văn</th>
+                                <th> Vai Trò</th>
+                                <th>Ghi Chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if( count($luanvan) > 0 ): ?>
+                                <?php $stt = 1; ?>
+                                <?php $__currentLoopData = $luanvan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tr>
+                                    <td> <?php echo e($stt); ?> </td>
+                                    <td> <?php echo e($v->ten); ?> </td>
+                                    <td> 
+                                        <?php
+                                        $huongdan = json_decode( $v->huongdan, true);
+                                        $chutich = json_decode( $v->chutich, true);
+                                        $phanbien = json_decode( $v->phanbien, true);
+                                        $thuky = json_decode( $v->thuky, true);
+                                        $uyvien = json_decode( $v->uyvien, true);
+                                        if(in_array($giangvien->id, $huongdan)){
+                                            echo "<p>Hướng Dẫn</p> ";
+                                        };
+                                        if(in_array($giangvien->id, $chutich) ){
+                                            echo "<p>Chủ Tịch</p>";
+                                        };
+                                        if(in_array($giangvien->id, $phanbien) ){
+                                            echo "<p>Phản Biện</p>";
+                                        };
+                                        if(in_array($giangvien->id, $thuky) ){
+                                            echo "<p>Thư Ký</p>";
+                                        };
+                                        if(in_array($giangvien->id, $uyvien) ){
+                                            echo "<p>Ủy Viên</p>";
+                                        };
+                                        ?>
+                                       
+                                    </td>
+                                    <td> <?php echo e($v->ghichu); ?></td>
+                                </tr>
+                                <?php $stt++; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+            <?php else: ?>
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không có Tham Gia Luận Văn nào!</p>
+                </div>
+            <?php endif; ?>
+        </div>
+        <!-- END BEGIN TAB 12-->
+     <!-- BEGIN TAB 13-->
+     <div class="tab-pane" id="tab13">
+        <?php if(!empty($luanan)): ?>
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-body">
+                <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                    <thead>
+                        <tr>
+                            <th> STT</th>
+                            <th> Tên Luận Án</th>
+                            <th> Vai Trò</th>
+                            <th>Ghi Chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if( count($luanan) > 0 ): ?>
+                            <?php $stt = 1; ?>
+                            <?php $__currentLoopData = $luanan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr>
+                                <td> <?php echo e($stt); ?> </td>
+                                <td> <?php echo e($v->ten); ?> </td>
+                                <td> 
+                                    <?php
+                                    $docnhanxet = json_decode( $v->docnhanxet, true);
+                                    $chutichhoithao = json_decode( $v->chutichhoithao, true);
+                                    $thanhvienhoithao = json_decode( $v->thanhvienhoithao, true);
+                                    $chutichcham = json_decode( $v->chutichcham, true);
+                                    $thanhviencham = json_decode( $v->thanhviencham, true);
+                                    if($giangvien->id == $v->huongdanchinh){
+                                        echo "<p>Hướng Dẫn Chính</p> ";
+                                    };
+                                    if($giangvien->id == $v->huongdanphu){
+                                        echo "<p>Hướng Dẫn Phụ</p> ";
+                                    };
+                                    if(in_array($giangvien->id, $docnhanxet) ){
+                                        echo "<p>Đọc và Nhận Xét</p>";
+                                    };
+                                    if(in_array($giangvien->id, $chutichhoithao) ){
+                                        echo "<p>Chủ Tịch Hội Thảo</p>";
+                                    };
+                                    if(in_array($giangvien->id, $thanhvienhoithao) ){
+                                        echo "<p>Thành viên Hội Thảo</p>";
+                                    };
+                                    if(in_array($giangvien->id, $chutichcham) ){
+                                        echo "<p>Chủ Tịch Chấm</p>";
+                                    };
+                                    if(in_array($giangvien->id, $thanhviencham) ){
+                                        echo "<p>Thành Viên Chấm</p>";
+                                    };
+                                    ?>
+                                   
+                                </td>
+                                <td> <?php echo e($v->ghichu); ?></td>
+                            </tr>
+                            <?php $stt++; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+        <?php else: ?>
+            <div class="alert alert-danger" style="margin-bottom: 0px;">
+                <p> Không có Tham Gia Luận Án nào!</p>
+            </div>
+        <?php endif; ?>
+    </div>
+    <!-- END BEGIN TAB 13-->
+      <!-- BEGIN TAB 14-->
+      <div class="tab-pane" id="tab14">
+        <?php if(!empty($ncs)): ?>
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-body">
+                <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                    <thead>
+                        <tr>
+                            <th> STT</th>
+                            <th> Tên Nghiên Cứu Sinh</th>
+                            <th> Vai Trò</th>
+                            <th>Ghi Chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if( count($ncs) > 0 ): ?>
+                            <?php $stt = 1; ?>
+                            <?php $__currentLoopData = $ncs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <tr>
+                                <td> <?php echo e($stt); ?> </td>
+                                <td> <?php echo e($v->ten); ?> </td>
+                                <td> 
+                                    <?php
+                                    $thanhvien = json_decode( $v->thanhvien, true);
+                                    $thuky = json_decode( $v->thuky, true);
+                                    if(in_array($giangvien->id, $thanhvien)){
+                                        echo "<p>Thành Viên</p> ";
+                                    };
+                                    if(in_array($giangvien->id, $thuky) ){
+                                        echo "<p>Thư Ký</p>";
+                                    };
+                                    ?>
+                                   
+                                </td>
+                                <td> <?php echo e($v->ghichu); ?></td>
+                            </tr>
+                            <?php $stt++; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+        <?php else: ?>
+            <div class="alert alert-danger" style="margin-bottom: 0px;">
+                <p> Không tham gia Nghiên Cứu Sinh nào!</p>
+            </div>
+        <?php endif; ?>
+    </div>
+    <!-- END BEGIN TAB 14-->
 
         <!-- BEGIN TAB 3-->
         <div class="tab-pane" id="tab3">
@@ -541,20 +785,19 @@
     </div>
 
 </form>
-<?php echo $__env->make('nckh.modals.add', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('nckh.modals.edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
- <?php echo $__env->make('congtac.modals.add', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('congtac.modals.edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('chambai.modals.add', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('chambai.modals.edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('dang.modals.add', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('dang.modals.edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('daygioi.modals.add', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('daygioi.modals.edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('dotxuat.modals.add', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('dotxuat.modals.edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('sangkien.modals.add', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('sangkien.modals.edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('hoctap.modals.add', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('hoctap.modals.edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
+ <?php echo $__env->make('congtac.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('congtac.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('chambai.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('chambai.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('dang.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('dang.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('daygioi.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('daygioi.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('dotxuat.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('dotxuat.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('sangkien.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('sangkien.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('hoctap.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('hoctap.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/user/edit/form.blade.php ENDPATH**/ ?>

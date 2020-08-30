@@ -1,1 +1,25 @@
 * {}
+
+a.fc-day-grid-event.fc-event.fc-start.fc-end:hover {
+    width: 150%;
+    height: 20px;
+    background-color: #00334e!important;
+    z-index: 999;
+}
+
+a.fc-time-grid-event.fc-event.fc-start.fc-end {
+    width: 20%;
+    left: 0px!important;
+}
+
+a.fc-time-grid-event.fc-event.fc-start.fc-end:hover {
+    width: 30%;
+    background-color: #00334e!important;
+    z-index: 999;
+    height: 50px;
+    left: 0px!important;
+}
+
+a.fc-time-grid-event.fc-event.fc-start.fc-end .fc-time {
+    display: none;
+}

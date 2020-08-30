@@ -9,7 +9,7 @@ class Event extends Model
     //
     protected $table = 'events';
     public $timestamps = false;
-    protected $fillable = ['id','id_lop','id_hocphan','thoigian','lesson'];
+    protected $fillable = ['id','id_lop','id_hocphan','thoigian','lesson','id_bai'];
     public function bais()
     {
         return $this->belongsTo('App\Bai', 'id_bai');
@@ -37,10 +37,8 @@ class Event extends Model
         $tiet->id_bai = $data['id_hocphan'];
         $tiet->id_bai = $data['id_bai'];
         $tiet->thoigian = $data['thoigian'];
-        $tiet->lession = $data['lession'];
-        $tiet->title = $data['title'];
-        $tiet->start = Carbon::parse($data['start'])->format('Y-m-d\TH:i');
-        $tiet->end = Carbon::parse($data['end'])->format('Y-m-d\TH:i');
+        $tiet->lesson = $data['lesson'];
+        $tiet->id_giangvien = $data['id_giangvien'];
         $tiet->save();
         return $tiet;
     }

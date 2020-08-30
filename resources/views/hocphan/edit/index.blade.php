@@ -156,104 +156,104 @@
    });
    // END Ajax thêm Bài Học
    //AJAX Tìm Bài Học Theo ID
-        $(".btn_edit_bai").on("click", function(e){
-            e.preventDefault();
-            var bai_id = $(this).data("bai-id");
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: '{{ route('postTimBaiTheoId') }}',
-                method: 'POST',
-                data: {
-                    id: bai_id
-                },
-                success: function(data) {
-                    if(data.status == true){
-                        // console.log(data.data);
-                        $("#form_edit_bai input[name='id_hocphan']").val(data.data.id_hocphan);
-                        $("#form_edit_bai input[name='id']").val(data.data.id);
-                        $("#form_edit_bai input[name='tenbai']").val(data.data.tenbai);
-                        $("#form_edit_bai input[name='sotiet']").val(data.data.sotiet);
-                        $("#form_edit_bai select[name='gvchinh']").val(data.data.gvchinh);
-                        $("#form_edit_bai select[name='gvphu']").val(data.data.gvphu);
-                        $('#modal_edit_bai').modal('show');
-                    }
-                }
-            });
-        });
+        // $(".btn_edit_bai").on("click", function(e){
+        //     e.preventDefault();
+        //     var bai_id = $(this).data("bai-id");
+        //     $.ajaxSetup({
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //         }
+        //     });
+        //     $.ajax({
+        //         url: '{{ route('postTimBaiTheoId') }}',
+        //         method: 'POST',
+        //         data: {
+        //             id: bai_id
+        //         },
+        //         success: function(data) {
+        //             if(data.status == true){
+        //                 // console.log(data.data);
+        //                 $("#form_edit_bai input[name='id_hocphan']").val(data.data.id_hocphan);
+        //                 $("#form_edit_bai input[name='id']").val(data.data.id);
+        //                 $("#form_edit_bai input[name='tenbai']").val(data.data.tenbai);
+        //                 $("#form_edit_bai input[name='sotiet']").val(data.data.sotiet);
+        //                 $("#form_edit_bai select[name='gvchinh']").val(data.data.gvchinh);
+        //                 $("#form_edit_bai select[name='gvphu']").val(data.data.gvphu);
+        //                 $('#modal_edit_bai').modal('show');
+        //             }
+        //         }
+        //     });
+        // });
         // END Khi click vào nút sửa BAI, tìm BAI theo id và đỗ dữ liệu vào form
 
         // Ajax sửa BAI
-        $("#btn_edit_bai").on('click', function(e){
-            e.preventDefault();
-            $("#btn_edit_bai").attr("disabled", "disabled");
-            $("#btn_edit_bai").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: '{{ route('postSuaBai') }}',
-                method: 'POST',
-                data: {
-                    id: $("#form_edit_bai input[name='id']").val(),
-                    id_hocphan: $("#form_edit_bai input[name='id_hocphan']").val(),
-                    sotiet: $("#form_edit_bai input[name='sotiet']").val(),
-                    tenbai: $("#form_edit_bai input[name='tenbai']").val(),
-                    gvchinh: $("#form_edit_bai select[name='gvchinh']").val(),
-                    gvphu: $("#form_edit_bai select[name='gvphu']").val(),
-                    lythuyet:null,
-                    xemina:null,
-                    thuchanh:null,
-                    lythuyet_phu:null,
-                    xemina_phu:null,
-                    thuchanh_phu:null,
-                },
-                success: function(data) {
-                    $("#btn_edit_bai").removeAttr("disabled"); 
-                    $("#btn_edit_bai").html('<i class="fa fa-save"></i> Lưu');
-                    if(data.status == false){
-                        var errors = "";
-                        $.each(data.data, function(key, value){
-                            $.each(value, function(key2, value2){
-                                errors += value2 +"<br>";
-                            });
-                        });
-                        toastr.options = {
-                            "closeButton": true,
-                            "debug": false,
-                            "positionClass": "toast-top-center",
-                            "onclick": null,
-                            "showDuration": "1000",
-                            "hideDuration": "1000",
-                            "timeOut": "5000",
-                            "extendedTimeOut": "1000",
-                            "showEasing": "swing",
-                            "hideEasing": "linear",
-                            "showMethod": "fadeIn",
-                            "hideMethod": "fadeOut"
-                        }
-                        toastr["error"](errors, "Lỗi")
-                    }
-                    if(data.status == true){
-                        $('#modal_edit_bai').modal('hide');
-                        swal({
-                            "title":"Đã sửa!", 
-                            "text":"Bạn đã sửa thành công Bài Học!",
-                            "type":"success"
-                        }, function() {
-                                localStorage.setItem('activeTab', '#tab2');
-                                location.reload();
-                            }
-                        );
-                    }
-                }
-            });
-        });
+        // $("#btn_edit_bai").on('click', function(e){
+        //     e.preventDefault();
+        //     $("#btn_edit_bai").attr("disabled", "disabled");
+        //     $("#btn_edit_bai").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+        //     $.ajaxSetup({
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //         }
+        //     });
+        //     $.ajax({
+        //         url: '{{ route('postSuaBai') }}',
+        //         method: 'POST',
+        //         data: {
+        //             id: $("#form_edit_bai input[name='id']").val(),
+        //             id_hocphan: $("#form_edit_bai input[name='id_hocphan']").val(),
+        //             sotiet: $("#form_edit_bai input[name='sotiet']").val(),
+        //             tenbai: $("#form_edit_bai input[name='tenbai']").val(),
+        //             gvchinh: $("#form_edit_bai select[name='gvchinh']").val(),
+        //             gvphu: $("#form_edit_bai select[name='gvphu']").val(),
+        //             lythuyet:null,
+        //             xemina:null,
+        //             thuchanh:null,
+        //             lythuyet_phu:null,
+        //             xemina_phu:null,
+        //             thuchanh_phu:null,
+        //         },
+        //         success: function(data) {
+        //             $("#btn_edit_bai").removeAttr("disabled"); 
+        //             $("#btn_edit_bai").html('<i class="fa fa-save"></i> Lưu');
+        //             if(data.status == false){
+        //                 var errors = "";
+        //                 $.each(data.data, function(key, value){
+        //                     $.each(value, function(key2, value2){
+        //                         errors += value2 +"<br>";
+        //                     });
+        //                 });
+        //                 toastr.options = {
+        //                     "closeButton": true,
+        //                     "debug": false,
+        //                     "positionClass": "toast-top-center",
+        //                     "onclick": null,
+        //                     "showDuration": "1000",
+        //                     "hideDuration": "1000",
+        //                     "timeOut": "5000",
+        //                     "extendedTimeOut": "1000",
+        //                     "showEasing": "swing",
+        //                     "hideEasing": "linear",
+        //                     "showMethod": "fadeIn",
+        //                     "hideMethod": "fadeOut"
+        //                 }
+        //                 toastr["error"](errors, "Lỗi")
+        //             }
+        //             if(data.status == true){
+        //                 $('#modal_edit_bai').modal('hide');
+        //                 swal({
+        //                     "title":"Đã sửa!", 
+        //                     "text":"Bạn đã sửa thành công Bài Học!",
+        //                     "type":"success"
+        //                 }, function() {
+        //                         localStorage.setItem('activeTab', '#tab2');
+        //                         location.reload();
+        //                     }
+        //                 );
+        //             }
+        //         }
+        //     });
+        // });
         // END Ajax sửa BAI
         
         // Xử lý khi click nút xóa BAI

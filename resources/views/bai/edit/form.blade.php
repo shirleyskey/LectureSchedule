@@ -137,6 +137,13 @@
             </div>
         </div>
         <!-- END TAB 1-->
+        <div class="form-actions">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
+                </div>
+            </div>
+        </div>
         <!-- BEGIN TAB 2 NCKH-->
         <ul class="nav nav-pills" id="">
             <li  class="active">
@@ -151,11 +158,11 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="btn-group">
+                                    {{-- <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học
                                             
                                         </a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -164,9 +171,10 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Tên Tiết Học</th>
-                                    <th> Bắt Đầu</th>
-                                    <th> Kết Thúc</th>
+                                    <th> Thời Gian</th>
+                                    <th> Tên Giảng Viên</th>
                                     <th> Hành Động</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
@@ -175,12 +183,11 @@
                                     @foreach( $tiet as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
-                                        <td> {{ $v->title }} </td>
-                                        <td> {{ $v->start }} </td>
-                                        <td> {{ $v->end }} </td>
+                                        <td> {{ $v->lesson }} </td>
+                                        <td> {{ $v->thoigian}} </td>
+                                        <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : '' }} </td>
                                         <td>
-                                            <a data-tiet-id="{{ $v->id }}" class="btn_edit_tiet btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_tiet btn btn-xs red-mint" href="#" data-tiet-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            <a class="btn btn-xs yellow-gold" href="{{route('lichgiang.lichgiangtuan.get', $v->id)}}" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -193,19 +200,13 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Bài Học này chưa có tiết học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học Mới</a></p>
+                    <p> Bài Học này chưa có tiết học nào. </p>
                 </div>
             @endif
         </div>
         <!-- END TAB 2-->
     </div>
-    <div class="form-actions">
-        <div class="row">
-            <div class="col-md-12">
-                <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
-            </div>
-        </div>
-    </div>
+   
 
 </form>
 @include('tiet.modals.add')

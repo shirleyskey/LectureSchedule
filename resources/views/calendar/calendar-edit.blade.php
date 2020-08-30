@@ -69,45 +69,59 @@
                                             <input value="{{ $tiet->id }}" name="id" type="hidden">
                                             <input value="{{ $tiet->id_lop }}" name="id_lop" type="hidden">
                                             <input value="{{ $tiet->id_hocphan }}" name="id_hocphan" type="hidden">
+                                            <input value="{{ $tiet->id_bai }}" name="id_bai" type="hidden">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Tên Lớp:
-                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
-                                                            <input type="text" class="form-control" readonly name="lop" value="{{ $tiet->lops->tenlop }}" required /> </div>
+                                                            <input type="text" class="form-control" readonly name="" value="{{ $tiet->lops->tenlop }}" required /> </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Tên Học Phần:
-                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
-                                                            <input type="text" class="form-control" readonly name="hocphan" value="{{ $tiet->hocphans->tenhocphan }}" required /> </div>
+                                                            <input type="text" class="form-control" readonly name="" value="{{ $tiet->hocphans->tenhocphan }}" required /> </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Bài Học:<span class="required">*</span></label>
+                                                    <label class="control-label col-md-4">Tên Bài Học:</label>
                                                     <div class="col-md-7">
-                                                        <select class="form-control" name="id_bai">
-                                                            <option value="0">-------- Chọn Bài Học --------</option>
-                                                            @if($bai->count()>0)
-                                                                @foreach($bai as $v)
-                                                                <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->tenbai }}</option>
-                                                                @endforeach
-                                                            @endif
-                                                        </select>
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" readonly name="" value="{{ $tiet->bais->tenbai }}" required /> </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Danh Sách Tiết Học:
+                                                    <label class="control-label col-md-4">Giảng Viên:
                                                         <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <select class="form-control" name="id_giangvien">
+                                                            <option selected value="{{$tiet->id_giangvien}}">{{$tiet->giangviens->ten}}</option>
+                                                                @php
+                                                                    $id_gvchinh = $tiet->bais->gvchinh;
+                                                                    $id_gvphu = $tiet->bais->gvphu;
+                                                                    $gvchinh = App\GiangVien::where('id', $id_gvchinh)->first();
+                                                                    $gvphu = App\GiangVien::where('id', $id_gvphu)->first();
+                                                                @endphp
+                                                                    <option value="{{($gvchinh->id)}}">{{($gvchinh->id) ? $gvchinh->ten : ''}}</option>
+                                                                    <option value="{{($gvphu->id)}}">{{($gvphu->id) ? $gvphu->ten : ''}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Danh Sách Tiết Học:
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
@@ -117,12 +131,13 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Thời Gian:
-                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
-                                                            <input type="date" class="form-control" name="lesson" value="{{ $tiet->thoigian }}" required /> </div>
+                                                            <input type="date" class="form-control" name="thoigian" 
+                                                            value="{{ \Carbon\Carbon::parse($tiet->thoigian)->format('Y-m-d') }}" 
+                                                            required /> </div>
                                                     </div>
                                                 </div>
 

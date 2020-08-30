@@ -68,45 +68,59 @@
                                             <input value="<?php echo e($tiet->id); ?>" name="id" type="hidden">
                                             <input value="<?php echo e($tiet->id_lop); ?>" name="id_lop" type="hidden">
                                             <input value="<?php echo e($tiet->id_hocphan); ?>" name="id_hocphan" type="hidden">
+                                            <input value="<?php echo e($tiet->id_bai); ?>" name="id_bai" type="hidden">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Tên Lớp:
-                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
-                                                            <input type="text" class="form-control" readonly name="lop" value="<?php echo e($tiet->lops->tenlop); ?>" required /> </div>
+                                                            <input type="text" class="form-control" readonly name="" value="<?php echo e($tiet->lops->tenlop); ?>" required /> </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Tên Học Phần:
-                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
-                                                            <input type="text" class="form-control" readonly name="hocphan" value="<?php echo e($tiet->hocphans->tenhocphan); ?>" required /> </div>
+                                                            <input type="text" class="form-control" readonly name="" value="<?php echo e($tiet->hocphans->tenhocphan); ?>" required /> </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Bài Học:<span class="required">*</span></label>
+                                                    <label class="control-label col-md-4">Tên Bài Học:</label>
                                                     <div class="col-md-7">
-                                                        <select class="form-control" name="id_bai">
-                                                            <option value="0">-------- Chọn Bài Học --------</option>
-                                                            <?php if($bai->count()>0): ?>
-                                                                <?php $__currentLoopData = $bai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->tenbai); ?></option>
-                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                            <?php endif; ?>
-                                                        </select>
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" readonly name="" value="<?php echo e($tiet->bais->tenbai); ?>" required /> </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Danh Sách Tiết Học:
+                                                    <label class="control-label col-md-4">Giảng Viên:
                                                         <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <select class="form-control" name="id_giangvien">
+                                                            <option selected value="<?php echo e($tiet->id_giangvien); ?>"><?php echo e($tiet->giangviens->ten); ?></option>
+                                                                <?php
+                                                                    $id_gvchinh = $tiet->bais->gvchinh;
+                                                                    $id_gvphu = $tiet->bais->gvphu;
+                                                                    $gvchinh = App\GiangVien::where('id', $id_gvchinh)->first();
+                                                                    $gvphu = App\GiangVien::where('id', $id_gvphu)->first();
+                                                                ?>
+                                                                    <option value="<?php echo e(($gvchinh->id)); ?>"><?php echo e(($gvchinh->id) ? $gvchinh->ten : ''); ?></option>
+                                                                    <option value="<?php echo e(($gvphu->id)); ?>"><?php echo e(($gvphu->id) ? $gvphu->ten : ''); ?></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Danh Sách Tiết Học:
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
@@ -116,12 +130,13 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Thời Gian:
-                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
-                                                            <input type="date" class="form-control" name="lesson" value="<?php echo e($tiet->thoigian); ?>" required /> </div>
+                                                            <input type="date" class="form-control" name="thoigian" 
+                                                            value="<?php echo e(\Carbon\Carbon::parse($tiet->thoigian)->format('Y-m-d')); ?>" 
+                                                            required /> </div>
                                                     </div>
                                                 </div>
 

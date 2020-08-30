@@ -25,8 +25,9 @@ class BaiController extends Controller
     }
 
     public function edit($id){
+        $bai = Bai::findOrFail($id);
         return view('bai.edit.index', [
-            'bai' => Bai::findOrFail($id), 
+            'bai' => $bai, 
             'tiet' => Event::where('id_bai', $id)->get(),
             'ds_giangvien' => GiangVien::all(),
         ]);

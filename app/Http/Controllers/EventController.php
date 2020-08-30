@@ -88,4 +88,17 @@ class EventController extends Controller
             'bai' => $bai
         ]);
     }
+
+    public function update(Request $request, $id){
+        try{
+            $tiet = Event::saveTiet($id, $request->all());
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Tiết Học:'.$tiet->id);
+            return redirect()->route('lichgiang.lichgiangtuan')->with('status_success', 'Chỉnh sửa Thông tin Tiết Học!');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('lichgiang.lichgiangtuan')->with('status_error', 'Xảy ra lỗi khi sửa Tiết Học!');
+        }
+        
+    }
 }
