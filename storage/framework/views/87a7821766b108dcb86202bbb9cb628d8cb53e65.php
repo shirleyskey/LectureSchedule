@@ -18,7 +18,9 @@
                 <li>
                     <a href="<?php echo e(route('dashboard')); ?>">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="<?php echo e(route('hocphan.index')); ?>">Danh Sách Học Phần Chuyên Môn</a>
+                    <a href="<?php echo e(route('hocphan.index')); ?>">Danh Sách Tất Cả Học Phần Chuyên Môn</a>
+                    <i class="fa fa-circle"></i>
+                <a href="<?php echo e(route('lop.read.get',$hocphan->id_lop )); ?>">Học Phần Chuyên Môn Của Lớp <?php echo e($hocphan->lops->tenlop); ?></a>
                 </li>
             </ul>
         </div>
@@ -73,7 +75,7 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Tiết:</label>
                                                 <label class="control-label col-md-7 col-xs-6"><?php echo e($hocphan->sotiet); ?></label>
                                             </div>
-                                           
+
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row">
@@ -258,4 +260,5 @@
 <script src="<?php echo e(asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js')); ?>" type="text/javascript"></script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/hocphan/read/index.blade.php ENDPATH**/ ?>

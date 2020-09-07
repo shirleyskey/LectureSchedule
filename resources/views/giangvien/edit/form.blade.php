@@ -44,7 +44,7 @@
                                     <input type="text" class="form-control" name="diachi" value="{{ $giangvien->diachi }}" /> </div>
                             </div>
                         </div>
-                       
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
@@ -76,7 +76,7 @@
             </div>
         </div>
         <!-- END TAB 1-->
-    
+
 
         <!-- BEGIN TAB 3-->
         <div class="tab-pane" id="tab3">
@@ -89,7 +89,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -205,7 +205,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -243,7 +243,7 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không tham gia hoạt động Đảng/Đoàn nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Chấm Bài</a></p>
+                    <p> Giảng Viên này không tham gia hoạt động Đảng/Đoàn nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo HĐ Mới</a></p>
                 </div>
             @endif
         </div>
@@ -260,7 +260,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -317,7 +317,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dotxuat"><i class="fa fa-plus"></i> Tạo CV Đột Xuất Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -373,7 +373,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_sangkien"><i class="fa fa-plus"></i> Tạo Sáng Kiến Cải Tiến
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -429,7 +429,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Học Tập Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>

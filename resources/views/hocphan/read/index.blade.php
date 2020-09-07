@@ -20,7 +20,9 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('hocphan.index') }}">Danh Sách Học Phần Chuyên Môn</a>
+                    <a href="{{ route('hocphan.index') }}">Danh Sách Tất Cả Học Phần Chuyên Môn</a>
+                    <i class="fa fa-circle"></i>
+                <a href="{{ route('lop.read.get',$hocphan->id_lop ) }}">Học Phần Chuyên Môn Của Lớp {{ $hocphan->lops->tenlop}}</a>
                 </li>
             </ul>
         </div>
@@ -74,7 +76,7 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Tiết:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->sotiet }}</label>
                                             </div>
-                                           
+
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row">

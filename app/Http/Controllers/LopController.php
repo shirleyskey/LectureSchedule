@@ -49,7 +49,7 @@ class LopController extends Controller
 
     public function edit($id){
         return view('lop.edit.index', [
-            'lop' => Lop::findOrFail($id), 
+            'lop' => Lop::findOrFail($id),
             'hocphan' => HocPhan::where('id_lop', $id)->get(),
         ]);
     }
@@ -64,20 +64,20 @@ class LopController extends Controller
             Log::error($e);
             return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi sửa Giảng viên!');
         }
-        
+
     }
 
     public function destroy($id){
-        $giangvien = GiangVien::findOrFail($id);
-        $name = $giangvien->ten;
+        $lop = Lop::findOrFail($id);
+        $ten = $lop->tenlop;
         try{
-            $giangvien->delete();
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa nhân sự id:'.$id.'-'.$name);
-            return redirect()->route('giangvien.index')->with('status_success', 'Xóa Giảng Viên thành công!');
+            $lop->delete();
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Lớp id:'.$id.'-'.$ten);
+            return redirect()->route('lop.index')->with('status_success', 'Xóa Lớp thành công!');
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi xóa Giảng Viên!');
+            return redirect()->route('lop.index')->with('status_error', 'Xảy ra lỗi khi xóa Lớp!');
         }
     }
 
