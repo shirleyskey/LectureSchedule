@@ -10,11 +10,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác Mới
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -42,8 +44,10 @@
                                         <td> {{ $v->thoigian }} </td>
                                         <td> </td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-congtac-id="{{ $v->id }}" class="btn_edit_congtac btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_congtac btn btn-xs red-mint" href="#" data-congtac-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -56,7 +60,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Công Tác nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác</a></p>
+                    <p> Không có Công Tác nào.
+                        @permission('create-giangvien')
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác</a></p>
+                        @endpermission
                 </div>
             @endif
         </div>
@@ -71,11 +78,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài Mới
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -101,8 +110,10 @@
                                         <td> {{ $v->ghichu }} </td>
                                         <td> </td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-chambai-id="{{ $v->id }}" class="btn_edit_chambai btn btn-xs yellow-gold" href="#modal_edit_chambai" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_chambai btn btn-xs red-mint" href="#" data-chambai-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -115,7 +126,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Chấm Bài nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài</a></p>
+                    <p> Không có Chấm Bài nào.
+                        @permission('create-giangvien')
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài</a></p>
+                        @endpermission
                 </div>
             @endif
         </div>
@@ -130,11 +144,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động Mới
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -158,8 +174,10 @@
                                         <td> {{ $v->giangviens->ten }} </td>
                                         <td> {{ $v->thoigian }} </td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-dang-id="{{ $v->id }}" class="btn_edit_dang btn btn-xs yellow-gold" href="#modal_edit_dang" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_dang btn btn-xs red-mint" href="#" data-dang-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -172,7 +190,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không tham gia hoạt động Đảng/Đoàn nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Chấm Bài</a></p>
+                    <p> Không tham gia hoạt động Đảng/Đoàn nào.
+                        @permission('create-giangvien')
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động</a></p>
+                        @endpermission
                 </div>
             @endif
         </div>
@@ -187,11 +208,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -217,8 +240,10 @@
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-daygioi-id="{{ $v->id }}" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -231,7 +256,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có hoạt động Dạy Giỏi nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi</a></p>
+                    <p> Không có hoạt động Dạy Giỏi nào.
+                        @permission('create-giangvien')
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới</a></p>
+                        @endpermission
                 </div>
             @endif
         </div>
@@ -245,11 +273,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Xây Dựng Mới
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -275,8 +305,10 @@
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-xaydung-id="{{ $v->id }}" class="btn_edit_xaydung btn btn-xs yellow-gold" href="#modal_edit_xaydung" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_xaydung btn btn-xs red-mint" href="#" data-xaydung-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -289,7 +321,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có hoạt động Xây Dựng CHương Trình nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Dạy Giỏi</a></p>
+                    <p> Không có hoạt động Xây Dựng CHương Trình nào.
+                        @permission('create-giangvien')
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo XD Chương Trình Mới</a></p>
+                        @endpermission
                 </div>
             @endif
         </div>
@@ -304,11 +339,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dotxuat"><i class="fa fa-plus"></i> Tạo CV Đột Xuất Mới
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -334,8 +371,10 @@
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-dotxuat-id="{{ $v->id }}" class="btn_edit_dotxuat btn btn-xs yellow-gold" href="#modal_edit_dotxuat" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_dotxuat btn btn-xs red-mint" href="#" data-dotxuat-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -348,7 +387,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p>Không có Công Việc Đột Xuất nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dotxuat"><i class="fa fa-plus"></i> Tạo Đột Xuất</a></p>
+                    <p>Không có Công Việc Đột Xuất nào.
+                        @permission('create-giangvien')
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dotxuat"><i class="fa fa-plus"></i> Tạo Đột Xuất Mới</a></p>
+                        @endpermission
                 </div>
             @endif
         </div>
@@ -362,11 +404,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_sangkien"><i class="fa fa-plus"></i> Tạo Sáng Kiến Cải Tiến
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -392,8 +436,10 @@
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-sangkien-id="{{ $v->id }}" class="btn_edit_sangkien btn btn-xs yellow-gold" href="#modal_edit_sangkien" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_sangkien btn btn-xs red-mint" href="#" data-sangkien-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -406,7 +452,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p>Không có Sáng Kiến Cải Tiến nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_sangkien"><i class="fa fa-plus"></i> Tạo Đột Xuất</a></p>
+                    <p>Không có Sáng Kiến Cải Tiến nào.
+                        @permission('create-giangvien')
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_sangkien"><i class="fa fa-plus"></i> Tạo Sáng Kiến Mới</a></p>
+                        @endpermission
                 </div>
             @endif
         </div>
@@ -420,11 +469,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Học Tập Mới
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -450,8 +501,10 @@
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-hoctap-id="{{ $v->id }}" class="btn_edit_hoctap btn btn-xs yellow-gold" href="#modal_edit_hoctap" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_hoctap btn btn-xs red-mint" href="#" data-hoctap-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -464,7 +517,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không tham gia Học Tập Nào nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Đột Xuất</a></p>
+                    <p> Không tham gia Học Tập Nào nào.
+                        @permission('create-giangvien')
+                         <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Học Tập Mới</a></p>
+                        @endpermission
                 </div>
             @endif
         </div>
@@ -478,11 +534,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_khoaluan"><i class="fa fa-plus"></i> Thêm Khóa Luân
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -532,8 +590,10 @@
 
                                         <td> {{$v->ghichu}}</td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-khoaluan-id="{{ $v->id }}" class="btn_edit_khoaluan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_khoaluan btn btn-xs red-mint" href="#" data-khoaluan-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -547,8 +607,9 @@
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
                     <p> Không có Khóa Luận nào.
+                        @permission('create-giangvien')
                         <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_khoaluan"><i class="fa fa-plus"></i> Tạo Khóa Luận Mới</a>
-
+                        @endpermission
                     </p>
                 </div>
             @endif
@@ -564,11 +625,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_luanvan"><i class="fa fa-plus"></i> Thêm Luận Văn
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -636,8 +699,10 @@
 
                                         <td> {{$v->ghichu}}</td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-luanvan-id="{{ $v->id }}" class="btn_edit_luanvan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_luanvan btn btn-xs red-mint" href="#" data-luanvan-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -651,7 +716,9 @@
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
                     <p> Không có Luận Văn nào.
+                        @permission('create-giangvien')
                         <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_luanvan"><i class="fa fa-plus"></i> Tạo Luận Văn Mới</a>
+                        @endpermission
                     </p>
                 </div>
             @endif
@@ -667,11 +734,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_luanan"><i class="fa fa-plus"></i> Thêm Luận Án
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -745,8 +814,10 @@
 
                                         <td> {{$v->ghichu}}</td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-luanan-id="{{ $v->id }}" class="btn_edit_luanan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_luanan btn btn-xs red-mint" href="#" data-luanan-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -760,7 +831,9 @@
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
                     <p> Không có Luận Án nào.
+                        @permission('create-giangvien')
                         <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_luanan"><i class="fa fa-plus"></i> Tạo Luận Án Mới</a>
+                        @endpermission
                          </p>
                 </div>
             @endif
@@ -776,11 +849,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                    @permission('create-giangvien')
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_ncs"><i class="fa fa-plus"></i> Thêm Nghiên Cứu Sinh
 
                                         </a>
                                     </div>
+                                    @endpermission
                                 </div>
                             </div>
                         </div>
@@ -820,8 +895,10 @@
                                         </td>
                                         <td> {{$v->ghichu}}</td>
                                         <td>
+                                            @permission('create-giangvien')
                                             <a data-ncs-id="{{ $v->id }}" class="btn_edit_ncs btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_ncs btn btn-xs red-mint" href="#" data-ncs-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -835,7 +912,9 @@
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
                     <p> Không có Nghiên Cứu Sinh nào.
+                        @permission('create-giangvien')
                         <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_ncs"><i class="fa fa-plus"></i> Tạo Nghiên Cứu Sinh</a>
+                        @endpermission
                     </p>
                 </div>
             @endif
@@ -921,10 +1000,3 @@
 </div>
 <!-- /.modal -->
 <!-- -------------------------------------END NGHIÊN CỨU SINH EDIT -------------------------------------->
-@include('congtac.modals-khac.edit')
-@include('chambai.modals-khac.edit')
-@include('dang.modals-khac.edit')
-@include('daygioi.modals-khac.edit')
-@include('dotxuat.modals-khac.edit')
-@include('sangkien.modals-khac.edit')
-@include('hoctap.modals-khac.edit')

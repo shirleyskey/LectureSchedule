@@ -58,7 +58,7 @@
                         <li>
                             <a href="#tab14" data-toggle="tab">Nghiên Cứu Sinh</a>
                         </li>
-                        <li class="active">
+                        <li class="">
                             <a href="#tab4" data-toggle="tab">Chấm Bài</a>
                         </li>
                         <li>
@@ -104,7 +104,7 @@
 <div class="modal fade bs-modal-lg" id="modal_add_khoaluan" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="post" id="form_add_luanvan">
+            <form action="post" id="form_add_khoaluan">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                     <h4 class="modal-title"><strong><i class="fa fa-plus"></i> Thêm mới Khóa Luận</strong></h4>
@@ -580,7 +580,7 @@
                 <input value="" name="id" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Luận Văn</h4>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Luận ÁN</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -731,7 +731,7 @@
             <form action="post" id="form_add_ncs">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><strong><i class="fa fa-plus"></i> Thêm mới Khóa Luận</strong></h4>
+                    <h4 class="modal-title"><strong><i class="fa fa-plus"></i> Thêm mới Nghiên Cứu Sinh</strong></h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -845,6 +845,60 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_chambai" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_chambai">
+                <?php echo csrf_field(); ?>
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Chấm Bài</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input class="form-control" name="ghichu" id="ghichu" type="text" value="" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_chambai"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <!-- -------------------------------------END CHẤM BÀI ADD -------------------------------------->
 <!-- -------------------------------------CÔNG TÁC ADD ------------------------------------>
 <!-- /.modal -->
@@ -903,8 +957,764 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<!-- -------------------------------------END CÔNG TÁC ADD -------------------------------------->
 
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_congtac" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_congtac">
+                <?php echo csrf_field(); ?>
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Công Tác</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Công Tác:<span class="required">*</span></label>
+                                    <input value="" name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                    <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tiến Độ:<span class="required">*</span></label>
+                                    <input value="" name="tiendo" type="number" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" id="thoigian" type="date" value="" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_congtac"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END CÔNG TÁC ADD -------------------------------------->
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_dang" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_dang">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Hoạt Động Đảng Đoàn</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
+                                    <input class="form-control" name="ten" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_dang"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_dang" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_dang">
+                <?php echo csrf_field(); ?>
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Hoạt Động Đảng Đoàn</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
+                                    <input class="form-control" name="ten" id="ten" type="text" value="" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" id="thoigian" type="date" value="" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_dang"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+ 
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_daygioi" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_daygioi">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Dạy Giỏi</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Dạy Giỏi: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_daygioi"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_daygioi" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_daygioi">
+                <?php echo csrf_field(); ?>
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Dạy Giỏi</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Dạy Giỏi:<span class="required">*</span></label>
+                                    <input value="" name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input value="" name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" id="thoigian" type="date" value="" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_daygioi"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_dotxuat" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_dotxuat">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới CV Đột Xuất</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên CV Đột Xuất: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_dotxuat"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_dotxuat" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_dotxuat">
+                <?php echo csrf_field(); ?>
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Công Việc Đột Xuất</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Xây Dựng:<span class="required">*</span></label>
+                                    <input value="" name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input value="" name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_dotxuat"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_hoctap" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_hoctap">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Học Tập</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên CV Đột Xuất: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_hoctap"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_hoctap" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_hoctap">
+                <?php echo csrf_field(); ?>
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Học Tập</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Học Tập:<span class="required">*</span></label>
+                                    <input value="" name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input value="" name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_hoctap"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_xaydung" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_xaydung">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Xây Dựng</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Xây Dựng: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_xaydung"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_xaydung" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_xaydung">
+                <?php echo csrf_field(); ?>
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Xây Dựng</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Xây Dựng:<span class="required">*</span></label>
+                                    <input value="" name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input value="" name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_xaydung"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_sangkien" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_sangkien">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Sáng Kiến Cải Tiến</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Sáng Kiến: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_sangkien"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_sangkien" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_sangkien">
+                <?php echo csrf_field(); ?>
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Sáng Kiến</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Sáng Kiến:<span class="required">*</span></label>
+                                    <input value="" name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input value="" name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_sangkien"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 
 
@@ -2077,7 +2887,7 @@
 
 
          // Ajax sửa chấm bài
-         $(".btn_edit_chambai").on('click', function(e){
+         $("#btn_edit_chambai").on('click', function(e){
              e.preventDefault();
              $("#btn_edit_chambai").attr("disabled", "disabled");
              $("#btn_edit_chambai").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
