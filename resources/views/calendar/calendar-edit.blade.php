@@ -53,7 +53,13 @@
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin Tiết Học</a>
+                            <a href="">Thông tin Tiết Học</a>
+                        </li>
+                        <li >
+                        <a href="{{route('bai.edit.get',$tiet->id_bai )}}">Xem Bài Học</a>
+                        </li>
+                        <li >
+                            <a href="{{route('hocphan.edit.get',$tiet->id_hocphan )}}">Xem Học Phần</a>
                         </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
@@ -107,15 +113,15 @@
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
                                                             <select class="form-control" name="id_giangvien">
-                                                            <option selected value="{{$tiet->id_giangvien}}">{{$tiet->giangviens->ten}}</option>
+                                                            <option selected value="{{($tiet->id_giangvien) ? ($tiet->id_giangvien) : null}}">{{($tiet->id_giangvien) ? $tiet->giangviens->ten : ''}}</option>
                                                                 @php
                                                                     $id_gvchinh = $tiet->bais->gvchinh;
                                                                     $id_gvphu = $tiet->bais->gvphu;
                                                                     $gvchinh = App\GiangVien::where('id', $id_gvchinh)->first();
                                                                     $gvphu = App\GiangVien::where('id', $id_gvphu)->first();
                                                                 @endphp
-                                                                    <option value="{{($gvchinh->id)}}">{{($gvchinh->id) ? $gvchinh->ten : ''}}</option>
-                                                                    <option value="{{($gvphu->id)}}">{{($gvphu->id) ? $gvphu->ten : ''}}</option>
+                                                                    <option value="{{($gvchinh) ? ($gvchinh->id) : null}}">{{($gvchinh) ? $gvchinh->ten : ''}}</option>
+                                                                    <option value="{{($gvphu) ? ($gvphu->id) : null}}">{{($gvphu) ? $gvphu->ten : ''}}</option>
                                                             </select>
                                                         </div>
                                                     </div>

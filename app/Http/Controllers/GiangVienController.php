@@ -19,6 +19,10 @@ use App\KhoaLuan;
 use App\LuanVan;
 use App\LuanAn;
 use App\Ncs;
+use App\Exports\GiangViensExport;
+use App\Imports\GiangViensImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class GiangVienController extends Controller
 {
@@ -89,7 +93,7 @@ class GiangVienController extends Controller
                 array_push($ncs, $ds_ncs);
             };
         };
- 
+
 
         return view('giangvien.read.index', [
             'giangvien' => $giangvien,
@@ -130,7 +134,7 @@ class GiangVienController extends Controller
         $giangvien->chucdanh = $request->chucdanh;
         $giangvien->trinhdo = $request->trinhdo;
         $giangvien->cothegiang = $request->cothegiang;
-        
+
         try{
             $giangvien->save();
             Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);
@@ -144,7 +148,7 @@ class GiangVienController extends Controller
 
     public function edit($id){
         return view('giangvien.edit.index', [
-            'giangvien' => GiangVien::findOrFail($id), 
+            'giangvien' => GiangVien::findOrFail($id),
             'chambai' => ChamBai::where('id_giangvien', $id)->get(),
             'congtac' => CongTac::where('id_giangvien', $id)->get(),
             'dang' => Dang::where('id_giangvien', $id)->get(),
@@ -166,7 +170,7 @@ class GiangVienController extends Controller
             Log::error($e);
             return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi sửa Giảng viên!');
         }
-        
+
     }
 
     public function destroy($id){
@@ -183,15 +187,29 @@ class GiangVienController extends Controller
         }
     }
 
-    public function importExcel(){
-        return view('giangvien.import.index');
+    public function import(Request $request)
+    {
+        try{
+            Excel::import(new GiangViensImport, $request->file('giangvien-file'));
+            return redirect()->route('giangvien.index')->with('success', 'All good!');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi nhập file Exel!');
+        }
     }
 
-    public function postImportExcel(Request $request){
-      
+    public function export()
+    {
+        try{
+            return Excel::download(new GiangViensExport, 'giangviens.xlsx');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi xuất file Exel!');
+        }
+
+
     }
 
-    public function exportExcel(){
-      
-    }
 }

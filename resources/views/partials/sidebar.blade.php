@@ -95,7 +95,7 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            @permission('update-file-manager')
+            @permission('read-file-manager')
             <li class="heading">
                 <h3 class="uppercase">Quản trị nâng cao</h3>
             </li>

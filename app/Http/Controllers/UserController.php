@@ -35,12 +35,13 @@ class UserController extends Controller
         
         $request->validate([
             'name'     => 'required',
-            'id_giangvien'     => 'required',
+            'id_giangvien'     => 'required|not_in:0',
             'email'    => 'required|email|unique:users',
             'password' => 'required|min:6|max:32'
         ],[
             'name.required'     => 'Bạn chưa nhập "Họ tên"',
             'id_giangvien.required'     => 'Bạn chưa chọn "Giảng Viên"',
+            'id_giangvien.not_in'     => 'Bạn chưa chọn "Giảng Viên"',
             'email.required'    => 'Bạn chưa nhập "Email"',
             'email.email'       => '"Email" không đúng định dạng',
             'email.unique'      => '"Email" người dùng đã tồn tại',

@@ -49,7 +49,7 @@
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
                                     <select class="form-control" name="gvchinh">
-                                        <option value="<?php echo e($bai->gvchinh); ?>"><?php echo e($bai->giangvienchinhs->ten); ?></option>
+                                        <option value="<?php echo e(($bai->gvchinh) ? $bai->gvchinh : null); ?>"><?php echo e(($bai->gvchinh) ? $bai->giangvienchinhs->ten : ''); ?></option>
                                             <?php if($ds_giangvien->count()>0): ?>
                                                 <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
@@ -66,10 +66,10 @@
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
                                     <select class="form-control" name="gvphu">
-                                        <option value="<?php echo e($bai->gvphu); ?>"><?php echo e($bai->giangvienphus->ten); ?></option>
+                                        <option value="<?php echo e(($bai->gvphu) ? $bai->gvphu : ''); ?>"><?php echo e(($bai->gvphu) ? $bai->giangvienphus->ten : ''); ?></option>
                                             <?php if($ds_giangvien->count()>0): ?>
                                                 <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                            <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''?>><?php echo e($v->ten); ?></option>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             <?php endif; ?>
                                     </select>

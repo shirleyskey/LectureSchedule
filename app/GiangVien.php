@@ -8,6 +8,7 @@ class GiangVien extends Model
 {
     //
     protected $table = 'giangviens';
+    protected $fillable = ['ten','chucvu','hesoluong','diachi','chucdanh','trinhdo','cothegiang'];
 
     public $timestamps = false;
     public function chambais()
@@ -44,7 +45,7 @@ class GiangVien extends Model
     {
         return $this->hasMany('App\SangKien', 'id_giangvien');
     }
- 
+
     public function xaydungs()
     {
         return $this->hasMany('App\XayDung', 'id_giangvien');
@@ -54,6 +55,8 @@ class GiangVien extends Model
     {
         return $this->hasMany('App\Bai', 'id_giangvien');
     }
+
+
 
     public static function saveGiangVien($id, $data){
         if($id == 0 || $id == -1){
@@ -68,7 +71,7 @@ class GiangVien extends Model
         $giangvien->chucdanh         = $data['chucdanh'];
         $giangvien->trinhdo              = $data['trinhdo'];
         $giangvien->cothegiang          = $data['cothegiang'];
-        
+
         $giangvien->save();
         return $giangvien;
     }

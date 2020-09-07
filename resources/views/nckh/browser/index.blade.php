@@ -34,14 +34,16 @@
                 THỐNG KÊ KHOA HỌC
             </strong>
             <div class="col-md-6">
+                @permission('create-nckh')
                 <div class="btn-group">
                     <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH
-                        
+
                     </a>
                 </div>
+                @endpermission
             </div>
         </h1>
-       
+
 
         <!-- MESSAGE -->
         @include('partials.flash-message')
@@ -87,7 +89,7 @@
                                         <div class="portlet-body">
                                             <div class="table-toolbar">
                                                 <div class="row">
-                                                    
+
                                                 </div>
                                             </div>
                                             <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
@@ -111,7 +113,7 @@
                                                         <tr>
                                                             <td> {{ $stt }} </td>
                                                             <td> {{ $v->ten }} </td>
-                                                            <td> 
+                                                            <td>
                                                                 @php
                                                                     $chubien = json_decode( $v->chubien, true);
                                                                 @endphp
@@ -124,7 +126,7 @@
                                                                 $thamgia = json_decode( $v->thamgia, true);
                                                             @endphp
                                                                 @foreach($thamgia as $key => $value)
-                                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                                 @endforeach
                                                             </td>
                                                             <td> {{$v->batdau}}</td>
@@ -159,7 +161,7 @@
                                     <div class="portlet-body">
                                         <div class="table-toolbar">
                                             <div class="row">
-                                               
+
                                             </div>
                                         </div>
                                         <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
@@ -183,7 +185,7 @@
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> {{ $v->ten }} </td>
-                                                        <td> 
+                                                        <td>
                                                             @php
                                                                 $chubien = json_decode( $v->chubien, true);
                                                             @endphp
@@ -196,7 +198,7 @@
                                                             $thamgia = json_decode( $v->thamgia, true);
                                                         @endphp
                                                             @foreach($thamgia as $key => $value)
-                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                             @endforeach
                                                         </td>
                                                         <td> {{$v->batdau}}</td>
@@ -231,7 +233,7 @@
                                 <div class="portlet-body">
                                     <div class="table-toolbar">
                                         <div class="row">
-                                            
+
                                         </div>
                                     </div>
                                     <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
@@ -255,7 +257,7 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v->ten }} </td>
-                                                    <td> 
+                                                    <td>
                                                         @php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         @endphp
@@ -268,7 +270,7 @@
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     @endphp
                                                         @foreach($thamgia as $key => $value)
-                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                         @endforeach
                                                     </td>
                                                     <td> {{$v->batdau}}</td>
@@ -295,7 +297,7 @@
                         @endif
                     </div>
                     <!-- END TAB 3-->
-                 
+
                      <!-- BEGIN TAB 4 NCKH-->
                      <div class="tab-pane" id="tab4">
                         @if($chuyende->isNotEmpty())
@@ -305,7 +307,7 @@
                                     <div class="table-toolbar">
                                         <div class="row">
                                             <div class="col-md-6">
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -330,7 +332,7 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v->ten }} </td>
-                                                    <td> 
+                                                    <td>
                                                         @php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         @endphp
@@ -343,7 +345,7 @@
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     @endphp
                                                         @foreach($thamgia as $key => $value)
-                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                         @endforeach
                                                     </td>
                                                     <td> {{$v->batdau}}</td>
@@ -379,7 +381,7 @@
                                     <div class="table-toolbar">
                                         <div class="row">
                                             <div class="col-md-6">
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -404,7 +406,7 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v->ten }} </td>
-                                                    <td> 
+                                                    <td>
                                                         @php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         @endphp
@@ -417,7 +419,7 @@
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     @endphp
                                                         @foreach($thamgia as $key => $value)
-                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                         @endforeach
                                                     </td>
                                                     <td> {{$v->batdau}}</td>
@@ -452,7 +454,7 @@
                                     <div class="table-toolbar">
                                         <div class="row">
                                             <div class="col-md-6">
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -477,7 +479,7 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v->ten }} </td>
-                                                    <td> 
+                                                    <td>
                                                         @php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         @endphp
@@ -490,7 +492,7 @@
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     @endphp
                                                         @foreach($thamgia as $key => $value)
-                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                         @endforeach
                                                     </td>
                                                     <td> {{$v->batdau}}</td>
@@ -517,7 +519,7 @@
                         @endif
                     </div>
                     <!-- END TAB 6-->
-                   
+
                     <div class="tab-pane" id="tab7">
                         @if($bao->isNotEmpty())
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -525,7 +527,7 @@
                                 <div class="portlet-body">
                                     <div class="table-toolbar">
                                         <div class="row">
-                                            
+
                                         </div>
                                     </div>
                                     <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
@@ -545,7 +547,7 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v->ten }} </td>
-                                                    <td> 
+                                                    <td>
                                                         @php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         @endphp
@@ -575,7 +577,7 @@
                         @endif
                     </div>
                     <!-- END TAB 7-->
-                   
+
 
                         </div>
                         <!-- END FORM-->
@@ -585,12 +587,12 @@
                 </div>
             </div>
         </div>
-     
+
         <div class="clearfix"></div>
         <!-- END DASHBOARD STATS 1-->
     </div>
     <!-- END CONTENT BODY -->
-       
+
 </div>
 <!-- END CONTENT -->
 @include('nckh.modals.add')
@@ -608,7 +610,7 @@
             localStorage.removeItem('activeTab');
         }
         // END Reload trang và giữ nguyên tab đã active
-        
+
         var table = $('#ds_nckh');
 
         var oTable = table.dataTable({
@@ -619,7 +621,7 @@
             ],
 
             "pageLength": 10,
-    
+
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
@@ -676,7 +678,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_nckh").removeAttr("disabled"); 
+                $("#btn_add_nckh").removeAttr("disabled");
                 $("#btn_add_nckh").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -704,7 +706,7 @@
                 if(data.status == true){
                     $('#modal_add_nckh').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công NCKH!",
                         "type":"success"
                     }, function() {
@@ -716,7 +718,7 @@
             }
         });
     });
-    // End Add NCKH 
+    // End Add NCKH
     $(".btn_edit_nckh").on("click", function(e){
         console.log("Hihi");
             e.preventDefault();
@@ -757,7 +759,7 @@
         });
         // END Khi click vào nút sửa NCKH, tìm NCKH theo id và đỗ dữ liệu vào form
 
-        
+
         // Ajax sửa NCKH
         $("#btn_edit_nckh").on('click', function(e){
             e.preventDefault();
@@ -787,10 +789,10 @@
                     batdau: $("#form_edit_nckh input[name='batdau']").val(),
                     ketthuc: $("#form_edit_nckh input[name='ketthuc']").val(),
                     tapchi: $("#form_edit_nckh input[name='tapchi']").val(),
-                   
+
                 },
                 success: function(data) {
-                    $("#btn_edit_nckh").removeAttr("disabled"); 
+                    $("#btn_edit_nckh").removeAttr("disabled");
                     $("#btn_edit_nckh").html('<i class="fa fa-save"></i> Lưu');
                     if(data.status == false){
                         var errors = "";
@@ -818,7 +820,7 @@
                     if(data.status == true){
                         $('#modal_edit_nckh').modal('hide');
                         swal({
-                            "title":"Đã sửa!", 
+                            "title":"Đã sửa!",
                             "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                             "type":"success"
                         }, function() {
@@ -863,7 +865,7 @@
                                 console.log(data);
                                 if(data.status == true){
                                     swal({
-                                        "title":"Đã xóa!", 
+                                        "title":"Đã xóa!",
                                         "text":"Bạn đã xóa thành công NCKH!",
                                         "type":"success"
                                     }, function() {
@@ -874,7 +876,7 @@
                                 }
                             }
                         });
-                    }   
+                    }
             });
 
         });

@@ -5,7 +5,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{{ route('dashboard') }}">
-                <img src="{{ asset('/images/logo_name.png') }}" alt="logo" class="logo-default" width="140" /> 
+                <img src="{{ asset('/images/logo_name.png') }}" alt="logo" class="logo-default" width="140" />
                 <!-- <h5 style="padding:7px; color: #fff;">THỊNH PHONG HRM</h5> -->
             </a>
             <div class="menu-toggler sidebar-toggler">
@@ -24,7 +24,7 @@
         </div>
         <!-- BEGIN TOP NAVIGATION MENU -->
         <div class="top-menu">
-            
+
             <ul class="nav navbar-nav pull-right">
                 <!-- BEGIN USER LOGIN DROPDOWN -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -43,13 +43,13 @@
                         <li class="divider"> </li>
                         <li>
                             <a href="{{route('profile.thongbao.get', Auth::user()->id_giangvien)}}">
-                                <i class="fa fa-calendar-minus-o"></i> Lịch Trình
+                                <i class="fa fa-calendar-minus-o"></i> Lịch Trình Cá Nhân
                             </a>
                         </li>
                         <li class="divider"> </li>
                         <li >
                             <a href="{{ route('logout.get') }}" style="color: #CC0000">
-                                <i class="fa fa-sign-out" style="color: #CC0000"></i> 
+                                <i class="fa fa-sign-out" style="color: #CC0000"></i>
                                 Đăng Xuất
                             </a>
                         </li>

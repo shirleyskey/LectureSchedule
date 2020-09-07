@@ -32,14 +32,16 @@
                 THỐNG KÊ KHOA HỌC
             </strong>
             <div class="col-md-6">
+                <?php if (app('laratrust')->can('create-nckh')) : ?>
                 <div class="btn-group">
                     <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH
-                        
+
                     </a>
                 </div>
+                <?php endif; // app('laratrust')->can ?>
             </div>
         </h1>
-       
+
 
         <!-- MESSAGE -->
         <?php echo $__env->make('partials.flash-message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -85,7 +87,7 @@
                                         <div class="portlet-body">
                                             <div class="table-toolbar">
                                                 <div class="row">
-                                                    
+
                                                 </div>
                                             </div>
                                             <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
@@ -109,7 +111,7 @@
                                                         <tr>
                                                             <td> <?php echo e($stt); ?> </td>
                                                             <td> <?php echo e($v->ten); ?> </td>
-                                                            <td> 
+                                                            <td>
                                                                 <?php
                                                                     $chubien = json_decode( $v->chubien, true);
                                                                 ?>
@@ -122,7 +124,7 @@
                                                                 $thamgia = json_decode( $v->thamgia, true);
                                                             ?>
                                                                 <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                             </td>
                                                             <td> <?php echo e($v->batdau); ?></td>
@@ -157,7 +159,7 @@
                                     <div class="portlet-body">
                                         <div class="table-toolbar">
                                             <div class="row">
-                                               
+
                                             </div>
                                         </div>
                                         <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
@@ -181,7 +183,7 @@
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e($v->ten); ?> </td>
-                                                        <td> 
+                                                        <td>
                                                             <?php
                                                                 $chubien = json_decode( $v->chubien, true);
                                                             ?>
@@ -194,7 +196,7 @@
                                                             $thamgia = json_decode( $v->thamgia, true);
                                                         ?>
                                                             <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </td>
                                                         <td> <?php echo e($v->batdau); ?></td>
@@ -229,7 +231,7 @@
                                 <div class="portlet-body">
                                     <div class="table-toolbar">
                                         <div class="row">
-                                            
+
                                         </div>
                                     </div>
                                     <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
@@ -253,7 +255,7 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v->ten); ?> </td>
-                                                    <td> 
+                                                    <td>
                                                         <?php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         ?>
@@ -266,7 +268,7 @@
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     ?>
                                                         <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
                                                     <td> <?php echo e($v->batdau); ?></td>
@@ -293,7 +295,7 @@
                         <?php endif; ?>
                     </div>
                     <!-- END TAB 3-->
-                 
+
                      <!-- BEGIN TAB 4 NCKH-->
                      <div class="tab-pane" id="tab4">
                         <?php if($chuyende->isNotEmpty()): ?>
@@ -303,7 +305,7 @@
                                     <div class="table-toolbar">
                                         <div class="row">
                                             <div class="col-md-6">
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -328,7 +330,7 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v->ten); ?> </td>
-                                                    <td> 
+                                                    <td>
                                                         <?php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         ?>
@@ -341,7 +343,7 @@
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     ?>
                                                         <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
                                                     <td> <?php echo e($v->batdau); ?></td>
@@ -377,7 +379,7 @@
                                     <div class="table-toolbar">
                                         <div class="row">
                                             <div class="col-md-6">
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -402,7 +404,7 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v->ten); ?> </td>
-                                                    <td> 
+                                                    <td>
                                                         <?php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         ?>
@@ -415,7 +417,7 @@
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     ?>
                                                         <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
                                                     <td> <?php echo e($v->batdau); ?></td>
@@ -450,7 +452,7 @@
                                     <div class="table-toolbar">
                                         <div class="row">
                                             <div class="col-md-6">
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -475,7 +477,7 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v->ten); ?> </td>
-                                                    <td> 
+                                                    <td>
                                                         <?php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         ?>
@@ -488,7 +490,7 @@
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     ?>
                                                         <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
                                                     <td> <?php echo e($v->batdau); ?></td>
@@ -515,7 +517,7 @@
                         <?php endif; ?>
                     </div>
                     <!-- END TAB 6-->
-                   
+
                     <div class="tab-pane" id="tab7">
                         <?php if($bao->isNotEmpty()): ?>
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -523,7 +525,7 @@
                                 <div class="portlet-body">
                                     <div class="table-toolbar">
                                         <div class="row">
-                                            
+
                                         </div>
                                     </div>
                                     <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
@@ -543,7 +545,7 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v->ten); ?> </td>
-                                                    <td> 
+                                                    <td>
                                                         <?php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         ?>
@@ -573,7 +575,7 @@
                         <?php endif; ?>
                     </div>
                     <!-- END TAB 7-->
-                   
+
 
                         </div>
                         <!-- END FORM-->
@@ -583,12 +585,12 @@
                 </div>
             </div>
         </div>
-     
+
         <div class="clearfix"></div>
         <!-- END DASHBOARD STATS 1-->
     </div>
     <!-- END CONTENT BODY -->
-       
+
 </div>
 <!-- END CONTENT -->
 <?php echo $__env->make('nckh.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -606,7 +608,7 @@
             localStorage.removeItem('activeTab');
         }
         // END Reload trang và giữ nguyên tab đã active
-        
+
         var table = $('#ds_nckh');
 
         var oTable = table.dataTable({
@@ -617,7 +619,7 @@
             ],
 
             "pageLength": 10,
-    
+
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
@@ -674,7 +676,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_nckh").removeAttr("disabled"); 
+                $("#btn_add_nckh").removeAttr("disabled");
                 $("#btn_add_nckh").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -702,7 +704,7 @@
                 if(data.status == true){
                     $('#modal_add_nckh').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công NCKH!",
                         "type":"success"
                     }, function() {
@@ -714,7 +716,7 @@
             }
         });
     });
-    // End Add NCKH 
+    // End Add NCKH
     $(".btn_edit_nckh").on("click", function(e){
         console.log("Hihi");
             e.preventDefault();
@@ -755,7 +757,7 @@
         });
         // END Khi click vào nút sửa NCKH, tìm NCKH theo id và đỗ dữ liệu vào form
 
-        
+
         // Ajax sửa NCKH
         $("#btn_edit_nckh").on('click', function(e){
             e.preventDefault();
@@ -785,10 +787,10 @@
                     batdau: $("#form_edit_nckh input[name='batdau']").val(),
                     ketthuc: $("#form_edit_nckh input[name='ketthuc']").val(),
                     tapchi: $("#form_edit_nckh input[name='tapchi']").val(),
-                   
+
                 },
                 success: function(data) {
-                    $("#btn_edit_nckh").removeAttr("disabled"); 
+                    $("#btn_edit_nckh").removeAttr("disabled");
                     $("#btn_edit_nckh").html('<i class="fa fa-save"></i> Lưu');
                     if(data.status == false){
                         var errors = "";
@@ -816,7 +818,7 @@
                     if(data.status == true){
                         $('#modal_edit_nckh').modal('hide');
                         swal({
-                            "title":"Đã sửa!", 
+                            "title":"Đã sửa!",
                             "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                             "type":"success"
                         }, function() {
@@ -861,7 +863,7 @@
                                 console.log(data);
                                 if(data.status == true){
                                     swal({
-                                        "title":"Đã xóa!", 
+                                        "title":"Đã xóa!",
                                         "text":"Bạn đã xóa thành công NCKH!",
                                         "type":"success"
                                     }, function() {
@@ -872,7 +874,7 @@
                                 }
                             }
                         });
-                    }   
+                    }
             });
 
         });
@@ -885,4 +887,5 @@
 <script src="<?php echo e(asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js')); ?>" type="text/javascript"></script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/nckh/browser/index.blade.php ENDPATH**/ ?>

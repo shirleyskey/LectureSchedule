@@ -12,7 +12,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Xây Dựng Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -306,7 +306,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dotxuat"><i class="fa fa-plus"></i> Tạo CV Đột Xuất Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -364,7 +364,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_sangkien"><i class="fa fa-plus"></i> Tạo Sáng Kiến Cải Tiến
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -422,7 +422,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Học Tập Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -480,7 +480,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_khoaluan"><i class="fa fa-plus"></i> Thêm Khóa Luân
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -505,7 +505,7 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> 
+                                        <td>
                                             <?php
                                                 $huongdan = json_decode( $v->huongdan, true);
                                             ?>
@@ -518,7 +518,7 @@
                                                 $chutichcham = json_decode( $v->chutichcham, true);
                                             ?>
                                                 <?php $__currentLoopData = $chutichcham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -526,10 +526,10 @@
                                                 $thamgiacham = json_decode( $v->thamgiacham, true);
                                             ?>
                                                 <?php $__currentLoopData = $thamgiacham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </td>
-                                        
+
                                         <td> <?php echo e($v->ghichu); ?></td>
                                         <td>
                                             <a data-khoaluan-id="<?php echo e($v->id); ?>" class="btn_edit_khoaluan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -546,7 +546,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             <?php else: ?>
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Khóa Luận nào. </p>
+                    <p> Không có Khóa Luận nào.
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_khoaluan"><i class="fa fa-plus"></i> Tạo Khóa Luận Mới</a>
+
+                    </p>
                 </div>
             <?php endif; ?>
         </div>
@@ -563,7 +566,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_luanvan"><i class="fa fa-plus"></i> Thêm Luận Văn
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -590,7 +593,7 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> 
+                                        <td>
                                             <?php
                                                 $huongdan = json_decode( $v->huongdan, true);
                                             ?>
@@ -603,7 +606,7 @@
                                             $chutich = json_decode( $v->chutich, true);
                                         ?>
                                             <?php $__currentLoopData = $chutich; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -611,7 +614,7 @@
                                                 $phanbien = json_decode( $v->phanbien, true);
                                             ?>
                                                 <?php $__currentLoopData = $phanbien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -619,7 +622,7 @@
                                                 $thuky = json_decode( $v->thuky, true);
                                             ?>
                                                 <?php $__currentLoopData = $thuky; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -627,10 +630,10 @@
                                                 $uyvien = json_decode( $v->uyvien, true);
                                             ?>
                                                 <?php $__currentLoopData = $uyvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
-                                        
+
                                         <td> <?php echo e($v->ghichu); ?></td>
                                         <td>
                                             <a data-luanvan-id="<?php echo e($v->id); ?>" class="btn_edit_luanvan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -647,7 +650,9 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             <?php else: ?>
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Luận Văn nào. </p>
+                    <p> Không có Luận Văn nào.
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_luanvan"><i class="fa fa-plus"></i> Tạo Luận Văn Mới</a>
+                    </p>
                 </div>
             <?php endif; ?>
         </div>
@@ -664,7 +669,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_luanan"><i class="fa fa-plus"></i> Thêm Luận Án
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -693,11 +698,11 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> 
+                                        <td>
                                             <p><?php echo e(($v->huongdanchinh) ? ($tengv = App\GiangVien::where('id', $v->huongdanchinh)->first()->ten) : ''); ?></p>
                                             <p><?php echo e(($v->huongdanphu) ? ($tengv = App\GiangVien::where('id', $v->huongdanphu)->first()->ten) : ''); ?></p>
                                         </td>
-                                        <td> 
+                                        <td>
                                             <?php
                                                 $docnhanxet = json_decode( $v->docnhanxet, true);
                                             ?>
@@ -705,7 +710,7 @@
                                                   <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
-                                        <td> 
+                                        <td>
                                             <?php
                                                 $chutichhoithao = json_decode( $v->chutichhoithao, true);
                                             ?>
@@ -713,7 +718,7 @@
                                                   <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
-                                        <td> 
+                                        <td>
                                             <?php
                                                 $thanhvienhoithao = json_decode( $v->thanhvienhoithao, true);
                                             ?>
@@ -726,7 +731,7 @@
                                             $chutichcham = json_decode( $v->chutichcham, true);
                                         ?>
                                             <?php $__currentLoopData = $chutichcham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -734,10 +739,10 @@
                                                 $thanhviencham = json_decode( $v->thanhviencham, true);
                                             ?>
                                                 <?php $__currentLoopData = $thanhviencham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </td>
-                                        
+
                                         <td> <?php echo e($v->ghichu); ?></td>
                                         <td>
                                             <a data-luanan-id="<?php echo e($v->id); ?>" class="btn_edit_luanan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -754,7 +759,9 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             <?php else: ?>
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Luận Án nào. </p>
+                    <p> Không có Luận Án nào.
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_luanan"><i class="fa fa-plus"></i> Tạo Luận Án Mới</a>
+                         </p>
                 </div>
             <?php endif; ?>
         </div>
@@ -771,7 +778,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_ncs"><i class="fa fa-plus"></i> Thêm Nghiên Cứu Sinh
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -795,7 +802,7 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> 
+                                        <td>
                                             <?php
                                                 $thanhvien = json_decode( $v->thanhvien, true);
                                             ?>
@@ -808,7 +815,7 @@
                                             $thuky = json_decode( $v->thuky, true);
                                         ?>
                                             <?php $__currentLoopData = $thuky; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td> <?php echo e($v->ghichu); ?></td>
@@ -827,7 +834,9 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             <?php else: ?>
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Nghiên Cứu nào. </p>
+                    <p> Không có Nghiên Cứu Sinh nào.
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_ncs"><i class="fa fa-plus"></i> Tạo Nghiên Cứu Sinh</a>
+                    </p>
                 </div>
             <?php endif; ?>
         </div>
@@ -895,7 +904,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -912,9 +921,7 @@
 </div>
 <!-- /.modal -->
 <!-- -------------------------------------END NGHIÊN CỨU SINH EDIT -------------------------------------->
-<?php echo $__env->make('congtac.modals-khac.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('congtac.modals-khac.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php echo $__env->make('chambai.modals-khac.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('chambai.modals-khac.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('dang.modals-khac.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('dang.modals-khac.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -926,5 +933,4 @@
 <?php echo $__env->make('sangkien.modals-khac.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('hoctap.modals-khac.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('hoctap.modals-khac.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php echo $__env->make('khoaluan.modals-khac.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/khac/edit/form.blade.php ENDPATH**/ ?>

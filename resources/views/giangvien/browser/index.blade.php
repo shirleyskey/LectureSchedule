@@ -54,7 +54,33 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                    <div class="btn-group pull-right">
+                                        <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Công cụ
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right">
+
+                                            <li>
+                                                <form action="{{route('giangvien.import')}}" method="POST" role="form" enctype="multipart/form-data" class="nhap-excel" style="padding: 10px">
+                                                    @csrf
+                                                    <input id="giangvien-file" type="file" name="giangvien-file" accept=".xlsx, .xls, .csv, .ods" placeholder="Chọn File" style="margin-bottom: 10px;
+                                                ">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="glyphicon glyphicon-folder-open"></i>
+                                                        Nhập Excel</button>
+                                                </form>
+                                            </li>
+                                            <li>
+
+                                                <button class="btn btn-primary" style="margin: 10px;">
+                                                    <a href="{{route('giangvien.export')}}" style="color: #fff!important"><i class="glyphicon glyphicon-download-alt" ></i> Xuất Excel </a>
+                                                   </button>
+
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                         @endpermission
@@ -78,16 +104,16 @@
                                     @foreach( $ds_giangvien as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
-                                        <td> 
-                                            <a href="{{ route('giangvien.read.get', $v->id) }}">{{ $v->ten }}</a> 
+                                        <td>
+                                            <a href="{{ route('giangvien.read.get', $v->id) }}">{{ $v->ten }}</a>
                                         </td>
                                         <td> {{ $v->chucvu }}  </td>
                                         <td> {{ $v->hesoluong }} </td>
                                         <td> {{ $v->diachi }} </td>
                                         <td> {{ $v->chucdanh }} </td>
                                         <td> {{ $v->trinhdo }} </td>
-                                       
-                                        <td> 
+
+                                        <td>
                                             @if( $v->cothegiang ==1 )
                                             <span class="label label-sm label-success" style="font-size: 12px;"> Có Thể Giảng </span>
                                             @else
@@ -137,7 +163,7 @@
             ],
 
             "pageLength": 10,
-    
+
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",

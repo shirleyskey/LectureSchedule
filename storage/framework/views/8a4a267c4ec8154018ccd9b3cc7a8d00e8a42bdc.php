@@ -52,7 +52,13 @@
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin Tiết Học</a>
+                            <a href="">Thông tin Tiết Học</a>
+                        </li>
+                        <li >
+                        <a href="<?php echo e(route('bai.edit.get',$tiet->id_bai )); ?>">Xem Bài Học</a>
+                        </li>
+                        <li >
+                            <a href="<?php echo e(route('hocphan.edit.get',$tiet->id_hocphan )); ?>">Xem Học Phần</a>
                         </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
@@ -106,15 +112,15 @@
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
                                                             <select class="form-control" name="id_giangvien">
-                                                            <option selected value="<?php echo e($tiet->id_giangvien); ?>"><?php echo e($tiet->giangviens->ten); ?></option>
+                                                            <option selected value="<?php echo e(($tiet->id_giangvien) ? ($tiet->id_giangvien) : null); ?>"><?php echo e(($tiet->id_giangvien) ? $tiet->giangviens->ten : ''); ?></option>
                                                                 <?php
                                                                     $id_gvchinh = $tiet->bais->gvchinh;
                                                                     $id_gvphu = $tiet->bais->gvphu;
                                                                     $gvchinh = App\GiangVien::where('id', $id_gvchinh)->first();
                                                                     $gvphu = App\GiangVien::where('id', $id_gvphu)->first();
                                                                 ?>
-                                                                    <option value="<?php echo e(($gvchinh->id)); ?>"><?php echo e(($gvchinh->id) ? $gvchinh->ten : ''); ?></option>
-                                                                    <option value="<?php echo e(($gvphu->id)); ?>"><?php echo e(($gvphu->id) ? $gvphu->ten : ''); ?></option>
+                                                                    <option value="<?php echo e(($gvchinh) ? ($gvchinh->id) : null); ?>"><?php echo e(($gvchinh) ? $gvchinh->ten : ''); ?></option>
+                                                                    <option value="<?php echo e(($gvphu) ? ($gvphu->id) : null); ?>"><?php echo e(($gvphu) ? $gvphu->ten : ''); ?></option>
                                                             </select>
                                                         </div>
                                                     </div>

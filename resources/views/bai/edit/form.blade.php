@@ -49,7 +49,7 @@
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
                                     <select class="form-control" name="gvchinh">
-                                        <option value="{{$bai->gvchinh}}">{{$bai->giangvienchinhs->ten}}</option>
+                                        <option value="{{($bai->gvchinh) ? $bai->gvchinh : null}}">{{($bai->gvchinh) ? $bai->giangvienchinhs->ten : ''}}</option>
                                             @if($ds_giangvien->count()>0)
                                                 @foreach($ds_giangvien as $v)
                                             <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
@@ -66,10 +66,10 @@
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
                                     <select class="form-control" name="gvphu">
-                                        <option value="{{$bai->gvphu}}">{{$bai->giangvienphus->ten}}</option>
+                                        <option value="{{($bai->gvphu) ? $bai->gvphu : ''}}">{{($bai->gvphu) ? $bai->giangvienphus->ten : ''}}</option>
                                             @if($ds_giangvien->count()>0)
                                                 @foreach($ds_giangvien as $v)
-                                            <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
+                                            <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''?>>{{ $v->ten }}</option>
                                                 @endforeach
                                             @endif
                                     </select>

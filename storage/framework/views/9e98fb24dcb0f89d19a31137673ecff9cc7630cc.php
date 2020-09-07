@@ -75,7 +75,7 @@
                                     <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
-                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                        <td> <?php echo e(($v->id_giangvien) ? $v->giangviens->ten : ''); ?> </td>
                                         <td> <?php echo e($v->email); ?> </td>
                                         <td>
                                             <?php $__currentLoopData = $v->roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -152,23 +152,6 @@
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
-        });
-
-        $("#import-excel").on("click", function(e){
-            e.preventDefault();
-            swal({
-                title: "Bạn có chắc không?",
-                text: "Vui lòng tham khảo người quản trị trước khi làm điều này!",
-                type: "warning",
-                showCancelButton: true,
-                cancelButtonText: 'Hủy bỏ',
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Chắc chắn!",
-                closeOnConfirm: false
-                },
-                function(){
-                    window.location.href = "<?php echo e(route('user.import')); ?>";
-                });
         });
     });
 </script>

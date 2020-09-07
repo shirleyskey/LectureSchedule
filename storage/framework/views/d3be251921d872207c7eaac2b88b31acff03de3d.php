@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Lịch Trình Cá Nhân| </title>
+        <title>Lịch Giảng Tuần| </title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Ứng dụng quản lý khoa, lịch trình giảng dạy" name="description" />
@@ -32,13 +32,13 @@
         <link href="<?php echo e(asset('assets/global/css/plugins.min.css')); ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <link href="<?php echo e(asset('assets/pages/css/login.min.css')); ?>" rel="stylesheet" type="text/css" />
-      
+
 
         <!-- STYLE FOR CALENDAR -->
         
         <link href="<?php echo e(asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet" type="text/css" />
         <script src="<?php echo e(asset('assets/global/plugins/jquery.min.js')); ?>" type="text/javascript"></script>
-      
+
         <script src="<?php echo e(asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')); ?>" type="text/javascript"></script>
         <script src="<?php echo e(asset('assets/global/plugins/moment.min.js')); ?>" type="text/javascript"></script>
         
@@ -54,6 +54,11 @@
         <link href="<?php echo e(asset('assets/layouts/layout/css/custom.min.css')); ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo e(asset('assets/layouts/layout/css/custom-calendar.css')); ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+        <style>
+            body{
+                font-family: "Open Sans",sans-serif;
+            }
+        </style>
 
     </head>
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
@@ -65,7 +70,7 @@
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
                         <a href="<?php echo e(route('dashboard')); ?>">
-                            <img src="<?php echo e(asset('/images/logo_name.png')); ?>" alt="logo" class="logo-default" width="140" /> 
+                            <img src="<?php echo e(asset('/images/logo_name.png')); ?>" alt="logo" class="logo-default" width="140" />
                             <!-- <h5 style="padding:7px; color: #fff;">THỊNH PHONG HRM</h5> -->
                         </a>
                         <div class="menu-toggler sidebar-toggler">
@@ -84,7 +89,7 @@
                     </div>
                     <!-- BEGIN TOP NAVIGATION MENU -->
                     <div class="top-menu">
-                        
+
                         <ul class="nav navbar-nav pull-right">
                             <!-- BEGIN USER LOGIN DROPDOWN -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -103,13 +108,13 @@
                                     <li class="divider"> </li>
                                     <li>
                                         <a href="<?php echo e(route('profile.thongbao.get', Auth::user()->id_giangvien)); ?>">
-                                            <i class="fa fa-calendar-minus-o"></i> Lịch Trình
+                                            <i class="fa fa-calendar-minus-o"></i>Lịch Trình Cá Nhân
                                         </a>
                                     </li>
                                     <li class="divider"> </li>
                                     <li >
                                         <a href="<?php echo e(route('logout.get')); ?>" style="color: #CC0000">
-                                            <i class="fa fa-sign-out" style="color: #CC0000"></i> 
+                                            <i class="fa fa-sign-out" style="color: #CC0000"></i>
                                             Đăng Xuất
                                         </a>
                                     </li>
@@ -125,7 +130,7 @@
             <!-- END HEADER -->
             <!-- BEGIN CONTAINER -->
             <div class="page-container">
-              
+
                 <div class="page-sidebar-wrapper">
                     <!-- BEGIN SIDEBAR -->
                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -151,41 +156,20 @@
                             <li class="nav-item start ">
                                 <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">
                                     <i class="fa fa-dashboard"></i>
-                                    <span class="title">BẢNG ĐIỀU KHIỂN</span>
+                                    <span class="title"> <strong>BẢNG ĐIỀU KHIỂN</strong></span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
                             <li class="heading">
                                 <h3 class="uppercase">QUẢN LÝ</h3>
                             </li>
-                            <li class="nav-item <?php echo e(Request::is('lichgiang/phancong') ? 'active open' : ''); ?>">
-                                <a href="<?php echo e(route('lichgiang.phancong')); ?>" class="nav-link nav-toggle">
-                                    <i class="fa fa-calendar"></i>
-                                    <span class="title">Phân Công Lịch Giảng</span>
-                                    <span class="selected"></span>
-                                </a>
-                            </li>
-                            <li class="nav-item <?php echo e(Request::is('lichgiang/lichgiangtuan') ? 'active open' : ''); ?>">
-                                <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" class="nav-link nav-toggle">
-                                    <i class="fa fa-calendar-check-o"></i>
-                                    <span class="title">Lịch Giảng Tuần</span>
-                                    <span class="selected"></span>
-                                </a>
-                            </li>
+                            
+                            
                             <?php if (app('laratrust')->can('read-giangvien')) : ?>
                             <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
                                 <a href="<?php echo e(route('giangvien.index')); ?>" class="nav-link nav-toggle">
                                     <i class="fa fa-user"></i>
                                     <span class="title">Giảng Viên</span>
-                                    <span class="selected"></span>
-                                </a>
-                            </li>
-                            <?php endif; // app('laratrust')->can ?>
-                            <?php if (app('laratrust')->can('read-hocphan')) : ?>
-                            <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/hocphan' ? 'active open' : ''); ?>">
-                                <a href="<?php echo e(route('hocphan.index')); ?>" class="nav-link nav-toggle">
-                                    <i class="fa fa-file-code-o"></i>
-                                    <span class="title">Học Phần</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
@@ -199,7 +183,17 @@
                                 </a>
                             </li>
                             <?php endif; // app('laratrust')->can ?>
-                        
+                            <?php if (app('laratrust')->can('read-hocphan')) : ?>
+                            <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/hocphan' ? 'active open' : ''); ?>">
+                                <a href="<?php echo e(route('hocphan.index')); ?>" class="nav-link nav-toggle">
+                                    <i class="fa fa-file-code-o"></i>
+                                    <span class="title">Học Phần</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <?php endif; // app('laratrust')->can ?>
+
+
                             <li class="heading">
                                 <h3 class="uppercase">NCKH</h3>
                             </li>
@@ -210,7 +204,7 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                        
+
                             <li class="heading">
                                 <h3 class="uppercase">Công Việc Khác</h3>
                             </li>
@@ -221,7 +215,7 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                            <?php if (app('laratrust')->can('update-file-manager')) : ?>
+                            <?php if (app('laratrust')->can('read-file-manager')) : ?>
                             <li class="heading">
                                 <h3 class="uppercase">Quản trị nâng cao</h3>
                             </li>
@@ -237,7 +231,7 @@
                             <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/users' ? 'active open' : ''); ?>">
                                 <a href="<?php echo e(route('user.index')); ?>" class="nav-link nav-toggle">
                                     <i class="fa fa-user"></i>
-                                    <span class="title">Người Dùng</span>
+                                    <span class="title">Người Dùng Hệ Thống</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
@@ -263,24 +257,35 @@
                         </div>
                         <!-- END PAGE BAR -->
                         <!-- BEGIN PAGE TITLE-->
-                        <h1 class="page-title">Lịch Trình Cá Nhân
-                            <small>Lịch trình giảng dạy, NCKH và các công việc khác</small>
+                        <h1 class="page-title"> Bảng điều khiển
+                            <small>Thống kê tổng giờ giảng, NCKH và Công việc khác</small>
+
                         </h1>
                         <!-- END PAGE TITLE-->
                         <!-- END PAGE HEADER-->
                         <!-- BEGIN DASHBOARD STATS 1-->
                         <div class="row">
                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <?php if (app('laratrust')->can('create-users')) : ?>
                                 <div class="content" style="margin: 50px">
+                                    <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
                                     <div class="modal fade" id="modal-add">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-body">
-                                               
+                                                <form action="<?php echo e(route('lichgiang.lichgiangtuan.import')); ?>" method="POST" role="form" enctype="multipart/form-data">
+                                                        <legend>Nhập Lịch Học</legend>
+                                                        <?php echo csrf_field(); ?>
+                                                        <div class="form-group">
+                                                            <input type="file" class="form-control" name="calendar" id="" placeholder="Input field">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <?php endif; // app('laratrust')->can ?>
                                     <?php echo $calendar->calendar(); ?>
 
                                     <?php echo $calendar->script(); ?>
@@ -294,10 +299,10 @@
                     <!-- END CONTENT BODY -->
                 </div>
                 <!-- END CONTENT -->
-               
+
             </div>
             <!-- END CONTAINER -->
-            
+
            <!-- BEGIN FOOTER -->
         <div class="page-footer">
             <div class="page-footer-inner pull-right">@2020  - Dung B14D48 - ATTT. All Right Reserved.
@@ -360,7 +365,7 @@
         <!-- <script src="<?php echo e(asset('assets/layouts/layout/scripts/demo.min.js')); ?>" type="text/javascript"></script> -->
         <script src="<?php echo e(asset('assets/layouts/global/scripts/quick-sidebar.min.js')); ?>" type="text/javascript"></script>
         <script src="<?php echo e(asset('assets/layouts/global/scripts/quick-nav.min.js')); ?>" type="text/javascript"></script>
-        
+
         <script>
         $(document).ready(function() {
             var interval = setInterval(function() {
@@ -375,13 +380,11 @@
                 }
             });
 
-            $('#calendar').fullCalendar({
-                locale: 'vi'
-            });
+
 
         });
         </script>
-       
+
     </body>
 </html>
 <?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/calendar/thongbao.blade.php ENDPATH**/ ?>

@@ -52,7 +52,33 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                    <div class="btn-group pull-right">
+                                        <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Công cụ
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right">
+
+                                            <li>
+                                                <form action="<?php echo e(route('giangvien.import')); ?>" method="POST" role="form" enctype="multipart/form-data" class="nhap-excel" style="padding: 10px">
+                                                    <?php echo csrf_field(); ?>
+                                                    <input id="giangvien-file" type="file" name="giangvien-file" accept=".xlsx, .xls, .csv, .ods" placeholder="Chọn File" style="margin-bottom: 10px;
+                                                ">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="glyphicon glyphicon-folder-open"></i>
+                                                        Nhập Excel</button>
+                                                </form>
+                                            </li>
+                                            <li>
+
+                                                <button class="btn btn-primary" style="margin: 10px;">
+                                                    <a href="<?php echo e(route('giangvien.export')); ?>" style="color: #fff!important"><i class="glyphicon glyphicon-download-alt" ></i> Xuất Excel </a>
+                                                   </button>
+
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                         <?php endif; // app('laratrust')->can ?>
@@ -76,16 +102,16 @@
                                     <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
-                                        <td> 
-                                            <a href="<?php echo e(route('giangvien.read.get', $v->id)); ?>"><?php echo e($v->ten); ?></a> 
+                                        <td>
+                                            <a href="<?php echo e(route('giangvien.read.get', $v->id)); ?>"><?php echo e($v->ten); ?></a>
                                         </td>
                                         <td> <?php echo e($v->chucvu); ?>  </td>
                                         <td> <?php echo e($v->hesoluong); ?> </td>
                                         <td> <?php echo e($v->diachi); ?> </td>
                                         <td> <?php echo e($v->chucdanh); ?> </td>
                                         <td> <?php echo e($v->trinhdo); ?> </td>
-                                       
-                                        <td> 
+
+                                        <td>
                                             <?php if( $v->cothegiang ==1 ): ?>
                                             <span class="label label-sm label-success" style="font-size: 12px;"> Có Thể Giảng </span>
                                             <?php else: ?>
@@ -135,7 +161,7 @@
             ],
 
             "pageLength": 10,
-    
+
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
@@ -167,4 +193,5 @@
 <script src="<?php echo e(asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js')); ?>" type="text/javascript"></script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/giangvien/browser/index.blade.php ENDPATH**/ ?>

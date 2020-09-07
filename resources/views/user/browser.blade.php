@@ -77,7 +77,7 @@
                                     @foreach( $users as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
-                                        <td> {{ $v->giangviens->ten }} </td>
+                                        <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : ''}} </td>
                                         <td> {{ $v->email }} </td>
                                         <td>
                                             @foreach($v->roles as $role)
@@ -153,23 +153,6 @@
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
-        });
-
-        $("#import-excel").on("click", function(e){
-            e.preventDefault();
-            swal({
-                title: "Bạn có chắc không?",
-                text: "Vui lòng tham khảo người quản trị trước khi làm điều này!",
-                type: "warning",
-                showCancelButton: true,
-                cancelButtonText: 'Hủy bỏ',
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Chắc chắn!",
-                closeOnConfirm: false
-                },
-                function(){
-                    window.location.href = "{{ route('user.import') }}";
-                });
         });
     });
 </script>

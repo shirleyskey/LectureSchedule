@@ -45,7 +45,7 @@
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
-                       
+
                         <li>
                             <a href="#tab11" data-toggle="tab">Khóa Luận</a>
                         </li>
@@ -99,6 +99,88 @@
     <!-- END CONTENT BODY -->
 </div>
 <!-- END CONTENT -->
+<!-- -------------------------------------Khóa Luận ADD ----------------------------------------->
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_khoaluan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_luanvan">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><strong><i class="fa fa-plus"></i> Thêm mới Khóa Luận</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><b>Tên Khóa Luận:</b> <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Hướng Dẫn:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="huongdan">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <?php if($giangvien->count()>0): ?>
+                                                    <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Chủ Tịch Chấm:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chutichcham">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <?php if($giangvien->count()>0): ?>
+                                                    <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Tham Gia Chấm: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thamgiacham">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <?php if($giangvien->count()>0): ?>
+                                                    <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Ghi Chú:</b></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_khoaluan"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END Khóa Luận ADD -------------------------------------->
 <!-- -------------------------------------LUận Văn ADD ----------------------------------------->
 <!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_add_luanvan" tabindex="-1" role="dialog" aria-hidden="true">
@@ -200,7 +282,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -350,7 +432,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -471,7 +553,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -623,7 +705,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -685,14 +767,15 @@
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                 <?php endif; ?>
                                             </select>
+                                        </div>
                                 </div>
                                 <div class="form-group">
                                     <label><b>Ghi Chú:</b></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
-                                </div>
+                            </div>
                             <div class="col-md-6">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -709,6 +792,118 @@
 </div>
 <!-- /.modal -->
 <!-- -------------------------------------END NGHIÊN CỨU SINH ADD -------------------------------------->
+<!-- -------------------------------------CHẤM BÀI ADD -------------------------------------->
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_chambai" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_chambai">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Chấm Bài</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option value="0">-------- Chọn Giảng Viên --------</option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_chambai"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END CHẤM BÀI ADD -------------------------------------->
+<!-- -------------------------------------CÔNG TÁC ADD ------------------------------------>
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_congtac" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_congtac">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Công Tác</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Công Tác: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option value="0">-------- Chọn Giảng Viên --------</option>
+                                            <?php if($giangvien->count()>0): ?>
+                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>"  <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tiến Độ:<span class="required">*</span></label>
+                                    <input name="tiendo" type="number" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_congtac"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END CÔNG TÁC ADD -------------------------------------->
 
 
 
@@ -751,7 +946,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_khoaluan").removeAttr("disabled"); 
+                $("#btn_add_khoaluan").removeAttr("disabled");
                 $("#btn_add_khoaluan").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -779,7 +974,7 @@
                 if(data.status == true){
                     $('#modal_add_khoaluan').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Khóa Luận!",
                         "type":"success"
                     }, function() {
@@ -822,7 +1017,7 @@
         });
         // END Khi click vào nút sửa KHOALUAN, tìm KHOALUAN theo id và đỗ dữ liệu vào form
 
-        
+
         // Ajax SỬA KHÓA LUẬN
         $("#btn_edit_khoaluan").on('click', function(e){
             e.preventDefault();
@@ -845,7 +1040,7 @@
                     ghichu: $("#form_edit_khoaluan input[name='ghichu']").val(),
                 },
                 success: function(data) {
-                    $("#btn_edit_khoaluan").removeAttr("disabled"); 
+                    $("#btn_edit_khoaluan").removeAttr("disabled");
                     $("#btn_edit_khoaluan").html('<i class="fa fa-save"></i> Lưu');
                     if(data.status == false){
                         var errors = "";
@@ -873,7 +1068,7 @@
                     if(data.status == true){
                         $('#modal_edit_khoaluan').modal('hide');
                         swal({
-                            "title":"Đã sửa!", 
+                            "title":"Đã sửa!",
                             "text":"Bạn đã sửa thành công Khóa Luận!",
                             "type":"success"
                         }, function() {
@@ -918,7 +1113,7 @@
                                 console.log(data);
                                 if(data.status == true){
                                     swal({
-                                        "title":"Đã xóa!", 
+                                        "title":"Đã xóa!",
                                         "text":"Bạn đã xóa thành công KHOALUAN!",
                                         "type":"success"
                                     }, function() {
@@ -929,13 +1124,13 @@
                                 }
                             }
                         });
-                    }   
+                    }
             });
 
         });
         // END Xử lý khi click nút XÓA KHÓA LUẬN
 
-        
+
           //BEGIN ADD NGHIÊN CỨU SINH
     $("#btn_add_ncs").on('click', function(e){
         e.preventDefault();
@@ -957,7 +1152,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_ncs").removeAttr("disabled"); 
+                $("#btn_add_ncs").removeAttr("disabled");
                 $("#btn_add_ncs").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -985,7 +1180,7 @@
                 if(data.status == true){
                     $('#modal_add_ncs').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Nghiên Cứu Sinh!",
                         "type":"success"
                     }, function() {
@@ -1027,7 +1222,7 @@
         });
         // END Khi click vào nút sửa NCS, tìm NCS theo id và đỗ dữ liệu vào form
 
-        
+
         // Ajax SỬA KHÓA LUẬN
         $("#btn_edit_ncs").on('click', function(e){
             e.preventDefault();
@@ -1049,7 +1244,7 @@
                     ghichu: $("#form_edit_ncs input[name='ghichu']").val(),
                 },
                 success: function(data) {
-                    $("#btn_edit_ncs").removeAttr("disabled"); 
+                    $("#btn_edit_ncs").removeAttr("disabled");
                     $("#btn_edit_ncs").html('<i class="fa fa-save"></i> Lưu');
                     if(data.status == false){
                         var errors = "";
@@ -1077,7 +1272,7 @@
                     if(data.status == true){
                         $('#modal_edit_ncs').modal('hide');
                         swal({
-                            "title":"Đã sửa!", 
+                            "title":"Đã sửa!",
                             "text":"Bạn đã sửa thành công Nghiên Cứu Sinh!",
                             "type":"success"
                         }, function() {
@@ -1122,7 +1317,7 @@
                                 console.log(data);
                                 if(data.status == true){
                                     swal({
-                                        "title":"Đã xóa!", 
+                                        "title":"Đã xóa!",
                                         "text":"Bạn đã xóa thành công NCS!",
                                         "type":"success"
                                     }, function() {
@@ -1133,13 +1328,13 @@
                                 }
                             }
                         });
-                    }   
+                    }
             });
 
         });
         // END Xử lý khi click nút XÓA KHÓA LUẬN
 
-        
+
           //BEGIN ADD LUẬN VĂN
     $("#btn_add_luanvan").on('click', function(e){
         e.preventDefault();
@@ -1165,7 +1360,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_luanvan").removeAttr("disabled"); 
+                $("#btn_add_luanvan").removeAttr("disabled");
                 $("#btn_add_luanvan").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -1193,7 +1388,7 @@
                 if(data.status == true){
                     $('#modal_add_luanvan').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Luận Văn!",
                         "type":"success"
                     }, function() {
@@ -1239,7 +1434,7 @@
         });
         // END Khi click vào nút sửa LUANVAN, tìm LUANVAN theo id và đỗ dữ liệu vào form
 
-        
+
         // Ajax SỬA Luận Văn
         $("#btn_edit_luanvan").on('click', function(e){
             e.preventDefault();
@@ -1265,7 +1460,7 @@
                     ghichu: $("#form_edit_luanvan input[name='ghichu']").val(),
                 },
                 success: function(data) {
-                    $("#btn_edit_luanvan").removeAttr("disabled"); 
+                    $("#btn_edit_luanvan").removeAttr("disabled");
                     $("#btn_edit_luanvan").html('<i class="fa fa-save"></i> Lưu');
                     if(data.status == false){
                         var errors = "";
@@ -1293,7 +1488,7 @@
                     if(data.status == true){
                         $('#modal_edit_luanvan').modal('hide');
                         swal({
-                            "title":"Đã sửa!", 
+                            "title":"Đã sửa!",
                             "text":"Bạn đã sửa thành công Khóa Luận!",
                             "type":"success"
                         }, function() {
@@ -1338,7 +1533,7 @@
                                 console.log(data);
                                 if(data.status == true){
                                     swal({
-                                        "title":"Đã xóa!", 
+                                        "title":"Đã xóa!",
                                         "text":"Bạn đã xóa thành công LUANVAN!",
                                         "type":"success"
                                     }, function() {
@@ -1349,13 +1544,13 @@
                                 }
                             }
                         });
-                    }   
+                    }
             });
 
         });
         // END Xử lý khi click nút XÓA Luận Văn
 
-          
+
           //=========BEGIN ADD LUẬN ÁN
     $("#btn_add_luanan").on('click', function(e){
         e.preventDefault();
@@ -1384,7 +1579,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_luanan").removeAttr("disabled"); 
+                $("#btn_add_luanan").removeAttr("disabled");
                 $("#btn_add_luanan").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -1412,7 +1607,7 @@
                 if(data.status == true){
                     $('#modal_add_luanan').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Luận Án!",
                         "type":"success"
                     }, function() {
@@ -1461,7 +1656,7 @@
         });
         // END Khi click vào nút sửa LUANAN, tìm LUANAN theo id và đỗ dữ liệu vào form
 
-        
+
         // Ajax SỬA Án
         $("#btn_edit_luanan").on('click', function(e){
             e.preventDefault();
@@ -1490,7 +1685,7 @@
                     ghichu: $("#form_edit_luanan input[name='ghichu']").val(),
                 },
                 success: function(data) {
-                    $("#btn_edit_luanan").removeAttr("disabled"); 
+                    $("#btn_edit_luanan").removeAttr("disabled");
                     $("#btn_edit_luanan").html('<i class="fa fa-save"></i> Lưu');
                     if(data.status == false){
                         var errors = "";
@@ -1518,7 +1713,7 @@
                     if(data.status == true){
                         $('#modal_edit_luanan').modal('hide');
                         swal({
-                            "title":"Đã sửa!", 
+                            "title":"Đã sửa!",
                             "text":"Bạn đã sửa thành công Luận Án!",
                             "type":"success"
                         }, function() {
@@ -1563,7 +1758,7 @@
                                 console.log(data);
                                 if(data.status == true){
                                     swal({
-                                        "title":"Đã xóa!", 
+                                        "title":"Đã xóa!",
                                         "text":"Bạn đã xóa thành công LUANAN!",
                                         "type":"success"
                                     }, function() {
@@ -1574,14 +1769,14 @@
                                 }
                             }
                         });
-                    }   
+                    }
             });
 
         });
         // END Xử lý khi click nút XÓA Luận Án
          // Ajax thêm Công Tác
          $("#btn_add_congtac").on('click', function(e){
-        
+
         e.preventDefault();
         $("#btn_add_congtac").attr("disabled", "disabled");
         $("#btn_add_congtac").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -1601,7 +1796,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_congtac").removeAttr("disabled"); 
+                $("#btn_add_congtac").removeAttr("disabled");
                 $("#btn_add_congtac").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -1629,7 +1824,7 @@
                 if(data.status == true){
                     $('#modal_add_congtac').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Công Tác!",
                         "type":"success"
                     }, function() {
@@ -1671,8 +1866,8 @@
              });
          });
          // END Khi click vào nút sửa congtac, tìm congtac theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa congtac
          $("#btn_edit_congtac").on('click', function(e){
              e.preventDefault();
@@ -1692,10 +1887,10 @@
                      ten: $("#form_edit_congtac input[name='ten']").val(),
                      tiendo: $("#form_edit_congtac input[name='tiendo']").val(),
                      thoigian: $("#form_edit_congtac input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_congtac").removeAttr("disabled"); 
+                     $("#btn_edit_congtac").removeAttr("disabled");
                      $("#btn_edit_congtac").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -1723,7 +1918,7 @@
                      if(data.status == true){
                          $('#modal_edit_congtac').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Công Tác!",
                              "type":"success"
                          }, function() {
@@ -1736,7 +1931,7 @@
              });
          });
          // END Ajax sửa congtac
-         
+
          // Xử lý khi click nút xóa congtac
          $(".btn_delete_congtac").on("click", function(e){
              e.preventDefault();
@@ -1768,7 +1963,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công Công Tác!",
                                          "type":"success"
                                      }, function() {
@@ -1779,9 +1974,9 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa congtac
 
@@ -1790,7 +1985,7 @@
 
          // Ajax thêm Chấm Bài
          $("#btn_add_chambai").on('click', function(e){
-        
+
         e.preventDefault();
         $("#btn_add_chambai").attr("disabled", "disabled");
         $("#btn_add_chambai").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -1800,7 +1995,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemChamBai')); ?>',
             method: 'POST',
             data: {
@@ -1810,7 +2005,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_chambai").removeAttr("disabled"); 
+                $("#btn_add_chambai").removeAttr("disabled");
                 $("#btn_add_chambai").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -1838,7 +2033,7 @@
                 if(data.status == true){
                     $('#modal_add_chambai').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Chấm Bài!",
                         "type":"success"
                     }, function() {
@@ -1879,8 +2074,8 @@
              });
          });
          // END Khi click vào nút sửa chấm Bài, tìm chấm Bài theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa chấm bài
          $(".btn_edit_chambai").on('click', function(e){
              e.preventDefault();
@@ -1899,10 +2094,10 @@
                      id_giangvien: $("#form_edit_chambai select[name='id_giangvien']").val(),
                      ghichu: $("#form_edit_chambai input[name='ghichu']").val(),
                      thoigian: $("#form_edit_chambai input[name='thoigian']").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_chambai").removeAttr("disabled"); 
+                     $("#btn_edit_chambai").removeAttr("disabled");
                      $("#btn_edit_chambai").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -1930,7 +2125,7 @@
                      if(data.status == true){
                          $('#modal_edit_chambai').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Chấm Bài!",
                              "type":"success"
                          }, function() {
@@ -1943,7 +2138,7 @@
              });
          });
          // END Ajax sửa chấm Bài
-         
+
          // Xử lý khi click nút xóa chấm Bài
          $(".btn_delete_chambai").on("click", function(e){
              e.preventDefault();
@@ -1975,7 +2170,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công Chấm Bài!",
                                          "type":"success"
                                      }, function() {
@@ -1986,16 +2181,16 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa chấm Bài
 // ========================================================================
-         
+
          // Ajax thêm Đảng
     $("#btn_add_dang").on('click', function(e){
-        
+
         e.preventDefault();
         $("#btn_add_dang").attr("disabled", "disabled");
         $("#btn_add_dang").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -2005,7 +2200,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemDang')); ?>',
             method: 'POST',
             data: {
@@ -2015,7 +2210,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_dang").removeAttr("disabled"); 
+                $("#btn_add_dang").removeAttr("disabled");
                 $("#btn_add_dang").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -2043,7 +2238,7 @@
                 if(data.status == true){
                     $('#modal_add_dang').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Hoạt Động!",
                         "type":"success"
                     }, function() {
@@ -2084,8 +2279,8 @@
              });
          });
          // END Khi click vào nút sửa dang, tìm dang theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa dang
          $("#btn_edit_dang").on('click', function(e){
              e.preventDefault();
@@ -2104,10 +2299,10 @@
                      id_giangvien: $("#form_edit_dang select[name='id_giangvien']").val(),
                      ten: $("#form_edit_dang input[name='ten']").val(),
                      thoigian: $("#form_edit_dang input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_dang").removeAttr("disabled"); 
+                     $("#btn_edit_dang").removeAttr("disabled");
                      $("#btn_edit_dang").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -2135,7 +2330,7 @@
                      if(data.status == true){
                          $('#modal_edit_dang').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công hoạt động Đảng!",
                              "type":"success"
                          }, function() {
@@ -2148,7 +2343,7 @@
              });
          });
          // END Ajax sửa dang
-         
+
          // Xử lý khi click nút xóa dang
          $(".btn_delete_dang").on("click", function(e){
              e.preventDefault();
@@ -2180,7 +2375,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công Hoạt Động Đảng!",
                                          "type":"success"
                                      }, function() {
@@ -2191,13 +2386,13 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa dang
  // ==================================================================//
-         
+
          // Ajax thêm Dạy Giỏi
     $("#btn_add_daygioi").on('click', function(e){
         e.preventDefault();
@@ -2209,7 +2404,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemDayGioi')); ?>',
             method: 'POST',
             data: {
@@ -2220,7 +2415,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_daygioi").removeAttr("disabled"); 
+                $("#btn_add_daygioi").removeAttr("disabled");
                 $("#btn_add_daygioi").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -2248,7 +2443,7 @@
                 if(data.status == true){
                     $('#modal_add_daygioi').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Hoạt Động Dạy Giỏi!",
                         "type":"success"
                     }, function() {
@@ -2290,8 +2485,8 @@
              });
          });
          // END Khi click vào nút sửa daygioi, tìm daygioi theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa daygioi
          $("#btn_edit_daygioi").on('click', function(e){
              e.preventDefault();
@@ -2311,10 +2506,10 @@
                      ten: $("#form_edit_daygioi input[name='ten']").val(),
                      ghichu: $("#form_edit_daygioi input[name='ghichu']").val(),
                      thoigian: $("#form_edit_daygioi input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_daygioi").removeAttr("disabled"); 
+                     $("#btn_edit_daygioi").removeAttr("disabled");
                      $("#btn_edit_daygioi").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -2342,7 +2537,7 @@
                      if(data.status == true){
                          $('#modal_edit_daygioi').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Hoạt Động Dạy Giỏi!",
                              "type":"success"
                          }, function() {
@@ -2355,7 +2550,7 @@
              });
          });
          // END Ajax sửa daygioi
-         
+
          // Xử lý khi click nút xóa daygioi
          $(".btn_delete_daygioi").on("click", function(e){
              e.preventDefault();
@@ -2387,7 +2582,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công Hoạt Động Dạy Giỏi!",
                                          "type":"success"
                                      }, function() {
@@ -2398,15 +2593,15 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa daygioi
  // ==================================================================//
 
  // ==================================================================//
-         
+
          // Ajax thêm Xây Dựng
          $("#btn_add_xaydung").on('click', function(e){
         e.preventDefault();
@@ -2418,7 +2613,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemXayDung')); ?>',
             method: 'POST',
             data: {
@@ -2429,7 +2624,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_xaydung").removeAttr("disabled"); 
+                $("#btn_add_xaydung").removeAttr("disabled");
                 $("#btn_add_xaydung").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -2457,7 +2652,7 @@
                 if(data.status == true){
                     $('#modal_add_xaydung').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Xây Dựng Chương Trình!",
                         "type":"success"
                     }, function() {
@@ -2499,8 +2694,8 @@
              });
          });
          // END Khi click vào nút sửa xaydung, tìm xaydung theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa xaydung
          $("#btn_edit_xaydung").on('click', function(e){
              e.preventDefault();
@@ -2520,10 +2715,10 @@
                      ten: $("#form_edit_xaydung input[name='ten']").val(),
                      ghichu: $("#form_edit_xaydung input[name='ghichu']").val(),
                      thoigian: $("#form_edit_xaydung input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_xaydung").removeAttr("disabled"); 
+                     $("#btn_edit_xaydung").removeAttr("disabled");
                      $("#btn_edit_xaydung").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -2551,7 +2746,7 @@
                      if(data.status == true){
                          $('#modal_edit_xaydung').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Xây Dựng Chương Trình!",
                              "type":"success"
                          }, function() {
@@ -2564,7 +2759,7 @@
              });
          });
          // END Ajax sửa xaydung
-         
+
          // Xử lý khi click nút xóa xaydung
          $(".btn_delete_xaydung").on("click", function(e){
              e.preventDefault();
@@ -2596,7 +2791,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công Xây Dựng Chương Trình!",
                                          "type":"success"
                                      }, function() {
@@ -2607,15 +2802,15 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa xaydung
  // ==================================================================//
 
   // ==================================================================//
-         
+
          // Ajax thêm Đột Xuất
          $("#btn_add_dotxuat").on('click', function(e){
         e.preventDefault();
@@ -2627,7 +2822,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemDotXuat')); ?>',
             method: 'POST',
             data: {
@@ -2638,7 +2833,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_dotxuat").removeAttr("disabled"); 
+                $("#btn_add_dotxuat").removeAttr("disabled");
                 $("#btn_add_dotxuat").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -2666,7 +2861,7 @@
                 if(data.status == true){
                     $('#modal_add_dotxuat').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Công Việc Đột Xuất!",
                         "type":"success"
                     }, function() {
@@ -2708,8 +2903,8 @@
              });
          });
          // END Khi click vào nút sửa dotxuat, tìm dotxuat theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa dotxuat
          $("#btn_edit_dotxuat").on('click', function(e){
              e.preventDefault();
@@ -2729,10 +2924,10 @@
                      ten: $("#form_edit_dotxuat input[name='ten']").val(),
                      ghichu: $("#form_edit_dotxuat input[name='ghichu']").val(),
                      thoigian: $("#form_edit_dotxuat input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_dotxuat").removeAttr("disabled"); 
+                     $("#btn_edit_dotxuat").removeAttr("disabled");
                      $("#btn_edit_dotxuat").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -2760,7 +2955,7 @@
                      if(data.status == true){
                          $('#modal_edit_dotxuat').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Công Việc Đột Xuất!",
                              "type":"success"
                          }, function() {
@@ -2773,7 +2968,7 @@
              });
          });
          // END Ajax sửa dotxuat
-         
+
          // Xử lý khi click nút xóa dotxuat
          $(".btn_delete_dotxuat").on("click", function(e){
              e.preventDefault();
@@ -2805,7 +3000,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công Công Việc Đột Xuất!",
                                          "type":"success"
                                      }, function() {
@@ -2816,14 +3011,14 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa dotxuat
  // ==================================================================//
  // ==================================================================//
-         
+
          // Ajax thêm Sáng Kiến
          $("#btn_add_sangkien").on('click', function(e){
         e.preventDefault();
@@ -2835,7 +3030,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemSangKien')); ?>',
             method: 'POST',
             data: {
@@ -2846,7 +3041,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_sangkien").removeAttr("disabled"); 
+                $("#btn_add_sangkien").removeAttr("disabled");
                 $("#btn_add_sangkien").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -2874,7 +3069,7 @@
                 if(data.status == true){
                     $('#modal_add_sangkien').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Sáng Kiến Cải Tiến!",
                         "type":"success"
                     }, function() {
@@ -2916,8 +3111,8 @@
              });
          });
          // END Khi click vào nút sửa sangkien, tìm sangkien theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa sangkien
          $("#btn_edit_sangkien").on('click', function(e){
              e.preventDefault();
@@ -2937,10 +3132,10 @@
                      ten: $("#form_edit_sangkien input[name='ten']").val(),
                      ghichu: $("#form_edit_sangkien input[name='ghichu']").val(),
                      thoigian: $("#form_edit_sangkien input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_sangkien").removeAttr("disabled"); 
+                     $("#btn_edit_sangkien").removeAttr("disabled");
                      $("#btn_edit_sangkien").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -2968,7 +3163,7 @@
                      if(data.status == true){
                          $('#modal_edit_sangkien').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Sáng Kiến Cải Tiến!",
                              "type":"success"
                          }, function() {
@@ -2981,7 +3176,7 @@
              });
          });
          // END Ajax sửa sangkien
-         
+
          // Xử lý khi click nút xóa sangkien
          $(".btn_delete_sangkien").on("click", function(e){
              e.preventDefault();
@@ -3013,7 +3208,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công Sáng Kiến Cải Tiến!",
                                          "type":"success"
                                      }, function() {
@@ -3024,15 +3219,15 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa sangkien
  // ==================================================================//
 
  // ==================================================================//
-         
+
          // Ajax thêm Học Tập
          $("#btn_add_hoctap").on('click', function(e){
         e.preventDefault();
@@ -3044,7 +3239,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemHocTap')); ?>',
             method: 'POST',
             data: {
@@ -3055,7 +3250,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_hoctap").removeAttr("disabled"); 
+                $("#btn_add_hoctap").removeAttr("disabled");
                 $("#btn_add_hoctap").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -3083,7 +3278,7 @@
                 if(data.status == true){
                     $('#modal_add_hoctap').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Học Tập!",
                         "type":"success"
                     }, function() {
@@ -3125,8 +3320,8 @@
              });
          });
          // END Khi click vào nút sửa hoctap, tìm hoctap theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa hoctap
          $("#btn_edit_hoctap").on('click', function(e){
              e.preventDefault();
@@ -3146,10 +3341,10 @@
                      ten: $("#form_edit_hoctap input[name='ten']").val(),
                      ghichu: $("#form_edit_hoctap input[name='ghichu']").val(),
                      thoigian: $("#form_edit_hoctap input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_hoctap").removeAttr("disabled"); 
+                     $("#btn_edit_hoctap").removeAttr("disabled");
                      $("#btn_edit_hoctap").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -3177,7 +3372,7 @@
                      if(data.status == true){
                          $('#modal_edit_hoctap').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Hoạt Động Học Tập!",
                              "type":"success"
                          }, function() {
@@ -3190,7 +3385,7 @@
              });
          });
          // END Ajax sửa hoctap
-         
+
          // Xử lý khi click nút xóa hoctap
          $(".btn_delete_hoctap").on("click", function(e){
              e.preventDefault();
@@ -3222,7 +3417,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công Hoạt Động Học Tập!",
                                          "type":"success"
                                      }, function() {
@@ -3233,15 +3428,15 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa hoctap
  // ==================================================================//
     });
 
-   
+
 </script>
 
 
@@ -3254,4 +3449,5 @@
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-toastr/toastr.min.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js')); ?>" type="text/javascript"></script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/khac/edit/index.blade.php ENDPATH**/ ?>

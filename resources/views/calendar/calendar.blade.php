@@ -32,13 +32,13 @@
         <link href="{{ asset('assets/global/css/plugins.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <link href="{{ asset('assets/pages/css/login.min.css') }}" rel="stylesheet" type="text/css" />
-      
+
 
         <!-- STYLE FOR CALENDAR -->
         {{-- <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> --}}
         <link href="{{ asset('assets/global/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <script src="{{ asset('assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
-      
+
         <script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/global/plugins/moment.min.js') }}" type="text/javascript"></script>
         {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script> --}}
@@ -70,7 +70,7 @@
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
                         <a href="{{ route('dashboard') }}">
-                            <img src="{{ asset('/images/logo_name.png') }}" alt="logo" class="logo-default" width="140" /> 
+                            <img src="{{ asset('/images/logo_name.png') }}" alt="logo" class="logo-default" width="140" />
                             <!-- <h5 style="padding:7px; color: #fff;">THỊNH PHONG HRM</h5> -->
                         </a>
                         <div class="menu-toggler sidebar-toggler">
@@ -89,7 +89,7 @@
                     </div>
                     <!-- BEGIN TOP NAVIGATION MENU -->
                     <div class="top-menu">
-                        
+
                         <ul class="nav navbar-nav pull-right">
                             <!-- BEGIN USER LOGIN DROPDOWN -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -108,13 +108,13 @@
                                     <li class="divider"> </li>
                                     <li>
                                         <a href="{{route('profile.thongbao.get', Auth::user()->id_giangvien)}}">
-                                            <i class="fa fa-calendar-minus-o"></i> Lịch Trình
+                                            <i class="fa fa-calendar-minus-o"></i>Lịch Trình Cá Nhân
                                         </a>
                                     </li>
                                     <li class="divider"> </li>
                                     <li >
                                         <a href="{{ route('logout.get') }}" style="color: #CC0000">
-                                            <i class="fa fa-sign-out" style="color: #CC0000"></i> 
+                                            <i class="fa fa-sign-out" style="color: #CC0000"></i>
                                             Đăng Xuất
                                         </a>
                                     </li>
@@ -130,7 +130,7 @@
             <!-- END HEADER -->
             <!-- BEGIN CONTAINER -->
             <div class="page-container">
-              
+
                 <div class="page-sidebar-wrapper">
                     <!-- BEGIN SIDEBAR -->
                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -156,41 +156,32 @@
                             <li class="nav-item start ">
                                 <a href="{{ route('dashboard') }}" class="nav-link">
                                     <i class="fa fa-dashboard"></i>
-                                    <span class="title">BẢNG ĐIỀU KHIỂN</span>
+                                    <span class="title"> <strong>BẢNG ĐIỀU KHIỂN</strong></span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
                             <li class="heading">
                                 <h3 class="uppercase">QUẢN LÝ</h3>
                             </li>
-                            <li class="nav-item {{ Request::is('lichgiang/phancong') ? 'active open' : '' }}">
+                            {{-- <li class="nav-item {{ Request::is('lichgiang/phancong') ? 'active open' : '' }}">
                                 <a href="{{ route('lichgiang.phancong') }}" class="nav-link nav-toggle">
                                     <i class="fa fa-calendar"></i>
                                     <span class="title">Phân Công Lịch Giảng</span>
                                     <span class="selected"></span>
                                 </a>
-                            </li>
-                            <li class="nav-item {{ Request::is('lichgiang/lichgiangtuan') ? 'active open' : '' }}">
+                            </li> --}}
+                            {{-- <li class="nav-item {{ Request::is('lichgiang/lichgiangtuan') ? 'active open' : '' }}">
                                 <a href="{{ route('lichgiang.lichgiangtuan') }}" class="nav-link nav-toggle">
                                     <i class="fa fa-calendar-check-o"></i>
                                     <span class="title">Lịch Giảng Tuần</span>
                                     <span class="selected"></span>
                                 </a>
-                            </li>
+                            </li> --}}
                             @permission('read-giangvien')
                             <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : '' }}">
                                 <a href="{{ route('giangvien.index') }}" class="nav-link nav-toggle">
                                     <i class="fa fa-user"></i>
                                     <span class="title">Giảng Viên</span>
-                                    <span class="selected"></span>
-                                </a>
-                            </li>
-                            @endpermission
-                            @permission('read-hocphan')
-                            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/hocphan' ? 'active open' : '' }}">
-                                <a href="{{ route('hocphan.index') }}" class="nav-link nav-toggle">
-                                    <i class="fa fa-file-code-o"></i>
-                                    <span class="title">Học Phần</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
@@ -204,22 +195,28 @@
                                 </a>
                             </li>
                             @endpermission
-                        
-                            <li class="heading">
-                                <h3 class="uppercase">NCKH</h3>
-
-                            </li>
-                            <li class="nav-item {{ Request::is('nckh') ? 'active open' : '' }}">
-
-                                <a href="{{ route('nckh.index') }}" class="nav-link nav-toggle">
-
-                                    <i class="fa fa-briefcase "></i>
-                                    <span class="title">Quản Lý NCKH</span>
-
+                            @permission('read-hocphan')
+                            <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/hocphan' ? 'active open' : '' }}">
+                                <a href="{{ route('hocphan.index') }}" class="nav-link nav-toggle">
+                                    <i class="fa fa-file-code-o"></i>
+                                    <span class="title">Học Phần</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                        
+                            @endpermission
+
+
+                            <li class="heading">
+                                <h3 class="uppercase">NCKH</h3>
+                            </li>
+                            <li class="nav-item {{ Request::is('nckh') ? 'active open' : '' }}">
+                                <a href="{{ route('nckh.index') }}" class="nav-link nav-toggle">
+                                    <i class="fa fa-briefcase "></i>
+                                    <span class="title">Quản Lý NCKH</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+
                             <li class="heading">
                                 <h3 class="uppercase">Công Việc Khác</h3>
                             </li>
@@ -230,7 +227,7 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                            @permission('update-file-manager')
+                            @permission('read-file-manager')
                             <li class="heading">
                                 <h3 class="uppercase">Quản trị nâng cao</h3>
                             </li>
@@ -246,13 +243,14 @@
                             <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/users' ? 'active open' : '' }}">
                                 <a href="{{ route('user.index') }}" class="nav-link nav-toggle">
                                     <i class="fa fa-user"></i>
-                                    <span class="title">Người Dùng</span>
+                                    <span class="title">Người Dùng Hệ Thống</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
                             @endpermission
                         </ul>
                         <!-- END SIDEBAR MENU -->
+                      
                     </div>
                     <!-- END SIDEBAR -->
                 </div>
@@ -281,6 +279,7 @@
                         <!-- BEGIN DASHBOARD STATS 1-->
                         <div class="row">
                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                @permission('create-users')
                                 <div class="content" style="margin: 50px">
                                     <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
                                     <div class="modal fade" id="modal-add">
@@ -294,12 +293,12 @@
                                                             <input type="file" class="form-control" name="calendar" id="" placeholder="Input field">
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Submit</button>
-                                                    </form>
+                                                </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                        
+                                    @endpermission
                                     {!! $calendar->calendar() !!}
                                     {!! $calendar->script() !!}
                                 </div>
@@ -311,10 +310,10 @@
                     <!-- END CONTENT BODY -->
                 </div>
                 <!-- END CONTENT -->
-               
+
             </div>
             <!-- END CONTAINER -->
-            
+
            <!-- BEGIN FOOTER -->
         <div class="page-footer">
             <div class="page-footer-inner pull-right">@2020 - Dung B14D48 - ATTT. All Right Reserved.
@@ -379,7 +378,7 @@
         <!-- <script src="{{ asset('assets/layouts/layout/scripts/demo.min.js') }}" type="text/javascript"></script> -->
         <script src="{{ asset('assets/layouts/global/scripts/quick-sidebar.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/layouts/global/scripts/quick-nav.min.js') }}" type="text/javascript"></script>
-        
+
         <script>
         $(document).ready(function() {
             var interval = setInterval(function() {
@@ -394,10 +393,10 @@
                 }
             });
 
-            
-            
+
+
         });
         </script>
-       
+
     </body>
 </html>

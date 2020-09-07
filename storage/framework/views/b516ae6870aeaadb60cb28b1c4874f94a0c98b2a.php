@@ -21,7 +21,7 @@
                 <li>
                     <a href="<?php echo e(route('dashboard')); ?>">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="<?php echo e(route('giangvien.index')); ?>">Giảng Viên Khoa ANĐT</a>
+                    <a href="<?php echo e(route('giangvien.index')); ?>">Danh Sách Giảng Viên</a>
                 </li>
             </ul>
         </div>

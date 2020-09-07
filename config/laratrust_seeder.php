@@ -21,7 +21,8 @@ return [
             'sangkien' => 'c,r,u,d',
             'xaydung' => 'c,r,u,d',
             'hoctap' => 'c,r,u,d',
-            'file-manager' => 'u'
+            'file-manager' => 'c,r,u,d',
+            'luanan' => 'c,r,u,d'
         ],
         'administrator' => [
             'dashboard' => 'r',
@@ -31,8 +32,9 @@ return [
             'bai'=> 'r,u',
             'tiet'   => 'r,u',
             'nckh' => 'r,u',
-            'giangvien' => 'c,r,u',
-            'file-manager' => 'c,r,u'
+            'giangvien' => 'c,r,u,d',
+            'file-manager' => 'c,r,u,d',
+            'luanan' => 'c,r,u,d'
             
         ],
         'user' => [
@@ -45,6 +47,7 @@ return [
             'nckh' => 'r,u',
             'giangvien' => 'r,u',
             'file-manager' => 'r',
+            'luanan' => 'c,r,u,d'
         ],
     ],
     'permission_structure' => [],

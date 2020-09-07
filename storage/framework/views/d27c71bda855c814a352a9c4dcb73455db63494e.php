@@ -83,7 +83,7 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            <?php if (app('laratrust')->can('update-file-manager')) : ?>
+            <?php if (app('laratrust')->can('read-file-manager')) : ?>
             <li class="heading">
                 <h3 class="uppercase">Quản trị nâng cao</h3>
             </li>

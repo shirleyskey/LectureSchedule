@@ -12,7 +12,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Xây Dựng Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -306,7 +306,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dotxuat"><i class="fa fa-plus"></i> Tạo CV Đột Xuất Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -364,7 +364,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_sangkien"><i class="fa fa-plus"></i> Tạo Sáng Kiến Cải Tiến
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -422,7 +422,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Học Tập Mới
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -480,7 +480,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_khoaluan"><i class="fa fa-plus"></i> Thêm Khóa Luân
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -505,7 +505,7 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> 
+                                        <td>
                                             @php
                                                 $huongdan = json_decode( $v->huongdan, true);
                                             @endphp
@@ -518,7 +518,7 @@
                                                 $chutichcham = json_decode( $v->chutichcham, true);
                                             @endphp
                                                 @foreach($chutichcham as $key => $value)
-                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                 @endforeach
                                         </td>
                                         <td>
@@ -526,10 +526,10 @@
                                                 $thamgiacham = json_decode( $v->thamgiacham, true);
                                             @endphp
                                                 @foreach($thamgiacham as $key => $value)
-                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                 @endforeach
                                             </td>
-                                        
+
                                         <td> {{$v->ghichu}}</td>
                                         <td>
                                             <a data-khoaluan-id="{{ $v->id }}" class="btn_edit_khoaluan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -546,7 +546,10 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Khóa Luận nào. </p>
+                    <p> Không có Khóa Luận nào.
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_khoaluan"><i class="fa fa-plus"></i> Tạo Khóa Luận Mới</a>
+
+                    </p>
                 </div>
             @endif
         </div>
@@ -563,7 +566,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_luanvan"><i class="fa fa-plus"></i> Thêm Luận Văn
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -590,7 +593,7 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> 
+                                        <td>
                                             @php
                                                 $huongdan = json_decode( $v->huongdan, true);
                                             @endphp
@@ -603,7 +606,7 @@
                                             $chutich = json_decode( $v->chutich, true);
                                         @endphp
                                             @foreach($chutich as $key => $value)
-                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                             @endforeach
                                         </td>
                                         <td>
@@ -611,7 +614,7 @@
                                                 $phanbien = json_decode( $v->phanbien, true);
                                             @endphp
                                                 @foreach($phanbien as $key => $value)
-                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                 @endforeach
                                         </td>
                                         <td>
@@ -619,7 +622,7 @@
                                                 $thuky = json_decode( $v->thuky, true);
                                             @endphp
                                                 @foreach($thuky as $key => $value)
-                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                 @endforeach
                                         </td>
                                         <td>
@@ -627,10 +630,10 @@
                                                 $uyvien = json_decode( $v->uyvien, true);
                                             @endphp
                                                 @foreach($uyvien as $key => $value)
-                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                 @endforeach
                                         </td>
-                                        
+
                                         <td> {{$v->ghichu}}</td>
                                         <td>
                                             <a data-luanvan-id="{{ $v->id }}" class="btn_edit_luanvan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -647,7 +650,9 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Luận Văn nào. </p>
+                    <p> Không có Luận Văn nào.
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_luanvan"><i class="fa fa-plus"></i> Tạo Luận Văn Mới</a>
+                    </p>
                 </div>
             @endif
         </div>
@@ -664,7 +669,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_luanan"><i class="fa fa-plus"></i> Thêm Luận Án
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -693,11 +698,11 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> 
+                                        <td>
                                             <p>{{ ($v->huongdanchinh) ? ($tengv = App\GiangVien::where('id', $v->huongdanchinh)->first()->ten) : ''}}</p>
                                             <p>{{ ($v->huongdanphu) ? ($tengv = App\GiangVien::where('id', $v->huongdanphu)->first()->ten) : ''}}</p>
                                         </td>
-                                        <td> 
+                                        <td>
                                             @php
                                                 $docnhanxet = json_decode( $v->docnhanxet, true);
                                             @endphp
@@ -705,7 +710,7 @@
                                                   <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
                                                 @endforeach
                                         </td>
-                                        <td> 
+                                        <td>
                                             @php
                                                 $chutichhoithao = json_decode( $v->chutichhoithao, true);
                                             @endphp
@@ -713,7 +718,7 @@
                                                   <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
                                                 @endforeach
                                         </td>
-                                        <td> 
+                                        <td>
                                             @php
                                                 $thanhvienhoithao = json_decode( $v->thanhvienhoithao, true);
                                             @endphp
@@ -726,7 +731,7 @@
                                             $chutichcham = json_decode( $v->chutichcham, true);
                                         @endphp
                                             @foreach($chutichcham as $key => $value)
-                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                             @endforeach
                                         </td>
                                         <td>
@@ -734,10 +739,10 @@
                                                 $thanhviencham = json_decode( $v->thanhviencham, true);
                                             @endphp
                                                 @foreach($thanhviencham as $key => $value)
-                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                 @endforeach
                                             </td>
-                                        
+
                                         <td> {{$v->ghichu}}</td>
                                         <td>
                                             <a data-luanan-id="{{ $v->id }}" class="btn_edit_luanan btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -754,7 +759,9 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Luận Án nào. </p>
+                    <p> Không có Luận Án nào.
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_luanan"><i class="fa fa-plus"></i> Tạo Luận Án Mới</a>
+                         </p>
                 </div>
             @endif
         </div>
@@ -771,7 +778,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_ncs"><i class="fa fa-plus"></i> Thêm Nghiên Cứu Sinh
-                                            
+
                                         </a>
                                     </div>
                                 </div>
@@ -795,7 +802,7 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> 
+                                        <td>
                                             @php
                                                 $thanhvien = json_decode( $v->thanhvien, true);
                                             @endphp
@@ -808,7 +815,7 @@
                                             $thuky = json_decode( $v->thuky, true);
                                         @endphp
                                             @foreach($thuky as $key => $value)
-                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p> 
+                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                             @endforeach
                                         </td>
                                         <td> {{$v->ghichu}}</td>
@@ -827,7 +834,9 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Nghiên Cứu nào. </p>
+                    <p> Không có Nghiên Cứu Sinh nào.
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_ncs"><i class="fa fa-plus"></i> Tạo Nghiên Cứu Sinh</a>
+                    </p>
                 </div>
             @endif
         </div>
@@ -895,7 +904,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -912,18 +921,10 @@
 </div>
 <!-- /.modal -->
 <!-- -------------------------------------END NGHIÊN CỨU SINH EDIT -------------------------------------->
-@include('congtac.modals-khac.add')
 @include('congtac.modals-khac.edit')
-@include('chambai.modals-khac.add')
 @include('chambai.modals-khac.edit')
-@include('dang.modals-khac.add')
 @include('dang.modals-khac.edit')
-@include('daygioi.modals-khac.add')
 @include('daygioi.modals-khac.edit')
-@include('dotxuat.modals-khac.add')
 @include('dotxuat.modals-khac.edit')
-@include('sangkien.modals-khac.add')
 @include('sangkien.modals-khac.edit')
-@include('hoctap.modals-khac.add')
 @include('hoctap.modals-khac.edit')
-@include('khoaluan.modals-khac.add')
