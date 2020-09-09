@@ -27,6 +27,12 @@ class DayGioi extends Model
         $daygioi->id_giangvien = $data['id_giangvien'];
         $daygioi->ten = $data['ten'];
         $daygioi->ghichu = $data['ghichu'];
+        $daygioi->cap = $data['cap'];
+        $daygioi->dat = $data['dat'];
+        foreach ($data['thanhvien'] as $key => $value) {
+            $data['thanhvien'][$key] = (int)$value;         
+        }
+        $daygioi->thanhvien = json_encode($data['thanhvien']);
         $daygioi->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
         $daygioi->save();
         return $daygioi;

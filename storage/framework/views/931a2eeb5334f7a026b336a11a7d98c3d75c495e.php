@@ -230,8 +230,7 @@
                                                                 // echo($total_phu);
                                                                 // die();
                                                             ?>
-                                                            <?php echo e($total_gio); ?>
-
+                                                            <?php echo e($total_gio); ?> giờ
                                                         </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -304,39 +303,31 @@
                                                             
                                                             <?php switch($v->theloai):
                                                                 case (1): ?>
-                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> giờ
                                                                     <?php break; ?>
                                                                 <?php case (2): ?>
-                                                                   <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
-
+                                                                   <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?> giờ
                                                                     <?php break; ?>
                                                                 <?php case (3): ?>
-                                                                    <?php echo e($gio_kh = 6*4); ?>
-
+                                                                    <?php echo e($gio_kh = 6*4); ?> giờ
                                                                     <?php break; ?>
                                                                 <?php case (4): ?>
-                                                                <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
-
+                                                                <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?> giờ
                                                                     <?php break; ?>
                                                                 <?php case (5): ?>
-                                                                <?php echo e($gio_kh = $v->sotrang*1.5); ?>
-
+                                                                <?php echo e($gio_kh = $v->sotrang*1.5); ?> giờ
                                                                     <?php break; ?>
                                                                 <?php case (6): ?>
-                                                                    <?php echo e($gio_kh = $v->sotrang*4.27); ?>
-
+                                                                    <?php echo e($gio_kh = $v->sotrang*4.27); ?> giờ
                                                                     <?php break; ?>
                                                                 <?php case (7): ?>
-                                                                    <?php echo e($gio_kh = $v->sotrang*2); ?>
-
+                                                                    <?php echo e($gio_kh = $v->sotrang*2); ?> giờ
                                                                     <?php break; ?>
                                                                 <?php case (8): ?>
-                                                                    <?php echo e($gio_kh = $v->sotrang); ?>
-
+                                                                    <?php echo e($gio_kh = $v->sotrang); ?> giờ
                                                                     <?php break; ?>
                                                                 <?php default: ?>
-                                                                    <?php echo e($gio_kh = $v->sotrang); ?>
-
+                                                                    <?php echo e($gio_kh = $v->sotrang); ?> giờ
                                                             <?php endswitch; ?>
                                                         </td>
                                                     </tr>
@@ -409,8 +400,7 @@
                                                                 $gio_khoaluan += 1.5;
                                                             };
                                                             ?>
-                                                            <?php echo e($gio_khoaluan); ?>
-
+                                                            <?php echo e($gio_khoaluan); ?> giờ
                                                         </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -502,8 +492,7 @@
                                                                 $gio_luanvan += 3;
                                                             };
                                                             ?>
-                                                            <?php echo e($gio_luanvan); ?>
-
+                                                            <?php echo e($gio_luanvan); ?> giờ
                                                         </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -619,8 +608,7 @@
                                                             $gio_luanan += 7;
                                                         };
                                                         ?>
-                                                        <?php echo e($gio_luanan); ?>
-
+                                                        <?php echo e($gio_luanan); ?> giờ
                                                     </td>
                                                 </tr>
                                                 <?php $stt++; ?>
@@ -651,6 +639,7 @@
                                                 <th> Tên Nghiên Cứu Sinh</th>
                                                 <th> Vai Trò</th>
                                                 <th>Ghi Chú</th>
+                                                <th>Số Giờ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -674,6 +663,18 @@
 
                                                     </td>
                                                     <td> <?php echo e($v->ghichu); ?></td>
+                                                    <td>
+                                                    <?php
+                                                        $nc_gio = 0;
+                                                         if(in_array($giangvien->id, $thanhvien)){
+                                                            $nc_gio += 2;
+                                                        };
+                                                        if(in_array($giangvien->id, $thuky) ){
+                                                            $nc_gio += 1;
+                                                        };
+                                                    ?>
+                                                    <?php echo e($nc_gio); ?> giờ
+                                                    </td>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -827,7 +828,11 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên </th>
+                                                    <th> Tên Dạy Giỏi</th>
+                                                    <th> Tên Giảng Viên</th>
+                                                    <th> Thành Viên</th>
+                                                    <th> Cấp</th>
+                                                    <th> Đạt</th>
                                                     <th> Thời Gian</th>
                                                     <th> Số Giờ</th>
                                                 </tr>

@@ -229,7 +229,7 @@
                                                                 // echo($total_phu);
                                                                 // die();
                                                             @endphp
-                                                            {{$total_gio}}
+                                                            {{$total_gio}} giờ
                                                         </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -302,31 +302,31 @@
                                                             {{-- In ra số Giờ --}}
                                                             @switch($v->theloai)
                                                                 @case(1)
-                                                                {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
+                                                                {{ $gio_kh = ($v->sotrang/2.5)*8*4}} giờ
                                                                     @break
                                                                 @case(2)
-                                                                   {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
+                                                                   {{ $gio_kh = ($v->sotrang/2.5)*4*4}} giờ
                                                                     @break
                                                                 @case(3)
-                                                                    {{ $gio_kh = 6*4}}
+                                                                    {{ $gio_kh = 6*4}} giờ
                                                                     @break
                                                                 @case(4)
-                                                                {{ $gio_kh =($v->sotrang/2.5)*10*4}}
+                                                                {{ $gio_kh =($v->sotrang/2.5)*10*4}} giờ
                                                                     @break
                                                                 @case(5)
-                                                                {{ $gio_kh = $v->sotrang*1.5}}
+                                                                {{ $gio_kh = $v->sotrang*1.5}} giờ
                                                                     @break
                                                                 @case(6)
-                                                                    {{$gio_kh = $v->sotrang*4.27}}
+                                                                    {{$gio_kh = $v->sotrang*4.27}} giờ
                                                                     @break
                                                                 @case(7)
-                                                                    {{$gio_kh = $v->sotrang*2}}
+                                                                    {{$gio_kh = $v->sotrang*2}} giờ
                                                                     @break
                                                                 @case(8)
-                                                                    {{$gio_kh = $v->sotrang}}
+                                                                    {{$gio_kh = $v->sotrang}} giờ
                                                                     @break
                                                                 @default
-                                                                    {{$gio_kh = $v->sotrang}}
+                                                                    {{$gio_kh = $v->sotrang}} giờ
                                                             @endswitch
                                                         </td>
                                                     </tr>
@@ -399,7 +399,7 @@
                                                                 $gio_khoaluan += 1.5;
                                                             };
                                                             @endphp
-                                                            {{$gio_khoaluan}}
+                                                            {{$gio_khoaluan}} giờ
                                                         </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -491,7 +491,7 @@
                                                                 $gio_luanvan += 3;
                                                             };
                                                             @endphp
-                                                            {{$gio_luanvan}}
+                                                            {{$gio_luanvan}} giờ
                                                         </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -607,7 +607,7 @@
                                                             $gio_luanan += 7;
                                                         };
                                                         @endphp
-                                                        {{$gio_luanan}}
+                                                        {{$gio_luanan}} giờ
                                                     </td>
                                                 </tr>
                                                 @php $stt++; @endphp
@@ -638,7 +638,7 @@
                                                 <th> Tên Nghiên Cứu Sinh</th>
                                                 <th> Vai Trò</th>
                                                 <th>Ghi Chú</th>
-                                                <th></th>
+                                                <th>Số Giờ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -662,6 +662,18 @@
 
                                                     </td>
                                                     <td> {{$v->ghichu}}</td>
+                                                    <td>
+                                                    @php
+                                                        $nc_gio = 0;
+                                                         if(in_array($giangvien->id, $thanhvien)){
+                                                            $nc_gio += 2;
+                                                        };
+                                                        if(in_array($giangvien->id, $thuky) ){
+                                                            $nc_gio += 1;
+                                                        };
+                                                    @endphp
+                                                    {{$nc_gio}} giờ
+                                                    </td>
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -816,23 +828,62 @@
                                                 <tr>
                                                     <th> STT</th>
                                                     <th> Tên </th>
+                                                    <th> Tên Giảng Viên</th>
+                                                    <th> Thành Viên</th>
+                                                    <th> Cấp</th>
+                                                    <th> Đạt Bài Dạy Giỏi</th>
                                                     <th> Thời Gian</th>
-                                                    <th> Số Giờ</th>
+                                                    <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @if( $daygioi->count() > 0 )
-                                                    @php $stt = 1; @endphp
-                                                    @foreach( $daygioi as $v_daygioi )
-                                                    <tr>
-                                                        <td> {{ $stt }} </td>
-                                                        <td> {{ $v_daygioi->ten }} </td>
-                                                        <td>  </td>
-                                                        <td> </td>
-                                                    </tr>
-                                                    @php $stt++; @endphp
-                                                    @endforeach
-                                                @endif
+                                                @php $stt = 1; @endphp
+                                                @foreach( $daygioi as $v )
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+                                                    <td> {{ $v->ten }} </td>
+                                                    <td>
+                                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                                        {{ $v->giangviens->ten }}
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @php
+                                                            $thanhvien = json_decode( $v->thanhvien, true);
+                                                        @endphp
+                                                            @foreach($thanhvien as $key => $value)
+                                                            @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                            @endif
+                                                            @endforeach
+                                                    </td>
+                                                    <td> 
+                                                        @php
+                                                            if($v->cap == 1){
+                                                                echo "Cấp Khoa";
+                                                            }
+                                                            if($v->cap == 2){
+                                                                echo "Cấp Học Viện";
+                                                            }
+                                                            if($v->cap == 3){
+                                                                echo "Cấp Bộ";
+                                                            }
+                                                        @endphp
+                                                    </td>
+                                                    <td> {{($v->dat == 1) ? 'Đạt' : 'Không Đạt'}} </td>
+                                                    <td> {{ $v->thoigian }} </td>
+                                                    <td> {{ $v->ghichu }} </td>
+                                                    <td>
+                                                        @permission('create-giangvien')
+                                                        <a data-daygioi-id="{{ $v->id }}" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                        <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                        @endpermission
+                                                    </td>
+                                                </tr>
+                                                @php $stt++; @endphp
+                                                @endforeach
+                                            @endif
                                             </tbody>
                                         </table>
                                     </div>

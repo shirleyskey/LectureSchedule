@@ -236,6 +236,9 @@
                                     <th> STT</th>
                                     <th> Tên </th>
                                     <th> Tên Giảng Viên</th>
+                                    <th> Thành Viên</th>
+                                    <th> Cấp</th>
+                                    <th> Đạt Bài Dạy Giỏi</th>
                                     <th> Thời Gian</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
@@ -248,10 +251,36 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
-                                        <?php echo e($v->giangviens->ten); ?>
+                                        <td>
+                                            <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                            <?php echo e($v->giangviens->ten); ?>
 
-                                        <?php endif; ?>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                                $thanhvien = json_decode( $v->thanhvien, true);
+                                            ?>
+                                                <?php $__currentLoopData = $thanhvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                  <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                  <?php endif; ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </td>
+                                        <td> 
+                                            <?php
+                                                if($v->cap == 1){
+                                                    echo "Cấp Khoa";
+                                                }
+                                                if($v->cap == 2){
+                                                    echo "Cấp Học Viện";
+                                                }
+                                                if($v->cap == 3){
+                                                    echo "Cấp Bộ";
+                                                }
+                                            ?>
+                                        </td>
+                                        <td> <?php echo e(($v->dat == 1) ? 'Đạt' : 'Không Đạt'); ?> </td>
                                         <td> <?php echo e($v->thoigian); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>

@@ -29,8 +29,41 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thanhvien">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ $v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input value="" name="ghichu" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Cấp:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="cap">
+                                                <option value="0">-------- Chọn Cấp --------</option>
+                                                <option value="{{1}}">Cấp Khoa</option>
+                                                <option value="{{2}}">Cấp Học Viện</option>
+                                                <option value="{{3}}">Cấp Bộ</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Đạt Bài Dạy Giỏi:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="dat" name="dat">
+                                        <label class="form-check-label" for="dat">Đạt:</label>
+                                    </div>
                                 </div>
                                
                                 <div class="form-group">

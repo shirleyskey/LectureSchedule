@@ -1158,6 +1158,40 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-4">Thành Viên: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thanhvien">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <?php if($giangvien->count()>0): ?>
+                                                    <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Cấp:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="cap">
+                                                <option value="0">-------- Chọn Cấp --------</option>
+                                                <option value="<?php echo e(1); ?>">Cấp Khoa</option>
+                                                <option value="<?php echo e(2); ?>">Cấp Học Viện</option>
+                                                <option value="<?php echo e(3); ?>">Cấp Bộ</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Đạt Bài Dạy Giỏi:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="dat" name="dat">
+                                        <label class="form-check-label" for="dat">Đạt:</label>
+                                    </div>
+                                </div>
+                               
+                                <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div>
@@ -1216,6 +1250,40 @@
                                             <?php endif; ?>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Thành Viên: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="thanhvien">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <?php if($giangvien->count()>0): ?>
+                                                    <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Cấp:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="cap">
+                                                <option value="0">-------- Chọn Cấp --------</option>
+                                                <option value="<?php echo e(1); ?>">Cấp Khoa</option>
+                                                <option value="<?php echo e(2); ?>">Cấp Học Viện</option>
+                                                <option value="<?php echo e(3); ?>">Cấp Bộ</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Đạt Bài Dạy Giỏi:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="dat" name="dat">
+                                        <label class="form-check-label" for="dat">Đạt:</label>
+                                    </div>
+                                </div>
+                               
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input value="" name="ghichu" type="text" class="form-control" required>
@@ -3222,6 +3290,9 @@
                 ten: $("#form_add_daygioi input[name='ten']").val(),
                 ghichu: $("#form_add_daygioi input[name='ghichu']").val(),
                 thoigian: $("#form_add_daygioi input[name='thoigian']").val(),
+                thanhvien: $("#form_add_daygioi select[name='thanhvien']").val(),
+                cap: $("#form_add_daygioi select[name='cap']").val(),
+                dat: ($("#form_add_daygioi input[name='dat']").is(':checked')) ? 1 : 0,
             },
             success: function(data) {
                 console.log("Hihi");
@@ -3289,6 +3360,9 @@
                          $("#form_edit_daygioi input[name='ten']").val(data.data.ten);
                          $("#form_edit_daygioi input[name='ghichu']").val(data.data.ghichu);
                          $("#form_edit_daygioi input[name='thoigian']").val(data.data.thoigian);
+                         $("#form_edit_daygioi input[name='dat']").prop('checked', (data.data.dat == 1) ? true : false);
+                         $("#form_edit_daygioi select[name='thanhvien']").val($.parseJSON(data.data.thanhvien));
+                         $("#form_edit_daygioi select[name='cap']").val(data.data.cap);
                          $('#modal_edit_daygioi').modal('show');
                      }
                  }
@@ -3316,6 +3390,9 @@
                      ten: $("#form_edit_daygioi input[name='ten']").val(),
                      ghichu: $("#form_edit_daygioi input[name='ghichu']").val(),
                      thoigian: $("#form_edit_daygioi input[name='thoigian'").val(),
+                     thanhvien: $("#form_edit_daygioi select[name='thanhvien']").val(),
+                     dat: ($("#form_edit_daygioi input[name='dat']").is(':checked')) ? 1 : 0,
+                     cap: $("#form_edit_daygioi select[name='cap']").val(),
 
                  },
                  success: function(data) {

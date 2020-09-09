@@ -22,15 +22,34 @@
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input value="" name="ghichu" type="text" class="form-control" required>
                                 </div>
-                               
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Cấp:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="cap">
+                                                <option value="0">-------- Chọn Cấp --------</option>
+                                                <option value="{{1}}">Cấp Khoa</option>
+                                                <option value="{{2}}">Cấp Học Viện</option>
+                                                <option value="{{3}}">Cấp Bộ</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Đạt Bài Dạy Giỏi:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="dat" name="dat">
+                                        <label class="form-check-label" for="dat">Đạt:</label>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
                                 </div>
-                                
+
                             </div>
                             <div class="col-md-6">
-                               
+
                             </div>
                         </div>
                     </div>

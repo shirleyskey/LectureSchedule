@@ -233,6 +233,9 @@
                                     <th> STT</th>
                                     <th> Tên </th>
                                     <th> Tên Giảng Viên</th>
+                                    <th> Thành Viên</th>
+                                    <th> Cấp</th>
+                                    <th> Đạt Bài Dạy Giỏi</th>
                                     <th> Thời Gian</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
@@ -245,9 +248,35 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
-                                        {{ $v->giangviens->ten }}
-                                        @endif
+                                        <td>
+                                            @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                            {{ $v->giangviens->ten }}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @php
+                                                $thanhvien = json_decode( $v->thanhvien, true);
+                                            @endphp
+                                                @foreach($thanhvien as $key => $value)
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                  @endif
+                                                @endforeach
+                                        </td>
+                                        <td> 
+                                            @php
+                                                if($v->cap == 1){
+                                                    echo "Cấp Khoa";
+                                                }
+                                                if($v->cap == 2){
+                                                    echo "Cấp Học Viện";
+                                                }
+                                                if($v->cap == 3){
+                                                    echo "Cấp Bộ";
+                                                }
+                                            @endphp
+                                        </td>
+                                        <td> {{($v->dat == 1) ? 'Đạt' : 'Không Đạt'}} </td>
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
