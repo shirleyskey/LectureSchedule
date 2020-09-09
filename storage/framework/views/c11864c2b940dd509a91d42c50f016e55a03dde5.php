@@ -99,6 +99,7 @@
                                                         <th> Tham Gia</th>
                                                         <th> Bắt Đầu</th>
                                                         <th> Kết Thúc</th>
+                                                        <th> Thể Loại</th>
                                                         <th> Số Trang</th>
                                                         <th> Số Giờ</th>
                                                         <th> Hành Động</th>
@@ -133,8 +134,47 @@
                                                             </td>
                                                             <td> <?php echo e($v->batdau); ?></td>
                                                             <td> <?php echo e($v->ketthuc); ?></td>
+                                                            <td> <?php echo e(($v->theloai) ? $v->theloais->ten : ''); ?></td>
                                                             <td> <?php echo e($v->sotrang); ?></td>
-                                                            <td> </td>
+                                                            <td>
+                                                                
+                                                                <?php switch($v->theloai):
+                                                                    case (1): ?>
+                                                                    <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                        <?php break; ?>
+                                                                    <?php case (2): ?>
+                                                                       <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
+
+                                                                        <?php break; ?>
+                                                                    <?php case (3): ?>
+                                                                        <?php echo e($gio_kh = 6*4); ?>
+
+                                                                        <?php break; ?>
+                                                                    <?php case (4): ?>
+                                                                    <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
+
+                                                                        <?php break; ?>
+                                                                    <?php case (5): ?>
+                                                                    <?php echo e($gio_kh = $v->sotrang*1.5); ?>
+
+                                                                        <?php break; ?>
+                                                                    <?php case (6): ?>
+                                                                        <?php echo e($gio_kh = $v->sotrang*4.27); ?>
+
+                                                                        <?php break; ?>
+                                                                    <?php case (7): ?>
+                                                                        <?php echo e($gio_kh = $v->sotrang*2); ?>
+
+                                                                        <?php break; ?>
+                                                                    <?php case (8): ?>
+                                                                        <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                                        <?php break; ?>
+                                                                    <?php default: ?>
+                                                                        <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                                <?php endswitch; ?>
+                                                            </td>
                                                             <td>
                                                                 <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
@@ -175,6 +215,7 @@
                                                     <th> Tham Gia</th>
                                                     <th> Bắt Đầu</th>
                                                     <th> Kết Thúc</th>
+                                                    <th> Thể Loại</th>
                                                     <th> Số Trang</th>
                                                     <th> Số Giờ</th>
                                                     <th> Hành Động</th>
@@ -209,8 +250,47 @@
                                                         </td>
                                                         <td> <?php echo e($v->batdau); ?></td>
                                                         <td> <?php echo e($v->ketthuc); ?></td>
+                                                        <td> <?php echo e(($v->theloai) ? $v->theloais->ten : ''); ?></td>
                                                         <td> <?php echo e($v->sotrang); ?></td>
-                                                        <td> </td>
+                                                        <td>
+                                                            
+                                                            <?php switch($v->theloai):
+                                                                case (1): ?>
+                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                    <?php break; ?>
+                                                                <?php case (2): ?>
+                                                                   <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (3): ?>
+                                                                    <?php echo e($gio_kh = 6*4); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (4): ?>
+                                                                <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (5): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*1.5); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (6): ?>
+                                                                    <?php echo e($gio_kh = $v->sotrang*4.27); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (7): ?>
+                                                                    <?php echo e($gio_kh = $v->sotrang*2); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (8): ?>
+                                                                    <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php default: ?>
+                                                                    <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                            <?php endswitch; ?>
+                                                        </td>
                                                         <td>
                                                             <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                             <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
@@ -251,6 +331,7 @@
                                                 <th> Tham Gia</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
                                                 <th> Hành Động</th>
@@ -285,8 +366,47 @@
                                                     </td>
                                                     <td> <?php echo e($v->batdau); ?></td>
                                                     <td> <?php echo e($v->ketthuc); ?></td>
+                                                    <td> <?php echo e(($v->theloai) ? $v->theloais->ten : ''); ?></td>
                                                     <td> <?php echo e($v->sotrang); ?></td>
-                                                    <td> </td>
+                                                    <td>
+                                                        
+                                                        <?php switch($v->theloai):
+                                                            case (1): ?>
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                <?php break; ?>
+                                                            <?php case (2): ?>
+                                                               <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (3): ?>
+                                                                <?php echo e($gio_kh = 6*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (4): ?>
+                                                            <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (5): ?>
+                                                            <?php echo e($gio_kh = $v->sotrang*1.5); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (6): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*4.27); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (7): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*2); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (8): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                                <?php break; ?>
+                                                            <?php default: ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                        <?php endswitch; ?>
+                                                    </td>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="#" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
@@ -330,6 +450,7 @@
                                                 <th> Tham Gia</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
                                                 <th> Hành Động</th>
@@ -364,8 +485,47 @@
                                                     </td>
                                                     <td> <?php echo e($v->batdau); ?></td>
                                                     <td> <?php echo e($v->ketthuc); ?></td>
+                                                    <td> <?php echo e(($v->theloai) ? $v->theloais->ten : ''); ?></td>
                                                     <td> <?php echo e($v->sotrang); ?></td>
-                                                    <td> </td>
+                                                    <td>
+                                                        
+                                                        <?php switch($v->theloai):
+                                                            case (1): ?>
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                <?php break; ?>
+                                                            <?php case (2): ?>
+                                                               <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (3): ?>
+                                                                <?php echo e($gio_kh = 6*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (4): ?>
+                                                            <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (5): ?>
+                                                            <?php echo e($gio_kh = $v->sotrang*1.5); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (6): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*4.27); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (7): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*2); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (8): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                                <?php break; ?>
+                                                            <?php default: ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                        <?php endswitch; ?>
+                                                    </td>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
@@ -408,6 +568,7 @@
                                                 <th> Tham Gia</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
                                                 <th> Hành Động</th>
@@ -442,8 +603,47 @@
                                                     </td>
                                                     <td> <?php echo e($v->batdau); ?></td>
                                                     <td> <?php echo e($v->ketthuc); ?></td>
+                                                    <td> <?php echo e(($v->theloai) ? $v->theloais->ten : ''); ?></td>
                                                     <td> <?php echo e($v->sotrang); ?></td>
-                                                    <td> </td>
+                                                    <td>
+                                                        
+                                                        <?php switch($v->theloai):
+                                                            case (1): ?>
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                <?php break; ?>
+                                                            <?php case (2): ?>
+                                                               <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (3): ?>
+                                                                <?php echo e($gio_kh = 6*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (4): ?>
+                                                            <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (5): ?>
+                                                            <?php echo e($gio_kh = $v->sotrang*1.5); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (6): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*4.27); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (7): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*2); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (8): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                                <?php break; ?>
+                                                            <?php default: ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                        <?php endswitch; ?>
+                                                    </td>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
@@ -485,6 +685,7 @@
                                                 <th> Tham Gia</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
                                                 <th> Hành Động</th>
@@ -519,8 +720,47 @@
                                                     </td>
                                                     <td> <?php echo e($v->batdau); ?></td>
                                                     <td> <?php echo e($v->ketthuc); ?></td>
+                                                    <td> <?php echo e(($v->theloai) ? $v->theloais->ten : ''); ?></td>
                                                     <td> <?php echo e($v->sotrang); ?></td>
-                                                    <td> </td>
+                                                    <td>
+                                                        
+                                                        <?php switch($v->theloai):
+                                                            case (1): ?>
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                <?php break; ?>
+                                                            <?php case (2): ?>
+                                                               <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (3): ?>
+                                                                <?php echo e($gio_kh = 6*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (4): ?>
+                                                            <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (5): ?>
+                                                            <?php echo e($gio_kh = $v->sotrang*1.5); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (6): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*4.27); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (7): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*2); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (8): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                                <?php break; ?>
+                                                            <?php default: ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                        <?php endswitch; ?>
+                                                    </td>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
@@ -559,6 +799,7 @@
                                                 <th style="width: 20%;"> Tên Bài Báo khoa Học</th>
                                                 <th> Họ Tên Tác Giả</th>
                                                 <th> Tạp Chí Đăng Tải</th>
+                                                <th> Số Giờ</th>
                                                 <th> Hành Động</th>
                                             </tr>
                                         </thead>
@@ -580,7 +821,45 @@
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
                                                     <td> <?php echo e($v->tapchi); ?></td>
-                                                    <td> </td>
+                                                    <td>
+                                                        
+                                                        <?php switch($v->theloai):
+                                                            case (1): ?>
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                <?php break; ?>
+                                                            <?php case (2): ?>
+                                                               <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (3): ?>
+                                                                <?php echo e($gio_kh = 6*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (4): ?>
+                                                            <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (5): ?>
+                                                            <?php echo e($gio_kh = $v->sotrang*1.5); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (6): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*4.27); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (7): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*2); ?>
+
+                                                                <?php break; ?>
+                                                            <?php case (8): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                                <?php break; ?>
+                                                            <?php default: ?>
+                                                                <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                        <?php endswitch; ?>
+                                                    </td>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
@@ -693,6 +972,7 @@
                 thamkhao: ($("#form_add_nckh input[name='thamkhao']").is(':checked')) ? 1 : 0,
                 sangkien: ($("#form_add_nckh input[name='sangkien']").is(':checked')) ? 1 : 0,
                 bao: ($("#form_add_nckh input[name='bao']").is(':checked')) ? 1 : 0,
+                theloai: $("#form_add_nckh select[name='theloai']").val(),
                 chubien: $("#form_add_nckh select[name='chubien']").val(),
                 thamgia: $("#form_add_nckh select[name='thamgia']").val(),
                 sotrang: $("#form_add_nckh input[name='sotrang']").val(),
@@ -774,6 +1054,7 @@
                         $("#form_edit_nckh input[name='sotrang']").val(data.data.sotrang);
                         $("#form_edit_nckh input[name='batdau']").val(data.data.batdau);
                         $("#form_edit_nckh input[name='ketthuc']").val(data.data.ketthuc);
+                        $("#form_edit_nckh select[name='theloai']").val(data.data.theloai);
                         $("#form_edit_nckh select[name='chubien']").val($.parseJSON(data.data.chubien));
                         $("#form_edit_nckh select[name='thamgia']").val($.parseJSON(data.data.thamgia));
                         $('#modal_edit_nckh').modal('show');
@@ -807,6 +1088,7 @@
                     thamkhao: ($("#form_edit_nckh input[name='thamkhao']").is(':checked')) ? 1 : 0,
                     sangkien: ($("#form_edit_nckh input[name='sangkien']").is(':checked')) ? 1 : 0,
                     bao: ($("#form_edit_nckh input[name='bao']").is(':checked')) ? 1 : 0,
+                    theloai: $("#form_edit_nckh select[name='theloai']").val(),
                     chubien: $("#form_edit_nckh select[name='chubien']").val(),
                     thamgia: $("#form_edit_nckh select[name='thamgia']").val(),
                     sotrang: $("#form_edit_nckh input[name='sotrang']").val(),

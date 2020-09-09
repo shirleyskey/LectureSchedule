@@ -66,6 +66,20 @@
                                     <input class="form-control" name="tapchi" type="text" required />
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-4">Thể Loại:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="theloai">
+                                                <option value="0">-------- Chọn Loại --------</option>
+                                                @if($theloai->count()>0)
+                                                    @foreach($theloai as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label col-md-4">Chủ Biên:</label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>

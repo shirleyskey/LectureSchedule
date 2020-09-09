@@ -11,72 +11,6 @@ use App\ChamBai;
 use Carbon\Carbon;
 class ChamBaiController extends Controller
 {
-
-    public function index()
-    {
-        return view('chambai.browser.index', ['ds_chambai' => ChamBai::all()]);
-    }
-
-    public function create(){
-        return view('chambai.add.index', [
-            'ds_giangvien' => GiangVien::all(),
-        ]);
-    }
-
-    public function store(Request $request){
-        $chambai = new ChamBai;
-        $chambai->id_giangvien = $request->id_giangvien;
-        $chambai->ghichu = $request->ghichu;
-        if($request->thoigian != null){
-            $chambai->thoigian = Carbon::parse($request->thoigian)->format('Y-m-d');
-        }
-        else {
-            $chambai->thoigian = null;
-        }
-        try{
-            $chambai->save();
-            return redirect()->route('chambai.index')->with('status_success', 'Tạo mới Chấm Bài thành công!');
-        }
-        catch(\Exception $e){
-            Log::error($e);
-            return redirect()->route('chambai.index')->with('status_error', 'Xảy ra lỗi khi thêm Chấm Bài!');
-        }
-    }
-
-    public function edit($id){
-        return view('chambai.edit.index', [
-            'chambai' => ChamBai::findOrFail($id),
-            'giangvien' => GiangVien::all(),
-        ]);
-    }
-
-    public function update(Request $request, $id){
-        try{
-            $chambai = ChamBai::saveChamBai($id, $request->all());
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Chấm Bài');
-            return redirect()->route('chambai.index')->with('status_success', 'Chỉnh sửa Thông tin Chấm Bài thành công!');
-        }
-        catch(\Exception $e){
-            Log::error($e);
-            return redirect()->route('chambai.index')->with('status_error', 'Xảy ra lỗi khi sửa Chấm Bài!');
-        }
-        
-    }
-
-    public function destroy($id){
-        $chambai = ChamBai::findOrFail($id);
-       
-        try{
-            $chambai->delete();
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Chấm Bài');
-            return redirect()->route('chambai.index')->with('status_success', 'Xóa Chấm Bài thành công!');
-        }
-        catch(\Exception $e){
-            Log::error($e);
-            return redirect()->route('chambai.index')->with('status_error', 'Xảy ra lỗi khi xóa Chấm Bài!');
-        }
-    }
-
      //AJAX
      public function postThemChamBai(Request $request)
      {
@@ -93,23 +27,23 @@ class ChamBaiController extends Controller
              }
          }
      }
- 
+
      public function postTimChamBaiTheoId(Request $request){
          $chambai = ChamBai::findOrFail($request->input('id'));
              return response()->json([
                  'status' => true,
                  'data'   => $chambai
              ]);
-         
+
          return response()->json([
              'status' => false
-         ]); 
+         ]);
      }
- 
+
      public function postSuaChamBai(Request $request)
      {
          if ($request->ajax()) {
-            
+
              try{
                  $chambai = ChamBai::saveChamBai($request->input('id'), $request->all());
                  Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Chấm Bài ID:'.$chambai->id);
@@ -122,7 +56,7 @@ class ChamBaiController extends Controller
              }
          }
      }
- 
+
      public function postXoaChamBai(Request $request){
          $chambai = ChamBai::findOrFail($request->input('id'));
          $id = $chambai->id;

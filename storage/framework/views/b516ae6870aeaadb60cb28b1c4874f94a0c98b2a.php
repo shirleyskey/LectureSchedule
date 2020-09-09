@@ -55,13 +55,6 @@
                             <a href="#tab1" data-toggle="tab">Thông tin</a>
                         </li>
                         <li>
-                            <a href="#tab11" data-toggle="tab">Giờ Giảng</a>
-                        </li>
-                        <li>
-                            <a href="#tab12" data-toggle="tab">Tổng Hợp Giờ</a>
-                        </li>
-                       
-                        <li>
                             <a href="#tab3" data-toggle="tab">Công Tác</a>
                         </li>
                         <li>
@@ -121,7 +114,7 @@
 
          // Ajax thêm Công Tác
          $("#btn_add_congtac").on('click', function(e){
-        
+
         e.preventDefault();
         $("#btn_add_congtac").attr("disabled", "disabled");
         $("#btn_add_congtac").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -131,7 +124,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemCongTac')); ?>',
             method: 'POST',
             data: {
@@ -142,7 +135,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_congtac").removeAttr("disabled"); 
+                $("#btn_add_congtac").removeAttr("disabled");
                 $("#btn_add_congtac").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -170,7 +163,7 @@
                 if(data.status == true){
                     $('#modal_add_congtac').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Công Tác!",
                         "type":"success"
                     }, function() {
@@ -212,8 +205,8 @@
              });
          });
          // END Khi click vào nút sửa congtac, tìm congtac theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa congtac
          $("#btn_edit_congtac").on('click', function(e){
              e.preventDefault();
@@ -233,10 +226,10 @@
                      ten: $("#form_edit_congtac input[name='ten']").val(),
                      tiendo: $("#form_edit_congtac input[name='tiendo']").val(),
                      thoigian: $("#form_edit_congtac input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_congtac").removeAttr("disabled"); 
+                     $("#btn_edit_congtac").removeAttr("disabled");
                      $("#btn_edit_congtac").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -264,7 +257,7 @@
                      if(data.status == true){
                          $('#modal_edit_congtac').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                              "type":"success"
                          }, function() {
@@ -277,7 +270,7 @@
              });
          });
          // END Ajax sửa congtac
-         
+
          // Xử lý khi click nút xóa congtac
          $(".btn_delete_congtac").on("click", function(e){
              e.preventDefault();
@@ -309,7 +302,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công congtac!",
                                          "type":"success"
                                      }, function() {
@@ -320,9 +313,9 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa congtac
 
@@ -331,7 +324,7 @@
 
          // Ajax thêm Chấm Bài
          $("#btn_add_chambai").on('click', function(e){
-        
+
         e.preventDefault();
         $("#btn_add_chambai").attr("disabled", "disabled");
         $("#btn_add_chambai").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -341,7 +334,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemChamBai')); ?>',
             method: 'POST',
             data: {
@@ -351,7 +344,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_chambai").removeAttr("disabled"); 
+                $("#btn_add_chambai").removeAttr("disabled");
                 $("#btn_add_chambai").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -379,7 +372,7 @@
                 if(data.status == true){
                     $('#modal_add_chambai').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công Chấm Bài!",
                         "type":"success"
                     }, function() {
@@ -420,8 +413,8 @@
              });
          });
          // END Khi click vào nút sửa chấm Bài, tìm chấm Bài theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa chấm bài
          $(".btn_edit_chambai").on('click', function(e){
              e.preventDefault();
@@ -440,10 +433,10 @@
                      id_giangvien: $("#form_edit_chambai input[name='id_giangvien']").val(),
                      ghichu: $("#form_edit_chambai input[name='ghichu']").val(),
                      thoigian: $("#form_edit_chambai input[name='thoigian']").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_chambai").removeAttr("disabled"); 
+                     $("#btn_edit_chambai").removeAttr("disabled");
                      $("#btn_edit_chambai").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -471,7 +464,7 @@
                      if(data.status == true){
                          $('#modal_edit_chambai').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Chấm Bài!",
                              "type":"success"
                          }, function() {
@@ -484,7 +477,7 @@
              });
          });
          // END Ajax sửa chấm Bài
-         
+
          // Xử lý khi click nút xóa chấm Bài
          $(".btn_delete_chambai").on("click", function(e){
              e.preventDefault();
@@ -516,7 +509,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công chambai!",
                                          "type":"success"
                                      }, function() {
@@ -527,16 +520,16 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa chấm Bài
 // ========================================================================
-         
+
          // Ajax thêm Đảng
     $("#btn_add_dang").on('click', function(e){
-        
+
         e.preventDefault();
         $("#btn_add_dang").attr("disabled", "disabled");
         $("#btn_add_dang").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -546,7 +539,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemDang')); ?>',
             method: 'POST',
             data: {
@@ -556,7 +549,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_dang").removeAttr("disabled"); 
+                $("#btn_add_dang").removeAttr("disabled");
                 $("#btn_add_dang").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -584,7 +577,7 @@
                 if(data.status == true){
                     $('#modal_add_dang').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công dang!",
                         "type":"success"
                     }, function() {
@@ -625,8 +618,8 @@
              });
          });
          // END Khi click vào nút sửa dang, tìm dang theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa dang
          $("#btn_edit_dang").on('click', function(e){
              e.preventDefault();
@@ -645,10 +638,10 @@
                      id_giangvien: $("#form_edit_dang input[name='id_giangvien']").val(),
                      ten: $("#form_edit_dang input[name='ten']").val(),
                      thoigian: $("#form_edit_dang input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_dang").removeAttr("disabled"); 
+                     $("#btn_edit_dang").removeAttr("disabled");
                      $("#btn_edit_dang").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -676,7 +669,7 @@
                      if(data.status == true){
                          $('#modal_edit_dang').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                              "type":"success"
                          }, function() {
@@ -689,7 +682,7 @@
              });
          });
          // END Ajax sửa dang
-         
+
          // Xử lý khi click nút xóa dang
          $(".btn_delete_dang").on("click", function(e){
              e.preventDefault();
@@ -721,7 +714,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công dang!",
                                          "type":"success"
                                      }, function() {
@@ -732,13 +725,13 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa dang
  // ==================================================================//
-         
+
          // Ajax thêm Dạy Giỏi
     $("#btn_add_daygioi").on('click', function(e){
         e.preventDefault();
@@ -750,7 +743,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemDayGioi')); ?>',
             method: 'POST',
             data: {
@@ -761,7 +754,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_daygioi").removeAttr("disabled"); 
+                $("#btn_add_daygioi").removeAttr("disabled");
                 $("#btn_add_daygioi").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -789,7 +782,7 @@
                 if(data.status == true){
                     $('#modal_add_daygioi').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công daygioi!",
                         "type":"success"
                     }, function() {
@@ -831,8 +824,8 @@
              });
          });
          // END Khi click vào nút sửa daygioi, tìm daygioi theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa daygioi
          $("#btn_edit_daygioi").on('click', function(e){
              e.preventDefault();
@@ -852,10 +845,10 @@
                      ten: $("#form_edit_daygioi input[name='ten']").val(),
                      ghichu: $("#form_edit_daygioi input[name='ghichu']").val(),
                      thoigian: $("#form_edit_daygioi input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_daygioi").removeAttr("disabled"); 
+                     $("#btn_edit_daygioi").removeAttr("disabled");
                      $("#btn_edit_daygioi").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -883,7 +876,7 @@
                      if(data.status == true){
                          $('#modal_edit_daygioi').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                              "type":"success"
                          }, function() {
@@ -896,7 +889,7 @@
              });
          });
          // END Ajax sửa daygioi
-         
+
          // Xử lý khi click nút xóa daygioi
          $(".btn_delete_daygioi").on("click", function(e){
              e.preventDefault();
@@ -928,7 +921,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công daygioi!",
                                          "type":"success"
                                      }, function() {
@@ -939,15 +932,15 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa daygioi
  // ==================================================================//
 
  // ==================================================================//
-         
+
          // Ajax thêm Xây Dựng
          $("#btn_add_xaydung").on('click', function(e){
         e.preventDefault();
@@ -959,7 +952,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemXayDung')); ?>',
             method: 'POST',
             data: {
@@ -970,7 +963,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_xaydung").removeAttr("disabled"); 
+                $("#btn_add_xaydung").removeAttr("disabled");
                 $("#btn_add_xaydung").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -998,7 +991,7 @@
                 if(data.status == true){
                     $('#modal_add_xaydung').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công xaydung!",
                         "type":"success"
                     }, function() {
@@ -1040,8 +1033,8 @@
              });
          });
          // END Khi click vào nút sửa xaydung, tìm xaydung theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa xaydung
          $("#btn_edit_xaydung").on('click', function(e){
              e.preventDefault();
@@ -1061,10 +1054,10 @@
                      ten: $("#form_edit_xaydung input[name='ten']").val(),
                      ghichu: $("#form_edit_xaydung input[name='ghichu']").val(),
                      thoigian: $("#form_edit_xaydung input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_xaydung").removeAttr("disabled"); 
+                     $("#btn_edit_xaydung").removeAttr("disabled");
                      $("#btn_edit_xaydung").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -1092,7 +1085,7 @@
                      if(data.status == true){
                          $('#modal_edit_xaydung').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                              "type":"success"
                          }, function() {
@@ -1105,7 +1098,7 @@
              });
          });
          // END Ajax sửa xaydung
-         
+
          // Xử lý khi click nút xóa xaydung
          $(".btn_delete_xaydung").on("click", function(e){
              e.preventDefault();
@@ -1137,7 +1130,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công xaydung!",
                                          "type":"success"
                                      }, function() {
@@ -1148,15 +1141,15 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa xaydung
  // ==================================================================//
 
   // ==================================================================//
-         
+
          // Ajax thêm Đột Xuất
          $("#btn_add_dotxuat").on('click', function(e){
         e.preventDefault();
@@ -1168,7 +1161,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemDotXuat')); ?>',
             method: 'POST',
             data: {
@@ -1179,7 +1172,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_dotxuat").removeAttr("disabled"); 
+                $("#btn_add_dotxuat").removeAttr("disabled");
                 $("#btn_add_dotxuat").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -1207,7 +1200,7 @@
                 if(data.status == true){
                     $('#modal_add_dotxuat').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công dotxuat!",
                         "type":"success"
                     }, function() {
@@ -1249,8 +1242,8 @@
              });
          });
          // END Khi click vào nút sửa dotxuat, tìm dotxuat theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa dotxuat
          $("#btn_edit_dotxuat").on('click', function(e){
              e.preventDefault();
@@ -1270,10 +1263,10 @@
                      ten: $("#form_edit_dotxuat input[name='ten']").val(),
                      ghichu: $("#form_edit_dotxuat input[name='ghichu']").val(),
                      thoigian: $("#form_edit_dotxuat input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_dotxuat").removeAttr("disabled"); 
+                     $("#btn_edit_dotxuat").removeAttr("disabled");
                      $("#btn_edit_dotxuat").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -1301,7 +1294,7 @@
                      if(data.status == true){
                          $('#modal_edit_dotxuat').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                              "type":"success"
                          }, function() {
@@ -1314,7 +1307,7 @@
              });
          });
          // END Ajax sửa dotxuat
-         
+
          // Xử lý khi click nút xóa dotxuat
          $(".btn_delete_dotxuat").on("click", function(e){
              e.preventDefault();
@@ -1346,7 +1339,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công dotxuat!",
                                          "type":"success"
                                      }, function() {
@@ -1357,14 +1350,14 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa dotxuat
  // ==================================================================//
  // ==================================================================//
-         
+
          // Ajax thêm Sáng Kiến
          $("#btn_add_sangkien").on('click', function(e){
         e.preventDefault();
@@ -1376,7 +1369,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemSangKien')); ?>',
             method: 'POST',
             data: {
@@ -1387,7 +1380,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_sangkien").removeAttr("disabled"); 
+                $("#btn_add_sangkien").removeAttr("disabled");
                 $("#btn_add_sangkien").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -1415,7 +1408,7 @@
                 if(data.status == true){
                     $('#modal_add_sangkien').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công sangkien!",
                         "type":"success"
                     }, function() {
@@ -1457,8 +1450,8 @@
              });
          });
          // END Khi click vào nút sửa sangkien, tìm sangkien theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa sangkien
          $("#btn_edit_sangkien").on('click', function(e){
              e.preventDefault();
@@ -1478,10 +1471,10 @@
                      ten: $("#form_edit_sangkien input[name='ten']").val(),
                      ghichu: $("#form_edit_sangkien input[name='ghichu']").val(),
                      thoigian: $("#form_edit_sangkien input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_sangkien").removeAttr("disabled"); 
+                     $("#btn_edit_sangkien").removeAttr("disabled");
                      $("#btn_edit_sangkien").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -1509,7 +1502,7 @@
                      if(data.status == true){
                          $('#modal_edit_sangkien').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                              "type":"success"
                          }, function() {
@@ -1522,7 +1515,7 @@
              });
          });
          // END Ajax sửa sangkien
-         
+
          // Xử lý khi click nút xóa sangkien
          $(".btn_delete_sangkien").on("click", function(e){
              e.preventDefault();
@@ -1554,7 +1547,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công sangkien!",
                                          "type":"success"
                                      }, function() {
@@ -1565,15 +1558,15 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa sangkien
  // ==================================================================//
 
  // ==================================================================//
-         
+
          // Ajax thêm Học Tập
          $("#btn_add_hoctap").on('click', function(e){
         e.preventDefault();
@@ -1585,7 +1578,7 @@
                  }
              });
         $.ajax({
-            
+
             url: '<?php echo e(route('postThemHocTap')); ?>',
             method: 'POST',
             data: {
@@ -1596,7 +1589,7 @@
             },
             success: function(data) {
                 console.log("Hihi");
-                $("#btn_add_hoctap").removeAttr("disabled"); 
+                $("#btn_add_hoctap").removeAttr("disabled");
                 $("#btn_add_hoctap").html('<i class="fa fa-save"></i> Lưu');
                 if(data.status == false){
                     var errors = "";
@@ -1624,7 +1617,7 @@
                 if(data.status == true){
                     $('#modal_add_hoctap').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
+                        "title":"Đã tạo!",
                         "text":"Bạn đã tạo thành công hoctap!",
                         "type":"success"
                     }, function() {
@@ -1666,8 +1659,8 @@
              });
          });
          // END Khi click vào nút sửa hoctap, tìm hoctap theo id và đỗ dữ liệu vào form
- 
-         
+
+
          // Ajax sửa hoctap
          $("#btn_edit_hoctap").on('click', function(e){
              e.preventDefault();
@@ -1687,10 +1680,10 @@
                      ten: $("#form_edit_hoctap input[name='ten']").val(),
                      ghichu: $("#form_edit_hoctap input[name='ghichu']").val(),
                      thoigian: $("#form_edit_hoctap input[name='thoigian'").val(),
-                    
+
                  },
                  success: function(data) {
-                     $("#btn_edit_hoctap").removeAttr("disabled"); 
+                     $("#btn_edit_hoctap").removeAttr("disabled");
                      $("#btn_edit_hoctap").html('<i class="fa fa-save"></i> Lưu');
                      if(data.status == false){
                          var errors = "";
@@ -1718,7 +1711,7 @@
                      if(data.status == true){
                          $('#modal_edit_hoctap').modal('hide');
                          swal({
-                             "title":"Đã sửa!", 
+                             "title":"Đã sửa!",
                              "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                              "type":"success"
                          }, function() {
@@ -1731,7 +1724,7 @@
              });
          });
          // END Ajax sửa hoctap
-         
+
          // Xử lý khi click nút xóa hoctap
          $(".btn_delete_hoctap").on("click", function(e){
              e.preventDefault();
@@ -1763,7 +1756,7 @@
                                  console.log(data);
                                  if(data.status == true){
                                      swal({
-                                         "title":"Đã xóa!", 
+                                         "title":"Đã xóa!",
                                          "text":"Bạn đã xóa thành công hoctap!",
                                          "type":"success"
                                      }, function() {
@@ -1774,15 +1767,15 @@
                                  }
                              }
                          });
-                     }   
+                     }
              });
- 
+
          });
          // END Xử lý khi click nút xóa hoctap
  // ==================================================================//
     });
 
-   
+
 </script>
 
 
@@ -1795,4 +1788,5 @@
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-toastr/toastr.min.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js')); ?>" type="text/javascript"></script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/giangvien/edit/index.blade.php ENDPATH**/ ?>

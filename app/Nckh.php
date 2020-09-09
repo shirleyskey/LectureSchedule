@@ -16,6 +16,11 @@ class Nckh extends Model
         return $this->belongsTo('App\GiangVien', 'id_giangvien');
     }
 
+    public function theloais()
+    {
+        return $this->belongsTo('App\LoaiNckh', 'theloai');
+    }
+
     public static function saveNckh($id, $data){
         if($id == 0){
             $nckh = new Nckh;
@@ -24,6 +29,7 @@ class Nckh extends Model
         }
         $nckh->ten = $data["ten"];
         $nckh->capbo = $data['capbo'];
+        $nckh->theloai = $data['theloai'];
         $nckh->capcoso = $data['capcoso'];
         $nckh->tapbaigiang = $data['tapbaigiang'];
         $nckh->chuyende = $data['chuyende'];

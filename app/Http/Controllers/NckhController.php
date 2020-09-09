@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\GiangVien;
 use App\Nckh;
+use App\LoaiNckh;
 
 class NckhController extends Controller
 {
@@ -23,6 +24,7 @@ class NckhController extends Controller
         $sangkien = Nckh::where('sangkien', true)->get();
         $bao = Nckh::where('bao', true)->get();
         $giangvien = GiangVien::all();
+        $theloai = LoaiNckh::all();
         return view('nckh.browser.index', [
             'capbo' => $capbo,
             'capcoso' => $capcoso,
@@ -31,7 +33,8 @@ class NckhController extends Controller
             'thamkhao' => $thamkhao,
             'sangkien' => $sangkien,
             'bao' => $bao,
-            'giangvien' => $giangvien
+            'giangvien' => $giangvien,
+            'theloai' => $theloai
         ]);
     }
 

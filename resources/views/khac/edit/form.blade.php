@@ -39,7 +39,12 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->giangviens->ten }} </td>
+                                        <td>
+                                            @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                            {{ $v->giangviens->ten }}
+                                            @endif
+
+                                         </td>
                                         <td> {{ $v->tiendo }} </td>
                                         <td> {{ $v->thoigian }} </td>
                                         <td> </td>
@@ -105,7 +110,9 @@
                                     @foreach( $chambai as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
-                                        <td> {{ $v->giangviens->ten }} </td>
+                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                        {{ $v->giangviens->ten }}
+                                        @endif
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td> </td>
@@ -171,7 +178,9 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->giangviens->ten }} </td>
+                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                        {{ $v->giangviens->ten }}
+                                        @endif
                                         <td> {{ $v->thoigian }} </td>
                                         <td>
                                             @permission('create-giangvien')
@@ -236,7 +245,9 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->giangviens->ten }} </td>
+                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                        {{ $v->giangviens->ten }}
+                                        @endif
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
@@ -301,7 +312,9 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->giangviens->ten }} </td>
+                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                        {{ $v->giangviens->ten }}
+                                        @endif
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
@@ -367,7 +380,9 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->giangviens->ten }} </td>
+                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                        {{ $v->giangviens->ten }}
+                                        @endif
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
@@ -432,7 +447,9 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->giangviens->ten }} </td>
+                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                        {{ $v->giangviens->ten }}
+                                        @endif
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
@@ -497,7 +514,9 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->giangviens->ten }} </td>
+                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                        {{ $v->giangviens->ten }}
+                                        @endif
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
@@ -568,7 +587,9 @@
                                                 $huongdan = json_decode( $v->huongdan, true);
                                             @endphp
                                                 @foreach($huongdan as $key => $value)
-                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
                                         <td>
@@ -576,7 +597,9 @@
                                                 $chutichcham = json_decode( $v->chutichcham, true);
                                             @endphp
                                                 @foreach($chutichcham as $key => $value)
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
                                                 <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
                                         <td>
@@ -584,7 +607,9 @@
                                                 $thamgiacham = json_decode( $v->thamgiacham, true);
                                             @endphp
                                                 @foreach($thamgiacham as $key => $value)
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
                                                 <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                             </td>
 
@@ -661,7 +686,9 @@
                                                 $huongdan = json_decode( $v->huongdan, true);
                                             @endphp
                                                 @foreach($huongdan as $key => $value)
-                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
                                         <td>
@@ -669,7 +696,9 @@
                                             $chutich = json_decode( $v->chutich, true);
                                         @endphp
                                             @foreach($chutich as $key => $value)
+                                            @if(App\GiangVien::where('id', $value)->first() !== null)
                                             <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                            @endif
                                             @endforeach
                                         </td>
                                         <td>
@@ -677,7 +706,9 @@
                                                 $phanbien = json_decode( $v->phanbien, true);
                                             @endphp
                                                 @foreach($phanbien as $key => $value)
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
                                                 <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
                                         <td>
@@ -685,7 +716,9 @@
                                                 $thuky = json_decode( $v->thuky, true);
                                             @endphp
                                                 @foreach($thuky as $key => $value)
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
                                                 <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
                                         <td>
@@ -693,7 +726,9 @@
                                                 $uyvien = json_decode( $v->uyvien, true);
                                             @endphp
                                                 @foreach($uyvien as $key => $value)
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
                                                 <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
 
@@ -776,7 +811,9 @@
                                                 $docnhanxet = json_decode( $v->docnhanxet, true);
                                             @endphp
                                                 @foreach($docnhanxet as $key => $value)
-                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
                                         <td>
@@ -784,7 +821,9 @@
                                                 $chutichhoithao = json_decode( $v->chutichhoithao, true);
                                             @endphp
                                                 @foreach($chutichhoithao as $key => $value)
-                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
                                         <td>
@@ -792,7 +831,9 @@
                                                 $thanhvienhoithao = json_decode( $v->thanhvienhoithao, true);
                                             @endphp
                                                 @foreach($thanhvienhoithao as $key => $value)
-                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
                                         <td>
@@ -800,7 +841,9 @@
                                             $chutichcham = json_decode( $v->chutichcham, true);
                                         @endphp
                                             @foreach($chutichcham as $key => $value)
-                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                            @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                             @endforeach
                                         </td>
                                         <td>
@@ -808,7 +851,9 @@
                                                 $thanhviencham = json_decode( $v->thanhviencham, true);
                                             @endphp
                                                 @foreach($thanhviencham as $key => $value)
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
                                                 <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                             </td>
 
@@ -882,7 +927,9 @@
                                                 $thanhvien = json_decode( $v->thanhvien, true);
                                             @endphp
                                                 @foreach($thanhvien as $key => $value)
-                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                @endif
                                                 @endforeach
                                         </td>
                                         <td>
@@ -890,7 +937,9 @@
                                             $thuky = json_decode( $v->thuky, true);
                                         @endphp
                                             @foreach($thuky as $key => $value)
+                                            @if(App\GiangVien::where('id', $value)->first() !== null)
                                             <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                            @endif
                                             @endforeach
                                         </td>
                                         <td> {{$v->ghichu}}</td>

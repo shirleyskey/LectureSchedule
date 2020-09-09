@@ -39,7 +39,13 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                        <td>
+                                            <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                            <?php echo e($v->giangviens->ten); ?>
+
+                                            <?php endif; ?>
+
+                                         </td>
                                         <td> <?php echo e($v->tiendo); ?> </td>
                                         <td> <?php echo e($v->thoigian); ?> </td>
                                         <td> </td>
@@ -105,7 +111,10 @@
                                     <?php $__currentLoopData = $chambai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
-                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                        <?php echo e($v->giangviens->ten); ?>
+
+                                        <?php endif; ?>
                                         <td> <?php echo e($v->thoigian); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td> </td>
@@ -171,7 +180,10 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                        <?php echo e($v->giangviens->ten); ?>
+
+                                        <?php endif; ?>
                                         <td> <?php echo e($v->thoigian); ?> </td>
                                         <td>
                                             <?php if (app('laratrust')->can('create-giangvien')) : ?>
@@ -236,7 +248,10 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                        <?php echo e($v->giangviens->ten); ?>
+
+                                        <?php endif; ?>
                                         <td> <?php echo e($v->thoigian); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
@@ -301,7 +316,10 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                        <?php echo e($v->giangviens->ten); ?>
+
+                                        <?php endif; ?>
                                         <td> <?php echo e($v->thoigian); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
@@ -367,7 +385,10 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                        <?php echo e($v->giangviens->ten); ?>
+
+                                        <?php endif; ?>
                                         <td> <?php echo e($v->thoigian); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
@@ -432,7 +453,10 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                        <?php echo e($v->giangviens->ten); ?>
+
+                                        <?php endif; ?>
                                         <td> <?php echo e($v->thoigian); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
@@ -497,7 +521,10 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                        <?php echo e($v->giangviens->ten); ?>
+
+                                        <?php endif; ?>
                                         <td> <?php echo e($v->thoigian); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
@@ -568,7 +595,9 @@
                                                 $huongdan = json_decode( $v->huongdan, true);
                                             ?>
                                                 <?php $__currentLoopData = $huongdan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                  <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -576,7 +605,9 @@
                                                 $chutichcham = json_decode( $v->chutichcham, true);
                                             ?>
                                                 <?php $__currentLoopData = $chutichcham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
                                                 <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -584,7 +615,9 @@
                                                 $thamgiacham = json_decode( $v->thamgiacham, true);
                                             ?>
                                                 <?php $__currentLoopData = $thamgiacham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
                                                 <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </td>
 
@@ -661,7 +694,9 @@
                                                 $huongdan = json_decode( $v->huongdan, true);
                                             ?>
                                                 <?php $__currentLoopData = $huongdan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                  <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -669,7 +704,9 @@
                                             $chutich = json_decode( $v->chutich, true);
                                         ?>
                                             <?php $__currentLoopData = $chutich; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
                                             <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                            <?php endif; ?>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -677,7 +714,9 @@
                                                 $phanbien = json_decode( $v->phanbien, true);
                                             ?>
                                                 <?php $__currentLoopData = $phanbien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
                                                 <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -685,7 +724,9 @@
                                                 $thuky = json_decode( $v->thuky, true);
                                             ?>
                                                 <?php $__currentLoopData = $thuky; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
                                                 <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -693,7 +734,9 @@
                                                 $uyvien = json_decode( $v->uyvien, true);
                                             ?>
                                                 <?php $__currentLoopData = $uyvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
                                                 <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
 
@@ -776,7 +819,9 @@
                                                 $docnhanxet = json_decode( $v->docnhanxet, true);
                                             ?>
                                                 <?php $__currentLoopData = $docnhanxet; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                  <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -784,7 +829,9 @@
                                                 $chutichhoithao = json_decode( $v->chutichhoithao, true);
                                             ?>
                                                 <?php $__currentLoopData = $chutichhoithao; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                  <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -792,7 +839,9 @@
                                                 $thanhvienhoithao = json_decode( $v->thanhvienhoithao, true);
                                             ?>
                                                 <?php $__currentLoopData = $thanhvienhoithao; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                  <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -800,7 +849,9 @@
                                             $chutichcham = json_decode( $v->chutichcham, true);
                                         ?>
                                             <?php $__currentLoopData = $chutichcham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -808,7 +859,9 @@
                                                 $thanhviencham = json_decode( $v->thanhviencham, true);
                                             ?>
                                                 <?php $__currentLoopData = $thanhviencham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
                                                 <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </td>
 
@@ -882,7 +935,9 @@
                                                 $thanhvien = json_decode( $v->thanhvien, true);
                                             ?>
                                                 <?php $__currentLoopData = $thanhvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                  <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                <?php endif; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td>
@@ -890,7 +945,9 @@
                                             $thuky = json_decode( $v->thuky, true);
                                         ?>
                                             <?php $__currentLoopData = $thuky; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
                                             <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                            <?php endif; ?>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                         <td> <?php echo e($v->ghichu); ?></td>

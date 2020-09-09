@@ -64,6 +64,20 @@
                                     <input class="form-control" name="tapchi" type="text" required />
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-4">Thể Loại:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" name="theloai">
+                                                <option value="0">-------- Chọn Loại --------</option>
+                                                <?php if($theloai->count()>0): ?>
+                                                    <?php $__currentLoopData = $theloai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label col-md-4">Chủ Biên:</label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>

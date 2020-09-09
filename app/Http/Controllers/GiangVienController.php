@@ -19,6 +19,7 @@ use App\KhoaLuan;
 use App\LuanVan;
 use App\LuanAn;
 use App\Ncs;
+use App\HocPhan;
 use App\Exports\GiangViensExport;
 use App\Imports\GiangViensImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -74,12 +75,12 @@ class GiangVienController extends Controller
           $ds_luanans = LuanAn::all();
           $luanan = array();
           foreach($ds_luanans as $ds_luanan){
-              $docnhanxet = json_decode($ds_luanan->chutich, true);
+              $docnhanxet = json_decode($ds_luanan->docnhanxet, true);
               $chutichhoithao = json_decode($ds_luanan->chutichhoithao, true);
               $thanhvienhoithao = json_decode($ds_luanan->thanhvienhoithao, true);
-              $chutich = json_decode($ds_luanan->chutich, true);
-              $thanhvien = json_decode($ds_luanan->thanhvien, true);
-              if(($ds_luanan->huongdanchinh == $id) || ($ds_luanan->huongdanphu == $id) || (in_array($id, $docnhanxet)) || (in_array($id, $chutichhoithao)) || (in_array($id, $thanhvienhoithao)) || (in_array($id, $chutich)) || (in_array($id, $thanhvien))){
+              $chutichcham = json_decode($ds_luanan->chutichcham, true);
+              $thanhviencham = json_decode($ds_luanan->thanhviencham, true);
+              if(($ds_luanan->huongdanchinh == $id) || ($ds_luanan->huongdanphu == $id) || (in_array($id, $docnhanxet)) || (in_array($id, $chutichhoithao)) || (in_array($id, $thanhvienhoithao)) || (in_array($id, $chutichcham)) || (in_array($id, $thanhviencham))){
                   array_push($luanan, $ds_luanan);
               };
           };
@@ -110,6 +111,7 @@ class GiangVienController extends Controller
             'ncs' => $ncs,
             'sangkien' => SangKien::where('id_giangvien', $id)->get(),
             'xaydung' => XayDung::where('id_giangvien', $id)->get(),
+            'hocphan' => HocPhan::all(),
         ]);
     }
 

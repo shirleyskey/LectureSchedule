@@ -51,10 +51,7 @@
                             <a href="#tab1" data-toggle="tab">Thông tin</a>
                         </li>
                         <li>
-                            <a href="#tab11" data-toggle="tab">Giờ Giảng</a>
-                        </li>
-                        <li>
-                            <a href="#tab12" data-toggle="tab">Tổng Hợp Giờ</a>
+                            <a href="#tab17" data-toggle="tab">Giờ Giảng</a>
                         </li>
                         <li>
                             <a href="#tab2" data-toggle="tab">NCKH</a>
@@ -95,7 +92,7 @@
                         <li>
                             <a href="#tab14" data-toggle="tab">NCS</a>
                         </li>
-                       
+
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
@@ -118,7 +115,7 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Hệ Số Lương:</label>
                                                 <label class="control-label col-md-7 col-xs-6"><?php echo e($giangvien->hesoluong); ?></label>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row">
@@ -138,6 +135,122 @@
                                 </div>
                             </div>
                             <!-- END TAB 1-->
+                            <!-- BEGIN TAB 11-->
+                                <div class="tab-pane" id="tab17">
+                                <?php if(!empty($hocphan)): ?>
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                            <thead>
+                                                <tr>
+                                                    <th> STT</th>
+                                                    <th> Tên Học Phần</th>
+                                                    <th> Lớp</th>
+                                                    <th> Hệ</th>
+                                                    <th> Quy Mô</th>
+                                                    <th> Tổng Giờ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php if( count($hocphan) > 0 ): ?>
+                                                    <?php $stt = 1; ?>
+                                                    <?php $__currentLoopData = $hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hocphan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php
+                                                        $v_gvchinh = App\Bai::where('id_hocphan', $v_hocphan->id)->get('gvchinh');
+                                                        $v_gvphu = App\Bai::where('id_hocphan', $v_hocphan->id)->get('gvphu');
+                                                        $is_gvchinh = false;
+                                                        $is_gvphu = false;
+                                                        foreach ($v_gvchinh as $key => $value) {
+                                                            if ($giangvien->id == $value->gvchinh) {
+                                                                $is_gvchinh = true;
+                                                            }
+                                                        }
+                                                        foreach ($v_gvphu as $key => $value) {
+                                                            if ($giangvien->id == $value->gvphu) {
+                                                                $is_gvphu = true;
+                                                            }
+                                                        }
+                                                        // echo (int)$is_gvchinh;
+                                                        // echo (int)$is_gvphu;
+                                                        // die();
+                                                    ?>
+                                                    <?php if($is_gvchinh == true || $is_gvphu == true): ?>
+                                                    <tr>
+                                                        <td> <?php echo e($stt); ?> </td>
+                                                        <td> <?php echo e($v_hocphan->mahocphan); ?> </td>
+                                                        <td>
+                                                            <?php if(App\Lop::where('id', $v_hocphan->id_lop)->first()): ?>
+                                                                <?php echo e($v_hocphan->lops->tenlop); ?>
+
+                                                            <?php endif; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php if(App\Lop::where('id', $v_hocphan->id_lop)->first()): ?>
+                                                            <?php echo e(($v_hocphan->lops->he == 1) ? "Tín chỉ" : "Niên Chế"); ?>
+
+                                                            <?php endif; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php if(App\Lop::where('id', $v_hocphan->id_lop)->first()): ?>
+                                                           <?php echo e($v_hocphan->lops->quymo. " Học Viên"); ?>
+
+                                                            <?php endif; ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                                $ds_bai = App\Bai::where('id_hocphan', $v_hocphan->id)->get();
+                                                                $total_gio = 0;
+                                                                $total_chinh = 0;
+                                                                $total_phu = 0;
+                                                                $hesolop = 0;
+                                                                if($v_hocphan->lops->songuoi >100)
+                                                                {
+                                                                    $hesolop = 1.4;
+                                                                }
+                                                                else if($v_hocphan->lops->songuoi >50 && $v_hocphan->lops->songuoi <100)
+                                                                {
+                                                                    $hesolop = 1.2;
+                                                                }
+                                                                else if($v_hocphan->lops->songuoi <50){
+                                                                    $hesolop = 1;
+                                                                }
+                                                                $hetinchi = ($v_hocphan->lops->he == 1) ? 1.1 : 1;
+                                                                foreach ($ds_bai as $v_bai) {
+                                                                    # code...
+                                                                    if($giangvien->id == $v_bai->gvchinh){
+                                                                        $total_chinh +=($v_bai->lythuyet*$hesolop*$hetinchi) +  ($v_bai->xemina*$hetinchi) +  ($v_bai->thuchanh*0.7*$hetinchi);
+                                                                    }
+                                                                    if($giangvien->id == $v_bai->gvphu){
+                                                                        $total_phu +=($v_bai->lythuyet_phu*$hesolop*$hetinchi) +  ($v_bai->xemina_phu*$hetinchi) +  ($v_bai->thuchanh_phu*0.7*$hetinchi);
+                                                                    }
+                                                                    $total_gio = $total_chinh + $total_phu;
+                                                                }
+                                                                // echo($total_chinh);
+                                                                // echo($total_phu);
+                                                                // die();
+                                                            ?>
+                                                            <?php echo e($total_gio); ?>
+
+                                                        </td>
+                                                    </tr>
+                                                    <?php $stt++; ?>
+                                                    <?php endif; ?>
+
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                                <?php else: ?>
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Không có Nghiên cứu khoa học nào!</p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                            <!-- END BEGIN TAB 11-->
                             <!-- BEGIN TAB 2-->
                             <div class="tab-pane" id="tab2">
                                 <?php if(!empty($nckh)): ?>
@@ -164,12 +277,14 @@
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e($v->ten); ?> </td>
-                                                        <td> 
+                                                        <td>
                                                             <?php
                                                             $chubien = json_decode( $v->chubien, true);
                                                         ?>
                                                             <?php $__currentLoopData = $chubien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                              <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                            <?php endif; ?>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </td>
                                                         <td>
@@ -177,12 +292,53 @@
                                                             $thamgia = json_decode( $v->thamgia, true);
                                                         ?>
                                                             <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p> 
+                                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                            <?php endif; ?>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </td>
                                                         <td> <?php echo e($v->batdau); ?></td>
                                                         <td> <?php echo e($v->ketthuc); ?></td>
                                                         <td> <?php echo e($v->sotrang); ?></td>
+                                                        <td>
+                                                            
+                                                            <?php switch($v->theloai):
+                                                                case (1): ?>
+                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                    <?php break; ?>
+                                                                <?php case (2): ?>
+                                                                   <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (3): ?>
+                                                                    <?php echo e($gio_kh = 6*4); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (4): ?>
+                                                                <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (5): ?>
+                                                                <?php echo e($gio_kh = $v->sotrang*1.5); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (6): ?>
+                                                                    <?php echo e($gio_kh = $v->sotrang*4.27); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (7): ?>
+                                                                    <?php echo e($gio_kh = $v->sotrang*2); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php case (8): ?>
+                                                                    <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                                    <?php break; ?>
+                                                                <?php default: ?>
+                                                                    <?php echo e($gio_kh = $v->sotrang); ?>
+
+                                                            <?php endswitch; ?>
+                                                        </td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -208,10 +364,11 @@
                                         <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
                                             <thead>
                                                 <tr>
-                                                    <th> STT</th>
-                                                    <th> Tên Khóa Luận</th>
-                                                    <th> Vai Trò</th>
+                                                    <th>STT</th>
+                                                    <th>Tên Khóa Luận</th>
+                                                    <th>Vai Trò</th>
                                                     <th>Ghi Chú</th>
+                                                    <th>Số Giờ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -221,7 +378,7 @@
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e($v->ten); ?> </td>
-                                                        <td> 
+                                                        <td>
                                                             <?php
                                                             $huongdan = json_decode( $v->huongdan, true);
                                                             $chutichcham = json_decode( $v->chutichcham, true);
@@ -236,9 +393,25 @@
                                                                 echo "<p>Tham Gia Chấm</p>";
                                                             };
                                                             ?>
-                                                           
+
                                                         </td>
                                                         <td> <?php echo e($v->ghichu); ?></td>
+                                                        <td>
+                                                            <?php
+                                                            $gio_khoaluan = 0;
+                                                            if(in_array($giangvien->id, $huongdan)){
+                                                              $gio_khoaluan += 15;
+                                                            }
+                                                            if(in_array($giangvien->id, $chutichcham)){
+                                                                $gio_khoaluan += 2;
+                                                            }
+                                                            if(in_array($giangvien->id, $thamgiacham)){
+                                                                $gio_khoaluan += 1.5;
+                                                            };
+                                                            ?>
+                                                            <?php echo e($gio_khoaluan); ?>
+
+                                                        </td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -267,7 +440,9 @@
                                                     <th> STT</th>
                                                     <th> Tên Luận Văn</th>
                                                     <th> Vai Trò</th>
+                                                    <th> Thể Loại</th>
                                                     <th>Ghi Chú</th>
+                                                    <th>Số Giờ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -277,7 +452,7 @@
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e($v->ten); ?> </td>
-                                                        <td> 
+                                                        <td>
                                                             <?php
                                                             $huongdan = json_decode( $v->huongdan, true);
                                                             $chutich = json_decode( $v->chutich, true);
@@ -300,9 +475,36 @@
                                                                 echo "<p>Ủy Viên</p>";
                                                             };
                                                             ?>
-                                                           
+
                                                         </td>
+                                                        <td> <?php echo e(($v->vietnam == 1) ? 'Việt Nam' : 'Nước Ngoài'); ?></td>
                                                         <td> <?php echo e($v->ghichu); ?></td>
+                                                        <td>
+                                                            <?php
+                                                            $gio_luanvan = 0;
+                                                             if(in_array($giangvien->id, $huongdan) && $v->vietnam == 1){
+                                                                $gio_luanvan += 25;
+                                                            };
+                                                            if(in_array($giangvien->id, $huongdan) && $v->vietnam == 0){
+                                                                $gio_luanvan += 30;
+                                                            };
+                                                            if(in_array($giangvien->id, $chutich) ){
+                                                                $gio_luanvan += 4;
+                                                            };
+                                                            if(in_array($giangvien->id, $phanbien) ){
+                                                                $gio_luanvan += 3;
+                                                            };
+                                                            if(in_array($giangvien->id, $thuky) ){
+                                                                $gio_luanvan += 3;
+                                                            };
+
+                                                            if(in_array($giangvien->id, $uyvien) ){
+                                                                $gio_luanvan += 3;
+                                                            };
+                                                            ?>
+                                                            <?php echo e($gio_luanvan); ?>
+
+                                                        </td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -331,7 +533,10 @@
                                                 <th> STT</th>
                                                 <th> Tên Luận Án</th>
                                                 <th> Vai Trò</th>
+                                                <th> Thể Loại</th>
+                                                <th> Cấp </th>
                                                 <th>Ghi Chú</th>
+                                                <th>Số Giờ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -341,7 +546,7 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v->ten); ?> </td>
-                                                    <td> 
+                                                    <td>
                                                         <?php
                                                         $docnhanxet = json_decode( $v->docnhanxet, true);
                                                         $chutichhoithao = json_decode( $v->chutichhoithao, true);
@@ -370,9 +575,53 @@
                                                             echo "<p>Thành Viên Chấm</p>";
                                                         };
                                                         ?>
-                                                       
+
                                                     </td>
+                                                    
+                                                    <td> <?php echo e(($v->vietnam == 1) ? 'Việt Nam' : 'Nước Ngoài'); ?></td>
+                                                    
+                                                    <td> <?php echo e(($v->cap) == 1 ? 'Cơ Sở' : 'Học Viện'); ?></td>
                                                     <td> <?php echo e($v->ghichu); ?></td>
+                                                    <td>
+                                                        <?php
+                                                        $gio_luanan = 0;
+                                                        if($giangvien->id == $v->huongdanchinh && $v->vietnam == 1){
+                                                            $gio_luanan += 100/3;
+                                                        };
+                                                        if($giangvien->id == $v->huongdanchinh && $v->vietnam == 0){
+                                                            $gio_luanan += 120/3;
+                                                        };
+                                                        if($giangvien->id == $v->huongdanphu && $v->vietnam == 1){
+                                                            $gio_luanan += 50/3;
+                                                        };
+                                                        if($giangvien->id == $v->huongdanphu && $v->vietnam == 1){
+                                                            $gio_luanan += 60/3;
+                                                        };
+                                                        if(in_array($giangvien->id, $docnhanxet) ){
+                                                            $gio_luanan += 10;
+                                                        };
+                                                        if(in_array($giangvien->id, $chutichhoithao) ){
+                                                            $gio_luanan += 5;
+                                                        };
+                                                        if(in_array($giangvien->id, $thanhvienhoithao) ){
+                                                            $gio_luanan += 4;
+                                                        };
+                                                        if(in_array($giangvien->id, $chutichcham) && $v->cap == 1){
+                                                            $gio_luanan += 8;
+                                                        };
+                                                        if(in_array($giangvien->id, $thanhviencham) && $v->cap == 1){
+                                                            $gio_luanan += 5;
+                                                        };
+                                                        if(in_array($giangvien->id, $chutichcham) && $v->cap != 1){
+                                                            $gio_luanan += 10;
+                                                        };
+                                                        if(in_array($giangvien->id, $thanhviencham) && $v->cap != 1){
+                                                            $gio_luanan += 7;
+                                                        };
+                                                        ?>
+                                                        <?php echo e($gio_luanan); ?>
+
+                                                    </td>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -411,7 +660,7 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v->ten); ?> </td>
-                                                    <td> 
+                                                    <td>
                                                         <?php
                                                         $thanhvien = json_decode( $v->thanhvien, true);
                                                         $thuky = json_decode( $v->thuky, true);
@@ -422,7 +671,7 @@
                                                             echo "<p>Thư Ký</p>";
                                                         };
                                                         ?>
-                                                       
+
                                                     </td>
                                                     <td> <?php echo e($v->ghichu); ?></td>
                                                 </tr>
@@ -522,11 +771,11 @@
                                         <p> Không có chấm bài nào!</p>
                                     </div>
                                 <?php endif; ?>
-                               
+
                             </div>
                             <!-- END BEGIN TAB 4-->
-                            
-                            
+
+
                             <!-- BEGIN TAB 5-->
                             <div class="tab-pane" id="tab5">
                                 <?php if($dang->isNotEmpty()): ?>
@@ -913,4 +1162,5 @@
 <script src="<?php echo e(asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js')); ?>" type="text/javascript"></script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/giangvien/read/index.blade.php ENDPATH**/ ?>

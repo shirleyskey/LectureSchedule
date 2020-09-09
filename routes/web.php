@@ -149,110 +149,6 @@ Route::prefix('nckh')->middleware(['auth', 'only_active_user'])->group(function 
 
 });
 
-//Công Tác Routes
-Route::prefix('congtac')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-congtac'], 'uses'=>'CongtacController@index','as'=>'congtac.index']);
-    Route::get('/read/{id}', ['middleware' => ['permission:read-congtac'], 'uses'=>'CongtacController@read','as'=>'congtac.read.get']);
-    Route::get('/add', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongtacController@create','as'=>'congtac.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongtacController@store','as'=>'congtac.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-congtac'], 'uses' =>'CongtacController@edit','as'=>'congtac.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-congtac'], 'uses'=>'CongtacController@update','as'=>'congtac.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-congtac'], 'uses'=>'CongtacController@destroy','as'=>'congtac.delete.get']);
-
-});
-
-//Chấm Bài Routes
-Route::prefix('chambai')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-chambai'], 'uses'=>'ChamBaiController@index','as'=>'chambai.index']);
-    Route::get('/read/{id}', ['middleware' => ['permission:read-chambai'], 'uses'=>'ChamBaiController@read','as'=>'chambai.read.get']);
-    Route::get('/add', ['middleware' => ['permission:create-chambai'], 'uses'=>'ChamBaiController@create','as'=>'chambai.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-chambai'], 'uses'=>'ChamBaiController@store','as'=>'chambai.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-chambai'], 'uses' =>'ChamBaiController@edit','as'=>'chambai.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-chambai'], 'uses'=>'ChamBaiController@update','as'=>'chambai.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-chambai'], 'uses'=>'ChamBaiController@destroy','as'=>'chambai.delete.get']);
-
-});
-
-//Đảng Routes
-Route::prefix('dang')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-dang'], 'uses'=>'DangController@index','as'=>'dang.index']);
-    Route::get('/add', ['middleware' => ['permission:create-dang'], 'uses'=>'DangController@create','as'=>'dang.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-dang'], 'uses'=>'DangController@store','as'=>'dang.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-dang'], 'uses' =>'DangController@edit','as'=>'dang.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-dang'], 'uses'=>'DangController@update','as'=>'dang.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-dang'], 'uses'=>'DangController@destroy','as'=>'dang.delete.get']);
-
-});
-
-//Dạy Giỏi Routes
-Route::prefix('daygioi')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-daygioi'], 'uses'=>'DayGioiController@index','as'=>'daygioi.index']);
-    Route::get('/add', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@create','as'=>'daygioi.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@store','as'=>'daygioi.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-daygioi'], 'uses' =>'DayGioiController@edit','as'=>'daygioi.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-daygioi'], 'uses'=>'DayGioiController@update','as'=>'daygioi.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-daygioi'], 'uses'=>'DayGioiController@destroy','as'=>'daygioi.delete.get']);
-    Route::get('/export-excel', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@exportExcel','as'=>'daygioi.export-excel.get']);
-    Route::get('/import-excel', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@importExcel','as'=>'daygioi.import-excel.get']);
-    Route::post('/import-excel', ['middleware' => ['permission:create-daygioi'], 'uses'=>'DayGioiController@postImportExcel','as'=>'daygioi.import-excel.post']);
-});
-
-//Xây Dựng Routes
-Route::prefix('xaydung')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-xaydung'], 'uses'=>'XayDungController@index','as'=>'xaydung.index']);
-    Route::get('/add', ['middleware' => ['permission:create-xaydung'], 'uses'=>'XayDungController@create','as'=>'xaydung.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-xaydung'], 'uses'=>'XayDungController@store','as'=>'xaydung.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-xaydung'], 'uses' =>'XayDungController@edit','as'=>'xaydung.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-xaydung'], 'uses'=>'XayDungController@update','as'=>'xaydung.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-xaydung'], 'uses'=>'XayDungController@destroy','as'=>'xaydung.delete.get']);
-});
-
-//Dot Xuat Routes
-Route::prefix('dotxuat')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-dotxuat'], 'uses'=>'DotXuatController@index','as'=>'dotxuat.index']);
-    Route::get('/add', ['middleware' => ['permission:create-dotxuat'], 'uses'=>'DotXuatController@create','as'=>'dotxuat.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-dotxuat'], 'uses'=>'DotXuatController@store','as'=>'dotxuat.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-dotxuat'], 'uses' =>'DotXuatController@edit','as'=>'dotxuat.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-dotxuat'], 'uses'=>'DotXuatController@update','as'=>'dotxuat.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-dotxuat'], 'uses'=>'DotXuatController@destroy','as'=>'dotxuat.delete.get']);
-
-});
-
-//Sang Kien Routes
-Route::prefix('sangkien')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-sangkien'], 'uses'=>'SangKienController@index','as'=>'sangkien.index']);
-    Route::get('/add', ['middleware' => ['permission:create-sangkien'], 'uses'=>'SangKienController@create','as'=>'sangkien.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-sangkien'], 'uses'=>'SangKienController@store','as'=>'sangkien.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-sangkien'], 'uses' =>'SangKienController@edit','as'=>'sangkien.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-sangkien'], 'uses'=>'SangKienController@update','as'=>'sangkien.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-sangkien'], 'uses'=>'SangKienController@destroy','as'=>'sangkien.delete.get']);
-
-});
-
-//Học Tập Routes
-Route::prefix('hoctap')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-hoctap'], 'uses'=>'HocTapController@index','as'=>'hoctap.index']);
-    Route::get('/add', ['middleware' => ['permission:create-hoctap'], 'uses'=>'HocTapController@create','as'=>'hoctap.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-hoctap'], 'uses'=>'HocTapController@store','as'=>'hoctap.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-hoctap'], 'uses' =>'HocTapController@edit','as'=>'hoctap.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-hoctap'], 'uses'=>'HocTapController@update','as'=>'hoctap.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-hoctap'], 'uses'=>'HocTapController@destroy','as'=>'hoctap.delete.get']);
-
-});
-
-
-
-// Nhân Sự Routes...
-Route::prefix('congtac')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-congtac'], 'uses'=>'CongTacController@index','as'=>'congtac.index']);
-    Route::get('/read/{id}', ['middleware' => ['permission:read-congtac'], 'uses'=>'CongTacController@read','as'=>'congtac.read.get']);
-    Route::get('/add', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongTacController@create','as'=>'congtac.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-congtac'], 'uses'=>'CongTacController@store','as'=>'congtac.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-congtac'], 'uses' =>'CongTacController@edit','as'=>'congtac.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-congtac'], 'uses'=>'CongTacController@update','as'=>'congtac.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-congtac'], 'uses'=>'CongTacController@destroy','as'=>'congtac.delete.get']);
-
-});
 
 // Ajax Routes...
 Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function () {
@@ -331,14 +227,12 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postXoaLuanVan', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'LuanVanController@postXoaLuanVan','as'=>'postXoaLuanVan']);
 
     //Luan An
-
     Route::post('/postThemLuanAn', ['middleware' => ['permission:create-hocphan'], 'uses'=>'LuanAnController@postThemLuanAn','as'=>'postThemLuanAn']);
     Route::post('/postTimLuanAnTheoId', ['uses'=>'LuanAnController@postTimLuanAnTheoId','as'=>'postTimLuanAnTheoId']);
     Route::post('/postSuaLuanAn', ['middleware' => ['permission:update-hocphan'], 'uses'=>'LuanAnController@postSuaLuanAn','as'=>'postSuaLuanAn']);
     Route::post('/postXoaLuanAn', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'LuanAnController@postXoaLuanAn','as'=>'postXoaLuanAn']);
 
     //NCS
-
     Route::post('/postThemNcs', ['middleware' => ['permission:create-hocphan'], 'uses'=>'NcsController@postThemNcs','as'=>'postThemNcs']);
     Route::post('/postTimNcsTheoId', ['uses'=>'NcsController@postTimNcsTheoId','as'=>'postTimNcsTheoId']);
     Route::post('/postSuaNcs', ['middleware' => ['permission:update-hocphan'], 'uses'=>'NcsController@postSuaNcs','as'=>'postSuaNcs']);
