@@ -12,6 +12,7 @@ use App\Dang;
 use App\DayGioi;
 use App\DotXuat;
 use App\HocTap;
+use App\HocPhan;
 use App\Nckh;
 use App\SangKien;
 use App\XayDung;
@@ -82,6 +83,15 @@ class ProfileController extends Controller
                 array_push($ncs, $ds_ncs);
             };
         };
+        //Lấy Danh Sách Dạy Giỏi
+        $ds_daygiois = DayGioi::all();
+        $daygioi = array();
+        foreach($ds_daygiois as $ds_daygioi){
+            $thanhvien = json_decode($ds_daygioi->thanhvien, true);
+            if((in_array($id, $thanhvien)) || ($id == $ds_daygioi->id_giangvien)){
+                array_push($daygioi, $ds_daygioi);
+            };
+        };
         return view('user.edit.index', [
             'giangvien' => $giangvien,
             'nckh' => $nckh,
@@ -89,14 +99,15 @@ class ProfileController extends Controller
             'luanvan' => $luanvan,
             'luanan' => $luanan,
             'ncs' => $ncs,
+            'daygioi' => $daygioi,
             'chambai' => ChamBai::where('id_giangvien', $id)->get(),
             'congtac' => CongTac::where('id_giangvien', $id)->get(),
             'dang' => Dang::where('id_giangvien', $id)->get(),
-            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
             'dotxuat' => DotXuat::where('id_giangvien', $id)->get(),
             'hoctap' => HocTap::where('id_giangvien', $id)->get(),
             'sangkien' => SangKien::where('id_giangvien', $id)->get(),
             'xaydung' => XayDung::where('id_giangvien', $id)->get(),
+            'hocphan' => HocPhan::all(),
         ]);
     }
 
@@ -110,6 +121,6 @@ class ProfileController extends Controller
             Log::error($e);
             return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi sửa Giảng viên!');
         }
-        
+
     }
 }

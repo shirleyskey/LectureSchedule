@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Lịch Giảng Tuần| </title>
+        <title>Lịch Giảng Tuần | Cá Nhân</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Ứng dụng quản lý khoa, lịch trình giảng dạy" name="description" />
@@ -269,8 +269,7 @@
                         </div>
                         <!-- END PAGE BAR -->
                         <!-- BEGIN PAGE TITLE-->
-                        <h1 class="page-title"> Bảng điều khiển
-                            <small>Thống kê tổng giờ giảng, NCKH và Công việc khác</small>
+                        <h1 class="page-title text-center"> <b> <u>Thời Khóa Biểu Cá Nhân</u> </b>
 
                         </h1>
                         <!-- END PAGE TITLE-->
@@ -280,7 +279,7 @@
                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 @permission('create-users')
                                 <div class="content" style="margin: 50px">
-                                    <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
+                                    {{-- <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
                                     <div class="modal fade" id="modal-add">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -296,7 +295,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     @endpermission
                                     {!! $calendar->calendar() !!}
                                     {!! $calendar->script() !!}

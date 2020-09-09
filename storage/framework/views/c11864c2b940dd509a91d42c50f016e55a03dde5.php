@@ -140,7 +140,8 @@
                                                                 
                                                                 <?php switch($v->theloai):
                                                                     case (1): ?>
-                                                                    <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                    <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?>
+
                                                                         <?php break; ?>
                                                                     <?php case (2): ?>
                                                                        <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
@@ -256,7 +257,8 @@
                                                             
                                                             <?php switch($v->theloai):
                                                                 case (1): ?>
-                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?>
+
                                                                     <?php break; ?>
                                                                 <?php case (2): ?>
                                                                    <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
@@ -372,7 +374,8 @@
                                                         
                                                         <?php switch($v->theloai):
                                                             case (1): ?>
-                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?>
+
                                                                 <?php break; ?>
                                                             <?php case (2): ?>
                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
@@ -491,7 +494,8 @@
                                                         
                                                         <?php switch($v->theloai):
                                                             case (1): ?>
-                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?>
+
                                                                 <?php break; ?>
                                                             <?php case (2): ?>
                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
@@ -609,7 +613,8 @@
                                                         
                                                         <?php switch($v->theloai):
                                                             case (1): ?>
-                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?>
+
                                                                 <?php break; ?>
                                                             <?php case (2): ?>
                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
@@ -726,7 +731,8 @@
                                                         
                                                         <?php switch($v->theloai):
                                                             case (1): ?>
-                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?>
+
                                                                 <?php break; ?>
                                                             <?php case (2): ?>
                                                                <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
@@ -825,39 +831,31 @@
                                                         
                                                         <?php switch($v->theloai):
                                                             case (1): ?>
-                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> 
+                                                            <?php echo e($gio_kh = ($v->sotrang/2.5)*8*4); ?> giờ
                                                                 <?php break; ?>
                                                             <?php case (2): ?>
-                                                               <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?>
-
+                                                               <?php echo e($gio_kh = ($v->sotrang/2.5)*4*4); ?> giờ
                                                                 <?php break; ?>
                                                             <?php case (3): ?>
-                                                                <?php echo e($gio_kh = 6*4); ?>
-
+                                                                <?php echo e($gio_kh = 6*4); ?> giờ
                                                                 <?php break; ?>
                                                             <?php case (4): ?>
-                                                            <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?>
-
+                                                            <?php echo e($gio_kh =($v->sotrang/2.5)*10*4); ?> giờ
                                                                 <?php break; ?>
                                                             <?php case (5): ?>
-                                                            <?php echo e($gio_kh = $v->sotrang*1.5); ?>
-
+                                                            <?php echo e($gio_kh = $v->sotrang*1.5); ?> giờ
                                                                 <?php break; ?>
                                                             <?php case (6): ?>
-                                                                <?php echo e($gio_kh = $v->sotrang*4.27); ?>
-
+                                                                <?php echo e($gio_kh = $v->sotrang*4.27); ?> giờ
                                                                 <?php break; ?>
                                                             <?php case (7): ?>
-                                                                <?php echo e($gio_kh = $v->sotrang*2); ?>
-
+                                                                <?php echo e($gio_kh = $v->sotrang*2); ?> giờ
                                                                 <?php break; ?>
                                                             <?php case (8): ?>
-                                                                <?php echo e($gio_kh = $v->sotrang); ?>
-
+                                                                <?php echo e($gio_kh = $v->sotrang); ?> giờ
                                                                 <?php break; ?>
                                                             <?php default: ?>
-                                                                <?php echo e($gio_kh = $v->sotrang); ?>
-
+                                                                <?php echo e($gio_kh = $v->sotrang); ?> giờ
                                                         <?php endswitch; ?>
                                                     </td>
                                                     <td>

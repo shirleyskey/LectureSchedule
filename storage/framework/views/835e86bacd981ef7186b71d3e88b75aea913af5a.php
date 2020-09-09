@@ -27,8 +27,11 @@
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title">
-            <i class="fa fa-edit"></i> Quản Lý | Công Việc Khác
+        <h1 class="page-title"> 
+            <b>
+                <i class="fa fa-edit"></i> Quản Lý | Công Việc Khác
+            </b>
+           
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->

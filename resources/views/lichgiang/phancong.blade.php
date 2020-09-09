@@ -18,13 +18,13 @@
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title text-center"> Bảng Phân Công Lịch Giảng theo năm học
+        <h1 class="page-title text-center"> <b>Bảng Phân Công Lịch Giảng năm học</b> 
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
         <div class="row">
-          
+
            <div class="col-md-12">
             <div class="tab-pane" id="tab4">
                 @if($lop->isNotEmpty())
@@ -36,50 +36,55 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Lớp</th>
-                                    <th> Học Phần</th>
-                                   
+                                    <th> Mã Học Phần</th>
+                                    <th style="text-align: center"> Bài - Giáo Viên</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if( $lop->count() > 0 )
-                                    @php 
-                                    $stt = 1;
+                                    @php
+                                        $stt = 1;
                                     @endphp
                                     @foreach( $lop as $v )
                                     @php
                                     $ds_hocphan = App\Hocphan::where('id_lop', $v->id)->get();
+
                                     @endphp
+                                    @foreach($ds_hocphan as $v_hocphan)
                                     <tr>
-                                        {{-- cột STT  --}}
-                                        <td > {{ $stt }} </td>
-                                        {{-- Cột Tên Lớp --}}
-                                        <td > {{ $v->tenlop }} </td>
+                                        <td> {{ $stt }} </td>
+                                        <td> {{ $v->malop }} </td>
                                         <td>
-                                            @foreach($ds_hocphan as $v_hocphan)
-                                            {{-- Mỗi lớp có một bảng học phần của lớp đó  --}}
-                                            <table class="table table-striped table-hover table-bordered">
-                                                <tr>
-                                                <th class="text-center" colspan="{{($v_hocphan->sobai) + 1}}"> 
-                                                    <b>{{$v_hocphan->tenhocphan}} - {{$v_hocphan->sotiet}}t</b> 
-                                                    <br>
-                                                    <span>{{$v_hocphan->start}} - {{$v_hocphan->end}} </span> 
-                                                </th>
-                                                </tr>
-                                                <tr>
-                                                    @php
-                                                        $ds_bai = App\Bai::where('id_hocphan', $v_hocphan->id)->get();
-                                                    @endphp
-                                                   @foreach ($ds_bai as $v_bai)
-                                                <td>{{$v_bai->tenbai}} - {{$v_bai->sotiet}}t</td>
-                                                   @endforeach
-                                                    
-                                                </tr>
-                                            </table>
-                                           
+                                          <b>{{$v_hocphan->mahocphan}}</b>
+                                            <p style="margin-bottom: 0px; margin-top: 5px">
+                                               Từ: <i>{{$v_hocphan->start}}</i>
+                                            </p>
+                                            <p>
+                                               Đến: <i>{{$v_hocphan->end}}</i>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            @php
+                                                $ds_bai = App\Bai::where('id_hocphan', $v_hocphan->id)->get();
+                                            @endphp
+                                            @foreach ($ds_bai as $v_bai)
+                                                <div style="display: inline-block; padding: 10px; background-color: #80808047; margin-right: 5px">
+                                                    <p style="margin-bottom: 0px">
+                                                        <b>{{$v_bai->tenbai}}</b>  -  {{$v_bai->sotiet}} tiết
+                                                    </p>
+                                                    <p style="margin-bottom: 0px">
+                                                       {{($v_bai->gvchinh) ? $v_bai->giangvienchinhs->ten : ''}}
+                                                    </p>
+                                                    <p style="margin-bottom: 0px">
+                                                        {{($v_bai->gvphu) ? $v_bai->giangvienphus->ten : ''}}
+                                                    </p>
+                                                </div>
                                             @endforeach
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
+                                    @endforeach
+
                                     @endforeach
                                 @endif
                             </tbody>
@@ -93,7 +98,7 @@
                     </div>
                 @endif
            </div>
-         
+
         </div>
         </div>
         <div class="clearfix"></div>
@@ -116,11 +121,11 @@
             ],
 
             "pageLength": 10,
-    
+
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng nhân sự: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Học Phần: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -143,7 +148,7 @@
             ] // set first column as a default sort by asc
         });
 
-      
+
     });
 </script>
 

@@ -94,6 +94,15 @@ class GiangVienController extends Controller
                 array_push($ncs, $ds_ncs);
             };
         };
+           //Lấy Danh Sách Dạy Giỏi
+           $ds_daygiois = DayGioi::all();
+           $daygioi = array();
+           foreach($ds_daygiois as $ds_daygioi){
+               $thanhvien = json_decode($ds_daygioi->thanhvien, true);
+               if((in_array($id, $thanhvien)) || ($id == $ds_daygioi->id_giangvien)){
+                   array_push($daygioi, $ds_daygioi);
+               };
+           };
 
 
         return view('giangvien.read.index', [
@@ -101,7 +110,6 @@ class GiangVienController extends Controller
             'chambai' => ChamBai::where('id_giangvien', $id)->get(),
             'congtac' => CongTac::where('id_giangvien', $id)->get(),
             'dang' => Dang::where('id_giangvien', $id)->get(),
-            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
             'dotxuat' => DotXuat::where('id_giangvien', $id)->get(),
             'hoctap' => HocTap::where('id_giangvien', $id)->get(),
             'nckh' => $nckh,
@@ -109,6 +117,7 @@ class GiangVienController extends Controller
             'luanvan' => $luanvan,
             'luanan' => $luanan,
             'ncs' => $ncs,
+            'daygioi' => $daygioi,
             'sangkien' => SangKien::where('id_giangvien', $id)->get(),
             'xaydung' => XayDung::where('id_giangvien', $id)->get(),
             'hocphan' => HocPhan::all(),

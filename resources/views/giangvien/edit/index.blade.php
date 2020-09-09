@@ -67,9 +67,9 @@
                         <li>
                             <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#tab7" data-toggle="tab">Xây Dựng CT</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="#tab8" data-toggle="tab">CV Đột Xuất</a>
                         </li>

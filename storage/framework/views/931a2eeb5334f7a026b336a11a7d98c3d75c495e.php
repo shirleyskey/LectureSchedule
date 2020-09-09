@@ -820,7 +820,7 @@
 
                               <!-- BEGIN TAB 6-->
                               <div class="tab-pane" id="tab6">
-                                <?php if($daygioi->isNotEmpty()): ?>
+                                <?php if(!empty($ncs)): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -828,28 +828,90 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên Dạy Giỏi</th>
+                                                    <th> Tên </th>
                                                     <th> Tên Giảng Viên</th>
                                                     <th> Thành Viên</th>
                                                     <th> Cấp</th>
-                                                    <th> Đạt</th>
+                                                    <th> Đạt Bài Dạy Giỏi</th>
                                                     <th> Thời Gian</th>
+                                                    <th> Ghi Chú</th>
                                                     <th> Số Giờ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php if( $daygioi->count() > 0 ): ?>
-                                                    <?php $stt = 1; ?>
-                                                    <?php $__currentLoopData = $daygioi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_daygioi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <tr>
-                                                        <td> <?php echo e($stt); ?> </td>
-                                                        <td> <?php echo e($v_daygioi->ten); ?> </td>
-                                                        <td>  </td>
-                                                        <td> </td>
-                                                    </tr>
-                                                    <?php $stt++; ?>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                <?php endif; ?>
+                                                <?php if( count($daygioi) > 0 ): ?>
+                                                <?php $stt = 1; ?>
+                                                <?php $__currentLoopData = $daygioi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td> <?php echo e($stt); ?> </td>
+                                                    <td> <?php echo e($v->ten); ?> </td>
+                                                    <td>
+                                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                                        <?php echo e($v->giangviens->ten); ?>
+
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                            $thanhvien = json_decode( $v->thanhvien, true);
+                                                        ?>
+                                                            <?php $__currentLoopData = $thanhvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                            <?php endif; ?>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                            if($v->cap == 1){
+                                                                echo "Cấp Khoa";
+                                                            }
+                                                            if($v->cap == 2){
+                                                                echo "Cấp Học Viện";
+                                                            }
+                                                            if($v->cap == 3){
+                                                                echo "Cấp Bộ";
+                                                            }
+                                                        ?>
+                                                    </td>
+                                                    <td> <?php echo e(($v->dat == 1) ? 'Đạt' : 'Không Đạt'); ?> </td>
+                                                    <td> <?php echo e($v->thoigian); ?> </td>
+                                                    <td> <?php echo e($v->ghichu); ?> </td>
+                                                    <td>
+                                                        <?php
+                                                         $thanhvien = json_decode( $v->thanhvien, true);
+                                                         $daygioi_gio = 0;
+                                                        if(in_array($giangvien->id, $thanhvien)){
+                                                            if($v->cap == 1){
+                                                                $daygioi_gio += 1;
+                                                            }
+                                                            if($v->cap == 2){
+                                                                $daygioi_gio += 2;
+                                                            }
+                                                            if($v->cap == 3){
+                                                                $daygioi_gio += 3;
+                                                            }
+                                                                };
+                                                            if($v->dat == 1){
+                                                                if($v->cap == 1){
+                                                                $daygioi_gio += 4;
+                                                            }
+                                                            if($v->cap == 2){
+                                                                $daygioi_gio += 6;
+                                                            }
+                                                            if($v->cap == 3){
+                                                                $daygioi_gio += 8;
+                                                            } };
+
+
+                                                        ?>
+                                                    <?php echo e($daygioi_gio); ?> giờ
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <?php $stt++; ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
                                             </tbody>
                                         </table>
                                     </div>

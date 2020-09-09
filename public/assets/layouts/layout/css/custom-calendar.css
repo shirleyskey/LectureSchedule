@@ -1,25 +1,62 @@
 * {}
 
-a.fc-day-grid-event.fc-event.fc-start.fc-end:hover {
+/* a.fc-day-grid-event.fc-event.fc-start.fc-end:hover {
     width: 150%;
     height: 20px;
     background-color: #00334e!important;
     z-index: 999;
-}
+} */
 
 a.fc-time-grid-event.fc-event.fc-start.fc-end {
     width: 20%;
     left: 0px!important;
+    padding: 5px;
 }
+a.fc-day-grid-event.fc-event.fc-start.fc-end {
+    padding: 5px;
+    margin-bottom: 3px;
+}
+/* .fc-day-grid .fc-popover .fc-more-popover{
+    width: 325px !important;
 
-a.fc-time-grid-event.fc-event.fc-start.fc-end:hover {
+} */
+.fc-unthemed .fc-popover{
+    width: 340px;
+}
+button.fc-agendaWeek-button.fc-button.fc-state-default{
+    display: none;
+}
+button.fc-agendaDay-button.fc-button.fc-state-default.fc-corner-right{
+    display: none;
+}
+/* a.fc-time-grid-event.fc-event.fc-start.fc-end:hover {
     width: 30%;
     background-color: #00334e!important;
     z-index: 999;
     height: 50px;
     left: 0px!important;
-}
+} */
 
 a.fc-time-grid-event.fc-event.fc-start.fc-end .fc-time {
     display: none;
+}
+
+.fc-day-grid-event .fc-content span.fc-time {
+    font-weight: 700;
+    margin-left: 10px!important;
+}
+
+.fc-day-grid-event .fc-content span.fc-time::after {
+    content: "h";
+}
+
+.fc-day-grid-event .fc-content span.fc-time::before {
+    content: "";
+    display: inline-block;
+    background-color: #fff;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    margin-right: 3px;
+    🌃
 }

@@ -819,7 +819,7 @@
 
                               <!-- BEGIN TAB 6-->
                               <div class="tab-pane" id="tab6">
-                                @if($daygioi->isNotEmpty())
+                                @if(!empty($daygioi))
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -834,10 +834,11 @@
                                                     <th> Đạt Bài Dạy Giỏi</th>
                                                     <th> Thời Gian</th>
                                                     <th> Ghi Chú</th>
+                                                    <th> Số Giờ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if( $daygioi->count() > 0 )
+                                                @if( count($daygioi) > 0 )
                                                 @php $stt = 1; @endphp
                                                 @foreach( $daygioi as $v )
                                                 <tr>
@@ -858,7 +859,7 @@
                                                             @endif
                                                             @endforeach
                                                     </td>
-                                                    <td> 
+                                                    <td>
                                                         @php
                                                             if($v->cap == 1){
                                                                 echo "Cấp Khoa";
@@ -875,11 +876,41 @@
                                                     <td> {{ $v->thoigian }} </td>
                                                     <td> {{ $v->ghichu }} </td>
                                                     <td>
+                                                        @php
+                                                         $thanhvien = json_decode( $v->thanhvien, true);
+                                                         $daygioi_gio = 0;
+                                                        if(in_array($giangvien->id, $thanhvien)){
+                                                            if($v->cap == 1){
+                                                                $daygioi_gio += 1;
+                                                            }
+                                                            if($v->cap == 2){
+                                                                $daygioi_gio += 2;
+                                                            }
+                                                            if($v->cap == 3){
+                                                                $daygioi_gio += 3;
+                                                            }
+                                                                };
+                                                            if($v->dat == 1){
+                                                                if($v->cap == 1){
+                                                                $daygioi_gio += 4;
+                                                            }
+                                                            if($v->cap == 2){
+                                                                $daygioi_gio += 6;
+                                                            }
+                                                            if($v->cap == 3){
+                                                                $daygioi_gio += 8;
+                                                            } };
+
+
+                                                        @endphp
+                                                    {{$daygioi_gio}} giờ
+                                                    </td>
+                                                    {{-- <td>
                                                         @permission('create-giangvien')
                                                         <a data-daygioi-id="{{ $v->id }}" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                         @endpermission
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach

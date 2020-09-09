@@ -16,13 +16,13 @@
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title text-center"> Bảng Phân Công Lịch Giảng theo năm học
+        <h1 class="page-title text-center"> <b>Bảng Phân Công Lịch Giảng năm học</b> 
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
         <div class="row">
-          
+
            <div class="col-md-12">
             <div class="tab-pane" id="tab4">
                 <?php if($lop->isNotEmpty()): ?>
@@ -34,50 +34,57 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Lớp</th>
-                                    <th> Học Phần</th>
-                                   
+                                    <th> Mã Học Phần</th>
+                                    <th style="text-align: center"> Bài - Giáo Viên</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php if( $lop->count() > 0 ): ?>
-                                    <?php 
-                                    $stt = 1;
+                                    <?php
+                                        $stt = 1;
                                     ?>
                                     <?php $__currentLoopData = $lop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php
                                     $ds_hocphan = App\Hocphan::where('id_lop', $v->id)->get();
+
                                     ?>
+                                    <?php $__currentLoopData = $ds_hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hocphan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                        
-                                        <td > <?php echo e($stt); ?> </td>
-                                        
-                                        <td > <?php echo e($v->tenlop); ?> </td>
+                                        <td> <?php echo e($stt); ?> </td>
+                                        <td> <?php echo e($v->malop); ?> </td>
                                         <td>
-                                            <?php $__currentLoopData = $ds_hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hocphan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            
-                                            <table class="table table-striped table-hover table-bordered">
-                                                <tr>
-                                                <th class="text-center" colspan="<?php echo e(($v_hocphan->sobai) + 1); ?>"> 
-                                                    <b><?php echo e($v_hocphan->tenhocphan); ?> - <?php echo e($v_hocphan->sotiet); ?>t</b> 
-                                                    <br>
-                                                    <span><?php echo e($v_hocphan->start); ?> - <?php echo e($v_hocphan->end); ?> </span> 
-                                                </th>
-                                                </tr>
-                                                <tr>
-                                                    <?php
-                                                        $ds_bai = App\Bai::where('id_hocphan', $v_hocphan->id)->get();
-                                                    ?>
-                                                   <?php $__currentLoopData = $ds_bai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_bai): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <td><?php echo e($v_bai->tenbai); ?> - <?php echo e($v_bai->sotiet); ?>t</td>
-                                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                    
-                                                </tr>
-                                            </table>
-                                           
+                                          <b><?php echo e($v_hocphan->mahocphan); ?></b>
+                                            <p style="margin-bottom: 0px; margin-top: 5px">
+                                               Từ: <i><?php echo e($v_hocphan->start); ?></i>
+                                            </p>
+                                            <p>
+                                               Đến: <i><?php echo e($v_hocphan->end); ?></i>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <?php
+                                                $ds_bai = App\Bai::where('id_hocphan', $v_hocphan->id)->get();
+                                            ?>
+                                            <?php $__currentLoopData = $ds_bai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_bai): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <div style="display: inline-block; padding: 10px; background-color: #80808047; margin-right: 5px">
+                                                    <p style="margin-bottom: 0px">
+                                                        <b><?php echo e($v_bai->tenbai); ?></b>  -  <?php echo e($v_bai->sotiet); ?> tiết
+                                                    </p>
+                                                    <p style="margin-bottom: 0px">
+                                                       <?php echo e(($v_bai->gvchinh) ? $v_bai->giangvienchinhs->ten : ''); ?>
+
+                                                    </p>
+                                                    <p style="margin-bottom: 0px">
+                                                        <?php echo e(($v_bai->gvphu) ? $v_bai->giangvienphus->ten : ''); ?>
+
+                                                    </p>
+                                                </div>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <?php endif; ?>
                             </tbody>
@@ -91,7 +98,7 @@
                     </div>
                 <?php endif; ?>
            </div>
-         
+
         </div>
         </div>
         <div class="clearfix"></div>
@@ -114,11 +121,11 @@
             ],
 
             "pageLength": 10,
-    
+
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng nhân sự: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Học Phần: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -141,7 +148,7 @@
             ] // set first column as a default sort by asc
         });
 
-      
+
     });
 </script>
 
@@ -150,4 +157,5 @@
 <script src="<?php echo e(asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js')); ?>" type="text/javascript"></script>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\lectureSchedule\resources\views/lichgiang/phancong.blade.php ENDPATH**/ ?>

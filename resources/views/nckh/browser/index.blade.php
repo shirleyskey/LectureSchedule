@@ -142,7 +142,7 @@
                                                                 {{-- In ra số Giờ --}}
                                                                 @switch($v->theloai)
                                                                     @case(1)
-                                                                    {{ $gio_kh = ($v->sotrang/2.5)*8*4}} 
+                                                                    {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
                                                                         @break
                                                                     @case(2)
                                                                        {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
@@ -250,7 +250,7 @@
                                                             {{-- In ra số Giờ --}}
                                                             @switch($v->theloai)
                                                                 @case(1)
-                                                                {{ $gio_kh = ($v->sotrang/2.5)*8*4}} 
+                                                                {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
                                                                     @break
                                                                 @case(2)
                                                                    {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
@@ -358,7 +358,7 @@
                                                         {{-- In ra số Giờ --}}
                                                         @switch($v->theloai)
                                                             @case(1)
-                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}} 
+                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
                                                                 @break
                                                             @case(2)
                                                                {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
@@ -469,7 +469,7 @@
                                                         {{-- In ra số Giờ --}}
                                                         @switch($v->theloai)
                                                             @case(1)
-                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}} 
+                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
                                                                 @break
                                                             @case(2)
                                                                {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
@@ -579,7 +579,7 @@
                                                         {{-- In ra số Giờ --}}
                                                         @switch($v->theloai)
                                                             @case(1)
-                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}} 
+                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
                                                                 @break
                                                             @case(2)
                                                                {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
@@ -688,7 +688,7 @@
                                                         {{-- In ra số Giờ --}}
                                                         @switch($v->theloai)
                                                             @case(1)
-                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}} 
+                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
                                                                 @break
                                                             @case(2)
                                                                {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
@@ -779,31 +779,31 @@
                                                         {{-- In ra số Giờ --}}
                                                         @switch($v->theloai)
                                                             @case(1)
-                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}} 
+                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}} giờ
                                                                 @break
                                                             @case(2)
-                                                               {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
+                                                               {{ $gio_kh = ($v->sotrang/2.5)*4*4}} giờ
                                                                 @break
                                                             @case(3)
-                                                                {{ $gio_kh = 6*4}}
+                                                                {{ $gio_kh = 6*4}} giờ
                                                                 @break
                                                             @case(4)
-                                                            {{ $gio_kh =($v->sotrang/2.5)*10*4}}
+                                                            {{ $gio_kh =($v->sotrang/2.5)*10*4}} giờ
                                                                 @break
                                                             @case(5)
-                                                            {{ $gio_kh = $v->sotrang*1.5}}
+                                                            {{ $gio_kh = $v->sotrang*1.5}} giờ
                                                                 @break
                                                             @case(6)
-                                                                {{$gio_kh = $v->sotrang*4.27}}
+                                                                {{$gio_kh = $v->sotrang*4.27}} giờ
                                                                 @break
                                                             @case(7)
-                                                                {{$gio_kh = $v->sotrang*2}}
+                                                                {{$gio_kh = $v->sotrang*2}} giờ
                                                                 @break
                                                             @case(8)
-                                                                {{$gio_kh = $v->sotrang}}
+                                                                {{$gio_kh = $v->sotrang}} giờ
                                                                 @break
                                                             @default
-                                                                {{$gio_kh = $v->sotrang}}
+                                                                {{$gio_kh = $v->sotrang}} giờ
                                                         @endswitch
                                                     </td>
                                                     <td>

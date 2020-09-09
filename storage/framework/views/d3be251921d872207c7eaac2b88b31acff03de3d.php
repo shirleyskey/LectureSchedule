@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Lịch Giảng Tuần| </title>
+        <title>Lịch Giảng Tuần | Cá Nhân</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Ứng dụng quản lý khoa, lịch trình giảng dạy" name="description" />
@@ -257,8 +257,7 @@
                         </div>
                         <!-- END PAGE BAR -->
                         <!-- BEGIN PAGE TITLE-->
-                        <h1 class="page-title"> Bảng điều khiển
-                            <small>Thống kê tổng giờ giảng, NCKH và Công việc khác</small>
+                        <h1 class="page-title text-center"> <b> <u>Thời Khóa Biểu Cá Nhân</u> </b>
 
                         </h1>
                         <!-- END PAGE TITLE-->
@@ -268,23 +267,7 @@
                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <?php if (app('laratrust')->can('create-users')) : ?>
                                 <div class="content" style="margin: 50px">
-                                    <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
-                                    <div class="modal fade" id="modal-add">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                <form action="<?php echo e(route('lichgiang.lichgiangtuan.import')); ?>" method="POST" role="form" enctype="multipart/form-data">
-                                                        <legend>Nhập Lịch Học</legend>
-                                                        <?php echo csrf_field(); ?>
-                                                        <div class="form-group">
-                                                            <input type="file" class="form-control" name="calendar" id="" placeholder="Input field">
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                                </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <?php endif; // app('laratrust')->can ?>
                                     <?php echo $calendar->calendar(); ?>
 

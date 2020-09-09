@@ -27,7 +27,7 @@ class CalendarController extends Controller
                 //Start for tiết
                 for($i = 0 ; $i < count($time); $i++){
                     $startDate = Carbon::parse($tiet->thoigian);
-                    //Start Switch case 
+                    //Start Switch case
                     switch ((int)$time[$i]) {
                         case 1:
                             $startDate->addHours(7);
@@ -80,11 +80,11 @@ class CalendarController extends Controller
                     );
                 }
                 //End for tiết
-               
+
             }
             //end foreach Event
         }
-      
+
 
         $calendar = Calendar::addEvents($events)->setOptions(['lang' => 'vi']);
         return view('calendar.calendar', ['calendar' => $calendar]);
@@ -97,5 +97,5 @@ public function import(Request $request)
 
     return redirect()->route('lichgiang.lichgiangtuan');
 }
-    
+
 }

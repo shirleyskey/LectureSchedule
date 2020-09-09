@@ -250,7 +250,7 @@
         <!-- END TAB 5-->
 
           <!-- BEGIN TAB 7-->
-          <div class="tab-pane" id="tab7">
+          <div class="tab-pane" id="tab6">
             @if($daygioi->isNotEmpty())
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">
@@ -285,10 +285,10 @@
                                         <td> {{ $v->ten }} </td>
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
-                                        <td>
+                                        {{-- <td>
                                             <a data-daygioi-id="{{ $v->id }}" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                     @php $stt++; @endphp
                                     @endforeach
@@ -300,7 +300,9 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không có hoạt động Dạy Giỏi nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi</a></p>
+                    <p> Giảng Viên này không có hoạt động Dạy Giỏi nào.
+                        {{-- <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi</a> --}}
+                    </p>
                 </div>
             @endif
         </div>
