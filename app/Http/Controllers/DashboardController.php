@@ -13,14 +13,14 @@ use App\HocTap;
 use App\Nckh;
 use App\SangKien;
 use App\XayDung;
-use App\Hocphan;
+use App\HocPhan;
 use App\Lop;
 class DashboardController extends Controller
 {
     //
     public function getDashboard(){
         $giangvien = GiangVien::all();
-        $hocphan = Hocphan::all();
+        $hocphan = HocPhan::all();
         $congtac = CongTac::all();
         $dang = Dang::all();
         $chambai = ChamBai::all();
@@ -49,7 +49,7 @@ class DashboardController extends Controller
 
     public function readDashboard(){
         $giangvien = GiangVien::all();
-        $hocphan = Hocphan::all();
+        $hocphan = HocPhan::all();
         $congtac = CongTac::all();
         $dang = Dang::all();
         $chambai = ChamBai::all();

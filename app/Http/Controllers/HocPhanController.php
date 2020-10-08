@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\LichHocPhanImport;
 use Carbon\Carbon;
 use App\HocPhan;
 use App\Lop;
@@ -93,6 +95,14 @@ class HocPhanController extends Controller
             return redirect()->route('hocphan.index')->with('status_error', 'Xảy ra lỗi khi xóa Học Phần!');
         }
     }
+
+    public function import(Request $request, $id)
+{
+    Excel::import(new LichHocPhanImport($id), $request->lichhocphan);
+    // Excel::import(new LopImport, $request->calendar);
+
+    return redirect()->route('hocphan.edit.get', $id);
+}
      //AJAX
      public function postThemHocPhan(Request $request)
      {

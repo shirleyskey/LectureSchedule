@@ -24,7 +24,7 @@ a.fc-day-grid-event.fc-event.fc-start.fc-end {
     width: 340px;
 }
 button.fc-agendaWeek-button.fc-button.fc-state-default{
-    display: none;
+   
 }
 button.fc-agendaDay-button.fc-button.fc-state-default.fc-corner-right{
     display: none;

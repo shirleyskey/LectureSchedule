@@ -139,6 +139,8 @@ class GiangVienController extends Controller
         ]);
         $giangvien = new GiangVien;
         $giangvien->ten = $request->ten;
+        $giangvien->ma_giangvien = $request->ma_giangvien;
+        $giangvien->bai_giang = $request->bai_giang;
         $giangvien->chucvu = $request->chucvu;
         $giangvien->hesoluong = $request->hesoluong;
         $giangvien->diachi = $request->diachi;

@@ -106,6 +106,10 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Mã Giảng Viên:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $giangvien->ma_giangvien }}</label>
+                                            </div>
+                                            <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Tên:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $giangvien->ten }}</label>
                                             </div>
@@ -121,7 +125,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Địa chỉ liên hệ:</label>
+                                                <label class="control-label col-md-4 col-xs-6 bold">Chỗ Ở:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $giangvien->diachi }}</label>
                                             </div>
                                             <div class="row">
@@ -131,6 +135,10 @@
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Trình Độ:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $giangvien->trinhdo }}</label>
+                                            </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Bài Giảng:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $giangvien->bai_giang }}</label>
                                             </div>
                                         </div>
                                     </div>

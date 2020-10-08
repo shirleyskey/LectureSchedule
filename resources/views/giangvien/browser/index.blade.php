@@ -88,13 +88,15 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
+                                    <th> Mã Giảng Viên</th>
                                     <th> Tên </th>
                                     <th> Chức Vụ </th>
                                     <th> Hệ Số Lương</th>
-                                    <th> Địa Chỉ </th>
+                                    <th> Chỗ Ở </th>
                                     <th> Chức Danh</th>
                                     <th> Trình Độ</th>
                                     <th> Có Thể Giảng</th>
+                                    <th> Bài Giảng</th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
@@ -104,6 +106,7 @@
                                     @foreach( $ds_giangvien as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
+                                        <td> {{ $v->ma_giangvien }} </td>
                                         <td>
                                             <a href="{{ route('giangvien.read.get', $v->id) }}">{{ $v->ten }}</a>
                                         </td>
@@ -120,6 +123,7 @@
                                             <span class="label label-sm label-danger" style="font-size: 12px;"> Không Giảng </span>
                                             @endif
                                         </td>
+                                        <td> {{ $v->bai_giang }} </td>
                                         <td>
                                             @permission('read-giangvien')
                                             <a class="btn btn-xs blue-sharp" href="{{ route('giangvien.read.get', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Xem</a>

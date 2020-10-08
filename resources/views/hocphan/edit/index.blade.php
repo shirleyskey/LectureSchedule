@@ -49,9 +49,31 @@
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
                             <a href="" data-toggle="tab">Thông tin</a>
-                        </li>
-                        {{--  --}}
+                       </li>
+                       <li>
+                       @permission('create-users')
+                        <div class="content" style="">
+                            <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
+                            <div class="modal fade" id="modal-add">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                        <form action="{{route('hocphan.lichgiang.import', $hocphan->id)}}" method="POST" role="form" enctype="multipart/form-data">
+                                                <legend>Nhập Lịch Học</legend>
+                                                @csrf
+                                                <div class="form-group">
+                                                    <input type="file" class="form-control" name="lichhocphan" id="" placeholder="Input field">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endpermission
+                       </li>
                     </ul>
+                    
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->

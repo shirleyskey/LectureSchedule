@@ -8,7 +8,7 @@ class GiangVien extends Model
 {
     //
     protected $table = 'giangviens';
-    protected $fillable = ['ten','chucvu','hesoluong','diachi','chucdanh','trinhdo','cothegiang'];
+    protected $fillable = ['ten','chucvu','hesoluong','diachi','chucdanh','trinhdo','cothegiang', 'ma_giangvien'];
 
     public $timestamps = false;
     public function chambais()
@@ -56,6 +56,11 @@ class GiangVien extends Model
         return $this->hasMany('App\Bai', 'id_giangvien');
     }
 
+    public function tiets()
+    {
+        return $this->hasMany('App\Tiet', 'id_giangvien');
+    }
+
 
 
     public static function saveGiangVien($id, $data){
@@ -64,13 +69,15 @@ class GiangVien extends Model
         }else{
             $giangvien = GiangVien::findOrFail($id);
         }
-        $giangvien->ten              = $data['ten'];
-        $giangvien->chucvu             = $data['chucvu'];
+        $giangvien->ten = $data['ten'];
+        $giangvien->chucvu = $data['chucvu'];
         $giangvien->hesoluong = $data['hesoluong'];
-        $giangvien->diachi    = $data['diachi'];
-        $giangvien->chucdanh         = $data['chucdanh'];
-        $giangvien->trinhdo              = $data['trinhdo'];
-        $giangvien->cothegiang          = $data['cothegiang'];
+        $giangvien->diachi = $data['diachi'];
+        $giangvien->ma_giangvien = $data['ma_giangvien'];
+        $giangvien->bai_giang = $data['bai_giang'];
+        $giangvien->chucdanh = $data['chucdanh'];
+        $giangvien->trinhdo = $data['trinhdo'];
+        $giangvien->cothegiang = $data['cothegiang'];
 
         $giangvien->save();
         return $giangvien;

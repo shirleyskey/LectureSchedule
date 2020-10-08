@@ -820,7 +820,7 @@
 
                               <!-- BEGIN TAB 6-->
                               <div class="tab-pane" id="tab6">
-                                <?php if(!empty($ncs)): ?>
+                                <?php if(!empty($daygioi)): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">

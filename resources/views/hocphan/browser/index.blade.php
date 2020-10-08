@@ -88,7 +88,12 @@
                                         <td> {{ $v->tenhocphan }} </td>
                                         <td> {{ $v->sotiet }}  </td>
                                         <td> {{ $v->sotinchi }} </td>
-                                        <td> {{ $v->sobai }} </td>
+                                        <td> 
+                                        @php 
+                                             $sobai = App\Bai::where('id_hocphan', $v->id)->get()->count();  
+                                             echo $sobai;
+                                        @endphp
+                                         </td>
                                         <td> {{ $v->start }} </td>
                                         <td> {{ $v->end }} </td>
                                        

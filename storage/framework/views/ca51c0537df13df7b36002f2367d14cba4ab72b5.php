@@ -1,0 +1,69 @@
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner" style="width: 100%;">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="<?php echo e(route('dashboard')); ?>">
+                <img src="<?php echo e(asset('/images/logo_name.png')); ?>" alt="logo" class="logo-default" width="140" />
+                <!-- <h5 style="padding:7px; color: #fff;">THỊNH PHONG HRM</h5> -->
+            </a>
+            <div class="menu-toggler sidebar-toggler">
+                <span></span>
+            </div>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            <span></span>
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <div class='time-frame hidden-xs' style="float:left; font-size: 12px; color: #fff; padding: 16px; display: -webkit-box;">
+            <i class="fa fa-clock-o" style="margin-right: 5px;"></i>
+            <div id='datetime-part'></div>
+        </div>
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+
+            <ul class="nav navbar-nav pull-right">
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <img alt="" class="img-circle" src="<?php echo e(asset('uploads/avatars/default-avatar.jpg')); ?>" />
+                        <span class="username username-hide-on-mobile"> <?php echo e((Auth::user())?(Auth::user()->giangviens->ten):''); ?> </span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="<?php echo e(route('profile.edit.get', Auth::user()->id_giangvien)); ?>">
+                                <i class="fa fa-user"></i> Thông Tin Cá Nhân
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <a href="<?php echo e(route('profile.thongbao.get', Auth::user()->id_giangvien)); ?>">
+                                <i class="fa fa-calendar-minus-o"></i> Lịch Trình Cá Nhân
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li >
+                            <a href="<?php echo e(route('logout.get')); ?>" style="color: #CC0000">
+                                <i class="fa fa-sign-out" style="color: #CC0000"></i>
+                                Đăng Xuất
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN HEADER & CONTENT DIVIDER -->
+<div class="clearfix"> </div>
+<!-- END HEADER & CONTENT DIVIDER -->
+<?php /**PATH /opt/lampp/htdocs/lectureSchedule/resources/views/partials/header.blade.php ENDPATH**/ ?>

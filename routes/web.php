@@ -116,6 +116,7 @@ Route::prefix('hocphan')->middleware(['auth', 'only_active_user'])->group(functi
     Route::get('/edit/{id}', ['middleware' => ['permission:update-hocphan'], 'uses' =>'HocPhanController@edit','as'=>'hocphan.edit.get']);
     Route::post('/edit/{id}', ['middleware' => ['permission:update-hocphan'], 'uses'=>'HocPhanController@update','as'=>'hocphan.edit.post']);
     Route::get('/delete/{id}', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'HocPhanController@destroy','as'=>'hocphan.delete.get']);
+    Route::post('/import/{id}', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'HocPhanController@import','as'=>'hocphan.lichgiang.import']);
 });
 
 // Học Phần Routes...
