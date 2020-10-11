@@ -216,6 +216,67 @@
         </div>
         <!-- END TAB 3-->
 
+        <!-- BEGIN XỬ LÝ VĂN BẢN-->
+        <div class="tab-pane" id="tab_vanban">
+            @if($vanban->isNotEmpty())
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Văn Bản Xử Lý Mới
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_vanban">
+                            <thead>
+                                <tr>
+                                <th> STT</th>
+                                    <th> Nội Dung</th>
+                                    <th> Lãnh Đạo Xử Lý</th>
+                                    <th> Thời Gian Nhận</th>
+                                    <th> Hạn</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if( $vanban->count() > 0 )
+                                    @php $stt = 1; @endphp
+                                    @foreach( $vanban as $v )
+                                    <tr>
+                                        <td> {{ $stt }} </td>
+                                        <td> {{ $v->noi_dung }} </td>
+                                        <td> {{ $v->lanhdao }} </td>
+                                        <td> {{ $v->thoigian_nhan }} </td>
+                                        <td> {{ $v->thoigian_den }} </td>
+                                        <td> {{ $v->ghichu }} </td>
+                                        <td>
+                                            <a data-vanban-id="{{ $v->id }}" class="btn_edit_vanban btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_vanban btn btn-xs red-mint" href="#" data-vanban-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        </td>
+                                    </tr>
+                                    @php $stt++; @endphp
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            @else
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không có văn bản nào xư lý <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Van Bản Xử Lý</a></p>
+                </div>
+            @endif
+        </div>
+        <!-- END XỬ LÝ VĂN BẢN-->
+
          <!-- BEGIN TAB 4-->
          <div class="tab-pane" id="tab4">
             @if($chambai->isNotEmpty())
@@ -746,3 +807,5 @@
 @include('hdkh.modals.edit')
 @include('xaydung.modals.add')
 @include('xaydung.modals.edit')
+@include('vanban.modals.add')
+@include('vanban.modals.edit')

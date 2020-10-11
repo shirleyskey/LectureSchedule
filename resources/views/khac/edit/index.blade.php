@@ -54,6 +54,9 @@
                             <a href="#tab_hop" data-toggle="tab">Họp</a>
                         </li>
                         <li>
+                            <a href="#tab_vanban" data-toggle="tab">Xử Lý Văn Bản</a>
+                        </li>
+                        <li>
                             <a href="#tab11" data-toggle="tab">Khóa Luận</a>
                         </li>
                         <li>
@@ -1090,6 +1093,141 @@
 </div>
 <!-- /.modal -->
 <!-- -------------------------------------END CÔNG TÁC ADD -------------------------------------->
+
+<!-- -------------------------------------VĂN BẢN ADD ------------------------------------>
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_vanban" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_vanban">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Văn Bản Xử Lý</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option value="0">-------- Chọn Giảng Viên --------</option>
+                                            @if($giangvien->count()>0)
+                                                @foreach($giangvien as $v)
+                                                    <option value="{{ $v->id }}"  <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nội Dung<span class="required">*</span></label>
+                                    <input  name="noi_dung" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Lãnh Đạo Xử Lý:<span class="required">*</span></label>
+                                    <input name="lanhdao" type="text" class="form-control" required>
+                                </div> 
+                               
+                                <div class="form-group">
+                                    <label>Thời Gian Nhận:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Hạn:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_vanban"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_vanban" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_vanban">
+                @csrf
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Thông Tin Văn Bản Xử Lý</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                    <option name="gv_hientai"></option>
+                                            @if($giangvien->count()>0)
+                                                @foreach($giangvien as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nội Dung<span class="required">*</span></label>
+                                    <input  name="noi_dung" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Lãnh Đạo Xử Lý:<span class="required">*</span></label>
+                                    <input name="lanhdao" type="text" class="form-control" required>
+                                </div> 
+                               
+                                <div class="form-group">
+                                    <label>Thời Gian Nhận:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Hạn:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_vanban"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- -------------------------------------END VĂN BẢn ADD -------------------------------------->
 <!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_add_dang" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -3102,6 +3240,220 @@
          // END Xử lý khi click nút xóa congtac
 
          // ==================================================================//
+
+          // Ajax thêm Văn Bản Xử Lý
+          $("#btn_add_vanban").on('click', function(e){
+
+e.preventDefault();
+$("#btn_add_vanban").attr("disabled", "disabled");
+$("#btn_add_vanban").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+$.ajaxSetup({
+         headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         }
+     });
+$.ajax({
+    url: '{{route('postThemVanBan')}}',
+    method: 'POST',
+    data: {
+        id_giangvien: $("#form_add_vanban select[name='id_giangvien']").val(),
+                noi_dung: $("#form_add_vanban input[name='noi_dung']").val(),
+                lanhdao: $("#form_add_vanban input[name='lanhdao']").val(),
+                thoigian_nhan: $("#form_add_vanban input[name='thoigian_nhan']").val(),
+                thoigian_den: $("#form_add_vanban input[name='thoigian_den']").val(),
+                ghichu: $("#form_add_vanban input[name='ghichu']").val(),
+    },
+    success: function(data) {
+        console.log("Hihi");
+        $("#btn_add_vanban").removeAttr("disabled");
+        $("#btn_add_vanban").html('<i class="fa fa-save"></i> Lưu');
+        if(data.status == false){
+            var errors = "";
+            $.each(data.data, function(key, value){
+                $.each(value, function(key2, value2){
+                    errors += value2 +"<br>";
+                });
+            });
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "positionClass": "toast-top-center",
+                "onclick": null,
+                "showDuration": "1000",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr["error"](errors, "Lỗi")
+        }
+        if(data.status == true){
+            $('#modal_add_vanban').modal('hide');
+            swal({
+                "title":"Đã tạo!",
+                "text":"Bạn đã tạo thành công Văn Bản Xử Lý!",
+                "type":"success"
+            }, function() {
+                    localStorage.setItem('activeTab', '#tab_vanban');
+                    location.reload();
+                }
+            );
+        }
+    }
+});
+});
+// END Ajax thêm vanban
+//AJAX Tìm vanban Theo ID
+ $(".btn_edit_vanban").on("click", function(e){
+     e.preventDefault();
+     var vanban_id = $(this).data("vanban-id");
+     $.ajaxSetup({
+         headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         }
+     });
+     $.ajax({
+         url: '{{ route('postTimVanBanTheoId') }}',
+         method: 'POST',
+         data: {
+             id: vanban_id
+         },
+         success: function(data) {
+             if(data.status == true){
+                 // console.log(data.data);
+                 $("#form_edit_vanban select[name='id_giangvien']").val(data.data.id_giangvien);
+                         $("#form_edit_vanban input[name='id']").val(data.data.id);
+                         $("#form_edit_vanban input[name='noi_dung']").val(data.data.noi_dung);
+                         $("#form_edit_vanban input[name='lanhdao']").val(data.data.lanhdao);
+                         $("#form_edit_vanban input[name='thoigian_nhan']").val(data.data.thoigian_nhan);
+                         $("#form_edit_vanban input[name='thoigian_den']").val(data.data.thoigian_den);
+                         $("#form_edit_vanban input[name='ghichu']").val(data.data.ghichu);
+                         $('#modal_edit_vanban').modal('show');
+             }
+         }
+     });
+ });
+ // END Khi click vào nút sửa vanban, tìm vanban theo id và đỗ dữ liệu vào form
+
+
+ // Ajax sửa vanban
+ $("#btn_edit_vanban").on('click', function(e){
+     e.preventDefault();
+     $("#btn_edit_vanban").attr("disabled", "disabled");
+     $("#btn_edit_vanban").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+     $.ajaxSetup({
+         headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         }
+     });
+     $.ajax({
+         url: '{{ route('postSuaVanBan') }}',
+         method: 'POST',
+         data: {
+            id: $("#form_edit_vanban input[name='id']").val(),
+                     id_giangvien: $("#form_edit_vanban select[name='id_giangvien']").val(),
+                     noi_dung: $("#form_edit_vanban input[name='noi_dung']").val(),
+                     lanhdao: $("#form_edit_vanban input[name='lanhdao']").val(),
+                     thoigian_den: $("#form_edit_vanban input[name='thoigian_den']").val(),
+                     thoigian_nhan: $("#form_edit_vanban input[name='thoigian_nhan']").val(),
+                     ghichu: $("#form_edit_vanban input[name='ghichu']").val(),
+
+         },
+         success: function(data) {
+             $("#btn_edit_vanban").removeAttr("disabled");
+             $("#btn_edit_vanban").html('<i class="fa fa-save"></i> Lưu');
+             if(data.status == false){
+                 var errors = "";
+                 $.each(data.data, function(key, value){
+                     $.each(value, function(key2, value2){
+                         errors += value2 +"<br>";
+                     });
+                 });
+                 toastr.options = {
+                     "closeButton": true,
+                     "debug": false,
+                     "positionClass": "toast-top-center",
+                     "onclick": null,
+                     "showDuration": "1000",
+                     "hideDuration": "1000",
+                     "timeOut": "5000",
+                     "extendedTimeOut": "1000",
+                     "showEasing": "swing",
+                     "hideEasing": "linear",
+                     "showMethod": "fadeIn",
+                     "hideMethod": "fadeOut"
+                 }
+                 toastr["error"](errors, "Lỗi")
+             }
+             if(data.status == true){
+                 $('#modal_edit_vanban').modal('hide');
+                 swal({
+                     "title":"Đã sửa!",
+                     "text":"Bạn đã sửa thành công Văn Bản!",
+                     "type":"success"
+                 }, function() {
+                         localStorage.setItem('activeTab', '#tab_vanban');
+                         location.reload();
+                     }
+                 );
+             }
+         }
+     });
+ });
+ // END Ajax sửa vanban
+
+ // Xử lý khi click nút xóa vanban
+ $(".btn_delete_vanban").on("click", function(e){
+     e.preventDefault();
+     var vanban_id = $(this).data("vanban-id");
+     $.ajaxSetup({
+         headers: {
+             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         }
+     });
+     swal({
+         title: "Xóa Văn Bản này?",
+         text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+         type: "warning",
+         showCancelButton: true,
+         cancelButtonText: 'Không',
+         confirmButtonClass: "btn-danger",
+         confirmButtonText: "Có, xóa ngay!",
+         closeOnConfirm: false
+         },
+         function(isConfirm){
+             if (isConfirm) {
+                 $.ajax({
+                     url: '{{ route('postXoaVanBan') }}',
+                     method: 'POST',
+                     data: {
+                         id: vanban_id
+                     },
+                     success: function(data) {
+                         console.log(data);
+                         if(data.status == true){
+                             swal({
+                                 "title":"Đã xóa!",
+                                 "text":"Bạn đã xóa thành công Văn Bản!",
+                                 "type":"success"
+                             }, function() {
+                                     localStorage.setItem('activeTab', '#tab_vanban');
+                                     location.reload();
+                                 }
+                             );
+                         }
+                     }
+                 });
+             }
+     });
+
+ });
+ // END Xử lý khi click nút xóa vanban
+
+ // ==================================================================//
 
 
          // Ajax thêm Chấm Bài

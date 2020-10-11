@@ -20,8 +20,9 @@ use App\LuanVan;
 use App\LuanAn;
 use App\Ncs;
 use App\Lop;
-use App\HocPhan;
 use App\Hop;
+use App\HocPhan;
+use App\VanBan;
 class KhacController extends Controller
 {
     //
@@ -44,6 +45,7 @@ class KhacController extends Controller
             'lop' => Lop::all(),
             'hocphan' => HocPhan::all(),
             'hop' => Hop::all(),
+            'vanban' => VanBan::all(),
         ]);
     }
 

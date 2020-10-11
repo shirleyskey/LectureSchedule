@@ -164,6 +164,11 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postSuaCongTac', ['uses'=>'CongTacController@postSuaCongTac','as'=>'postSuaCongTac']);
     Route::post('/postXoaCongTac', ['uses'=>'CongTacController@postXoaCongTac','as'=>'postXoaCongTac']);
 
+    Route::post('/postThemVanBan', ['uses'=>'VanBanController@postThemVanBan','as'=>'postThemVanBan']);
+    Route::post('/postTimVanBanTheoId', ['uses'=>'VanBanController@postTimVanBanTheoId','as'=>'postTimVanBanTheoId']);
+    Route::post('/postSuaVanBan', ['uses'=>'VanBanController@postSuaVanBan','as'=>'postSuaVanBan']);
+    Route::post('/postXoaVanBan', ['uses'=>'VanBanController@postXoaVanBan','as'=>'postXoaVanBan']);
+
     Route::post('/postThemChamBai', ['uses'=>'ChamBaiController@postThemChamBai','as'=>'postThemChamBai']);
     Route::post('/postTimChamBaiTheoId', ['uses'=>'ChamBaiController@postTimChamBaiTheoId','as'=>'postTimChamBaiTheoId']);
     Route::post('/postSuaChamBai', ['uses'=>'ChamBaiController@postSuaChamBai','as'=>'postSuaChamBai']);

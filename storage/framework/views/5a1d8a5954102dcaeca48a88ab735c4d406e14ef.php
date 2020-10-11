@@ -64,6 +64,9 @@
                             <a href="#tab3" data-toggle="tab">Đi Thực Tế</a>
                         </li>
                         <li>
+                            <a href="#tab_vanban" data-toggle="tab">Xử Lý Văn Bản</a>
+                        </li>
+                        <li>
                             <a href="#tab4" data-toggle="tab">Chấm Bài</a>
                         </li>
                         <li>
@@ -326,6 +329,222 @@
 
          });
          // END Xử lý khi click nút xóa congtac
+
+         // ==================================================================//
+
+              // Ajax thêm Văn Bản Xử Lý
+    $("#btn_add_vanban").on('click', function(e){
+        console.log("Hihi");
+        e.preventDefault();
+        $("#btn_add_vanban").attr("disabled", "disabled");
+        $("#btn_add_vanban").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+        $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+        $.ajax({
+
+            url: '<?php echo e(route('postThemVanBan')); ?>',
+            method: 'POST',
+            data: {
+                id_giangvien: $("#form_add_vanban input[name='id_giangvien']").val(),
+                noi_dung: $("#form_add_vanban input[name='noi_dung']").val(),
+                lanhdao: $("#form_add_vanban input[name='lanhdao']").val(),
+                thoigian_nhan: $("#form_add_vanban input[name='thoigian_nhan']").val(),
+                thoigian_den: $("#form_add_vanban input[name='thoigian_den']").val(),
+                ghichu: $("#form_add_vanban input[name='ghichu']").val(),
+            },
+            success: function(data) {
+                console.log("Hihi");
+                $("#btn_add_vanban").removeAttr("disabled");
+                $("#btn_add_vanban").html('<i class="fa fa-save"></i> Lưu');
+                if(data.status == false){
+                    var errors = "";
+                    $.each(data.data, function(key, value){
+                        $.each(value, function(key2, value2){
+                            errors += value2 +"<br>";
+                        });
+                    });
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "positionClass": "toast-top-center",
+                        "onclick": null,
+                        "showDuration": "1000",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    toastr["error"](errors, "Lỗi")
+                }
+                if(data.status == true){
+                    $('#modal_add_vanban').modal('hide');
+                    swal({
+                        "title":"Đã tạo!",
+                        "text":"Bạn đã tạo thành công Văn Bản Xử Lý!",
+                        "type":"success"
+                    }, function() {
+                            localStorage.setItem('activeTab', '#tab_vanban');
+                            location.reload();
+                        }
+                    );
+                }
+            }
+        });
+    });
+    // END Ajax thêm vanban
+    //AJAX Tìm vanban Theo ID
+         $(".btn_edit_vanban").on("click", function(e){
+             console.log("Fuck");
+             e.preventDefault();
+             var vanban_id = $(this).data("vanban-id");
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             $.ajax({
+                 url: '<?php echo e(route('postTimVanBanTheoId')); ?>',
+                 method: 'POST',
+                 data: {
+                     id: vanban_id
+                 },
+                 success: function(data) {
+                     if(data.status == true){
+                         // console.log(data.data);
+                         $("#form_edit_vanban input[name='id_giangvien']").val(data.data.id_giangvien);
+                         $("#form_edit_vanban input[name='id']").val(data.data.id);
+                         $("#form_edit_vanban input[name='noi_dung']").val(data.data.noi_dung);
+                         $("#form_edit_vanban input[name='lanhdao']").val(data.data.lanhdao);
+                         $("#form_edit_vanban input[name='thoigian_nhan']").val(data.data.thoigian_nhan);
+                         $("#form_edit_vanban input[name='thoigian_den']").val(data.data.thoigian_den);
+                         $("#form_edit_vanban input[name='ghichu']").val(data.data.ghichu);
+                         $('#modal_edit_vanban').modal('show');
+                     };
+                 }
+             });
+         });
+         // END Khi click vào nút sửa vanban, tìm vanban theo id và đỗ dữ liệu vào form
+
+
+         // Ajax sửa vanban
+         $("#btn_edit_vanban").on('click', function(e){
+             e.preventDefault();
+             $("#btn_edit_vanban").attr("disabled", "disabled");
+             $("#btn_edit_vanban").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             $.ajax({
+                 url: '<?php echo e(route('postSuaVanBan')); ?>',
+                 method: 'POST',
+                 data: {
+                     id: $("#form_edit_vanban input[name='id']").val(),
+                     id_giangvien: $("#form_edit_vanban input[name='id_giangvien']").val(),
+                     noi_dung: $("#form_edit_vanban input[name='noi_dung']").val(),
+                     lanhdao: $("#form_edit_vanban input[name='lanhdao']").val(),
+                     thoigian_den: $("#form_edit_vanban input[name='thoigian_den']").val(),
+                     thoigian_nhan: $("#form_edit_vanban input[name='thoigian_nhan']").val(),
+                     ghichu: $("#form_edit_vanban input[name='ghichu']").val(),
+                 },
+                 success: function(data) {
+                     $("#btn_edit_vanban").removeAttr("disabled");
+                     $("#btn_edit_vanban").html('<i class="fa fa-save"></i> Lưu');
+                     if(data.status == false){
+                         var errors = "";
+                         $.each(data.data, function(key, value){
+                             $.each(value, function(key2, value2){
+                                 errors += value2 +"<br>";
+                             });
+                         });
+                         toastr.options = {
+                             "closeButton": true,
+                             "debug": false,
+                             "positionClass": "toast-top-center",
+                             "onclick": null,
+                             "showDuration": "1000",
+                             "hideDuration": "1000",
+                             "timeOut": "5000",
+                             "extendedTimeOut": "1000",
+                             "showEasing": "swing",
+                             "hideEasing": "linear",
+                             "showMethod": "fadeIn",
+                             "hideMethod": "fadeOut"
+                         }
+                         toastr["error"](errors, "Lỗi")
+                     };
+                     if(data.status == true){
+                         $('#modal_edit_vanban').modal('hide');
+                         swal({
+                             "title":"Đã sửa!",
+                             "text":"Bạn đã sửa thành công Văn Bản Xử Lý!",
+                             "type":"success"
+                         }, function() {
+                                 localStorage.setItem('activeTab', '#tab_vanban');
+                                 location.reload();
+                             }
+                         );
+                     };
+                 }
+             });
+
+         });
+         // END Ajax sửa vanban
+
+         // Xử lý khi click nút xóa vanban
+         $(".btn_delete_vanban").on("click", function(e){
+             e.preventDefault();
+             var vanban_id = $(this).data("vanban-id");
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             swal({
+                 title: "Xóa Văn Bản này?",
+                 text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                 type: "warning",
+                 showCancelButton: true,
+                 cancelButtonText: 'Không',
+                 confirmButtonClass: "btn-danger",
+                 confirmButtonText: "Có, xóa ngay!",
+                 closeOnConfirm: false
+                 },
+                 function(isConfirm){
+                     if (isConfirm) {
+                         $.ajax({
+                             url: '<?php echo e(route('postXoaVanBan')); ?>',
+                             method: 'POST',
+                             data: {
+                                 id: vanban_id
+                             },
+                             success: function(data) {
+                                 console.log(data);
+                                 if(data.status == true){
+                                     swal({
+                                         "title":"Đã xóa!",
+                                         "text":"Bạn đã xóa thành công Văn Bản!",
+                                         "type":"success"
+                                     }, function() {
+                                             localStorage.setItem('activeTab', '#tab_vanban');
+                                             location.reload();
+                                         }
+                                     );
+                                 }
+                             }
+                         });
+                     }
+             });
+
+         });
+         // END Xử lý khi click nút xóa vanban
 
          // ==================================================================//
 

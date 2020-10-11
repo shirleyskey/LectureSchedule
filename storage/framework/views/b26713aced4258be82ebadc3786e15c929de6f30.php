@@ -216,6 +216,67 @@
         </div>
         <!-- END TAB 3-->
 
+        <!-- BEGIN XỬ LÝ VĂN BẢN-->
+        <div class="tab-pane" id="tab_vanban">
+            <?php if($vanban->isNotEmpty()): ?>
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Văn Bản Xử Lý Mới
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_vanban">
+                            <thead>
+                                <tr>
+                                <th> STT</th>
+                                    <th> Nội Dung</th>
+                                    <th> Lãnh Đạo Xử Lý</th>
+                                    <th> Thời Gian Nhận</th>
+                                    <th> Hạn</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if( $vanban->count() > 0 ): ?>
+                                    <?php $stt = 1; ?>
+                                    <?php $__currentLoopData = $vanban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <tr>
+                                        <td> <?php echo e($stt); ?> </td>
+                                        <td> <?php echo e($v->noi_dung); ?> </td>
+                                        <td> <?php echo e($v->lanhdao); ?> </td>
+                                        <td> <?php echo e($v->thoigian_nhan); ?> </td>
+                                        <td> <?php echo e($v->thoigian_den); ?> </td>
+                                        <td> <?php echo e($v->ghichu); ?> </td>
+                                        <td>
+                                            <a data-vanban-id="<?php echo e($v->id); ?>" class="btn_edit_vanban btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_vanban btn btn-xs red-mint" href="#" data-vanban-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        </td>
+                                    </tr>
+                                    <?php $stt++; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            <?php else: ?>
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không có văn bản nào xư lý <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Van Bản Xử Lý</a></p>
+                </div>
+            <?php endif; ?>
+        </div>
+        <!-- END XỬ LÝ VĂN BẢN-->
+
          <!-- BEGIN TAB 4-->
          <div class="tab-pane" id="tab4">
             <?php if($chambai->isNotEmpty()): ?>
@@ -746,4 +807,6 @@
 <?php echo $__env->make('hdkh.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('xaydung.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('xaydung.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('vanban.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('vanban.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH /opt/lampp/htdocs/lectureSchedule/resources/views/giangvien/edit/form.blade.php ENDPATH**/ ?>

@@ -62,6 +62,9 @@
                             <a href="#tab_hop" data-toggle="tab">Họp</a>
                         </li>
                         <li>
+                            <a href="#tab_vanban" data-toggle="tab">Văn Bản</a>
+                        </li>
+                        <li>
                             <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
                         </li>
                         <li>
@@ -746,6 +749,51 @@
                                 @endif
                             </div>
                             <!-- END BEGIN TAB 3-->
+
+                              <!-- BEGIN XỬ LÝ VĂN BẢN 3-->
+                              <div class="tab-pane" id="tab_vanban">
+                                @if($vanban->isNotEmpty())
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_ct">
+                                            <thead>
+                                                <tr>
+                                                    <th> STT</th>
+                                                    <th> Nội Dung</th>
+                                                    <th> Lãnh Đạo Xử Lý</th>
+                                                    <th> Thời Gian Nhận</th>
+                                                    <th> Hạn</th>
+                                                    <th> Ghi Chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if( $vanban->count() > 0 )
+                                                    @php $stt = 1; @endphp
+                                                    @foreach( $vanban as $v_vanban )
+                                                    <tr>
+                                                        <td> {{ $stt }} </td>
+                                                        <td> {{ $v_vanban->noi_dung }} </td>
+                                                        <td> {{ $v_vanban->lanhdao }} </td>
+                                                        <td> {{ $v_vanban->thoigian_nhan }} </td>
+                                                        <td> {{ $v_vanban->thoigian_den }} </td>
+                                                        <td> {{ $v_vanban->ghichu }} </td>
+                                                    </tr>
+                                                    @php $stt++; @endphp
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                                @else
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Không có Văn Bản  nào!</p>
+                                    </div>
+                                @endif
+                            </div>
+                            <!-- END XỬ LÝ VĂN BẢN-->
 
                             <!-- BEGIN TAB 4-->
                             <div class="tab-pane" id="tab4">

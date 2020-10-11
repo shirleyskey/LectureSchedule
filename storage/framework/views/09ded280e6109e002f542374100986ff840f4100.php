@@ -60,6 +60,9 @@
                             <a href="#tab_hop" data-toggle="tab">Họp</a>
                         </li>
                         <li>
+                            <a href="#tab_vanban" data-toggle="tab">Văn Bản</a>
+                        </li>
+                        <li>
                             <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
                         </li>
                         <li>
@@ -747,6 +750,51 @@
                                 <?php endif; ?>
                             </div>
                             <!-- END BEGIN TAB 3-->
+
+                              <!-- BEGIN XỬ LÝ VĂN BẢN 3-->
+                              <div class="tab-pane" id="tab_vanban">
+                                <?php if($vanban->isNotEmpty()): ?>
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_ct">
+                                            <thead>
+                                                <tr>
+                                                    <th> STT</th>
+                                                    <th> Nội Dung</th>
+                                                    <th> Lãnh Đạo Xử Lý</th>
+                                                    <th> Thời Gian Nhận</th>
+                                                    <th> Hạn</th>
+                                                    <th> Ghi Chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php if( $vanban->count() > 0 ): ?>
+                                                    <?php $stt = 1; ?>
+                                                    <?php $__currentLoopData = $vanban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_vanban): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <tr>
+                                                        <td> <?php echo e($stt); ?> </td>
+                                                        <td> <?php echo e($v_vanban->noi_dung); ?> </td>
+                                                        <td> <?php echo e($v_vanban->lanhdao); ?> </td>
+                                                        <td> <?php echo e($v_vanban->thoigian_nhan); ?> </td>
+                                                        <td> <?php echo e($v_vanban->thoigian_den); ?> </td>
+                                                        <td> <?php echo e($v_vanban->ghichu); ?> </td>
+                                                    </tr>
+                                                    <?php $stt++; ?>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                                <?php else: ?>
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Không có Văn Bản  nào!</p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                            <!-- END XỬ LÝ VĂN BẢN-->
 
                             <!-- BEGIN TAB 4-->
                             <div class="tab-pane" id="tab4">

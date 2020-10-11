@@ -23,6 +23,7 @@ use App\HocPhan;
 use App\Hop;
 use App\Lop;
 use App\Hdkh;
+use App\VanBan;
 use App\Exports\GiangViensExport;
 use App\Imports\GiangViensImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -116,6 +117,7 @@ class GiangVienController extends Controller
             'ncs' => $ncs,
             'sangkien' => SangKien::where('id_giangvien', $id)->get(),
             'xaydung' => XayDung::where('id_giangvien', $id)->get(),
+            'vanban' => VanBan::where('id_giangvien', $id)->get(),
             'hdkh' => Hdkh::where('id_giangvien', $id)->get(),
             'hocphan' => HocPhan::all(),
         ]);
@@ -169,6 +171,7 @@ class GiangVienController extends Controller
             'xaydung' => XayDung::where('id_giangvien', $id)->get(),
             'hdkh' => Hdkh::where('id_giangvien', $id)->get(),
             'hop' => Hop::where('id_giangvien', $id)->get(),
+            'vanban' => VanBan::where('id_giangvien', $id)->get(),
             'lop' => Lop::all(),
             'hocphan' => HocPhan::all(),
         ]);
