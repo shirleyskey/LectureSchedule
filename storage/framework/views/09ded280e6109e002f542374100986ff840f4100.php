@@ -57,7 +57,13 @@
                             <a href="#tab2" data-toggle="tab">NCKH</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab">Công Tác</a>
+                            <a href="#tab_hop" data-toggle="tab">Họp</a>
+                        </li>
+                        <li>
+                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab"> ĐI Thực Tế</a>
                         </li>
                         <li>
                             <a href="#tab4" data-toggle="tab">Chấm Bài</a>
@@ -709,10 +715,10 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên Công Tác</th>
-                                                    <th> Tiến Độ</th>
-                                                    <th> Thời Gian</th>
+                                                    <th>Địa Bàn</th>
                                                     <th> Số Giờ</th>
+                                                    <th> Thời Gian</th>
+                                                    <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -722,9 +728,9 @@
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e($v_congtac->ten); ?> </td>
-                                                        <td> <?php echo e($v_congtac->tiendo); ?> </td>
+                                                        <td> <?php echo e($v_congtac->so_gio); ?> </td>
                                                         <td> <?php echo e($v_congtac->thoigian); ?> </td>
-                                                        <td> </td>
+                                                        <td> <?php echo e($v_congtac->ghichu); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -752,9 +758,12 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên Chấm Bài</th>
+                                                    <th> Tên Lớp</th>
+                                                    <th> Tên Học Phần</th>
                                                     <th> Thời Gian</th>
+                                                    <th> Số Bài</th>
                                                     <th> Số Giờ</th>
+                                                    <th>Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -763,9 +772,12 @@
                                                     <?php $__currentLoopData = $chambai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_chambai): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
-                                                        <td> <?php echo e($v_chambai->ten); ?> </td>
+                                                        <td> <?php echo e(($v_chambai->id_lop) ? ($v_chambai->lops->tenlop) : ''); ?> </td>
+                                                        <td> <?php echo e(($v_chambai->id_hocphan) ? ($v_chambai->hocphans->mahocphan) : ''); ?> </td>
                                                         <td> <?php echo e($v_chambai->thoigian); ?> </td>
-                                                        <td> </td>
+                                                        <td> <?php echo e($v_chambai->so_bai); ?> </td>
+                                                        <td> <?php echo e($v_chambai->so_gio); ?> </td>
+                                                        <td> <?php echo e($v_chambai->ghichu); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -836,14 +848,11 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên </th>
-                                                    <th> Tên Giảng Viên</th>
-                                                    <th> Thành Viên</th>
+                                                    <th> Bài Dạy Giỏi</th>
                                                     <th> Cấp</th>
-                                                    <th> Đạt Bài Dạy Giỏi</th>
                                                     <th> Thời Gian</th>
-                                                    <th> Ghi Chú</th>
                                                     <th> Số Giờ</th>
+                                                    <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -853,22 +862,6 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v->ten); ?> </td>
-                                                    <td>
-                                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
-                                                        <?php echo e($v->giangviens->ten); ?>
-
-                                                        <?php endif; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php
-                                                            $thanhvien = json_decode( $v->thanhvien, true);
-                                                        ?>
-                                                            <?php $__currentLoopData = $thanhvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
-                                                            <?php endif; ?>
-                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                    </td>
                                                     <td>
                                                         <?php
                                                             if($v->cap == 1){
@@ -882,39 +875,10 @@
                                                             }
                                                         ?>
                                                     </td>
-                                                    <td> <?php echo e(($v->dat == 1) ? 'Đạt' : 'Không Đạt'); ?> </td>
                                                     <td> <?php echo e($v->thoigian); ?> </td>
+                                                    <td> <?php echo e($v->so_gio); ?> </td>
                                                     <td> <?php echo e($v->ghichu); ?> </td>
-                                                    <td>
-                                                        <?php
-                                                         $thanhvien = json_decode( $v->thanhvien, true);
-                                                         $daygioi_gio = 0;
-                                                        if(in_array($giangvien->id, $thanhvien)){
-                                                            if($v->cap == 1){
-                                                                $daygioi_gio += 1;
-                                                            }
-                                                            if($v->cap == 2){
-                                                                $daygioi_gio += 2;
-                                                            }
-                                                            if($v->cap == 3){
-                                                                $daygioi_gio += 3;
-                                                            }
-                                                                };
-                                                            if($v->dat == 1){
-                                                                if($v->cap == 1){
-                                                                $daygioi_gio += 4;
-                                                            }
-                                                            if($v->cap == 2){
-                                                                $daygioi_gio += 6;
-                                                            }
-                                                            if($v->cap == 3){
-                                                                $daygioi_gio += 8;
-                                                            } };
-
-
-                                                        ?>
-                                                    <?php echo e($daygioi_gio); ?> giờ
-                                                    </td>
+                                                    
                                                     
                                                 </tr>
                                                 <?php $stt++; ?>
@@ -1015,6 +979,50 @@
                         </div>
                         <!-- END BEGIN TAB 8-->
 
+                          <!-- BEGIN TAB HỌP-->
+                          <div class="tab-pane" id="tab_hop">
+                            <?php if($hop->isNotEmpty()): ?>
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light portlet-fit bordered">
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                        <thead>
+                                            <tr>
+                                                <th> STT</th>
+                                                <th> Nội Dung Cuộc Họp</th>
+                                                <th> Thời Gian</th>
+                                                <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php if( $hop->count() > 0 ): ?>
+                                                <?php $stt = 1; ?>
+                                                <?php $__currentLoopData = $hop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td> <?php echo e($stt); ?> </td>
+                                                    <td> <?php echo e($v_hop->ten); ?> </td>
+                                                    <td> <?php echo e($v_hop->thoigian); ?> </td>
+                                                    <td> <?php echo e($v_hop->so_gio); ?> </td>
+                                                    <td> <?php echo e($v_hop->ghichu); ?> </td>
+                                                    
+                                                </tr>
+                                                <?php $stt++; ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                            <?php else: ?>
+                                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                    <p> Không có Cuộc Họp nào!</p>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <!-- END BEGIN TAB 8-->
+
                          <!-- BEGIN TAB 9-->
                          <div class="tab-pane" id="tab9">
                             <?php if($sangkien->isNotEmpty()): ?>
@@ -1066,9 +1074,12 @@
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th> Tên </th>
-                                                <th> Thời Gian</th>
+                                                <th> Tên Lớp</th>
+                                                <th> Loại Hình</th>
                                                 <th> Số Giờ</th>
+                                                <th> Bắt Đầu</th>
+                                                <th> Kết Thúc</th>
+                                                <th> Ghi Chú</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1078,8 +1089,11 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v_hoctap->ten); ?> </td>
-                                                    <td>  </td>
-                                                    <td> </td>
+                                                    <td> <?php echo e($v_hoctap->loai_hinh); ?> </td>
+                                                    <td> <?php echo e($v_hoctap->so_gio); ?> </td>
+                                                    <td> <?php echo e($v_hoctap->thoigian); ?> </td>
+                                                    <td> <?php echo e($v_hoctap->thoigian_den); ?> </td>
+                                                    <td> <?php echo e($v_hoctap->ghichu); ?> </td>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -1096,6 +1110,65 @@
                             <?php endif; ?>
                         </div>
                         <!-- END BEGIN TAB 10-->
+
+                         <!-- BEGIN TAB Hướng Dẫn Khoa Học-->
+                         <div class="tab-pane" id="tab_hdkh">
+                            <?php if($hdkh->isNotEmpty()): ?>
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light portlet-fit bordered">
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                        <thead>
+                                            <tr>
+                                                <th> STT</th>
+                                                <th> Loại Hướng Dẫn</th>
+                                                <th> Học Viên</th>
+                                                <th> Khóa</th>
+                                                <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php if( $hdkh->count() > 0 ): ?>
+                                                <?php $stt = 1; ?>
+                                                <?php $__currentLoopData = $hdkh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hdkh): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td> <?php echo e($stt); ?> </td>
+
+                                                    <td> 
+                                                    <?php 
+                                                         if($v_hdkh->khoa_luan == 1) {
+                                                             echo "Khóa Luận";
+                                                         } 
+                                                         else if($v_hdkh->luan_van == 1) {
+                                                             echo "Luận Văn";
+                                                         }  
+                                                         else if($v_hdkh->luan_an == 1) {
+                                                             echo "Luận Án";
+                                                         }   
+                                                    ?>
+                                                     </td>
+
+                                                    <td> <?php echo e($v_hdkh->hoc_vien); ?> </td>
+                                                    <td> <?php echo e($v_hdkh->khoa); ?> </td>
+                                                    <td> <?php echo e($v_hdkh->so_gio); ?> </td>
+                                                    <td> <?php echo e($v_hdkh->ghichu); ?> </td>
+                                                </tr>
+                                                <?php $stt++; ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                            <?php else: ?>
+                                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                    <p> Không tham gia Hướng Dẫn Khoa Học!</p>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <!-- END HƯỚNG DẪN KHOA HỌC-->
 
                          <!-- BEGIN TAB 11-->
                          <div class="tab-pane" id="tab11">

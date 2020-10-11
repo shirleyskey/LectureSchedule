@@ -8,24 +8,28 @@
                 <input value="" name="id" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Công Tác</h4>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Đi Thực Tế</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Công Tác:<span class="required">*</span></label>
+                                    <label>Tên Địa Bàn:<span class="required">*</span></label>
                                     <input value="" name="ten" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tiến Độ:<span class="required">*</span></label>
-                                    <input value="" name="tiendo" type="number" class="form-control" required>
+                                    <label>Số Giờ:<span class="required">*</span></label>
+                                    <input value="" name="so_gio" type="number" class="form-control" required>
                                 </div>
                                
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input value="" name="ghichu" type="text" class="form-control" required>
                                 </div>
                                 
                             </div>

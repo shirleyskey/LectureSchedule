@@ -16,10 +16,7 @@
                                     <label>Tên Dạy Giỏi: <span class="required">*</span></label>
                                     <input  name="ten" type="text" class="form-control" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Cấp:</label>
                                         <div class="input-icon right">
@@ -32,16 +29,18 @@
                                             </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label><b>Đạt Bài Dạy Giỏi:</b></label>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="dat" name="dat">
-                                        <label class="form-check-label" for="dat">Đạt:</label>
-                                    </div>
-                                </div>
+                               
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Giờ:<span class="required">*</span></label>
+                                    <input name="so_gio" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
                                 </div>
 
                             </div>

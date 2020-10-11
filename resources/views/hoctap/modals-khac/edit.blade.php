@@ -13,10 +13,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tên Xây Dựng:<span class="required">*</span></label>
-                                    <input value="" name="ten" type="text" class="form-control" required>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
@@ -29,14 +26,31 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input value="" name="ghichu" type="text" class="form-control" required>
+                                    <label>Tên Lớp: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
                                 </div>
+                                <div class="form-group">
+                                    <label>Loại Hình: <span class="required">*</span></label>
+                                    <input  name="loai_hinh" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Giờ: <span class="required">*</span></label>
+                                    <input  name="so_gio" type="number" class="form-control" required>
+                                </div>
+                                
                                
                                 <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
+                                <div class="form-group">
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
                                 
                             </div>
                             <div class="col-md-6">

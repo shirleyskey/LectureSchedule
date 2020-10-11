@@ -135,7 +135,7 @@ Route::prefix('lichgiang')->middleware(['auth', 'only_active_user'])->group(func
     Route::get('/phancong', ['uses'=>'LichGiangController@phancong','as'=>'lichgiang.phancong']);
     Route::get('/lichgiangtuan', ['uses'=>'CalendarController@index','as'=>'lichgiang.lichgiangtuan']);
     Route::post('/lichgiangtuan/import', ['uses'=>'CalendarController@import','as'=>'lichgiang.lichgiangtuan.import']);
-    Route::get('/lichgiangtuan/edit/{id}', ['uses'=>'EventController@edit','as'=>'lichgiang.lichgiangtuan.get']);
+    Route::get('/lichgiangtuan/edit/{id}', ['uses'=>'TietController@edit','as'=>'lichgiang.lichgiangtuan.get']);
     Route::post('/lichgiangtuan/edit/{id}', ['uses'=>'EventController@update','as'=>'lichgiang.lichgiangtuan.post']);
 });
 
@@ -167,7 +167,7 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postThemChamBai', ['uses'=>'ChamBaiController@postThemChamBai','as'=>'postThemChamBai']);
     Route::post('/postTimChamBaiTheoId', ['uses'=>'ChamBaiController@postTimChamBaiTheoId','as'=>'postTimChamBaiTheoId']);
     Route::post('/postSuaChamBai', ['uses'=>'ChamBaiController@postSuaChamBai','as'=>'postSuaChamBai']);
-    Route::post('/postXoaChamBai', ['uses'=>'ChambaiController@postXoaChamBai','as'=>'postXoaChamBai']);
+    Route::post('/postXoaChamBai', ['uses'=>'ChamBaiController@postXoaChamBai','as'=>'postXoaChamBai']);
 
     Route::post('/postThemDang', ['uses'=>'DangController@postThemDang','as'=>'postThemDang']);
     Route::post('/postTimDangTheoId', ['uses'=>'DangController@postTimDangTheoId','as'=>'postTimDangTheoId']);
@@ -188,6 +188,12 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postTimDotXuatTheoId', ['uses'=>'DotXuatController@postTimDotXuatTheoId','as'=>'postTimDotXuatTheoId']);
     Route::post('/postSuaDotXuat', ['uses'=>'DotXuatController@postSuaDotXuat','as'=>'postSuaDotXuat']);
     Route::post('/postXoaDotXuat', ['uses'=>'DotXuatController@postXoaDotXuat','as'=>'postXoaDotXuat']);
+
+    //Route Họp 
+    Route::post('/postThemHop', ['uses'=>'HopController@postThemHop','as'=>'postThemHop']);
+    Route::post('/postTimHopTheoId', ['uses'=>'HopController@postTimHopTheoId','as'=>'postTimHopTheoId']);
+    Route::post('/postSuaHop', ['uses'=>'HopController@postSuaHop','as'=>'postSuaHop']);
+    Route::post('/postXoaHop', ['uses'=>'HopController@postXoaHop','as'=>'postXoaHop']);
 
     Route::post('/postThemSangKien', ['uses'=>'SangKienController@postThemSangKien','as'=>'postThemSangKien']);
     Route::post('/postTimSangKienTheoId', ['uses'=>'SangKienController@postTimSangKienTheoId','as'=>'postTimSangKienTheoId']);
@@ -238,4 +244,10 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postTimNcsTheoId', ['uses'=>'NcsController@postTimNcsTheoId','as'=>'postTimNcsTheoId']);
     Route::post('/postSuaNcs', ['middleware' => ['permission:update-hocphan'], 'uses'=>'NcsController@postSuaNcs','as'=>'postSuaNcs']);
     Route::post('/postXoaNcs', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'NcsController@postXoaNcs','as'=>'postXoaNcs']);
+
+    //NCS
+    Route::post('/postThemHdkh', ['middleware' => ['permission:create-hocphan'], 'uses'=>'HdkhController@postThemHdkh','as'=>'postThemHdkh']);
+    Route::post('/postTimHdkhTheoId', ['uses'=>'HdkhController@postTimHdkhTheoId','as'=>'postTimHdkhTheoId']);
+    Route::post('/postSuaHdkh', ['middleware' => ['permission:update-hocphan'], 'uses'=>'HdkhController@postSuaHdkh','as'=>'postSuaHdkh']);
+    Route::post('/postXoaHdkh', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'HdkhController@postXoaHdkh','as'=>'postXoaHdkh']);
 });

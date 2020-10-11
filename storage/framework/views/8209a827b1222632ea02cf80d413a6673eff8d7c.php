@@ -41,12 +41,10 @@
 
         <script src="<?php echo e(asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')); ?>" type="text/javascript"></script>
         <script src="<?php echo e(asset('assets/global/plugins/moment.min.js')); ?>" type="text/javascript"></script>
-        
-        
-        <script src="<?php echo e(asset('assets/global/plugins/fullcalendar/lib/main.min.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(asset('assets/global/plugins/fullcalendar/lib/fullcalendar.js')); ?>" type="text/javascript"></script>
         <script src="<?php echo e(asset('assets/global/plugins/fullcalendar/lib/locales-all.js')); ?>" type="text/javascript"></script>
         <script src="<?php echo e(asset('assets/global/plugins/fullcalendar/lib/lang-all.js')); ?>" type="text/javascript"></script>
-        <link href="<?php echo e(asset('assets/global/plugins/fullcalendar/lib/main.min.css')); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo e(asset('assets/global/plugins/fullcalendar/lib/fullcalendar.css')); ?>" rel="stylesheet" type="text/css" />
           <!--END  STYLE FOR CALENDAR -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="<?php echo e(asset('assets/layouts/layout/css/layout.min.css')); ?>" rel="stylesheet" type="text/css" />
@@ -54,6 +52,19 @@
         <link href="<?php echo e(asset('assets/layouts/layout/css/custom.min.css')); ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo e(asset('assets/layouts/layout/css/custom-calendar.css')); ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+        <script>
+
+	$(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay,basicList'
+			}
+	});
+
+</script>
         <style>
             body{
                 font-family: "Open Sans",sans-serif;

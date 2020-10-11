@@ -46,11 +46,11 @@ class CalendarController extends Controller
                 //Tên Bài 
                 $tenbai = ($tiet->bais->tenbai) ? $tiet->bais->tenbai : "";
 
-                //Tên Giáo Viên 
-                // $giangvien = GiangVien::where('id', $tiet->id_giangvien)->first();
-                // $tengiangvien = $giangvien->ten;
+                // Tên Giáo Viên 
+                $giangvien = GiangVien::where('id', $tiet->id_giangvien)->first();
+                $tengiangvien = $giangvien["ten"];
 
-                $title = $tenlop. " - ".$tenbai;
+                $title = $tenlop. " - ".$tenbai.'-'.$tengiangvien;
                 $events[] = Calendar::event(
                     $title,
                     false,
@@ -70,7 +70,15 @@ class CalendarController extends Controller
         
 
 
-        $calendar = Calendar::addEvents($events)->setOptions(['lang' => 'vi']);
+        $calendar = Calendar::addEvents($events)->setOptions([
+            'lang' => 'vi',
+            'header' =>
+                    [
+                        'left' => 'prev,next today',
+                        'center' => 'title',
+                        'right' => 'month,basicWeek,basicDay,list',
+                    ],
+        ]);
         return view('calendar.calendar', ['calendar' => $calendar]);
     }
 

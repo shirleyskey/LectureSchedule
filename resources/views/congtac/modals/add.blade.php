@@ -6,25 +6,29 @@
                 <input value="{{ $giangvien->id }}" name="id_giangvien" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Công Tác</h4>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Đi Thực Tế</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Công Tác: <span class="required">*</span></label>
+                                    <label>Tên Địa Bàn: <span class="required">*</span></label>
                                     <input  name="ten" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tiến Độ:<span class="required">*</span></label>
-                                    <input name="tiendo" type="number" class="form-control" required>
+                                    <label>Số Giờ:<span class="required">*</span></label>
+                                    <input name="so_gio" type="number" class="form-control" required>
                                 </div> 
                                
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
                                
                             </div>
                             <div class="col-md-6">

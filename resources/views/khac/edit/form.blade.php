@@ -12,7 +12,7 @@
                                 <div class="col-md-6">
                                     @permission('create-giangvien')
                                     <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác Mới
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế Mới
 
                                         </a>
                                     </div>
@@ -24,11 +24,11 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên Công Tác</th>
+                                    <th> Tên Địa Bàn</th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Tiến Độ</th>
                                     <th> Thời Gian</th>
                                     <th> Số Giờ</th>
+                                    <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
@@ -45,9 +45,9 @@
                                             @endif
 
                                          </td>
-                                        <td> {{ $v->tiendo }} </td>
                                         <td> {{ $v->thoigian }} </td>
-                                        <td> </td>
+                                         <td> {{ $v->so_gio }} </td>
+                                         <td> {{ $v->ghichu }} </td>
                                         <td>
                                             @permission('create-giangvien')
                                             <a data-congtac-id="{{ $v->id }}" class="btn_edit_congtac btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -65,14 +65,86 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có Công Tác nào.
+                    <p> Không có Đi Thưc Tế nào.
                         @permission('create-giangvien')
-                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác</a></p>
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế</a></p>
                         @endpermission
                 </div>
             @endif
         </div>
         <!-- END TAB 3-->
+         <!-- BEGIN TAB Họp-->
+        <div class="tab-pane" id="tab_hop">
+            @if($hop->isNotEmpty())
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @permission('create-giangvien')
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp Mới
+
+                                        </a>
+                                    </div>
+                                    @endpermission
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_hop">
+                            <thead>
+                                <tr>
+                                    <th> STT</th>
+                                    <th> Tên Cuộc Họp</th>
+                                    <th> Tên Giảng Viên</th>
+                                    <th> Thời Gian</th>
+                                    <th> Số Giờ</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if( $hop->count() > 0 )
+                                    @php $stt = 1; @endphp
+                                    @foreach( $hop as $v )
+                                    <tr>
+                                        <td> {{ $stt }} </td>
+                                        <td> {{ $v->ten }} </td>
+                                        <td>
+                                            @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                            {{ $v->giangviens->ma_giangvien.'-'.$v->giangviens->ten }}
+                                            @endif
+
+                                         </td>
+                                        <td> {{ $v->thoigian }} </td>
+                                        <td> {{ $v->so_gio }} </td>
+                                        <td> {{ $v->ghichu }} </td>
+                                        <td>
+                                            @permission('create-giangvien')
+                                            <a data-hop-id="{{ $v->id }}" class="btn_edit_hop btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_hop btn btn-xs red-mint" href="#" data-hop-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            @endpermission
+                                        </td>
+                                    </tr>
+                                    @php $stt++; @endphp
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            @else
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không có Cuộc Họp  nào.
+                        @permission('create-giangvien')
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp</a></p>
+                        @endpermission
+                </div>
+            @endif
+        </div>
+        <!-- END TAB Họp-->
 
          <!-- BEGIN TAB 4-->
          <div class="tab-pane" id="tab4">
@@ -98,9 +170,12 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Thời Gian</th>
+                                    <th> Tên Lớp</th>
+                                    <th> Tên Học Phần </th>
+                                    <th> Số Bài</th>
                                     <th> Số Giờ</th>
-                                    <th> Ghi Chú</th>
+                                    <th> Thời Gian </th>
+                                    <th> Ghi Chú </th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
@@ -110,12 +185,17 @@
                                     @foreach( $chambai as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
+                                        <td>
                                         @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
                                         {{ $v->giangviens->ten }}
                                         @endif
+                                        </td>
+                                        <td> {{ ($v->id_lop) ? ($v->lops->tenlop) : '' }} </td>
+                                        <td> {{ ($v->id_hocphan) ? ($v->hocphans->mahocphan) : '' }} </td>
+                                        <td> {{ $v->so_bai }} </td>
+                                        <td> {{ $v->so_gio }} </td>
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
-                                        <td> </td>
                                         <td>
                                             @permission('create-giangvien')
                                             <a data-chambai-id="{{ $v->id }}" class="btn_edit_chambai btn btn-xs yellow-gold" href="#modal_edit_chambai" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -231,12 +311,11 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên </th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Thành Viên</th>
+                                    <th> Tên Bài </th>
                                     <th> Cấp</th>
-                                    <th> Đạt Bài Dạy Giỏi</th>
                                     <th> Thời Gian</th>
+                                    <th> Số Giờ</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -253,16 +332,7 @@
                                             {{ $v->giangviens->ten }}
                                             @endif
                                         </td>
-                                        <td>
-                                            @php
-                                                $thanhvien = json_decode( $v->thanhvien, true);
-                                            @endphp
-                                                @foreach($thanhvien as $key => $value)
-                                                @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
-                                                  @endif
-                                                @endforeach
-                                        </td>
+                                       
                                         <td> 
                                             @php
                                                 if($v->cap == 1){
@@ -276,8 +346,8 @@
                                                 }
                                             @endphp
                                         </td>
-                                        <td> {{($v->dat == 1) ? 'Đạt' : 'Không Đạt'}} </td>
                                         <td> {{ $v->thoigian }} </td>
+                                        <td> {{ $v->so_gio }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
                                             @permission('create-giangvien')
@@ -327,8 +397,11 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên </th>
+                                    <th> Tên Chương Trình</th>
                                     <th> Tên Giảng Viên</th>
+                                    <th> Học Phần</th>
+                                    <th> Khóa</th>
+                                    <th> Vai Trò</th>
                                     <th> Thời Gian</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
@@ -341,9 +414,14 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
+                                        <td> 
                                         @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
                                         {{ $v->giangviens->ten }}
                                         @endif
+                                        </td>
+                                        <td> {{ $v->hocphan }} </td>
+                                        <td> {{ $v->khoa }} </td>
+                                        <td> {{ $v->vai_tro }} </td>
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
@@ -529,9 +607,12 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên </th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Thời Gian</th>
+                                    <th> Tên Lớp </th>
+                                    <th> Loại Hình</th>
+                                    <th> Số Giờ</th>
+                                    <th> Bắt Đầu</th>
+                                    <th> Kết Thúc</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -542,11 +623,16 @@
                                     @foreach( $hoctap as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
-                                        <td> {{ $v->ten }} </td>
+                                       <td>
                                         @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
                                         {{ $v->giangviens->ten }}
                                         @endif
+                                        </td>
+                                        <td> {{ $v->ten }} </td>
+                                        <td> {{ $v->loai_hinh }} </td>
+                                        <td> {{ $v->so_gio }} </td>
                                         <td> {{ $v->thoigian }} </td>
+                                        <td> {{ $v->thoigian_den }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
                                             @permission('create-giangvien')

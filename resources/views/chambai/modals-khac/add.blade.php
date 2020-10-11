@@ -24,13 +24,44 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>Tên Lớp: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_lop">
+                                        <option name="lop_hientai">Chọn Lớp</option>
+                                            @if($lop->count()>0)
+                                                @foreach($lop as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->tenlop }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Học Phần: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_hocphan">
+                                        <option name="hocphan_hientai">Chọn Học Phần</option>
+                                            @if($hocphan->count()>0)
+                                                @foreach($hocphan as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->mahocphan }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Bài:<span class="required">*</span></label>
+                                    <input class="form-control" name="so_bai" type="number" placeholder="" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Quy Đổi:<span class="required">*</span></label>
+                                    <input class="form-control" name="so_gio" type="number" placeholder="" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
+                               
                                
                             </div>
                             <div class="col-md-6">

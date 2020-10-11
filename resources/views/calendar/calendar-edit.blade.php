@@ -115,13 +115,12 @@
                                                             <select class="form-control" name="id_giangvien">
                                                             <option selected value="{{($tiet->id_giangvien) ? ($tiet->id_giangvien) : null}}">{{($tiet->id_giangvien) ? $tiet->giangviens->ten : ''}}</option>
                                                                 @php
-                                                                    $id_gvchinh = $tiet->bais->gvchinh;
-                                                                    $id_gvphu = $tiet->bais->gvphu;
-                                                                    $gvchinh = App\GiangVien::where('id', $id_gvchinh)->first();
-                                                                    $gvphu = App\GiangVien::where('id', $id_gvphu)->first();
+                                                                    $gvs = App\GiangVien::all();
                                                                 @endphp
-                                                                    <option value="{{($gvchinh) ? ($gvchinh->id) : null}}">{{($gvchinh) ? $gvchinh->ten : ''}}</option>
-                                                                    <option value="{{($gvphu) ? ($gvphu->id) : null}}">{{($gvphu) ? $gvphu->ten : ''}}</option>
+                                                                @foreach($gvs as $gv ) 
+                                                                <option value="{{$gv->id}}">{{($gv) ? ($gv->ma_giangvien.' - '.$gv->ten) : ''}}</option>
+                                                                @endforeach 
+                                                                    
                                                             </select>
                                                         </div>
                                                     </div>

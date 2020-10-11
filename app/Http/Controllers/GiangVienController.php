@@ -20,6 +20,9 @@ use App\LuanVan;
 use App\LuanAn;
 use App\Ncs;
 use App\HocPhan;
+use App\Hop;
+use App\Lop;
+use App\Hdkh;
 use App\Exports\GiangViensExport;
 use App\Imports\GiangViensImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -94,15 +97,7 @@ class GiangVienController extends Controller
                 array_push($ncs, $ds_ncs);
             };
         };
-           //Lấy Danh Sách Dạy Giỏi
-           $ds_daygiois = DayGioi::all();
-           $daygioi = array();
-           foreach($ds_daygiois as $ds_daygioi){
-               $thanhvien = json_decode($ds_daygioi->thanhvien, true);
-               if((in_array($id, $thanhvien)) || ($id == $ds_daygioi->id_giangvien)){
-                   array_push($daygioi, $ds_daygioi);
-               };
-           };
+       
 
 
         return view('giangvien.read.index', [
@@ -112,14 +107,16 @@ class GiangVienController extends Controller
             'dang' => Dang::where('id_giangvien', $id)->get(),
             'dotxuat' => DotXuat::where('id_giangvien', $id)->get(),
             'hoctap' => HocTap::where('id_giangvien', $id)->get(),
+            'hop' => Hop::where('id_giangvien', $id)->get(),
+            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
             'nckh' => $nckh,
             'khoaluan' => $khoaluan,
             'luanvan' => $luanvan,
             'luanan' => $luanan,
             'ncs' => $ncs,
-            'daygioi' => $daygioi,
             'sangkien' => SangKien::where('id_giangvien', $id)->get(),
             'xaydung' => XayDung::where('id_giangvien', $id)->get(),
+            'hdkh' => Hdkh::where('id_giangvien', $id)->get(),
             'hocphan' => HocPhan::all(),
         ]);
     }
@@ -170,6 +167,10 @@ class GiangVienController extends Controller
             'hoctap' => HocTap::where('id_giangvien', $id)->get(),
             'sangkien' => SangKien::where('id_giangvien', $id)->get(),
             'xaydung' => XayDung::where('id_giangvien', $id)->get(),
+            'hdkh' => Hdkh::where('id_giangvien', $id)->get(),
+            'hop' => Hop::where('id_giangvien', $id)->get(),
+            'lop' => Lop::all(),
+            'hocphan' => HocPhan::all(),
         ]);
     }
 

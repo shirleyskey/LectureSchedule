@@ -10,7 +10,7 @@ class XayDung extends Model
     protected $table = 'xaydungs';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','ghichu', 'ten', 'thoigian'];
+    protected $fillable = ['id_giangvien','ten'];
 
     public function giangviens()
     {
@@ -26,6 +26,9 @@ class XayDung extends Model
         $xaydung->id_giangvien = $data['id_giangvien'];
         $xaydung->ten = $data['ten'];
         $xaydung->ghichu = $data['ghichu'];
+        $xaydung->hocphan = $data['hocphan'];
+        $xaydung->khoa = $data['khoa'];
+        $xaydung->vai_tro = $data['vai_tro'];
         $xaydung->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
         $xaydung->save();
         return $xaydung;

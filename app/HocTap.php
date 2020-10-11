@@ -11,7 +11,7 @@ class HocTap extends Model
     protected $table = 'hoctaps';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','ghichu', 'ten', 'thoigian'];
+    protected $fillable = ['id_giangvien','ten'];
 
     public function giangviens()
     {
@@ -27,7 +27,10 @@ class HocTap extends Model
         $hoctap->id_giangvien = $data['id_giangvien'];
         $hoctap->ten = $data['ten'];
         $hoctap->ghichu = $data['ghichu'];
+        $hoctap->so_gio = $data['so_gio'];
+        $hoctap->loai_hinh = $data['loai_hinh'];
         $hoctap->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
+        $hoctap->thoigian_den = Carbon::parse($data['thoigian_den'])->format('Y-m-d');
         $hoctap->save();
         return $hoctap;
     }

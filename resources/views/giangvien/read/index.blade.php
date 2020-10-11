@@ -59,7 +59,13 @@
                             <a href="#tab2" data-toggle="tab">NCKH</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab">Công Tác</a>
+                            <a href="#tab_hop" data-toggle="tab">Họp</a>
+                        </li>
+                        <li>
+                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab"> ĐI Thực Tế</a>
                         </li>
                         <li>
                             <a href="#tab4" data-toggle="tab">Chấm Bài</a>
@@ -708,10 +714,10 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên Công Tác</th>
-                                                    <th> Tiến Độ</th>
-                                                    <th> Thời Gian</th>
+                                                    <th>Địa Bàn</th>
                                                     <th> Số Giờ</th>
+                                                    <th> Thời Gian</th>
+                                                    <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -721,9 +727,9 @@
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> {{ $v_congtac->ten }} </td>
-                                                        <td> {{ $v_congtac->tiendo }} </td>
+                                                        <td> {{ $v_congtac->so_gio }} </td>
                                                         <td> {{ $v_congtac->thoigian }} </td>
-                                                        <td> </td>
+                                                        <td> {{ $v_congtac->ghichu }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
                                                     @endforeach
@@ -751,9 +757,12 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên Chấm Bài</th>
+                                                    <th> Tên Lớp</th>
+                                                    <th> Tên Học Phần</th>
                                                     <th> Thời Gian</th>
+                                                    <th> Số Bài</th>
                                                     <th> Số Giờ</th>
+                                                    <th>Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -762,9 +771,12 @@
                                                     @foreach( $chambai as $v_chambai )
                                                     <tr>
                                                         <td> {{ $stt }} </td>
-                                                        <td> {{ $v_chambai->ten }} </td>
+                                                        <td> {{ ($v_chambai->id_lop) ? ($v_chambai->lops->tenlop) : '' }} </td>
+                                                        <td> {{ ($v_chambai->id_hocphan) ? ($v_chambai->hocphans->mahocphan) : '' }} </td>
                                                         <td> {{ $v_chambai->thoigian }} </td>
-                                                        <td> </td>
+                                                        <td> {{ $v_chambai->so_bai }} </td>
+                                                        <td> {{ $v_chambai->so_gio }} </td>
+                                                        <td> {{ $v_chambai->ghichu }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
                                                     @endforeach
@@ -835,14 +847,11 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên </th>
-                                                    <th> Tên Giảng Viên</th>
-                                                    <th> Thành Viên</th>
+                                                    <th> Bài Dạy Giỏi</th>
                                                     <th> Cấp</th>
-                                                    <th> Đạt Bài Dạy Giỏi</th>
                                                     <th> Thời Gian</th>
-                                                    <th> Ghi Chú</th>
                                                     <th> Số Giờ</th>
+                                                    <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -852,21 +861,6 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v->ten }} </td>
-                                                    <td>
-                                                        @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
-                                                        {{ $v->giangviens->ten }}
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        @php
-                                                            $thanhvien = json_decode( $v->thanhvien, true);
-                                                        @endphp
-                                                            @foreach($thanhvien as $key => $value)
-                                                            @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
-                                                            @endif
-                                                            @endforeach
-                                                    </td>
                                                     <td>
                                                         @php
                                                             if($v->cap == 1){
@@ -880,39 +874,10 @@
                                                             }
                                                         @endphp
                                                     </td>
-                                                    <td> {{($v->dat == 1) ? 'Đạt' : 'Không Đạt'}} </td>
                                                     <td> {{ $v->thoigian }} </td>
+                                                    <td> {{ $v->so_gio }} </td>
                                                     <td> {{ $v->ghichu }} </td>
-                                                    <td>
-                                                        @php
-                                                         $thanhvien = json_decode( $v->thanhvien, true);
-                                                         $daygioi_gio = 0;
-                                                        if(in_array($giangvien->id, $thanhvien)){
-                                                            if($v->cap == 1){
-                                                                $daygioi_gio += 1;
-                                                            }
-                                                            if($v->cap == 2){
-                                                                $daygioi_gio += 2;
-                                                            }
-                                                            if($v->cap == 3){
-                                                                $daygioi_gio += 3;
-                                                            }
-                                                                };
-                                                            if($v->dat == 1){
-                                                                if($v->cap == 1){
-                                                                $daygioi_gio += 4;
-                                                            }
-                                                            if($v->cap == 2){
-                                                                $daygioi_gio += 6;
-                                                            }
-                                                            if($v->cap == 3){
-                                                                $daygioi_gio += 8;
-                                                            } };
-
-
-                                                        @endphp
-                                                    {{$daygioi_gio}} giờ
-                                                    </td>
+                                                    
                                                     {{-- <td>
                                                         @permission('create-giangvien')
                                                         <a data-daygioi-id="{{ $v->id }}" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -946,9 +911,12 @@
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th> Tên </th>
+                                                <th> Tên Chương Trình</th>
+                                                <th> Học Phần</th>
+                                                <th> Khóa</th>
+                                                <th> Vai Trò</th>
                                                 <th> Thời Gian</th>
-                                                <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -958,8 +926,12 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v_xaydung->ten }} </td>
-                                                    <td>  </td>
-                                                    <td> </td>
+                                                    <td> {{ $v_xaydung->hocphan }} </td>
+                                                    <td> {{ $v_xaydung->khoa }} </td>
+                                                    <td> {{ $v_xaydung->vai_tro }} </td>
+                                                    <td> {{ $v_xaydung->thoigian }} </td>
+                                                    <td> {{ $v_xaydung->ghichu }} </td>
+                                                  
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -1018,6 +990,50 @@
                         </div>
                         <!-- END BEGIN TAB 8-->
 
+                          <!-- BEGIN TAB HỌP-->
+                          <div class="tab-pane" id="tab_hop">
+                            @if($hop->isNotEmpty())
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light portlet-fit bordered">
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                        <thead>
+                                            <tr>
+                                                <th> STT</th>
+                                                <th> Nội Dung Cuộc Họp</th>
+                                                <th> Thời Gian</th>
+                                                <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if( $hop->count() > 0 )
+                                                @php $stt = 1; @endphp
+                                                @foreach( $hop as $v_hop )
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+                                                    <td> {{ $v_hop->ten }} </td>
+                                                    <td> {{ $v_hop->thoigian }} </td>
+                                                    <td> {{ $v_hop->so_gio }} </td>
+                                                    <td> {{ $v_hop->ghichu }} </td>
+                                                    
+                                                </tr>
+                                                @php $stt++; @endphp
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                            @else
+                                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                    <p> Không có Cuộc Họp nào!</p>
+                                </div>
+                            @endif
+                        </div>
+                        <!-- END BEGIN TAB 8-->
+
                          <!-- BEGIN TAB 9-->
                          <div class="tab-pane" id="tab9">
                             @if($sangkien->isNotEmpty())
@@ -1069,9 +1085,12 @@
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th> Tên </th>
-                                                <th> Thời Gian</th>
+                                                <th> Tên Lớp</th>
+                                                <th> Loại Hình</th>
                                                 <th> Số Giờ</th>
+                                                <th> Bắt Đầu</th>
+                                                <th> Kết Thúc</th>
+                                                <th> Ghi Chú</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1081,8 +1100,11 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v_hoctap->ten }} </td>
-                                                    <td>  </td>
-                                                    <td> </td>
+                                                    <td> {{ $v_hoctap->loai_hinh }} </td>
+                                                    <td> {{ $v_hoctap->so_gio }} </td>
+                                                    <td> {{ $v_hoctap->thoigian }} </td>
+                                                    <td> {{ $v_hoctap->thoigian_den }} </td>
+                                                    <td> {{ $v_hoctap->ghichu }} </td>
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -1099,6 +1121,65 @@
                             @endif
                         </div>
                         <!-- END BEGIN TAB 10-->
+
+                         <!-- BEGIN TAB Hướng Dẫn Khoa Học-->
+                         <div class="tab-pane" id="tab_hdkh">
+                            @if($hdkh->isNotEmpty())
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light portlet-fit bordered">
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                        <thead>
+                                            <tr>
+                                                <th> STT</th>
+                                                <th> Loại Hướng Dẫn</th>
+                                                <th> Học Viên</th>
+                                                <th> Khóa</th>
+                                                <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if( $hdkh->count() > 0 )
+                                                @php $stt = 1; @endphp
+                                                @foreach( $hdkh as $v_hdkh )
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+
+                                                    <td> 
+                                                    @php 
+                                                         if($v_hdkh->khoa_luan == 1) {
+                                                             echo "Khóa Luận";
+                                                         } 
+                                                         else if($v_hdkh->luan_van == 1) {
+                                                             echo "Luận Văn";
+                                                         }  
+                                                         else if($v_hdkh->luan_an == 1) {
+                                                             echo "Luận Án";
+                                                         }   
+                                                    @endphp
+                                                     </td>
+
+                                                    <td> {{ $v_hdkh->hoc_vien }} </td>
+                                                    <td> {{ $v_hdkh->khoa }} </td>
+                                                    <td> {{ $v_hdkh->so_gio }} </td>
+                                                    <td> {{ $v_hdkh->ghichu }} </td>
+                                                </tr>
+                                                @php $stt++; @endphp
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                            @else
+                                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                    <p> Không tham gia Hướng Dẫn Khoa Học!</p>
+                                </div>
+                            @endif
+                        </div>
+                        <!-- END HƯỚNG DẪN KHOA HỌC-->
 
                          <!-- BEGIN TAB 11-->
                          <div class="tab-pane" id="tab11">

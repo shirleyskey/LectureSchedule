@@ -26,9 +26,7 @@ a.fc-day-grid-event.fc-event.fc-start.fc-end {
 button.fc-agendaWeek-button.fc-button.fc-state-default{
    
 }
-button.fc-agendaDay-button.fc-button.fc-state-default.fc-corner-right{
-    display: none;
-}
+
 /* a.fc-time-grid-event.fc-event.fc-start.fc-end:hover {
     width: 30%;
     background-color: #00334e!important;

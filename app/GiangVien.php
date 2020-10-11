@@ -61,6 +61,11 @@ class GiangVien extends Model
         return $this->hasMany('App\Tiet', 'id_giangvien');
     }
 
+    public function hops()
+    {
+        return $this->hasMany('App\Hop', 'id_giangvien');
+    }
+
 
 
     public static function saveGiangVien($id, $data){

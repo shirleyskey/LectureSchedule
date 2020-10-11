@@ -94,7 +94,68 @@
             </div>
         </div>
         <!-- END TAB 1-->
+        <!-- BEGIN TAB 3-->
+        <div class="tab-pane" id="tab7">
+                    <?php if($xaydung->isNotEmpty()): ?>
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                        <div class="portlet light portlet-fit bordered">
+                            <div class="portlet-body">
+                                <div class="table-toolbar">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="btn-group">
+                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Xây Dựng Chương Trình Mới
 
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-striped table-hover table-bordered" id="table_ds_xaydung">
+                                    <thead>
+                                        <tr>
+                                            <th> STT</th>
+                                            <th> Tên Chương Trình</th>
+                                            <th> Học Phần</th>
+                                            <th> Khóa</th>
+                                            <th> Vai Trò</th>
+                                            <th> Thời Gian</th>
+                                            <th> Ghi Chú</th>
+                                            <th> Hành Động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if( $xaydung->count() > 0 ): ?>
+                                            <?php $stt = 1; ?>
+                                            <?php $__currentLoopData = $xaydung; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <tr>
+                                                <td> <?php echo e($stt); ?> </td>
+                                                <td> <?php echo e($v->ten); ?> </td>
+                                                <td> <?php echo e($v->hocphan); ?> </td>
+                                                <td> <?php echo e($v->khoa); ?> </td>
+                                                <td> <?php echo e($v->vai_tro); ?> </td>
+                                                <td> <?php echo e($v->thoigian); ?> </td>
+                                                <td> <?php echo e($v->ghichu); ?> </td>
+                                                <td>
+                                                    <a data-xaydung-id="<?php echo e($v->id); ?>" class="btn_edit_xaydung btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                    <a class="btn_delete_xaydung btn btn-xs red-mint" href="#" data-xaydung-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                </td>
+                                            </tr>
+                                            <?php $stt++; ?>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END EXAMPLE TABLE PORTLET-->
+                    <?php else: ?>
+                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                            <p> Giảng Viên này không có Xây Dựng Chương Trình nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Xây Dựng Chương Trình</a></p>
+                        </div>
+                    <?php endif; ?> 
+                </div>
+                <!-- END TAB 3-->
 
         <!-- BEGIN TAB 3-->
         <div class="tab-pane" id="tab3">
@@ -106,7 +167,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác Mới
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế  Mới
 
                                         </a>
                                     </div>
@@ -117,10 +178,10 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên Công Tác</th>
-                                    <th> Tiến Độ</th>
+                                    <th> Tên Địa Bàn</th>
                                     <th> Thời Gian</th>
                                     <th> Số Giờ</th>
+                                    <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
@@ -131,9 +192,9 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->tiendo); ?> </td>
                                         <td> <?php echo e($v->thoigian); ?> </td>
-                                        <td> </td>
+                                        <td> <?php echo e($v->so_gio); ?> </td>
+                                        <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
                                             <a data-congtac-id="<?php echo e($v->id); ?>" class="btn_edit_congtac btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_congtac btn btn-xs red-mint" href="#" data-congtac-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
@@ -176,7 +237,10 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
+                                    <th> Tên Lớp </th>
+                                    <th> Tên Học Phần</th>
                                     <th> Thời Gian</th>
+                                    <th> Số Bài</th>
                                     <th> Số Giờ</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
@@ -188,9 +252,12 @@
                                     <?php $__currentLoopData = $chambai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
+                                        <td> <?php echo e(($v->id_lop) ? ($v->lops->tenlop) : ''); ?> </td>
+                                        <td> <?php echo e(($v->id_hocphan) ? ($v->hocphans->mahocphan) : ''); ?> </td>
                                         <td> <?php echo e($v->thoigian); ?> </td>
+                                        <td> <?php echo e($v->so_bai); ?> </td>
+                                        <td> <?php echo e($v->so_gio); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
-                                        <td> </td>
                                         <td>
                                             <a data-chambai-id="<?php echo e($v->id); ?>" class="btn_edit_chambai btn btn-xs yellow-gold" href="#modal_edit_chambai" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_chambai btn btn-xs red-mint" href="#" data-chambai-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
@@ -288,26 +355,48 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên </th>
+                                    <th> Bài Dạy Giỏi </th>
+                                    <th> Cấp </th>
                                     <th> Thời Gian</th>
+                                    <th> Số Giờ </th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if( $daygioi->count() > 0 ): ?>
-                                    <?php $stt = 1; ?>
-                                    <?php $__currentLoopData = $daygioi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr>
-                                        <td> <?php echo e($stt); ?> </td>
-                                        <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->thoigian); ?> </td>
-                                        <td> <?php echo e($v->ghichu); ?> </td>
-                                        
-                                    </tr>
-                                    <?php $stt++; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
+                            <?php if( count($daygioi) > 0 ): ?>
+                                                <?php $stt = 1; ?>
+                                                <?php $__currentLoopData = $daygioi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td> <?php echo e($stt); ?> </td>
+                                                    <td> <?php echo e($v->ten); ?> </td>
+                                                    <td>
+                                                        <?php
+                                                            if($v->cap == 1){
+                                                                echo "Cấp Khoa";
+                                                            }
+                                                            if($v->cap == 2){
+                                                                echo "Cấp Học Viện";
+                                                            }
+                                                            if($v->cap == 3){
+                                                                echo "Cấp Bộ";
+                                                            }
+                                                        ?>
+                                                    </td>
+                                                    <td> <?php echo e($v->thoigian); ?> </td>
+                                                    <td> <?php echo e($v->so_gio); ?> </td>
+                                                    <td> <?php echo e($v->ghichu); ?> </td>
+                                                    
+                                                     <td>
+                                                        <?php if (app('laratrust')->can('create-giangvien')) : ?>
+                                                        <a data-daygioi-id="<?php echo e($v->id); ?>" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                        <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                        <?php endif; // app('laratrust')->can ?>
+                                                    </td> 
+                                                </tr>
+                                                <?php $stt++; ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
@@ -375,6 +464,64 @@
             <?php else: ?>
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
                     <p> Giảng Viên này không có Công Việc Đột Xuất nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dotxuat"><i class="fa fa-plus"></i> Tạo Đột Xuất</a></p>
+                </div>
+            <?php endif; ?>
+        </div>
+        <!-- END TAB 8-->
+         <!-- BEGIN TAB Họp-->
+         <div class="tab-pane" id="tab_hop">
+            <?php if($hop->isNotEmpty()): ?>
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp Mới
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                            <thead>
+                                <tr>
+                                    <th> STT</th>
+                                    <th> Tên </th>
+                                    <th> Thời Gian</th>
+                                    <th> Số Giờ</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if( $hop->count() > 0 ): ?>
+                                    <?php $stt = 1; ?>
+                                    <?php $__currentLoopData = $hop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <tr>
+                                        <td> <?php echo e($stt); ?> </td>
+                                        <td> <?php echo e($v->ten); ?> </td>
+                                        <td> <?php echo e($v->thoigian); ?> </td>
+                                        <td> <?php echo e($v->so_gio); ?> </td>
+                                        <td> <?php echo e($v->ghichu); ?> </td>
+                                        <td>
+                                            <a data-hop-id="<?php echo e($v->id); ?>" class="btn_edit_hop btn btn-xs yellow-gold" href="#modal_edit_hop" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_hop btn btn-xs red-mint" href="#" data-hop-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        </td>
+                                    </tr>
+                                    <?php $stt++; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            <?php else: ?>
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Giảng Viên này không có Cuộc Họp nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp</a></p>
                 </div>
             <?php endif; ?>
         </div>
@@ -456,8 +603,11 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên </th>
-                                    <th> Thời Gian</th>
+                                    <th> Tên Lớp </th>
+                                    <th> Loại Hình</th>
+                                    <th> Số Giờ</th>
+                                    <th> Bắt Đầu</th>
+                                    <th> Kết Thúc</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -469,7 +619,10 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
+                                        <td> <?php echo e($v->loai_hinh); ?> </td>
+                                        <td> <?php echo e($v->so_gio); ?> </td>
                                         <td> <?php echo e($v->thoigian); ?> </td>
+                                        <td> <?php echo e($v->thoigian_den); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
                                             <a data-hoctap-id="<?php echo e($v->id); ?>" class="btn_edit_hoctap btn btn-xs yellow-gold" href="#modal_edit_hoctap" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -486,22 +639,88 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             <?php else: ?>
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không tham gia Học Tập Nào nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Đột Xuất</a></p>
+                    <p> Giảng Viên này không tham gia Học Tập Nào nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Thêm Mới Học Tập</a></p>
+                </div>
+            <?php endif; ?>
+        </div>
+        <!-- END TAB 10-->
+
+          <!-- BEGIN TAB Hướng Dẫn Khoa Học-->
+          <div class="tab-pane" id="tab_hdkh">
+            <?php if($hdkh->isNotEmpty()): ?>
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Tạo Hướng Dẫn Khoa Học Mới
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                            <thead>
+                                <tr>
+                                    <th> STT</th>
+                                    <th> Loại Hướng Dẫn</th>
+                                    <th> Học Viên</th>
+                                    <th> Khóa</th>
+                                    <th> Số Giờ</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if( $hdkh->count() > 0 ): ?>
+                                    <?php $stt = 1; ?>
+                                    <?php $__currentLoopData = $hdkh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <tr>
+                                        <td> <?php echo e($stt); ?> </td>
+                                        <td> 
+                                        <?php 
+                                            if($v->khoa_luan == 1) {
+                                                echo "Khóa Luận";
+                                            } 
+                                            else if($v->luan_van == 1) {
+                                                echo "Luận Văn";
+                                            }  
+                                            else if($v->luan_an == 1) {
+                                                echo "Luận Án";
+                                            }   
+                                        ?>
+                                            </td>
+
+                                        <td> <?php echo e($v->hoc_vien); ?> </td>
+                                        <td> <?php echo e($v->khoa); ?> </td>
+                                        <td> <?php echo e($v->so_gio); ?> </td>
+                                        <td> <?php echo e($v->ghichu); ?> </td>
+                                        <td>
+                                            <a data-hdkh-id="<?php echo e($v->id); ?>" class="btn_edit_hdkh btn btn-xs yellow-gold" href="#modal_edit_hdkh" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_hdkh btn btn-xs red-mint" href="#" data-hdkh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        </td>
+                                    </tr>
+                                    <?php $stt++; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            <?php else: ?>
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Giảng Viên này không tham gia Hướng Dẫn Khoa Học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Thêm Mới Hướng Dẫn Khoa Học</a></p>
                 </div>
             <?php endif; ?>
         </div>
         <!-- END TAB 10-->
     </div>
-    <div class="form-actions">
-        <div class="row">
-            <div class="col-md-12">
-                <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
-            </div>
-        </div>
-    </div>
-
 </form>
- <?php echo $__env->make('congtac.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('congtac.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('congtac.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('chambai.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('chambai.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -511,8 +730,14 @@
 <?php echo $__env->make('daygioi.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('dotxuat.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('dotxuat.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('hop.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('hop.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('sangkien.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('sangkien.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('hoctap.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('hoctap.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('hdkh.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('hdkh.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('xaydung.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('xaydung.modals.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH /opt/lampp/htdocs/lectureSchedule/resources/views/giangvien/edit/form.blade.php ENDPATH**/ ?>

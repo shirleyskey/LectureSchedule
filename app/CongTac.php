@@ -24,7 +24,8 @@ class CongTac extends Model
         }
         $congtac->id_giangvien = $data['id_giangvien'];
         $congtac->ten = $data['ten'];
-        $congtac->tiendo = $data['tiendo'];
+        $congtac->so_gio = $data['so_gio'];
+        $congtac->ghichu = $data['ghichu'];
         $congtac->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
         $congtac->save();
         return $congtac;

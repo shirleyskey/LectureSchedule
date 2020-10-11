@@ -11,7 +11,7 @@ class DayGioi extends Model
     protected $table = 'daygiois';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','ghichu', 'ten', 'thoigian'];
+    protected $fillable = ['id_giangvien', 'ten'];
 
     public function giangviens()
     {
@@ -28,11 +28,7 @@ class DayGioi extends Model
         $daygioi->ten = $data['ten'];
         $daygioi->ghichu = $data['ghichu'];
         $daygioi->cap = $data['cap'];
-        $daygioi->dat = $data['dat'];
-        foreach ($data['thanhvien'] as $key => $value) {
-            $data['thanhvien'][$key] = (int)$value;         
-        }
-        $daygioi->thanhvien = json_encode($data['thanhvien']);
+        $daygioi->so_gio = $data['so_gio'];
         $daygioi->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
         $daygioi->save();
         return $daygioi;

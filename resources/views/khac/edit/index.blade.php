@@ -50,7 +50,9 @@
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
-
+                        <li>
+                            <a href="#tab_hop" data-toggle="tab">Họp</a>
+                        </li>
                         <li>
                             <a href="#tab11" data-toggle="tab">Khóa Luận</a>
                         </li>
@@ -67,7 +69,7 @@
                             <a href="#tab4" data-toggle="tab">Chấm Bài</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab">Công Tác</a>
+                            <a href="#tab3" data-toggle="tab">Đi Thực Tế</a>
                         </li>
                         <li>
                             <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
@@ -812,7 +814,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
                                         <option value="0">-------- Chọn Giảng Viên --------</option>
@@ -824,14 +826,43 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>Tên Lớp: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_lop">
+                                        <option name="lop_hientai">Chọn Lớp</option>
+                                            @if($lop->count()>0)
+                                                @foreach($lop as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->tenlop }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Học Phần: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_hocphan">
+                                        <option name="hocphan_hientai">Chọn Học Phần</option>
+                                            @if($hocphan->count()>0)
+                                                @foreach($hocphan as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->mahocphan }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Bài:<span class="required">*</span></label>
+                                    <input class="form-control" name="so_bai" type="number" placeholder="" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Quy Đổi:<span class="required">*</span></label>
+                                    <input class="form-control" name="so_gio" type="number" placeholder="" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
-
                             </div>
                             <div class="col-md-6">
 
@@ -866,10 +897,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
+                            <div class="form-group">
+                                    <label>Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
+                                        <option name="gv_hientai">Chọn Lớp</option>
                                             @if($giangvien->count()>0)
                                                 @foreach($giangvien as $v)
                                                     <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
@@ -878,14 +909,43 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>Tên Lớp: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_lop">
+                                        <option name="lop_hientai">Chọn Lớp</option>
+                                            @if($lop->count()>0)
+                                                @foreach($lop as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->tenlop }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Học Phần: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_hocphan">
+                                        <option name="hocphan_hientai"></option>
+                                            @if($hocphan->count()>0)
+                                                @foreach($hocphan as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->mahocphan }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Bài:<span class="required">*</span></label>
+                                    <input class="form-control" name="so_bai" type="number" placeholder="" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Quy Đổi:<span class="required">*</span></label>
+                                    <input class="form-control" name="so_gio" type="number" placeholder="" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input class="form-control" name="ghichu" id="ghichu" type="text" value="" required />
+                                    <input class="form-control" name="ghichu" type="text" required />
                                 </div>
-
                             </div>
                             <div class="col-md-6">
 
@@ -913,14 +973,14 @@
             <form action="post" id="form_add_congtac">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Công Tác</h4>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Đi Thực Tế</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Công Tác: <span class="required">*</span></label>
+                                    <label>Tên Địa Bàn: <span class="required">*</span></label>
                                     <input  name="ten" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
@@ -935,13 +995,17 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tiến Độ:<span class="required">*</span></label>
-                                    <input name="tiendo" type="number" class="form-control" required>
+                                    <label>Số Giờ:<span class="required">*</span></label>
+                                    <input name="so_gio" type="number" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
                                 </div>
 
                             </div>
@@ -972,14 +1036,14 @@
                 <input value="" name="id" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Công Tác</h4>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Đi Thực Tế</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Công Tác:<span class="required">*</span></label>
+                                    <label>Tên Địa Bàn:<span class="required">*</span></label>
                                     <input value="" name="ten" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
@@ -994,13 +1058,17 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tiến Độ:<span class="required">*</span></label>
-                                    <input value="" name="tiendo" type="number" class="form-control" required>
+                                    <label>Số Giờ:<span class="required">*</span></label>
+                                    <input value="" name="so_gio" type="number" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" id="thoigian" type="date" value="" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input value="" name="ghichu" type="text" class="form-control" required>
                                 </div>
 
                             </div>
@@ -1147,14 +1215,14 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label>Tên Dạy Giỏi: <span class="required">*</span></label>
                                     <input  name="ten" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Tên Giảng Viên: <span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
+                                        <option name="gv_hientai">Chọn Giảng Viên</option>
                                             @if($giangvien->count()>0)
                                                 @foreach($giangvien as $v)
                                                     <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
@@ -1162,20 +1230,7 @@
                                             @endif
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4">Thành Viên: </label>
-                                        <div class="input-icon right">
-                                            <i class="fa fa-key"></i>
-                                            <select class="form-control" multiple name="thanhvien">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
-                                                @if($giangvien->count()>0)
-                                                    @foreach($giangvien as $v)
-                                                    <option value="{{ $v->id }}">{{ $v->ten }}</option>
-                                                    @endforeach
-                                                @endif
-                                            </select>
-                                        </div>
-                                </div>
+                                 
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Cấp:</label>
                                         <div class="input-icon right">
@@ -1189,22 +1244,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Đạt Bài Dạy Giỏi:</b></label>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="dat" name="dat">
-                                        <label class="form-check-label" for="dat">Đạt:</label>
-                                    </div>
-                                </div>
-                               
-                                <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" type="date" required />
                                 </div>
+                                <div class="form-group">
+                                    <label>Số Giờ:<span class="required">*</span></label>
+                                    <input name="so_gio" type="number" class="form-control" required>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
+                               
 
                             </div>
                             <div class="col-md-6">
@@ -1240,7 +1291,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label>Tên Dạy Giỏi:<span class="required">*</span></label>
                                     <input value="" name="ten" type="text" class="form-control" required>
                                 </div>
@@ -1255,20 +1306,8 @@
                                             @endif
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4">Thành Viên: </label>
-                                        <div class="input-icon right">
-                                            <i class="fa fa-key"></i>
-                                            <select class="form-control" multiple name="thanhvien">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
-                                                @if($giangvien->count()>0)
-                                                    @foreach($giangvien as $v)
-                                                    <option value="{{ $v->id }}">{{ $v->ten }}</option>
-                                                    @endforeach
-                                                @endif
-                                            </select>
-                                        </div>
-                                </div>
+                               
+                               
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Cấp:</label>
                                         <div class="input-icon right">
@@ -1281,22 +1320,18 @@
                                             </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label><b>Đạt Bài Dạy Giỏi:</b></label>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="dat" name="dat">
-                                        <label class="form-check-label" for="dat">Đạt:</label>
-                                    </div>
-                                </div>
-                               
-                                <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input value="" name="ghichu" type="text" class="form-control" required>
-                                </div>
-
+                                
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" id="thoigian" type="date" value="" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Giờ:<span class="required">*</span></label>
+                                    <input value="" name="so_gio" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input value="" name="ghichu" type="text" class="form-control" required>
                                 </div>
 
                             </div>
@@ -1438,6 +1473,132 @@
 
 {{-- END ĐỘT XUẤT  --}}
 
+<!-- /.modal Cuộc Họp -->
+<div class="modal fade bs-modal-lg" id="modal_add_hop" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_hop">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Cuộc Họp</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Cuộc Họp: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            @if($giangvien->count()>0)
+                                                @foreach($giangvien as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ma_giangvien.'-'.$v->ten }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Giờ:<span class="required">*</span></label>
+                                    <input name="so_gio" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_hop"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_hop" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_hop">
+                @csrf
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Thông Tin Cuộc Họp</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên Cuộc Họp<span class="required">*</span></label>
+                                    <input value="" name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            @if($giangvien->count()>0)
+                                                @foreach($giangvien as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ma_giangvien.'-'.$v->ten }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Giờ:<span class="required">*</span></label>
+                                    <input name="so_gio" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_hop"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+{{-- END Cuộc Họp  --}}
+
 <!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_add_hoctap" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1452,11 +1613,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tên CV Đột Xuất: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label>Tên Giảng Viên: <span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
                                         <option name="gv_hientai"></option>
@@ -1468,14 +1625,31 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
+                                    <label>Tên Lớp: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
                                 </div>
-
                                 <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <label>Loại Hình: <span class="required">*</span></label>
+                                    <input  name="loai_hinh" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Giờ: <span class="required">*</span></label>
+                                    <input  name="so_gio" type="number" class="form-control" required>
+                                </div>
+                                
+                               
+                                <div class="form-group">
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
+                                <div class="form-group">
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
 
                             </div>
                             <div class="col-md-6">
@@ -1511,11 +1685,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tên Học Tập:<span class="required">*</span></label>
-                                    <input value="" name="ten" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
                                         <option name="gv_hientai"></option>
@@ -1527,14 +1697,31 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input value="" name="ghichu" type="text" class="form-control" required>
+                                    <label>Tên Lớp: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
                                 </div>
-
                                 <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                    <label>Loại Hình: <span class="required">*</span></label>
+                                    <input  name="loai_hinh" type="text" class="form-control" required>
                                 </div>
+                                <div class="form-group">
+                                    <label>Số Giờ: <span class="required">*</span></label>
+                                    <input  name="so_gio" type="number" class="form-control" required>
+                                </div>
+                                
+                               
+                                <div class="form-group">
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
 
                             </div>
                             <div class="col-md-6">
@@ -1563,17 +1750,13 @@
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Xây Dựng</h4>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Xây Dựng Chương Trình</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tên Xây Dựng: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label>Tên Giảng Viên: <span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
                                         <option name="gv_hientai"></option>
@@ -1585,14 +1768,31 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
+                                    <label>Tên Chương Trình: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
                                 </div>
-
+                                <div class="form-group">
+                                    <label>Học Phần:<span class="required">*</span></label>
+                                    <input name="hocphan" type="text" class="form-control" required>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Khóa:<span class="required">*</span></label>
+                                    <input name="khoa" type="text" class="form-control" required>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Vai Trò:<span class="required">*</span></label>
+                                    <input name="vai_tro" type="text" class="form-control" required>
+                                </div> 
+                                
+                               
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
 
                             </div>
                             <div class="col-md-6">
@@ -1628,11 +1828,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tên Xây Dựng:<span class="required">*</span></label>
-                                    <input value="" name="ten" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
                                         <option name="gv_hientai"></option>
@@ -1644,13 +1840,30 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input value="" name="ghichu" type="text" class="form-control" required>
+                                    <label>Tên Chương Trình: <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required>
                                 </div>
-
+                                <div class="form-group">
+                                    <label>Học Phần:<span class="required">*</span></label>
+                                    <input name="hocphan" type="text" class="form-control" required>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Khóa:<span class="required">*</span></label>
+                                    <input name="khoa" type="text" class="form-control" required>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Vai Trò:<span class="required">*</span></label>
+                                    <input name="vai_tro" type="text" class="form-control" required>
+                                </div> 
+                               
+                               
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input value="" name="ghichu" type="text" class="form-control" required>
                                 </div>
 
                             </div>
@@ -2674,8 +2887,9 @@
             data: {
                 id_giangvien: $("#form_add_congtac select[name='id_giangvien'").val(),
                 ten: $("#form_add_congtac input[name='ten']").val(),
-                tiendo: $("#form_add_congtac input[name='tiendo']").val(),
+                so_gio: $("#form_add_congtac input[name='so_gio']").val(),
                 thoigian: $("#form_add_congtac input[name='thoigian']").val(),
+                ghichu: $("#form_add_congtac input[name='ghichu']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -2708,7 +2922,7 @@
                     $('#modal_add_congtac').modal('hide');
                     swal({
                         "title":"Đã tạo!",
-                        "text":"Bạn đã tạo thành công Công Tác!",
+                        "text":"Bạn đã tạo thành công Đi Thực Tế!",
                         "type":"success"
                     }, function() {
                             localStorage.setItem('activeTab', '#tab3');
@@ -2741,8 +2955,9 @@
                          $("#form_edit_congtac select[name='id_giangvien']").val(data.data.id_giangvien);
                          $("#form_edit_congtac input[name='id']").val(data.data.id);
                          $("#form_edit_congtac input[name='ten']").val(data.data.ten);
-                         $("#form_edit_congtac input[name='tiendo']").val(data.data.tiendo);
+                         $("#form_edit_congtac input[name='so_gio']").val(data.data.so_gio);
                          $("#form_edit_congtac input[name='thoigian']").val(data.data.thoigian);
+                         $("#form_edit_congtac input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_congtac').modal('show');
                      }
                  }
@@ -2768,8 +2983,9 @@
                      id: $("#form_edit_congtac input[name='id']").val(),
                      id_giangvien: $("#form_edit_congtac select[name='id_giangvien']").val(),
                      ten: $("#form_edit_congtac input[name='ten']").val(),
-                     tiendo: $("#form_edit_congtac input[name='tiendo']").val(),
+                     so_gio: $("#form_edit_congtac input[name='so_gio']").val(),
                      thoigian: $("#form_edit_congtac input[name='thoigian'").val(),
+                     ghichu: $("#form_edit_congtac input[name='ghichu'").val(),
 
                  },
                  success: function(data) {
@@ -2802,7 +3018,7 @@
                          $('#modal_edit_congtac').modal('hide');
                          swal({
                              "title":"Đã sửa!",
-                             "text":"Bạn đã sửa thành công Công Tác!",
+                             "text":"Bạn đã sửa thành công Đi Thực Tế!",
                              "type":"success"
                          }, function() {
                                  localStorage.setItem('activeTab', '#tab3');
@@ -2847,7 +3063,7 @@
                                  if(data.status == true){
                                      swal({
                                          "title":"Đã xóa!",
-                                         "text":"Bạn đã xóa thành công Công Tác!",
+                                         "text":"Bạn đã xóa thành công Đi Thực Tế!",
                                          "type":"success"
                                      }, function() {
                                              localStorage.setItem('activeTab', '#tab3');
@@ -2883,7 +3099,11 @@
             method: 'POST',
             data: {
                 id_giangvien: $("#form_add_chambai select[name='id_giangvien']").val(),
+                id_lop: $("#form_add_chambai select[name='id_lop']").val(),
+                id_hocphan: $("#form_add_chambai select[name='id_hocphan']").val(),
                 ghichu: $("#form_add_chambai input[name='ghichu']").val(),
+                so_bai: $("#form_add_chambai input[name='so_bai']").val(),
+                so_gio: $("#form_add_chambai input[name='so_gio']").val(),
                 thoigian: $("#form_add_chambai input[name='thoigian']").val(),
             },
             success: function(data) {
@@ -2946,10 +3166,13 @@
                  },
                  success: function(data) {
                      if(data.status == true){
-                         // console.log(data.data);
                          $("#form_edit_chambai select[name='id_giangvien']").val(data.data.id_giangvien);
+                         $("#form_edit_chambai select[name='id_lop']").val(data.data.id_lop);
+                         $("#form_edit_chambai select[name='id_hocphan']").val(data.data.id_hocphan);
                          $("#form_edit_chambai input[name='id']").val(data.data.id);
                          $("#form_edit_chambai input[name='ghichu']").val(data.data.ghichu);
+                         $("#form_edit_chambai input[name='so_gio']").val(data.data.so_gio);
+                         $("#form_edit_chambai input[name='so_bai']").val(data.data.so_bai);
                          $("#form_edit_chambai input[name='thoigian']").val(data.data.thoigian);
                          $('#modal_edit_chambai').modal('show');
                      }
@@ -2973,9 +3196,13 @@
                  url: '{{ route('postSuaChamBai') }}',
                  method: 'POST',
                  data: {
-                     id: $("#form_edit_chambai input[name='id']").val(),
+                    id: $("#form_edit_chambai input[name='id']").val(),
                      id_giangvien: $("#form_edit_chambai select[name='id_giangvien']").val(),
+                     id_lop: $("#form_edit_chambai select[name='id_lop']").val(),
+                     id_hocphan: $("#form_edit_chambai select[name='id_hocphan']").val(),
                      ghichu: $("#form_edit_chambai input[name='ghichu']").val(),
+                     so_gio: $("#form_edit_chambai input[name='so_gio']").val(),
+                     so_bai: $("#form_edit_chambai input[name='so_bai']").val(),
                      thoigian: $("#form_edit_chambai input[name='thoigian']").val(),
 
                  },
@@ -3295,9 +3522,8 @@
                 ten: $("#form_add_daygioi input[name='ten']").val(),
                 ghichu: $("#form_add_daygioi input[name='ghichu']").val(),
                 thoigian: $("#form_add_daygioi input[name='thoigian']").val(),
-                thanhvien: $("#form_add_daygioi select[name='thanhvien']").val(),
+                so_gio: $("#form_add_daygioi input[name='so_gio']").val(),
                 cap: $("#form_add_daygioi select[name='cap']").val(),
-                dat: ($("#form_add_daygioi input[name='dat']").is(':checked')) ? 1 : 0,
             },
             success: function(data) {
                 console.log("Hihi");
@@ -3365,8 +3591,7 @@
                          $("#form_edit_daygioi input[name='ten']").val(data.data.ten);
                          $("#form_edit_daygioi input[name='ghichu']").val(data.data.ghichu);
                          $("#form_edit_daygioi input[name='thoigian']").val(data.data.thoigian);
-                         $("#form_edit_daygioi input[name='dat']").prop('checked', (data.data.dat == 1) ? true : false);
-                         $("#form_edit_daygioi select[name='thanhvien']").val($.parseJSON(data.data.thanhvien));
+                         $("#form_edit_daygioi input[name='so_gio']").val(data.data.so_gio);
                          $("#form_edit_daygioi select[name='cap']").val(data.data.cap);
                          $('#modal_edit_daygioi').modal('show');
                      }
@@ -3395,8 +3620,7 @@
                      ten: $("#form_edit_daygioi input[name='ten']").val(),
                      ghichu: $("#form_edit_daygioi input[name='ghichu']").val(),
                      thoigian: $("#form_edit_daygioi input[name='thoigian'").val(),
-                     thanhvien: $("#form_edit_daygioi select[name='thanhvien']").val(),
-                     dat: ($("#form_edit_daygioi input[name='dat']").is(':checked')) ? 1 : 0,
+                     so_gio: $("#form_edit_daygioi input[name='so_gio'").val(),
                      cap: $("#form_edit_daygioi select[name='cap']").val(),
 
                  },
@@ -3511,6 +3735,9 @@
             data: {
                 id_giangvien: $("#form_add_xaydung select[name='id_giangvien']").val(),
                 ten: $("#form_add_xaydung input[name='ten']").val(),
+                hocphan: $("#form_add_xaydung input[name='hocphan']").val(),
+                khoa: $("#form_add_xaydung input[name='khoa']").val(),
+                vai_tro: $("#form_add_xaydung input[name='vai_tro']").val(),
                 ghichu: $("#form_add_xaydung input[name='ghichu']").val(),
                 thoigian: $("#form_add_xaydung input[name='thoigian']").val(),
             },
@@ -3578,6 +3805,9 @@
                          $("#form_edit_xaydung select[name='id_giangvien']").val(data.data.id_giangvien);
                          $("#form_edit_xaydung input[name='id']").val(data.data.id);
                          $("#form_edit_xaydung input[name='ten']").val(data.data.ten);
+                         $("#form_edit_xaydung input[name='hocphan']").val(data.data.hocphan);
+                         $("#form_edit_xaydung input[name='khoa']").val(data.data.khoa);
+                         $("#form_edit_xaydung input[name='vai_tro']").val(data.data.vai_tro);
                          $("#form_edit_xaydung input[name='ghichu']").val(data.data.ghichu);
                          $("#form_edit_xaydung input[name='thoigian']").val(data.data.thoigian);
                          $('#modal_edit_xaydung').modal('show');
@@ -3602,11 +3832,14 @@
                  url: '{{ route('postSuaXayDung') }}',
                  method: 'POST',
                  data: {
-                     id: $("#form_edit_xaydung input[name='id']").val(),
+                    id: $("#form_edit_xaydung input[name='id']").val(),
                      id_giangvien: $("#form_edit_xaydung select[name='id_giangvien']").val(),
                      ten: $("#form_edit_xaydung input[name='ten']").val(),
+                     hocphan: $("#form_edit_xaydung input[name='hocphan']").val(),
+                     khoa: $("#form_edit_xaydung input[name='khoa']").val(),
+                     vai_tro: $("#form_edit_xaydung input[name='vai_tro']").val(),
                      ghichu: $("#form_edit_xaydung input[name='ghichu']").val(),
-                     thoigian: $("#form_edit_xaydung input[name='thoigian'").val(),
+                     thoigian: $("#form_edit_xaydung input[name='thoigian']").val(),
 
                  },
                  success: function(data) {
@@ -3909,6 +4142,220 @@
          });
          // END Xử lý khi click nút xóa dotxuat
  // ==================================================================//
+
+  // ==================================================================//
+
+         // Ajax thêm Cuộc Họp
+         $("#btn_add_hop").on('click', function(e){
+        e.preventDefault();
+        $("#btn_add_hop").attr("disabled", "disabled");
+        $("#btn_add_hop").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+        $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+        $.ajax({
+
+            url: '{{route('postThemHop')}}',
+            method: 'POST',
+            data: {
+                id_giangvien: $("#form_add_hop select[name='id_giangvien']").val(),
+                ten: $("#form_add_hop input[name='ten']").val(),
+                ghichu: $("#form_add_hop input[name='ghichu']").val(),
+                thoigian: $("#form_add_hop input[name='thoigian']").val(),
+                so_gio: $("#form_add_hop input[name='so_gio']").val(),
+            },
+            success: function(data) {
+                console.log("Hihi");
+                $("#btn_add_hop").removeAttr("disabled");
+                $("#btn_add_hop").html('<i class="fa fa-save"></i> Lưu');
+                if(data.status == false){
+                    var errors = "";
+                    $.each(data.data, function(key, value){
+                        $.each(value, function(key2, value2){
+                            errors += value2 +"<br>";
+                        });
+                    });
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "positionClass": "toast-top-center",
+                        "onclick": null,
+                        "showDuration": "1000",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    toastr["error"](errors, "Lỗi")
+                }
+                if(data.status == true){
+                    $('#modal_add_hop').modal('hide');
+                    swal({
+                        "title":"Đã tạo!",
+                        "text":"Bạn đã tạo thành công Thông Tin Cuộc Họp!",
+                        "type":"success"
+                    }, function() {
+                            localStorage.setItem('activeTab', '#tab_hop');
+                            location.reload();
+                        }
+                    );
+                }
+            }
+        });
+    });
+    // END Ajax thêm hop
+    //AJAX Tìm hop Theo ID
+         $(".btn_edit_hop").on("click", function(e){
+             e.preventDefault();
+             var hop_id = $(this).data("hop-id");
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             $.ajax({
+                 url: '{{ route('postTimHopTheoId') }}',
+                 method: 'POST',
+                 data: {
+                     id: hop_id
+                 },
+                 success: function(data) {
+                     if(data.status == true){
+                         // console.log(data.data);
+                         $("#form_edit_hop select[name='id_giangvien']").val(data.data.id_giangvien);
+                         $("#form_edit_hop input[name='id']").val(data.data.id);
+                         $("#form_edit_hop input[name='ten']").val(data.data.ten);
+                         $("#form_edit_hop input[name='ghichu']").val(data.data.ghichu);
+                         $("#form_edit_hop input[name='thoigian']").val(data.data.thoigian);
+                         $("#form_edit_hop input[name='so_gio']").val(data.data.so_gio);
+                         $('#modal_edit_hop').modal('show');
+                     }
+                 }
+             });
+         });
+         // END Khi click vào nút sửa hop, tìm hop theo id và đỗ dữ liệu vào form
+
+
+         // Ajax sửa hop
+         $("#btn_edit_hop").on('click', function(e){
+             e.preventDefault();
+             $("#btn_edit_hop").attr("disabled", "disabled");
+             $("#btn_edit_hop").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             $.ajax({
+                 url: '{{ route('postSuaHop') }}',
+                 method: 'POST',
+                 data: {
+                     id: $("#form_edit_hop input[name='id']").val(),
+                     id_giangvien: $("#form_edit_hop select[name='id_giangvien']").val(),
+                     ten: $("#form_edit_hop input[name='ten']").val(),
+                     ghichu: $("#form_edit_hop input[name='ghichu']").val(),
+                     thoigian: $("#form_edit_hop input[name='thoigian'").val(),
+                     so_gio: $("#form_edit_hop input[name='so_gio'").val(),
+
+                 },
+                 success: function(data) {
+                     $("#btn_edit_hop").removeAttr("disabled");
+                     $("#btn_edit_hop").html('<i class="fa fa-save"></i> Lưu');
+                     if(data.status == false){
+                         var errors = "";
+                         $.each(data.data, function(key, value){
+                             $.each(value, function(key2, value2){
+                                 errors += value2 +"<br>";
+                             });
+                         });
+                         toastr.options = {
+                             "closeButton": true,
+                             "debug": false,
+                             "positionClass": "toast-top-center",
+                             "onclick": null,
+                             "showDuration": "1000",
+                             "hideDuration": "1000",
+                             "timeOut": "5000",
+                             "extendedTimeOut": "1000",
+                             "showEasing": "swing",
+                             "hideEasing": "linear",
+                             "showMethod": "fadeIn",
+                             "hideMethod": "fadeOut"
+                         }
+                         toastr["error"](errors, "Lỗi")
+                     }
+                     if(data.status == true){
+                         $('#modal_edit_hop').modal('hide');
+                         swal({
+                             "title":"Đã sửa!",
+                             "text":"Bạn đã sửa thành công Thông tin Cuộc Họp!",
+                             "type":"success"
+                         }, function() {
+                                 localStorage.setItem('activeTab', '#tab_hop');
+                                 location.reload();
+                             }
+                         );
+                     }
+                 }
+             });
+         });
+         // END Ajax sửa hop
+
+         // Xử lý khi click nút xóa hop
+         $(".btn_delete_hop").on("click", function(e){
+             e.preventDefault();
+             var hop_id = $(this).data("hop-id");
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             swal({
+                 title: "Xóa hop này?",
+                 text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                 type: "warning",
+                 showCancelButton: true,
+                 cancelButtonText: 'Không',
+                 confirmButtonClass: "btn-danger",
+                 confirmButtonText: "Có, xóa ngay!",
+                 closeOnConfirm: false
+                 },
+                 function(isConfirm){
+                     if (isConfirm) {
+                         $.ajax({
+                             url: '{{ route('postXoaHop') }}',
+                             method: 'POST',
+                             data: {
+                                 id: hop_id
+                             },
+                             success: function(data) {
+                                 console.log(data);
+                                 if(data.status == true){
+                                     swal({
+                                         "title":"Đã xóa!",
+                                         "text":"Bạn đã xóa thành công Cuộc Họp!",
+                                         "type":"success"
+                                     }, function() {
+                                             localStorage.setItem('activeTab', '#tab_hop');
+                                             location.reload();
+                                         }
+                                     );
+                                 }
+                             }
+                         });
+                     }
+             });
+
+         });
+         // END Xử lý khi click nút xóa hop
+ // ==================================================================//
+
+
  // ==================================================================//
 
          // Ajax thêm Sáng Kiến
@@ -4137,8 +4584,11 @@
             data: {
                 id_giangvien: $("#form_add_hoctap select[name='id_giangvien']").val(),
                 ten: $("#form_add_hoctap input[name='ten']").val(),
+                loai_hinh: $("#form_add_hoctap input[name='loai_hinh']").val(),
+                so_gio: $("#form_add_hoctap input[name='so_gio']").val(),
                 ghichu: $("#form_add_hoctap input[name='ghichu']").val(),
                 thoigian: $("#form_add_hoctap input[name='thoigian']").val(),
+                thoigian_den: $("#form_add_hoctap input[name='thoigian_den']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -4204,8 +4654,11 @@
                          $("#form_edit_hoctap select[name='id_giangvien']").val(data.data.id_giangvien);
                          $("#form_edit_hoctap input[name='id']").val(data.data.id);
                          $("#form_edit_hoctap input[name='ten']").val(data.data.ten);
+                         $("#form_edit_hoctap input[name='loai_hinh']").val(data.data.loai_hinh);
+                         $("#form_edit_hoctap input[name='so_gio']").val(data.data.so_gio);
                          $("#form_edit_hoctap input[name='ghichu']").val(data.data.ghichu);
                          $("#form_edit_hoctap input[name='thoigian']").val(data.data.thoigian);
+                         $("#form_edit_hoctap input[name='thoigian_den']").val(data.data.thoigian_den);
                          $('#modal_edit_hoctap').modal('show');
                      }
                  }
@@ -4231,8 +4684,11 @@
                      id: $("#form_edit_hoctap input[name='id']").val(),
                      id_giangvien: $("#form_edit_hoctap select[name='id_giangvien']").val(),
                      ten: $("#form_edit_hoctap input[name='ten']").val(),
+                     loai_hinh: $("#form_edit_hoctap input[name='loai_hinh']").val(),
+                     so_gio: $("#form_edit_hoctap input[name='so_gio']").val(),
                      ghichu: $("#form_edit_hoctap input[name='ghichu']").val(),
                      thoigian: $("#form_edit_hoctap input[name='thoigian'").val(),
+                     thoigian_den: $("#form_edit_hoctap input[name='thoigian_den'").val(),
 
                  },
                  success: function(data) {

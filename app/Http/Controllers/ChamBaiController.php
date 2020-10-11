@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\GiangVien;
 use App\ChamBai;
+use App\Lop;
+use App\HocPhan;
 
 use Carbon\Carbon;
 class ChamBaiController extends Controller
