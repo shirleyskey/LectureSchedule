@@ -785,6 +785,9 @@
                 id_giangvien: $("#form_add_dang input[name='id_giangvien']").val(),
                 ten: $("#form_add_dang input[name='ten']").val(),
                 thoigian: $("#form_add_dang input[name='thoigian']").val(),
+                ket_qua: $("#form_add_dang input[name='ket_qua']").val(),
+                vai_tro: $("#form_add_dang input[name='vai_tro']").val(),
+                ghichu: $("#form_add_dang input[name='ghichu']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -817,7 +820,7 @@
                     $('#modal_add_dang').modal('hide');
                     swal({
                         "title":"Đã tạo!",
-                        "text":"Bạn đã tạo thành công dang!",
+                        "text":"Bạn đã tạo thành công Hoạt Động Đảng!",
                         "type":"success"
                     }, function() {
                             localStorage.setItem('activeTab', '#tab5');
@@ -851,6 +854,9 @@
                          $("#form_edit_dang input[name='id']").val(data.data.id);
                          $("#form_edit_dang input[name='ten']").val(data.data.ten);
                          $("#form_edit_dang input[name='thoigian']").val(data.data.thoigian);
+                         $("#form_edit_dang input[name='vai_tro']").val(data.data.vai_tro);
+                         $("#form_edit_dang input[name='ket_qua']").val(data.data.ket_qua);
+                         $("#form_edit_dang input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_dang').modal('show');
                      }
                  }
@@ -877,6 +883,9 @@
                      id_giangvien: $("#form_edit_dang input[name='id_giangvien']").val(),
                      ten: $("#form_edit_dang input[name='ten']").val(),
                      thoigian: $("#form_edit_dang input[name='thoigian']").val(),
+                     ket_qua: $("#form_edit_dang input[name='ket_qua']").val(),
+                     vai_tro: $("#form_edit_dang input[name='vai_tro']").val(),
+                     ghichu: $("#form_edit_dang input[name='ghichu']").val(),
 
                  },
                  success: function(data) {
@@ -909,7 +918,7 @@
                          $('#modal_edit_dang').modal('hide');
                          swal({
                              "title":"Đã sửa!",
-                             "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
+                             "text":"Bạn đã sửa thành công Hoạt Động Đảng!",
                              "type":"success"
                          }, function() {
                                  localStorage.setItem('activeTab', '#tab2');
@@ -932,7 +941,7 @@
                  }
              });
              swal({
-                 title: "Xóa dang này?",
+                 title: "Xóa Hoạt Động Đảng này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -954,7 +963,7 @@
                                  if(data.status == true){
                                      swal({
                                          "title":"Đã xóa!",
-                                         "text":"Bạn đã xóa thành công dang!",
+                                         "text":"Bạn đã xóa thành công Hoạt Động Đảng!",
                                          "type":"success"
                                      }, function() {
                                              localStorage.setItem('activeTab', '#tab2');

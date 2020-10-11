@@ -300,8 +300,11 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên </th>
+                                    <th> Nội Dung</th>
+                                    <th> Kết Quả</th>
+                                    <th> Vai Trò</th>
                                     <th> Thời Gian</th>
+                                    <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
@@ -312,7 +315,10 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
+                                        <td> {{ $v->ket_qua }} </td>
+                                        <td> {{ $v->vai_tro }} </td>
                                         <td> {{ $v->thoigian }} </td>
+                                        <td> {{ $v->ghichu }} </td>
                                         <td>
                                             <a data-dang-id="{{ $v->id }}" class="btn_edit_dang btn btn-xs yellow-gold" href="#modal_edit_dang" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_dang btn btn-xs red-mint" href="#" data-dang-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>

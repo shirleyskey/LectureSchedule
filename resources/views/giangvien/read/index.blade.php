@@ -806,9 +806,11 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên Hoạt Động</th>
+                                                    <th> Nội Dung</th>
+                                                    <th> Kết Quả</th>
+                                                    <th> Vai Trò</th>
                                                     <th> Thời Gian</th>
-                                                    <th> Số Giờ</th>
+                                                    <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -818,8 +820,10 @@
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> {{ $v_dang->ten }} </td>
-                                                        <td>  </td>
-                                                        <td> </td>
+                                                        <td> {{ $v_dang->ket_qua }} </td>
+                                                        <td> {{ $v_dang->vai_tro }} </td>
+                                                        <td> {{ $v_dang->thoigian }} </td>
+                                                        <td> {{ $v_dang->ghichu }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
                                                     @endforeach

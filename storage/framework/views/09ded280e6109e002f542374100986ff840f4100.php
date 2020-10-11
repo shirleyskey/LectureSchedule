@@ -807,9 +807,11 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên Hoạt Động</th>
+                                                    <th> Nội Dung</th>
+                                                    <th> Kết Quả</th>
+                                                    <th> Vai Trò</th>
                                                     <th> Thời Gian</th>
-                                                    <th> Số Giờ</th>
+                                                    <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -819,8 +821,10 @@
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e($v_dang->ten); ?> </td>
-                                                        <td>  </td>
-                                                        <td> </td>
+                                                        <td> <?php echo e($v_dang->ket_qua); ?> </td>
+                                                        <td> <?php echo e($v_dang->vai_tro); ?> </td>
+                                                        <td> <?php echo e($v_dang->thoigian); ?> </td>
+                                                        <td> <?php echo e($v_dang->ghichu); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -907,9 +911,12 @@
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th> Tên </th>
+                                                <th> Tên Chương Trình</th>
+                                                <th> Học Phần</th>
+                                                <th> Khóa</th>
+                                                <th> Vai Trò</th>
                                                 <th> Thời Gian</th>
-                                                <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -919,8 +926,12 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v_xaydung->ten); ?> </td>
-                                                    <td>  </td>
-                                                    <td> </td>
+                                                    <td> <?php echo e($v_xaydung->hocphan); ?> </td>
+                                                    <td> <?php echo e($v_xaydung->khoa); ?> </td>
+                                                    <td> <?php echo e($v_xaydung->vai_tro); ?> </td>
+                                                    <td> <?php echo e($v_xaydung->thoigian); ?> </td>
+                                                    <td> <?php echo e($v_xaydung->ghichu); ?> </td>
+                                                  
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

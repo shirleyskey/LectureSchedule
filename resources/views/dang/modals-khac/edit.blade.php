@@ -13,10 +13,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
-                                    <input class="form-control" name="ten" id="ten" type="text" value="" required />
-                                </div>
+                               
                                 <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
@@ -29,8 +26,24 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
+                                    <input class="form-control" name="ten" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Quả:<span class="required">*</span></label>
+                                    <input class="form-control" name="ket_qua" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Vai Trò:<span class="required">*</span></label>
+                                    <input class="form-control" name="vai_tro" type="text" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" id="thoigian" type="date" value="" required />
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
                                 </div>
                             </div>
                             <div class="col-md-6">

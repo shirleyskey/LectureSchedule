@@ -19,9 +19,22 @@
                                     <input class="form-control" name="ten" id="ten" type="text" value="" required />
                                 </div>
                                 <div class="form-group">
+                                    <label>Kết Quả:<span class="required">*</span></label>
+                                    <input class="form-control" name="ket_qua" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Vai Trò:<span class="required">*</span></label>
+                                    <input class="form-control" name="vai_tro" type="text" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
                                 </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
+                                </div>
+                               
                             </div>
                             <div class="col-md-6">
                                

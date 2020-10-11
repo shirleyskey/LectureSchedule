@@ -10,7 +10,7 @@ class Dang extends Model
     protected $table = 'dangs';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien', 'ten', 'thoigian'];
+    protected $fillable = ['id_giangvien', 'ten'];
     
 
     public function giangviens()
@@ -26,6 +26,8 @@ class Dang extends Model
         }
         $dang->id_giangvien = $data['id_giangvien'];
         $dang->ten = $data['ten'];
+        $dang->ket_qua = $data['ket_qua'];
+        $dang->vai_tro = $data['vai_tro'];
         $dang->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
         $dang->save();
         return $dang;

@@ -1101,20 +1101,29 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
-                                    <input class="form-control" name="ten" type="text" required />
-                                </div>
+                               
                                 <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
+                                        <option name="gv_hientai">Chọn Giảng Viên</option>
                                             <?php if($giangvien->count()>0): ?>
                                                 <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             <?php endif; ?>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
+                                    <input class="form-control" name="ten" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Quả:<span class="required">*</span></label>
+                                    <input class="form-control" name="ket_qua" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Vai Trò:<span class="required">*</span></label>
+                                    <input class="form-control" name="vai_tro" type="text" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
@@ -1159,10 +1168,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
-                                    <input class="form-control" name="ten" id="ten" type="text" value="" required />
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
@@ -1175,8 +1181,24 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
+                                    <input class="form-control" name="ten" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Quả:<span class="required">*</span></label>
+                                    <input class="form-control" name="ket_qua" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Vai Trò:<span class="required">*</span></label>
+                                    <input class="form-control" name="vai_tro" type="text" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" id="thoigian" type="date" value="" required />
+                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -3315,6 +3337,9 @@
                 id_giangvien: $("#form_add_dang select[name='id_giangvien']").val(),
                 ten: $("#form_add_dang input[name='ten']").val(),
                 thoigian: $("#form_add_dang input[name='thoigian']").val(),
+                ket_qua: $("#form_add_dang input[name='ket_qua']").val(),
+                vai_tro: $("#form_add_dang input[name='vai_tro']").val(),
+                ghichu: $("#form_add_dang input[name='ghichu']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -3381,6 +3406,9 @@
                          $("#form_edit_dang input[name='id']").val(data.data.id);
                          $("#form_edit_dang input[name='ten']").val(data.data.ten);
                          $("#form_edit_dang input[name='thoigian']").val(data.data.thoigian);
+                         $("#form_edit_dang input[name='vai_tro']").val(data.data.vai_tro);
+                         $("#form_edit_dang input[name='ket_qua']").val(data.data.ket_qua);
+                         $("#form_edit_dang input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_dang').modal('show');
                      }
                  }
@@ -3403,11 +3431,13 @@
                  url: '<?php echo e(route('postSuaDang')); ?>',
                  method: 'POST',
                  data: {
-                     id: $("#form_edit_dang input[name='id']").val(),
+                    id: $("#form_edit_dang input[name='id']").val(),
                      id_giangvien: $("#form_edit_dang select[name='id_giangvien']").val(),
                      ten: $("#form_edit_dang input[name='ten']").val(),
-                     thoigian: $("#form_edit_dang input[name='thoigian'").val(),
-
+                     thoigian: $("#form_edit_dang input[name='thoigian']").val(),
+                     ket_qua: $("#form_edit_dang input[name='ket_qua']").val(),
+                     vai_tro: $("#form_edit_dang input[name='vai_tro']").val(),
+                     ghichu: $("#form_edit_dang input[name='ghichu']").val(),
                  },
                  success: function(data) {
                      $("#btn_edit_dang").removeAttr("disabled");

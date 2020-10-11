@@ -11,10 +11,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
-                                    <input class="form-control" name="ten" type="text" required />
-                                </div>
+                               
                                 <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
@@ -25,6 +22,18 @@
                                                 @endforeach
                                             @endif
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Hoạt Động:<span class="required">*</span></label>
+                                    <input class="form-control" name="ten" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Quả:<span class="required">*</span></label>
+                                    <input class="form-control" name="ket_qua" type="text" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Vai Trò:<span class="required">*</span></label>
+                                    <input class="form-control" name="vai_tro" type="text" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Thời Gian:<span class="required">*</span></label>

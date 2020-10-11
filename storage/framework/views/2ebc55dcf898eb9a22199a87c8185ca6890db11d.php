@@ -248,9 +248,12 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên </th>
+                                    <th> Nội Dung </th>
                                     <th> Tên Giảng Viên</th>
+                                    <th> Kết Quả</th>
+                                    <th> Vai Trò</th>
                                     <th> Thời Gian</th>
+                                    <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
@@ -265,7 +268,10 @@
                                         <?php echo e($v->giangviens->ten); ?>
 
                                         <?php endif; ?>
+                                        <td> <?php echo e($v->ket_qua); ?> </td>
+                                        <td> <?php echo e($v->vai_tro); ?> </td>
                                         <td> <?php echo e($v->thoigian); ?> </td>
+                                        <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
                                             <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                             <a data-dang-id="<?php echo e($v->id); ?>" class="btn_edit_dang btn btn-xs yellow-gold" href="#modal_edit_dang" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
