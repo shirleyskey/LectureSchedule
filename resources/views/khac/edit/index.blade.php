@@ -57,6 +57,9 @@
                             <a href="#tab_vanban" data-toggle="tab">Xử Lý Văn Bản</a>
                         </li>
                         <li>
+                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học </a>
+                        </li>
+                        <li>
                             <a href="#tab11" data-toggle="tab">Khóa Luận</a>
                         </li>
                         <li>
@@ -1758,6 +1761,163 @@
 <!-- /.modal -->
 
 {{-- END Cuộc Họp  --}}
+
+<!-- /.modal Hướng Dẫn Khoa Học-->
+<div class="modal fade bs-modal-lg" id="modal_add_hdkh" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_hdkh">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Hướng Dẫn Khoa Học </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            @if($giangvien->count()>0)
+                                                @foreach($giangvien as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ma_giangvien.'-'.$v->ten }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label><b>Loại Hướng Dẫn</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="khoa_luan" name="khoa_luan">
+                                        <label class="form-check-label" for="khoa_luan">Khóa Luận:</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="luan_van" name="luan_van">
+                                        <label class="form-check-label" for="luan_van">Luận Văn:</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="luan_an" name="luan_an">
+                                        <label class="form-check-label" for="luan_an">Luận Án:</label>
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Học Viên: <span class="required">*</span></label>
+                                    <input  name="hoc_vien" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Khóa: <span class="required">*</span></label>
+                                    <input  name="khoa" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Giờ: <span class="required">*</span></label>
+                                    <input  name="so_gio" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_hdkh"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_hdkh" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_hdkh">
+                @csrf
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Thông Tin Hướng Dẫn Khoa Học</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                               
+                                <div class="form-group">
+                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
+                                    <select class="form-control" name="id_giangvien">
+                                        <option name="gv_hientai"></option>
+                                            @if($giangvien->count()>0)
+                                                @foreach($giangvien as $v)
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ma_giangvien.'-'.$v->ten }}</option>
+                                                @endforeach
+                                            @endif
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label><b>Loại Hướng Dẫn</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="khoa_luan" name="khoa_luan">
+                                        <label class="form-check-label" for="khoa_luan">Khóa Luận:</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="luan_van" name="luan_van">
+                                        <label class="form-check-label" for="luan_van">Luận Văn:</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="luan_an" name="luan_an">
+                                        <label class="form-check-label" for="luan_an">Luận Án:</label>
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Học Viên: <span class="required">*</span></label>
+                                    <input  name="hoc_vien" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Khóa: <span class="required">*</span></label>
+                                    <input  name="khoa" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Giờ: <span class="required">*</span></label>
+                                    <input  name="so_gio" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <input name="ghichu" type="text" class="form-control" required>
+                                </div> 
+
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_hdkh"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal  Hướng Dẫn Khoa Học-->
 
 <!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_add_hoctap" tabindex="-1" role="dialog" aria-hidden="true">
@@ -4641,8 +4801,8 @@ $.ajax({
                      id_giangvien: $("#form_edit_hop select[name='id_giangvien']").val(),
                      ten: $("#form_edit_hop input[name='ten']").val(),
                      ghichu: $("#form_edit_hop input[name='ghichu']").val(),
-                     thoigian: $("#form_edit_hop input[name='thoigian'").val(),
-                     so_gio: $("#form_edit_hop input[name='so_gio'").val(),
+                     thoigian: $("#form_edit_hop input[name='thoigian']").val(),
+                     so_gio: $("#form_edit_hop input[name='so_gio']").val(),
 
                  },
                  success: function(data) {
@@ -4735,6 +4895,227 @@ $.ajax({
 
          });
          // END Xử lý khi click nút xóa hop
+ // ==================================================================//
+
+  // ==================================================================//
+
+         // Ajax thêm Hướng Dẫn Khoa Học 
+         $("#btn_add_hdkh").on('click', function(e){
+        e.preventDefault();
+        $("#btn_add_hdkh").attr("disabled", "disabled");
+        $("#btn_add_hdkh").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+        $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+        $.ajax({
+
+            url: '{{route('postThemHdkh')}}',
+            method: 'POST',
+            data: {
+                id_giangvien: $("#form_add_hdkh select[name='id_giangvien']").val(),
+                khoa_luan: ($("#form_add_hdkh input[name='khoa_luan']").is(':checked')) ? 1 : 0,
+                luan_van: ($("#form_add_hdkh input[name='luan_van']").is(':checked')) ? 1 : 0,
+                luan_an: ($("#form_add_hdkh input[name='luan_an']").is(':checked')) ? 1 : 0,
+                so_gio: $("#form_add_hdkh input[name='so_gio']").val(),
+                hoc_vien: $("#form_add_hdkh input[name='hoc_vien']").val(),
+                khoa: $("#form_add_hdkh input[name='khoa']").val(),
+                ghichu: $("#form_add_hdkh input[name='ghichu']").val(),
+            },
+            success: function(data) {
+                console.log("Hihi");
+                $("#btn_add_hdkh").removeAttr("disabled");
+                $("#btn_add_hdkh").html('<i class="fa fa-save"></i> Lưu');
+                if(data.status == false){
+                    var errors = "";
+                    $.each(data.data, function(key, value){
+                        $.each(value, function(key2, value2){
+                            errors += value2 +"<br>";
+                        });
+                    });
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "positionClass": "toast-top-center",
+                        "onclick": null,
+                        "showDuration": "1000",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    toastr["error"](errors, "Lỗi")
+                }
+                if(data.status == true){
+                    $('#modal_add_hdkh').modal('hide');
+                    swal({
+                        "title":"Đã tạo!",
+                        "text":"Bạn đã tạo thành công Thông Tin Hướng Dẫn Khoa Học !",
+                        "type":"success"
+                    }, function() {
+                            localStorage.setItem('activeTab', '#tab_hdkh');
+                            location.reload();
+                        }
+                    );
+                }
+            }
+        });
+    });
+    // END Ajax thêm hdkh
+    //AJAX Tìm hdkh Theo ID
+         $(".btn_edit_hdkh").on("click", function(e){
+             e.preventDefault();
+             var hdkh_id = $(this).data("hdkh-id");
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             $.ajax({
+                 url: '{{ route('postTimHdkhTheoId') }}',
+                 method: 'POST',
+                 data: {
+                     id: hdkh_id
+                 },
+                 success: function(data) {
+                     if(data.status == true){
+                         // console.log(data.data);
+                         $("#form_edit_hdkh select[name='id_giangvien']").val(data.data.id_giangvien);
+                         $("#form_edit_hdkh input[name='id']").val(data.data.id);
+                        $("#form_edit_hdkh input[name='khoa_luan']").prop('checked', (data.data.khoa_luan == 1) ? true : false);
+                        $("#form_edit_hdkh input[name='luan_van']").prop('checked', (data.data.luan_van == 1) ? true : false);
+                        $("#form_edit_hdkh input[name='luan_an']").prop('checked', (data.data.luan_an == 1) ? true : false);
+                        $("#form_edit_hdkh input[name='so_gio']").val(data.data.so_gio);
+                        $("#form_edit_hdkh input[name='hoc_vien']").val(data.data.hoc_vien);
+                        $("#form_edit_hdkh input[name='khoa']").val(data.data.khoa);
+                        $("#form_edit_hdkh input[name='ghichu']").val(data.data.ghichu);
+                        $('#modal_edit_hdkh').modal('show');
+                     }
+                 }
+             });
+         });
+         // END Khi click vào nút sửa hdkh, tìm hdkh theo id và đỗ dữ liệu vào form
+
+
+         // Ajax sửa hdkh
+         $("#btn_edit_hdkh").on('click', function(e){
+             e.preventDefault();
+             $("#btn_edit_hdkh").attr("disabled", "disabled");
+             $("#btn_edit_hdkh").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             $.ajax({
+                 url: '{{ route('postSuaHdkh') }}',
+                 method: 'POST',
+                 data: {
+                     id: $("#form_edit_hdkh input[name='id']").val(),
+                     id_giangvien: $("#form_edit_hdkh select[name='id_giangvien']").val(),
+                     khoa_luan: ($("#form_edit_hdkh input[name='khoa_luan']").is(':checked')) ? 1 : 0,
+                    luan_van: ($("#form_edit_hdkh input[name='luan_van']").is(':checked')) ? 1 : 0,
+                    luan_an: ($("#form_edit_hdkh input[name='luan_an']").is(':checked')) ? 1 : 0,
+                    so_gio: $("#form_edit_hdkh input[name='so_gio']").val(),
+                    hoc_vien: $("#form_edit_hdkh input[name='hoc_vien']").val(),
+                    khoa: $("#form_edit_hdkh input[name='khoa']").val(),
+                    ghichu: $("#form_edit_hdkh input[name='ghichu']").val(),
+
+                 },
+                 success: function(data) {
+                     $("#btn_edit_hdkh").removeAttr("disabled");
+                     $("#btn_edit_hdkh").html('<i class="fa fa-save"></i> Lưu');
+                     if(data.status == false){
+                         var errors = "";
+                         $.each(data.data, function(key, value){
+                             $.each(value, function(key2, value2){
+                                 errors += value2 +"<br>";
+                             });
+                         });
+                         toastr.options = {
+                             "closeButton": true,
+                             "debug": false,
+                             "positionClass": "toast-top-center",
+                             "onclick": null,
+                             "showDuration": "1000",
+                             "hideDuration": "1000",
+                             "timeOut": "5000",
+                             "extendedTimeOut": "1000",
+                             "showEasing": "swing",
+                             "hideEasing": "linear",
+                             "showMethod": "fadeIn",
+                             "hideMethod": "fadeOut"
+                         }
+                         toastr["error"](errors, "Lỗi")
+                     }
+                     if(data.status == true){
+                         $('#modal_edit_hdkh').modal('hide');
+                         swal({
+                             "title":"Đã sửa!",
+                             "text":"Bạn đã sửa thành công Thông tin Hướng Dẫn Khoa Học !",
+                             "type":"success"
+                         }, function() {
+                                 localStorage.setItem('activeTab', '#tab_hdkh');
+                                 location.reload();
+                             }
+                         );
+                     }
+                 }
+             });
+         });
+         // END Ajax sửa hdkh
+
+         // Xử lý khi click nút xóa hdkh
+         $(".btn_delete_hdkh").on("click", function(e){
+             e.preventDefault();
+             var hdkh_id = $(this).data("hdkh-id");
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             swal({
+                 title: "Xóa hdkh này?",
+                 text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                 type: "warning",
+                 showCancelButton: true,
+                 cancelButtonText: 'Không',
+                 confirmButtonClass: "btn-danger",
+                 confirmButtonText: "Có, xóa ngay!",
+                 closeOnConfirm: false
+                 },
+                 function(isConfirm){
+                     if (isConfirm) {
+                         $.ajax({
+                             url: '{{ route('postXoaHdkh') }}',
+                             method: 'POST',
+                             data: {
+                                 id: hdkh_id
+                             },
+                             success: function(data) {
+                                 console.log(data);
+                                 if(data.status == true){
+                                     swal({
+                                         "title":"Đã xóa!",
+                                         "text":"Bạn đã xóa thành công Hướng Dẫn Khoa Học !",
+                                         "type":"success"
+                                     }, function() {
+                                             localStorage.setItem('activeTab', '#tab_hdkh');
+                                             location.reload();
+                                         }
+                                     );
+                                 }
+                             }
+                         });
+                     }
+             });
+
+         });
+         // END Xử lý khi click nút xóa Hướng Dẫn Khoa Học 
  // ==================================================================//
 
 

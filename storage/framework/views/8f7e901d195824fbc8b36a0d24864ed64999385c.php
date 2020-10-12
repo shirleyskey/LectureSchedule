@@ -2,99 +2,26 @@
     <?php echo csrf_field(); ?>
     <div class="tab-content">
         <!-- BEGIN TAB 1-->
-        <div class="tab-pane active" id="tab1">
+        <!-- <div class="tab-pane active" id="tab1">
             <div class="form-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Tên Bài:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-user"></i>
-                                    <input type="text" class="form-control" name="tenbai" value="<?php echo e($bai->tenbai); ?>" required /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Tên Học Phần:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="id_hocphan" value="<?php echo e($bai->hocphans->id); ?>" hidden/> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Tên Lớp:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="tenhocphan" readonly value="<?php echo e($bai->hocphans->lops->tenlop); ?>" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Số Tiết:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="sotiet" value="<?php echo e($bai->sotiet); ?>" /> </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Giảng Viên Chính:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-phone"></i>
-                                    <select class="form-control" name="gvchinh">
-                                        <option value="<?php echo e(($bai->gvchinh) ? $bai->gvchinh : null); ?>"><?php echo e(($bai->gvchinh) ? $bai->giangvienchinhs->ten : ''); ?></option>
-                                            <?php if($ds_giangvien->count()>0): ?>
-                                                <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                    </select>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Giảng Viên Phụ:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-phone"></i>
-                                    <select class="form-control" name="gvphu" multiple>
-                                        <option value="<?php echo e(($bai->gvphu) ? $bai->gvphu : null); ?>"><?php echo e(($bai->gvchinh) ? $bai->giangvienchinhs->ten : ''); ?></option>
-                                            <?php if($ds_giangvien->count()>0): ?>
-                                                <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                    </select>
-                            </div>
-                        </div>
-                        </div>
-
-                       
-                    </div>
+                        
                     </div>
                     <div class="col-md-6">
                       
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- END TAB 1-->
-        <div class="form-actions">
+        <!-- <div class="form-actions">
             <div class="row">
                 <div class="col-md-12">
                     <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- BEGIN TAB 2 NCKH-->
         <ul class="nav nav-pills" id="">
             <li  class="active">
@@ -109,7 +36,11 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
-                                    
+                                   <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học
+                                            
+                                        </a>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
@@ -136,7 +67,8 @@
                                         <td> <?php echo e($v->ca); ?> </td>
                                         <td> <?php echo e(($v->id_giangvien) ? $v->giangviens->ten : ''); ?> </td>
                                         <td>
-                                            <a class="btn btn-xs yellow-gold" href="<?php echo e(route('lichgiang.lichgiangtuan.get', $v->id)); ?>" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_edit_tiet btn btn-xs yellow-gold" data-tiet-id="<?php echo e($v->id); ?>" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_tiet btn btn-xs red-mint" data-tiet-id="<?php echo e($v->id); ?>" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

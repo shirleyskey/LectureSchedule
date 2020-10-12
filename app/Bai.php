@@ -46,14 +46,10 @@ class Bai extends Model
         $bai->sotiet = $data['sotiet'];
         $bai->tenbai = $data['tenbai'];
         $bai->gvchinh = $data['gvchinh'];
-        $bai->gvphu = $data['gvphu'];
-        $bai->lythuyet = $data['lythuyet'];
-        $bai->xemina = $data['xemina'];
-        $bai->thuchanh = $data['thuchanh'];
-        $bai->lythuyet_phu = $data['lythuyet_phu'];
-        $bai->xemina_phu = $data['xemina_phu'];
-        $bai->thuchanh_phu = $data['thuchanh_phu'];
-        
+        foreach ($data['gvphu'] as $key => $value) {
+            $data['gvphu'][$key] = (int)$value;         
+        }
+        $bai->gvphu = json_encode($data['gvphu']);
         $bai->save();
         return $bai;
     }

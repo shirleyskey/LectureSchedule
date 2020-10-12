@@ -35,7 +35,7 @@
                                 </div>
                                  <div class="form-group">
                                     <label>Giảng Viên Phụ:</label>
-                                <select class="form-control" name="gvphu">
+                                <select class="form-control" name="gvphu" multiple>
                                 <option value="">-------- Chọn Giảng Viên --------</option>
                                         @if($ds_giangvien->count()>0)
                                             @foreach($ds_giangvien as $v)

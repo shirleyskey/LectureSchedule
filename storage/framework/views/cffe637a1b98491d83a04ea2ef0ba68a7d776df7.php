@@ -103,7 +103,11 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
-                                    
+                                   <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_bai"><i class="fa fa-plus"></i> Tạo Bài Học Mới
+                                            
+                                        </a>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
@@ -141,8 +145,9 @@
                                                 <?php endif; ?>
                                         </td>
                                         <td>
-                                        <a  class="btn_edit_bai btn btn-xs yellow-gold" data-bai-id="<?php echo e($v->id); ?>" href="<?php echo e(route('bai.edit.get', $v->id)); ?>" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                        <a class="btn_delete_bai btn btn-xs red-mint" data-bai-id="<?php echo e($v->id); ?>" href="<?php echo e(route('bai.delete.get', $v->id)); ?>"  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        <a class="btn_edit_bai btn btn-xs yellow-gold" data-bai-id="<?php echo e($v->id); ?>" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                        <a class="btn_delete_bai btn btn-xs red-mint" data-bai-id="<?php echo e($v->id); ?>" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        <a class="btn btn-xs blue-sharp" href="<?php echo e(route('bai.edit.post', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Danh Sách Tiết Học</a>
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

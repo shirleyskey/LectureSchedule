@@ -224,6 +224,95 @@
         </div>
         <!-- END TAB Họp-->
 
+        <!-- BEGIN TAB HDKH-->
+        <div class="tab-pane" id="tab_hdkh">
+            <?php if($hdkh->isNotEmpty()): ?>
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <?php if (app('laratrust')->can('create-giangvien')) : ?>
+                                    <div class="btn-group">
+                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Tạo Hướng Dẫn Khoa Học Mới
+
+                                        </a>
+                                    </div>
+                                    <?php endif; // app('laratrust')->can ?>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_hdkh">
+                            <thead>
+                                <tr>
+                                    <th> STT</th>
+                                    <th> Tên Giảng Viên</th>
+                                    <th> Loại Hướng Dẫn</th>
+                                    <th> Học Viên</th>
+                                    <th> Khóa</th>
+                                    <th> Số Giờ</th>
+                                    <th> Ghi Chú</th>
+                                    <th> Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if( $hdkh->count() > 0 ): ?>
+                                    <?php $stt = 1; ?>
+                                    <?php $__currentLoopData = $hdkh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <tr>
+                                        <td> <?php echo e($stt); ?> </td>
+                                        <td>
+                                            <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
+                                            <?php echo e($v->giangviens->ma_giangvien.'-'.$v->giangviens->ten); ?>
+
+                                            <?php endif; ?>
+
+                                         </td>
+                                         <td> 
+                                        <?php 
+                                            if($v->khoa_luan == 1) {
+                                                echo "Khóa Luận";
+                                            } 
+                                            else if($v->luan_van == 1) {
+                                                echo "Luận Văn";
+                                            }  
+                                            else if($v->luan_an == 1) {
+                                                echo "Luận Án";
+                                            }   
+                                        ?>
+                                            </td>
+
+                                        <td> <?php echo e($v->hoc_vien); ?> </td>
+                                        <td> <?php echo e($v->khoa); ?> </td>
+                                        <td> <?php echo e($v->so_gio); ?> </td>
+                                        <td> <?php echo e($v->ghichu); ?> </td>
+                                        <td>
+                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
+                                            <a data-hdkh-id="<?php echo e($v->id); ?>" class="btn_edit_hdkh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_hdkh btn btn-xs red-mint" href="#" data-hdkh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            <?php endif; // app('laratrust')->can ?>
+                                        </td>
+                                    </tr>
+                                    <?php $stt++; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            <?php else: ?>
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Không có Cuộc Họp  nào.
+                        <?php if (app('laratrust')->can('create-giangvien')) : ?>
+                        <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Tạo Hướng Dẫn Khoa Học Mới </a></p>
+                        <?php endif; // app('laratrust')->can ?>
+                </div>
+            <?php endif; ?>
+        </div>
+        <!-- END TAB Họp-->
+
          <!-- BEGIN TAB 4-->
          <div class="tab-pane" id="tab4">
             <?php if($chambai->isNotEmpty()): ?>

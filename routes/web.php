@@ -221,10 +221,10 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postSuaHocPhan', ['middleware' => ['permission:update-hocphan'], 'uses'=>'HocPhanController@postSuaHocPhan','as'=>'postSuaHocPhan']);
     Route::post('/postXoaHocPhan', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'HocPhanController@postXoaHocPhan','as'=>'postXoaHocPhan']);
 
-    Route::post('/postThemTiet', ['middleware' => ['permission:create-hocphan'], 'uses'=>'EventController@postThemTiet','as'=>'postThemTiet']);
-    Route::post('/postTimTietTheoId', ['uses'=>'EventController@postTimTietTheoId','as'=>'postTimTietTheoId']);
-    Route::post('/postSuaTiet', ['middleware' => ['permission:update-hocphan'], 'uses'=>'EventController@postSuaTiet','as'=>'postSuaTiet']);
-    Route::post('/postXoaTiet', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'EventController@postXoaTiet','as'=>'postXoaTiet']);
+    Route::post('/postThemTiet', ['middleware' => ['permission:create-hocphan'], 'uses'=>'TietController@postThemTiet','as'=>'postThemTiet']);
+    Route::post('/postTimTietTheoId', ['uses'=>'TietController@postTimTietTheoId','as'=>'postTimTietTheoId']);
+    Route::post('/postSuaTiet', ['middleware' => ['permission:update-hocphan'], 'uses'=>'TietController@postSuaTiet','as'=>'postSuaTiet']);
+    Route::post('/postXoaTiet', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'TietController@postXoaTiet','as'=>'postXoaTiet']);
 
     //Khoa Luan
     Route::post('/postThemKhoaLuan', ['middleware' => ['permission:create-hocphan'], 'uses'=>'KhoaLuanController@postThemKhoaLuan','as'=>'postThemKhoaLuan']);

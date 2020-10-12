@@ -35,7 +35,7 @@
                                 </div>
                                  <div class="form-group">
                                     <label>Giảng Viên Phụ:</label>
-                                <select class="form-control" name="gvphu">
+                                <select class="form-control" name="gvphu" multiple>
                                 <option value="">-------- Chọn Giảng Viên --------</option>
                                         <?php if($ds_giangvien->count()>0): ?>
                                             <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

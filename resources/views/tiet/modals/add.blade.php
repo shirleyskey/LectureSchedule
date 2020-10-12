@@ -4,6 +4,13 @@
         <div class="modal-content">
             <form action="post" id="form_add_tiet">
                 <input value="{{ $bai->id }}" name="id_bai" type="hidden">
+                @php 
+                    $id_hocphan = $bai->id_hocphan;
+                    $id_lop = App\HocPhan::where('id', $id_hocphan)->first();
+                    $id_lop = $id_lop->id_lop;
+                @endphp 
+                <input value="{{ $id_lop }}" name="id_lop" type="hidden">
+                <input value="{{ $bai->id_hocphan }}" name="id_hocphan" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                     <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Tiết Học</h4>
@@ -13,16 +20,28 @@
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên: <span class="required">*</span></label>
-                                    <input  name="title" type="text" class="form-control" required>
+                                        <label>Giảng Viên:</label>
+                                        <select class="form-control" name="id_giangvien">
+                                            <option value="0">-------- Chọn Giảng Viên --------</option>
+                                            @if($ds_giangvien->count()>0)
+                                                @foreach($ds_giangvien as $v)
+                                                <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                    </div>
+                                
+                                <div class="form-group">
+                                    <label>Thời Gian: <span class="required">*</span></label>
+                                    <input  name="thoigian" type="date" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input name="start" type="datetime-local" class="form-control" required>
-                                </div> 
+                                    <label>Buổi: <span class="required">*</span></label>
+                                    <input  name="buoi" type="text" class="form-control" required>
+                                </div>
                                 <div class="form-group">
-                                    <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input name="end" type="datetime-local" class="form-control" required>
+                                    <label>Ca:<span class="required">*</span></label>
+                                    <input name="ca" type="number" class="form-control" required>
                                 </div> 
                             </div>
                             <div class="col-md-6">

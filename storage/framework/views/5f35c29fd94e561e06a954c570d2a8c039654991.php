@@ -46,9 +46,7 @@
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
-                        <li  class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin Bài Học</a>
-                        </li>
+                       
                         
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
@@ -138,9 +136,13 @@
            method: 'POST',
            data: {
                id_bai: $("#form_add_tiet input[name='id_bai']").val(),
-               title: $("#form_add_tiet input[name='title']").val(),
-               start: $("#form_add_tiet input[name='start']").val(),
-               end: $("#form_add_tiet input[name='end']").val(),
+               id_lop: $("#form_add_tiet input[name='id_lop']").val(),
+               id_hocphan: $("#form_add_tiet input[name='id_hocphan']").val(),
+               thoigian: $("#form_add_tiet input[name='thoigian']").val(),
+               buoi: $("#form_add_tiet input[name='buoi']").val(),
+               ca: $("#form_add_tiet input[name='ca']").val(),
+               id_giangvien: $("#form_add_tiet select[name='id_giangvien']").val(),
+              
            },
            success: function(data) {
                console.log("Hihi");
@@ -205,9 +207,13 @@
                         // console.log(data.data);
                         $("#form_edit_tiet input[name='id_bai']").val(data.data.id_bai);
                         $("#form_edit_tiet input[name='id']").val(data.data.id);
-                        $("#form_edit_tiet input[name='title']").val(data.data.title);
-                        $("#form_edit_tiet input[name='start']").val(data.data.start);
-                        $("#form_edit_tiet input[name='end']").val(data.data.end);
+                        $("#form_edit_tiet input[name='id_lop']").val(data.data.id_lop);
+                        $("#form_edit_tiet input[name='id_hocphan']").val(data.data.id_hocphan);
+                        $("#form_edit_tiet input[name='thoigian']").val(data.data.thoigian);
+                        $("#form_edit_tiet input[name='buoi']").val(data.data.buoi);
+                        $("#form_edit_tiet input[name='ca']").val(data.data.ca);
+                        $("#form_edit_tiet select[name='id_giangvien']").val(data.data.id_giangvien);
+                        
                         $('#modal_edit_tiet').modal('show');
                     }
                 }
@@ -232,10 +238,12 @@
                 data: {
                     id: $("#form_edit_tiet input[name='id']").val(),
                     id_bai: $("#form_edit_tiet input[name='id_bai']").val(),
-                    title: $("#form_edit_tiet input[name='title']").val(),
-                    start: $("#form_edit_tiet input[name='start'").val(),
-                    end: $("#form_edit_tiet input[name='end'").val(),
-                   
+                    id_lop: $("#form_edit_tiet input[name='id_lop']").val(),
+                    id_hocphan: $("#form_edit_tiet input[name='id_hocphan']").val(),
+                    thoigian: $("#form_edit_tiet input[name='thoigian']").val(),
+                    buoi: $("#form_edit_tiet input[name='buoi']").val(),
+                    ca: $("#form_edit_tiet input[name='ca']").val(),
+                    id_giangvien: $("#form_edit_tiet select[name='id_giangvien']").val(),
                 },
                 success: function(data) {
                     $("#btn_edit_tiet").removeAttr("disabled"); 
