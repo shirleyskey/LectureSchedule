@@ -131,7 +131,18 @@
                                                         <td> {{ $v->tenbai }} </td>
                                                         <td> {{ $v->sotiet }} </td>
                                                         <td> {{ ($v->gvchinh) ? $v->giangvienchinhs->ten : '' }} </td>
-                                                        <td> {{ ($v->gvphu) ? $v->giangvienphus->ten : '' }} </td>
+                                                        <td>
+                                                            @php
+                                                                $gvphu = json_decode($v->gvphu, true);
+                                                            @endphp
+                                                                @if($gvphu != null)
+                                                                @foreach($gvphu as $key => $value)
+                                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                                    <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                                @endif
+                                                                @endforeach
+                                                                @endif
+                                                        </td>
                                                         <td>
                                                             @permission('read-bai')
                                                             <a class="btn btn-xs blue-sharp" href="{{ route('bai.read.get', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
@@ -171,7 +182,8 @@
                                                     <th> STT</th>
                                                     <th> Tên Bài</th>
                                                     <th> Thời Gian</th>
-                                                    <th> Tên Tiết</th>
+                                                    <th> Buổi</th>
+                                                    <th> Ca</th>
                                                     <th> Giảng Viên</th>
                                                 </tr>
                                             </thead>
@@ -183,7 +195,8 @@
                                                         <td> {{ $stt }} </td>
                                                         <td> {{ ($v->id_bai) ? $v->bais->tenbai : '' }} </td>
                                                         <td> {{ $thoigian = Carbon\Carbon::parse($v->thoigian)->format('Y-d-m') }} </td>
-                                                        <td> {{ $v->lesson }} </td>
+                                                        <td> {{ $v->buoi }} </td>
+                                                        <td> {{ $v->ca }} </td>
                                                         <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : '' }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -196,7 +209,7 @@
                                 <!-- END EXAMPLE TABLE PORTLET-->
                                 @else
                                     <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Chưa có bài học nào!</p>
+                                        <p> Chưa có Tiết Học nào!</p>
                                     </div>
                                 @endif
                             </div>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Bai;
 use App\Event;
 use App\GiangVien;
+use App\Tiet;
 class BaiController extends Controller
 {
     public function index()
@@ -28,7 +29,7 @@ class BaiController extends Controller
         $bai = Bai::findOrFail($id);
         return view('bai.edit.index', [
             'bai' => $bai, 
-            'tiet' => Event::where('id_bai', $id)->get(),
+            'tiet' => Tiet::where('id_bai', $id)->get(),
             'ds_giangvien' => GiangVien::all(),
         ]);
     }

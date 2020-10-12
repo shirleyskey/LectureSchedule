@@ -68,8 +68,8 @@
                                     <th> Mã Học Phần </th>
                                     <th> Tên Học Phần </th>
                                     <th> Số Tiết </th>
-                                    <th> Số Tín Chỉ</th>
-                                    <th> Số Bài</th>
+                                    <th> Tín Chỉ</th>
+                                    <th> Bài</th>
                                     <th> Bắt Đầu</th>
                                     <th> Kết Thúc</th>
                                     <th> Hành Động</th>

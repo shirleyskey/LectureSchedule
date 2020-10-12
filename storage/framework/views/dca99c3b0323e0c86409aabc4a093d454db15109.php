@@ -126,15 +126,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-4">Danh Sách Tiết Học:
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-icon right">
-                                                            <i class="fa fa-user"></i>
-                                                            <input type="text" class="form-control" name="lesson" value="<?php echo e($tiet->lesson); ?>" required /> </div>
-                                                    </div>
-                                                </div>
+                                               
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Thời Gian:
                                                     </label>
@@ -144,6 +136,24 @@
                                                             <input type="date" class="form-control" name="thoigian" 
                                                             value="<?php echo e(\Carbon\Carbon::parse($tiet->thoigian)->format('Y-m-d')); ?>" 
                                                             required /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Buổi <br>(Nhập S or C):
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" name="buoi" value="<?php echo e($tiet->buoi); ?>" required /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Ca <br>(Nhập 1 or 2):
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="number" class="form-control" name="ca" value="<?php echo e($tiet->ca); ?>" required /> </div>
                                                     </div>
                                                 </div>
 

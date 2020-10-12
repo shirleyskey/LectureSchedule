@@ -42,6 +42,7 @@
                                     <input type="number" class="form-control" name="sotiet" value="{{ $bai->sotiet }}" /> </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label class="control-label col-md-4">Giảng Viên Chính:
                             </label>
@@ -60,78 +61,28 @@
                         </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Giảng Viên Tham Gia:
+                            <label class="control-label col-md-4">Giảng Viên Phụ:
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <select class="form-control" name="gvphu">
-                                        <option value="{{($bai->gvphu) ? $bai->gvphu : ''}}">{{($bai->gvphu) ? $bai->giangvienphus->ten : ''}}</option>
+                                    <select class="form-control" name="gvphu" multiple>
+                                        <option value="{{($bai->gvphu) ? $bai->gvphu : null}}">{{($bai->gvchinh) ? $bai->giangvienchinhs->ten : ''}}</option>
                                             @if($ds_giangvien->count()>0)
                                                 @foreach($ds_giangvien as $v)
-                                            <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''?>>{{ $v->ten }}</option>
+                                            <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
                                                 @endforeach
                                             @endif
                                     </select>
                             </div>
                         </div>
+                        </div>
+
+                       
                     </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-md-4">LýT GVC:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="lythuyet" value="{{ $bai->lythuyet}}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Xemina GVC:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="xemina" value="{{ $bai->xemina}}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">TH/TL GVC:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="thuchanh" value="{{ $bai->thuchanh}}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">LýT GV Tham Gia:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="lythuyet_phu" value="{{ $bai->lythuyet_phu}}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Xemina GV Tham Gia:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="xemina_phu" value="{{ $bai->xemina_phu}}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">TH/TL GV Tham Gia:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="thuchanh_phu" value="{{ $bai->thuchanh_phu}}" /> </div>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -170,8 +121,9 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên Tiết Học</th>
                                     <th> Thời Gian</th>
+                                    <th> Buổi </th>
+                                    <th> Ca</th>
                                     <th> Tên Giảng Viên</th>
                                     <th> Hành Động</th>
                                    
@@ -183,8 +135,9 @@
                                     @foreach( $tiet as $v )
                                     <tr>
                                         <td> {{ $stt }} </td>
-                                        <td> {{ $v->lesson }} </td>
-                                        <td> {{ $v->thoigian}} </td>
+                                        <td> {{ $v->thoigian }} </td>
+                                        <td> {{ $v->buoi}} </td>
+                                        <td> {{ $v->ca}} </td>
                                         <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : '' }} </td>
                                         <td>
                                             <a class="btn btn-xs yellow-gold" href="{{route('lichgiang.lichgiangtuan.get', $v->id)}}" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>

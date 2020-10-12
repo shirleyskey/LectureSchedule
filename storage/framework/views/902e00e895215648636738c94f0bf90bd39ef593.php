@@ -130,7 +130,18 @@
                                                         <td> <?php echo e($v->tenbai); ?> </td>
                                                         <td> <?php echo e($v->sotiet); ?> </td>
                                                         <td> <?php echo e(($v->gvchinh) ? $v->giangvienchinhs->ten : ''); ?> </td>
-                                                        <td> <?php echo e(($v->gvphu) ? $v->giangvienphus->ten : ''); ?> </td>
+                                                        <td>
+                                                            <?php
+                                                                $gvphu = json_decode($v->gvphu, true);
+                                                            ?>
+                                                                <?php if($gvphu != null): ?>
+                                                                <?php $__currentLoopData = $gvphu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                                    <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                                <?php endif; ?>
+                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                <?php endif; ?>
+                                                        </td>
                                                         <td>
                                                             <?php if (app('laratrust')->can('read-bai')) : ?>
                                                             <a class="btn btn-xs blue-sharp" href="<?php echo e(route('bai.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
@@ -170,7 +181,8 @@
                                                     <th> STT</th>
                                                     <th> Tên Bài</th>
                                                     <th> Thời Gian</th>
-                                                    <th> Tên Tiết</th>
+                                                    <th> Buổi</th>
+                                                    <th> Ca</th>
                                                     <th> Giảng Viên</th>
                                                 </tr>
                                             </thead>
@@ -182,7 +194,8 @@
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e(($v->id_bai) ? $v->bais->tenbai : ''); ?> </td>
                                                         <td> <?php echo e($thoigian = Carbon\Carbon::parse($v->thoigian)->format('Y-d-m')); ?> </td>
-                                                        <td> <?php echo e($v->lesson); ?> </td>
+                                                        <td> <?php echo e($v->buoi); ?> </td>
+                                                        <td> <?php echo e($v->ca); ?> </td>
                                                         <td> <?php echo e(($v->id_giangvien) ? $v->giangviens->ten : ''); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -195,7 +208,7 @@
                                 <!-- END EXAMPLE TABLE PORTLET-->
                                 <?php else: ?>
                                     <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Chưa có bài học nào!</p>
+                                        <p> Chưa có Tiết Học nào!</p>
                                     </div>
                                 <?php endif; ?>
                             </div>

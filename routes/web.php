@@ -136,7 +136,7 @@ Route::prefix('lichgiang')->middleware(['auth', 'only_active_user'])->group(func
     Route::get('/lichgiangtuan', ['uses'=>'CalendarController@index','as'=>'lichgiang.lichgiangtuan']);
     Route::post('/lichgiangtuan/import', ['uses'=>'CalendarController@import','as'=>'lichgiang.lichgiangtuan.import']);
     Route::get('/lichgiangtuan/edit/{id}', ['uses'=>'TietController@edit','as'=>'lichgiang.lichgiangtuan.get']);
-    Route::post('/lichgiangtuan/edit/{id}', ['uses'=>'EventController@update','as'=>'lichgiang.lichgiangtuan.post']);
+    Route::post('/lichgiangtuan/edit/{id}', ['uses'=>'TietController@update','as'=>'lichgiang.lichgiangtuan.post']);
 });
 
 // NCKH Routes...

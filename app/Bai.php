@@ -10,9 +10,10 @@ class Bai extends Model
     protected $table = 'bais';
      public $timestamps = false;
      protected $fillable = ['id','id_hocphan','tenbai','sotiet'];
+
     public function hocphans()
     {
-        return $this->belongsTo('App\Hocphan', 'id_hocphan');
+        return $this->belongsTo('App\HocPhan', 'id_hocphan');
     }
 
     public function lops()
