@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\GiangVien;
-use App\Hocphan;
+use App\HocPhan;
 use App\Lop;
 use App\Bai;
 use App\Tiet;
@@ -17,7 +17,7 @@ class LichGiangController extends Controller
     public function phancong(){
         
         $lop = Lop::all();
-        $hocphan = Hocphan::all();
+        $hocphan = HocPhan::all();
         return view('lichgiang.phancong', [
             'lop' => $lop,
             'hocphan' => $hocphan,

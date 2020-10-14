@@ -62,7 +62,8 @@
 				center: 'title',
 				right: 'month,basicWeek,basicDay,basicList'
 			}
-	});
+    });
+})
 
 </script>
         <style>
@@ -391,6 +392,40 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+            // console.log("HIhi");
+            $('.fc-list-button.fc-button').attr('disabled',"disabled");
+            
+            $(".fc-basicWeek-button").click(function(){
+                $('.fc-list-button.fc-button').removeAttr("disabled");
+                $('.fc-prev-button').removeAttr("disabled");
+                $('.fc-next-button').removeAttr("disabled");
+            });
+
+            $('.fc-list-button.fc-button').attr('disabled',"disabled");
+
+            $(".fc-list-button.fc-button").click(function(){
+                $('.fc-prev-button').attr('disabled',"disabled");
+                $('.fc-next-button').attr('disabled',"disabled");
+                console.log("Block ");
+            });
+            $(".fc-month-button.fc-button").click(function(){
+                $('.fc-prev-button').removeAttr("disabled");
+                $('.fc-next-button').removeAttr("disabled");
+                console.log("Hết Block");
+            });
+            $(".fc-basicDay-button").click(function(){
+                $('.fc-prev-button').removeAttr("disabled");
+                $('.fc-next-button').removeAttr("disabled");
+                console.log("Hết Block");
+            });
+           
+
+
+            
+          
+
+        
 
 
 

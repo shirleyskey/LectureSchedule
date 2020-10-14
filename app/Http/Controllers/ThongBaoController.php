@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Lop;
 use App\Bai;
+use App\GiangVien;
 use App\Nckh;
 use Calendar;
 use Carbon\Carbon;
@@ -23,72 +24,61 @@ class ThongBaoController extends Controller
         if($tiets->count()){
             foreach($tiets as $tiet){
                 $startDate = Carbon::parse($tiet->thoigian);
-                $time = explode(",", trim($tiet->lesson));
-                //Start for tiết
-                for($i = 0 ; $i < count($time); $i++){
-                    $startDate = Carbon::parse($tiet->thoigian);
-                    //Start Switch case 
-                    switch ((int)$time[$i]) {
-                        case 1:
-                            $startDate->addHours(7);
-                            $startDate->addMinute(50);
-                            break;
-                        case 2:
-                            $startDate->addHours(8);
-                            $startDate->addMinute(30);
-                            break;
-                        case 3:
-                            $startDate->addHours(9);
-                            $startDate->addMinute(30);
-                            break;
-                        case 4:
-                            $startDate->addHours(10);
-                            $startDate->addMinute(30);
-                            break;
-                        case 5:
-                            $startDate->addHours(13);
-                            $startDate->addMinute(00);
-                            break;
-                        case 6:
-                            $startDate->addHours(14);
-                            $startDate->addMinute(00);
-                            break;
-                        case 7:
-                            $startDate->addHours(15);
-                            $startDate->addMinute(00);
-                            break;
-                        case 8:
-                            $startDate->addHours(16);
-                            $startDate->addMinute(00);
-                            break;
-                        default:
-                            $startDate->addHours(7);
-                            $startDate->addMinute(30);
-                            break;
-                    }
-                    //End Switch case
-                    // dd($tiet->lops->tenlop);
-                    $thututiet = (int)$time[$i];
-                    $title = $tiet->lops->malop."-".$tiet->hocphans->mahocphan."-".$tiet->bais->tenbai;
-                    $events[] = Calendar::event(
-                        $title,
-                        false,
-                        new DateTime($startDate),
-                        new DateTime($startDate->addMinute(50)),
-                        $tiet->id,
-                        [
-                            'color' => '#ff6100',
-                            'url' => route('lichgiang.lichgiangtuan.get', $tiet->id)
-                        ]
-                    );
+                
+                if($tiet->buoi == "S" && $tiet->ca == "1"){
+                    $startDate->addHours(7);
+                    $startDate->addMinute(50);
+                }
+                else if($tiet->buoi == "S" && $tiet->ca == "2"){
+                    $startDate->addHours(9);
+                    $startDate->addMinute(30);
+                }
+                else if($tiet->buoi == "C" && $tiet->ca == "1"){
+                    $startDate->addHours(13);
+                }
+                else if($tiet->buoi == "C" && $tiet->ca == "2"){
+                    $startDate->addHours(15);
+                    
+                }
+                //Tên Lớp
+                $tenlop = ($tiet->lops->malop) ? $tiet->lops->malop : "";
+
+                //Tên Bài 
+                $tenbai = ($tiet->bais->tenbai) ? $tiet->bais->tenbai : "";
+
+                // Tên Giáo Viên 
+                $giangvien = GiangVien::where('id', $tiet->id_giangvien)->first();
+                $tengiangvien = $giangvien["ten"];
+
+                $title = $tenlop. " - ".$tenbai.'-'.$tengiangvien;
+                $events[] = Calendar::event(
+                    $title,
+                    false,
+                    new DateTime($startDate),
+                    new DateTime($startDate->addMinute(110)),
+                    $tiet->id,
+                    [
+                        'color' => '#ff6100',
+                        'url' => route('lichgiang.lichgiangtuan.get', $tiet->id)
+                    ]
+                );
                 }
                 //End for tiết
-               
+
             }
             //end foreach Event
-        }
+        
 
-        $calendar = Calendar::addEvents($events)->setOptions(['lang' => 'vi']);
+
+        $calendar = Calendar::addEvents($events)->setOptions([
+            'lang' => 'vi',
+            'header' =>
+                    [
+                        'left' => 'prev,next today',
+                        'center' => 'title',
+                        'right' => 'month,basicWeek,list',
+                    ],
+        ]);
         return view('calendar.thongbao', ['calendar' => $calendar]);
     }
     

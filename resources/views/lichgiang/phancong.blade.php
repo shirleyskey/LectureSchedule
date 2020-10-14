@@ -68,16 +68,30 @@
                                                 $ds_bai = App\Bai::where('id_hocphan', $v_hocphan->id)->get();
                                             @endphp
                                             @foreach ($ds_bai as $v_bai)
-                                                <div style="display: inline-block; padding: 10px; background-color: #80808047; margin-right: 5px">
+                                                <div style="display: inline-block; padding: 10px; background-color: #80808047; margin-right: 5px; margin-top: 15px">
                                                     <p style="margin-bottom: 0px">
-                                                        <b>{{$v_bai->tenbai}}</b>  -  {{$v_bai->sotiet}} tiết
+                                                        <b>{{$v_bai->tenbai}}</b>  -  {{($v_bai->sotiet) ? ($v_bai->sotiet) : '0'}} tiết
                                                     </p>
                                                     <p style="margin-bottom: 0px">
-                                                       {{($v_bai->gvchinh) ? $v_bai->giangvienchinhs->ten : ''}}
+                                                        {{($v_bai->gvchinh) ? ($v_bai->giangvienchinhs->ten) : 'Chưa Phân GV Chính'}}
                                                     </p>
-                                                    <p style="margin-bottom: 0px">
-                                                        {{($v_bai->gvphu) ? $v_bai->giangvienphus->ten : ''}}
-                                                    </p>
+                                                       
+                                                    <!-- <p style="margin-bottom: 0px">
+                                                    @php
+                                                        $gvphu = json_decode($v_bai->gvphu, true);
+                                                    @endphp
+                                                        @if($gvphu != null)
+                                                        <span><b> GV Tham Gia: </b> </span><br>
+                                                        @foreach($gvphu as $key => $value)
+                                                        @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                            <span>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </span><br>
+                                                        @endif
+                                                        @endforeach
+                                                        @endif
+                                                        @if($gvphu == null)
+                                                        <span><b> Không GV Tham Gia: </b> </span><br>
+                                                        @endif
+                                                    </p> -->
                                                 </div>
                                             @endforeach
                                         </td>

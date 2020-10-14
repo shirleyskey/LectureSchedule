@@ -76,7 +76,7 @@ class CalendarController extends Controller
                     [
                         'left' => 'prev,next today',
                         'center' => 'title',
-                        'right' => 'month,basicWeek,basicDay,list',
+                        'right' => 'month,basicWeek,list',
                     ],
         ]);
         return view('calendar.calendar', ['calendar' => $calendar]);

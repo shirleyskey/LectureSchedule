@@ -35,18 +35,15 @@
 
 
         <!-- STYLE FOR CALENDAR -->
-        {{-- <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> --}}
         <link href="{{ asset('assets/global/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <script src="{{ asset('assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
 
         <script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/global/plugins/moment.min.js') }}" type="text/javascript"></script>
-        {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script> --}}
-        {{-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/> --}}
-        <script src="{{ asset('assets/global/plugins/fullcalendar/lib/main.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/fullcalendar/lib/fullcalendar.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/global/plugins/fullcalendar/lib/locales-all.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/global/plugins/fullcalendar/lib/lang-all.js') }}" type="text/javascript"></script>
-        <link href="{{ asset('assets/global/plugins/fullcalendar/lib/main.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/fullcalendar/lib/fullcalendar.css') }}" rel="stylesheet" type="text/css" />
           <!--END  STYLE FOR CALENDAR -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="{{ asset('assets/layouts/layout/css/layout.min.css') }}" rel="stylesheet" type="text/css" />
@@ -390,6 +387,34 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+            // console.log("HIhi");
+            $('.fc-list-button.fc-button').attr('disabled',"disabled");
+            
+            $(".fc-basicWeek-button").click(function(){
+                $('.fc-list-button.fc-button').removeAttr("disabled");
+                $('.fc-prev-button').removeAttr("disabled");
+                $('.fc-next-button').removeAttr("disabled");
+            });
+
+            $('.fc-list-button.fc-button').attr('disabled',"disabled");
+
+            $(".fc-list-button.fc-button").click(function(){
+                $('.fc-prev-button').attr('disabled',"disabled");
+                $('.fc-next-button').attr('disabled',"disabled");
+                console.log("Block ");
+            });
+            $(".fc-month-button.fc-button").click(function(){
+                $('.fc-prev-button').removeAttr("disabled");
+                $('.fc-next-button').removeAttr("disabled");
+                console.log("Hết Block");
+            });
+            $(".fc-basicDay-button").click(function(){
+                $('.fc-prev-button').removeAttr("disabled");
+                $('.fc-next-button').removeAttr("disabled");
+                console.log("Hết Block");
+            });
+           
 
 
 
