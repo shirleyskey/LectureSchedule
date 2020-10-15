@@ -26,7 +26,7 @@
                                 <div class="form-group">
                                     <label>Tên Học Phần: <span class="required">*</span></label>
                                     <select class="form-control" name="id_hocphan">
-                                        <option name="hocphan_hientai">Chọn Học Phần</option>
+                                        <option name="hocphan_hientai">Chọn Mã Học Phần</option>
                                             <?php if($hocphan->count()>0): ?>
                                                 <?php $__currentLoopData = $hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->mahocphan); ?></option>

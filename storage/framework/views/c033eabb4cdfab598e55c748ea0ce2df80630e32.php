@@ -77,6 +77,8 @@
                 </a>
             </div>
         </div>
+
+       
         <div class="clearfix"></div>
         <!-- END DASHBOARD STATS 1-->
     </div>

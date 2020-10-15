@@ -10,15 +10,9 @@ use App\ChamBai;
 use App\CongTac;
 use App\Dang;
 use App\DayGioi;
-use App\DotXuat;
 use App\HocTap;
 use App\Nckh;
-use App\SangKien;
 use App\XayDung;
-use App\KhoaLuan;
-use App\LuanVan;
-use App\LuanAn;
-use App\Ncs;
 use App\Lop;
 use App\Hop;
 use App\HocPhan;
@@ -36,13 +30,7 @@ class KhacController extends Controller
             'daygioi' => DayGioi::all(),
             'hoctap' => HocTap::all(),
             'nckh' => Nckh::all(),
-            'sangkien' => SangKien::all(),
-            'khoaluan' => KhoaLuan::all(),
-            'luanvan' => LuanVan::all(),
-            'luanan' => LuanAn::all(),
-            'ncs' => Ncs::all(),
             'xaydung' => XayDung::all(),
-            'dotxuat' => DotXuat::all(),
             'lop' => Lop::all(),
             'hocphan' => HocPhan::all(),
             'hop' => Hop::all(),

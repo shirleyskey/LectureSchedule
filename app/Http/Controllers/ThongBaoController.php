@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Event;
+use App\Tiet;
 use App\Lop;
 use App\Bai;
 use App\GiangVien;
@@ -19,7 +19,7 @@ class ThongBaoController extends Controller
     //
     public function index($id){
         $events = [];
-        $tiets = Event::where('id_giangvien', $id)->get();
+        $tiets = Tiet::where('id_giangvien', $id)->get();
        
         if($tiets->count()){
             foreach($tiets as $tiet){

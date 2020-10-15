@@ -15,8 +15,5 @@ class Lop extends Model
     {
         return $this->hasMany('App\Hocphan', 'id_lop');
     }
-    public function events()
-    {
-        return $this->hasMany('App\Event', 'id_lop');
-    }
+  
 }

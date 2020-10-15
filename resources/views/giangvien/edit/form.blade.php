@@ -94,68 +94,7 @@
             </div>
         </div>
         <!-- END TAB 1-->
-        <!-- BEGIN TAB 3-->
-        <div class="tab-pane" id="tab7">
-                    @if($xaydung->isNotEmpty())
-                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                        <div class="portlet light portlet-fit bordered">
-                            <div class="portlet-body">
-                                <div class="table-toolbar">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="btn-group">
-                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Xây Dựng Chương Trình Mới
-
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <table class="table table-striped table-hover table-bordered" id="table_ds_xaydung">
-                                    <thead>
-                                        <tr>
-                                            <th> STT</th>
-                                            <th> Tên Chương Trình</th>
-                                            <th> Học Phần</th>
-                                            <th> Khóa</th>
-                                            <th> Vai Trò</th>
-                                            <th> Thời Gian</th>
-                                            <th> Ghi Chú</th>
-                                            <th> Hành Động</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if( $xaydung->count() > 0 )
-                                            @php $stt = 1; @endphp
-                                            @foreach( $xaydung as $v )
-                                            <tr>
-                                                <td> {{ $stt }} </td>
-                                                <td> {{ $v->ten }} </td>
-                                                <td> {{ $v->hocphan }} </td>
-                                                <td> {{ $v->khoa }} </td>
-                                                <td> {{ $v->vai_tro }} </td>
-                                                <td> {{ $v->thoigian }} </td>
-                                                <td> {{ $v->ghichu }} </td>
-                                                <td>
-                                                    <a data-xaydung-id="{{ $v->id }}" class="btn_edit_xaydung btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                                    <a class="btn_delete_xaydung btn btn-xs red-mint" href="#" data-xaydung-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                </td>
-                                            </tr>
-                                            @php $stt++; @endphp
-                                            @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- END EXAMPLE TABLE PORTLET-->
-                    @else
-                        <div class="alert alert-danger" style="margin-bottom: 0px;">
-                            <p> Giảng Viên này không có Xây Dựng Chương Trình nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Xây Dựng Chương Trình</a></p>
-                        </div>
-                    @endif 
-                </div>
-                <!-- END TAB 3-->
+      
 
         <!-- BEGIN TAB 3-->
         <div class="tab-pane" id="tab3">
@@ -174,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_congtac">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -210,72 +149,12 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không có Công Tác nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Công Tác</a></p>
+                    <p> Không có Đi Thực Tế nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế</a></p>
                 </div>
             @endif
         </div>
         <!-- END TAB 3-->
 
-        <!-- BEGIN XỬ LÝ VĂN BẢN-->
-        <div class="tab-pane" id="tab_vanban">
-            @if($vanban->isNotEmpty())
-                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-body">
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Văn Bản Xử Lý Mới
-
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_vanban">
-                            <thead>
-                                <tr>
-                                <th> STT</th>
-                                    <th> Nội Dung</th>
-                                    <th> Lãnh Đạo Xử Lý</th>
-                                    <th> Thời Gian Nhận</th>
-                                    <th> Hạn</th>
-                                    <th> Ghi Chú</th>
-                                    <th> Hành Động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if( $vanban->count() > 0 )
-                                    @php $stt = 1; @endphp
-                                    @foreach( $vanban as $v )
-                                    <tr>
-                                        <td> {{ $stt }} </td>
-                                        <td> {{ $v->noi_dung }} </td>
-                                        <td> {{ $v->lanhdao }} </td>
-                                        <td> {{ $v->thoigian_nhan }} </td>
-                                        <td> {{ $v->thoigian_den }} </td>
-                                        <td> {{ $v->ghichu }} </td>
-                                        <td>
-                                            <a data-vanban-id="{{ $v->id }}" class="btn_edit_vanban btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_vanban btn btn-xs red-mint" href="#" data-vanban-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                        </td>
-                                    </tr>
-                                    @php $stt++; @endphp
-                                    @endforeach
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
-            @else
-                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không có văn bản nào xư lý <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Van Bản Xử Lý</a></p>
-                </div>
-            @endif
-        </div>
-        <!-- END XỬ LÝ VĂN BẢN-->
 
          <!-- BEGIN TAB 4-->
          <div class="tab-pane" id="tab4">
@@ -294,7 +173,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_chambai">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -340,66 +219,7 @@
         </div>
         <!-- END TAB 4-->
 
-           <!-- BEGIN TAB 5-->
-           <div class="tab-pane" id="tab5">
-            @if($dang->isNotEmpty())
-                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-body">
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động Mới
-
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
-                            <thead>
-                                <tr>
-                                    <th> STT</th>
-                                    <th> Nội Dung</th>
-                                    <th> Kết Quả</th>
-                                    <th> Vai Trò</th>
-                                    <th> Thời Gian</th>
-                                    <th> Ghi Chú</th>
-                                    <th> Hành Động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if( $dang->count() > 0 )
-                                    @php $stt = 1; @endphp
-                                    @foreach( $dang as $v )
-                                    <tr>
-                                        <td> {{ $stt }} </td>
-                                        <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->ket_qua }} </td>
-                                        <td> {{ $v->vai_tro }} </td>
-                                        <td> {{ $v->thoigian }} </td>
-                                        <td> {{ $v->ghichu }} </td>
-                                        <td>
-                                            <a data-dang-id="{{ $v->id }}" class="btn_edit_dang btn btn-xs yellow-gold" href="#modal_edit_dang" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_dang btn btn-xs red-mint" href="#" data-dang-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                        </td>
-                                    </tr>
-                                    @php $stt++; @endphp
-                                    @endforeach
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
-            @else
-                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không tham gia hoạt động Đảng/Đoàn nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo HĐ Mới</a></p>
-                </div>
-            @endif
-        </div>
-        <!-- END TAB 5-->
+        
 
           <!-- BEGIN TAB 7-->
           <div class="tab-pane" id="tab6">
@@ -418,7 +238,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_daygioi">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -472,69 +292,14 @@
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
                     <p> Giảng Viên này không có hoạt động Dạy Giỏi nào.
-                        {{-- <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi</a> --}}
+                         <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi</a> 
                     </p>
                 </div>
             @endif
         </div>
         <!-- END TAB 7-->
 
-           <!-- BEGIN TAB 8-->
-           <div class="tab-pane" id="tab8">
-            @if($dotxuat->isNotEmpty())
-                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-body">
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dotxuat"><i class="fa fa-plus"></i> Tạo CV Đột Xuất Mới
-
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
-                            <thead>
-                                <tr>
-                                    <th> STT</th>
-                                    <th> Tên </th>
-                                    <th> Thời Gian</th>
-                                    <th> Ghi Chú</th>
-                                    <th> Hành Động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if( $dotxuat->count() > 0 )
-                                    @php $stt = 1; @endphp
-                                    @foreach( $dotxuat as $v )
-                                    <tr>
-                                        <td> {{ $stt }} </td>
-                                        <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->thoigian }} </td>
-                                        <td> {{ $v->ghichu }} </td>
-                                        <td>
-                                            <a data-dotxuat-id="{{ $v->id }}" class="btn_edit_dotxuat btn btn-xs yellow-gold" href="#modal_edit_dotxuat" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_dotxuat btn btn-xs red-mint" href="#" data-dotxuat-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                        </td>
-                                    </tr>
-                                    @php $stt++; @endphp
-                                    @endforeach
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
-            @else
-                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không có Công Việc Đột Xuất nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dotxuat"><i class="fa fa-plus"></i> Tạo Đột Xuất</a></p>
-                </div>
-            @endif
-        </div>
-        <!-- END TAB 8-->
+       
          <!-- BEGIN TAB Họp-->
          <div class="tab-pane" id="tab_hop">
             @if($hop->isNotEmpty())
@@ -552,7 +317,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_hop">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -593,62 +358,7 @@
             @endif
         </div>
         <!-- END TAB 8-->
-         <!-- BEGIN TAB 9-->
-         <div class="tab-pane" id="tab9">
-            @if($sangkien->isNotEmpty())
-                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-body">
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_sangkien"><i class="fa fa-plus"></i> Tạo Sáng Kiến Cải Tiến
-
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
-                            <thead>
-                                <tr>
-                                    <th> STT</th>
-                                    <th> Tên </th>
-                                    <th> Thời Gian</th>
-                                    <th> Ghi Chú</th>
-                                    <th> Hành Động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if( $sangkien->count() > 0 )
-                                    @php $stt = 1; @endphp
-                                    @foreach( $sangkien as $v )
-                                    <tr>
-                                        <td> {{ $stt }} </td>
-                                        <td> {{ $v->ten }} </td>
-                                        <td> {{ $v->thoigian }} </td>
-                                        <td> {{ $v->ghichu }} </td>
-                                        <td>
-                                            <a data-sangkien-id="{{ $v->id }}" class="btn_edit_sangkien btn btn-xs yellow-gold" href="#modal_edit_sangkien" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_sangkien btn btn-xs red-mint" href="#" data-sangkien-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                        </td>
-                                    </tr>
-                                    @php $stt++; @endphp
-                                    @endforeach
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
-            @else
-                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không có Sáng Kiến Cải Tiến nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_sangkien"><i class="fa fa-plus"></i> Tạo Đột Xuất</a></p>
-                </div>
-            @endif
-        </div>
-        <!-- END TAB 9-->
+       
          <!-- BEGIN TAB 10-->
          <div class="tab-pane" id="tab10">
             @if($hoctap->isNotEmpty())
@@ -666,7 +376,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_hoctap">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -729,7 +439,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_hdkh">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -780,32 +490,31 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không tham gia Hướng Dẫn Khoa Học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Thêm Mới Hướng Dẫn Khoa Học</a></p>
+                    <p> Không tham gia Hướng Dẫn Khoa Học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Thêm Mới Hướng Dẫn Khoa Học</a></p>
                 </div>
             @endif
         </div>
         <!-- END TAB 10-->
+    </div>
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
+            </div>
+        </div>
     </div>
 </form>
 @include('congtac.modals.add')
 @include('congtac.modals.edit')
 @include('chambai.modals.add')
 @include('chambai.modals.edit')
-@include('dang.modals.add')
-@include('dang.modals.edit')
 @include('daygioi.modals.add')
 @include('daygioi.modals.edit')
-@include('dotxuat.modals.add')
-@include('dotxuat.modals.edit')
 @include('hop.modals.add')
 @include('hop.modals.edit')
-@include('sangkien.modals.add')
-@include('sangkien.modals.edit')
 @include('hoctap.modals.add')
 @include('hoctap.modals.edit')
 @include('hdkh.modals.add')
 @include('hdkh.modals.edit')
-@include('xaydung.modals.add')
-@include('xaydung.modals.edit')
-@include('vanban.modals.add')
-@include('vanban.modals.edit')
+
+

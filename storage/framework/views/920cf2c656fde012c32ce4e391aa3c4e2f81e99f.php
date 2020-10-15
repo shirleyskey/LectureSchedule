@@ -34,6 +34,15 @@
             
             
             <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <li class="nav-item <?php echo e(Request::is('deadline') ? 'active open' : ''); ?>">
+                <a href="<?php echo e(route('dashboard.deadline')); ?>" class="nav-link nav-toggle">
+                    <i class="fa fa-warning"></i>
+                    <span class="title">Cảnh Báo</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <?php endif; // app('laratrust')->can ?>
+            <?php if (app('laratrust')->can('read-giangvien')) : ?>
             <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
                 <a href="<?php echo e(route('giangvien.index')); ?>" class="nav-link nav-toggle">
                     <i class="fa fa-user"></i>

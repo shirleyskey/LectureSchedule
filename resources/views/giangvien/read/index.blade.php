@@ -45,72 +45,40 @@
             @endforeach
         </div>
         @endif
-        <div class="row">
+
+        <div class="row box_gio">
             <div class="col-md-12">
+            <h2>Hoạt Động tính giờ</h2>
                 <div class="tabbable tabbable-tabdrop">
-                    <ul class="nav nav-pills">
+                    <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
                             <a href="#tab1" data-toggle="tab">Thông tin</a>
-                        </li>
-                        <li>
-                            <a href="#tab17" data-toggle="tab">Giờ Giảng</a>
-                        </li>
-                        <li>
-                            <a href="#tab2" data-toggle="tab">NCKH</a>
-                        </li>
-                        <li>
-                            <a href="#tab_hop" data-toggle="tab">Họp</a>
-                        </li>
-                        <li>
-                            <a href="#tab_vanban" data-toggle="tab">Văn Bản</a>
                         </li>
                         <li>
                             <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab"> ĐI Thực Tế</a>
+                            <a href="#tab_hop" data-toggle="tab">Họp</a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab"> Đi Thực Tế</a>
                         </li>
                         <li>
                             <a href="#tab4" data-toggle="tab">Chấm Bài</a>
                         </li>
                         <li>
-                            <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
-                        </li>
-                        <li>
                             <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
-                        </li>
-                        <li>
-                            <a href="#tab7" data-toggle="tab">Xây Dựng CT</a>
-                        </li>
-                        <li>
-                            <a href="#tab8" data-toggle="tab">CV Đột Xuất</a>
-                        </li>
-                        <li>
-                            <a href="#tab9" data-toggle="tab">Sáng Kiến</a>
                         </li>
                         <li>
                             <a href="#tab10" data-toggle="tab">Học Tập</a>
                         </li>
-                        <li>
-                            <a href="#tab11" data-toggle="tab">Khóa Luận</a>
-                        </li>
-                        <li>
-                            <a href="#tab12" data-toggle="tab">Luận Văn</a>
-                        </li>
-                        <li>
-                            <a href="#tab13" data-toggle="tab">Luận Án</a>
-                        </li>
-                        <li>
-                            <a href="#tab14" data-toggle="tab">NCS</a>
-                        </li>
-
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
                         <div class="tab-content">
-                            <!-- BEGIN TAB 1-->
-                            <div class="tab-pane active" id="tab1">
+                             <!-- BEGIN TAB 1-->
+                             <div class="tab-pane active" id="tab1">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -154,13 +122,525 @@
                                 </div>
                             </div>
                             <!-- END TAB 1-->
-                            <!-- BEGIN TAB 11-->
-                                <div class="tab-pane" id="tab17">
+ 
+                            
+                            <!-- BEGIN TAB 3-->
+                            <div class="tab-pane" id="tab3">
+                                @if($congtac->isNotEmpty())
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                                            <thead>
+                                                <tr>
+                                                    <th> STT</th>
+                                                    <th>Địa Bàn</th>
+                                                    <th> Số Giờ</th>
+                                                    <th> Thời Gian</th>
+                                                    <th> Ghi Chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if( $congtac->count() > 0 )
+                                                    @php $stt = 1; @endphp
+                                                    @foreach( $congtac as $v_congtac )
+                                                    <tr>
+                                                        <td> {{ $stt }} </td>
+                                                        <td> {{ $v_congtac->ten }} </td>
+                                                        <td> {{ $v_congtac->so_gio }} </td>
+                                                        <td> {{ $v_congtac->thoigian }} </td>
+                                                        <td> {{ $v_congtac->ghichu }} </td>
+                                                    </tr>
+                                                    @php $stt++; @endphp
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                                @else
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Không có Công Tác nào!</p>
+                                    </div>
+                                @endif
+                            </div>
+                            <!-- END BEGIN TAB 3-->
+
+                              <!-- BEGIN TAB 4-->
+                              <div class="tab-pane" id="tab4">
+                                @if($chambai->isNotEmpty())
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_chambai">
+                                            <thead>
+                                                <tr>
+                                                    <th> STT</th>
+                                                    <th> Tên Lớp</th>
+                                                    <th> Tên Học Phần</th>
+                                                    <th> Thời Gian</th>
+                                                    <th> Số Bài</th>
+                                                    <th> Số Giờ</th>
+                                                    <th>Ghi Chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if( $chambai->count() > 0 )
+                                                    @php $stt = 1; @endphp
+                                                    @foreach( $chambai as $v_chambai )
+                                                    <tr>
+                                                        <td> {{ $stt }} </td>
+                                                        <td> {{ ($v_chambai->id_lop) ? ($v_chambai->lops->tenlop) : '' }} </td>
+                                                        <td> {{ ($v_chambai->id_hocphan) ? ($v_chambai->hocphans->mahocphan) : '' }} </td>
+                                                        <td> {{ $v_chambai->thoigian }} </td>
+                                                        <td> {{ $v_chambai->so_bai }} </td>
+                                                        <td> {{ $v_chambai->so_gio }} </td>
+                                                        <td> {{ $v_chambai->ghichu }} </td>
+                                                    </tr>
+                                                    @php $stt++; @endphp
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                                @else
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Không có chấm bài nào!</p>
+                                    </div>
+                                @endif
+
+                            </div>
+                            <!-- END BEGIN TAB 4-->
+
+                          <!-- BEGIN TAB HỌP-->
+                          <div class="tab-pane" id="tab_hop">
+                            @if($hop->isNotEmpty())
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light portlet-fit bordered">
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hop">
+                                        <thead>
+                                            <tr>
+                                                <th> STT</th>
+                                                <th> Nội Dung Cuộc Họp</th>
+                                                <th> Thời Gian</th>
+                                                <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if( $hop->count() > 0 )
+                                                @php $stt = 1; @endphp
+                                                @foreach( $hop as $v_hop )
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+                                                    <td> {{ $v_hop->ten }} </td>
+                                                    <td> {{ $v_hop->thoigian }} </td>
+                                                    <td> {{ $v_hop->so_gio }} </td>
+                                                    <td> {{ $v_hop->ghichu }} </td>
+                                                    
+                                                </tr>
+                                                @php $stt++; @endphp
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                            @else
+                                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                    <p> Không có Cuộc Họp nào!</p>
+                                </div>
+                            @endif
+                        </div>
+                        <!-- END BEGIN TAB 8-->
+
+                        
+
+                         <!-- BEGIN TAB 10-->
+                         <div class="tab-pane" id="tab10">
+                            @if($hoctap->isNotEmpty())
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light portlet-fit bordered">
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hoctap">
+                                        <thead>
+                                            <tr>
+                                                <th> STT</th>
+                                                <th> Tên Lớp</th>
+                                                <th> Loại Hình</th>
+                                                <th> Số Giờ</th>
+                                                <th> Bắt Đầu</th>
+                                                <th> Kết Thúc</th>
+                                                <th> Ghi Chú</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if( $hoctap->count() > 0 )
+                                                @php $stt = 1; @endphp
+                                                @foreach( $hoctap as $v_hoctap )
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+                                                    <td> {{ $v_hoctap->ten }} </td>
+                                                    <td> {{ $v_hoctap->loai_hinh }} </td>
+                                                    <td> {{ $v_hoctap->so_gio }} </td>
+                                                    <td> {{ $v_hoctap->thoigian }} </td>
+                                                    <td> {{ $v_hoctap->thoigian_den }} </td>
+                                                    <td> {{ $v_hoctap->ghichu }} </td>
+                                                </tr>
+                                                @php $stt++; @endphp
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                            @else
+                                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                    <p> Không tham gia học tập!</p>
+                                </div>
+                            @endif
+                        </div>
+                        <!-- END BEGIN TAB 10-->
+
+                         <!-- BEGIN TAB Hướng Dẫn Khoa Học-->
+                         <div class="tab-pane" id="tab_hdkh">
+                            @if($hdkh->isNotEmpty())
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light portlet-fit bordered">
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hdkh">
+                                        <thead>
+                                            <tr>
+                                                <th> STT</th>
+                                                <th> Loại Hướng Dẫn</th>
+                                                <th> Học Viên</th>
+                                                <th> Khóa</th>
+                                                <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if( $hdkh->count() > 0 )
+                                                @php $stt = 1; @endphp
+                                                @foreach( $hdkh as $v_hdkh )
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+
+                                                    <td> 
+                                                    @php 
+                                                         if($v_hdkh->khoa_luan == 1) {
+                                                             echo "Khóa Luận";
+                                                         } 
+                                                         else if($v_hdkh->luan_van == 1) {
+                                                             echo "Luận Văn";
+                                                         }  
+                                                         else if($v_hdkh->luan_an == 1) {
+                                                             echo "Luận Án";
+                                                         }   
+                                                    @endphp
+                                                     </td>
+
+                                                    <td> {{ $v_hdkh->hoc_vien }} </td>
+                                                    <td> {{ $v_hdkh->khoa }} </td>
+                                                    <td> {{ $v_hdkh->so_gio }} </td>
+                                                    <td> {{ $v_hdkh->ghichu }} </td>
+                                                </tr>
+                                                @php $stt++; @endphp
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                            @else
+                                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                    <p> Không tham gia Hướng Dẫn Khoa Học!</p>
+                                </div>
+                            @endif
+                        </div>
+                        <!-- END HƯỚNG DẪN KHOA HỌC-->
+                           <!-- BEGIN TAB 6-->
+                           <div class="tab-pane" id="tab6">
+                                @if(!empty($daygioi))
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_daygioi">
+                                            <thead>
+                                                <tr>
+                                                    <th> STT</th>
+                                                    <th> Bài Dạy Giỏi</th>
+                                                    <th> Cấp</th>
+                                                    <th> Thời Gian</th>
+                                                    <th> Số Giờ</th>
+                                                    <th> Ghi Chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if( count($daygioi) > 0 )
+                                                @php $stt = 1; @endphp
+                                                @foreach( $daygioi as $v )
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+                                                    <td> {{ $v->ten }} </td>
+                                                    <td>
+                                                        @php
+                                                            if($v->cap == 1){
+                                                                echo "Cấp Khoa";
+                                                            }
+                                                            if($v->cap == 2){
+                                                                echo "Cấp Học Viện";
+                                                            }
+                                                            if($v->cap == 3){
+                                                                echo "Cấp Bộ";
+                                                            }
+                                                        @endphp
+                                                    </td>
+                                                    <td> {{ $v->thoigian }} </td>
+                                                    <td> {{ $v->so_gio }} </td>
+                                                    <td> {{ $v->ghichu }} </td>
+                                                    
+                                                    {{-- <td>
+                                                        @permission('create-giangvien')
+                                                        <a data-daygioi-id="{{ $v->id }}" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                        <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                        @endpermission
+                                                    </td> --}}
+                                                </tr>
+                                                @php $stt++; @endphp
+                                                @endforeach
+                                            @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                                @else
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Không dạy giỏi!</p>
+                                    </div>
+                                @endif
+                            </div>
+                            <!-- END BEGIN TAB 6-->
+
+
+                        </div>
+                        <!-- END FORM-->
+                    </div>
+                    <!-- END VALIDATION STATES-->
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================ -->
+        <div class="row box_gio">
+            <div class="col-md-12">
+            <h2>Hoạt Động không tính giờ</h2>
+                <div class="tabbable tabbable-tabdrop">
+                    <ul class="nav nav-pills">
+                        <li class="active">
+                            <a href="#tab_vanban" data-toggle="tab">Xử Lý Văn Bản</a>
+                        </li>
+                        <li>
+                            <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
+                        </li>
+                        <li>
+                            <a href="#tab7" data-toggle="tab">Xây Dựng CT</a>
+                        </li>
+                    </ul>
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
+                        <!-- BEGIN FORM-->
+                        <div class="tab-content">
+                              <!-- BEGIN XỬ LÝ VĂN BẢN 3-->
+                              <div class="tab-pane active" id="tab_vanban">
+                                @if($vanban->isNotEmpty())
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_vanban">
+                                            <thead>
+                                                <tr>
+                                                    <th> STT</th>
+                                                    <th> Nội Dung</th>
+                                                    <th> Lãnh Đạo Xử Lý</th>
+                                                    <th> Thời Gian Nhận</th>
+                                                    <th> Hạn</th>
+                                                    <th> Ghi Chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if( $vanban->count() > 0 )
+                                                    @php $stt = 1; @endphp
+                                                    @foreach( $vanban as $v_vanban )
+                                                    <tr>
+                                                        <td> {{ $stt }} </td>
+                                                        <td> {{ $v_vanban->noi_dung }} </td>
+                                                        <td> {{ $v_vanban->lanhdao }} </td>
+                                                        <td> {{ $v_vanban->thoigian_nhan }} </td>
+                                                        <td> {{ $v_vanban->thoigian_den }} </td>
+                                                        <td> {{ $v_vanban->ghichu }} </td>
+                                                    </tr>
+                                                    @php $stt++; @endphp
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                                @else
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Không có Văn Bản  nào!</p>
+                                    </div>
+                                @endif
+                            </div>
+                            <!-- END XỬ LÝ VĂN BẢN-->
+
+                          
+
+
+                            <!-- BEGIN TAB 5-->
+                            <div class="tab-pane" id="tab5">
+                                @if($dang->isNotEmpty())
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_dang">
+                                            <thead>
+                                                <tr>
+                                                    <th> STT</th>
+                                                    <th> Nội Dung</th>
+                                                    <th> Kết Quả</th>
+                                                    <th> Vai Trò</th>
+                                                    <th> Thời Gian</th>
+                                                    <th> Ghi Chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if( $dang->count() > 0 )
+                                                    @php $stt = 1; @endphp
+                                                    @foreach( $dang as $v_dang )
+                                                    <tr>
+                                                        <td> {{ $stt }} </td>
+                                                        <td> {{ $v_dang->ten }} </td>
+                                                        <td> {{ $v_dang->ket_qua }} </td>
+                                                        <td> {{ $v_dang->vai_tro }} </td>
+                                                        <td> {{ $v_dang->thoigian }} </td>
+                                                        <td> {{ $v_dang->ghichu }} </td>
+                                                    </tr>
+                                                    @php $stt++; @endphp
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                                @else
+                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                        <p> Không có hoạt động đảng/đoàn nào!</p>
+                                    </div>
+                                @endif
+                            </div>
+                            <!-- END BEGIN TAB 5-->
+
+                           
+
+                         <!-- BEGIN TAB 7-->
+                         <div class="tab-pane" id="tab7">
+                            @if($xaydung->isNotEmpty())
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light portlet-fit bordered">
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-hover table-bordered" id="table_ds_xaydung">
+                                        <thead>
+                                            <tr>
+                                                <th> STT</th>
+                                                <th> Tên Chương Trình</th>
+                                                <th> Học Phần</th>
+                                                <th> Khóa</th>
+                                                <th> Vai Trò</th>
+                                                <th> Thời Gian</th>
+                                                <th> Ghi Chú</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if( $xaydung->count() > 0 )
+                                                @php $stt = 1; @endphp
+                                                @foreach( $xaydung as $v_xaydung )
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+                                                    <td> {{ $v_xaydung->ten }} </td>
+                                                    <td> {{ $v_xaydung->hocphan }} </td>
+                                                    <td> {{ $v_xaydung->khoa }} </td>
+                                                    <td> {{ $v_xaydung->vai_tro }} </td>
+                                                    <td> {{ $v_xaydung->thoigian }} </td>
+                                                    <td> {{ $v_xaydung->ghichu }} </td>
+                                                  
+                                                </tr>
+                                                @php $stt++; @endphp
+                                                @endforeach
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                            @else
+                                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                    <p> Không tham gia xây dựng chương trình nào!</p>
+                                </div>
+                            @endif
+                        </div>
+                        <!-- END BEGIN TAB 7-->
+
+
+
+                        
+                        </div>
+                        <!-- END FORM-->
+                    </div>
+                    <!-- END VALIDATION STATES-->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row box_gio">
+            <div class="col-md-12">
+            <h2>Tổng Giờ</h2>
+                <div class="tabbable tabbable-tabdrop">
+                    <ul class="nav nav-pills" id="#myTab">
+                        
+                    <li class="active">
+                            <a href="#tab17" data-toggle="tab">Giờ Giảng</a>
+                        </li>
+                        <li >
+                            <a href="#tab2" data-toggle="tab">NCKH</a>
+                        </li>
+                        <li>
+                            <a href="#tab_giokhac" data-toggle="tab">Giờ Hoạt Động Khác</a>
+                        </li>
+                    </ul>
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
+                        <!-- BEGIN FORM-->
+                        <div class="tab-content">
+                        <!-- BEGIN TAB 11-->
+                        <div class="tab-pane active" id="tab17">
                                 @if(!empty($hocphan))
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_giogiang">
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
@@ -173,86 +653,40 @@
                                             </thead>
                                             <tbody>
                                                 @if( count($hocphan) > 0 )
-                                                    @php $stt = 1; @endphp
-                                                    @foreach( $hocphan as $v_hocphan )
-                                                    @php
-                                                        $v_gvchinh = App\Bai::where('id_hocphan', $v_hocphan->id)->get('gvchinh');
-                                                        $v_gvphu = App\Bai::where('id_hocphan', $v_hocphan->id)->get('gvphu');
-                                                        $is_gvchinh = false;
-                                                        $is_gvphu = false;
-                                                        foreach ($v_gvchinh as $key => $value) {
-                                                            if ($giangvien->id == $value->gvchinh) {
-                                                                $is_gvchinh = true;
-                                                            }
-                                                        }
-                                                        foreach ($v_gvphu as $key => $value) {
-                                                            if ($giangvien->id == $value->gvphu) {
-                                                                $is_gvphu = true;
-                                                            }
-                                                        }
-                                                        // echo (int)$is_gvchinh;
-                                                        // echo (int)$is_gvphu;
-                                                        // die();
+                                                    @php 
+                                                        $stt = 1; 
+                                                        $tongtiet = 0;
                                                     @endphp
-                                                    @if ($is_gvchinh == true || $is_gvphu == true)
-                                                    <tr>
-                                                        <td> {{ $stt}} </td>
-                                                        <td> {{ $v_hocphan->mahocphan }} </td>
-                                                        <td>
-                                                            @if (App\Lop::where('id', $v_hocphan->id_lop)->first())
-                                                                {{$v_hocphan->lops->tenlop}}
-                                                            @endif
-                                                        </td>
-                                                        <td>
-                                                            @if (App\Lop::where('id', $v_hocphan->id_lop)->first())
-                                                            {{($v_hocphan->lops->he == 1) ? "Tín chỉ" : "Niên Chế"}}
-                                                            @endif
-                                                        </td>
-                                                        <td>
-                                                            @if (App\Lop::where('id', $v_hocphan->id_lop)->first())
-                                                           {{$v_hocphan->lops->quymo. " Học Viên"}}
-                                                            @endif
-                                                        </td>
-                                                        <td>
-                                                            @php
-                                                                $ds_bai = App\Bai::where('id_hocphan', $v_hocphan->id)->get();
-                                                                $total_gio = 0;
-                                                                $total_chinh = 0;
-                                                                $total_phu = 0;
-                                                                $hesolop = 0;
-                                                                if($v_hocphan->lops->songuoi >100)
-                                                                {
-                                                                    $hesolop = 1.4;
-                                                                }
-                                                                else if($v_hocphan->lops->songuoi >50 && $v_hocphan->lops->songuoi <100)
-                                                                {
-                                                                    $hesolop = 1.2;
-                                                                }
-                                                                else if($v_hocphan->lops->songuoi <50){
-                                                                    $hesolop = 1;
-                                                                }
-                                                                $hetinchi = ($v_hocphan->lops->he == 1) ? 1.1 : 1;
-                                                                foreach ($ds_bai as $v_bai) {
-                                                                    # code...
-                                                                    if($giangvien->id == $v_bai->gvchinh){
-                                                                        $total_chinh +=($v_bai->lythuyet*$hesolop*$hetinchi) +  ($v_bai->xemina*$hetinchi) +  ($v_bai->thuchanh*0.7*$hetinchi);
-                                                                    }
-                                                                    if($giangvien->id == $v_bai->gvphu){
-                                                                        $total_phu +=($v_bai->lythuyet_phu*$hesolop*$hetinchi) +  ($v_bai->xemina_phu*$hetinchi) +  ($v_bai->thuchanh_phu*0.7*$hetinchi);
-                                                                    }
-                                                                    $total_gio = $total_chinh + $total_phu;
-                                                                }
-                                                                // echo($total_chinh);
-                                                                // echo($total_phu);
-                                                                // die();
-                                                            @endphp
-                                                            {{$total_gio}} giờ
-                                                        </td>
-                                                    </tr>
+                                                    @foreach( $hocphan as $v_hocphan )
+                                                    @php 
+                                                        $id_giangvien = $giangvien->id;
+                                                        $id_hocphan = $v_hocphan->id;
+                                                        $tiet = 0;
+                                                        $is_tiet = App\Tiet::where('id_hocphan', $id_hocphan)->where('id_giangvien', $id_giangvien)->first();
+                                                        if($is_tiet){
+                                                            $tiet_hocphans = App\Tiet::where('id_hocphan', $id_hocphan)->where('id_giangvien', $id_giangvien)->get();
+                                                            foreach($tiet_hocphans as $v_tiet_hocphan){
+                                                                $tiet += 2;
+                                                            }
+                                                           echo "<tr>"
+                                                                ."<td>"."$stt"."</td>"
+                                                                ."<td>"."{$v_hocphan->tenhocphan}"."</td>"
+                                                                ."<td>"."{$v_hocphan->lops->tenlop}"."</td>"
+                                                                ."<td>"."{$v_hocphan->lops->he}"."</td>"
+                                                                ."<td>"."{$v_hocphan->lops->quymo}"."</td>"
+                                                                ."<td>"."$tiet"."</td>"
+                                                           ."</tr>";
+                                                   
+                                                        }
+                                                        $tongtiet += $tiet;
+                                                    @endphp 
+                                                   
                                                     @php $stt++; @endphp
-                                                    @endif
-
                                                     @endforeach
+                                                    <tr>
+                                                    <td colspan="5"> <p> <b>Tổng Tiết: </b> </p></td>
+                                                    <td> {{$tongtiet}}</td>
+                                                    </tr>
                                                 @endif
                                             </tbody>
                                         </table>
@@ -261,18 +695,18 @@
                                 <!-- END EXAMPLE TABLE PORTLET-->
                                 @else
                                     <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Không có Nghiên cứu khoa học nào!</p>
+                                        <p> Không có Dữ Liệu</p>
                                     </div>
                                 @endif
                             </div>
-                            <!-- END BEGIN TAB 11-->
+                            <!-- END BEGIN TAB 17-->
                             <!-- BEGIN TAB 2-->
                             <div class="tab-pane" id="tab2">
                                 @if(!empty($nckh))
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_nckh">
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
@@ -362,520 +796,115 @@
                                 @endif
                             </div>
                             <!-- END BEGIN TAB 2-->
-                             <!-- BEGIN TAB 11-->
-                             <div class="tab-pane" id="tab11">
-                                @if(!empty($khoaluan))
-                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                <div class="portlet light portlet-fit bordered">
-                                    <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                            <thead>
-                                                <tr>
-                                                    <th>STT</th>
-                                                    <th>Tên Khóa Luận</th>
-                                                    <th>Vai Trò</th>
-                                                    <th>Ghi Chú</th>
-                                                    <th>Số Giờ</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @if( count($khoaluan) > 0 )
-                                                    @php $stt = 1; @endphp
-                                                    @foreach( $khoaluan as $v )
-                                                    <tr>
-                                                        <td> {{ $stt}} </td>
-                                                        <td> {{ $v->ten }} </td>
-                                                        <td>
-                                                            @php
-                                                            $huongdan = json_decode( $v->huongdan, true);
-                                                            $chutichcham = json_decode( $v->chutichcham, true);
-                                                            $thamgiacham = json_decode( $v->thamgiacham, true);
-                                                            if(in_array($giangvien->id, $huongdan)){
-                                                                echo "<p>Hướng Dẫn</p> ";
-                                                            };
-                                                            if(in_array($giangvien->id, $chutichcham) ){
-                                                                echo "<p>Chủ Tịch Chấm</p>";
-                                                            };
-                                                            if(in_array($giangvien->id, $thamgiacham) ){
-                                                                echo "<p>Tham Gia Chấm</p>";
-                                                            };
-                                                            @endphp
 
-                                                        </td>
-                                                        <td> {{$v->ghichu}}</td>
-                                                        <td>
-                                                            @php
-                                                            $gio_khoaluan = 0;
-                                                            if(in_array($giangvien->id, $huongdan)){
-                                                              $gio_khoaluan += 15;
-                                                            }
-                                                            if(in_array($giangvien->id, $chutichcham)){
-                                                                $gio_khoaluan += 2;
-                                                            }
-                                                            if(in_array($giangvien->id, $thamgiacham)){
-                                                                $gio_khoaluan += 1.5;
-                                                            };
-                                                            @endphp
-                                                            {{$gio_khoaluan}} giờ
-                                                        </td>
-                                                    </tr>
-                                                    @php $stt++; @endphp
-                                                    @endforeach
-                                                @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- END EXAMPLE TABLE PORTLET-->
-                                @else
-                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Không tham gia Khóa Luận nào!</p>
-                                    </div>
-                                @endif
-                            </div>
-                            <!-- END BEGIN TAB 11-->
-                              <!-- BEGIN TAB 12-->
-                              <div class="tab-pane" id="tab12">
-                                @if(!empty($luanvan))
+                            <!-- BEGIN GIỜ KHÁC-->
+                        <div class="tab-pane " id="tab_giokhac">
+                                @if(($hop->isNotEmpty()) || ($chambai->isNotEmpty()) || ($congtac->isNotEmpty()) || ($daygioi->isNotEmpty()) || ($hoctap->isNotEmpty()) || ($hdkh->isNotEmpty()))
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_giokhac">
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Tên Luận Văn</th>
-                                                    <th> Vai Trò</th>
                                                     <th> Thể Loại</th>
-                                                    <th>Ghi Chú</th>
-                                                    <th>Số Giờ</th>
+                                                    <th> Tổng Số Giờ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if( count($luanvan) > 0 )
-                                                    @php $stt = 1; @endphp
-                                                    @foreach( $luanvan as $v )
-                                                    <tr>
-                                                        <td> {{ $stt}} </td>
-                                                        <td> {{ $v->ten }} </td>
-                                                        <td>
-                                                            @php
-                                                            $huongdan = json_decode( $v->huongdan, true);
-                                                            $chutich = json_decode( $v->chutich, true);
-                                                            $phanbien = json_decode( $v->phanbien, true);
-                                                            $thuky = json_decode( $v->thuky, true);
-                                                            $uyvien = json_decode( $v->uyvien, true);
-                                                            if(in_array($giangvien->id, $huongdan)){
-                                                                echo "<p>Hướng Dẫn</p> ";
-                                                            };
-                                                            if(in_array($giangvien->id, $chutich) ){
-                                                                echo "<p>Chủ Tịch</p>";
-                                                            };
-                                                            if(in_array($giangvien->id, $phanbien) ){
-                                                                echo "<p>Phản Biện</p>";
-                                                            };
-                                                            if(in_array($giangvien->id, $thuky) ){
-                                                                echo "<p>Thư Ký</p>";
-                                                            };
-                                                            if(in_array($giangvien->id, $uyvien) ){
-                                                                echo "<p>Ủy Viên</p>";
-                                                            };
-                                                            @endphp
-
-                                                        </td>
-                                                        <td> {{($v->vietnam == 1) ? 'Việt Nam' : 'Nước Ngoài'}}</td>
-                                                        <td> {{$v->ghichu}}</td>
-                                                        <td>
-                                                            @php
-                                                            $gio_luanvan = 0;
-                                                             if(in_array($giangvien->id, $huongdan) && $v->vietnam == 1){
-                                                                $gio_luanvan += 25;
-                                                            };
-                                                            if(in_array($giangvien->id, $huongdan) && $v->vietnam == 0){
-                                                                $gio_luanvan += 30;
-                                                            };
-                                                            if(in_array($giangvien->id, $chutich) ){
-                                                                $gio_luanvan += 4;
-                                                            };
-                                                            if(in_array($giangvien->id, $phanbien) ){
-                                                                $gio_luanvan += 3;
-                                                            };
-                                                            if(in_array($giangvien->id, $thuky) ){
-                                                                $gio_luanvan += 3;
-                                                            };
-
-                                                            if(in_array($giangvien->id, $uyvien) ){
-                                                                $gio_luanvan += 3;
-                                                            };
-                                                            @endphp
-                                                            {{$gio_luanvan}} giờ
-                                                        </td>
-                                                    </tr>
-                                                    @php $stt++; @endphp
-                                                    @endforeach
-                                                @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- END EXAMPLE TABLE PORTLET-->
-                                @else
-                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Không có Tham Gia Luận Văn nào!</p>
-                                    </div>
-                                @endif
-                            </div>
-                            <!-- END BEGIN TAB 12-->
-                         <!-- BEGIN TAB 13-->
-                         <div class="tab-pane" id="tab13">
-                            @if(!empty($luanan))
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Tên Luận Án</th>
-                                                <th> Vai Trò</th>
-                                                <th> Thể Loại</th>
-                                                <th> Cấp </th>
-                                                <th>Ghi Chú</th>
-                                                <th>Số Giờ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( count($luanan) > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $luanan as $v )
-                                                <tr>
-                                                    <td> {{ $stt}} </td>
-                                                    <td> {{ $v->ten }} </td>
-                                                    <td>
-                                                        @php
-                                                        $docnhanxet = json_decode( $v->docnhanxet, true);
-                                                        $chutichhoithao = json_decode( $v->chutichhoithao, true);
-                                                        $thanhvienhoithao = json_decode( $v->thanhvienhoithao, true);
-                                                        $chutichcham = json_decode( $v->chutichcham, true);
-                                                        $thanhviencham = json_decode( $v->thanhviencham, true);
-                                                        if($giangvien->id == $v->huongdanchinh){
-                                                            echo "<p>Hướng Dẫn Chính</p> ";
-                                                        };
-                                                        if($giangvien->id == $v->huongdanphu){
-                                                            echo "<p>Hướng Dẫn Phụ</p> ";
-                                                        };
-                                                        if(in_array($giangvien->id, $docnhanxet) ){
-                                                            echo "<p>Đọc và Nhận Xét</p>";
-                                                        };
-                                                        if(in_array($giangvien->id, $chutichhoithao) ){
-                                                            echo "<p>Chủ Tịch Hội Thảo</p>";
-                                                        };
-                                                        if(in_array($giangvien->id, $thanhvienhoithao) ){
-                                                            echo "<p>Thành viên Hội Thảo</p>";
-                                                        };
-                                                        if(in_array($giangvien->id, $chutichcham) ){
-                                                            echo "<p>Chủ Tịch Chấm</p>";
-                                                        };
-                                                        if(in_array($giangvien->id, $thanhviencham) ){
-                                                            echo "<p>Thành Viên Chấm</p>";
-                                                        };
-                                                        @endphp
-
-                                                    </td>
-                                                    {{-- Thể Loại  --}}
-                                                    <td> {{($v->vietnam == 1) ? 'Việt Nam' : 'Nước Ngoài'}}</td>
-                                                    {{-- Cấp  --}}
-                                                    <td> {{($v->cap) == 1 ? 'Cơ Sở' : 'Học Viện'}}</td>
-                                                    <td> {{$v->ghichu}}</td>
-                                                    <td>
-                                                        @php
-                                                        $gio_luanan = 0;
-                                                        if($giangvien->id == $v->huongdanchinh && $v->vietnam == 1){
-                                                            $gio_luanan += 100/3;
-                                                        };
-                                                        if($giangvien->id == $v->huongdanchinh && $v->vietnam == 0){
-                                                            $gio_luanan += 120/3;
-                                                        };
-                                                        if($giangvien->id == $v->huongdanphu && $v->vietnam == 1){
-                                                            $gio_luanan += 50/3;
-                                                        };
-                                                        if($giangvien->id == $v->huongdanphu && $v->vietnam == 1){
-                                                            $gio_luanan += 60/3;
-                                                        };
-                                                        if(in_array($giangvien->id, $docnhanxet) ){
-                                                            $gio_luanan += 10;
-                                                        };
-                                                        if(in_array($giangvien->id, $chutichhoithao) ){
-                                                            $gio_luanan += 5;
-                                                        };
-                                                        if(in_array($giangvien->id, $thanhvienhoithao) ){
-                                                            $gio_luanan += 4;
-                                                        };
-                                                        if(in_array($giangvien->id, $chutichcham) && $v->cap == 1){
-                                                            $gio_luanan += 8;
-                                                        };
-                                                        if(in_array($giangvien->id, $thanhviencham) && $v->cap == 1){
-                                                            $gio_luanan += 5;
-                                                        };
-                                                        if(in_array($giangvien->id, $chutichcham) && $v->cap != 1){
-                                                            $gio_luanan += 10;
-                                                        };
-                                                        if(in_array($giangvien->id, $thanhviencham) && $v->cap != 1){
-                                                            $gio_luanan += 7;
-                                                        };
-                                                        @endphp
-                                                        {{$gio_luanan}} giờ
-                                                    </td>
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không có Tham Gia Luận Án nào!</p>
-                                </div>
-                            @endif
-                        </div>
-                        <!-- END BEGIN TAB 13-->
-                          <!-- BEGIN TAB 14-->
-                          <div class="tab-pane" id="tab14">
-                            @if(!empty($ncs))
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Tên Nghiên Cứu Sinh</th>
-                                                <th> Vai Trò</th>
-                                                <th>Ghi Chú</th>
-                                                <th>Số Giờ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( count($ncs) > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $ncs as $v )
-                                                <tr>
-                                                    <td> {{ $stt}} </td>
-                                                    <td> {{ $v->ten }} </td>
-                                                    <td>
-                                                        @php
-                                                        $thanhvien = json_decode( $v->thanhvien, true);
-                                                        $thuky = json_decode( $v->thuky, true);
-                                                        if(in_array($giangvien->id, $thanhvien)){
-                                                            echo "<p>Thành Viên</p> ";
-                                                        };
-                                                        if(in_array($giangvien->id, $thuky) ){
-                                                            echo "<p>Thư Ký</p>";
-                                                        };
-                                                        @endphp
-
-                                                    </td>
-                                                    <td> {{$v->ghichu}}</td>
-                                                    <td>
-                                                    @php
-                                                        $nc_gio = 0;
-                                                         if(in_array($giangvien->id, $thanhvien)){
-                                                            $nc_gio += 2;
-                                                        };
-                                                        if(in_array($giangvien->id, $thuky) ){
-                                                            $nc_gio += 1;
-                                                        };
-                                                    @endphp
-                                                    {{$nc_gio}} giờ
-                                                    </td>
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không tham gia Nghiên Cứu Sinh nào!</p>
-                                </div>
-                            @endif
-                        </div>
-                        <!-- END BEGIN TAB 14-->
-                            <!-- BEGIN TAB 3-->
-                            <div class="tab-pane" id="tab3">
-                                @if($congtac->isNotEmpty())
-                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                <div class="portlet light portlet-fit bordered">
-                                    <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_ct">
-                                            <thead>
-                                                <tr>
-                                                    <th> STT</th>
-                                                    <th>Địa Bàn</th>
-                                                    <th> Số Giờ</th>
-                                                    <th> Thời Gian</th>
-                                                    <th> Ghi Chú</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @if( $congtac->count() > 0 )
-                                                    @php $stt = 1; @endphp
-                                                    @foreach( $congtac as $v_congtac )
+                                                @php 
+                                                    $stt = 1; 
+                                                    $total_hop = 0;
+                                                    $total_chambai = 0;
+                                                    $total_congtac = 0;
+                                                    $total_daygioi = 0; 
+                                                    $total_hoctap = 0; 
+                                                    $total_hdkh = 0; 
+                                                
+                                                @endphp
+                                                @if( $hop->count() > 0 )
+                                                    @php  @endphp
+                                                    @foreach( $hop as $v_hop )
+                                                    @php $total_hop += $v_hop->so_gio; @endphp
                                                     <tr>
                                                         <td> {{ $stt }} </td>
-                                                        <td> {{ $v_congtac->ten }} </td>
-                                                        <td> {{ $v_congtac->so_gio }} </td>
-                                                        <td> {{ $v_congtac->thoigian }} </td>
-                                                        <td> {{ $v_congtac->ghichu }} </td>
+                                                        <td> Họp </td>
+                                                        <td> {{ $total_hop }} </td>
                                                     </tr>
-                                                    @php $stt++; @endphp
                                                     @endforeach
-                                                @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- END EXAMPLE TABLE PORTLET-->
-                                @else
-                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Không có Công Tác nào!</p>
-                                    </div>
-                                @endif
-                            </div>
-                            <!-- END BEGIN TAB 3-->
-
-                              <!-- BEGIN XỬ LÝ VĂN BẢN 3-->
-                              <div class="tab-pane" id="tab_vanban">
-                                @if($vanban->isNotEmpty())
-                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                <div class="portlet light portlet-fit bordered">
-                                    <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_ct">
-                                            <thead>
-                                                <tr>
-                                                    <th> STT</th>
-                                                    <th> Nội Dung</th>
-                                                    <th> Lãnh Đạo Xử Lý</th>
-                                                    <th> Thời Gian Nhận</th>
-                                                    <th> Hạn</th>
-                                                    <th> Ghi Chú</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @if( $vanban->count() > 0 )
-                                                    @php $stt = 1; @endphp
-                                                    @foreach( $vanban as $v_vanban )
-                                                    <tr>
-                                                        <td> {{ $stt }} </td>
-                                                        <td> {{ $v_vanban->noi_dung }} </td>
-                                                        <td> {{ $v_vanban->lanhdao }} </td>
-                                                        <td> {{ $v_vanban->thoigian_nhan }} </td>
-                                                        <td> {{ $v_vanban->thoigian_den }} </td>
-                                                        <td> {{ $v_vanban->ghichu }} </td>
-                                                    </tr>
                                                     @php $stt++; @endphp
-                                                    @endforeach
                                                 @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- END EXAMPLE TABLE PORTLET-->
-                                @else
-                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Không có Văn Bản  nào!</p>
-                                    </div>
-                                @endif
-                            </div>
-                            <!-- END XỬ LÝ VĂN BẢN-->
-
-                            <!-- BEGIN TAB 4-->
-                            <div class="tab-pane" id="tab4">
-                                @if($chambai->isNotEmpty())
-                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                <div class="portlet light portlet-fit bordered">
-                                    <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                            <thead>
-                                                <tr>
-                                                    <th> STT</th>
-                                                    <th> Tên Lớp</th>
-                                                    <th> Tên Học Phần</th>
-                                                    <th> Thời Gian</th>
-                                                    <th> Số Bài</th>
-                                                    <th> Số Giờ</th>
-                                                    <th>Ghi Chú</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                                               
                                                 @if( $chambai->count() > 0 )
-                                                    @php $stt = 1; @endphp
                                                     @foreach( $chambai as $v_chambai )
+                                                    @php $total_chambai += $v_chambai->so_gio; @endphp
                                                     <tr>
                                                         <td> {{ $stt }} </td>
-                                                        <td> {{ ($v_chambai->id_lop) ? ($v_chambai->lops->tenlop) : '' }} </td>
-                                                        <td> {{ ($v_chambai->id_hocphan) ? ($v_chambai->hocphans->mahocphan) : '' }} </td>
-                                                        <td> {{ $v_chambai->thoigian }} </td>
-                                                        <td> {{ $v_chambai->so_bai }} </td>
-                                                        <td> {{ $v_chambai->so_gio }} </td>
-                                                        <td> {{ $v_chambai->ghichu }} </td>
+                                                        <td> Chấm Bài </td>
+                                                        <td> {{ $total_chambai }} </td>
                                                     </tr>
-                                                    @php $stt++; @endphp
                                                     @endforeach
+                                                    @php $stt++; @endphp
                                                 @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- END EXAMPLE TABLE PORTLET-->
-                                @else
-                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Không có chấm bài nào!</p>
-                                    </div>
-                                @endif
-
-                            </div>
-                            <!-- END BEGIN TAB 4-->
-
-
-                            <!-- BEGIN TAB 5-->
-                            <div class="tab-pane" id="tab5">
-                                @if($dang->isNotEmpty())
-                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                <div class="portlet light portlet-fit bordered">
-                                    <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                            <thead>
-                                                <tr>
-                                                    <th> STT</th>
-                                                    <th> Nội Dung</th>
-                                                    <th> Kết Quả</th>
-                                                    <th> Vai Trò</th>
-                                                    <th> Thời Gian</th>
-                                                    <th> Ghi Chú</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @if( $dang->count() > 0 )
-                                                    @php $stt = 1; @endphp
-                                                    @foreach( $dang as $v_dang )
+                                               
+                                                @if( $congtac->count() > 0 )
+                                                    @foreach( $congtac as $v_congtac )
+                                                    @php $total_congtac += $v_congtac->so_gio; @endphp
                                                     <tr>
                                                         <td> {{ $stt }} </td>
-                                                        <td> {{ $v_dang->ten }} </td>
-                                                        <td> {{ $v_dang->ket_qua }} </td>
-                                                        <td> {{ $v_dang->vai_tro }} </td>
-                                                        <td> {{ $v_dang->thoigian }} </td>
-                                                        <td> {{ $v_dang->ghichu }} </td>
+                                                        <td> Đi Thực Tế</td>
+                                                        <td> {{ $total_congtac }} </td>
                                                     </tr>
-                                                    @php $stt++; @endphp
                                                     @endforeach
+                                                    @php $stt++; @endphp
                                                 @endif
+
+                                                @if( $daygioi->count() > 0 )
+                                                   
+                                                    @foreach( $daygioi as $v_daygioi )
+                                                    @php $total_daygioi += $v_daygioi->so_gio; @endphp
+                                                    <tr>
+                                                        <td> {{ $stt }} </td>
+                                                        <td> Dạy Giỏi</td>
+                                                        <td> {{ $total_daygioi }} </td>
+                                                    </tr>
+                                                    @endforeach
+                                                    @php $stt++; @endphp
+                                                @endif
+
+                                                @if( $hoctap->count() > 0 )
+                                                   
+                                                    @foreach( $hoctap as $v_hoctap )
+                                                    @php $total_hoctap += $v_hoctap->so_gio; @endphp
+                                                    <tr>
+                                                        <td> {{ $stt }} </td>
+                                                        <td> Tham Gia Học Tập</td>
+                                                        <td> {{ $total_hoctap }} </td>
+                                                    </tr>
+                                                    @endforeach
+                                                    @php $stt++; @endphp
+                                                @endif
+
+                                                @if( $hdkh->count() > 0 )
+                                                   
+                                                    @foreach( $hdkh as $v_hdkh )
+                                                    @php $total_hdkh += $v_hdkh->so_gio; @endphp
+                                                    <tr>
+                                                        <td> {{ $stt }} </td>
+                                                        <td> Hướng Dẫn Khoa Học </td>
+                                                        <td> {{ $total_hdkh }} </td>
+                                                    </tr>
+                                                    @endforeach
+                                                    @php $stt++; @endphp
+                                                @endif
+                                                @php $total = $total_hop + $total_chambai + $total_congtac + $total_daygioi + $total_hdkh + $total_hoctap; @endphp
+
+                                                <tr> 
+                                                    <td colspan="2"> Tổng Giờ: </td>
+                                                    <td> {{$total}} </td>
+
+                                                </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -883,437 +912,12 @@
                                 <!-- END EXAMPLE TABLE PORTLET-->
                                 @else
                                     <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Không có hoạt động đảng/đoàn nào!</p>
+                                        <p> Không tham gia hoạt động nào!</p>
                                     </div>
                                 @endif
                             </div>
-                            <!-- END BEGIN TAB 5-->
+                            <!-- END GIỜ KHÁC-->
 
-                              <!-- BEGIN TAB 6-->
-                              <div class="tab-pane" id="tab6">
-                                @if(!empty($daygioi))
-                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                <div class="portlet light portlet-fit bordered">
-                                    <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                            <thead>
-                                                <tr>
-                                                    <th> STT</th>
-                                                    <th> Bài Dạy Giỏi</th>
-                                                    <th> Cấp</th>
-                                                    <th> Thời Gian</th>
-                                                    <th> Số Giờ</th>
-                                                    <th> Ghi Chú</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @if( count($daygioi) > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $daygioi as $v )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v->ten }} </td>
-                                                    <td>
-                                                        @php
-                                                            if($v->cap == 1){
-                                                                echo "Cấp Khoa";
-                                                            }
-                                                            if($v->cap == 2){
-                                                                echo "Cấp Học Viện";
-                                                            }
-                                                            if($v->cap == 3){
-                                                                echo "Cấp Bộ";
-                                                            }
-                                                        @endphp
-                                                    </td>
-                                                    <td> {{ $v->thoigian }} </td>
-                                                    <td> {{ $v->so_gio }} </td>
-                                                    <td> {{ $v->ghichu }} </td>
-                                                    
-                                                    {{-- <td>
-                                                        @permission('create-giangvien')
-                                                        <a data-daygioi-id="{{ $v->id }}" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                                        <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                        @endpermission
-                                                    </td> --}}
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- END EXAMPLE TABLE PORTLET-->
-                                @else
-                                    <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Không dạy giỏi!</p>
-                                    </div>
-                                @endif
-                            </div>
-                            <!-- END BEGIN TAB 6-->
-
-                         <!-- BEGIN TAB 7-->
-                         <div class="tab-pane" id="tab7">
-                            @if($xaydung->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Tên Chương Trình</th>
-                                                <th> Học Phần</th>
-                                                <th> Khóa</th>
-                                                <th> Vai Trò</th>
-                                                <th> Thời Gian</th>
-                                                <th> Ghi Chú</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $xaydung->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $xaydung as $v_xaydung )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v_xaydung->ten }} </td>
-                                                    <td> {{ $v_xaydung->hocphan }} </td>
-                                                    <td> {{ $v_xaydung->khoa }} </td>
-                                                    <td> {{ $v_xaydung->vai_tro }} </td>
-                                                    <td> {{ $v_xaydung->thoigian }} </td>
-                                                    <td> {{ $v_xaydung->ghichu }} </td>
-                                                  
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không tham gia xây dựng chương trình nào!</p>
-                                </div>
-                            @endif
-                        </div>
-                        <!-- END BEGIN TAB 7-->
-
-                         <!-- BEGIN TAB 8-->
-                         <div class="tab-pane" id="tab8">
-                            @if($dotxuat->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Tên </th>
-                                                <th> Thời Gian</th>
-                                                <th> Số Giờ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $dotxuat->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $dotxuat as $v_dotxuat )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v_dotxuat->ten }} </td>
-                                                    <td>  </td>
-                                                    <td> </td>
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không có công việc đột xuất nào!</p>
-                                </div>
-                            @endif
-                        </div>
-                        <!-- END BEGIN TAB 8-->
-
-                          <!-- BEGIN TAB HỌP-->
-                          <div class="tab-pane" id="tab_hop">
-                            @if($hop->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Nội Dung Cuộc Họp</th>
-                                                <th> Thời Gian</th>
-                                                <th> Số Giờ</th>
-                                                <th> Ghi Chú</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $hop->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $hop as $v_hop )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v_hop->ten }} </td>
-                                                    <td> {{ $v_hop->thoigian }} </td>
-                                                    <td> {{ $v_hop->so_gio }} </td>
-                                                    <td> {{ $v_hop->ghichu }} </td>
-                                                    
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không có Cuộc Họp nào!</p>
-                                </div>
-                            @endif
-                        </div>
-                        <!-- END BEGIN TAB 8-->
-
-                         <!-- BEGIN TAB 9-->
-                         <div class="tab-pane" id="tab9">
-                            @if($sangkien->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Tên </th>
-                                                <th> Thời Gian</th>
-                                                <th> Số Giờ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $sangkien->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $sangkien as $v_sangkien )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v_sangkien->ten }} </td>
-                                                    <td>  </td>
-                                                    <td> </td>
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không có sáng kiến cải tiến nào!</p>
-                                </div>
-                            @endif
-                        </div>
-                        <!-- END BEGIN TAB 9-->
-
-                         <!-- BEGIN TAB 10-->
-                         <div class="tab-pane" id="tab10">
-                            @if($hoctap->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Tên Lớp</th>
-                                                <th> Loại Hình</th>
-                                                <th> Số Giờ</th>
-                                                <th> Bắt Đầu</th>
-                                                <th> Kết Thúc</th>
-                                                <th> Ghi Chú</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $hoctap->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $hoctap as $v_hoctap )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v_hoctap->ten }} </td>
-                                                    <td> {{ $v_hoctap->loai_hinh }} </td>
-                                                    <td> {{ $v_hoctap->so_gio }} </td>
-                                                    <td> {{ $v_hoctap->thoigian }} </td>
-                                                    <td> {{ $v_hoctap->thoigian_den }} </td>
-                                                    <td> {{ $v_hoctap->ghichu }} </td>
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không tham gia học tập!</p>
-                                </div>
-                            @endif
-                        </div>
-                        <!-- END BEGIN TAB 10-->
-
-                         <!-- BEGIN TAB Hướng Dẫn Khoa Học-->
-                         <div class="tab-pane" id="tab_hdkh">
-                            @if($hdkh->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Loại Hướng Dẫn</th>
-                                                <th> Học Viên</th>
-                                                <th> Khóa</th>
-                                                <th> Số Giờ</th>
-                                                <th> Ghi Chú</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $hdkh->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $hdkh as $v_hdkh )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-
-                                                    <td> 
-                                                    @php 
-                                                         if($v_hdkh->khoa_luan == 1) {
-                                                             echo "Khóa Luận";
-                                                         } 
-                                                         else if($v_hdkh->luan_van == 1) {
-                                                             echo "Luận Văn";
-                                                         }  
-                                                         else if($v_hdkh->luan_an == 1) {
-                                                             echo "Luận Án";
-                                                         }   
-                                                    @endphp
-                                                     </td>
-
-                                                    <td> {{ $v_hdkh->hoc_vien }} </td>
-                                                    <td> {{ $v_hdkh->khoa }} </td>
-                                                    <td> {{ $v_hdkh->so_gio }} </td>
-                                                    <td> {{ $v_hdkh->ghichu }} </td>
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không tham gia Hướng Dẫn Khoa Học!</p>
-                                </div>
-                            @endif
-                        </div>
-                        <!-- END HƯỚNG DẪN KHOA HỌC-->
-
-                         <!-- BEGIN TAB 11-->
-                         <div class="tab-pane" id="tab11">
-                            {{-- @if($daygioi->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Tên </th>
-                                                <th> Thời Gian</th>
-                                                <th> Số Giờ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $daygioi->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $daygioi as $v_daygioi )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v_daygioi->ten }} </td>
-                                                    <td>  </td>
-                                                    <td> </td>
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không dạy giỏi!</p>
-                                </div>
-                            @endif --}}
-                        </div>
-                        <!-- END BEGIN TAB 11-->
-
-                         <!-- BEGIN TAB 12-->
-                         <div class="tab-pane" id="tab12">
-                            {{-- @if($daygioi->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Tên </th>
-                                                <th> Thời Gian</th>
-                                                <th> Số Giờ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $daygioi->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $daygioi as $v_daygioi )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v_daygioi->ten }} </td>
-                                                    <td>  </td>
-                                                    <td> </td>
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không dạy giỏi!</p>
-                                </div>
-                            @endif
-                        </div> --}}
-                        <!-- END BEGIN TAB 12-->
                         </div>
                         <!-- END FORM-->
                     </div>
@@ -1334,7 +938,7 @@
 <script>
     $(document).ready(function(){
         // Cấu hình bảng ds hợp đồng
-        var table = $('#table_ds_hd');
+        var table = $('#table_ds_hop');
         var oTable = table.dataTable({
 
             "lengthMenu": [
@@ -1370,7 +974,7 @@
         // END Cấu hình bảng ds hợp đồng
 
          // Cấu hình bảng cong tác
-         var table_ct = $('#table_ds_ct');
+         var table_ct = $('#table_ds_chambai');
         var oTable_ct = table_ct.dataTable({
 
             "lengthMenu": [
@@ -1406,7 +1010,258 @@
         // END Cấu hình bảng ds công tác
 
         // Cấu hình bảng ds quyết định
-        $('#table_ds_qd').dataTable({
+        $('#table_ds_daygioi').dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        $('#table_ds_hoctap').dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        $('#table_ds_hdkh').dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        $('#table_ds_congtac').dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        $('#table_ds_xaydung').dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        $('#table_ds_dang').dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        $('#table_ds_vanban').dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        $('#table_ds_giogiang').dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        
+        $('#table_ds_nckh').dataTable({
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here

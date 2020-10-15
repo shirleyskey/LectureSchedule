@@ -82,7 +82,7 @@
                         <!-- BEGIN FORM-->
                         <div class="tab-content">
                             <!-- BEGIN TAB 1 NCKH-->
-                            <div class="tab-pane" id="tab1">
+                            <div class="tab-pane active" id="tab1">
                                 @if($capbo->isNotEmpty())
                                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                     <div class="portlet light portlet-fit bordered">
@@ -92,7 +92,7 @@
 
                                                 </div>
                                             </div>
-                                            <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                            <table class="table table-striped table-hover table-bordered" id="ds_bo">
                                                 <thead>
                                                     <tr>
                                                         <th> STT</th>
@@ -200,7 +200,7 @@
 
                                             </div>
                                         </div>
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                        <table class="table table-striped table-hover table-bordered" id="ds_coso">
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
@@ -308,7 +308,7 @@
 
                                         </div>
                                     </div>
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                    <table class="table table-striped table-hover table-bordered" id="ds_tap">
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
@@ -419,7 +419,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                    <table class="table table-striped table-hover table-bordered" id="ds_chuyende">
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
@@ -529,7 +529,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                    <table class="table table-striped table-hover table-bordered" id="ds_thamkhao">
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
@@ -638,7 +638,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                    <table class="table table-striped table-hover table-bordered" id="ds_caitien">
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
@@ -746,7 +746,7 @@
 
                                         </div>
                                     </div>
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                    <table class="table table-striped table-hover table-bordered" id="ds_bao">
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
@@ -860,17 +860,210 @@
         }
         // END Reload trang và giữ nguyên tab đã active
 
-        var table = $('#ds_nckh');
-
+        var table = $('#ds_bo');
         var oTable = table.dataTable({
-
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
-
             "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
 
+        var table = $('#ds_coso');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_tap');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_chuyende');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_thamkhao');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_caitien');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        var table = $('#ds_bao');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",

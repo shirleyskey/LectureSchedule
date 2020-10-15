@@ -65,6 +65,36 @@
                 <td>password</td>
                 <td><a class="copy-account" href="#" data-account="user@app.com" data-password="password">copy</a></td>
             </tr>
+            <tr>
+                <td>thaisonle@gmail.com</td>
+                <td>password</td>
+                <td><a class="copy-account" href="#" data-account="thaisonle@gmail.com" data-password="password">copy</a></td>
+            </tr>
+            <tr>
+                <td>luongsonle@gmail.com</td>
+                <td>password</td>
+                <td><a class="copy-account" href="#" data-account="luongsonle@gmail.com" data-password="password">copy</a></td>
+            </tr>
+            <tr>
+                <td>ducthuantran@gmail.com</td>
+                <td>password</td>
+                <td><a class="copy-account" href="#" data-account="ducthuantran@gmail.com" data-password="password">copy</a></td>
+            </tr>
+            <tr>
+                <td>vantuyentran@gmail.com</td>
+                <td>password</td>
+                <td><a class="copy-account" href="#" data-account="vantuyentran@gmail.com" data-password="password">copy</a></td>
+            </tr>
+            <tr>
+                <td>tuananhhoang@gmail.com</td>
+                <td>password</td>
+                <td><a class="copy-account" href="#" data-account="tuananhhoang@gmail.com" data-password="password">copy</a></td>
+            </tr>
+             <tr>
+                <td>vantoannguyen@gmail.com</td>
+                <td>password</td>
+                <td><a class="copy-account" href="#" data-account="vantoannguyen@gmail.com" data-password="password">copy</a></td>
+            </tr>
             </tbody>
         </table>
         <!-- END LOGIN FORM -->

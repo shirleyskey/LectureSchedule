@@ -41,11 +41,7 @@ class GiangVien extends Model
         return $this->hasMany('App\Nckh', 'id_giangvien');
     }
 
-    public function sangkiens()
-    {
-        return $this->hasMany('App\SangKien', 'id_giangvien');
-    }
-
+   
     public function xaydungs()
     {
         return $this->hasMany('App\XayDung', 'id_giangvien');

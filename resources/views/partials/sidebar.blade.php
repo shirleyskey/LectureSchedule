@@ -46,6 +46,15 @@
                 </a>
             </li> --}}
             @permission('read-giangvien')
+            <li class="nav-item {{ Request::is('deadline') ? 'active open' : '' }}">
+                <a href="{{ route('dashboard.deadline') }}" class="nav-link nav-toggle">
+                    <i class="fa fa-warning"></i>
+                    <span class="title">Cảnh Báo</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            @endpermission
+            @permission('read-giangvien')
             <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : '' }}">
                 <a href="{{ route('giangvien.index') }}" class="nav-link nav-toggle">
                     <i class="fa fa-user"></i>

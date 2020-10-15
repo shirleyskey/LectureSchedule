@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="btn-group pull-right">
+                                    <!-- <div class="btn-group pull-right">
                                         <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Công cụ
                                             <i class="fa fa-angle-down"></i>
                                         </button>
@@ -78,7 +78,7 @@
 
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>

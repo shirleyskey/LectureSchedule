@@ -55,6 +55,12 @@ Route::get('dashboard/read', [
     'as'         => 'dashboard.read'
 ])->middleware(['auth','only_active_user']);
 
+Route::get('dashboard/deadline', [
+    'middleware' => ['permission:read-dashboard'],
+    'uses'       => 'DashboardController@deadline',
+    'as'         => 'dashboard.deadline'
+])->middleware(['auth','only_active_user']);
+
 // User Routes...
 Route::prefix('users')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/', ['middleware' => ['permission:read-users'], 'uses'=>'UserController@index','as'=>'user.index']);
@@ -87,6 +93,7 @@ Route::prefix('giangvien')->middleware(['auth', 'only_active_user'])->group(func
 Route::prefix('profile')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/lichtrinh/{id}', ['uses' =>'ThongBaoController@index','as'=>'profile.thongbao.get']);
     Route::get('/edit/{id}', ['uses' =>'ProfileController@edit','as'=>'profile.edit.get']);
+    Route::get('/taikhoan/{id}', ['uses' =>'ProfileController@taikhoan','as'=>'profile.taikhoan.get']);
     Route::post('/edit/{id}', ['uses'=>'ProfileController@update','as'=>'profile.edit.post']);
 });
 
@@ -189,10 +196,7 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postSuaXayDung', ['uses'=>'XayDungController@postSuaXayDung','as'=>'postSuaXayDung']);
     Route::post('/postXoaXayDung', ['uses'=>'XayDungController@postXoaXayDung','as'=>'postXoaXayDung']);
 
-    Route::post('/postThemDotXuat', ['uses'=>'DotXuatController@postThemDotXuat','as'=>'postThemDotXuat']);
-    Route::post('/postTimDotXuatTheoId', ['uses'=>'DotXuatController@postTimDotXuatTheoId','as'=>'postTimDotXuatTheoId']);
-    Route::post('/postSuaDotXuat', ['uses'=>'DotXuatController@postSuaDotXuat','as'=>'postSuaDotXuat']);
-    Route::post('/postXoaDotXuat', ['uses'=>'DotXuatController@postXoaDotXuat','as'=>'postXoaDotXuat']);
+  
 
     //Route Họp 
     Route::post('/postThemHop', ['uses'=>'HopController@postThemHop','as'=>'postThemHop']);
@@ -200,10 +204,6 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postSuaHop', ['uses'=>'HopController@postSuaHop','as'=>'postSuaHop']);
     Route::post('/postXoaHop', ['uses'=>'HopController@postXoaHop','as'=>'postXoaHop']);
 
-    Route::post('/postThemSangKien', ['uses'=>'SangKienController@postThemSangKien','as'=>'postThemSangKien']);
-    Route::post('/postTimSangKienTheoId', ['uses'=>'SangKienController@postTimSangKienTheoId','as'=>'postTimSangKienTheoId']);
-    Route::post('/postSuaSangKien', ['uses'=>'SangKienController@postSuaSangKien','as'=>'postSuaSangKien']);
-    Route::post('/postXoaSangKien', ['uses'=>'SangKienController@postXoaSangKien','as'=>'postXoaSangKien']);
 
     Route::post('/postThemHocTap', ['uses'=>'HocTapController@postThemHocTap','as'=>'postThemHocTap']);
     Route::post('/postTimHocTapTheoId', ['uses'=>'HocTapController@postTimHocTapTheoId','as'=>'postTimHocTapTheoId']);
@@ -226,29 +226,10 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postSuaTiet', ['middleware' => ['permission:update-hocphan'], 'uses'=>'TietController@postSuaTiet','as'=>'postSuaTiet']);
     Route::post('/postXoaTiet', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'TietController@postXoaTiet','as'=>'postXoaTiet']);
 
-    //Khoa Luan
-    Route::post('/postThemKhoaLuan', ['middleware' => ['permission:create-hocphan'], 'uses'=>'KhoaLuanController@postThemKhoaLuan','as'=>'postThemKhoaLuan']);
-    Route::post('/postTimKhoaLuanTheoId', ['uses'=>'KhoaLuanController@postTimKhoaLuanTheoId','as'=>'postTimKhoaLuanTheoId']);
-    Route::post('/postSuaKhoaLuan', ['middleware' => ['permission:update-hocphan'], 'uses'=>'KhoaLuanController@postSuaKhoaLuan','as'=>'postSuaKhoaLuan']);
-    Route::post('/postXoaKhoaLuan', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'KhoaLuanController@postXoaKhoaLuan','as'=>'postXoaKhoaLuan']);
+ 
 
-    //Luan Van
-    Route::post('/postThemLuanVan', ['middleware' => ['permission:create-hocphan'], 'uses'=>'LuanVanController@postThemLuanVan','as'=>'postThemLuanVan']);
-    Route::post('/postTimLuanVanTheoId', ['uses'=>'LuanVanController@postTimLuanVanTheoId','as'=>'postTimLuanVanTheoId']);
-    Route::post('/postSuaLuanVan', ['middleware' => ['permission:update-hocphan'], 'uses'=>'LuanVanController@postSuaLuanVan','as'=>'postSuaLuanVan']);
-    Route::post('/postXoaLuanVan', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'LuanVanController@postXoaLuanVan','as'=>'postXoaLuanVan']);
 
-    //Luan An
-    Route::post('/postThemLuanAn', ['middleware' => ['permission:create-hocphan'], 'uses'=>'LuanAnController@postThemLuanAn','as'=>'postThemLuanAn']);
-    Route::post('/postTimLuanAnTheoId', ['uses'=>'LuanAnController@postTimLuanAnTheoId','as'=>'postTimLuanAnTheoId']);
-    Route::post('/postSuaLuanAn', ['middleware' => ['permission:update-hocphan'], 'uses'=>'LuanAnController@postSuaLuanAn','as'=>'postSuaLuanAn']);
-    Route::post('/postXoaLuanAn', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'LuanAnController@postXoaLuanAn','as'=>'postXoaLuanAn']);
-
-    //NCS
-    Route::post('/postThemNcs', ['middleware' => ['permission:create-hocphan'], 'uses'=>'NcsController@postThemNcs','as'=>'postThemNcs']);
-    Route::post('/postTimNcsTheoId', ['uses'=>'NcsController@postTimNcsTheoId','as'=>'postTimNcsTheoId']);
-    Route::post('/postSuaNcs', ['middleware' => ['permission:update-hocphan'], 'uses'=>'NcsController@postSuaNcs','as'=>'postSuaNcs']);
-    Route::post('/postXoaNcs', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'NcsController@postXoaNcs','as'=>'postXoaNcs']);
+   
 
     //NCS
     Route::post('/postThemHdkh', ['middleware' => ['permission:create-hocphan'], 'uses'=>'HdkhController@postThemHdkh','as'=>'postThemHdkh']);

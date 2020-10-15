@@ -6,7 +6,7 @@
                 <input value="<?php echo e($giangvien->id); ?>" name="id_giangvien" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Xử Lý Van Bản</h4>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Văn Bản</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">

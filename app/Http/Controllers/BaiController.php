@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\Bai;
-use App\Event;
 use App\GiangVien;
 use App\Tiet;
 class BaiController extends Controller
@@ -21,7 +20,7 @@ class BaiController extends Controller
         $bai = Bai::findOrFail($id);
         return view('bai.read.index', [
             'bai' => $bai,
-            'tiet' => Event::where('id_bai', $id)->get(),
+            'tiet' => Tiet::where('id_bai', $id)->get(),
         ]);
     }
 

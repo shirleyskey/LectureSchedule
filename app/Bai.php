@@ -30,11 +30,7 @@ class Bai extends Model
     {
         return $this->belongsTo('App\GiangVien', 'gvchinh');
     }
-
-    public function events()
-    {
-        return $this->hasMany('App\Event', 'id_bai');
-    }
+   
 
     public static function saveBai($id, $data){
         if($id == 0){

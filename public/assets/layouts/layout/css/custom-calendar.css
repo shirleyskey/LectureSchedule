@@ -58,3 +58,40 @@ a.fc-time-grid-event.fc-event.fc-start.fc-end .fc-time {
     margin-right: 3px;
     🌃
 }
+.deadline .table-toolbar{
+    border-bottom: 1px solid gray !important;
+}
+
+.deadline{
+    border: 1px solid rgba(26, 54, 126, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 3px 3px 3px 3px #8888881f;
+}
+.deadline .portlet-body .table-toolbar p{
+     font-size: 2rem;
+     text-transform: uppercase;
+     margin-top: 10px;
+     margin-left: 10px;
+
+
+}.deadline .portlet-body .table-toolbar p i{
+    font-size: 2.5rem;
+    margin-right: 0.625rem;
+
+}
+
+.row.box_gio{
+    margin: 10px 15px 25px 15px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    border-radius: 10px;
+
+}
+
+.row.box_gio h2{
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 25px;
+    color: #01334e;
+}

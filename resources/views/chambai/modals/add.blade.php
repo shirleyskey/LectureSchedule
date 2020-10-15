@@ -26,10 +26,10 @@
                                 <div class="form-group">
                                     <label>Tên Học Phần: <span class="required">*</span></label>
                                     <select class="form-control" name="id_hocphan">
-                                        <option name="hocphan_hientai">Chọn Học Phần</option>
+                                        <option name="hocphan_hientai">Chọn Mã Học Phần</option>
                                             @if($hocphan->count()>0)
                                                 @foreach($hocphan as $v)
-                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->mahocphan }}</option>
+                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->mahocphan  }}</option>
                                                 @endforeach
                                             @endif
                                     </select>
