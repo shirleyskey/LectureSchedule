@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_congtac">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_hop">
+                        <table class="table table-striped table-hover table-bordered" id="ds_hop">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -167,7 +167,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_hdkh">
+                        <table class="table table-striped table-hover table-bordered" id="ds_hdkh">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -255,7 +255,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_chambai">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -333,7 +333,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_daygioi">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -419,7 +419,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_hoctap">
                             <thead>
                                 <tr>
                                     <th> STT</th>

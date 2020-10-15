@@ -176,7 +176,7 @@
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
-                                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                        <table class="table table-striped table-hover table-bordered" id="table_ds_tiet">
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
@@ -235,6 +235,40 @@
     $(document).ready(function(){
         // Cấu hình bảng ds hợp đồng
         var table = $('#table_ds_hd');
+        var oTable = table.dataTable({
+
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#table_ds_tiet');
         var oTable = table.dataTable({
 
             "lengthMenu": [

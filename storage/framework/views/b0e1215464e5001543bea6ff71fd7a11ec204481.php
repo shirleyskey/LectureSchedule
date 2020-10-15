@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_vanban">
+                        <table class="table table-striped table-hover table-bordered" id="ds_vanban">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_dang">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -117,10 +117,12 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
+                                        <td>
                                         <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
                                         <?php echo e($v->giangviens->ten); ?>
 
                                         <?php endif; ?>
+                                        </td>
                                         <td> <?php echo e($v->ket_qua); ?> </td>
                                         <td> <?php echo e($v->vai_tro); ?> </td>
                                         <td> <?php echo e($v->thoigian); ?> </td>
@@ -171,7 +173,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                        <table class="table table-striped table-hover table-bordered" id="ds_xaydung">
                             <thead>
                                 <tr>
                                     <th> STT</th>
