@@ -104,7 +104,9 @@
                                                         <th> Thể Loại</th>
                                                         <th> Số Trang</th>
                                                         <th> Số Giờ</th>
+                                                        @permission('delete-nckh')
                                                         <th> Hành Động</th>
+                                                        @endpermission
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -169,10 +171,14 @@
                                                                         {{$gio_kh = $v->sotrang}}
                                                                 @endswitch
                                                             </td>
+                                                            @permission('delete-nckh')
                                                             <td>
+                                                           
                                                                 <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                           
                                                             </td>
+                                                            @endpermission
                                                         </tr>
                                                         @php $stt++; @endphp
                                                         @endforeach
@@ -212,7 +218,9 @@
                                                     <th> Thể Loại</th>
                                                     <th> Số Trang</th>
                                                     <th> Số Giờ</th>
+                                                    @permission('delete-nckh')
                                                     <th> Hành Động</th>
+                                                    @endpermission
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -277,10 +285,13 @@
                                                                     {{$gio_kh = $v->sotrang}}
                                                             @endswitch
                                                         </td>
+                                                        @permission('delete-nckh')
                                                         <td>
+                                                        
                                                             <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                             <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                         </td>
+                                                        @endpermission
                                                     </tr>
                                                     @php $stt++; @endphp
                                                     @endforeach
@@ -320,7 +331,9 @@
                                                 <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                @permission('delete-nckh')
                                                 <th> Hành Động</th>
+                                                @endpermission
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -385,10 +398,12 @@
                                                                 {{$gio_kh = $v->sotrang}}
                                                         @endswitch
                                                     </td>
+                                                    @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="#" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    @endpermission
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -431,7 +446,9 @@
                                                 <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                @permission('delete-nckh')
                                                 <th> Hành Động</th>
+                                                @endpermission
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -496,10 +513,12 @@
                                                                 {{$gio_kh = $v->sotrang}}
                                                         @endswitch
                                                     </td>
+                                                    @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    @endpermission
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -541,7 +560,9 @@
                                                 <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                @permission('delete-nckh')
                                                 <th> Hành Động</th>
+                                                @endpermission
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -606,10 +627,12 @@
                                                                 {{$gio_kh = $v->sotrang}}
                                                         @endswitch
                                                     </td>
+                                                    @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    @endpermission
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -650,7 +673,9 @@
                                                 <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                @permission('delete-nckh')
                                                 <th> Hành Động</th>
+                                                @endpermission
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -715,10 +740,12 @@
                                                                 {{$gio_kh = $v->sotrang}}
                                                         @endswitch
                                                     </td>
+                                                    @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    @endpermission
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -754,7 +781,9 @@
                                                 <th> Họ Tên Tác Giả</th>
                                                 <th> Tạp Chí Đăng Tải</th>
                                                 <th> Số Giờ</th>
+                                                @permission('delete-nckh')
                                                 <th> Hành Động</th>
+                                                @endpermission
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -806,10 +835,12 @@
                                                                 {{$gio_kh = $v->sotrang}} giờ
                                                         @endswitch
                                                     </td>
+                                                    @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    @endpermission
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach

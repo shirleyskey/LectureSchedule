@@ -82,9 +82,19 @@
                                     <input type="date" class="form-control" name="sobai" value="<?php echo e($hocphan->end); ?>" /> </div>
                             </div>
                         </div>
+                      
+                        <?php if (app('laratrust')->can('read-users')) : ?>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
+                        </div>
+                        <?php endif; // app('laratrust')->can ?>
+                   
+                    
                     </div>
                     <div class="col-md-6">
                     </div>
+
+                   
                 </div>
             </div>
         </div>
@@ -103,12 +113,14 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                <?php if (app('laratrust')->can('read-users')) : ?>
                                    <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_bai"><i class="fa fa-plus"></i> Tạo Bài Học Mới
                                             
                                         </a>
                                     </div> 
                                 </div>
+                                <?php endif; // app('laratrust')->can ?>
                             </div>
                         </div>
                         <table class="table table-striped table-hover table-bordered" id="table_ds_bai">
@@ -145,8 +157,10 @@
                                                 <?php endif; ?>
                                         </td>
                                         <td>
+                                        <?php if (app('laratrust')->can('read-users')) : ?>
                                         <a class="btn_edit_bai btn btn-xs yellow-gold" data-bai-id="<?php echo e($v->id); ?>" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                         <a class="btn_delete_bai btn btn-xs red-mint" data-bai-id="<?php echo e($v->id); ?>" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                       <?php endif; // app('laratrust')->can ?>
                                         <a class="btn btn-xs blue-sharp" href="<?php echo e(route('bai.edit.post', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Danh Sách Tiết Học</a>
                                         </td>
                                     </tr>
@@ -166,13 +180,7 @@
         </div>
         <!-- END TAB 2-->
     </div>
-    <div class="form-actions">
-        <div class="row">
-            <div class="col-md-12">
-                <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
-            </div>
-        </div>
-    </div>
+    
 
 </form>
 <?php echo $__env->make('bai.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

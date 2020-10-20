@@ -65,9 +65,11 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
+                        @permission('read-users')
                         <form action="{{ route('lichgiang.lichgiangtuan.post', $tiet->id) }}" method="post" id="form_sample_2" class="form-horizontal">
                             @csrf
                             <div class="tab-content">
+                          
                                 <!-- BEGIN TAB 1-->
                                 <div class="tab-pane active" id="tab1">
                                     <div class="form-body">
@@ -172,8 +174,10 @@
                                     </div>
                                 </div>
                             </div>
+
                         
                         </form>
+                        @endpermission
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->

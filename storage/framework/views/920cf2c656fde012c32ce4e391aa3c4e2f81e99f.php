@@ -28,20 +28,21 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="heading">
-                <h3 class="uppercase">QUẢN LÝ</h3>
-            </li>
-            
-            
             <?php if (app('laratrust')->can('read-giangvien')) : ?>
             <li class="nav-item <?php echo e(Request::is('deadline') ? 'active open' : ''); ?>">
                 <a href="<?php echo e(route('dashboard.deadline')); ?>" class="nav-link nav-toggle">
                     <i class="fa fa-warning"></i>
-                    <span class="title">Cảnh Báo</span>
+                    <span class="title">Cảnh Báo Đến Hạn</span>
                     <span class="selected"></span>
                 </a>
             </li>
             <?php endif; // app('laratrust')->can ?>
+            <li class="heading">
+                <h3 class="uppercase">DANH MỤC QUẢN LÝ</h3>
+            </li>
+            
+            
+            
             <?php if (app('laratrust')->can('read-giangvien')) : ?>
             <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
                 <a href="<?php echo e(route('giangvien.index')); ?>" class="nav-link nav-toggle">
@@ -72,7 +73,7 @@
            
            
             <li class="heading">
-                <h3 class="uppercase">NCKH</h3>
+                <h3 class="uppercase">QUẢN LÝ NCKH</h3>
             </li>
             <li class="nav-item <?php echo e(Request::is('nckh') ? 'active open' : ''); ?>">
                 <a href="<?php echo e(route('nckh.index')); ?>" class="nav-link nav-toggle">
@@ -83,7 +84,7 @@
             </li>
            
             <li class="heading">
-                <h3 class="uppercase">Công Việc Khác</h3>
+                <h3 class="uppercase">CÔNG VIỆC KHÁC</h3>
             </li>
             <li class="nav-item <?php echo e(Request::is('khac') ? 'active open' : ''); ?>">
                 <a href="<?php echo e(route('khac.edit.get')); ?>" class="nav-link nav-toggle">

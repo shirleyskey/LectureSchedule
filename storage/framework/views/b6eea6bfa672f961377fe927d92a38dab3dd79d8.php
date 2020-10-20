@@ -61,11 +61,13 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                <?php if (app('laratrust')->can('read-users')) : ?>
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hocphan"><i class="fa fa-plus"></i> Tạo Học Phần
                                             
                                         </a>
                                     </div>
+                                <?php endif; // app('laratrust')->can ?>
                                 </div>
                             </div>
                         </div>
@@ -98,8 +100,10 @@
                                             <?php if (app('laratrust')->can('read-hocphan')) : ?>
                                             <a class="btn btn-xs blue-sharp" href="<?php echo e(route('hocphan.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
                                             <?php endif; // app('laratrust')->can ?>
+                                            <?php if (app('laratrust')->can('read-users')) : ?>
                                             <a data-hocphan-id="<?php echo e($v->id); ?>" class="btn_edit_hocphan btn btn-xs yellow-gold" href="#modal_edit_hocphan" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_hocphan btn btn-xs red-mint" href="#" data-hocphan-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                            <?php endif; // app('laratrust')->can ?>
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

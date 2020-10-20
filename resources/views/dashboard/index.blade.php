@@ -53,7 +53,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 yellow" href="">
+                <a class="dashboard-stat dashboard-stat-v2 yellow" href="{{ route('nckh.index') }}">
                     <div class="visual">
                         <i class="fa fa-file-code-o" style="color: #ec0101; opacity: 0.5;"></i>
                     </div>
@@ -73,6 +73,18 @@
                         <div class="number">
                         </div>
                         <div class="desc"><p><strong>CÔNG VIỆC KHÁC</strong></p></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="dashboard-stat dashboard-stat-v2" style="background-color: #26c281;" href="{{ route('giangvien.index') }}">
+                    <div class="visual">
+                        <i class="fa fa-user" style="color: aqua; opacity: 0.5;"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                        </div>
+                        <div class="desc"><p><strong>GIẢNG VIÊN</strong></p></div>
                     </div>
                 </a>
             </div>

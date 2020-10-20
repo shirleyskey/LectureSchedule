@@ -18,7 +18,7 @@
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title text-center"> <b>Bảng Phân Công Lịch Giảng năm học</b> 
+        <h1 class="page-title text-center uppercase"> <b>Bảng Phân Công Lịch Giảng năm học 2020-2021</b> 
         </h1>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->

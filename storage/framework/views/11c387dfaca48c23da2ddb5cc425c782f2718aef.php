@@ -102,7 +102,9 @@
                                                         <th> Thể Loại</th>
                                                         <th> Số Trang</th>
                                                         <th> Số Giờ</th>
+                                                        <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                         <th> Hành Động</th>
+                                                        <?php endif; // app('laratrust')->can ?>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -176,10 +178,14 @@
 
                                                                 <?php endswitch; ?>
                                                             </td>
+                                                            <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                             <td>
+                                                           
                                                                 <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                           
                                                             </td>
+                                                            <?php endif; // app('laratrust')->can ?>
                                                         </tr>
                                                         <?php $stt++; ?>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -219,7 +225,9 @@
                                                     <th> Thể Loại</th>
                                                     <th> Số Trang</th>
                                                     <th> Số Giờ</th>
+                                                    <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                     <th> Hành Động</th>
+                                                    <?php endif; // app('laratrust')->can ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -293,10 +301,13 @@
 
                                                             <?php endswitch; ?>
                                                         </td>
+                                                        <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                         <td>
+                                                        
                                                             <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                             <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                         </td>
+                                                        <?php endif; // app('laratrust')->can ?>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -336,7 +347,9 @@
                                                 <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                 <th> Hành Động</th>
+                                                <?php endif; // app('laratrust')->can ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -410,10 +423,12 @@
 
                                                         <?php endswitch; ?>
                                                     </td>
+                                                    <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="#" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    <?php endif; // app('laratrust')->can ?>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -456,7 +471,9 @@
                                                 <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                 <th> Hành Động</th>
+                                                <?php endif; // app('laratrust')->can ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -530,10 +547,12 @@
 
                                                         <?php endswitch; ?>
                                                     </td>
+                                                    <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    <?php endif; // app('laratrust')->can ?>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -575,7 +594,9 @@
                                                 <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                 <th> Hành Động</th>
+                                                <?php endif; // app('laratrust')->can ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -649,10 +670,12 @@
 
                                                         <?php endswitch; ?>
                                                     </td>
+                                                    <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    <?php endif; // app('laratrust')->can ?>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -693,7 +716,9 @@
                                                 <th> Thể Loại</th>
                                                 <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                 <th> Hành Động</th>
+                                                <?php endif; // app('laratrust')->can ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -767,10 +792,12 @@
 
                                                         <?php endswitch; ?>
                                                     </td>
+                                                    <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    <?php endif; // app('laratrust')->can ?>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -806,7 +833,9 @@
                                                 <th> Họ Tên Tác Giả</th>
                                                 <th> Tạp Chí Đăng Tải</th>
                                                 <th> Số Giờ</th>
+                                                <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                 <th> Hành Động</th>
+                                                <?php endif; // app('laratrust')->can ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -858,10 +887,12 @@
                                                                 <?php echo e($gio_kh = $v->sotrang); ?> giờ
                                                         <?php endswitch; ?>
                                                     </td>
+                                                    <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
+                                                    <?php endif; // app('laratrust')->can ?>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

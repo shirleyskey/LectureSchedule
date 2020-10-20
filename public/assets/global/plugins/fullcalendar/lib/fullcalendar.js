@@ -8881,7 +8881,7 @@ $.extend(ListView.prototype, {
                                 <span class="fc-event"></span>\
                             </td>\
                             <td class="fc-time">' + (e.allDay ? this.opt('allDayText') : this.getEventTimeText(e)) + '</td>\
-                            <td class="fc-title">' + e.title + '</td>\
+                            <td class="fc-title">' + '<a'+ ' href="' + htmlEscape(e.url) + '"' + '>'+ e.title + '</a>' + '</td>\
                             <td class="fc-location">' + e.location || '' + '</td>\
                         </tr>');
                     tbody.append(segEl);

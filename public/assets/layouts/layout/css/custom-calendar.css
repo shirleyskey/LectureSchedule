@@ -64,8 +64,8 @@ a.fc-time-grid-event.fc-event.fc-start.fc-end .fc-time {
 
 .deadline{
     border: 1px solid rgba(26, 54, 126, 0.125);
-    border-radius: 0.25rem;
-    box-shadow: 3px 3px 3px 3px #8888881f;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 .deadline .portlet-body .table-toolbar p{
      font-size: 2rem;

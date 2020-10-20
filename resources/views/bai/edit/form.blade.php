@@ -36,12 +36,14 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                @permission('read-users')
                                    <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học
                                             
                                         </a>
                                     </div> 
                                 </div>
+                                @endpermission
                             </div>
                         </div>
                         <table class="table table-striped table-hover table-bordered" id="table_ds_tiet">
@@ -66,10 +68,12 @@
                                         <td> {{ $v->buoi}} </td>
                                         <td> {{ $v->ca}} </td>
                                         <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : '' }} </td>
+                                        @permission('read-users')
                                         <td>
                                             <a class="btn_edit_tiet btn btn-xs yellow-gold" data-tiet-id="{{ $v->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_tiet btn btn-xs red-mint" data-tiet-id="{{ $v->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                         </td>
+                                        @endpermission
                                     </tr>
                                     @php $stt++; @endphp
                                     @endforeach

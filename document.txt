@@ -1,0 +1,11 @@
+superadministrator@app.com
+password
+administrator@app.com	
+password
+user@app.com	password
+thaisonle@gmail.com	password
+luongsonle@gmail.com	password
+ducthuantran@gmail.com	password	
+vantuyentran@gmail.com	password	
+tuananhhoang@gmail.com	password	
+vantoannguyen@gmail.com	password	

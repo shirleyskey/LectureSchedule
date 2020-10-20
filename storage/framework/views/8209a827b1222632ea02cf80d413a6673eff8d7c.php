@@ -54,17 +54,6 @@
         <!-- END THEME LAYOUT STYLES -->
         <script>
 
-	$(document).ready(function() {
-		
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,basicWeek,basicDay,basicList'
-			}
-    });
-})
-
 </script>
         <style>
             body{
@@ -178,6 +167,15 @@
                             
                             
                             <?php if (app('laratrust')->can('read-giangvien')) : ?>
+                            <li class="nav-item <?php echo e(Request::is('deadline') ? 'active open' : ''); ?>">
+                                <a href="<?php echo e(route('dashboard.deadline')); ?>" class="nav-link nav-toggle">
+                                    <i class="fa fa-warning"></i>
+                                    <span class="title">Cảnh Báo Đến Hạn</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <?php endif; // app('laratrust')->can ?>
+                            <?php if (app('laratrust')->can('read-giangvien')) : ?>
                             <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
                                 <a href="<?php echo e(route('giangvien.index')); ?>" class="nav-link nav-toggle">
                                     <i class="fa fa-user"></i>
@@ -264,14 +262,14 @@
                         <div class="page-bar">
                             <ul class="page-breadcrumb">
                                 <li>
-                                    <span>Bảng điều khiển</span>
+                                    <span>Bảng điều khiển / Lịch Giảng Tuần Chung</span>
                                 </li>
                             </ul>
                         </div>
                         <!-- END PAGE BAR -->
                         <!-- BEGIN PAGE TITLE-->
-                        <h1 class="page-title"> Bảng điều khiển
-                            <small>Thống kê tổng giờ giảng, NCKH và Công việc khác</small>
+                        <h1 class="page-title"> Lịch Giảng Tuần Chung
+                            <small>Xem Thông Tin Lịch Giảng Chi Tiết</small>
 
                         </h1>
                         <!-- END PAGE TITLE-->
@@ -280,7 +278,7 @@
                         <div class="row">
                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <?php if (app('laratrust')->can('create-users')) : ?>
-                                <div class="content" style="margin: 50px">
+                                <!-- <div class="content" style="margin: 50px">
                                     <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
                                     <div class="modal fade" id="modal-add">
                                         <div class="modal-dialog">
@@ -297,7 +295,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <?php endif; // app('laratrust')->can ?>
                                     <?php echo $calendar->calendar(); ?>
 
@@ -419,16 +417,6 @@
                 $('.fc-next-button').removeAttr("disabled");
                 console.log("Hết Block");
             });
-           
-
-
-            
-          
-
-        
-
-
-
         });
         </script>
 

@@ -36,12 +36,14 @@
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
+                                <?php if (app('laratrust')->can('read-users')) : ?>
                                    <div class="btn-group">
                                         <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học
                                             
                                         </a>
                                     </div> 
                                 </div>
+                                <?php endif; // app('laratrust')->can ?>
                             </div>
                         </div>
                         <table class="table table-striped table-hover table-bordered" id="table_ds_tiet">
@@ -66,10 +68,12 @@
                                         <td> <?php echo e($v->buoi); ?> </td>
                                         <td> <?php echo e($v->ca); ?> </td>
                                         <td> <?php echo e(($v->id_giangvien) ? $v->giangviens->ten : ''); ?> </td>
+                                        <?php if (app('laratrust')->can('read-users')) : ?>
                                         <td>
                                             <a class="btn_edit_tiet btn btn-xs yellow-gold" data-tiet-id="<?php echo e($v->id); ?>" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                             <a class="btn_delete_tiet btn btn-xs red-mint" data-tiet-id="<?php echo e($v->id); ?>" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                         </td>
+                                        <?php endif; // app('laratrust')->can ?>
                                     </tr>
                                     <?php $stt++; ?>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

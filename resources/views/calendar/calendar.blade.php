@@ -54,17 +54,6 @@
         <!-- END THEME LAYOUT STYLES -->
         <script>
 
-	$(document).ready(function() {
-		
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,basicWeek,basicDay,basicList'
-			}
-    });
-})
-
 </script>
         <style>
             body{
@@ -190,6 +179,15 @@
                                 </a>
                             </li> --}}
                             @permission('read-giangvien')
+                            <li class="nav-item {{ Request::is('deadline') ? 'active open' : '' }}">
+                                <a href="{{ route('dashboard.deadline') }}" class="nav-link nav-toggle">
+                                    <i class="fa fa-warning"></i>
+                                    <span class="title">Cảnh Báo Đến Hạn</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            @endpermission
+                            @permission('read-giangvien')
                             <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : '' }}">
                                 <a href="{{ route('giangvien.index') }}" class="nav-link nav-toggle">
                                     <i class="fa fa-user"></i>
@@ -276,14 +274,14 @@
                         <div class="page-bar">
                             <ul class="page-breadcrumb">
                                 <li>
-                                    <span>Bảng điều khiển</span>
+                                    <span>Bảng điều khiển / Lịch Giảng Tuần Chung</span>
                                 </li>
                             </ul>
                         </div>
                         <!-- END PAGE BAR -->
                         <!-- BEGIN PAGE TITLE-->
-                        <h1 class="page-title"> Bảng điều khiển
-                            <small>Thống kê tổng giờ giảng, NCKH và Công việc khác</small>
+                        <h1 class="page-title"> Lịch Giảng Tuần Chung
+                            <small>Xem Thông Tin Lịch Giảng Chi Tiết</small>
 
                         </h1>
                         <!-- END PAGE TITLE-->
@@ -292,7 +290,7 @@
                         <div class="row">
                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 @permission('create-users')
-                                <div class="content" style="margin: 50px">
+                                <!-- <div class="content" style="margin: 50px">
                                     <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
                                     <div class="modal fade" id="modal-add">
                                         <div class="modal-dialog">
@@ -309,7 +307,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     @endpermission
                                     {!! $calendar->calendar() !!}
                                     {!! $calendar->script() !!}
@@ -330,9 +328,7 @@
         <div class="page-footer">
             <div class="page-footer-inner pull-right">@2020 - Dung B14D48 - ATTT. All Right Reserved.
             </div>
-            {{-- <div class="page-footer-inner font-yellow-gold bold">
-                Chú ý: Đây là bản thử nghiệm. Vì vậy mọi dữ liệu trên ứng dụng đều được xem là dữ liệu mẫu, không có giá trị thực tế
-            </div> --}}
+            
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>
             </div>
@@ -431,16 +427,6 @@
                 $('.fc-next-button').removeAttr("disabled");
                 console.log("Hết Block");
             });
-           
-
-
-            
-          
-
-        
-
-
-
         });
         </script>
 
