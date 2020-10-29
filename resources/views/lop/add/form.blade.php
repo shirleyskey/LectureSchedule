@@ -35,16 +35,16 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-book"></i>
-                                    <input type="text" class="form-control" name="quymo" required value="{{ old('quymo') }}" /> </div>
+                                    <input type="number" class="form-control" name="quymo" required value="{{ old('quymo') }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Số Học Viên:
+                            <label class="control-label col-md-4">Hệ: (Nhập 1 nếu tính giờ, Nhập 0 nếu tính tiền)
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-user"></i>
-                                    <input type="number" step="any" class="form-control" name="songuoi" value="{{ old('songuoi') }}" /> </div>
+                                    <input type="number" step="any" class="form-control" name="he" value="{{ old('he') }}" /> </div>
                             </div>
                         </div>
                     </div>

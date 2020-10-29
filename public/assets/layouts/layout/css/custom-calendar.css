@@ -1,4 +1,4 @@
-* {}
+*{}
 
 /* a.fc-day-grid-event.fc-event.fc-start.fc-end:hover {
     width: 150%;
@@ -56,7 +56,7 @@ a.fc-time-grid-event.fc-event.fc-start.fc-end .fc-time {
     height: 7px;
     border-radius: 100%;
     margin-right: 3px;
-    🌃
+    ðŸŒƒ
 }
 .deadline .table-toolbar{
     border-bottom: 1px solid gray !important;
@@ -94,4 +94,32 @@ a.fc-time-grid-event.fc-event.fc-start.fc-end .fc-time {
     margin-bottom: 25px;
     font-size: 25px;
     color: #01334e;
+}
+ul.page-sidebar-menu{
+
+}
+ul.page-sidebar-menu li.nav-item.start a span{
+    color: #addab9;
+
+}
+ul.page-sidebar-menu li h3 a{color: #addab9;font-weight: 600;font-size: 15px;margin-right: 4px;padding-left: 3px;}
+ul.page-sidebar-menu li h3{
+    text-decoration: none;
+    
+}
+ul.page-sidebar-menu li h3:hover{
+    text-decoration: none;
+}
+ul.page-sidebar-menu li h3 a:hover{
+    text-decoration: none;
+}
+ul.page-sidebar-menu div.list-group-level1{padding-left: 32px;}
+ul.page-sidebar-menu div.list-group-level1 li{padding-bottom: 10px;}
+ul.page-sidebar-menu div.list-group-level1 li a{color: #c9dff5;font-size: 15px;}
+ul.page-sidebar-menu div.list-group-level1 li a:hover{text-decoration: none;}
+ul.page-sidebar-menu div.list-group-level1 li a i{
+
+} 
+ul.page-sidebar-menu div.list-group-level1 li a span{
+
 }

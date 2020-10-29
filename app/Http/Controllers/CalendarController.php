@@ -45,12 +45,14 @@ class CalendarController extends Controller
 
                 //Tên Bài 
                 $tenbai = ($tiet->bais->tenbai) ? $tiet->bais->tenbai : "";
+                
+                $tiendo = $tiet->tiendo;
 
                 // Tên Giáo Viên 
                 $giangvien = GiangVien::where('id', $tiet->id_giangvien)->first();
                 $tengiangvien = $giangvien["ten"];
 
-                $title = $tenlop. " - ".$tenbai.'-'.$tengiangvien;
+                $title = $tenlop. " - ".$tenbai.'-'.$tiendo.'-'.$tengiangvien;
                 $events[] = Calendar::event(
                     $title,
                     false,

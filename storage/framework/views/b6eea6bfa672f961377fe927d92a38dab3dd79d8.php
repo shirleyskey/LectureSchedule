@@ -32,16 +32,16 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="text" class="form-control" name="quymo" required maxlength="191" value="<?php echo e($lop->quymo); ?>" /> </div>
+                                    <input type="number" class="form-control" name="quymo" required maxlength="191" value="<?php echo e($lop->quymo); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Số Người:
+                            <label class="control-label col-md-4">Hệ: (Nhập 1 nế u tính giờ, Nhập 0 nếu tính tiền)
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-user"></i>
-                                    <input type="number" step="any" class="form-control" name="songuoi" value="<?php echo e($lop->songuoi); ?>" /> </div>
+                                    <input type="number" step="any" class="form-control" name="he" value="<?php echo e($lop->he); ?>" /> </div>
                             </div>
                         </div>
                     </div>

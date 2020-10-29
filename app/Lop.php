@@ -15,5 +15,19 @@ class Lop extends Model
     {
         return $this->hasMany('App\Hocphan', 'id_lop');
     }
+
+    public static function saveLop($id, $data){
+        if($id == 0){
+            $lop = new Lop;
+        }else{
+            $lop = Lop::findOrFail($id);
+        }
+        $lop->malop = $data['malop'];
+        $lop->tenlop = $data['tenlop'];
+        $lop->quymo = $data['quymo'];
+        $lop->he = $data['he'];
+        $lop->save();
+        return $lop;
+    }
   
 }

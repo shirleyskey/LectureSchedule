@@ -641,7 +641,8 @@
                                                     <th> Lớp</th>
                                                     <th> Hệ</th>
                                                     <th> Quy Mô</th>
-                                                    <th> Tổng Giờ</th>
+                                                    <th> Số Giờ Nghĩa Vụ</th>
+                                                    <th> Số Giờ Tính Tiền</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -649,36 +650,51 @@
                                                     <?php 
                                                         $stt = 1; 
                                                         $tongtiet = 0;
+                                                        $tongnghiavu = 0;
+                                                        $tongtien = 0;
                                                     ?>
                                                     <?php $__currentLoopData = $hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hocphan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <?php 
                                                         $id_giangvien = $giangvien->id;
                                                         $id_hocphan = $v_hocphan->id;
                                                         $tiet = 0;
+                                                        $tien = 0;
                                                         $is_tiet = App\Tiet::where('id_hocphan', $id_hocphan)->where('id_giangvien', $id_giangvien)->first();
                                                         if($is_tiet){
                                                             $tiet_hocphans = App\Tiet::where('id_hocphan', $id_hocphan)->where('id_giangvien', $id_giangvien)->get();
                                                             foreach($tiet_hocphans as $v_tiet_hocphan){
-                                                                $tiet += 2;
+                                                                if($v_tiet_hocphan->lops->he == 1)
+                                                               {$tiet += 2;} 
+                                                              else if($v_tiet_hocphan->lops->he == 0)
+                                                               {$tien += 2;} 
                                                             }
+                                                            $quymo = $v_hocphan->lops->quymo;
+                                                            $tiet = $tiet * $quymo;
+                                                            $tien = $tien * $quymo;
+                                                            $he = ($v_hocphan->lops->he) ? 'Tính Giờ' : 'Tính Tiền';
                                                            echo "<tr>"
                                                                 ."<td>"."$stt"."</td>"
                                                                 ."<td>"."{$v_hocphan->tenhocphan}"."</td>"
                                                                 ."<td>"."{$v_hocphan->lops->tenlop}"."</td>"
-                                                                ."<td>"."{$v_hocphan->lops->he}"."</td>"
+                                                                ."<td>"."{$he}"."</td>"
                                                                 ."<td>"."{$v_hocphan->lops->quymo}"."</td>"
                                                                 ."<td>"."$tiet"."</td>"
+                                                                ."<td>"."$tien"."</td>"
                                                            ."</tr>";
                                                    
                                                         }
                                                         $tongtiet += $tiet;
+                                                        $tongtiet += $tien;
+                                                        $tongnghiavu += $tiet;
+                                                        $tongtien += $tien;
                                                     ?> 
                                                    
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
-                                                    <td colspan="5"> <p> <b>Tổng Tiết: </b> </p></td>
-                                                    <td> <?php echo e($tongtiet); ?></td>
+                                                    <td colspan="5"> <p> <b>Tổng Tiết: <?php echo e($tongtiet); ?></b> </p></td>
+                                                    <td> Tổng Giờ Nghĩa Vụ: <?php echo e($tongnghiavu); ?></td>
+                                                    <td> Tổng Giờ Tính Tiền: <?php echo e($tongtien); ?></td>
                                                     </tr>
                                                 <?php endif; ?>
                                             </tbody>

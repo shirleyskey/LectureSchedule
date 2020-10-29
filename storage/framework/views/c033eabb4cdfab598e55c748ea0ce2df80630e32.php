@@ -25,69 +25,7 @@
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
         <div class="row">
-             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 blue" href="<?php echo e(route('lichgiang.phancong')); ?>">
-                    <div class="visual">
-                        <i class="fa fa-calendar" style="color: #ffc93c; opacity: 0.8;"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number">
-                            
-                        </div>
-                        <div class="desc"><p><strong>PHÂN CÔNG LỊCH GIẢNG</strong></p></div>
-                    </div>
-                </a>
-            </div>
-               
-               <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 green" href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>">
-                    <div class="visual">
-                        <i class="fa fa-calendar-check-o" style="color: aqua; opacity: 0.5;"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number">
-                        
-                        </div>
-                        <div class="desc"><p><strong> LỊCH GIẢNG TUẦN</strong></p></div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 yellow" href="<?php echo e(route('nckh.index')); ?>">
-                    <div class="visual">
-                        <i class="fa fa-file-code-o" style="color: #ec0101; opacity: 0.5;"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number">
-                        </div>
-                        <div class="desc"><p><strong>NGHIÊN CỨU KHOA HỌC</strong></p></div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2 red" href="<?php echo e(route('khac.edit.get')); ?>">
-                    <div class="visual">
-                        <i class="fa fa-plus-circle" style="color: aqua; opacity: 0.5;"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number">
-                        </div>
-                        <div class="desc"><p><strong>CÔNG VIỆC KHÁC</strong></p></div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a class="dashboard-stat dashboard-stat-v2" style="background-color: #26c281;" href="<?php echo e(route('giangvien.index')); ?>">
-                    <div class="visual">
-                        <i class="fa fa-user" style="color: aqua; opacity: 0.5;"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number">
-                        </div>
-                        <div class="desc"><p><strong>GIẢNG VIÊN</strong></p></div>
-                    </div>
-                </a>
-            </div>
+            
         </div>
 
        

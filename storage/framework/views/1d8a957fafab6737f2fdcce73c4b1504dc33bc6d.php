@@ -66,7 +66,7 @@
                                     <th> Mã Lớp (Duy Nhất)</th>
                                     <th> Tên Lớp</th>
                                     <th> Quy Mô </th>
-                                    <th> Số Học Viên</th>
+                                    <th> Hệ</th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
@@ -79,7 +79,7 @@
                                         <td> <?php echo e($v->malop); ?>  </td>
                                         <td> <?php echo e($v->tenlop); ?>  </td>
                                         <td> <?php echo e($v->quymo); ?> </td>
-                                        <td> <?php echo e($v->songuoi); ?> </td>
+                                        <td> <?php echo e(($v->he == 1) ? 'Tính Giờ' : 'Tính Tiền'); ?> </td>
                                         <td>
                                             <?php if (app('laratrust')->can('read-lop')) : ?>
                                             <a class="btn btn-xs blue-sharp" href="<?php echo e(route('lop.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>

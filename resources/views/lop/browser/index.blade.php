@@ -68,7 +68,7 @@
                                     <th> Mã Lớp (Duy Nhất)</th>
                                     <th> Tên Lớp</th>
                                     <th> Quy Mô </th>
-                                    <th> Số Học Viên</th>
+                                    <th> Hệ</th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
@@ -81,7 +81,7 @@
                                         <td> {{ $v->malop }}  </td>
                                         <td> {{ $v->tenlop }}  </td>
                                         <td> {{ $v->quymo }} </td>
-                                        <td> {{ $v->songuoi }} </td>
+                                        <td> {{ ($v->he == 1) ? 'Tính Giờ' : 'Tính Tiền' }} </td>
                                         <td>
                                             @permission('read-lop')
                                             <a class="btn btn-xs blue-sharp" href="{{ route('lop.read.get', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Xem</a>

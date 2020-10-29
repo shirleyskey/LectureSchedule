@@ -63,6 +63,7 @@ class LichHocPhanImport implements ToCollection, WithHeadingRow
                 //Get Thoi Gian Sáng or Chiều
                 $buoi = $row["thoi_gian"][0];
                 $ca = $row["thoi_gian"][2];
+                $tiendo = $row["tiendo"];
 
                 $ngay = explode(",", $row["thoi_gian"]);
                 
@@ -77,6 +78,7 @@ class LichHocPhanImport implements ToCollection, WithHeadingRow
                 $data["thoigian"] = $startDate;
                 $data["buoi"] = $buoi;
                 $data["ca"] = $ca;
+                $data["tiendo"] = $tiendo;
                 $themtiet = Tiet::create($data);
                
 

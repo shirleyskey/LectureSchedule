@@ -42,6 +42,7 @@ class Tiet extends Model
          $tiet->thoigian = $data['thoigian'];
          $tiet->buoi = $data['buoi'];
          $tiet->ca = $data['ca'];
+         $tiet->tiendo = $data['tiendo'];
          $tiet->id_giangvien = $data['id_giangvien'];
          $tiet->save();
          return $tiet;

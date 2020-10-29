@@ -78,8 +78,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Số Người:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $lop->songuoi }}</label>
+                                                <label class="control-label col-md-4 col-xs-6 bold">Hệ:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ ($lop->he == 1) ? 'Tính Giờ' : 'Tính Tiền' }}</label>
                                             </div>
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Học Phần:</label>
