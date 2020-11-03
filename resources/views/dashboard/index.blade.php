@@ -7,28 +7,41 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
-        <!-- BEGIN PAGE HEADER-->
-        <!-- BEGIN PAGE BAR -->
-        <div class="page-bar">
-            <ul class="page-breadcrumb">
-                <li>
-                    <span>Bảng điều khiển</span>
-                </li>
-            </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 30px">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img style="height: 80vh; width: 100%" src="{{ asset('/images/andt01.jpg') }}" alt="Los Angeles" style="width:100%;">
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                <div class="item">
+                  <img style="height: 80vh; width: 100%"  src="{{ asset('/images/andt03.jpg') }}" alt="Chicago" style="width:100%;">
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <!-- END PAGE BAR -->
-        <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title"> <strong>Bảng điều khiển</strong>
-            <small>Phân công giảng dạy. Thống kê giờ giảng, thống kê Khoa học và Công việc khác.</small>
-        </h1>
-        <!-- END PAGE TITLE-->
-        <!-- END PAGE HEADER-->
-        <!-- BEGIN DASHBOARD STATS 1-->
-        <div class="row">
-            
-        </div>
-
-       
+    </div>
         <div class="clearfix"></div>
         <!-- END DASHBOARD STATS 1-->
     </div>

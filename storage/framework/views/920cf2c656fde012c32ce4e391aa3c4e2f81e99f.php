@@ -23,15 +23,15 @@
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
             <li class="nav-item start ">
                 <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">
-                    <i class="fa fa-dashboard" style="color: #addab9;"></i>
+                    <i class="fa fa-dashboard" style="color: #dbe7f2;"></i>
                     <span class="title"> <strong>BẢNG ĐIỀU KHIỂN</strong></span>
                     <span class="selected"></span>
                 </a>
             </li>
             <?php if (app('laratrust')->can('read-giangvien')) : ?>
             <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
-                <a href="<?php echo e(route('giangvien.index')); ?>" style="color: #addab9;" class="nav-link nav-toggle">
-                    <i class="fa fa-user" style="color: #addab9;"></i>
+                <a href="<?php echo e(route('giangvien.index')); ?>" style="color: #dbe7f2;" class="nav-link nav-toggle">
+                    <i class="fa fa-user" style="color: #dbe7f2;"></i>
                     <span class="title" >Giảng Viên</span>
                     <span class="selected"></span>
                 </a>

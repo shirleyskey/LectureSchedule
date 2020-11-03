@@ -56,7 +56,7 @@ a.fc-time-grid-event.fc-event.fc-start.fc-end .fc-time {
     height: 7px;
     border-radius: 100%;
     margin-right: 3px;
-    ðŸŒƒ
+    Ã°Å¸Å’Æ’
 }
 .deadline .table-toolbar{
     border-bottom: 1px solid gray !important;
@@ -99,10 +99,9 @@ ul.page-sidebar-menu{
 
 }
 ul.page-sidebar-menu li.nav-item.start a span{
-    color: #addab9;
-
+    color: #dbe7f2;
 }
-ul.page-sidebar-menu li h3 a{color: #addab9;font-weight: 600;font-size: 15px;margin-right: 4px;padding-left: 3px;}
+ul.page-sidebar-menu li h3 a{color: #dce8f3;font-weight: 600;font-size: 15px;margin-right: 4px;padding-left: 3px;}
 ul.page-sidebar-menu li h3{
     text-decoration: none;
     
@@ -122,4 +121,7 @@ ul.page-sidebar-menu div.list-group-level1 li a i{
 } 
 ul.page-sidebar-menu div.list-group-level1 li a span{
 
+}
+body{
+    overflow-x: hidden;
 }
