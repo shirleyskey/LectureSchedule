@@ -19,23 +19,16 @@
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
-                    <a href="<?php echo e(route('dashboard')); ?>">Bảng Điều Khiển</a>
+                    Quản lý thông tin cá nhân
                     <i class="fa fa-circle"></i>
-                    <a href="<?php echo e(route('giangvien.index')); ?>">Giảng Viên Khoa ANĐT</a>
+                    Giảng viên: <?php echo e($giangvien->ten); ?>
+
                 </li>
             </ul>
         </div>
         <!-- END PAGE BAR -->
         <!-- BEGIN PAGE TITLE-->
-        <h1 class="page-title">
-            <i class="fa fa-edit"></i> Chỉnh sửa | <?php echo e($giangvien->ten); ?> - <?php echo e($giangvien->chucvu); ?>
-
-            <?php if( $giangvien->cothegiang == 1 ): ?>
-            <span class="label label-sm bg-green-jungle"> Có thể giảng </span>
-            <?php else: ?>
-            <span class="label label-sm label-danger"> Không giảng </span>
-            <?php endif; ?>
-        </h1>
+      
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
