@@ -144,6 +144,7 @@
                thoigian: $("#form_add_tiet input[name='thoigian']").val(),
                buoi: $("#form_add_tiet input[name='buoi']").val(),
                ca: $("#form_add_tiet input[name='ca']").val(),
+               tiendo: $("#form_add_tiet input[name='tiendo']").val(),
                id_giangvien: $("#form_add_tiet select[name='id_giangvien']").val(),
               
            },
@@ -215,6 +216,7 @@
                         $("#form_edit_tiet input[name='thoigian']").val(data.data.thoigian);
                         $("#form_edit_tiet input[name='buoi']").val(data.data.buoi);
                         $("#form_edit_tiet input[name='ca']").val(data.data.ca);
+                        $("#form_edit_tiet input[name='tiendo']").val(data.data.tiendo);
                         $("#form_edit_tiet select[name='id_giangvien']").val(data.data.id_giangvien);
                         
                         $('#modal_edit_tiet').modal('show');
@@ -246,6 +248,7 @@
                     thoigian: $("#form_edit_tiet input[name='thoigian']").val(),
                     buoi: $("#form_edit_tiet input[name='buoi']").val(),
                     ca: $("#form_edit_tiet input[name='ca']").val(),
+                    tiendo: $("#form_edit_tiet input[name='tiendo']").val(),
                     id_giangvien: $("#form_edit_tiet select[name='id_giangvien']").val(),
                 },
                 success: function(data) {

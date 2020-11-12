@@ -55,7 +55,7 @@ class TietController extends Controller
  
      public function postTimTietTheoId(Request $request){
          $tiet = Tiet::findOrFail($request->input('id'));
-         $tiet->thoigian = Carbon::parse($tiet->thoigian)->format('yyyy-mm-dd');
+         $tiet->thoigian = Carbon::parse($tiet->thoigian)->format('Y-m-d');
              return response()->json([
                  'status' => true,
                  'data'   => $tiet

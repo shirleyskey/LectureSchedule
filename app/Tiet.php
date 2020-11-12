@@ -11,7 +11,7 @@ class Tiet extends Model
      //
      protected $table = 'tiets';
      public $timestamps = false;
-     protected $fillable = ['id','id_lop','id_hocphan','id_bai','id_giangvien','thoigian','buoi','ca'];
+     protected $fillable = ['id','id_lop','id_hocphan','id_bai','id_giangvien','thoigian','buoi','ca','tiendo'];
      
      public function bais()
      {

@@ -43,6 +43,10 @@
                                     <label>Ca:<span class="required">*</span></label>
                                     <input name="ca" type="number" class="form-control" required>
                                 </div> 
+                                <div class="form-group">
+                                    <label>Tiến Độ:<span class="required">*</span></label>
+                                    <input name="tiendo" type="text" class="form-control" required>
+                                </div> 
                             </div>
                             <div class="col-md-6">
                                 

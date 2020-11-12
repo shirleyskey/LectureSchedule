@@ -69,9 +69,6 @@ class CalendarController extends Controller
 
             }
             //end foreach Event
-        
-
-
         $calendar = Calendar::addEvents($events)->setOptions([
             'lang' => 'vi',
             'header' =>

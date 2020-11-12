@@ -158,6 +158,15 @@
                                                             <input type="number" class="form-control" name="ca" value="<?php echo e($tiet->ca); ?>" required /> </div>
                                                     </div>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Tiến Độ <br>:
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" name="tiendo" value="<?php echo e($tiet->tiendo); ?>" required /> </div>
+                                                    </div>
+                                                </div>
 
                                                
                                             </div>

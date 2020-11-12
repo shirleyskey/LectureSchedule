@@ -42,12 +42,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
-                    <ul class="nav nav-pills">
-                        <li class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin</a>
-                        </li>
-                        
-                    </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->

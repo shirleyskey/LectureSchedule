@@ -23,11 +23,7 @@
             </div>
         </div> -->
         <!-- BEGIN TAB 2 NCKH-->
-        <ul class="nav nav-pills" id="">
-            <li  class="active">
-                <a href="" data-toggle="">Danh Sách Tiết Học</a>
-            </li>
-        </ul>
+        <h2 class="text-center bold">Danh Sách Tiết Học</h2>
         <div class="" id="">
             @if($tiet->isNotEmpty())
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -53,6 +49,7 @@
                                     <th> Thời Gian</th>
                                     <th> Buổi </th>
                                     <th> Ca</th>
+                                    <th> Tiến Độ</th>
                                     <th> Tên Giảng Viên</th>
                                     <th> Hành Động</th>
                                    
@@ -67,6 +64,7 @@
                                         <td> {{ $v->thoigian }} </td>
                                         <td> {{ $v->buoi}} </td>
                                         <td> {{ $v->ca}} </td>
+                                        <td> {{ $v->tiendo}} </td>
                                         <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : '' }} </td>
                                         @permission('read-users')
                                         <td>

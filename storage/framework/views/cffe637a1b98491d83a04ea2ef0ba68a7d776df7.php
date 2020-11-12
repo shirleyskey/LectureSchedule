@@ -100,11 +100,7 @@
         </div>
         <!-- END TAB 1-->
         <!-- BEGIN TAB 2 NCKH-->
-        <ul class="nav nav-pills">
-            <li class="active">
-                <a  href="" data-toggle="" >Danh Sách Bài Học</a>
-            </li>
-        </ul>
+        <h2 class="text-center bold">Danh Sách Bài Học</h2>
         <div id="tab2">
             <?php if($bai->isNotEmpty()): ?>
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->

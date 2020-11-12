@@ -42,17 +42,15 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <?php endif; ?>
+        <?php echo $__env->make('partials.flash-message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
-                        <li class="active">
-                            <a href="" data-toggle="tab">Thông tin</a>
-                       </li>
                        <li>
                        <?php if (app('laratrust')->can('create-users')) : ?>
-                        <div class="content" style="">
-                            <a class="btn btn-primary" data-toggle="modal" href='#modal-add'>Import file</a><br><br>
+                        <div class="content text-center" style="">
+                            <a class="btn btn-primary yellow-gold" data-toggle="modal" href='#modal-add'>Import Lịch Học Phần bằng Excel</a><br><br>
                             <div class="modal fade" id="modal-add">
                                 <div class="modal-dialog">
                                     <div class="modal-content">

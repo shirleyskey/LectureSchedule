@@ -22,6 +22,12 @@ class LichHocPhanImport implements ToCollection, WithHeadingRow
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     private $id_hocphan = null;  
+  
+
+    /**
+     * @var isValidFile
+     */
+    public $isValidFile = false;
 
     public function __construct($id) {
         $this->id_hocphan = $id;
@@ -38,52 +44,53 @@ class LichHocPhanImport implements ToCollection, WithHeadingRow
 
     public function collection(Collection $rows)
     {
-        foreach($rows as $row){
-            if($row["thoi_gian"]){
-               
-                //Get Lop
-                $lop = HocPhan::where('id', $this->id_hocphan)->first();
-               
-                //Get Bai
-                $bai = $row["bai_giang"];
-                if(Bai::where('id_hocphan', $this->id_hocphan)->where('tenbai',$bai)->exists()){
-                    $them_bai = Bai::where('id_hocphan', $this->id_hocphan)->where('tenbai', $bai)->first();
+        try{
+            foreach($rows as $row){
+                if($row["thoi_gian"]){
+                    //Get Lop
+                    $lop = HocPhan::where('id', $this->id_hocphan)->first();
+                    //Get Bai
+                    $bai = $row["bai_giang"];
+                    if(Bai::where('id_hocphan', $this->id_hocphan)->where('tenbai',$bai)->exists()){
+                        $them_bai = Bai::where('id_hocphan', $this->id_hocphan)->where('tenbai', $bai)->first();
+                    }
+                    else {
+                        $them_bai = Bai::create([
+                            'id_hocphan' => $this->id_hocphan,
+                            'tenbai' => $bai,
+                        ]);
+                    }
+                    //Get Giang Vien
+                    $ma_giangvien = $row["gv_thuc_hien"];
+                    $giangvien = GiangVien::where('ma_giangvien', $ma_giangvien)->first();
+    
+                    //Get Thoi Gian Sáng or Chiều
+                    $buoi = $row["thoi_gian"][0];
+                    $ca = $row["thoi_gian"][2];
+                    $tiendo = $row["tien_do"];
+    
+                    $ngay = explode(",", $row["thoi_gian"]);
+                    
+                    $dateFormat = DateTime::createFromFormat('d/m/Y', trim($ngay[1]))->format('Y-m-d');
+                    $startDate = Carbon::create($dateFormat);
+                    // dd($startDate);
+                    $data["id_lop"] = $lop->id_lop;
+                    $data["id_hocphan"] = $this->id_hocphan;
+                    $data["id_bai"] = $them_bai->id;
+                    $data["id_giangvien"] = $giangvien["id"];
+                  
+                    $data["thoigian"] = $startDate;
+                    $data["buoi"] = $buoi;
+                    $data["ca"] = $ca;
+                    $data["tiendo"] = $tiendo;
+                    $themtiet = Tiet::create($data);
                 }
-                else {
-                    $them_bai = Bai::create([
-                        'id_hocphan' => $this->id_hocphan,
-                        'tenbai' => $bai,
-                    ]);
-                }
-               
-                //Get Giang Vien
-                $ma_giangvien = $row["gv_thuc_hien"];
-                $giangvien = GiangVien::where('ma_giangvien', $ma_giangvien)->first();
-
-                //Get Thoi Gian Sáng or Chiều
-                $buoi = $row["thoi_gian"][0];
-                $ca = $row["thoi_gian"][2];
-                $tiendo = $row["tiendo"];
-
-                $ngay = explode(",", $row["thoi_gian"]);
                 
-                $dateFormat = DateTime::createFromFormat('d/m/Y', trim($ngay[1]))->format('Y-m-d');
-                $startDate = Carbon::create($dateFormat);
-                // dd($startDate);
-                $data["id_lop"] = $lop->id_lop;
-                $data["id_hocphan"] = $this->id_hocphan;
-                $data["id_bai"] = $them_bai->id;
-                $data["id_giangvien"] = $giangvien["id"];
-              
-                $data["thoigian"] = $startDate;
-                $data["buoi"] = $buoi;
-                $data["ca"] = $ca;
-                $data["tiendo"] = $tiendo;
-                $themtiet = Tiet::create($data);
-               
-
+               }
             }
-        }
-           
-    }      
+            catch(\Exception $e){
+                $this->isValidFile = true;
+           }
+    }  
+    
 }

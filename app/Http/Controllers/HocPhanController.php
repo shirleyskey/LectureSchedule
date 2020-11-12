@@ -98,10 +98,16 @@ class HocPhanController extends Controller
 
     public function import(Request $request, $id)
 {
-    Excel::import(new LichHocPhanImport($id), $request->lichhocphan);
+        $lich_hoc = new LichHocPhanImport($id);
+        Excel::import($lich_hoc, $request->lichhocphan);
+        if($lich_hoc->isValidFile == false){
+            return redirect()->route('hocphan.edit.get', $id)->with('status_success', 'Import Lịch Học Thành Công!');
+        } else {
+            return redirect()->route('hocphan.edit.get', $id)->with('status_error', 'Xảy ra lỗi trong quá trình Import, xem lại file excel của bạn!');
+        }
+        
     // Excel::import(new LopImport, $request->calendar);
 
-    return redirect()->route('hocphan.edit.get', $id);
 }
      //AJAX
      public function postThemHocPhan(Request $request)

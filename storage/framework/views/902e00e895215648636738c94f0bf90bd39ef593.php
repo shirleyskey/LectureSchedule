@@ -45,11 +45,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
-                    <ul class="nav nav-pills">
-                        <li class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin</a>
-                        </li>
-                    </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
@@ -100,11 +95,7 @@
                             </div>
                             <!-- END TAB 1-->
                             <!-- BEGIN TAB 2-->
-                            <ul class="nav nav-pills">
-                                <li class="active">
-                                    <a href="" data-toggle="">Danh Sách Các Bài Học</a>
-                                </li>
-                            </ul>
+                            <h2 class="text-center bold">Danh Sách Bài Học</h2>
                             <div class="" id="">
                                 <?php if($bai->isNotEmpty()): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -165,11 +156,7 @@
                             <!-- END BEGIN TAB 2-->
 
                              <!-- BEGIN TAB 3 DANH SÁCH TIẾT HỌC-->
-                             <ul class="nav nav-pills">
-                                <li class="active">
-                                    <a href="" data-toggle="">Danh Sách Các Tiết Học</a>
-                                </li>
-                            </ul>
+                             <h2 class="text-center bold">Danh Sách Tiết Học</h2>
                             <div class="" id="">
                                 <?php if($tiet->isNotEmpty()): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
