@@ -58,15 +58,7 @@
                             <div class="form-body">
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="name" value="<?php echo e($user->name); ?>">
-                                        <label for="form_control_1">Họ tên <span class="required"> * </span></label>
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="form-group form-md-line-input form-md-floating-label">
-                                    <div class="input-group">
+                                        <label for="form_control">Cảnh báo: Không được sửa trường này</label>
                                         <select class="form-control" name="id_giangvien" readonly>
                                         <option value="<?php echo e($user->giangviens->id); ?>"><?php echo e($user->giangviens->ten); ?></option>
                                             <?php if($giangvien->count()>0): ?>
@@ -91,13 +83,14 @@
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <div class="input-group">
-                                        <input type="password" class="form-control" name="password" value="">
+                                        <input type="password" class="form-control" name="password" value="" id="myPassword">
                                         <label for="form_control_1">Mật khẩu</label>
-                                        <span id="name-error" class="help-block help-block-error">Để trống để giữ nguyên.</span>
                                         <span class="input-group-addon">
                                             <i class="fa fa-key"></i>
                                         </span>
                                     </div>
+                                     <input type="checkbox" onclick="myFunction()">Hiển thị mật khẩu (Cảnh báo: Giáo vụ không tự ý thay đổi mật khẩu người dùng. Để trống để giữ nguyên.)</br>
+                                    <span id="name-error" class="help-block help-block-error"></span>
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <select class="form-control" name="role[]">
@@ -139,6 +132,16 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
+<script>
+    function myFunction() {
+      var x = document.getElementById("myPassword");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+    </script>
 <script src="<?php echo e(asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')); ?>" type="text/javascript"></script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/lectureSchedule/resources/views/user/edit.blade.php ENDPATH**/ ?>

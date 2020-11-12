@@ -33,12 +33,10 @@ class UserController extends Controller
     public function store(Request $request){
         
         $request->validate([
-            'name'     => 'required',
             'id_giangvien'     => 'required|not_in:0',
             'email'    => 'required|email|unique:users',
             'password' => 'required|min:6|max:32'
         ],[
-            'name.required'     => 'Bạn chưa nhập "Họ tên"',
             'id_giangvien.required'     => 'Bạn chưa chọn "Giảng Viên"',
             'id_giangvien.not_in'     => 'Bạn chưa chọn "Giảng Viên"',
             'email.required'    => 'Bạn chưa nhập "Email"',
@@ -51,7 +49,6 @@ class UserController extends Controller
 
         $user = new User;
 
-        $user->name = $request->name;
         $user->id_giangvien = $request->id_giangvien;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
@@ -80,34 +77,23 @@ class UserController extends Controller
     public function update(Request $request){
         // dd($request->all());
         $request->validate([
-            'name'     => 'required',
             'email'    => 'required|email|unique:users,email,'.$request->id,
-            'password' => 'max:32' 
+            'password' => 'max:32|min:6|nullable' 
         ],[
-            'name.required'    => 'Bạn chưa nhập "Họ tên"',
             'email.required'   => 'Bạn chưa nhập "Email"',
             'email.email'      => '"Email" không đúng định dạng',
             'email.unique'     => '"Email" người dùng đã tồn tại',
-            'password.max'     => '"Mật khẩu" không quá 32 ký tự'
+            'password.max'     => '"Mật khẩu" không quá 32 ký tự',
+            'password.min'     => '"Mật khẩu" ít nhất 6 ký tự'
         ]);
 
         $user = User::findOrFail($request->id);
-        $user->name = $request->name;
         $user->email = $request->email;
        
         if(!empty($request->password)){
             $user->password = Hash::make($request->password);
         }
         $user->active = $request->active;
-
-        // Handle the user upload of avatar
-    	if($request->hasFile('avatar')){
-    		$avatar = $request->file('avatar');
-    		$filename = time() . '_user'.$user->id.'_avatar.'. $avatar->getClientOriginalExtension();
-    		Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
-
-    		$user->avatar = $filename;
-    	}
 
         try{
             $user->save();

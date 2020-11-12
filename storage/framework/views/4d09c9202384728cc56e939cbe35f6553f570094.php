@@ -13,7 +13,6 @@
 <link href="<?php echo e(asset('assets/global/plugins/jqvmap/jqvmap/jqvmap.css')); ?>" rel="stylesheet" type="text/css" />
 <!-- <link href="<?php echo e(asset('assets/global/plugins/pace/themes/pace-theme-flash.css')); ?>" rel="stylesheet" type="text/css" /> -->
 <link href="<?php echo e(asset('css/pace/pace-theme-flash.css')); ?>" rel="stylesheet" type="text/css" />
-
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link href="<?php echo e(asset('assets/global/css/components.min.css')); ?>" rel="stylesheet" id="style_components" type="text/css" />
@@ -24,6 +23,5 @@
 <link href="<?php echo e(asset('assets/layouts/layout/css/layout.min.css')); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo e(asset('assets/layouts/layout/css/themes/blue.min.css')); ?>" rel="stylesheet" type="text/css" id="style_color" />
 <link href="<?php echo e(asset('assets/layouts/layout/css/custom.min.css')); ?>" rel="stylesheet" type="text/css" />
-
 <link href="<?php echo e(asset('assets/layouts/layout/css/custom-calendar.css')); ?>" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES --><?php /**PATH /opt/lampp/htdocs/lectureSchedule/resources/views/partials/style.blade.php ENDPATH**/ ?>

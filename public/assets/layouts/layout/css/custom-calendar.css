@@ -125,3 +125,12 @@ ul.page-sidebar-menu div.list-group-level1 li a span{
 body{
     overflow-x: hidden;
 }
+.page-sidebar .page-sidebar-menu>li.heading>h3, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.heading>h3 {
+    color: #dce8f3;
+}
+.carousel.slide .carousel-inner .item{
+    height: 550px;
+}
+.page-sidebar .page-sidebar-menu>li.heading>h3 i {
+    font-size: 17px;
+}

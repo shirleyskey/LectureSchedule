@@ -18,15 +18,9 @@
               </ol>
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
-                <div class="item active">
-                  <img style="height: 80vh; width: 100%" src="<?php echo e(asset('/images/andt01.jpg')); ?>" alt="Los Angeles" style="width:100%;">
-                  <div class="carousel-caption">
-                  </div>
+                <div class="item active" style="background-image: url(<?php echo e(asset('/images/andt01.jpg')); ?>); background-size: cover; background-position: center;">
                 </div>
-                <div class="item">
-                  <img style="height: 80vh; width: 100%"  src="<?php echo e(asset('/images/andt03.jpg')); ?>" alt="Chicago" style="width:100%;">
-                  <div class="carousel-caption">
-                  </div>
+                <div class="item" style="background-image: url(<?php echo e(asset('/images/andt03.jpg')); ?>); background-size: cover; background-position: center;">
                 </div>
               </div>
               <!-- Left and right controls -->
