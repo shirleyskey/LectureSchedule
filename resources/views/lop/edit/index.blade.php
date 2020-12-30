@@ -23,7 +23,7 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('lop.index') }}">Danh Sách Lớp Học</a>
+                    <a href="{{ route('lop.index') }}">Quay Lại Danh Sách Lớp Học</a>
                 </li>
             </ul>
         </div>
@@ -79,6 +79,39 @@
 <script>
     $(document).ready(function()
     {
+        var table = $('#table_ds_hocphan');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
         // Reload trang và giữ nguyên tab đã active
         var activeTab = localStorage.getItem('activeTab');
         if (activeTab) {
@@ -87,22 +120,23 @@
         }
         // END Reload trang và giữ nguyên tab đã active
 
-         // Ajax thêm Học Phần
-    $("#btn_add_hocphan").on('click', function(e){
-        
-       e.preventDefault();
-       $("#btn_add_hocphan").attr("disabled", "disabled");
-       $("#btn_add_hocphan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
-       $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-       $.ajax({
-           
-           url: '{{route('postThemHocPhan')}}',
-           method: 'POST',
-           data: {
+        // ==================================================================//
+
+         // Ajax thêm Ho Phan
+         $("#btn_add_hocphan").on('click', function(e){
+        e.preventDefault();
+        $("#btn_add_hocphan").attr("disabled", "disabled");
+        $("#btn_add_hocphan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
+        $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+        $.ajax({
+
+            url: '{{route('postThemHocPhan')}}',
+            method: 'POST',
+            data: {
                id_lop: $("#form_add_hocphan input[name='id_lop']").val(),
                tenhocphan: $("#form_add_hocphan input[name='tenhocphan']").val(),
                sotiet: $("#form_add_hocphan input[name='sotiet']").val(),
@@ -110,39 +144,39 @@
                mahocphan: $("#form_add_hocphan input[name='mahocphan']").val(),
                start: $("#form_add_hocphan input[name='start']").val(),
                end: $("#form_add_hocphan input[name='end']").val(),
-              
-           success: function(data) {
-               console.log("Hihi");
-               $("#btn_add_hocphan").removeAttr("disabled"); 
-               $("#btn_add_hocphan").html('<i class="fa fa-save"></i> Lưu');
-               if(data.status == false){
-                   var errors = "";
-                   $.each(data.data, function(key, value){
-                       $.each(value, function(key2, value2){
-                           errors += value2 +"<br>";
-                       });
-                   });
-                   toastr.options = {
-                       "closeButton": true,
-                       "debug": false,
-                       "positionClass": "toast-top-center",
-                       "onclick": null,
-                       "showDuration": "1000",
-                       "hideDuration": "1000",
-                       "timeOut": "5000",
-                       "extendedTimeOut": "1000",
-                       "showEasing": "swing",
-                       "hideEasing": "linear",
-                       "showMethod": "fadeIn",
-                       "hideMethod": "fadeOut"
-                   }
-                   toastr["error"](errors, "Lỗi")
-               }
+            },
+            success: function(data) {
+                console.log("Hihi");
+                $("#btn_add_hocphan").removeAttr("disabled");
+                $("#btn_add_hocphan").html('<i class="fa fa-save"></i> Lưu');
+                if(data.status == false){
+                    var errors = "";
+                    $.each(data.data, function(key, value){
+                        $.each(value, function(key2, value2){
+                            errors += value2 +"<br>";
+                        });
+                    });
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": false,
+                        "positionClass": "toast-top-center",
+                        "onclick": null,
+                        "showDuration": "1000",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    toastr["error"](errors, "Lỗi")
+                }
                 if(data.status == true){
                     $('#modal_add_hocphan').modal('hide');
                     swal({
-                        "title":"Đã tạo!", 
-                        "text":"Bạn đã tạo thành công HOCPHAN!",
+                        "title":"Đã tạo!",
+                        "text":"Bạn đã tạo thành công Học Phần!",
                         "type":"success"
                     }, function() {
                             localStorage.setItem('activeTab', '#tab2');
@@ -150,12 +184,9 @@
                         }
                     );
                 }
-           }
-           }
-       });
-   });
-
-   // END Ajax thêm Học Phần
+            }
+        });
+    });
    //AJAX Tìm Học Phần Theo ID
         $(".btn_edit_hocphan").on("click", function(e){
             e.preventDefault();

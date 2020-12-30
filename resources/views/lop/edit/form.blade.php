@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                        <table class="table table-striped table-hover table-bordered" id="table_ds_hocphan">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -117,7 +117,15 @@
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
                     <p> Lớp này chưa có Học Phần nào. </p>
+                    @permission('read-users')
+                        <div class="btn-group">
+                            <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hocphan"><i class="fa fa-plus"></i> Tạo Học Phần
+                                
+                            </a>
+                        </div>
+                    @endpermission
                 </div>
+                   
             @endif
         </div>
         <!-- END TAB 2-->
@@ -131,5 +139,120 @@
     </div>
 
 </form>
-@include('hocphan.modals.add')
-@include('hocphan.modals.edit')
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_add_hocphan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="post" id="form_add_hocphan">
+                <input value="{{ $lop->id }}" name="id_lop" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Học Phần</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mã Học Phần: <span class="required">*</span></label>
+                                    <input  name="mahocphan" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Học Phần: <span class="required">*</span></label>
+                                    <input  name="tenhocphan" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Tiết:<span class="required">*</span></label>
+                                    <input name="sotiet" type="number" class="form-control" required>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Số Tín Chỉ:<span class="required">*</span></label>
+                                    <input class="form-control" name="sotinchi" type="number" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Bắt Đầu:</label>
+                                    <input class="form-control" name="start" type="date" placeholder="dd-mm-yyyy" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Thúc:</label>
+                                    <input class="form-control" name="end" type="date" placeholder="dd-mm-yyyy" />
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-6">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_add_hocphan"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade bs-modal-lg" id="modal_edit_hocphan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="#" id="form_edit_hocphan">
+                @csrf
+                <input value="" name="id_lop" type="hidden">
+                <input value="" name="id" type="hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Học Phần</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mã Học Phần: <span class="required">*</span></label>
+                                    <input  name="mahocphan" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên Học Phần: <span class="required">*</span></label>
+                                    <input  name="tenhocphan" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Tiết:<span class="required">*</span></label>
+                                    <input name="sotiet" type="number" class="form-control" required>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Số Tín Chỉ:<span class="required">*</span></label>
+                                    <input class="form-control" name="sotinchi" type="number" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
+                                    <input class="form-control" name="start" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="end" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn green" id="btn_edit_hocphan"><i class="fa fa-save"></i> Lưu</a>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

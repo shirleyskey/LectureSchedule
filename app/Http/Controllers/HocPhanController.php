@@ -115,7 +115,7 @@ class HocPhanController extends Controller
          if ($request->ajax()) {
              try{
                  $hocphan = HocPhan::saveHocPhan(0, $request->all());
-                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Học Phần ID:'.$hocphan->id.'-'.$hocphan->tenhocphan);
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Học Phần ID:'.$hocphan->id.'-'.$hocphan->start);
                  return response()->json([
                      'status' => true
                  ]);
