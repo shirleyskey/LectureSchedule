@@ -46,18 +46,25 @@ class UserController extends Controller
             'password.min'      => '"Mật khẩu" phải ít nhất 6 ký tự',
             'password.max'      => '"Mật khẩu" không quá 32 ký tự'
         ]);
-
-        $user = new User;
-        $user->id_giangvien = $request->id_giangvien;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        
+        
         // $user->role = $request->role;
         
         try{
-            $user->save();
-            $user->syncRoles($request->role);
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm người dùng ID:'.$user->id);
-            return redirect()->route('user.index')->with('status_success', 'Tạo mới người dùng thành công!');
+            $giangvien = GiangVien::findOrFail($request->id_giangvien);
+            if($giangvien->user) {
+                return redirect()->route('user.index')->with('status_error', 'Giảng viên bạn chọn đã có tài khoản!');
+            }
+            else {
+                $user = new User;
+                $user->id_giangvien = $request->id_giangvien;
+                $user->email = $request->email;
+                $user->password = Hash::make($request->password);
+                $giangvien->user()->save($user);
+                $user->syncRoles($request->role);
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm người dùng ID:'.$user->id);
+                return redirect()->route('user.index')->with('status_success', 'Tạo mới người dùng thành công!');
+            }
         }
         catch(\Exception $e){
             Log::error($e);

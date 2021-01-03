@@ -21,7 +21,7 @@ class GiangVien extends Model
         return $this->hasMany('App\CongTac', 'id_giangvien');
     }
 
-    public function users()
+    public function user()
     {
         return $this->hasOne('App\User', 'id_giangvien');
     }

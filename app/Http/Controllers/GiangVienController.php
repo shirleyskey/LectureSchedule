@@ -132,7 +132,7 @@ class GiangVienController extends Controller
         $name = $giangvien->ten;
         try{
              // Xóa user tham chiếu đến giảng viên đó 
-            $giangvien->users()->delete();
+            $giangvien->user()->delete();
             //Xóa họp liên quan đến giảng viên 
             $giangvien->hop()->delete();
             // tiet
