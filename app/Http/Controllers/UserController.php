@@ -48,7 +48,6 @@ class UserController extends Controller
         ]);
 
         $user = new User;
-
         $user->id_giangvien = $request->id_giangvien;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);

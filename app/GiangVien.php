@@ -23,7 +23,7 @@ class GiangVien extends Model
 
     public function users()
     {
-        return $this->hasMany('App\User', 'id_giangvien');
+        return $this->hasOne('App\User', 'id_giangvien');
     }
 
     public function dangs()

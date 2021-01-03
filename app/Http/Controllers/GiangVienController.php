@@ -128,8 +128,29 @@ class GiangVienController extends Controller
 
     public function destroy($id){
         $giangvien = GiangVien::findOrFail($id);
+       
         $name = $giangvien->ten;
         try{
+             // Xóa user tham chiếu đến giảng viên đó 
+            $giangvien->users()->delete();
+            //Xóa họp liên quan đến giảng viên 
+            $giangvien->hop()->delete();
+            // tiet
+            $giangvien->tiets()->delete();
+            //Bai
+            $giangvien->bais()->delete();
+            //Nckh
+            $giangvien->nckhs()->delete();
+            //Xay Dung 
+            $giangvien->xaydungs()->delete();
+            //Dang
+            $giangvien->dangs()->delete();
+            //HocTap
+            $giangvien->hoctaps()->delete();
+            //Congtac
+            $giangvien->congtacs()->delete();
+            // Chambai 
+            $giangvien->chambais()->delete();
             $giangvien->delete();
             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa nhân sự id:'.$id.'-'.$name);
             return redirect()->route('giangvien.index')->with('status_success', 'Xóa Giảng Viên thành công!');
