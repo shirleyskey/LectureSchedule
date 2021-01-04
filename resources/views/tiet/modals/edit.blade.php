@@ -6,14 +6,13 @@
                 @csrf
                 
                 <input value="" name="id" type="hidden">
-                <input value="{{ $bai->id }}" name="id_bai" type="hidden">
                 @php 
-                    $id_hocphan = $bai->id_hocphan;
+                    $id_hocphan = $hocphan->id;
                     $id_lop = App\HocPhan::where('id', $id_hocphan)->first();
                     $id_lop = $id_lop->id_lop;
                 @endphp 
                 <input value="{{ $id_lop }}" name="id_lop" type="hidden">
-                <input value="{{ $bai->id_hocphan }}" name="id_hocphan" type="hidden">
+                <input value="{{ $id_hocphan }}" name="id_hocphan" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                     <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Tiết Học</h4>
@@ -23,17 +22,31 @@
                         <div class="col-md-12">
                             <div class="col-md-6">
                             <div class="form-group">
-                                        <label>Giảng Viên:</label>
-                                        <select class="form-control" name="id_giangvien">
-                                            <option value="0">-------- Chọn Giảng Viên --------</option>
-                                            @if($ds_giangvien->count()>0)
-                                                @foreach($ds_giangvien as $v)
-                                                <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                    </div>
-                                
+                                <label>Giảng Viên:
+                                    <span class="required">*</span>
+                                </label>
+                                <select class="form-control" name="id_giangvien" required>
+                                    <option value="0">-------- Chọn Giảng Viên --------</option>
+                                    @if($ds_giangvien->count()>0)
+                                        @foreach($ds_giangvien as $v)
+                                        <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                                <div class="form-group">
+                                    <label>Bài Học:
+                                        <span class="required">*</span>
+                                    </label>
+                                    <select class="form-control" name="id_bai" required>
+                                        <option value="0">-------- Chọn Bài --------</option>
+                                        @if($bai->count()>0)
+                                            @foreach($bai as $v)
+                                            <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->tenbai }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label>Thời Gian: <span class="required">*</span></label>
                                     <input  name="thoigian" type="date" class="form-control" required>

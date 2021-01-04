@@ -81,37 +81,62 @@
                                     <th> Tên Học Phần</th>
                                     <th> Số Tiết</th>
                                     <th> Số Tín Chỉ</th>
+                                    <th> Số Bài</th>
                                     <th> Bắt Đầu</th>
                                     <th> Kết Thúc</th>
                                     <th> Hành Động</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php if( $hocphan->count() > 0 ): ?>
-                                    <?php $stt = 1; ?>
-                                    <?php $__currentLoopData = $hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr>
-                                        <td> <?php echo e($stt); ?> </td>
-                                        <td> <?php echo e($v->mahocphan); ?> </td>
-                                        <td> <?php echo e($v->tenhocphan); ?> </td>
-                                        <td> <?php echo e($v->sotiet); ?> </td>
-                                        <td> <?php echo e($v->sotinchi); ?> </td>
-                                        <td> <?php echo e($v->start); ?> </td>
-                                        <td> <?php echo e($v->end); ?> </td>
-                                        <td> 
-                                            <?php if (app('laratrust')->can('read-hocphan')) : ?>
-                                            <a class="btn btn-xs blue-sharp" href="<?php echo e(route('hocphan.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
-                                            <?php endif; // app('laratrust')->can ?>
-                                            <?php if (app('laratrust')->can('read-users')) : ?>
-                                            <a data-hocphan-id="<?php echo e($v->id); ?>" class="btn_edit_hocphan btn btn-xs yellow-gold" href="#modal_edit_hocphan" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_hocphan btn btn-xs red-mint" href="#" data-hocphan-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                            <?php endif; // app('laratrust')->can ?>
-                                        </td>
-                                    </tr>
-                                    <?php $stt++; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
-                            </tbody>
+                                <tbody>
+                                    <?php if( $hocphan->count() > 0 ): ?>
+                                        <?php $stt = 1; ?>
+                                        <?php $__currentLoopData = $hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php 
+                                            $so_tiet = 0;
+                                            $is_tiet = App\Tiet::where('id_hocphan', $v->id);
+                                            if($is_tiet){
+                                                $tiet_hocphans = App\Tiet::where('id_hocphan', $v->id)->get();
+                                                $start = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian', 'asc')->first();
+                                                $end = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian', 'desc')->first();
+                                                $start_result = ($start) ? $start->thoigian : null;
+                                                $end_result = ($end) ? $end->thoigian : null;
+                                                foreach($tiet_hocphans as $v_tiet_hocphan){
+                                                    $so_tiet += $v_tiet_hocphan->so_tiet;
+                                                }
+                                            }
+                                        ?>
+                                        <tr>
+                                            <td> <?php echo e($stt); ?> </td>
+                                            <td> <?php echo e($v->mahocphan); ?> </td>
+                                            <td> <?php echo e($v->tenhocphan); ?> </td>
+                                            <td> <?php echo e($so_tiet); ?>  </td>
+                                            <td> <?php echo e($v->sotinchi); ?> </td>
+                                            <td> 
+                                            <?php 
+                                                 $sobai = App\Bai::where('id_hocphan', $v->id)->get()->count();  
+                                                 echo $sobai;
+                                            ?>
+                                             </td>
+                                            <td><?php echo e($start_result); ?> </td>
+                                            <td> <?php echo e($end_result); ?> </td>
+                                           
+                                           
+                                            <td>
+                                                <?php if (app('laratrust')->can('read-hocphan')) : ?>
+                                                <a class="btn btn-xs blue-sharp" href="<?php echo e(route('hocphan.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
+                                                <?php endif; // app('laratrust')->can ?>
+                                                <?php if (app('laratrust')->can('update-hocphan')) : ?>
+                                                <a class="btn btn-xs yellow-gold" href="<?php echo e(route('hocphan.edit.get', $v->id)); ?>" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
+                                                <?php endif; // app('laratrust')->can ?>
+                                                <?php if (app('laratrust')->can('delete-hocphan')) : ?>
+                                                <a class="btn btn-xs red-mint" href="<?php echo e(route('hocphan.delete.get', $v->id)); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa Học Phần này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                                <?php endif; // app('laratrust')->can ?>
+                                            </td>
+                                        </tr>
+                                        <?php $stt++; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php endif; ?>
+                                </tbody>
                         </table>
                     </div>
                 </div>
@@ -163,22 +188,12 @@
                                     <label>Tên Học Phần: <span class="required">*</span></label>
                                     <input  name="tenhocphan" type="text" class="form-control" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Số Tiết:<span class="required">*</span></label>
-                                    <input name="sotiet" type="number" class="form-control" required>
-                                </div> 
+                                
                                 <div class="form-group">
                                     <label>Số Tín Chỉ:<span class="required">*</span></label>
                                     <input class="form-control" name="sotinchi" type="number" required />
                                 </div>
-                                <div class="form-group">
-                                    <label>Bắt Đầu:</label>
-                                    <input class="form-control" name="start" type="date" placeholder="dd-mm-yyyy" />
-                                </div>
-                                <div class="form-group">
-                                    <label>Kết Thúc:</label>
-                                    <input class="form-control" name="end" type="date" placeholder="dd-mm-yyyy" />
-                                </div>
+                                
                                
                             </div>
                             <div class="col-md-6">
@@ -223,22 +238,12 @@
                                     <label>Tên Học Phần: <span class="required">*</span></label>
                                     <input  name="tenhocphan" type="text" class="form-control" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Số Tiết:<span class="required">*</span></label>
-                                    <input name="sotiet" type="number" class="form-control" required>
-                                </div> 
+                                
                                 <div class="form-group">
                                     <label>Số Tín Chỉ:<span class="required">*</span></label>
                                     <input class="form-control" name="sotinchi" type="number" required />
                                 </div>
-                                <div class="form-group">
-                                    <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input class="form-control" name="start" type="date" placeholder="dd-mm-yyyy" required />
-                                </div>
-                                <div class="form-group">
-                                    <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input class="form-control" name="end" type="date" placeholder="dd-mm-yyyy" required />
-                                </div>
+                                
                                 
                             </div>
                             <div class="col-md-6">

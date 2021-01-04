@@ -16,34 +16,6 @@
                                     <label>Tên Bài: <span class="required">*</span></label>
                                     <input  name="tenbai" type="text" class="form-control" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Số Tiết:<span class="required">*</span></label>
-                                    <input name="sotiet" type="number" class="form-control" required>
-                                </div> 
-                               
-                                <div class="form-group">
-                                    <label>Giảng Viên Chính:</label>
-                                    <select class="form-control" name="gvchinh">
-                                        <option value="0">-------- Chọn Giảng Viên --------</option>
-                                        <?php if($ds_giangvien->count()>0): ?>
-                                            <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <?php endif; ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Giảng Viên Tham Gia:</label>
-                                    <select class="form-control" name="gvphu" multiple>
-                                        <option value="0">-------- Chọn Giảng Viên --------</option>
-                                        <?php if($ds_giangvien->count()>0): ?>
-                                            <?php $__currentLoopData = $ds_giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <?php endif; ?>
-                                    </select>
-                                </div>
-                               
                             </div>
                             <div class="col-md-6">
                                 

@@ -41,12 +41,10 @@ class HocPhanController extends Controller
     public function store(Request $request){
         $hocphan = new HocPhan;
         $hocphan->id_lop = $request->id_lop;
-        $hocphan->sotiet = $request->sotiet;
         $hocphan->sotinchi = $request->sotinchi;
         $hocphan->tenhocphan = $request->tenhocphan;
         $hocphan->mahocphan = $request->mahocphan;
-        $hocphan->start = Carbon::parse($request->start)->format('Y-m-d');
-        $hocphan->end = Carbon::parse($request->end)->format('Y-m-d');
+       
       
         
         try{
@@ -64,6 +62,7 @@ class HocPhanController extends Controller
         return view('hocphan.edit.index', [
             'hocphan' => HocPhan::findOrFail($id), 
             'ds_lop' => Lop::all(),
+            'tiet' => Tiet::where('id_hocphan', $id)->get(),
             'ds_giangvien' => GiangVien::where('cothegiang', 1)->get(),
             'bai' => Bai::where('id_hocphan', $id)->get(),
         ]);
@@ -71,13 +70,13 @@ class HocPhanController extends Controller
 
     public function update(Request $request, $id){
         try{
-            $giangvien = GiangVien::saveGiangVien($id, $request->all());
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);
-            return redirect()->route('giangvien.index')->with('status_success', 'Chỉnh sửa Học Phần thành công!');
+            $hocphan = HocPhan::saveHocPhan($id, $request->all());
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Học Phần ID:'.$hocphan->id.'-'.$hocphan->tenhocphan);
+            return redirect()->route('hocphan.edit.get', $id)->with('status_success', 'Chỉnh sửa Học Phần thành công!');
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi sửa Học Phần!');
+            return redirect()->route('hocphan.edit.get', $id)->with('status_error', 'Xảy ra lỗi khi sửa Học Phần!');
         }
         
     }

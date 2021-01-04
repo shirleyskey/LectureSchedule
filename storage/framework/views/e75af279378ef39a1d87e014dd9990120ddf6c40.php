@@ -77,6 +77,20 @@
                                 <?php if( $ds_hocphan->count() > 0 ): ?>
                                     <?php $stt = 1; ?>
                                     <?php $__currentLoopData = $ds_hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php 
+                                        $so_tiet = 0;
+                                        $is_tiet = App\Tiet::where('id_hocphan', $v->id);
+                                        if($is_tiet){
+                                            $tiet_hocphans = App\Tiet::where('id_hocphan', $v->id)->get();
+                                            $start = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian', 'asc')->first();
+                                            $end = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian', 'desc')->first();
+                                            $start_result = ($start) ? $start->thoigian : null;
+                                            $end_result = ($end) ? $end->thoigian : null;
+                                            foreach($tiet_hocphans as $v_tiet_hocphan){
+                                                $so_tiet += $v_tiet_hocphan->so_tiet;
+                                            }
+                                        }
+                                    ?>
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> 
@@ -85,7 +99,7 @@
                                         </td>
                                         <td> <?php echo e($v->mahocphan); ?> </td>
                                         <td> <?php echo e($v->tenhocphan); ?> </td>
-                                        <td> <?php echo e($v->sotiet); ?>  </td>
+                                        <td> <?php echo e($so_tiet); ?>  </td>
                                         <td> <?php echo e($v->sotinchi); ?> </td>
                                         <td> 
                                         <?php 
@@ -93,8 +107,8 @@
                                              echo $sobai;
                                         ?>
                                          </td>
-                                        <td> <?php echo e($v->start); ?> </td>
-                                        <td> <?php echo e($v->end); ?> </td>
+                                        <td><?php echo e($start_result); ?> </td>
+                                        <td> <?php echo e($end_result); ?> </td>
                                        
                                        
                                         <td>

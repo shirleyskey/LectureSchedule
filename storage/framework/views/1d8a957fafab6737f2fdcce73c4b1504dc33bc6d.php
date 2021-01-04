@@ -84,7 +84,7 @@
                                             <?php if (app('laratrust')->can('read-lop')) : ?>
                                             <a class="btn btn-xs blue-sharp" href="<?php echo e(route('lop.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
                                             <?php endif; // app('laratrust')->can ?>
-                                            <?php if (app('laratrust')->can('update-lop')) : ?>
+                                            <?php if (app('laratrust')->can('create-users')) : ?>
                                             <a class="btn btn-xs yellow-gold" href="<?php echo e(route('lop.edit.get', $v->id)); ?>" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             <?php endif; // app('laratrust')->can ?>
                                             <?php if (app('laratrust')->can('delete-lop')) : ?>

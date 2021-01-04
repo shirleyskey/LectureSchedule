@@ -16,34 +16,6 @@
                                     <label>Tên Bài: <span class="required">*</span></label>
                                     <input  name="tenbai" type="text" class="form-control" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Số Tiết:<span class="required">*</span></label>
-                                    <input name="sotiet" type="number" class="form-control" required>
-                                </div> 
-                               
-                                <div class="form-group">
-                                    <label>Giảng Viên Chính:</label>
-                                    <select class="form-control" name="gvchinh">
-                                        <option value="0">-------- Chọn Giảng Viên --------</option>
-                                        @if($ds_giangvien->count()>0)
-                                            @foreach($ds_giangvien as $v)
-                                            <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Giảng Viên Tham Gia:</label>
-                                    <select class="form-control" name="gvphu" multiple>
-                                        <option value="0">-------- Chọn Giảng Viên --------</option>
-                                        @if($ds_giangvien->count()>0)
-                                            @foreach($ds_giangvien as $v)
-                                            <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                               
                             </div>
                             <div class="col-md-6">
                                 

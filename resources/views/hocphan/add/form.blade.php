@@ -5,7 +5,10 @@
         <div class="tab-pane active" id="tab1">
             <div class="form-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-2">
+                       
+                    </div>
+                    <div class="col-md-8">
                         <div class="form-group">
                             <label class="control-label col-md-4">Tên Lớp
                                 <span class="required"> * </span>
@@ -26,68 +29,37 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-4">Mã Học Phần:
+                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <input type="text" class="form-control" name="mahocphan" value="{{ old('mahocphan') }}" /> </div>
+                                    <input type="text" class="form-control"  required name="mahocphan" value="{{ old('mahocphan') }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-4">Tên Học Phần:
+                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-phone"></i>
-                                    <input type="text" class="form-control" name="tenhocphan" value="{{ old('tenhocphan') }}" /> </div>
+                                    <input type="text" class="form-control" required name="tenhocphan" value="{{ old('tenhocphan') }}" /> </div>
                             </div>
                         </div>
+                       
                         <div class="form-group">
-                            <label class="control-label col-md-4">Số Tiết
+                            <label class="control-label col-md-4">Số Tín Chỉ:
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="sotiet" required value="{{ old('sotiet') }}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Số Tín Chỉ:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" step="any" class="form-control" name="sotinchi" value="{{ old('sotinchi') }}" /> </div>
-                            </div>
-                        </div>
-                       
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Số Bài:</label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-envelope"></i>
-                                    <input type="number" class="form-control" name="sobai" value="{{ old('sobai') }}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Bắt Đầu:</label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-envelope"></i>
-                                    <input type="date" class="form-control" name="start" value="{{ old('start') }}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Kết Thúc:</label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-envelope"></i>
-                                    <input type="date" class="form-control" name="end" value="{{ old('end') }}" /> </div>
+                                    <input type="number" step="any" required class="form-control" name="sotinchi" value="{{ old('sotinchi') }}" /> </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                        
                     </div>
                 </div>

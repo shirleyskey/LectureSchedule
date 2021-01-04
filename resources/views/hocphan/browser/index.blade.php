@@ -79,6 +79,20 @@
                                 @if( $ds_hocphan->count() > 0 )
                                     @php $stt = 1; @endphp
                                     @foreach( $ds_hocphan as $v )
+                                    @php 
+                                        $so_tiet = 0;
+                                        $is_tiet = App\Tiet::where('id_hocphan', $v->id);
+                                        if($is_tiet){
+                                            $tiet_hocphans = App\Tiet::where('id_hocphan', $v->id)->get();
+                                            $start = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian', 'asc')->first();
+                                            $end = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian', 'desc')->first();
+                                            $start_result = ($start) ? $start->thoigian : null;
+                                            $end_result = ($end) ? $end->thoigian : null;
+                                            foreach($tiet_hocphans as $v_tiet_hocphan){
+                                                $so_tiet += $v_tiet_hocphan->so_tiet;
+                                            }
+                                        }
+                                    @endphp
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> 
@@ -86,7 +100,7 @@
                                         </td>
                                         <td> {{ $v->mahocphan }} </td>
                                         <td> {{ $v->tenhocphan }} </td>
-                                        <td> {{ $v->sotiet }}  </td>
+                                        <td> {{ $so_tiet }}  </td>
                                         <td> {{ $v->sotinchi }} </td>
                                         <td> 
                                         @php 
@@ -94,8 +108,8 @@
                                              echo $sobai;
                                         @endphp
                                          </td>
-                                        <td> {{ $v->start }} </td>
-                                        <td> {{ $v->end }} </td>
+                                        <td>{{ $start_result }} </td>
+                                        <td> {{  $end_result }} </td>
                                        
                                        
                                         <td>

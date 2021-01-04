@@ -53,7 +53,8 @@
                             <div class="tab-pane active" id="tab1">
                                 <div class="form-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                       
+                                        <div class="col-md-8">
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Tên Lớp:</label>
                                                 <label class="control-label col-md-7 col-xs-6"><?php echo e($hocphan->lops->tenlop); ?></label>
@@ -67,28 +68,12 @@
                                                 <label class="control-label col-md-7 col-xs-6"><?php echo e($hocphan->tenhocphan); ?></label>
                                             </div>
                                             <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Số Tiết:</label>
-                                                <label class="control-label col-md-7 col-xs-6"><?php echo e($hocphan->sotiet); ?></label>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Tín Chỉ:</label>
                                                 <label class="control-label col-md-7 col-xs-6"><?php echo e($hocphan->sotinchi); ?></label>
                                             </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Số Bài:</label>
-                                                <label class="control-label col-md-7 col-xs-6"><?php echo e($hocphan->bais->count()); ?></label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Bắt Đầu:</label>:</label>
-                                                <label class="control-label col-md-7 col-xs-6"><?php echo e($hocphan->start); ?></label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Kết Thúc:</label>:</label>
-                                                <label class="control-label col-md-7 col-xs-6"><?php echo e($hocphan->end); ?></label>
-                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
                                         </div>
                                     </div>
                                 </div>
@@ -106,10 +91,7 @@
                                                 <tr>
                                                     <th> STT</th>
                                                     <th> Tên Bài</th>
-                                                    <th> Số Tiết</th>
-                                                    <th> Giảng Viên Chính</th>
-                                                    <th> Giảng Viên Phụ</th>
-                                                    <th> Hành Động</th>
+                                                   
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -119,25 +101,8 @@
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e($v->tenbai); ?> </td>
-                                                        <td> <?php echo e($v->sotiet); ?> </td>
-                                                        <td> <?php echo e(($v->gvchinh) ? $v->giangvienchinhs->ten : ''); ?> </td>
-                                                        <td>
-                                                            <?php
-                                                                $gvphu = json_decode($v->gvphu, true);
-                                                            ?>
-                                                                <?php if($gvphu != null): ?>
-                                                                <?php $__currentLoopData = $gvphu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                                    <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
-                                                                <?php endif; ?>
-                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                                <?php endif; ?>
-                                                        </td>
-                                                        <td>
-                                                            <?php if (app('laratrust')->can('read-bai')) : ?>
-                                                            <a class="btn btn-xs blue-sharp" href="<?php echo e(route('bai.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
-                                                            <?php endif; // app('laratrust')->can ?>
-                                                        </td>
+                                                       
+                                                        
                                                     </tr>
                                                     <?php $stt++; ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

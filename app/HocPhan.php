@@ -21,6 +21,16 @@ class HocPhan extends Model
         return $this->hasMany('App\Bai', 'id_hocphan');
     }
 
+    public function tiets()
+    {
+        return $this->hasMany('App\Tiet', 'id_hocphan');
+    }
+
+    public function chambais()
+    {
+        return $this->hasMany('App\ChamBai', 'id_hocphan');
+    }
+
     public static function saveHocPhan($id, $data){
         if($id == 0){
             $hocphan = new HocPhan;
@@ -30,10 +40,7 @@ class HocPhan extends Model
         $hocphan->id_lop = $data['id_lop'];
         $hocphan->mahocphan = $data['mahocphan'];
         $hocphan->tenhocphan = $data['tenhocphan'];
-        $hocphan->sotiet = $data['sotiet'];
         $hocphan->sotinchi = $data['sotinchi'];
-        $hocphan->start = Carbon::parse($data['start'])->format('Y-m-d');
-        $hocphan->end = Carbon::parse($data['end'])->format('Y-m-d');
         $hocphan->save();
         return $hocphan;
     }

@@ -54,7 +54,8 @@
                             <div class="tab-pane active" id="tab1">
                                 <div class="form-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                       
+                                        <div class="col-md-8">
                                             <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Tên Lớp:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->lops->tenlop }}</label>
@@ -68,28 +69,12 @@
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->tenhocphan }}</label>
                                             </div>
                                             <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Số Tiết:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $hocphan->sotiet }}</label>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row">
                                                 <label class="control-label col-md-4 col-xs-6 bold">Số Tín Chỉ:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $hocphan->sotinchi }}</label>
                                             </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Số Bài:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $hocphan->bais->count() }}</label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Bắt Đầu:</label>:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $hocphan->start }}</label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Kết Thúc:</label>:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $hocphan->end }}</label>
-                                            </div>
+
+                                        </div>
+                                        <div class="col-md-4">
                                         </div>
                                     </div>
                                 </div>
@@ -107,10 +92,7 @@
                                                 <tr>
                                                     <th> STT</th>
                                                     <th> Tên Bài</th>
-                                                    <th> Số Tiết</th>
-                                                    <th> Giảng Viên Chính</th>
-                                                    <th> Giảng Viên Phụ</th>
-                                                    <th> Hành Động</th>
+                                                   
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -120,25 +102,8 @@
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> {{ $v->tenbai }} </td>
-                                                        <td> {{ $v->sotiet }} </td>
-                                                        <td> {{ ($v->gvchinh) ? $v->giangvienchinhs->ten : '' }} </td>
-                                                        <td>
-                                                            @php
-                                                                $gvphu = json_decode($v->gvphu, true);
-                                                            @endphp
-                                                                @if($gvphu != null)
-                                                                @foreach($gvphu as $key => $value)
-                                                                @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                                    <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
-                                                                @endif
-                                                                @endforeach
-                                                                @endif
-                                                        </td>
-                                                        <td>
-                                                            @permission('read-bai')
-                                                            <a class="btn btn-xs blue-sharp" href="{{ route('bai.read.get', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
-                                                            @endpermission
-                                                        </td>
+                                                       
+                                                        
                                                     </tr>
                                                     @php $stt++; @endphp
                                                     @endforeach

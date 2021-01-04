@@ -33,56 +33,21 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-user"></i>
+                                <input type="text" hidden name="id_lop" value="{{$hocphan->id_lop}}">
                                     <input type="text" class="form-control" readonly name="tenlop" value="{{ $hocphan->lops->tenlop }}" required /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Số Tiết:
+                            <label class="control-label col-md-4">Số Tín Chỉ:
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="sotiet" required value="{{ $hocphan->sotiet }}" /> </div>
+                                    <input type="number" step="any" required class="form-control" name="sotinchi" value="{{ $hocphan->sotinchi }}" /> </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Số Tín Chỉ:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" step="any" class="form-control" name="sotinchi" value="{{ $hocphan->sotinchi }}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Số Bài:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="number" step="any" class="form-control" name="sobai" value="{{ $hocphan->sobai }}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Ngày Bắt Đầu:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="date" class="form-control" name="sobai" value="{{ $hocphan->start }}" /> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Ngày Kết Thúc:
-                            </label>
-                            <div class="col-md-7">
-                                <div class="input-icon right">
-                                    <i class="fa fa-home"></i>
-                                    <input type="date" class="form-control" name="sobai" value="{{ $hocphan->end }}" /> </div>
-                            </div>
-                        </div>
-                      
+                        
                         @permission('read-users')
                         <div class="col-md-12">
                             <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
@@ -124,9 +89,6 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Tên Bài</th>
-                                    <th> Số Tiết</th>
-                                    <th> GV Chính</th>
-                                    <th> GV Phụ </th>
                                     <th> Hành Động </th>
                                    
                                 </tr>
@@ -138,9 +100,9 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->tenbai }} </td>
-                                        <td> {{ $v->sotiet }} </td>
-                                        <td> {{ ($v->gvchinh) ? ($v->giangvienchinhs->ten) : '' }} </td>
-                                        <td>
+                                        {{-- <td> {{ $v->sotiet }} </td>
+                                        <td> {{ ($v->gvchinh) ? ($v->giangvienchinhs->ten) : '' }} </td> --}}
+                                        {{-- <td>
                                             @php
                                                 $gvphu = json_decode($v->gvphu, true);
                                             @endphp
@@ -151,13 +113,12 @@
                                                 @endif
                                                 @endforeach
                                                 @endif
-                                        </td>
+                                        </td> --}}
                                         <td>
                                         @permission('read-users')
                                         <a class="btn_edit_bai btn btn-xs yellow-gold" data-bai-id="{{ $v->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                         <a class="btn_delete_bai btn btn-xs red-mint" data-bai-id="{{ $v->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                        @endpermission
-                                        <a class="btn btn-xs blue-sharp" href="{{ route('bai.edit.post', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Danh Sách Tiết Học</a>
                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
@@ -175,9 +136,74 @@
             @endif
         </div>
         <!-- END TAB 2-->
-    </div>
-    
 
+        <h2 class="text-center bold">Danh Sách Tiết Học</h2>
+        <div class="" id="">
+            @if($tiet->isNotEmpty())
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-6">
+                            @permission('read-users')
+                               <div class="btn-group">
+                                    <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_tiet"><i class="fa fa-plus"></i> Tạo Tiết Học
+                                        
+                                    </a>
+                                </div> 
+                            </div>
+                            @endpermission
+                        </div>
+                    </div>
+                    <table class="table table-striped table-hover table-bordered" id="table_ds_tiet">
+                        <thead>
+                            <tr>
+                                <th> STT</th>
+                                <th> Tên Bài</th>
+                                <th> Thời Gian</th>
+                                <th> Buổi</th>
+                                <th> Ca</th>
+                                <th> Giảng Viên</th>
+                                <th> Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if( $tiet->count() > 0 )
+                                @php $stt = 1; @endphp
+                                @foreach( $tiet as $v )
+                                <tr>
+                                    <td> {{ $stt }} </td>
+                                    <td> {{ ($v->id_bai) ? $v->bais->tenbai : '' }} </td>
+                                    <td> {{ $thoigian = Carbon\Carbon::parse($v->thoigian)->format('Y-d-m') }} </td>
+                                    <td> {{ $v->buoi }} </td>
+                                    <td> {{ $v->ca }} </td>
+                                    <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : '' }} </td>
+                                    @permission('read-users')
+                                        <td>
+                                            <a class="btn_edit_tiet btn btn-xs yellow-gold" data-tiet-id="{{ $v->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                            <a class="btn_delete_tiet btn btn-xs red-mint" data-tiet-id="{{ $v->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                        </td>
+                                        @endpermission
+                                </tr>
+                                @php $stt++; @endphp
+                                @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+            @else
+                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                    <p> Chưa có Tiết Học nào!</p>
+                </div>
+            @endif
+        </div>
+    </div>
 </form>
 @include('bai.modals.add')
 @include('bai.modals.edit')
+@include('tiet.modals.add')
+@include('tiet.modals.edit')
+

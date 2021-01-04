@@ -103,34 +103,60 @@
                                                     <th> Tên Học Phần</th>
                                                     <th> Số Tiết</th>
                                                     <th> Số Tín Chỉ</th>
+                                                    <th> Số Bài</th>
                                                     <th> Bắt Đầu</th>
                                                     <th> Kết Thúc</th>
                                                     <th> Hành Động</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <?php if( $hocphan->count() > 0 ): ?>
-                                                    <?php $stt = 1; ?>
-                                                    <?php $__currentLoopData = $hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <tr>
-                                                        <td> <?php echo e($stt); ?> </td>
-                                                        <td> <?php echo e($v->mahocphan); ?> </td>
-                                                        <td> <?php echo e($v->tenhocphan); ?> </td>
-                                                        <td> <?php echo e($v->sotiet); ?> </td>
-                                                        <td> <?php echo e($v->sotinchi); ?> </td>
-                                                        <td> <?php echo e($v->start); ?> </td>
-                                                        <td> <?php echo e($v->end); ?> </td>
-                                                        <td>
-                                                            <?php if (app('laratrust')->can('read-hocphan')) : ?>
-                                                            <a class="btn btn-xs blue-sharp" href="<?php echo e(route('hocphan.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
-                                                            <?php endif; // app('laratrust')->can ?>
-                                                        </td>
-                                                       
-                                                    </tr>
-                                                    <?php $stt++; ?>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                <?php endif; ?>
-                                            </tbody>
+                                                <tbody>
+                                                    <?php if( $hocphan->count() > 0 ): ?>
+                                                        <?php $stt = 1; ?>
+                                                        <?php $__currentLoopData = $hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php 
+                                                            $so_tiet = 0;
+                                                            $is_tiet = App\Tiet::where('id_hocphan', $v->id);
+                                                            if($is_tiet){
+                                                                $tiet_hocphans = App\Tiet::where('id_hocphan', $v->id)->get();
+                                                                $start = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian', 'asc')->first();
+                                                                $end = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian', 'desc')->first();
+                                                                $start_result = ($start) ? $start->thoigian : null;
+                                                                $end_result = ($end) ? $end->thoigian : null;
+                                                                foreach($tiet_hocphans as $v_tiet_hocphan){
+                                                                    $so_tiet += $v_tiet_hocphan->so_tiet;
+                                                                }
+                                                            }
+                                                        ?>
+                                                        <tr>
+                                                            <td> <?php echo e($stt); ?> </td>
+                                                            <td> <?php echo e($v->mahocphan); ?> </td>
+                                                            <td> <?php echo e($v->tenhocphan); ?> </td>
+                                                            <td> <?php echo e($so_tiet); ?>  </td>
+                                                            <td> <?php echo e($v->sotinchi); ?> </td>
+                                                            <td> 
+                                                            <?php 
+                                                                 $sobai = App\Bai::where('id_hocphan', $v->id)->get()->count();  
+                                                                 echo $sobai;
+                                                            ?>
+                                                             </td>
+                                                            <td><?php echo e($start_result); ?> </td>
+                                                            <td> <?php echo e($end_result); ?> </td>
+                                                           
+                                                           
+                                                            <td>
+                                                                <?php if (app('laratrust')->can('read-hocphan')) : ?>
+                                                                <a class="btn btn-xs blue-sharp" href="<?php echo e(route('hocphan.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
+                                                                <?php endif; // app('laratrust')->can ?>
+                                                                
+                                                                <?php if (app('laratrust')->can('delete-hocphan')) : ?>
+                                                                <a class="btn btn-xs red-mint" href="<?php echo e(route('hocphan.delete.get', $v->id)); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa Học Phần này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                                                <?php endif; // app('laratrust')->can ?>
+                                                            </td>
+                                                        </tr>
+                                                        <?php $stt++; ?>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php endif; ?>
+                                                </tbody>
                                         </table>
                                     </div>
                                 </div>

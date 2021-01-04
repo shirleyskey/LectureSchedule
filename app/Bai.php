@@ -39,13 +39,7 @@ class Bai extends Model
             $bai = Bai::findOrFail($id);
         }
         $bai->id_hocphan = $data['id_hocphan'];
-        $bai->sotiet = $data['sotiet'];
         $bai->tenbai = $data['tenbai'];
-        $bai->gvchinh = $data['gvchinh'];
-        foreach ($data['gvphu'] as $key => $value) {
-            $data['gvphu'][$key] = (int)$value;         
-        }
-        $bai->gvphu = json_encode($data['gvphu']);
         $bai->save();
         return $bai;
     }

@@ -137,11 +137,11 @@
             data: {
                id_lop: $("#form_add_hocphan input[name='id_lop']").val(),
                tenhocphan: $("#form_add_hocphan input[name='tenhocphan']").val(),
-               sotiet: $("#form_add_hocphan input[name='sotiet']").val(),
+            //    sotiet: $("#form_add_hocphan input[name='sotiet']").val(),
                sotinchi: $("#form_add_hocphan input[name='sotinchi']").val(),
                mahocphan: $("#form_add_hocphan input[name='mahocphan']").val(),
-               start: $("#form_add_hocphan input[name='start']").val(),
-               end: $("#form_add_hocphan input[name='end']").val(),
+            //    start: $("#form_add_hocphan input[name='start']").val(),
+            //    end: $("#form_add_hocphan input[name='end']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -206,11 +206,11 @@
                         $("#form_edit_hocphan input[name='id_lop']").val(data.data.id_lop);
                         $("#form_edit_hocphan input[name='id']").val(data.data.id);
                         $("#form_edit_hocphan input[name='tenhocphan']").val(data.data.tenhocphan);
-                        $("#form_edit_hocphan input[name='sotiet']").val(data.data.sotiet);
+                        // $("#form_edit_hocphan input[name='sotiet']").val(data.data.sotiet);
                         $("#form_edit_hocphan input[name='sotinchi']").val(data.data.sotinchi);
                         $("#form_edit_hocphan input[name='mahocphan']").val(data.data.mahocphan);
-                        $("#form_edit_hocphan input[name='start']").val(data.data.start);
-                        $("#form_edit_hocphan input[name='end']").val(data.data.end);
+                        // $("#form_edit_hocphan input[name='start']").val(data.data.start);
+                        // $("#form_edit_hocphan input[name='end']").val(data.data.end);
                         $('#modal_edit_hocphan').modal('show');
                     }
                 }
@@ -235,12 +235,12 @@
                 data: {
                     id: $("#form_edit_hocphan input[name='id']").val(),
                     id_lop: $("#form_edit_hocphan input[name='id_lop']").val(),
-                    sotiet: $("#form_edit_hocphan input[name='sotiet']").val(),
+                    // sotiet: $("#form_edit_hocphan input[name='sotiet']").val(),
                     tenhocphan: $("#form_edit_hocphan input[name='tenhocphan']").val(),
                     sotinchi: $("#form_edit_hocphan input[name='sotinchi']").val(),
                     mahocphan: $("#form_edit_hocphan input[name='mahocphan']").val(),
-                    start: $("#form_edit_hocphan input[name='start']").val(),
-                    end: $("#form_edit_hocphan input[name='end']").val(),
+                    // start: $("#form_edit_hocphan input[name='start']").val(),
+                    // end: $("#form_edit_hocphan input[name='end']").val(),
                 },
                 success: function(data) {
                     $("#btn_edit_hocphan").removeAttr("disabled"); 

@@ -86,7 +86,7 @@
                                             @permission('read-lop')
                                             <a class="btn btn-xs blue-sharp" href="{{ route('lop.read.get', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
                                             @endpermission
-                                            @permission('update-lop')
+                                            @permission('create-giangvien')
                                             <a class="btn btn-xs yellow-gold" href="{{ route('lop.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             @endpermission
                                             @permission('delete-lop')
