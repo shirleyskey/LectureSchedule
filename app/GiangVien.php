@@ -8,7 +8,7 @@ class GiangVien extends Model
 {
     //
     protected $table = 'giangviens';
-    protected $fillable = ['ten','chucvu','hesoluong','diachi','chucdanh','trinhdo','cothegiang', 'ma_giangvien'];
+    protected $fillable = ['ten','cothegiang', 'ma_giangvien'];
 
     public $timestamps = false;
     public function chambais()
@@ -35,23 +35,13 @@ class GiangVien extends Model
     {
         return $this->hasMany('App\HocTap', 'id_giangvien');
     }
-
-    public function nckhs()
-    {
-        return $this->hasMany('App\Nckh', 'id_giangvien');
-    }
-
    
     public function xaydungs()
     {
         return $this->hasMany('App\XayDung', 'id_giangvien');
     }
 
-    public function bais()
-    {
-        return $this->hasMany('App\Bai', 'id_giangvien');
-    }
-
+    
     public function tiets()
     {
         return $this->hasMany('App\Tiet', 'id_giangvien');

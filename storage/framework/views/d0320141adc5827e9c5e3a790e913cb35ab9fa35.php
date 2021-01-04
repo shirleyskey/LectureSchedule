@@ -58,9 +58,9 @@
                             <div class="form-body">
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <div class="input-group">
-                                        <label for="form_control">Cảnh báo: Không được sửa trường này</label>
+                                        <label for="form_control"></label>
                                         <select class="form-control" name="id_giangvien" readonly>
-                                        <option value="<?php echo e($user->giangviens->id); ?>"><?php echo e($user->giangviens->ten); ?></option>
+                                        <option readonly value="<?php echo e($user->giangviens->id); ?>"><?php echo e($user->giangviens->ten); ?></option>
                                             <?php if($giangvien->count()>0): ?>
                                                 <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
@@ -89,7 +89,7 @@
                                             <i class="fa fa-key"></i>
                                         </span>
                                     </div>
-                                     <input type="checkbox" onclick="myFunction()">Hiển thị mật khẩu (Cảnh báo: Giáo vụ không tự ý thay đổi mật khẩu người dùng. Để trống để giữ nguyên.)</br>
+                                     <input type="checkbox" onclick="myFunction()">Hiển thị mật khẩu (Cảnh báo: Không tự ý thay đổi mật khẩu người dùng. Để trống để giữ nguyên.)</br>
                                     <span id="name-error" class="help-block help-block-error"></span>
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">

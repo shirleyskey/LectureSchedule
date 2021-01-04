@@ -13,7 +13,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-file-code-o"></i>
-                                    <input type="text" class="form-control" readonly name="malop" value="<?php echo e($lop->malop); ?>" required maxlength="191" /> </div>
+                                    <input type="text" class="form-control" name="malop" value="<?php echo e($lop->malop); ?>" required maxlength="191" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -28,6 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-4">Quy Mô:
+                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
@@ -37,11 +38,12 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-4">Hệ: (Nhập 1 nế u tính giờ, Nhập 0 nếu tính tiền)
+                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-user"></i>
-                                    <input type="number" step="any" class="form-control" name="he" value="<?php echo e($lop->he); ?>" /> </div>
+                                    <input type="number" step="any" required class="form-control" name="he" value="<?php echo e($lop->he); ?>" /> </div>
                             </div>
                         </div>
                     </div>

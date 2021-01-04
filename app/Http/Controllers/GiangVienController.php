@@ -117,7 +117,7 @@ class GiangVienController extends Controller
         try{
             $giangvien = GiangVien::saveGiangVien($id, $request->all());
             Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);
-            return redirect()->route('giangvien.index')->with('status_success', 'Chỉnh sửa Giảng Viên thành công!');
+            return redirect()->route('giangvien.edit.get',$id)->with('status_success', 'Chỉnh sửa Giảng Viên thành công!');
         }
         catch(\Exception $e){
             Log::error($e);
@@ -134,13 +134,9 @@ class GiangVienController extends Controller
              // Xóa user tham chiếu đến giảng viên đó 
             $giangvien->user()->delete();
             //Xóa họp liên quan đến giảng viên 
-            $giangvien->hop()->delete();
+            $giangvien->hops()->delete();
             // tiet
             $giangvien->tiets()->delete();
-            //Bai
-            $giangvien->bais()->delete();
-            //Nckh
-            $giangvien->nckhs()->delete();
             //Xay Dung 
             $giangvien->xaydungs()->delete();
             //Dang

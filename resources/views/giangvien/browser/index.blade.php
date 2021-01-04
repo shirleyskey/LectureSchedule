@@ -132,7 +132,8 @@
                                             <a class="btn btn-xs yellow-gold" href="{{ route('giangvien.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             @endpermission
                                             @permission('delete-giangvien')
-                                            <a class="btn btn-xs red-mint" href="{{ route('giangvien.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Giảng Viên này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                            <a class="btn btn-xs red-mint" href="{{ route('giangvien.delete.get', $v->id) }}" 
+                                            onclick="return confirm('Bạn có chắc chắn muốn xóa Giảng Viên này không? Nếu xóa, mọi Tiết học và các Hoạt động liên quan đến giảng viên sẽ bị xóa! Hãy cân nhắc để tránh dẫn đến sai sót');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                             @endpermission
                                         </td>
                                     </tr>

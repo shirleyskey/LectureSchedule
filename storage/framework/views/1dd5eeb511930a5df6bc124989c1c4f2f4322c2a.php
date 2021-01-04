@@ -95,7 +95,7 @@
                                         <td>
                                             
                                             <a class="btn btn-xs yellow-gold" href="<?php echo e(route('user.edit.get', $v->id)); ?>" title="Xem"> <i class="fa fa-edit"></i> Sửa</a>
-                                            <a class="btn btn-xs red-mint" href="<?php echo e(route('user.delete.get', $v->id)); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                            <a class="btn btn-xs red-mint" href="<?php echo e(route('user.delete.get', $v->id)); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa Tài khoản của giảng viên này không? Hãy cân nhắc trước khi xóa!');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

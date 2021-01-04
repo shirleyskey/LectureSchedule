@@ -28,12 +28,12 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-4">Chức Vụ:
-                                <span class="required"> * </span>
+                                
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-building-o"></i>
-                                    <input type="text" class="form-control" name="chucvu" required maxlength="191" value="{{ $giangvien->chucvu }}" /> </div>
+                                    <input type="text" class="form-control" name="chucvu"  maxlength="191" value="{{ $giangvien->chucvu }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -74,11 +74,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Có Thể Giảng: <span>(Giảng nhập 1, không giảng nhập 0)</span></label>
+                            <label class="control-label col-md-4">Có Thể Giảng: <span>(Giảng nhập 1, không giảng nhập 0)</span><span class="required"> * </span></label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-envelope"></i>
-                                    <input type="number" class="form-control" name="cothegiang" value="{{ $giangvien->cothegiang }}" /> </div>
+                                    <input type="number" class="form-control" required name="cothegiang" value="{{ $giangvien->cothegiang }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -91,9 +91,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- END TAB 1-->
+       
       
 
         <!-- BEGIN TAB 3-->
@@ -416,7 +424,7 @@
                 <!-- END EXAMPLE TABLE PORTLET-->
             @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Giảng Viên này không tham gia Học Tập Nào nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Thêm Mới Học Tập</a></p>
+                    <p> Giảng Viên này không tham gia Học Tập Nào nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Học Tập Mới</a></p>
                 </div>
             @endif
         </div>
@@ -496,13 +504,7 @@
         </div>
         <!-- END TAB 10-->
     </div>
-    <div class="form-actions">
-        <div class="row">
-            <div class="col-md-12">
-                <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
-            </div>
-        </div>
-    </div>
+    
 </form>
 @include('congtac.modals.add')
 @include('congtac.modals.edit')

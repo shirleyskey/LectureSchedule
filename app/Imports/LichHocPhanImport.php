@@ -62,8 +62,8 @@ class LichHocPhanImport implements ToCollection, WithHeadingRow
                     }
                     //Get Giang Vien
                     $ma_giangvien = $row["gv_thuc_hien"];
-                    $giangvien = GiangVien::where('ma_giangvien', $ma_giangvien)->first();
-    
+                    $giangvien = ($ma_giangvien == "") ? null : GiangVien::where('ma_giangvien', $ma_giangvien)->first();
+                    
                     //Get Thoi Gian Sáng or Chiều
                     $buoi = $row["thoi_gian"][0];
                     $ca = $row["thoi_gian"][2];

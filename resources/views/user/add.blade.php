@@ -55,7 +55,7 @@
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <div class="input-group">
                                         <select class="form-control" name="id_giangvien">
-                                            <option value="0">-------- Chọn Giảng Viên (Bắt Buộc) --------</option>
+                                            <option value="0">-------- Chọn Giảng Viên (Bắt buộc) --------</option>
                                             @if($giangvien->count()>0)
                                                 @foreach($giangvien as $v)
                                                 <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
@@ -88,7 +88,7 @@
                                         </span>
                                     </div>
                                     <input type="checkbox" onclick="myFunction()">Hiển thị mật khẩu </br>
-                                    <span>Chú ý: Nên tạo mật khẩu user thống nhất một định dạng, sau đó, user sẽ tự thay đổi mật khẩu. </span>
+                                    {{-- <span>Chú ý: Nên tạo mật khẩu user thống nhất một định dạng, sau đó, user sẽ tự thay đổi mật khẩu. </span> --}}
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label">
                                     <select class="form-control" name="role[]">

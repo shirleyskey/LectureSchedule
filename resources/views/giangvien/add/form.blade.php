@@ -32,7 +32,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-building-o"></i>
-                                    <input type="text" class="form-control" name="chucvu" required value="{{ old('chucvu') }}" /> </div>
+                                    <input type="text" class="form-control" name="chucvu" value="{{ old('chucvu') }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -74,11 +74,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Có Thể Giảng: (Có thể giảng nhập 1, không giảng nhập 0)</label>
+                            <label class="control-label col-md-4">Có Thể Giảng: (Có thể giảng nhập 1, không giảng nhập 0)
+                                <span class="required"> * </span>
+                            </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-user"></i>
-                                    <input type="number" class="form-control" name="cothegiang" value="{{ old('cothegiang') }}" /> </div>
+                                    <input type="number" class="form-control" required name="cothegiang" value="{{ old('cothegiang') }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
