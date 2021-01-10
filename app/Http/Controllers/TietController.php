@@ -27,11 +27,11 @@ class TietController extends Controller
         try{
             $tiet = Tiet::saveTiet($id, $request->all());
             Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Tiết Học:'.$tiet->id);
-            return redirect()->route('bai.edit.post', $tiet->id_bai)->with('status_success', 'Chỉnh sửa Thông tin Tiết Học!');
+            return redirect()->route('lichgiang.lichgiangtuan.get', $tiet->id)->with('status_success', 'Chỉnh sửa Thông tin Tiết Học!');
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('bai.edit.post', $tiet->id_bai)->with('status_error', 'Xảy ra lỗi khi sửa Tiết Học!');
+            return redirect()->route('lichgiang.lichgiangtuan.get', $tiet->id)->with('status_error', 'Xảy ra lỗi khi sửa Tiết Học!');
         }
         
     }
@@ -88,7 +88,7 @@ class TietController extends Controller
          $id = $tiet->id;
          try{
              $tiet->delete();
-             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Học Phần id:'.$request->input('id').'-'.$tiet->title);
+             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Tiết id:'.$request->input('id').'-'.$tiet->title);
              return response()->json([
                  'status' => true
              ]);
@@ -97,7 +97,7 @@ class TietController extends Controller
              Log::error($e);
              return response()->json([
                  'status' => false,
-                 'data' => 'Xảy ra lỗi trong quá trình xóa!'
+                 'data' => 'Xảy ra lỗi trong quá trình xóa Tiết!'
              ]);
          }
      }

@@ -16,7 +16,7 @@ class CongTacController extends Controller
          if ($request->ajax()) {
              try{
                  $congtac = CongTac::saveCongTac(0, $request->all());
-                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Nckh ID:'.$congtac->id.'-'.$congtac->ten);
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Công Tác ID:'.$congtac->id.'-'.$congtac->ten);
                  return response()->json([
                      'status' => true
                  ]);
@@ -70,7 +70,7 @@ class CongTacController extends Controller
              Log::error($e);
              return response()->json([
                  'status' => false,
-                 'data' => 'Xảy ra lỗi trong quá trình xóa!'
+                 'data' => 'Xảy ra lỗi trong quá trình xóa Công Tác!'
              ]);
          }
      }

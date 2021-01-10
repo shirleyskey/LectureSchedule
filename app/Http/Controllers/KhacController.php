@@ -42,12 +42,12 @@ class KhacController extends Controller
     public function update(Request $request, $id){
         try{
             $giangvien = GiangVien::saveGiangVien($id, $request->all());
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);
-            return redirect()->route('giangvien.index')->with('status_success', 'Chỉnh sửa Giảng Viên thành công!');
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Hoạt Động Giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);
+            return redirect()->route('giangvien.index')->with('status_success', 'Chỉnh sửa Hoạt Động Giảng Viên thành công!');
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi sửa Giảng viên!');
+            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi sửa Hoạt Động Giảng viên!');
         }
         
     }

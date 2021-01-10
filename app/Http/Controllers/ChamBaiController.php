@@ -64,7 +64,7 @@ class ChamBaiController extends Controller
          $id = $chambai->id;
          try{
              $chambai->delete();
-             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa NCKH id:'.$request->input('id').'-'.$chambai->ten);
+             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Chấm Bài id:'.$request->input('id').'-'.$chambai->ten);
              return response()->json([
                  'status' => true
              ]);

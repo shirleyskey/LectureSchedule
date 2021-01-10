@@ -18,7 +18,7 @@ class VanBanController extends Controller
         if ($request->ajax()) {
             try{
                 $vanban = VanBan::saveVanBan(0, $request->all());
-                Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Nckh ID:'.$vanban->id.'-'.$vanban->ten);
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Văn Bản ID:'.$vanban->id.'-'.$vanban->ten);
                 return response()->json([
                     'status' => true
                 ]);
@@ -47,7 +47,7 @@ class VanBanController extends Controller
 
             try{
                 $vanban = VanBan::saveVanBan($request->input('id'), $request->all());
-                Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Công Tác ID:'.$vanban->id.'-'.$vanban->ten);
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Văn Bản ID:'.$vanban->id.'-'.$vanban->ten);
                 return response()->json([
                     'status' => true
                 ]);
@@ -63,7 +63,7 @@ class VanBanController extends Controller
         $id = $vanban->id;
         try{
             $vanban->delete();
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Công Tác id:'.$request->input('id').'-'.$vanban->ten);
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Văn Bản id:'.$request->input('id').'-'.$vanban->ten);
             return response()->json([
                 'status' => true
             ]);
@@ -72,7 +72,7 @@ class VanBanController extends Controller
             Log::error($e);
             return response()->json([
                 'status' => false,
-                'data' => 'Xảy ra lỗi trong quá trình xóa!'
+                'data' => 'Xảy ra lỗi trong quá trình xóa Văn Bản!'
             ]);
         }
     }

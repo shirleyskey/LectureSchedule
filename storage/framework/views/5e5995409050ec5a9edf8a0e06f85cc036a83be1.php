@@ -712,7 +712,7 @@
                  }
              });
              swal({
-                 title: "Xóa TIET này?",
+                 title: "Xóa Tiết học này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,

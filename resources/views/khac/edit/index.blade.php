@@ -1584,7 +1584,7 @@
                  }
              });
              swal({
-                 title: "Xóa Công Tác này?",
+                 title: "Xóa Hoạt động Thực tế này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -2016,7 +2016,7 @@ $.ajax({
                  }
              });
              swal({
-                 title: "Xóa chambai này?",
+                 title: "Xóa Chấm Bài này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -2229,7 +2229,7 @@ $.ajax({
                  }
              });
              swal({
-                 title: "Xóa dang này?",
+                 title: "Xóa Hoạt động Đảng này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -2442,7 +2442,7 @@ $.ajax({
                  }
              });
              swal({
-                 title: "Xóa daygioi này?",
+                 title: "Xóa Dạy Giỏi này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -2660,7 +2660,7 @@ $.ajax({
                  }
              });
              swal({
-                 title: "Xóa xaydung này?",
+                 title: "Xóa Xây dựng Chương trình này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -2873,7 +2873,7 @@ $.ajax({
                  }
              });
              swal({
-                 title: "Xóa hop này?",
+                 title: "Xóa Cuộc Họp này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -3094,7 +3094,7 @@ $.ajax({
                  }
              });
              swal({
-                 title: "Xóa hdkh này?",
+                 title: "Xóa Hướng dẫn Khoa họcc này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -3309,7 +3309,7 @@ $.ajax({
                  }
              });
              swal({
-                 title: "Xóa hoctap này?",
+                 title: "Xóa Hoạt đọng Học tập này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -3357,7 +3357,7 @@ $.ajax({
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Họp: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",
@@ -3390,7 +3390,7 @@ var table = $('#ds_congtac');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Đi Thực Tế: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",
@@ -3423,7 +3423,7 @@ var table = $('#ds_chambai');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Chấm Bài: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",
@@ -3456,7 +3456,7 @@ var table = $('#ds_daygioi');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Dạy Giỏi: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",
@@ -3489,7 +3489,7 @@ var table = $('#ds_hoctap');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Tham Gia Học Tập: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",
@@ -3522,7 +3522,7 @@ var table = $('#ds_hdkh');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng HDKH: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",
@@ -3555,7 +3555,7 @@ var table = $('#ds_xaydung');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Xây Dựng Chương Trình: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",
@@ -3621,7 +3621,7 @@ var table = $('#ds_dang');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Đảng: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",

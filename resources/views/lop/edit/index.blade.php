@@ -322,7 +322,7 @@
                                 if(data.status == true){
                                     swal({
                                         "title":"Đã xóa!", 
-                                        "text":"Bạn đã xóa thành công HOCPHAN!",
+                                        "text":"Bạn đã xóa thành công Học Phần!",
                                         "type":"success"
                                     }, function() {
                                             localStorage.setItem('activeTab', '#tab2');

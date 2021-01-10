@@ -165,7 +165,7 @@ class GiangVienController extends Controller
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi nhập file Exel!');
+            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi nhập file Excel!');
         }
     }
 
@@ -176,7 +176,7 @@ class GiangVienController extends Controller
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi xuất file Exel!');
+            return redirect()->route('giangvien.index')->with('status_error', 'Xảy ra lỗi khi xuất file Excel!');
         }
 
 

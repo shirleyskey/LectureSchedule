@@ -20,7 +20,7 @@ class HocTapController extends Controller
 		if ($request->ajax()) {
             try{
                 $hoctap = HocTap::saveHocTap(0, $request->all());
-                Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Dạy Giỏi ID:'.$hoctap->id.'-'.$hoctap->ten);
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Học Tập ID:'.$hoctap->id.'-'.$hoctap->ten);
                 return response()->json([
                     'status' => true
                 ]);
@@ -49,7 +49,7 @@ class HocTapController extends Controller
 
             try{
                 $hoctap = HocTap::saveHocTap($request->input('id'), $request->all());
-                Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Nckh ID:'.$hoctap->id.'-'.$hoctap->ten);
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Học Tập ID:'.$hoctap->id.'-'.$hoctap->ten);
                 return response()->json([
                     'status' => true
                 ]);
@@ -65,7 +65,7 @@ class HocTapController extends Controller
         $id = $hoctap->id;
         try{
             $hoctap->delete();
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Dạy Giỏi id:'.$request->input('id').'-'.$hoctap->ten);
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Học Tập id:'.$request->input('id').'-'.$hoctap->ten);
             return response()->json([
                 'status' => true
             ]);
@@ -74,7 +74,7 @@ class HocTapController extends Controller
             Log::error($e);
             return response()->json([
                 'status' => false,
-                'data' => 'Xảy ra lỗi trong quá trình xóa!'
+                'data' => 'Xảy ra lỗi trong quá trình xóa Học Tập!'
             ]);
         }
     }

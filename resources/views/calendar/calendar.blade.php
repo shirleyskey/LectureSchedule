@@ -359,8 +359,8 @@
 
            <!-- BEGIN FOOTER -->
         <div class="page-footer">
-            <div class="page-footer-inner pull-right">@2020 - Dung B14D48 - ATTT. All Right Reserved.
-            </div>
+            {{-- <div class="page-footer-inner pull-right">@2020 - Dung B14D48 - ATTT. All Right Reserved. --}}
+            {{-- </div> --}}
             
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>

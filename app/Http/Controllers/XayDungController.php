@@ -16,7 +16,7 @@ class XayDungController extends Controller
 		if ($request->ajax()) {
             try{
                 $xaydung = XayDung::saveXayDung(0, $request->all());
-                Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Dạy Giỏi ID:'.$xaydung->id.'-'.$xaydung->ten);
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Xây Dựng ID:'.$xaydung->id.'-'.$xaydung->ten);
                 return response()->json([
                     'status' => true
                 ]);
@@ -70,7 +70,7 @@ class XayDungController extends Controller
             Log::error($e);
             return response()->json([
                 'status' => false,
-                'data' => 'Xảy ra lỗi trong quá trình xóa!'
+                'data' => 'Xảy ra lỗi trong quá trình xóa Xây Dựng!'
             ]);
         }
     }

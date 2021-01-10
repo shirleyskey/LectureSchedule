@@ -17,7 +17,7 @@ class DangController extends Controller
          if ($request->ajax()) {
              try{
                  $dang = Dang::saveDang(0, $request->all());
-                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Nckh ID:'.$dang->id.'-'.$dang->ten);
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm Đảng ID:'.$dang->id.'-'.$dang->ten);
                  return response()->json([
                      'status' => true
                  ]);
@@ -46,7 +46,7 @@ class DangController extends Controller
 
              try{
                  $dang = Dang::saveDang($request->input('id'), $request->all());
-                 Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Nckh ID:'.$dang->id.'-'.$dang->ten);
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Đảng ID:'.$dang->id.'-'.$dang->ten);
                  return response()->json([
                      'status' => true
                  ]);
@@ -62,7 +62,7 @@ class DangController extends Controller
          $id = $dang->id;
          try{
              $dang->delete();
-             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa NCKH id:'.$request->input('id').'-'.$dang->ten);
+             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Đảng id:'.$request->input('id').'-'.$dang->ten);
              return response()->json([
                  'status' => true
              ]);

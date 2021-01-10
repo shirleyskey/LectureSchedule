@@ -153,7 +153,7 @@ class NckhController extends Controller
             Log::error($e);
             return response()->json([
                 'status' => false,
-                'data' => 'Xảy ra lỗi trong quá trình xóa!'
+                'data' => 'Xảy ra lỗi trong quá trình xóa NCKH!'
             ]);
         }
     }

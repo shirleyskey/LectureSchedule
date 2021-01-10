@@ -39,7 +39,7 @@ class BaiController extends Controller
     public function update(Request $request, $id){
         try{
             $bai = Bai::saveBai($id, $request->all());
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Công tác:'.$bai->id);
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Bài Học:'.$bai->id);
             return redirect()->route('hocphan.edit.get', $bai->hocphans->id)->with('status_success', 'Chỉnh sửa Thông tin Bài thành công!');
         }
         catch(\Exception $e){

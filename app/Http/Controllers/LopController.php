@@ -57,12 +57,12 @@ class LopController extends Controller
     public function update(Request $request, $id){
         try{
             $lop = Lop::saveLop($id, $request->all());
-            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);
-            return redirect()->route('lop.edit.get', $id)->with('status_success', 'Chỉnh sửa Giảng Viên thành công!');
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Lớp ID:'.$lop->id.'-'.$lop->ten);
+            return redirect()->route('lop.edit.get', $id)->with('status_success', 'Chỉnh sửa Lớp thành công!');
         }
         catch(\Exception $e){
             Log::error($e);
-            return redirect()->route('lop.edit.get', $id)->with('status_error', 'Xảy ra lỗi khi sửa Giảng viên!');
+            return redirect()->route('lop.edit.get', $id)->with('status_error', 'Xảy ra lỗi khi sửa Lớp!');
         }
 
     }

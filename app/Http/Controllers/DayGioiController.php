@@ -45,7 +45,7 @@ class DayGioiController extends Controller
 
             try{
                 $daygioi = DayGioi::saveDayGioi($request->input('id'), $request->all());
-                Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Nckh ID:'.$daygioi->id.'-'.$daygioi->ten);
+                Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Dạy Giỏi ID:'.$daygioi->id.'-'.$daygioi->ten);
                 return response()->json([
                     'status' => true
                 ]);

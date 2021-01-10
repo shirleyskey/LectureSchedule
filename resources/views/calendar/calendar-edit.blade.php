@@ -147,7 +147,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Ca <br>(Nhập 1 or 2):
+                                                    <label class="control-label col-md-4">Ca <br>(Nhập 1 or 2. Nếu cả buổi nhập 0):
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
@@ -156,7 +156,16 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Tiến Độ <br>:
+                                                    <label class="control-label col-md-4">Số Tiết:
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="number" class="form-control" name="so_tiet" value="{{ $tiet->so_tiet }}" required /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Tiến Độ:
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
