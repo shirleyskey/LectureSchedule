@@ -99,7 +99,6 @@ class BaiController extends Controller
          $bai = Bai::findOrFail($request->input('id'));
          $id = $bai->id;
          try{
-             $bai->tiets()->delete();
              $bai->delete();
              Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Bài id:'.$request->input('id').'-'.$bai->tenbai);
              return response()->json([

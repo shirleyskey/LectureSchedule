@@ -190,6 +190,7 @@
    //AJAX Tìm Học Phần Theo ID
         $(".btn_edit_hocphan").on("click", function(e){
             e.preventDefault();
+            console.log("Sửa nè");
             var hocphan_id = $(this).data("hocphan-id");
             $.ajaxSetup({
                 headers: {
@@ -224,6 +225,7 @@
         // Ajax sửa HOCPHAN
         $("#btn_edit_hocphan").on('click', function(e){
             e.preventDefault();
+            
             $("#btn_edit_hocphan").attr("disabled", "disabled");
             $("#btn_edit_hocphan").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
             $.ajaxSetup({
@@ -290,7 +292,7 @@
         // Xử lý khi click nút xóa HOCPHAN
         $(".btn_delete_hocphan").on("click", function(e){
             e.preventDefault();
-
+            console.log("Xóa nè");
             var hocphan_id = $(this).data("hocphan-id");
             $.ajaxSetup({
                 headers: {
@@ -299,7 +301,7 @@
             });
             swal({
                 title: "Xóa Học Phần này?",
-                text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                text: "Bạn có chắc không? Lưu ý: Học Phần này sẽ bị xóa vĩnh viễn cùng những bài học, tiết học, hoạt động chấm bài có liên quan!",
                 type: "warning",
                 showCancelButton: true,
                 cancelButtonText: 'Không',

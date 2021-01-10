@@ -15,6 +15,11 @@ class Lop extends Model
     {
         return $this->hasMany('App\HocPhan', 'id_lop');
     }
+    
+    public function delete() {
+        $this->hocphans()->delete();
+        parent::delete();
+    }
 
     public static function saveLop($id, $data){
         if($id == 0){

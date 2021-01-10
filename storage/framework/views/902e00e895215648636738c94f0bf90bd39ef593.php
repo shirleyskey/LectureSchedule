@@ -91,7 +91,6 @@
                                                 <tr>
                                                     <th> STT</th>
                                                     <th> Tên Bài</th>
-                                                   
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -135,6 +134,7 @@
                                                     <th> Thời Gian</th>
                                                     <th> Buổi</th>
                                                     <th> Ca</th>
+                                                    <th> Tiến Độ</th>
                                                     <th> Giảng Viên</th>
                                                 </tr>
                                             </thead>
@@ -148,6 +148,7 @@
                                                         <td> <?php echo e($thoigian = Carbon\Carbon::parse($v->thoigian)->format('Y-d-m')); ?> </td>
                                                         <td> <?php echo e($v->buoi); ?> </td>
                                                         <td> <?php echo e($v->ca); ?> </td>
+                                                        <td> <?php echo e($v->tiendo); ?> </td>
                                                         <td> <?php echo e(($v->id_giangvien) ? $v->giangviens->ten : ''); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>

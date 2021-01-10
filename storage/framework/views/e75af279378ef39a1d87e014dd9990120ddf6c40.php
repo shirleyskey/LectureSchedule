@@ -119,7 +119,7 @@
                                             <a class="btn btn-xs yellow-gold" href="<?php echo e(route('hocphan.edit.get', $v->id)); ?>" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             <?php endif; // app('laratrust')->can ?>
                                             <?php if (app('laratrust')->can('delete-hocphan')) : ?>
-                                            <a class="btn btn-xs red-mint" href="<?php echo e(route('hocphan.delete.get', $v->id)); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa Học Phần này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                            <a class="btn btn-xs red-mint" href="<?php echo e(route('hocphan.delete.get', $v->id)); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa Học Phần này không?Lưu ý: Học Phần sẽ bị xóa vĩnh viễn cùng bài học, tiết học và hoạt động chấm bài liên quan!');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                             <?php endif; // app('laratrust')->can ?>
                                         </td>
                                     </tr>

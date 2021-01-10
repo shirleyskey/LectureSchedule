@@ -85,6 +85,9 @@ class HocPhanController extends Controller
         $hocphan = HocPhan::findOrFail($id);
         $name = $hocphan->tenhocphan;
         try{
+            $hocphan->tiets()->delete();
+            $hocphan->bais()->delete();
+            $hocphan->chambais()->delete();
             $hocphan->delete();
             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Học Phần id:'.$id.'-'.$name);
             return redirect()->route('hocphan.index')->with('status_success', 'Xóa Học Phần thành công!');
@@ -158,6 +161,9 @@ class HocPhanController extends Controller
          $hocphan = HocPhan::findOrFail($request->input('id'));
          $id = $hocphan->id;
          try{
+             $hocphan->tiets()->delete();
+             $hocphan->bais()->delete();
+             $hocphan->chambais()->delete();
              $hocphan->delete();
              Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Học Phần id:'.$request->input('id').'-'.$hocphan->tenhocphan);
              return response()->json([

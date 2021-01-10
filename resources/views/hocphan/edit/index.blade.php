@@ -23,7 +23,8 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('hocphan.index') }}">Danh Sách Học Phần</a>
+                    {{-- Quay lại chỉnh sửa danh sách lớp học  --}}
+                    <a href="{{ route('lop.edit.get', $hocphan->id_lop) }}">Quay lại chỉnh sửa lớp học</a>
                 </li>
             </ul>
         </div>
@@ -241,6 +242,7 @@
                                                                 <th> Thời Gian</th>
                                                                 <th> Buổi</th>
                                                                 <th> Ca</th>
+                                                                <th> Tiến Độ</th>
                                                                 <th> Giảng Viên</th>
                                                                 <th> Hành Động</th>
                                                             </tr>
@@ -255,6 +257,7 @@
                                                                 <td> {{ $thoigian = Carbon\Carbon::parse($v->thoigian)->format('Y-d-m') }} </td>
                                                                 <td> {{ $v->buoi }} </td>
                                                                 <td> {{ $v->ca }} </td>
+                                                                <td> {{ $v->tiendo }} </td>
                                                                 <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : '' }} </td>
                                                                 @permission('read-users')
                                                                     <td>
@@ -496,8 +499,8 @@
                 }
             });
             swal({
-                title: "Xóa Học Phần này?",
-                text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                title: "Xóa Bài Học này?",
+                text: "Bạn có chắc không? Lưu ý: Nó sẽ bị xóa vĩnh viễn cùng những tiết học liên quan!",
                 type: "warning",
                 showCancelButton: true,
                 cancelButtonText: 'Không',

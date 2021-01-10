@@ -21,7 +21,8 @@
                 <li>
                     <a href="<?php echo e(route('dashboard')); ?>">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="<?php echo e(route('hocphan.index')); ?>">Danh Sách Học Phần</a>
+                    
+                    <a href="<?php echo e(route('lop.edit.get', $hocphan->id_lop)); ?>">Quay lại chỉnh sửa lớp học</a>
                 </li>
             </ul>
         </div>
@@ -228,6 +229,7 @@
                                                                 <th> Thời Gian</th>
                                                                 <th> Buổi</th>
                                                                 <th> Ca</th>
+                                                                <th> Tiến Độ</th>
                                                                 <th> Giảng Viên</th>
                                                                 <th> Hành Động</th>
                                                             </tr>
@@ -242,6 +244,7 @@
                                                                 <td> <?php echo e($thoigian = Carbon\Carbon::parse($v->thoigian)->format('Y-d-m')); ?> </td>
                                                                 <td> <?php echo e($v->buoi); ?> </td>
                                                                 <td> <?php echo e($v->ca); ?> </td>
+                                                                <td> <?php echo e($v->tiendo); ?> </td>
                                                                 <td> <?php echo e(($v->id_giangvien) ? $v->giangviens->ten : ''); ?> </td>
                                                                 <?php if (app('laratrust')->can('read-users')) : ?>
                                                                     <td>
@@ -483,8 +486,8 @@
                 }
             });
             swal({
-                title: "Xóa Học Phần này?",
-                text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
+                title: "Xóa Bài Học này?",
+                text: "Bạn có chắc không? Lưu ý: Nó sẽ bị xóa vĩnh viễn cùng những tiết học liên quan!",
                 type: "warning",
                 showCancelButton: true,
                 cancelButtonText: 'Không',

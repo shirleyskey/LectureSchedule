@@ -120,7 +120,7 @@
                                             <a class="btn btn-xs yellow-gold" href="{{ route('hocphan.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             @endpermission
                                             @permission('delete-hocphan')
-                                            <a class="btn btn-xs red-mint" href="{{ route('hocphan.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Học Phần này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                            <a class="btn btn-xs red-mint" href="{{ route('hocphan.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Học Phần này không?Lưu ý: Học Phần sẽ bị xóa vĩnh viễn cùng bài học, tiết học và hoạt động chấm bài liên quan!');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                             @endpermission
                                         </td>
                                     </tr>

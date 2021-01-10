@@ -26,6 +26,11 @@ class Bai extends Model
         return $this->hasMany('App\Tiet', 'id_bai');
     }
 
+    public function delete() {
+        $this->tiets()->delete();
+        parent::delete();
+    }
+
 
     public static function saveBai($id, $data){
         if($id == 0){

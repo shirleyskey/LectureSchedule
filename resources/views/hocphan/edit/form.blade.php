@@ -164,6 +164,7 @@
                                 <th> Thời Gian</th>
                                 <th> Buổi</th>
                                 <th> Ca</th>
+                                <th> Tiến Độ</th>
                                 <th> Giảng Viên</th>
                                 <th> Hành Động</th>
                             </tr>
@@ -178,6 +179,7 @@
                                     <td> {{ $thoigian = Carbon\Carbon::parse($v->thoigian)->format('Y-d-m') }} </td>
                                     <td> {{ $v->buoi }} </td>
                                     <td> {{ $v->ca }} </td>
+                                    <td> {{ $v->tiendo }} </td>
                                     <td> {{ ($v->id_giangvien) ? $v->giangviens->ten : '' }} </td>
                                     @permission('read-users')
                                         <td>

@@ -71,6 +71,7 @@ class LopController extends Controller
         $lop = Lop::findOrFail($id);
         $ten = $lop->tenlop;
         try{
+            $lop->hocphans()->delete();
             $lop->delete();
             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Lớp id:'.$id.'-'.$ten);
             return redirect()->route('lop.index')->with('status_success', 'Xóa Lớp thành công!');
