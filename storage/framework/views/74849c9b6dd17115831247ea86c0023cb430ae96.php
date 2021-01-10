@@ -148,9 +148,7 @@
                                                                 <a class="btn btn-xs blue-sharp" href="<?php echo e(route('hocphan.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
                                                                 <?php endif; // app('laratrust')->can ?>
                                                                 
-                                                                <?php if (app('laratrust')->can('delete-hocphan')) : ?>
-                                                                <a class="btn btn-xs red-mint" href="<?php echo e(route('hocphan.delete.get', $v->id)); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa Học Phần này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
-                                                                <?php endif; // app('laratrust')->can ?>
+                                                                
                                                             </td>
                                                         </tr>
                                                         <?php $stt++; ?>

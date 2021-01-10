@@ -40,13 +40,10 @@ class GiangVien extends Model
     {
         return $this->hasMany('App\XayDung', 'id_giangvien');
     }
-
-    
     public function tiets()
     {
         return $this->hasMany('App\Tiet', 'id_giangvien');
     }
-
     public function hops()
     {
         return $this->hasMany('App\Hop', 'id_giangvien');

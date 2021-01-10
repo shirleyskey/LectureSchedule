@@ -78,7 +78,7 @@ class LichHocPhanImport implements ToCollection, WithHeadingRow
                     $data["id_lop"] = $lop->id_lop;
                     $data["id_hocphan"] = $this->id_hocphan;
                     $data["id_bai"] = $them_bai->id;
-                    $data["id_giangvien"] = $giangvien["id"];
+                    $data["id_giangvien"] = ($giangvien!=null) ? $giangvien["id"] : null;
                     $data["thoigian"] = $startDate;
                     $data["buoi"] = $buoi;
                     $data["ca"] = $ca;

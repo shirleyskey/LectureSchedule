@@ -9,7 +9,7 @@ class CongTac extends Model
     //
     protected $table = 'congtacs';
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','tiendo', 'ten', 'thoigian'];
+    protected $fillable = ['id_giangvien','so_gio', 'ten', 'thoigian'];
     
     public function giangviens()
     {

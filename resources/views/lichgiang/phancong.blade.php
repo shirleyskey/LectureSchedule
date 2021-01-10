@@ -12,7 +12,7 @@
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
-                    <span>Bảng điều khiển / Phân công lịch giảng</span>
+                    <span>Bảng điều khiển / Phân công lịch giảng theo Học Phần</span>
                 </li>
             </ul>
         </div>
@@ -35,70 +35,51 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Lớp</th>
                                     <th> Mã Học Phần</th>
+                                    <th> Lớp</th>
                                     <th style="text-align: center"> Bài - Giáo Viên</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if( $lop->count() > 0 )
-                                    @php
-                                        $stt = 1;
-                                    @endphp
-                                    @foreach( $lop as $v )
-                                    @php
-                                    $ds_hocphan = App\Hocphan::where('id_lop', $v->id)->get();
-
-                                    @endphp
-                                    @foreach($ds_hocphan as $v_hocphan)
+                                @if( $ds_hocphan->count() > 0 )
+                                    @php $stt = 1; @endphp
+                                    @foreach( $ds_hocphan as $v )
+                                   
                                     <tr>
                                         <td> {{ $stt }} </td>
-                                        <td> {{ $v->malop }} </td>
-                                        <td>
-                                          <b>{{$v_hocphan->mahocphan}}</b>
-                                            <p style="margin-bottom: 0px; margin-top: 5px">
-                                               Từ: <i>{{$v_hocphan->start}}</i>
-                                            </p>
-                                            <p>
-                                               Đến: <i>{{$v_hocphan->end}}</i>
-                                            </p>
+                                        <td> 
+                                            {{ $v->mahocphan }}
                                         </td>
-                                        <td>
-                                            @php
-                                                $ds_bai = App\Bai::where('id_hocphan', $v_hocphan->id)->get();
+                                        <td> {{ $v->lops->tenlop }} </td>
+                                        <td> 
+                                            @php 
+                                            $ds_bai = App\Bai::where('id_hocphan', $v->id)->get();
                                             @endphp
-                                            @foreach ($ds_bai as $v_bai)
-                                                <div style="display: inline-block; padding: 10px; background-color: #80808047; margin-right: 5px; margin-top: 15px">
-                                                    <p style="margin-bottom: 0px">
-                                                        <b>{{$v_bai->tenbai}}</b>  -  {{($v_bai->sotiet) ? ($v_bai->sotiet) : '0'}} tiết
-                                                    </p>
-                                                    <p style="margin-bottom: 0px">
-                                                        {{($v_bai->gvchinh) ? ($v_bai->giangvienchinhs->ten) : 'Chưa Phân GV Chính'}}
-                                                    </p>
-                                                       
-                                                    <!-- <p style="margin-bottom: 0px">
-                                                    @php
-                                                        $gvphu = json_decode($v_bai->gvphu, true);
-                                                    @endphp
-                                                        @if($gvphu != null)
-                                                        <span><b> GV Tham Gia: </b> </span><br>
-                                                        @foreach($gvphu as $key => $value)
-                                                        @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                            <span>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </span><br>
-                                                        @endif
-                                                        @endforeach
-                                                        @endif
-                                                        @if($gvphu == null)
-                                                        <span><b> Không GV Tham Gia: </b> </span><br>
-                                                        @endif
-                                                    </p> -->
-                                                </div>
-                                            @endforeach
-                                        </td>
+                                                @if($ds_bai)
+                                                    @php  $so_tiet = 0; @endphp
+                                                    @foreach($ds_bai as $v_bai)
+                                                        <div style="display: inline-block; padding: 10px; background-color: #80808047; margin-right: 5px; margin-top: 15px">
+                                                            <p style="margin-bottom: 0px">
+                                                                @php 
+                                                                    $tiet = App\Tiet::where('id_bai', $v_bai->id)->sum('so_tiet');
+                                                                    $giangviens = App\Tiet::where('id_bai', $v_bai->id)->select('id_giangvien')->groupBy('id_giangvien')->get();
+                                                                @endphp
+                                                                <b>{{$v_bai->tenbai}}</b>  - {{$tiet}} Tiết
+                                                            </p>
+                                                            @foreach($giangviens as $v_giangvien)
+                                                            @if($v_giangvien->id_giangvien)
+                                                            <p style="margin-bottom: 0px">
+                                                               {{$v_giangvien->giangviens->ma_giangvien}}
+                                                            </p>
+                                                            @endif
+                                                            @endforeach
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                           
+                                         </td>
                                     </tr>
                                     @php $stt++; @endphp
-                                    @endforeach
-
                                     @endforeach
                                 @endif
                             </tbody>

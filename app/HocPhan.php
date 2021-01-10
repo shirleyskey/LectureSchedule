@@ -9,7 +9,7 @@ class HocPhan extends Model
     //
     protected $table = 'hocphans';
     public $timestamps = false;
-    protected $fillable = ['id','id_lop','mahocphan','tenhocphan','sotiet','sotinchi'];
+    protected $fillable = ['id','id_lop','mahocphan','tenhocphan','sotinchi'];
 
     public function lops()
     {

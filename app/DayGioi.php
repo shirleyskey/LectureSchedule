@@ -11,7 +11,7 @@ class DayGioi extends Model
     protected $table = 'daygiois';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien', 'ten'];
+    protected $fillable = ['id_giangvien', 'ten', 'cap', 'so_gio', 'thoigian'];
 
     public function giangviens()
     {

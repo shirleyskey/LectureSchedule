@@ -10,7 +10,7 @@ class Dang extends Model
     protected $table = 'dangs';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien', 'ten'];
+    protected $fillable = ['id_giangvien', 'ten', 'ket_qua', 'vai_tro', 'thoigian'];
     
 
     public function giangviens()

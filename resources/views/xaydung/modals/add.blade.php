@@ -34,8 +34,8 @@
                                     <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
+                                    <label>Ghi Chú:</label>
+                                    <input name="ghichu" type="text" class="form-control">
                                 </div> 
                                
                             </div>

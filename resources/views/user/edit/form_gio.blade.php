@@ -7,7 +7,7 @@
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet light portlet-fit bordered">
                 <div class="portlet-body">
-                    <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                    <table class="table table-striped table-hover table-bordered" id="table_ds_nckh">
                         <thead>
                             <tr>
                                 <th> STT</th>

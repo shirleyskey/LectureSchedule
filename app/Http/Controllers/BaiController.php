@@ -12,11 +12,14 @@ class BaiController extends Controller
 {
     public function index()
     {
+        //Lấy ra tất cả danh sách Bài
         return view('bai.browser.index', ['ds_bai' => GiangVien::all()]);
     }
 
     public function read($id)
     {
+
+        //Xem lại đi, controller này có cần đến không?
         $bai = Bai::findOrFail($id);
         return view('bai.read.index', [
             'bai' => $bai,

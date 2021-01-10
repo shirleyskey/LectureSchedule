@@ -891,235 +891,7 @@
         }
         // END Reload trang và giữ nguyên tab đã active
 
-        var table = $('#ds_bo');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
-
-        var table = $('#ds_coso');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
-
-        var table = $('#ds_tap');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
-
-        var table = $('#ds_chuyende');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
-
-        var table = $('#ds_thamkhao');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
-
-        var table = $('#ds_caitien');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
-        var table = $('#ds_bao');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
+       
     //Thêm NCKH
     $("#btn_add_nckh").on('click', function(e){
         e.preventDefault();
@@ -1357,6 +1129,236 @@
 
         });
         // END Xử lý khi click nút xóa NCKH
+
+        var table = $('#ds_bo');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_coso');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_tap');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_chuyende');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_thamkhao');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_caitien');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        var table = $('#ds_bao');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
     });
 </script>
 

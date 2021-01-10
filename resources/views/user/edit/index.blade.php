@@ -74,7 +74,562 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        @include('user.edit.form')
+                        <form action="{{ route('profile.edit.post', $giangvien->id) }}" method="post" id="form_sample_2" class="form-horizontal">
+                            @csrf
+                            <div class="tab-content">
+                                  <!-- BEGIN TAB 1-->
+                                  <div class="tab-pane active" id="tab_tk">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                            <input value="{{ $taikhoan->id}}" name="id_user" type="hidden">
+                                            <div class="form-group">
+                                                    <label class="control-label col-md-4">Email:
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" name="email" value="{{ $taikhoan->email}}" required maxlength="191" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Password Mới: 
+                                                    <br>
+                                                    <span> (Để trống nếu không thay đổi) </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-password"></i>
+                                                            <input type="text" class="form-control" name="password"  maxlength="191" /> </div>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                            <div class="col-md-6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TAB 1-->
+                                <!-- BEGIN TAB 1-->
+                                <div class="tab-pane" id="tab1">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                            <div class="form-group">
+                                                    <label class="control-label col-md-4">Mã Giảng Viên:
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" name="ma_giangvien" value="{{ $giangvien->ma_giangvien }}" required maxlength="191" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Họ tên
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" name="ten" value="{{ $giangvien->ten }}" required maxlength="191" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Chức Vụ:
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-building-o"></i>
+                                                            <input type="text" class="form-control" name="chucvu" required maxlength="191" value="{{ $giangvien->chucvu }}" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Hệ Số Lương:
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-plus-circle"></i>
+                                                            <input type="number" step="any" class="form-control" name="hesoluong" value="{{ $giangvien->hesoluong }}" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Chỗ Ở:
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-phone"></i>
+                                                            <input type="text" class="form-control" name="diachi" value="{{ $giangvien->diachi }}" /> </div>
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Chức Danh:</label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-briefcase"></i>
+                                                            <input type="text" class="form-control" name="chucdanh" value="{{ $giangvien->chucdanh }}" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Trình Độ:</label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-book"></i>
+                                                            <input type="text" class="form-control" name="trinhdo" value="{{ $giangvien->trinhdo }}" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Có Thể Giảng: <span>(Giảng nhập 1, không giảng nhập 0)</span></label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-envelope"></i>
+                                                            <input type="number" class="form-control" name="cothegiang" value="{{ $giangvien->cothegiang }}" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Bài Giảng:</label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-book"></i>
+                                                            <input type="text" class="form-control" name="bai_giang" value="{{ $giangvien->bai_giang }}" /> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TAB 1-->
+                                  
+                             
+                        
+                                <!-- BEGIN TAB 3-->
+                                <div class="tab-pane" id="tab3">
+                                    @if($congtac->isNotEmpty())
+                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                        <div class="portlet light portlet-fit bordered">
+                                            <div class="portlet-body">
+                                                <div class="table-toolbar">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-group">
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế  Mới
+                        
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> STT</th>
+                                                            <th> Tên Địa Bàn</th>
+                                                            <th> Thời Gian</th>
+                                                            <th> Số Giờ</th>
+                                                            <th> Ghi Chú</th>
+                                                            <th> Hành Động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if( $congtac->count() > 0 )
+                                                            @php $stt = 1; @endphp
+                                                            @foreach( $congtac as $v )
+                                                            <tr>
+                                                                <td> {{ $stt }} </td>
+                                                                <td> {{ $v->ten }} </td>
+                                                                <td> {{ $v->thoigian }} </td>
+                                                                <td> {{ $v->so_gio }} </td>
+                                                                <td> {{ $v->ghichu }} </td>
+                                                                <td>
+                                                                    <a data-congtac-id="{{ $v->id }}" class="btn_edit_congtac btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                    <a class="btn_delete_congtac btn btn-xs red-mint" href="#" data-congtac-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                                </td>
+                                                            </tr>
+                                                            @php $stt++; @endphp
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                    @else
+                                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                            <p> Không có Đi Thực Tế nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế</a></p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!-- END TAB 3-->
+                        
+                             
+                        
+                                 <!-- BEGIN TAB 4-->
+                                 <div class="tab-pane" id="tab4">
+                                    @if($chambai->isNotEmpty())
+                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                        <div class="portlet light portlet-fit bordered">
+                                            <div class="portlet-body">
+                                                <div class="table-toolbar">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-group">
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài Mới
+                        
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-hover table-bordered" id="table_ds_congtac">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> STT</th>
+                                                            <th> Tên Lớp </th>
+                                                            <th> Tên Học Phần</th>
+                                                            <th> Thời Gian</th>
+                                                            <th> Số Bài</th>
+                                                            <th> Số Giờ</th>
+                                                            <th> Ghi Chú</th>
+                                                            <th> Hành Động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if( $chambai->count() > 0 )
+                                                            @php $stt = 1; @endphp
+                                                            @foreach( $chambai as $v )
+                                                            <tr>
+                                                                <td> {{ $stt }} </td>
+                                                                <td> {{ ($v->id_lop) ? ($v->lops->tenlop) : ''}} </td>
+                                                                <td> {{ ($v->id_hocphan) ? ($v->hocphans->mahocphan) : '' }} </td>
+                                                                <td> {{ $v->thoigian }} </td>
+                                                                <td> {{ $v->so_bai }} </td>
+                                                                <td> {{ $v->so_gio }} </td>
+                                                                <td> {{ $v->ghichu }} </td>
+                                                                <td>
+                                                                    <a data-chambai-id="{{ $v->id }}" class="btn_edit_chambai btn btn-xs yellow-gold" href="#modal_edit_chambai" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                    <a class="btn_delete_chambai btn btn-xs red-mint" href="#" data-chambai-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                                </td>
+                                                            </tr>
+                                                            @php $stt++; @endphp
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                    @else
+                                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                            <p> Giảng Viên này không có Chấm Bài nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài</a></p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!-- END TAB 4-->
+                        
+                                  <!-- BEGIN TAB 7-->
+                                  <div class="tab-pane" id="tab6">
+                                    @if($daygioi->isNotEmpty())
+                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                        <div class="portlet light portlet-fit bordered">
+                                            <div class="portlet-body">
+                                                <div class="table-toolbar">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-group">
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới
+                        
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-hover table-bordered" id="table_ds_daygioi">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> STT</th>
+                                                            <th> Bài Dạy Giỏi </th>
+                                                            <th> Cấp </th>
+                                                            <th> Thời Gian</th>
+                                                            <th> Số Giờ </th>
+                                                            <th> Ghi Chú</th>
+                                                            <th> Hành Động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @if( count($daygioi) > 0 )
+                                                                        @php $stt = 1; @endphp
+                                                                        @foreach( $daygioi as $v )
+                                                                        <tr>
+                                                                            <td> {{ $stt }} </td>
+                                                                            <td> {{ $v->ten }} </td>
+                                                                            <td>
+                                                                                @php
+                                                                                    if($v->cap == 1){
+                                                                                        echo "Cấp Khoa";
+                                                                                    }
+                                                                                    if($v->cap == 2){
+                                                                                        echo "Cấp Học Viện";
+                                                                                    }
+                                                                                    if($v->cap == 3){
+                                                                                        echo "Cấp Bộ";
+                                                                                    }
+                                                                                @endphp
+                                                                            </td>
+                                                                            <td> {{ $v->thoigian }} </td>
+                                                                            <td> {{ $v->so_gio }} </td>
+                                                                            <td> {{ $v->ghichu }} </td>
+                                                                            
+                                                                             <td>
+                                                                                @permission('create-giangvien')
+                                                                                <a data-daygioi-id="{{ $v->id }}" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                                <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                                                @endpermission
+                                                                            </td> 
+                                                                        </tr>
+                                                                        @php $stt++; @endphp
+                                                                        @endforeach
+                                                                    @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                    @else
+                                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                            <p> Giảng Viên này không có hoạt động Dạy Giỏi nào.
+                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi</a> 
+                                            </p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!-- END TAB 7-->
+                        
+                               
+                                 <!-- BEGIN TAB Họp-->
+                                 <div class="tab-pane" id="tab_hop">
+                                    @if($hop->isNotEmpty())
+                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                        <div class="portlet light portlet-fit bordered">
+                                            <div class="portlet-body">
+                                                <div class="table-toolbar">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-group">
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp Mới
+                        
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-hover table-bordered" id="table_ds_hop">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> STT</th>
+                                                            <th> Tên </th>
+                                                            <th> Thời Gian</th>
+                                                            <th> Số Giờ</th>
+                                                            <th> Ghi Chú</th>
+                                                            <th> Hành Động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if( $hop->count() > 0 )
+                                                            @php $stt = 1; @endphp
+                                                            @foreach( $hop as $v )
+                                                            <tr>
+                                                                <td> {{ $stt }} </td>
+                                                                <td> {{ $v->ten }} </td>
+                                                                <td> {{ $v->thoigian }} </td>
+                                                                <td> {{ $v->so_gio }} </td>
+                                                                <td> {{ $v->ghichu }} </td>
+                                                                <td>
+                                                                    <a data-hop-id="{{ $v->id }}" class="btn_edit_hop btn btn-xs yellow-gold" href="#modal_edit_hop" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                    <a class="btn_delete_hop btn btn-xs red-mint" href="#" data-hop-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                                </td>
+                                                            </tr>
+                                                            @php $stt++; @endphp
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                    @else
+                                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                            <p> Giảng Viên này không có Cuộc Họp nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp</a></p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!-- END TAB 8-->
+                               
+                                 <!-- BEGIN TAB 10-->
+                                 <div class="tab-pane" id="tab10">
+                                    @if($hoctap->isNotEmpty())
+                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                        <div class="portlet light portlet-fit bordered">
+                                            <div class="portlet-body">
+                                                <div class="table-toolbar">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-group">
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Học Tập Mới
+                        
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-hover table-bordered" id="table_ds_hoctap">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> STT</th>
+                                                            <th> Tên Lớp </th>
+                                                            <th> Loại Hình</th>
+                                                            <th> Số Giờ</th>
+                                                            <th> Bắt Đầu</th>
+                                                            <th> Kết Thúc</th>
+                                                            <th> Ghi Chú</th>
+                                                            <th> Hành Động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if( $hoctap->count() > 0 )
+                                                            @php $stt = 1; @endphp
+                                                            @foreach( $hoctap as $v )
+                                                            <tr>
+                                                                <td> {{ $stt }} </td>
+                                                                <td> {{ $v->ten }} </td>
+                                                                <td> {{ $v->loai_hinh }} </td>
+                                                                <td> {{ $v->so_gio }} </td>
+                                                                <td> {{ $v->thoigian }} </td>
+                                                                <td> {{ $v->thoigian_den }} </td>
+                                                                <td> {{ $v->ghichu }} </td>
+                                                                <td>
+                                                                    <a data-hoctap-id="{{ $v->id }}" class="btn_edit_hoctap btn btn-xs yellow-gold" href="#modal_edit_hoctap" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                    <a class="btn_delete_hoctap btn btn-xs red-mint" href="#" data-hoctap-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                                </td>
+                                                            </tr>
+                                                            @php $stt++; @endphp
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                    @else
+                                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                            <p> Giảng Viên này không tham gia Học Tập Nào nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Thêm Mới Học Tập</a></p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!-- END TAB 10-->
+                        
+                                  <!-- BEGIN TAB Hướng Dẫn Khoa Học-->
+                                  <div class="tab-pane" id="tab_hdkh">
+                                    @if($hdkh->isNotEmpty())
+                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                        <div class="portlet light portlet-fit bordered">
+                                            <div class="portlet-body">
+                                                <div class="table-toolbar">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-group">
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Tạo Hướng Dẫn Khoa Học Mới
+                        
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-hover table-bordered" id="table_ds_hd">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> STT</th>
+                                                            <th> Loại Hướng Dẫn</th>
+                                                            <th> Học Viên</th>
+                                                            <th> Khóa</th>
+                                                            <th> Số Giờ</th>
+                                                            <th> Ghi Chú</th>
+                                                            <th> Hành Động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if( $hdkh->count() > 0 )
+                                                            @php $stt = 1; @endphp
+                                                            @foreach( $hdkh as $v )
+                                                            <tr>
+                                                                <td> {{ $stt }} </td>
+                                                                <td> 
+                                                                @php 
+                                                                    if($v->khoa_luan == 1) {
+                                                                        echo "Khóa Luận";
+                                                                    } 
+                                                                    else if($v->luan_van == 1) {
+                                                                        echo "Luận Văn";
+                                                                    }  
+                                                                    else if($v->luan_an == 1) {
+                                                                        echo "Luận Án";
+                                                                    }   
+                                                                @endphp
+                                                                    </td>
+                        
+                                                                <td> {{ $v->hoc_vien }} </td>
+                                                                <td> {{ $v->khoa }} </td>
+                                                                <td> {{ $v->so_gio }} </td>
+                                                                <td> {{ $v->ghichu }} </td>
+                                                                <td>
+                                                                    <a data-hdkh-id="{{ $v->id }}" class="btn_edit_hdkh btn btn-xs yellow-gold" href="#modal_edit_hdkh" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                    <a class="btn_delete_hdkh btn btn-xs red-mint" href="#" data-hdkh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                                </td>
+                                                            </tr>
+                                                            @php $stt++; @endphp
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                    @else
+                                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                            <p> Không tham gia Hướng Dẫn Khoa Học nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Thêm Mới Hướng Dẫn Khoa Học</a></p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!-- END TAB 10-->
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        @include('congtac.modals.add')
+                        @include('congtac.modals.edit')
+                        @include('chambai.modals.add')
+                        @include('chambai.modals.edit')
+                        @include('dang.modals.add')
+                        @include('dang.modals.edit')
+                        @include('daygioi.modals.add')
+                        @include('daygioi.modals.edit')
+                        @include('hoctap.modals.add')
+                        @include('hoctap.modals.edit')
+                        @include('hdkh.modals.add')
+                        @include('hdkh.modals.edit')
+                        @include('hop.modals.add')
+                        @include('hop.modals.edit')
+                        
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->
@@ -102,7 +657,200 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        @include('user.edit.form_notgio')
+                        <form action="{{ route('profile.edit.post', $giangvien->id) }}" method="post" id="form_sample_2" class="form-horizontal">
+                            @csrf
+                            <div class="tab-content">
+                                 <!-- BEGIN TAB 3-->
+                                <div class="tab-pane " id="tab7">
+                                            @if($xaydung->isNotEmpty())
+                                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                <div class="portlet light portlet-fit bordered">
+                                                    <div class="portlet-body">
+                                                        <div class="table-toolbar">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="btn-group">
+                                                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Xây Dựng Chương Trình Mới
+                        
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <table class="table table-striped table-hover table-bordered" id="table_ds_xaydung">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th> STT</th>
+                                                                    <th> Tên Chương Trình</th>
+                                                                    <th> Học Phần</th>
+                                                                    <th> Khóa</th>
+                                                                    <th> Vai Trò</th>
+                                                                    <th> Thời Gian</th>
+                                                                    <th> Ghi Chú</th>
+                                                                    <th> Hành Động</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @if( $xaydung->count() > 0 )
+                                                                    @php $stt = 1; @endphp
+                                                                    @foreach( $xaydung as $v )
+                                                                    <tr>
+                                                                        <td> {{ $stt }} </td>
+                                                                        <td> {{ $v->ten }} </td>
+                                                                        <td> {{ $v->hocphan }} </td>
+                                                                        <td> {{ $v->khoa }} </td>
+                                                                        <td> {{ $v->vai_tro }} </td>
+                                                                        <td> {{ $v->thoigian }} </td>
+                                                                        <td> {{ $v->ghichu }} </td>
+                                                                        <td>
+                                                                            <a data-xaydung-id="{{ $v->id }}" class="btn_edit_xaydung btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                            <a class="btn_delete_xaydung btn btn-xs red-mint" href="#" data-xaydung-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    @php $stt++; @endphp
+                                                                    @endforeach
+                                                                @endif
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- END EXAMPLE TABLE PORTLET-->
+                                            @else
+                                                <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                                    <p> Giảng Viên này không có Xây Dựng Chương Trình nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_xaydung"><i class="fa fa-plus"></i> Tạo Xây Dựng Chương Trình</a></p>
+                                                </div>
+                                            @endif 
+                                        </div>
+                                        <!-- END TAB 3-->
+                                   <!-- BEGIN TAB 5-->
+                                   <div class="tab-pane" id="tab5">
+                                    @if($dang->isNotEmpty())
+                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                        <div class="portlet light portlet-fit bordered">
+                                            <div class="portlet-body">
+                                                <div class="table-toolbar">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-group">
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động Mới
+                        
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-hover table-bordered" id="table_ds_dang">
+                                                    <thead>
+                                                        <tr>
+                                                            <th> STT</th>
+                                                            <th> Nội Dung</th>
+                                                            <th> Kết Quả</th>
+                                                            <th> Vai Trò</th>
+                                                            <th> Thời Gian</th>
+                                                            <th> Ghi Chú</th>
+                                                            <th> Hành Động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if( $dang->count() > 0 )
+                                                            @php $stt = 1; @endphp
+                                                            @foreach( $dang as $v )
+                                                            <tr>
+                                                                <td> {{ $stt }} </td>
+                                                                <td> {{ $v->ten }} </td>
+                                                                <td> {{ $v->ket_qua }} </td>
+                                                                <td> {{ $v->vai_tro }} </td>
+                                                                <td> {{ $v->thoigian }} </td>
+                                                                <td> {{ $v->ghichu }} </td>
+                                                                <td>
+                                                                    <a data-dang-id="{{ $v->id }}" class="btn_edit_dang btn btn-xs yellow-gold" href="#modal_edit_dang" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                    <a class="btn_delete_dang btn btn-xs red-mint" href="#" data-dang-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                                </td>
+                                                            </tr>
+                                                            @php $stt++; @endphp
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                    @else
+                                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                            <p> Giảng Viên này không tham gia hoạt động Đảng/Đoàn nào. <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo HĐ Mới</a></p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!-- END TAB 5-->
+                                <!-- BEGIN XỬ LÝ VĂN BẢN-->
+                                <div class="tab-pane active" id="tab_vanban">
+                                    @if($vanban->isNotEmpty())
+                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                        <div class="portlet light portlet-fit bordered">
+                                            <div class="portlet-body">
+                                                <div class="table-toolbar">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="btn-group">
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Văn Bản Mới
+                        
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-hover table-bordered" id="table_ds_vanban">
+                                                    <thead>
+                                                        <tr>
+                                                        <th> STT</th>
+                                                            <th> Nội Dung</th>
+                                                            <th> Lãnh Đạo Xử Lý</th>
+                                                            <th> Thời Gian Nhận</th>
+                                                            <th> Hạn</th>
+                                                            <th> Ghi Chú</th>
+                                                            <th> Hành Động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if( $vanban->count() > 0 )
+                                                            @php $stt = 1; @endphp
+                                                            @foreach( $vanban as $v )
+                                                            <tr>
+                                                                <td> {{ $stt }} </td>
+                                                                <td> {{ $v->noi_dung }} </td>
+                                                                <td> {{ $v->lanhdao }} </td>
+                                                                <td> {{ $v->thoigian_nhan }} </td>
+                                                                <td> {{ $v->thoigian_den }} </td>
+                                                                <td> {{ $v->ghichu }} </td>
+                                                                <td>
+                                                                    <a data-vanban-id="{{ $v->id }}" class="btn_edit_vanban btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
+                                                                    <a class="btn_delete_vanban btn btn-xs red-mint" href="#" data-vanban-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                                </td>
+                                                            </tr>
+                                                            @php $stt++; @endphp
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                    @else
+                                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                            <p> Không có văn bản nào!  <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Văn Bản </a></p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!-- END XỬ LÝ VĂN BẢN-->
+                            </div>
+                        </form>
+                        @include('xaydung.modals.add')
+                        @include('xaydung.modals.edit')
+                        @include('dang.modals.add')
+                        @include('dang.modals.edit')
+                        @include('vanban.modals.add')
+                        @include('vanban.modals.edit')
+                        
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->
@@ -128,7 +876,321 @@
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        @include('user.edit.form_gio')
+                        <form action="{{ route('profile.edit.post', $giangvien->id) }}" method="post" id="form_sample_2" class="form-horizontal">
+                            @csrf
+                            <div class="tab-content">
+                                <!-- BEGIN TAB 2-->
+                                <div class="tab-pane " id="tab2">
+                                    @if(!empty($nckh))
+                                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                    <div class="portlet light portlet-fit bordered">
+                                        <div class="portlet-body">
+                                            <table class="table table-striped table-hover table-bordered" id="table_ds_nckh">
+                                                <thead>
+                                                    <tr>
+                                                        <th> STT</th>
+                                                        <th> Tên NCKH</th>
+                                                        <th> Chủ Biên</th>
+                                                        <th> Tham Gia</th>
+                                                        <th> Bắt Đầu</th>
+                                                        <th> Kết Thúc</th>
+                                                        <th> Số Trang</th>
+                                                        <th> Số Giờ</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if( count($nckh) > 0 )
+                                                        @php $stt = 1; @endphp
+                                                        @foreach( $nckh as $v )
+                                                        <tr>
+                                                            <td> {{ $stt}} </td>
+                                                            <td> {{ $v->ten }} </td>
+                                                            <td>
+                                                                @php
+                                                                $chubien = json_decode( $v->chubien, true);
+                                                            @endphp
+                                                                @foreach($chubien as $key => $value)
+                                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                                    <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                                @endif
+                                                                @endforeach
+                                                            </td>
+                                                            <td>
+                                                                @php
+                                                                $thamgia = json_decode( $v->thamgia, true);
+                                                            @endphp
+                                                                @foreach($thamgia as $key => $value)
+                                                                @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                                    <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                                @endif
+                                                                @endforeach
+                                                            </td>
+                                                            <td> {{$v->batdau}}</td>
+                                                            <td> {{$v->ketthuc}}</td>
+                                                            <td> {{$v->sotrang}}</td>
+                                                            <td>
+                                                                {{-- In ra số Giờ --}}
+                                                                @switch($v->theloai)
+                                                                    @case(1)
+                                                                    {{ $gio_kh = ($v->sotrang/2.5)*8*4}} giờ
+                                                                        @break
+                                                                    @case(2)
+                                                                       {{ $gio_kh = ($v->sotrang/2.5)*4*4}} giờ
+                                                                        @break
+                                                                    @case(3)
+                                                                        {{ $gio_kh = 6*4}} giờ
+                                                                        @break
+                                                                    @case(4)
+                                                                    {{ $gio_kh =($v->sotrang/2.5)*10*4}} giờ
+                                                                        @break
+                                                                    @case(5)
+                                                                    {{ $gio_kh = $v->sotrang*1.5}} giờ
+                                                                        @break
+                                                                    @case(6)
+                                                                        {{$gio_kh = $v->sotrang*4.27}} giờ
+                                                                        @break
+                                                                    @case(7)
+                                                                        {{$gio_kh = $v->sotrang*2}} giờ
+                                                                        @break
+                                                                    @case(8)
+                                                                        {{$gio_kh = $v->sotrang}} giờ
+                                                                        @break
+                                                                    @default
+                                                                        {{$gio_kh = $v->sotrang}} giờ
+                                                                @endswitch
+                                                            </td>
+                                                        </tr>
+                                                        @php $stt++; @endphp
+                                                        @endforeach
+                                                    @endif
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- END EXAMPLE TABLE PORTLET-->
+                                    @else
+                                        <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                            <p> Không có Nghiên cứu khoa học nào!</p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!-- END BEGIN TAB 2-->
+                                                <!-- BEGIN TAB 11-->
+                                                <div class="tab-pane active" id="tab17">
+                                                        @if(!empty($hocphan))
+                                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                        <div class="portlet light portlet-fit bordered">
+                                                            <div class="portlet-body">
+                                                                <table class="table table-striped table-hover table-bordered" id="table_ds_tonggio">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th> STT</th>
+                                                                            <th> Mã Học Phần</th>
+                                                                            <th> Tên Học Phần</th>
+                                                                            <th> Lớp</th>
+                                                                            <th> Hệ</th>
+                                                                            <th> Quy Mô</th>
+                                                                            <th> Số Giờ Nghĩa Vụ</th>
+                                                                            <th> Số Giờ Tính Tiền</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @if( count($hocphan) > 0 )
+                                                                            @php 
+                                                                                $stt = 1; 
+                                                                                $tongtiet = 0;
+                                                                                $tongnghiavu = 0;
+                                                                                $tongtien = 0;
+                                                                            @endphp
+                                                                            @foreach( $hocphan as $v_hocphan )
+                                                                            @php 
+                                                                                $id_giangvien = $giangvien->id;
+                                                                                $id_hocphan = $v_hocphan->id;
+                                                                                $tiet = 0;
+                                                                                $tien = 0;
+                                                                                //Tìm trong bảng tiết nếu giảng viên có dạy học phần đó 
+                                                                                $is_tiet = App\Tiet::where('id_hocphan', $id_hocphan)->where('id_giangvien', $id_giangvien)->first();
+                                                                                if($is_tiet){
+                                                                                    //Cộng trong bảng Tiết
+                                                                                    $tiet_hocphans = App\Tiet::where('id_hocphan', $id_hocphan)->where('id_giangvien', $id_giangvien)->get();
+                                                                                    foreach($tiet_hocphans as $v_tiet_hocphan){
+                                                                                        if($v_tiet_hocphan->lops->he == 1)
+                                                                                       {$tiet += $v_tiet_hocphan->so_tiet;} 
+                                                                                      else if($v_tiet_hocphan->lops->he == 0)
+                                                                                       {$tien +=$v_tiet_hocphan->so_tiet;} 
+                                                                                    }
+                                                                                    //Tổng số tiết tính giờ bằng số tiết * quy mô
+                                                                                    //Tổng số giờ tính tiền bằng số tiết * quy mô
+                                                                                    $quymo = $v_hocphan->lops->quymo;
+                                                                                    $tiet = $tiet * $quymo;
+                                                                                    $tien = $tien * $quymo;
+                                                                                    $he = ($v_hocphan->lops->he) ? 'Tính Giờ' : 'Tính Tiền';
+                                                                                   
+                                                                                   echo "<tr>"
+                                                                                        ."<td>"."$stt"."</td>"
+                                                                                        ."<td>"."{$v_hocphan->mahocphan}"."</td>"
+                                                                                        ."<td>"."{$v_hocphan->tenhocphan}"."</td>"
+                                                                                        ."<td>"."{$v_hocphan->lops->tenlop}"."</td>"
+                                                                                        ."<td>"."{$he}"."</td>"
+                                                                                        ."<td>"."{$v_hocphan->lops->quymo}"."</td>"
+                                                                                        ."<td>"."$tiet"."</td>"
+                                                                                        ."<td>"."$tien"."</td>"
+                                                                                   ."</tr>";
+                                                                                   $stt++;
+                                                                           
+                                                                                }
+                                                                                $tongtiet += $tiet;
+                                                                                $tongtiet += $tien;
+                                                                                $tongnghiavu += $tiet;
+                                                                                $tongtien += $tien;
+                                                                            @endphp 
+                                                                           
+                                                                           
+                                                                            @endforeach
+                                                                            <tr>
+                                                                            <td colspan="6"> <p> <b>Tổng Giờ: {{$tongtiet}}</b> </p></td>
+                                                                            <td> Tổng Giờ Nghĩa Vụ: {{$tongnghiavu}}</td>
+                                                                            <td> Tổng Giờ Tính Tiền: {{$tongtien}}</td>
+                                                                            </tr>
+                                                                        @endif
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                                        @else
+                                                            <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                                                <p> Không có Nghiên cứu khoa học nào!</p>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                    <!-- END BEGIN TAB 17-->
+                        
+                                                    <!-- BEGIN GIỜ KHÁC-->
+                                                    <div class="tab-pane" id="tab_giokhac">
+                                                        @if(($hop->isNotEmpty()) || ($chambai->isNotEmpty()) || ($congtac->isNotEmpty()) || ($daygioi->isNotEmpty()) || ($hoctap->isNotEmpty()) || ($hdkh->isNotEmpty()))
+                                                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                                        <div class="portlet light portlet-fit bordered">
+                                                            <div class="portlet-body">
+                                                                <table class="table table-striped table-hover table-bordered" id="table_ds_ct">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th> STT</th>
+                                                                            <th> Thể Loại</th>
+                                                                            <th> Tổng Số Giờ</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @php 
+                                                                            $stt = 1; 
+                                                                            $total_hop = 0;
+                                                                            $total_chambai = 0;
+                                                                            $total_congtac = 0;
+                                                                            $total_daygioi = 0; 
+                                                                            $total_hoctap = 0; 
+                                                                            $total_hdkh = 0; 
+                                                                        
+                                                                        @endphp
+                                                                        @if( $hop->count() > 0 )
+                                                                            @php  @endphp
+                                                                            @foreach( $hop as $v_hop )
+                                                                            @php $total_hop += $v_hop->so_gio; @endphp
+                                                                            <tr>
+                                                                                <td> {{ $stt }} </td>
+                                                                                <td> Họp </td>
+                                                                                <td> {{ $total_hop }} </td>
+                                                                            </tr>
+                                                                            @endforeach
+                                                                            @php $stt++; @endphp
+                                                                        @endif
+                                                                       
+                                                                        @if( $chambai->count() > 0 )
+                                                                            @foreach( $chambai as $v_chambai )
+                                                                            @php $total_chambai += $v_chambai->so_gio; @endphp
+                                                                            <tr>
+                                                                                <td> {{ $stt }} </td>
+                                                                                <td> Chấm Bài </td>
+                                                                                <td> {{ $total_chambai }} </td>
+                                                                            </tr>
+                                                                            @endforeach
+                                                                            @php $stt++; @endphp
+                                                                        @endif
+                                                                       
+                                                                        @if( $congtac->count() > 0 )
+                                                                            @foreach( $congtac as $v_congtac )
+                                                                            @php $total_congtac += $v_congtac->so_gio; @endphp
+                                                                            <tr>
+                                                                                <td> {{ $stt }} </td>
+                                                                                <td> Đi Thực Tế</td>
+                                                                                <td> {{ $total_congtac }} </td>
+                                                                            </tr>
+                                                                            @endforeach
+                                                                            @php $stt++; @endphp
+                                                                        @endif
+                        
+                                                                        @if( $daygioi->count() > 0 )
+                                                                           
+                                                                            @foreach( $daygioi as $v_daygioi )
+                                                                            @php $total_daygioi += $v_daygioi->so_gio; @endphp
+                                                                            <tr>
+                                                                                <td> {{ $stt }} </td>
+                                                                                <td> Dạy Giỏi</td>
+                                                                                <td> {{ $total_daygioi }} </td>
+                                                                            </tr>
+                                                                            @endforeach
+                                                                            @php $stt++; @endphp
+                                                                        @endif
+                        
+                                                                        @if( $hoctap->count() > 0 )
+                                                                           
+                                                                            @foreach( $hoctap as $v_hoctap )
+                                                                            @php $total_hoctap += $v_hoctap->so_gio; @endphp
+                                                                            <tr>
+                                                                                <td> {{ $stt }} </td>
+                                                                                <td> Tham Gia Học Tập</td>
+                                                                                <td> {{ $total_hoctap }} </td>
+                                                                            </tr>
+                                                                            @endforeach
+                                                                            @php $stt++; @endphp
+                                                                        @endif
+                        
+                                                                        @if( $hdkh->count() > 0 )
+                                                                           
+                                                                            @foreach( $hdkh as $v_hdkh )
+                                                                            @php $total_hdkh += $v_hdkh->so_gio; @endphp
+                                                                            <tr>
+                                                                                <td> {{ $stt }} </td>
+                                                                                <td> Hướng Dẫn Khoa Học </td>
+                                                                                <td> {{ $total_hdkh }} </td>
+                                                                            </tr>
+                                                                            @endforeach
+                                                                            @php $stt++; @endphp
+                                                                        @endif
+                                                                        @php $total = $total_hop + $total_chambai + $total_congtac + $total_daygioi + $total_hdkh + $total_hoctap; @endphp
+                        
+                                                                        <tr> 
+                                                                            <td colspan="2"> Tổng Giờ: </td>
+                                                                            <td> {{$total}} </td>
+                        
+                                                                        </tr>
+                        
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END EXAMPLE TABLE PORTLET-->
+                                                        @else
+                                                            <div class="alert alert-danger" style="margin-bottom: 0px;">
+                                                                <p> Không tham gia hoạt động nào!</p>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                    <!-- END GIỜ KHÁC-->
+                            </div>
+                        </form>
+                        
+                        
+                        
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->
@@ -153,7 +1215,47 @@
             localStorage.removeItem('activeTab');
         }
         // END Reload trang và giữ nguyên tab đã active
+        var table_tonggio = $('#table_ds_tonggio');
 
+var oTable_tonggio = table_tonggio.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Học Phần tham gia Giảng Dạy: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
+
+
+
+
+//End Phân trang bảng Nghiên cứu khoa học 
          // Ajax thêm NCKH
     $("#btn_add_nckh").on('click', function(e){
 
@@ -360,12 +1462,49 @@
 
         });
         // END Xử lý khi click nút xóa NCKH
+        //Begin phân trang bảng Nghiên cứu khoa học
+var table_nckh = $('#table_ds_nckh');
+
+var oTable_nckh = table_nckh.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nghiên cứu khoa học: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
 // ==================================================================//
 
 // ==================================================================//
 
          // Ajax thêm Công Tác
-         $("#btn_add_congtac").on('click', function(e){
+    $("#btn_add_congtac").on('click', function(e){
         e.preventDefault();
         $("#btn_add_congtac").attr("disabled", "disabled");
         $("#btn_add_congtac").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -573,7 +1712,45 @@
 
          });
          // END Xử lý khi click nút xóa congtac
+//Begin phân trang bảng Công tác
+var table_congtac = $('#table_ds_congtac');
 
+var oTable_congtac = table_congtac.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Đi thực tế: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
+
+//End Phân trang bảng Công tác 
          // ==================================================================//
 
               // Ajax thêm Văn Bản Xử Lý
@@ -789,7 +1966,43 @@
 
          });
          // END Xử lý khi click nút xóa vanban
+//Begin phân trang bảng Văn Bản 
+var table = $('#table_ds_vanban');
 
+var oTable = table.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Văn Bản Xử lý: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
          // ==================================================================//
 
             // Ajax thêm Hướng Dân Khoa Học
@@ -1010,12 +2223,48 @@
 
  });
  // END Xử lý khi click nút xóa hdkh
+//Begin phân trang bảng hướng dẫn 
+var table_hd = $('#table_ds_hd');
 
+var oTable_hd = table_hd.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hướng Dẫn: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
  // ==================================================================//
 
 
          // Ajax thêm Chấm Bài
-         $("#btn_add_chambai").on('click', function(e){
+    $("#btn_add_chambai").on('click', function(e){
 
         e.preventDefault();
         $("#btn_add_chambai").attr("disabled", "disabled");
@@ -1082,7 +2331,7 @@
     });
     // END Ajax thêm Chấm Bài
     //AJAX Tìm Chấm Bài Theo ID
-         $(".btn_edit_chambai").on("click", function(e){
+     $(".btn_edit_chambai").on("click", function(e){
              e.preventDefault();
              var chambai_id = $(this).data("chambai-id");
              $.ajaxSetup({
@@ -1227,6 +2476,42 @@
 
          });
          // END Xử lý khi click nút xóa chấm Bài
+         var table_chambai = $('#table_ds_chambai');
+
+var oTable_chambai = table_chambai.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Chấm Bài: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
 // ========================================================================
 
          // Ajax thêm Đảng
@@ -1441,6 +2726,44 @@
 
          });
          // END Xử lý khi click nút xóa dang
+          // Begin cấu hình bảng dạy giỏi
+          var table_dang = $('#table_ds_dang');
+
+var oTable_dang = table_dang.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Đảng: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
+
  // ==================================================================//
 
          // Ajax thêm Dạy Giỏi
@@ -1654,12 +2977,50 @@
 
          });
          // END Xử lý khi click nút xóa Dạy Giỏi
+         // Begin cấu hình bảng dạy giỏi
+         var table_daygioi = $('#table_ds_daygioi');
+
+var oTable_daygioi = table_daygioi.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Dạy Giỏi: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
+
  // ==================================================================//
 
  // ==================================================================//
 
          // Ajax thêm Xây Dựng
-         $("#btn_add_xaydung").on('click', function(e){
+    $("#btn_add_xaydung").on('click', function(e){
         e.preventDefault();
         $("#btn_add_xaydung").attr("disabled", "disabled");
         $("#btn_add_xaydung").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -1872,9 +3233,48 @@
 
          });
          // END Xử lý khi click nút xóa xaydung
+         //Begin phân trang bảng Xây dựng chương trình
+var table_xaydung = $('#table_ds_xaydung');
+
+var oTable_xaydung = table_xaydung.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Xây dựng chương trình: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
+
+//End Phân trang bảng Xây dựng chương trình
  // ==================================================================//
 
-         $("#btn_add_hop").on('click', function(e){
+    $("#btn_add_hop").on('click', function(e){
         e.preventDefault();
         $("#btn_add_hop").attr("disabled", "disabled");
         $("#btn_add_hop").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -1938,7 +3338,7 @@
     });
     // END Ajax thêm hop
     //AJAX Tìm hop Theo ID
-         $(".btn_edit_hop").on("click", function(e){
+    $(".btn_edit_hop").on("click", function(e){
              e.preventDefault();
              var hop_id = $(this).data("hop-id");
              $.ajaxSetup({
@@ -1966,7 +3366,7 @@
                      }
                  }
              });
-         });
+    });
          // END Khi click vào nút sửa hop, tìm hop theo id và đỗ dữ liệu vào form
 
 
@@ -2082,14 +3482,49 @@
 
          });
          // END Xử lý khi click nút xóa Cuộc Họp
- // ==================================================================//
- // ==================================================================//
+          //Begin phân trang bảng Hopj
+var table_hop = $('#table_ds_hop');
 
+var oTable_hop = table_hop.dataTable({
 
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Họp: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
+
+//End Phân trang bảng Họp
  // ==================================================================//
 
          // Ajax thêm Học Tập
-         $("#btn_add_hoctap").on('click', function(e){
+    $("#btn_add_hoctap").on('click', function(e){
         e.preventDefault();
         $("#btn_add_hoctap").attr("disabled", "disabled");
         $("#btn_add_hoctap").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -2302,7 +3737,43 @@
 
          });
          // END Xử lý khi click nút xóa hoctap
- // ==================================================================//
+         //Begin phân trang bảng Học Tập
+         var table_hoctap = $('#table_ds_hoctap');
+
+        var oTable_hoctap = table_hoctap.dataTable({
+
+    "lengthMenu": [
+        [10, 20, 50, -1],
+        [10, 20, 50, "Tất cả"] // change per page values here
+    ],
+
+    "pageLength": 10,
+
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Họp: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [{ // set default column settings
+        'orderable': true,
+        'targets': [0]
+    }, {
+        "searchable": true,
+        "targets": [0]
+    }],
+    "order": [
+        // [0, "asc"]
+    ] // set first column as a default sort by asc
+});
  // ==================================================================//
     });
 

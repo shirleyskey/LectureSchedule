@@ -10,7 +10,7 @@ class XayDung extends Model
     protected $table = 'xaydungs';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','ten'];
+    protected $fillable = ['id_giangvien','ten', 'hocphan', 'khoa','vai_tro', 'thoigian'];
 
     public function giangviens()
     {

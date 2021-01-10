@@ -10,7 +10,7 @@
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
-                    <span>Bảng điều khiển / Phân công lịch giảng</span>
+                    <span>Bảng điều khiển / Phân công lịch giảng theo Học Phần</span>
                 </li>
             </ul>
         </div>
@@ -33,71 +33,53 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Lớp</th>
                                     <th> Mã Học Phần</th>
+                                    <th> Lớp</th>
                                     <th style="text-align: center"> Bài - Giáo Viên</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if( $lop->count() > 0 ): ?>
-                                    <?php
-                                        $stt = 1;
-                                    ?>
-                                    <?php $__currentLoopData = $lop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <?php
-                                    $ds_hocphan = App\Hocphan::where('id_lop', $v->id)->get();
-
-                                    ?>
-                                    <?php $__currentLoopData = $ds_hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hocphan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if( $ds_hocphan->count() > 0 ): ?>
+                                    <?php $stt = 1; ?>
+                                    <?php $__currentLoopData = $ds_hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                   
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
-                                        <td> <?php echo e($v->malop); ?> </td>
-                                        <td>
-                                          <b><?php echo e($v_hocphan->mahocphan); ?></b>
-                                            <p style="margin-bottom: 0px; margin-top: 5px">
-                                               Từ: <i><?php echo e($v_hocphan->start); ?></i>
-                                            </p>
-                                            <p>
-                                               Đến: <i><?php echo e($v_hocphan->end); ?></i>
-                                            </p>
-                                        </td>
-                                        <td>
-                                            <?php
-                                                $ds_bai = App\Bai::where('id_hocphan', $v_hocphan->id)->get();
-                                            ?>
-                                            <?php $__currentLoopData = $ds_bai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_bai): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <div style="display: inline-block; padding: 10px; background-color: #80808047; margin-right: 5px; margin-top: 15px">
-                                                    <p style="margin-bottom: 0px">
-                                                        <b><?php echo e($v_bai->tenbai); ?></b>  -  <?php echo e(($v_bai->sotiet) ? ($v_bai->sotiet) : '0'); ?> tiết
-                                                    </p>
-                                                    <p style="margin-bottom: 0px">
-                                                        <?php echo e(($v_bai->gvchinh) ? ($v_bai->giangvienchinhs->ten) : 'Chưa Phân GV Chính'); ?>
+                                        <td> 
+                                            <?php echo e($v->mahocphan); ?>
 
-                                                    </p>
-                                                       
-                                                    <!-- <p style="margin-bottom: 0px">
-                                                    <?php
-                                                        $gvphu = json_decode($v_bai->gvphu, true);
-                                                    ?>
-                                                        <?php if($gvphu != null): ?>
-                                                        <span><b> GV Tham Gia: </b> </span><br>
-                                                        <?php $__currentLoopData = $gvphu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                            <span><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </span><br>
-                                                        <?php endif; ?>
-                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                        <?php endif; ?>
-                                                        <?php if($gvphu == null): ?>
-                                                        <span><b> Không GV Tham Gia: </b> </span><br>
-                                                        <?php endif; ?>
-                                                    </p> -->
-                                                </div>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </td>
+                                        <td> <?php echo e($v->lops->tenlop); ?> </td>
+                                        <td> 
+                                            <?php 
+                                            $ds_bai = App\Bai::where('id_hocphan', $v->id)->get();
+                                            ?>
+                                                <?php if($ds_bai): ?>
+                                                    <?php  $so_tiet = 0; ?>
+                                                    <?php $__currentLoopData = $ds_bai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_bai): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <div style="display: inline-block; padding: 10px; background-color: #80808047; margin-right: 5px; margin-top: 15px">
+                                                            <p style="margin-bottom: 0px">
+                                                                <?php 
+                                                                    $tiet = App\Tiet::where('id_bai', $v_bai->id)->sum('so_tiet');
+                                                                    $giangviens = App\Tiet::where('id_bai', $v_bai->id)->select('id_giangvien')->groupBy('id_giangvien')->get();
+                                                                ?>
+                                                                <b><?php echo e($v_bai->tenbai); ?></b>  - <?php echo e($tiet); ?> Tiết
+                                                            </p>
+                                                            <?php $__currentLoopData = $giangviens; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_giangvien): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php if($v_giangvien->id_giangvien): ?>
+                                                            <p style="margin-bottom: 0px">
+                                                               <?php echo e($v_giangvien->giangviens->ma_giangvien); ?>
+
+                                                            </p>
+                                                            <?php endif; ?>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </div>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                           
+                                         </td>
                                     </tr>
                                     <?php $stt++; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <?php endif; ?>
                             </tbody>

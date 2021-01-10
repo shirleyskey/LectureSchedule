@@ -11,7 +11,7 @@ class HocTap extends Model
     protected $table = 'hoctaps';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','ten'];
+    protected $fillable = ['id_giangvien','ten','so_gio','loai_hinh', 'thoigian','thoigian_den'];
 
     public function giangviens()
     {

@@ -34,5 +34,21 @@ $(document).ready(function() {
         var $now = moment().locale('vi').format('dd, DD/MM/YYYY, h:mm:ss A');
         $('#datetime-part').html($now);
     }, 100);
+
+    $('.custom-click-sidebar-opened').on('click', function(){
+        $('.custom-click-sidebar').removeClass('col-md-10');
+        $('.custom-click-sidebar').addClass('col-md-12');
+        $(this).toggleClass('custom-click-sidebar-opened');
+        $(this).toggleClass('custom-click-sidebar-closed');
+        console.log('đóng');
+
+    });
+    $('.custom-click-sidebar-closed').on('click', function(){
+        $('.custom-click-sidebar').removeClass('col-md-12');
+        $('.custom-click-sidebar').addClass('col-md-10');
+        $(this).toggleClass('custom-click-sidebar-opened');
+        $(this).toggleClass('custom-click-sidebar-closed');
+        console.log('mở');
+    });
 });
 </script><?php /**PATH /opt/lampp/htdocs/lectureSchedule/resources/views/partials/script.blade.php ENDPATH**/ ?>

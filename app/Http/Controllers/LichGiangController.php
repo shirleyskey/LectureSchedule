@@ -16,10 +16,10 @@ class LichGiangController extends Controller
     public function phancong(){
         
         $lop = Lop::all();
-        $hocphan = HocPhan::all();
+        $ds_hocphan = HocPhan::all();
         return view('lichgiang.phancong', [
             'lop' => $lop,
-            'hocphan' => $hocphan,
+            'ds_hocphan' => $ds_hocphan,
             
         ]);
     }

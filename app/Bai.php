@@ -21,17 +21,6 @@ class Bai extends Model
         return $this->belongsTo('App\Lop', 'id_lop');
     }
 
-    public function giangvienphus()
-    {
-        return $this->belongsTo('App\GiangVien', 'gvphu');
-    }
-
-    public function giangvienchinhs()
-    {
-        return $this->belongsTo('App\GiangVien', 'gvchinh');
-    }
-   
-
     public static function saveBai($id, $data){
         if($id == 0){
             $bai = new Bai;

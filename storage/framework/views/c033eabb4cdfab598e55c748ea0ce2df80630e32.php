@@ -9,7 +9,7 @@
     <div class="page-content">
         <div class="container">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-10 custom-click-sidebar">
             <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 30px">
               <!-- Indicators -->
               <ol class="carousel-indicators">
