@@ -21,6 +21,12 @@ class Bai extends Model
         return $this->belongsTo('App\Lop', 'id_lop');
     }
 
+    public function tiets()
+    {
+        return $this->hasMany('App\Tiet', 'id_bai');
+    }
+
+
     public static function saveBai($id, $data){
         if($id == 0){
             $bai = new Bai;

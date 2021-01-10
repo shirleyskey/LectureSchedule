@@ -31,7 +31,7 @@
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
             <strong>
-            <i class="fa fa-edit"></i> Chỉnh sửa | {{ $lop->tenlop }} 
+            <i class="fa fa-edit"></i> Chỉnh sửa Lớp: {{ $lop->tenlop }} 
         </strong>
         </h1>
         <!-- END PAGE TITLE-->

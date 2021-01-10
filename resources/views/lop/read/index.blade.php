@@ -20,7 +20,7 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('lop.index') }}">Danh Sách Lớp Học</a>
+                    <a href="{{ route('lop.index') }}">Quay lại Danh Sách Lớp Học</a>
                 </li>
             </ul>
         </div>
@@ -28,7 +28,7 @@
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
             <strong>
-            <i class="fa fa-building-o"></i> {{ $lop->tenlop }}
+            <i class="fa fa-building-o"></i> Lớp: {{ $lop->tenlop }}
         </strong>
         </h1>
         <!-- END PAGE TITLE-->
@@ -47,7 +47,7 @@
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills">
                         <li class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin</a>
+                            <a href="#tab1" data-toggle="tab">Thông tin Lớp học</a>
                         </li>
                         <li>
                             <a href="#tab2" data-toggle="tab">Danh Sách Học Phần</a>

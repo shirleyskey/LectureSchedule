@@ -19,7 +19,7 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('lop.index') }}">Quản Lý Lớp Học</a>
+                    <a href="{{ route('lop.index') }}">Quay lại Danh sách Lớp Học</a>
                 </li>
             </ul>
         </div>
@@ -45,10 +45,10 @@
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills">
-                        <li class="active">
+                        {{-- <li class="active">
                             <a href="#tab1" data-toggle="tab">Thông tin</a>
                         </li>
-                        
+                         --}}
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">

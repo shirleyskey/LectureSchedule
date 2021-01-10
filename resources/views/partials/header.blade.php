@@ -50,19 +50,19 @@
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
                             <a href="{{route('profile.edit.get', Auth::user()->id_giangvien)}}">
-                                <img alt="" style="width: 15px; " src="{{ asset('images/info.png')}}" /> Thông Tin Cá Nhân
+                                <img alt="" style="width: 18px; " src="{{ asset('images/info.png')}}" /> Thông Tin Cá Nhân
                             </a>
                         </li>
                         <li class="divider"> </li>
                         <li>
                             <a href="{{route('profile.thongbao.get', Auth::user()->id_giangvien)}}">
-                                <img alt="" style="width: 15px; " src="{{ asset('images/calendar.png')}}" /> Lịch Trình Cá Nhân
+                                <img alt="" style="width: 18px; " src="{{ asset('images/calendar.png')}}" /> Lịch Trình Cá Nhân
                             </a>
                         </li>
                         <li class="divider"> </li>
                         <li >
                             <a href="{{ route('logout.get') }}" style="color: #e63946">
-                                <img alt="" style="width: 15px; " src="{{ asset('images/logout2.png')}}" />
+                                <img alt="" style="width: 18px; " src="{{ asset('images/logout2.png')}}" />
                                 Đăng Xuất
                             </a>
                         </li>

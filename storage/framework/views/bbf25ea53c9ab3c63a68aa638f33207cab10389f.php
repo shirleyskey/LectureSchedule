@@ -29,7 +29,7 @@
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">
             <strong>
-            <i class="fa fa-edit"></i> Chỉnh sửa | <?php echo e($lop->tenlop); ?> 
+            <i class="fa fa-edit"></i> Chỉnh sửa Lớp: <?php echo e($lop->tenlop); ?> 
         </strong>
         </h1>
         <!-- END PAGE TITLE-->

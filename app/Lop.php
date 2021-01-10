@@ -13,7 +13,7 @@ class Lop extends Model
     
     public function hocphans()
     {
-        return $this->hasMany('App\Hocphan', 'id_lop');
+        return $this->hasMany('App\HocPhan', 'id_lop');
     }
 
     public static function saveLop($id, $data){

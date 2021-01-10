@@ -90,7 +90,7 @@
                                             <a class="btn btn-xs yellow-gold" href="{{ route('lop.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             @endpermission
                                             @permission('delete-lop')
-                                            <a class="btn btn-xs red-mint" href="{{ route('lop.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Giảng Viên này không?');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
+                                            <a class="btn btn-xs red-mint" href="{{ route('lop.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Lớp này không? Bạn lưu ý, xóa lớp, sẽ xóa hết dữ liệu liên quan đến lớp bị xóa');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                             @endpermission
                                         </td>
                                     </tr>
