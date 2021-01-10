@@ -56,9 +56,7 @@
                         <li class="active">
                             <a href="">Thông tin Tiết Học</a>
                         </li>
-                        <li >
-                        <a href="<?php echo e(route('bai.edit.get',$tiet->id_bai )); ?>">Xem Bài Học</a>
-                        </li>
+                      
                         <li >
                             <a href="<?php echo e(route('hocphan.edit.get',$tiet->id_hocphan )); ?>">Xem Học Phần</a>
                         </li>

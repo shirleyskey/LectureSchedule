@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Bảng điều khiển')
+@section('title', 'Bảng điều khiển | Lịch Theo Học Phần')
 
 @section('content')
 <!-- BEGIN CONTENT -->

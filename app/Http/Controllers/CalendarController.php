@@ -42,6 +42,8 @@ class CalendarController extends Controller
                 }
                 //Tên Lớp
                 $tenlop = ($tiet->lops->malop) ? $tiet->lops->malop : "";
+                //Tên Học Phần
+                $tenhocphan = ($tiet->hocphans->mahocphan) ? $tiet->hocphans->mahocphan : "";
 
                 //Tên Bài 
                 $tenbai = ($tiet->bais->tenbai) ? $tiet->bais->tenbai : "";
@@ -50,9 +52,9 @@ class CalendarController extends Controller
 
                 // Tên Giáo Viên 
                 $giangvien = GiangVien::where('id', $tiet->id_giangvien)->first();
-                $tengiangvien = $giangvien["ten"];
+                $tengiangvien = ($giangvien) ? ($giangvien["ma_giangvien"]) : "Chưa Phân";
 
-                $title = $tenlop. " - ".$tenbai.'-'.$tiendo.'-'.$tengiangvien;
+                $title = $tenhocphan. " - ".$tenbai.'-'.$tiendo.'-'.$tengiangvien;
                 $events[] = Calendar::event(
                     $title,
                     false,

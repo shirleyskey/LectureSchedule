@@ -64,74 +64,94 @@
     </head>
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
         <div class="page-wrapper">
-            <!-- BEGIN HEADER -->
-            <div class="page-header navbar navbar-fixed-top">
-                <!-- BEGIN HEADER INNER -->
-                <div class="page-header-inner" style="width: 100%;">
-                    <!-- BEGIN LOGO -->
-                    <div class="page-logo">
-                        <a href="<?php echo e(route('dashboard')); ?>">
-                            <img src="<?php echo e(asset('/images/logo_name.png')); ?>" alt="logo" class="logo-default" width="140" />
-                            <!-- <h5 style="padding:7px; color: #fff;">THỊNH PHONG HRM</h5> -->
-                        </a>
-                        <div class="menu-toggler sidebar-toggler">
-                            <span></span>
-                        </div>
-                    </div>
-                    <!-- END LOGO -->
-                    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                    <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span></span>
-                    </a>
-                    <!-- END RESPONSIVE MENU TOGGLER -->
-                    <div class='time-frame hidden-xs' style="float:left; font-size: 12px; color: #fff; padding: 16px; display: -webkit-box;">
-                        <i class="fa fa-clock-o" style="margin-right: 5px;"></i>
-                        <div id='datetime-part'></div>
-                    </div>
-                    <!-- BEGIN TOP NAVIGATION MENU -->
-                    <div class="top-menu">
-
-                        <ul class="nav navbar-nav pull-right">
-                            <!-- BEGIN USER LOGIN DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            <li class="dropdown dropdown-user">
-                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src="<?php echo e(asset('uploads/avatars/default-avatar.jpg')); ?>" />
-                                    <span class="username username-hide-on-mobile"> <?php echo e((Auth::user())?(Auth::user()->giangviens->ten):''); ?> </span>
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-default">
-                                    <li>
-                                        <a href="<?php echo e(route('profile.edit.get', Auth::user()->id_giangvien)); ?>">
-                                            <i class="fa fa-user"></i> Thông Tin Cá Nhân
-                                        </a>
-                                    </li>
-                                    <li class="divider"> </li>
-                                    <li>
-                                        <a href="<?php echo e(route('profile.thongbao.get', Auth::user()->id_giangvien)); ?>">
-                                            <i class="fa fa-calendar-minus-o"></i>Lịch Trình Cá Nhân
-                                        </a>
-                                    </li>
-                                    <li class="divider"> </li>
-                                    <li >
-                                        <a href="<?php echo e(route('logout.get')); ?>" style="color: #CC0000">
-                                            <i class="fa fa-sign-out" style="color: #CC0000"></i>
-                                            Đăng Xuất
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- END USER LOGIN DROPDOWN -->
-                        </ul>
-                    </div>
-                    <!-- END TOP NAVIGATION MENU -->
-                </div>
-                <!-- END HEADER INNER -->
+           <!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner" style="width: 100%;">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="<?php echo e(route('dashboard')); ?>">
+                <img src="<?php echo e(asset('/images/logo_name.png')); ?>" alt="logo" class="logo-default" width="140" />
+                <!-- <h5 style="padding:7px; color: #fff;">THỊNH PHONG HRM</h5> -->
+            </a>
+            <div class="menu-toggler sidebar-toggler custom-click-sidebar-opened">
+                <span></span>
             </div>
-            <!-- END HEADER -->
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            <span></span>
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <div class='time-frame hidden-xs' style="float:left; font-size: 12px; color: #fff; padding: 16px; display: -webkit-box;">
+            <i class="fa fa-clock-o" style="margin-right: 5px;"></i>
+            <div id='datetime-part'></div>
+        </div>
+        
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <div class='time-frame permission-style hidden-xs' style="float:left; font-size: 12px; padding: 16px; color: #fff;display: -webkit-box;">
+                <img class="permission-style" alt="" style="width: 20px; margin-right: 3px" src="<?php echo e(asset('images/permission2.png')); ?>" />
+            <span class="username username-hide-on-mobile">
+                <?php 
+                    $v = Auth::user();
+                ?>
+                <?php $__currentLoopData = $v->roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php echo e($role->display_name); ?>
+
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </span>
+            </div>
+
+            <ul class="nav navbar-nav pull-right">
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+              
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle custom-hover" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <img alt="" class="img-circle" src="<?php echo e(asset('images/avatar2.png')); ?>" />
+                        <span class="username username-hide-on-mobile"> <?php echo e((Auth::user())?(Auth::user()->giangviens->ten):''); ?> </span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="<?php echo e(route('profile.edit.get', Auth::user()->id_giangvien)); ?>">
+                                <img alt="" style="width: 18px; " src="<?php echo e(asset('images/info.png')); ?>" /> Thông Tin Cá Nhân
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <a href="<?php echo e(route('profile.thongbao.get', Auth::user()->id_giangvien)); ?>">
+                                <img alt="" style="width: 18px; " src="<?php echo e(asset('images/calendar.png')); ?>" /> Lịch Trình Cá Nhân
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li >
+                            <a href="<?php echo e(route('logout.get')); ?>" style="color: #e63946">
+                                <img alt="" style="width: 18px; " src="<?php echo e(asset('images/logout2.png')); ?>" />
+                                Đăng Xuất
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN HEADER & CONTENT DIVIDER -->
+<div class="clearfix"> </div>
+<!-- END HEADER & CONTENT DIVIDER -->
+
             <!-- BEGIN CONTAINER -->
             <div class="page-container">
 
+                <div class="page-sidebar-wrapper">
+                    <!-- BEGIN SIDEBAR -->
                 <div class="page-sidebar-wrapper">
                     <!-- BEGIN SIDEBAR -->
                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -162,54 +182,56 @@
                                 </a>
                             </li>
                             <?php if (app('laratrust')->can('read-giangvien')) : ?>
-                            <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
-                                <a href="<?php echo e(route('giangvien.index')); ?>" style="color: #dbe7f2;" class="nav-link nav-toggle">
-                                    <i class="fa fa-user" style="color: #dbe7f2;"></i>
-                                    <span class="title" >Giảng Viên</span>
-                                    <span class="selected"></span>
-                                </a>
+                            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
+                                <h3 class="uppercase custom-border">
+                                    <a href="<?php echo e(route('giangvien.index')); ?>" style="color: #dbe7f2;" class="nav-link">
+                                        <i class="fa fa-user" style="color: #dbe7f2;"></i>
+                                        <span class="title" >Giảng Viên</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </h3>
                             </li>
                             <?php endif; // app('laratrust')->can ?>
                             
                             <li class="heading nav-item">
-                                <h3 class="uppercase"> <a data-toggle="collapse" href="#sub-menu" class="nav-link nav-toggle"><i class="fa fa-building-o"></i> LỊCH GIẢNG</a> <span class="caret"></span></h3>
+                                <h3 class="uppercase custom-border"> <a data-toggle="collapse" href="#sub-menu" class="nav-link nav-toggle"><i class="fa fa-building-o"></i> LỊCH GIẢNG</a> <span class="caret"></span></h3>
                             </li>
                             <div class="collapse list-group-level1" id="sub-menu">
                             <?php if (app('laratrust')->can('read-lop')) : ?>
                             <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/lop' ? 'active open' : ''); ?>">
                                 <a href="<?php echo e(route('lop.index')); ?>" class="nav-link nav-toggle" data-parent="#sub-menu">
-                                    <span class="title">Lịch Giảng Theo Lớp</span>
+                                    <span class="title">Lịch Theo Lớp</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
                             <?php endif; // app('laratrust')->can ?>
                             <li class="nav-item <?php echo e(Request::is('lichgiang/phancong') ? 'active open' : ''); ?>">
                                 <a href="<?php echo e(route('lichgiang.phancong')); ?>" class="nav-link nav-toggle">
-                                    <span class="title">Lịch Giảng Theo HP</span>
+                                    <span class="title">Lịch Theo Học Phần</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
                             <li class="nav-item <?php echo e(Request::is('lichgiang/lichgiangtuan') ? 'active open' : ''); ?>">
                                 <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" class="nav-link nav-toggle">
-                                    <span class="title">Lịch Giảng Theo Ngày</span>
+                                    <span class="title">Lịch Theo Ngày</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
                             </div>
                             <li class="heading">
-                                <h3 class="uppercase"> <i class="fa fa-briefcase "></i><a data-toggle="collapse" href="#sub-menu-nckh">QUẢN LÝ NCKH</a> <span class="caret"></span></h3>
+                                <h3 class="uppercase custom-border"> <i class="fa fa-briefcase "></i><a data-toggle="collapse" href="#sub-menu-nckh">QUẢN LÝ NCKH</a> <span class="caret"></span></h3>
                             </li>
                             <div class="collapse list-group-level1" id="sub-menu-nckh">
                             <li class="nav-item <?php echo e(Request::is('nckh') ? 'active open' : ''); ?>">
                                 <a href="<?php echo e(route('nckh.index')); ?>" class="nav-link nav-toggle">
-                                   
+                                
                                     <span class="title"> Quản Lý NCKH</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
                             </div>
                             <li class="heading">
-                                <h3 class="uppercase"><i class="fa fa-plus-circle "></i><a data-toggle="collapse" href="#sub-menu-khac">Công Việc Khác</a> <span class="caret"></span></h3>
+                                <h3 class="uppercase custom-border"><i class="fa fa-plus-circle "></i><a data-toggle="collapse" href="#sub-menu-khac">Công Việc Khác</a> <span class="caret"></span></h3>
                             </li>
                             <div class="collapse list-group-level1" id="sub-menu-khac">
                                 <li class="nav-item <?php echo e(Request::is('khac') ? 'active open' : ''); ?>">
@@ -220,8 +242,8 @@
                                     </a>
                                 </li>
                             </div>
-                            <li class="heading">
-                                <h3 class="uppercase"><i class="fa fa-warning"></i><a data-toggle="collapse" href="#sub-menu-canhbao">Cảnh Báo</a> <span class="caret"></span></h3>
+                            <li class="heading custom-border">
+                                <h3 class="uppercase custom-border"><i class="fa fa-warning"></i><a data-toggle="collapse" href="#sub-menu-canhbao">Cảnh Báo</a> <span class="caret"></span></h3>
                             </li>
                             <div class="collapse list-group-level1" id="sub-menu-canhbao">
                                 <?php if (app('laratrust')->can('read-giangvien')) : ?>
@@ -236,14 +258,14 @@
                             </div>
                             <?php if (app('laratrust')->can('read-file-manager')) : ?>
                             <li class="heading">
-                                <h3 class="uppercase"> <i class="fa fa-file-code-o"></i><a data-toggle="collapse" href="#sub-menu-nangcao">Quản Trị Nâng Cao</a> <span class="caret"></span></h3>
+                                <h3 class="uppercase custom-border"> <i class="fa fa-file-code-o"></i><a data-toggle="collapse" href="#sub-menu-nangcao">Quản Trị Nâng Cao</a> <span class="caret"></span></h3>
                             </li>
                             <div class="collapse list-group-level1" id="sub-menu-nangcao">
                                 <?php if (app('laratrust')->can('read-users')) : ?>
                                 <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/hocphan' ? 'active open' : ''); ?>">
                                     <a href="<?php echo e(route('hocphan.index')); ?>" class="nav-link nav-toggle">
-                                       
-                                        <span class="title"> Import Lịch Bằng Excel</span>
+                                    
+                                        <span class="title"> Import Lịch Excel</span>
                                         <span class="selected"></span>
                                     </a>
                                 </li>
@@ -263,9 +285,16 @@
                                     </a>
                                 </li>
                                 <?php endif; // app('laratrust')->can ?>
+                                
+                            </div>
+                            <li class="heading custom-border">
+                                <h3 class=""> 
+                                    <img alt="" style="width: 20px; " src="<?php echo e(asset('images/logout2.png')); ?>" />
+                                    <a  href="#sub-menu-nangcao" style="color: #e63946">Đăng Xuất</a>
+                                </h3>
+                            </li>
                         </ul>
                         <!-- END SIDEBAR MENU -->
-
                     </div>
                     <!-- END SIDEBAR -->
                 </div>

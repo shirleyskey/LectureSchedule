@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Bảng điều khiển'); ?>
+<?php $__env->startSection('title', 'Bảng điều khiển | Lịch Theo Học Phần'); ?>
 
 <?php $__env->startSection('content'); ?>
 <!-- BEGIN CONTENT -->
