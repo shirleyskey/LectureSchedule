@@ -3751,7 +3751,7 @@ var oTable_hop = table_hop.dataTable({
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Họp: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Học Tập: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",

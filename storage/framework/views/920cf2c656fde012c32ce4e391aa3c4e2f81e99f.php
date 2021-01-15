@@ -137,7 +137,7 @@
             <li class="heading custom-border">
                 <h3 class=""> 
                     <img alt="" style="width: 20px; " src="<?php echo e(asset('images/logout2.png')); ?>" />
-                    <a  href="#sub-menu-nangcao" style="color: #e63946">Đăng Xuất</a>
+                    <a  href="<?php echo e(route('logout.get')); ?>" style="color: #e63946">Đăng Xuất</a>
                 </h3>
             </li>
         </ul>

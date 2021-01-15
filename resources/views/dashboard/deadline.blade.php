@@ -121,6 +121,51 @@
                     </div>
 
                     <div class="col-md-12">
+                        @if($xaydung->isNotEmpty())
+               <!-- BEGIN EXAMPLE TABLE PORTLET-->
+               <div class="portlet light portlet-fit bordered deadline deadline-xaydung">
+                   <div class="portlet-body">
+                       @permission('create-giangvien')
+                       <div class="table-toolbar">
+                           <div class="row">
+                               <p class=""> <i style="color: aqua; opacity: 0.5;" class="fa fa-briefcase "></i>Xây Dựng Chương Trình</p>
+                           </div>
+                       </div>
+                       @endpermission
+                       <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
+                           <thead>
+                               <tr>
+                                   <th> STT</th>
+                                   <th> Tên Công Việc</th>
+                                   <th> Giảng Viên </th>
+                                   <th> Hạn</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                                @if($xaydung->count() > 0 )
+                                   @php $stt = 1; @endphp
+                                   @foreach( $xaydung as $v )
+                                    <tr>
+                                       <td> {{ $stt }} </td>
+                                       <td> {{$v->ten}} </td>
+                                        <td> {{$v->giangviens->ten}} </td>
+                                       <td> 
+                                            <a class="btn_edit_congtac btn btn-xs yellow-gold" > <i class="fa fa-edit"></i> 1 Ngày </a>
+                                       </td>
+                                       
+                                   </tr>
+                                   @php $stt++; @endphp
+                                   @endforeach
+                               @endif
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+               <!-- END EXAMPLE TABLE PORTLET-->
+                @endif
+                   </div>
+
+                    <div class="col-md-12">
                          @if($dang->isNotEmpty())
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered deadline deadline-dang">

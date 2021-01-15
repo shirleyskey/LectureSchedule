@@ -119,6 +119,51 @@
                     </div>
 
                     <div class="col-md-12">
+                        <?php if($xaydung->isNotEmpty()): ?>
+               <!-- BEGIN EXAMPLE TABLE PORTLET-->
+               <div class="portlet light portlet-fit bordered deadline deadline-xaydung">
+                   <div class="portlet-body">
+                       <?php if (app('laratrust')->can('create-giangvien')) : ?>
+                       <div class="table-toolbar">
+                           <div class="row">
+                               <p class=""> <i style="color: aqua; opacity: 0.5;" class="fa fa-briefcase "></i>Xây Dựng Chương Trình</p>
+                           </div>
+                       </div>
+                       <?php endif; // app('laratrust')->can ?>
+                       <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
+                           <thead>
+                               <tr>
+                                   <th> STT</th>
+                                   <th> Tên Công Việc</th>
+                                   <th> Giảng Viên </th>
+                                   <th> Hạn</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                                <?php if($xaydung->count() > 0 ): ?>
+                                   <?php $stt = 1; ?>
+                                   <?php $__currentLoopData = $xaydung; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <tr>
+                                       <td> <?php echo e($stt); ?> </td>
+                                       <td> <?php echo e($v->ten); ?> </td>
+                                        <td> <?php echo e($v->giangviens->ten); ?> </td>
+                                       <td> 
+                                            <a class="btn_edit_congtac btn btn-xs yellow-gold" > <i class="fa fa-edit"></i> 1 Ngày </a>
+                                       </td>
+                                       
+                                   </tr>
+                                   <?php $stt++; ?>
+                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                               <?php endif; ?>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+               <!-- END EXAMPLE TABLE PORTLET-->
+                <?php endif; ?>
+                   </div>
+
+                    <div class="col-md-12">
                          <?php if($dang->isNotEmpty()): ?>
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered deadline deadline-dang">
