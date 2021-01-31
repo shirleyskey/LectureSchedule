@@ -103,6 +103,12 @@ Route::prefix('khac')->middleware(['auth', 'only_active_user'])->group(function 
 
 });
 
+// Lich tuan Routes...
+Route::prefix('tuan')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/tuan', ['uses' =>'TuanController@index','as'=>'tuan.get']);
+
+});
+
 // Lớp Routes...
 Route::prefix('lop')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/', ['middleware' => ['permission:read-lop'], 'uses'=>'LopController@index','as'=>'lop.index']);
@@ -225,6 +231,11 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postTimTietTheoId', ['uses'=>'TietController@postTimTietTheoId','as'=>'postTimTietTheoId']);
     Route::post('/postSuaTiet', ['middleware' => ['permission:update-hocphan'], 'uses'=>'TietController@postSuaTiet','as'=>'postSuaTiet']);
     Route::post('/postXoaTiet', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'TietController@postXoaTiet','as'=>'postXoaTiet']);
+//Tuan
+    Route::post('/postThemTuan', ['middleware' => ['permission:create-hocphan'], 'uses'=>'TuanController@postThemTuan','as'=>'postThemTuan']);
+    Route::post('/postTimTuanTheoId', ['uses'=>'TuanController@postTimTuanTheoId','as'=>'postTimTuanTheoId']);
+    Route::post('/postSuaTuan', ['middleware' => ['permission:update-hocphan'], 'uses'=>'TuanController@postSuaTuan','as'=>'postSuaTuan']);
+    Route::post('/postXoaTuan', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'TuanController@postXoaTuan','as'=>'postXoaTuan']);
 
  
 

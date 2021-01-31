@@ -6,6 +6,7 @@
                 <div class="img">
                     <img src="<?php echo e(asset('images/logo_andt.png')); ?>" alt="" srcset="">
                     <h2>Khoa An ninh Điều tra</h2>
+                    <h3>Học viện An Ninh Nhân Dân</h3>
                 </div>
             </div>
             <div class="col-md-2"></div>

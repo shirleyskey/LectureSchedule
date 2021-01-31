@@ -22,9 +22,9 @@
             <!-- END SIDEBAR TOGGLER BUTTON -->
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
             <?php if (app('laratrust')->can('read-giangvien')) : ?>
-            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/khac' ? 'active open' : ''); ?>">
+            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/tuan' ? 'active open' : ''); ?>">
                 <h3 class="uppercase custom-border">
-                    <a href="<?php echo e(route('khac.edit.get')); ?>" style="color: #dbe7f2;" class="nav-link">
+                    <a href="<?php echo e(route('tuan.get')); ?>" style="color: #dbe7f2;" class="nav-link">
                         <i class="fa fa-calendar" style="color: #dbe7f2;"></i>
                         <span class="title" >Lịch Tuần</span>
                         <span class="selected"></span>

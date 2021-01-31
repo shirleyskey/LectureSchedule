@@ -34,6 +34,8 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Mã Học Phần</th>
+                                    <th> Bắt Đầu  </th>
+                                    <th> Kết Thúc   </th>
                                     <th> Lớp</th>
                                     <th style="text-align: center"> Bài - Giáo Viên</th>
                                 </tr>
@@ -48,6 +50,26 @@
                                         <td> 
                                             <?php echo e($v->mahocphan); ?>
 
+                                        </td>
+                                        <td>
+                                            <span>
+                                                <?php 
+                                                $batdau = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian','desc')->first();
+                                                $ketthuc = App\Tiet::where('id_hocphan', $v->id)->orderBy('thoigian','asc')->first();
+                                                if($batdau){
+                                                    echo \Carbon\Carbon::parse($batdau->thoigian)->format('Y-m-d');
+                                                }
+                                                ?>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>
+                                                <?php 
+                                                   if($ketthuc){
+                                                    echo \Carbon\Carbon::parse($ketthuc->thoigian)->format('Y-m-d');
+                                                   }
+                                                ?>
+                                            </span>
                                         </td>
                                         <td> <?php echo e($v->lops->tenlop); ?> </td>
                                         <td> 
