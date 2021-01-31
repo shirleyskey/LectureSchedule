@@ -21,27 +21,21 @@
             </li>
             <!-- END SIDEBAR TOGGLER BUTTON -->
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
-            <li class="nav-item start ">
-                <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">
-                    <i class="fa fa-dashboard" style="color: #dbe7f2;"></i>
-                    <span class="title"> <strong>BẢNG ĐIỀU KHIỂN</strong></span>
-                    <span class="selected"></span>
-                </a>
-            </li>
             <?php if (app('laratrust')->can('read-giangvien')) : ?>
-            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
+            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/khac' ? 'active open' : ''); ?>">
                 <h3 class="uppercase custom-border">
-                    <a href="<?php echo e(route('giangvien.index')); ?>" style="color: #dbe7f2;" class="nav-link">
-                        <i class="fa fa-user" style="color: #dbe7f2;"></i>
-                        <span class="title" >Giảng Viên</span>
+                    <a href="<?php echo e(route('khac.edit.get')); ?>" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-calendar" style="color: #dbe7f2;"></i>
+                        <span class="title" >Lịch Tuần</span>
                         <span class="selected"></span>
                     </a>
                 </h3>
             </li>
             <?php endif; // app('laratrust')->can ?>
+           
             
             <li class="heading nav-item">
-                <h3 class="uppercase custom-border"> <a data-toggle="collapse" href="#sub-menu" class="nav-link nav-toggle"><i class="fa fa-building-o"></i> LỊCH GIẢNG</a> <span class="caret"></span></h3>
+                <h3 class="uppercase custom-border"> <a data-toggle="collapse" href="#sub-menu" class="nav-link nav-toggle"><i class="fa fa-building-o"></i>GIẢNG DẠY</a> <span class="caret"></span></h3>
             </li>
             <div class="collapse list-group-level1" id="sub-menu">
             <?php if (app('laratrust')->can('read-lop')) : ?>
@@ -77,32 +71,42 @@
                 </a>
             </li>
             </div>
-            <li class="heading">
-                <h3 class="uppercase custom-border"><i class="fa fa-plus-circle "></i><a data-toggle="collapse" href="#sub-menu-khac">Công Việc Khác</a> <span class="caret"></span></h3>
-            </li>
-            <div class="collapse list-group-level1" id="sub-menu-khac">
-                <li class="nav-item <?php echo e(Request::is('khac') ? 'active open' : ''); ?>">
-                    <a href="<?php echo e(route('khac.edit.get')); ?>" class="nav-link nav-toggle">
-                        
-                        <span class="title">Công Việc Khác</span>
+            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/khac' ? 'active open' : ''); ?>">
+                <h3 class="uppercase custom-border">
+                    <a href="<?php echo e(route('khac.edit.get')); ?>" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-plus-circle " style="color: #dbe7f2;"></i>
+                        <span class="title" >Công Tác Khác</span>
                         <span class="selected"></span>
                     </a>
-                </li>
-            </div>
-            <li class="heading custom-border">
-                <h3 class="uppercase custom-border"><i class="fa fa-warning"></i><a data-toggle="collapse" href="#sub-menu-canhbao">Cảnh Báo</a> <span class="caret"></span></h3>
+                </h3>
             </li>
-            <div class="collapse list-group-level1" id="sub-menu-canhbao">
-                <?php if (app('laratrust')->can('read-giangvien')) : ?>
-                <li class="nav-item <?php echo e(Request::is('deadline') ? 'active open' : ''); ?>">
-                    <a href="<?php echo e(route('dashboard.deadline')); ?>" class="nav-link nav-toggle">
-                        
-                        <span class="title">Cảnh Báo Đến Hạn</span>
+            <?php endif; // app('laratrust')->can ?>
+            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
+                <h3 class="uppercase custom-border">
+                    <a href="<?php echo e(route('giangvien.index')); ?>" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-user" style="color: #dbe7f2;"></i>
+                        <span class="title" >Giảng Viên</span>
                         <span class="selected"></span>
                     </a>
-                </li>
-                <?php endif; // app('laratrust')->can ?>
-            </div>
+                </h3>
+            </li>
+            <?php endif; // app('laratrust')->can ?>
+            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/dashboard' ? 'active open' : ''); ?>">
+                <h3 class="uppercase custom-border">
+                    <a href="<?php echo e(route('dashboard.deadline')); ?>" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-warning" style="color: #dbe7f2;"></i>
+                        <span class="title" >Đến Hạn</span>
+                        <span class="selected"></span>
+                    </a>
+                </h3>
+            </li>
+            <?php endif; // app('laratrust')->can ?>
+
+
+            
             <?php if (app('laratrust')->can('read-file-manager')) : ?>
             <li class="heading">
                 <h3 class="uppercase custom-border"> <i class="fa fa-file-code-o"></i><a data-toggle="collapse" href="#sub-menu-nangcao">Quản Trị Nâng Cao</a> <span class="caret"></span></h3>

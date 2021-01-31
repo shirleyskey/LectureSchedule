@@ -56,7 +56,7 @@ a.fc-time-grid-event.fc-event.fc-start.fc-end .fc-time {
     height: 7px;
     border-radius: 100%;
     margin-right: 3px;
-    ÃƒÂ°Ã…Â¸Ã…â€™Ã†â€™
+    ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢
 }
 .deadline .table-toolbar{
     border-bottom: 1px solid gray !important;
@@ -212,3 +212,28 @@ ul.page-sidebar-menu div.list-group-level1 li:hover a span{
     z-index: 9995;
     background-color: #00334e;
 }
+.footer{
+    color: #fff;
+    background-color: #00101978;
+    padding-bottom: 30px;
+}
+.footer .left .title{
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 60px;
+    font-size: 29px;
+}
+.footer .left .description{
+    font-size: 15px;
+    list-style: none;
+    margin-top: 30px;
+}
+.footer .left .description li{
+    color: #ffffff6b;
+    margin-bottom: 9px;
+    letter-spacing: 1.1;
+}
+.footer .right .dev{font-size: 13px;}
+.footer .right .img{position: relative;text-align: center;margin-top: 60px;}
+.footer .right .img img{height: 180px;}
+.footer .right .img h2{text-transform: uppercase;font-weight: 600;font-size: 24px;}

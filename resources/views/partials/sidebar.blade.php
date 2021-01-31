@@ -21,27 +21,21 @@
             </li>
             <!-- END SIDEBAR TOGGLER BUTTON -->
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
-            <li class="nav-item start ">
-                <a href="{{ route('dashboard') }}" class="nav-link">
-                    <i class="fa fa-dashboard" style="color: #dbe7f2;"></i>
-                    <span class="title"> <strong>BẢNG ĐIỀU KHIỂN</strong></span>
-                    <span class="selected"></span>
-                </a>
-            </li>
             @permission('read-giangvien')
-            <li class="heading nav-item {{ Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : '' }}">
+            <li class="heading nav-item {{ Route::getCurrentRoute()->getPrefix() == '/khac' ? 'active open' : '' }}">
                 <h3 class="uppercase custom-border">
-                    <a href="{{ route('giangvien.index') }}" style="color: #dbe7f2;" class="nav-link">
-                        <i class="fa fa-user" style="color: #dbe7f2;"></i>
-                        <span class="title" >Giảng Viên</span>
+                    <a href="{{ route('khac.edit.get') }}" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-calendar" style="color: #dbe7f2;"></i>
+                        <span class="title" >Lịch Tuần</span>
                         <span class="selected"></span>
                     </a>
                 </h3>
             </li>
             @endpermission
+           
             
             <li class="heading nav-item">
-                <h3 class="uppercase custom-border"> <a data-toggle="collapse" href="#sub-menu" class="nav-link nav-toggle"><i class="fa fa-building-o"></i> LỊCH GIẢNG</a> <span class="caret"></span></h3>
+                <h3 class="uppercase custom-border"> <a data-toggle="collapse" href="#sub-menu" class="nav-link nav-toggle"><i class="fa fa-building-o"></i>GIẢNG DẠY</a> <span class="caret"></span></h3>
             </li>
             <div class="collapse list-group-level1" id="sub-menu">
             @permission('read-lop')
@@ -77,32 +71,42 @@
                 </a>
             </li>
             </div>
-            <li class="heading">
-                <h3 class="uppercase custom-border"><i class="fa fa-plus-circle "></i><a data-toggle="collapse" href="#sub-menu-khac">Công Việc Khác</a> <span class="caret"></span></h3>
-            </li>
-            <div class="collapse list-group-level1" id="sub-menu-khac">
-                <li class="nav-item {{ Request::is('khac') ? 'active open' : '' }}">
-                    <a href="{{ route('khac.edit.get') }}" class="nav-link nav-toggle">
-                        
-                        <span class="title">Công Việc Khác</span>
+            @permission('read-giangvien')
+            <li class="heading nav-item {{ Route::getCurrentRoute()->getPrefix() == '/khac' ? 'active open' : '' }}">
+                <h3 class="uppercase custom-border">
+                    <a href="{{ route('khac.edit.get') }}" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-plus-circle " style="color: #dbe7f2;"></i>
+                        <span class="title" >Công Tác Khác</span>
                         <span class="selected"></span>
                     </a>
-                </li>
-            </div>
-            <li class="heading custom-border">
-                <h3 class="uppercase custom-border"><i class="fa fa-warning"></i><a data-toggle="collapse" href="#sub-menu-canhbao">Cảnh Báo</a> <span class="caret"></span></h3>
+                </h3>
             </li>
-            <div class="collapse list-group-level1" id="sub-menu-canhbao">
-                @permission('read-giangvien')
-                <li class="nav-item {{ Request::is('deadline') ? 'active open' : '' }}">
-                    <a href="{{ route('dashboard.deadline') }}" class="nav-link nav-toggle">
-                        
-                        <span class="title">Cảnh Báo Đến Hạn</span>
+            @endpermission
+            @permission('read-giangvien')
+            <li class="heading nav-item {{ Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : '' }}">
+                <h3 class="uppercase custom-border">
+                    <a href="{{ route('giangvien.index') }}" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-user" style="color: #dbe7f2;"></i>
+                        <span class="title" >Giảng Viên</span>
                         <span class="selected"></span>
                     </a>
-                </li>
-                @endpermission
-            </div>
+                </h3>
+            </li>
+            @endpermission
+            @permission('read-giangvien')
+            <li class="heading nav-item {{ Route::getCurrentRoute()->getPrefix() == '/dashboard' ? 'active open' : '' }}">
+                <h3 class="uppercase custom-border">
+                    <a href="{{ route('dashboard.deadline') }}" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-warning" style="color: #dbe7f2;"></i>
+                        <span class="title" >Đến Hạn</span>
+                        <span class="selected"></span>
+                    </a>
+                </h3>
+            </li>
+            @endpermission
+
+
+            
             @permission('read-file-manager')
             <li class="heading">
                 <h3 class="uppercase custom-border"> <i class="fa fa-file-code-o"></i><a data-toggle="collapse" href="#sub-menu-nangcao">Quản Trị Nâng Cao</a> <span class="caret"></span></h3>
