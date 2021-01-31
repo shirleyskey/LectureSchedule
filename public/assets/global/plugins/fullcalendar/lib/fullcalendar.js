@@ -6276,7 +6276,8 @@ $.extend(DayGrid.prototype, {
 
 				if (totalSegsBelow) { // do we need to replace this segment with one or many "more" links?
 					td = cellMatrix[levelLimit - 1][seg.leftCol]; // the segment's parent cell
-					rowspan = td.attr('rowspan') || 1;
+					// rowspan = td.attr('rowspan') || 1;
+					rowspan = 1;
 					segMoreNodes = [];
 
 					// make a replacement <td> for each column the segment occupies. will be one for each colspan

@@ -33,11 +33,19 @@ class CalendarController extends Controller
                     $startDate->addHours(9);
                     $startDate->addMinute(30);
                 }
+                else if($tiet->buoi == "S" && $tiet->ca == "0"){
+                    $startDate->addHours(7);
+                    $startDate->addMinute(50);
+                }
                 else if($tiet->buoi == "C" && $tiet->ca == "1"){
                     $startDate->addHours(13);
                 }
                 else if($tiet->buoi == "C" && $tiet->ca == "2"){
                     $startDate->addHours(15);
+                    
+                }
+                else if($tiet->buoi == "C" && $tiet->ca == "0"){
+                    $startDate->addHours(13);
                     
                 }
                 //Tên Lớp
@@ -52,7 +60,7 @@ class CalendarController extends Controller
 
                 // Tên Giáo Viên 
                 $giangvien = GiangVien::where('id', $tiet->id_giangvien)->first();
-                $tengiangvien = ($giangvien) ? ($giangvien["ma_giangvien"]) : "Chưa Phân";
+                $tengiangvien = ($giangvien) ? ($giangvien["ten"]) : "Chưa Phân";
 
                 $title = $tenhocphan. " - ".$tenbai.'-'.$tiendo.'-'.$tengiangvien;
                 $events[] = Calendar::event(

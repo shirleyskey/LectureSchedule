@@ -914,3 +914,4 @@ Stack trace:
 #60 /opt/lampp/htdocs/lectureSchedule/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #61 {main}
 "} 
+[2021-01-31 12:26:13] local.INFO: Email: superadministrator@app.com đăng nhập thành công  
