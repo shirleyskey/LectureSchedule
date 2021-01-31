@@ -915,3 +915,17 @@ Stack trace:
 #61 {main}
 "} 
 [2021-01-31 12:26:13] local.INFO: Email: superadministrator@app.com đăng nhập thành công  
+[2021-01-31 14:23:35] local.INFO: Email: vuongthanglong@gmail.com đăng nhập thành công  
+[2021-01-31 14:27:04] local.INFO: Người dùng ID:12 đã thêm Nckh ID:30-Tai Lieu Day Hoc  
+[2021-01-31 15:58:59] local.INFO: Người dùng ID:12 đã thêm Nckh ID:31-AAA1111  
+[2021-01-31 15:59:32] local.INFO: Người dùng ID:12 đã thêm Nckh ID:32-11111  
+[2021-01-31 16:00:05] local.INFO: Người dùng ID:12 đã thêm Nckh ID:33-eee  
+[2021-01-31 16:00:35] local.INFO: Người dùng ID:12 đã sửa Nckh ID:21-NC222wwww  
+[2021-01-31 16:00:46] local.INFO: Người dùng ID:12 đã sửa Nckh ID:21-NC222wwww  
+[2021-01-31 16:10:24] local.INFO: Người dùng ID:12 đã thêm Nckh ID:34-A  
+[2021-01-31 16:10:53] local.INFO: Người dùng ID:12 đã thêm Nckh ID:35-BB  
+[2021-01-31 16:11:21] local.INFO: Người dùng ID:12 đã thêm Nckh ID:36-cccc  
+[2021-01-31 16:11:53] local.INFO: Người dùng ID:12 đã thêm Nckh ID:37-d  
+[2021-01-31 16:12:06] local.INFO: Người dùng ID:12 đã sửa Nckh ID:35-BBbbbb  
+[2021-01-31 16:12:17] local.INFO: Người dùng ID:12 đã xóa NCKH id:37-d  
+[2021-01-31 16:12:45] local.INFO: Người dùng ID:12 đã thêm Nckh ID:38-cccc  

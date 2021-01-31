@@ -3,8 +3,12 @@
 @section('title', 'Danh sách NCKH')
 
 @section('style')
-    <link href="{{ asset('assets/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link href="{{ asset('assets/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/global/plugins/icheck/skins/all.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
 @endsection()
 
 @section('content')
@@ -56,25 +60,16 @@
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
-                            <a href="#tab1" data-toggle="tab">Đề Tài Cấp Bộ</a>
+                            <a href="#tab1" data-toggle="tab">Đề Tài</a>
                         </li>
                         <li>
-                            <a href="#tab2" data-toggle="tab">Đề Tài Cấp Cơ Sở</a>
+                            <a href="#tab5" data-toggle="tab">Tài Liệu Dạy Học</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab">Tập Bài Giảng</a>
-                        </li>
-                        <li>
-                            <a href="#tab4" data-toggle="tab">Chuyên Đề</a>
-                        </li>
-                        <li>
-                            <a href="#tab5" data-toggle="tab">Tài Liệu Tham Khảo</a>
+                            <a href="#tab7" data-toggle="tab">Bài Báo, Tham luận</a>
                         </li>
                         <li>
                             <a href="#tab6" data-toggle="tab">Sáng Kiến Cải Tiến</a>
-                        </li>
-                        <li>
-                            <a href="#tab7" data-toggle="tab">Bài Báo Khoa Học</a>
                         </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
@@ -97,13 +92,13 @@
                                                     <tr>
                                                         <th> STT</th>
                                                         <th style="width: 20%;"> Tên Đề Tài</th>
+                                                        <th> Cấp</th>
                                                         <th> Chủ Biên</th>
                                                         <th> Tham Gia</th>
                                                         <th> Bắt Đầu</th>
                                                         <th> Kết Thúc</th>
-                                                        <th> Thể Loại</th>
-                                                        <th> Số Trang</th>
                                                         <th> Số Giờ</th>
+                                                        <th> Ghi Chú</th>
                                                         @permission('delete-nckh')
                                                         <th> Hành Động</th>
                                                         @endpermission
@@ -116,6 +111,7 @@
                                                         <tr>
                                                             <td> {{ $stt }} </td>
                                                             <td> {{ $v->ten }} </td>
+                                                            <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
                                                             <td>
                                                                 @php
                                                                     $chubien = json_decode( $v->chubien, true);
@@ -138,10 +134,11 @@
                                                             </td>
                                                             <td> {{$v->batdau}}</td>
                                                             <td> {{$v->ketthuc}}</td>
-                                                            <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
+                                                            
                                                             <td> {{$v->sotrang}}</td>
-                                                            <td>
-                                                                {{-- In ra số Giờ --}}
+                                                            <td> {{$v->ghichu}}</td>
+                                                            {{-- <td>
+                                                                In ra số Giờ
                                                                 @switch($v->theloai)
                                                                     @case(1)
                                                                     {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
@@ -170,7 +167,7 @@
                                                                     @default
                                                                         {{$gio_kh = $v->sotrang}}
                                                                 @endswitch
-                                                            </td>
+                                                            </td> --}}
                                                             @permission('delete-nckh')
                                                             <td>
                                                            
@@ -195,346 +192,9 @@
                                 @endif
                             </div>
                             <!-- END TAB 1-->
-                         <!-- BEGIN TAB 2 NCKH-->
-                         <div class="tab-pane" id="tab2">
-                            @if($capcoso->isNotEmpty())
-                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                <div class="portlet light portlet-fit bordered">
-                                    <div class="portlet-body">
-                                        <div class="table-toolbar">
-                                            <div class="row">
+                         
+                     
 
-                                            </div>
-                                        </div>
-                                        <table class="table table-striped table-hover table-bordered" id="ds_coso">
-                                            <thead>
-                                                <tr>
-                                                    <th> STT</th>
-                                                    <th style="width: 20%;"> Tên Đề Tài</th>
-                                                    <th> Chủ Biên</th>
-                                                    <th> Tham Gia</th>
-                                                    <th> Bắt Đầu</th>
-                                                    <th> Kết Thúc</th>
-                                                    <th> Thể Loại</th>
-                                                    <th> Số Trang</th>
-                                                    <th> Số Giờ</th>
-                                                    @permission('delete-nckh')
-                                                    <th> Hành Động</th>
-                                                    @endpermission
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @if( $capcoso->count() > 0 )
-                                                    @php $stt = 1; @endphp
-                                                    @foreach( $capcoso as $v )
-                                                    <tr>
-                                                        <td> {{ $stt }} </td>
-                                                        <td> {{ $v->ten }} </td>
-                                                        <td>
-                                                            @php
-                                                                $chubien = json_decode( $v->chubien, true);
-                                                            @endphp
-                                                                @foreach($chubien as $key => $value)
-                                                                @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                                  <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
-                                                                  @endif
-                                                                @endforeach
-                                                        </td>
-                                                        <td>
-                                                        @php
-                                                            $thamgia = json_decode( $v->thamgia, true);
-                                                        @endphp
-                                                            @foreach($thamgia as $key => $value)
-                                                            @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
-                                                            @endif
-                                                            @endforeach
-                                                        </td>
-                                                        <td> {{$v->batdau}}</td>
-                                                        <td> {{$v->ketthuc}}</td>
-                                                        <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
-                                                        <td> {{$v->sotrang}}</td>
-                                                        <td>
-                                                            {{-- In ra số Giờ --}}
-                                                            @switch($v->theloai)
-                                                                @case(1)
-                                                                {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
-                                                                    @break
-                                                                @case(2)
-                                                                   {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
-                                                                    @break
-                                                                @case(3)
-                                                                    {{ $gio_kh = 6*4}}
-                                                                    @break
-                                                                @case(4)
-                                                                {{ $gio_kh =($v->sotrang/2.5)*10*4}}
-                                                                    @break
-                                                                @case(5)
-                                                                {{ $gio_kh = $v->sotrang*1.5}}
-                                                                    @break
-                                                                @case(6)
-                                                                    {{$gio_kh = $v->sotrang*4.27}}
-                                                                    @break
-                                                                @case(7)
-                                                                    {{$gio_kh = $v->sotrang*2}}
-                                                                    @break
-                                                                @case(8)
-                                                                    {{$gio_kh = $v->sotrang}}
-                                                                    @break
-                                                                @default
-                                                                    {{$gio_kh = $v->sotrang}}
-                                                            @endswitch
-                                                        </td>
-                                                        @permission('delete-nckh')
-                                                        <td>
-                                                        
-                                                            <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                                            <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                        </td>
-                                                        @endpermission
-                                                    </tr>
-                                                    @php $stt++; @endphp
-                                                    @endforeach
-                                                @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- END EXAMPLE TABLE PORTLET-->
-                            @else
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không có đề tài cấp cơ sở nào. </p>
-                                </div>
-                            @endif
-                        </div>
-                        <!-- END TAB 2-->
-                     <!-- BEGIN TAB 3 NCKH-->
-                     <div class="tab-pane" id="tab3">
-                        @if($tapbaigiang->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <div class="table-toolbar">
-                                        <div class="row">
-
-                                        </div>
-                                    </div>
-                                    <table class="table table-striped table-hover table-bordered" id="ds_tap">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th style="width: 20%;"> Tên Đề Tài</th>
-                                                <th> Chủ Biên</th>
-                                                <th> Tham Gia</th>
-                                                <th> Bắt Đầu</th>
-                                                <th> Kết Thúc</th>
-                                                <th> Thể Loại</th>
-                                                <th> Số Trang</th>
-                                                <th> Số Giờ</th>
-                                                @permission('delete-nckh')
-                                                <th> Hành Động</th>
-                                                @endpermission
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $tapbaigiang->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $tapbaigiang as $v )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v->ten }} </td>
-                                                    <td>
-                                                        @php
-                                                            $chubien = json_decode( $v->chubien, true);
-                                                        @endphp
-                                                            @foreach($chubien as $key => $value)
-                                                            @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                              <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
-                                                            @endif
-                                                            @endforeach
-                                                    </td>
-                                                    <td>
-                                                    @php
-                                                        $thamgia = json_decode( $v->thamgia, true);
-                                                    @endphp
-                                                        @foreach($thamgia as $key => $value)
-                                                        @if( App\GiangVien::where('id', $value)->first() !== null)
-                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
-                                                        @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td> {{$v->batdau}}</td>
-                                                    <td> {{$v->ketthuc}}</td>
-                                                    <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
-                                                    <td> {{$v->sotrang}}</td>
-                                                    <td>
-                                                        {{-- In ra số Giờ --}}
-                                                        @switch($v->theloai)
-                                                            @case(1)
-                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
-                                                                @break
-                                                            @case(2)
-                                                               {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
-                                                                @break
-                                                            @case(3)
-                                                                {{ $gio_kh = 6*4}}
-                                                                @break
-                                                            @case(4)
-                                                            {{ $gio_kh =($v->sotrang/2.5)*10*4}}
-                                                                @break
-                                                            @case(5)
-                                                            {{ $gio_kh = $v->sotrang*1.5}}
-                                                                @break
-                                                            @case(6)
-                                                                {{$gio_kh = $v->sotrang*4.27}}
-                                                                @break
-                                                            @case(7)
-                                                                {{$gio_kh = $v->sotrang*2}}
-                                                                @break
-                                                            @case(8)
-                                                                {{$gio_kh = $v->sotrang}}
-                                                                @break
-                                                            @default
-                                                                {{$gio_kh = $v->sotrang}}
-                                                        @endswitch
-                                                    </td>
-                                                    @permission('delete-nckh')
-                                                    <td>
-                                                        <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="#" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                                        <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                    </td>
-                                                    @endpermission
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                        @else
-                            <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                <p> Không có tập bài giảng nào. </p>
-                            </div>
-                        @endif
-                    </div>
-                    <!-- END TAB 3-->
-
-                     <!-- BEGIN TAB 4 NCKH-->
-                     <div class="tab-pane" id="tab4">
-                        @if($chuyende->isNotEmpty())
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <div class="table-toolbar">
-                                        <div class="row">
-                                            <div class="col-md-6">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-striped table-hover table-bordered" id="ds_chuyende">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th style="width: 20%;"> Tên Đề Tài</th>
-                                                <th> Chủ Biên</th>
-                                                <th> Tham Gia</th>
-                                                <th> Bắt Đầu</th>
-                                                <th> Kết Thúc</th>
-                                                <th> Thể Loại</th>
-                                                <th> Số Trang</th>
-                                                <th> Số Giờ</th>
-                                                @permission('delete-nckh')
-                                                <th> Hành Động</th>
-                                                @endpermission
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if( $chuyende->count() > 0 )
-                                                @php $stt = 1; @endphp
-                                                @foreach( $chuyende as $v )
-                                                <tr>
-                                                    <td> {{ $stt }} </td>
-                                                    <td> {{ $v->ten }} </td>
-                                                    <td>
-                                                        @php
-                                                            $chubien = json_decode( $v->chubien, true);
-                                                        @endphp
-                                                            @foreach($chubien as $key => $value)
-                                                            @if( App\GiangVien::where('id', $value)->first() !== null)
-                                                              <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
-                                                            @endif
-                                                            @endforeach
-                                                    </td>
-                                                    <td>
-                                                    @php
-                                                        $thamgia = json_decode( $v->thamgia, true);
-                                                    @endphp
-                                                        @foreach($thamgia as $key => $value)
-                                                        @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
-                                                        @endif
-                                                        @endforeach
-                                                    </td>
-                                                    <td> {{$v->batdau}}</td>
-                                                    <td> {{$v->ketthuc}}</td>
-                                                    <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
-                                                    <td> {{$v->sotrang}}</td>
-                                                    <td>
-                                                        {{-- In ra số Giờ --}}
-                                                        @switch($v->theloai)
-                                                            @case(1)
-                                                            {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
-                                                                @break
-                                                            @case(2)
-                                                               {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
-                                                                @break
-                                                            @case(3)
-                                                                {{ $gio_kh = 6*4}}
-                                                                @break
-                                                            @case(4)
-                                                            {{ $gio_kh =($v->sotrang/2.5)*10*4}}
-                                                                @break
-                                                            @case(5)
-                                                            {{ $gio_kh = $v->sotrang*1.5}}
-                                                                @break
-                                                            @case(6)
-                                                                {{$gio_kh = $v->sotrang*4.27}}
-                                                                @break
-                                                            @case(7)
-                                                                {{$gio_kh = $v->sotrang*2}}
-                                                                @break
-                                                            @case(8)
-                                                                {{$gio_kh = $v->sotrang}}
-                                                                @break
-                                                            @default
-                                                                {{$gio_kh = $v->sotrang}}
-                                                        @endswitch
-                                                    </td>
-                                                    @permission('delete-nckh')
-                                                    <td>
-                                                        <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                                        <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                    </td>
-                                                    @endpermission
-                                                </tr>
-                                                @php $stt++; @endphp
-                                                @endforeach
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                        @else
-                            <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                <p> Không có Chuyên đề nào.</p>
-                            </div>
-                        @endif
-                    </div>
-                    <!-- END TAB 5-->
                       <!-- BEGIN TAB <i class="fas fa-500px    "></i> NCKH-->
                       <div class="tab-pane" id="tab5">
                         @if($thamkhao->isNotEmpty())
@@ -552,14 +212,14 @@
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th style="width: 20%;"> Tên Đề Tài</th>
+                                                <th style="width: 20%;"> Tên</th>
+                                                <th> Thể Loại</th>
                                                 <th> Chủ Biên</th>
                                                 <th> Tham Gia</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
-                                                <th> Thể Loại</th>
-                                                <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
                                                 @permission('delete-nckh')
                                                 <th> Hành Động</th>
                                                 @endpermission
@@ -572,6 +232,7 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v->ten }} </td>
+                                                    <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
                                                     <td>
                                                         @php
                                                             $chubien = json_decode( $v->chubien, true);
@@ -594,10 +255,11 @@
                                                     </td>
                                                     <td> {{$v->batdau}}</td>
                                                     <td> {{$v->ketthuc}}</td>
-                                                    <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
+                                                    
                                                     <td> {{$v->sotrang}}</td>
-                                                    <td>
-                                                        {{-- In ra số Giờ --}}
+                                                    <td> {{$v->ghichu}}</td>
+                                                    {{-- <td>
+                                                        In ra số Giờ
                                                         @switch($v->theloai)
                                                             @case(1)
                                                             {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
@@ -626,7 +288,7 @@
                                                             @default
                                                                 {{$gio_kh = $v->sotrang}}
                                                         @endswitch
-                                                    </td>
+                                                    </td> --}}
                                                     @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -665,14 +327,14 @@
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th style="width: 20%;"> Tên Đề Tài</th>
+                                                <th style="width: 20%;"> Tên</th>
+                                                <th> Thể Loại</th>
                                                 <th> Chủ Biên</th>
                                                 <th> Tham Gia</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
-                                                <th> Thể Loại</th>
-                                                <th> Số Trang</th>
                                                 <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
                                                 @permission('delete-nckh')
                                                 <th> Hành Động</th>
                                                 @endpermission
@@ -685,6 +347,7 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v->ten }} </td>
+                                                    <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
                                                     <td>
                                                         @php
                                                             $chubien = json_decode( $v->chubien, true);
@@ -707,10 +370,11 @@
                                                     </td>
                                                     <td> {{$v->batdau}}</td>
                                                     <td> {{$v->ketthuc}}</td>
-                                                    <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
+                                                   
                                                     <td> {{$v->sotrang}}</td>
-                                                    <td>
-                                                        {{-- In ra số Giờ --}}
+                                                    <td> {{$v->ghichu}}</td>
+                                                    {{-- <td>
+                                                        In ra số Giờ
                                                         @switch($v->theloai)
                                                             @case(1)
                                                             {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
@@ -739,7 +403,7 @@
                                                             @default
                                                                 {{$gio_kh = $v->sotrang}}
                                                         @endswitch
-                                                    </td>
+                                                    </td> --}}
                                                     @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -778,9 +442,13 @@
                                             <tr>
                                                 <th> STT</th>
                                                 <th style="width: 20%;"> Tên Bài Báo khoa Học</th>
-                                                <th> Họ Tên Tác Giả</th>
-                                                <th> Tạp Chí Đăng Tải</th>
+                                                <th> Loại</th>
+                                                <th> Chủ Biên</th>
+                                                <th> Tham Gia</th>
+                                                <th> Bắt Đầu</th>
+                                                <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
+                                                <th> Ghi Chú</th>
                                                 @permission('delete-nckh')
                                                 <th> Hành Động</th>
                                                 @endpermission
@@ -793,6 +461,7 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v->ten }} </td>
+                                                    <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
                                                     <td>
                                                         @php
                                                             $chubien = json_decode( $v->chubien, true);
@@ -803,9 +472,22 @@
                                                                 @endif
                                                             @endforeach
                                                     </td>
-                                                    <td> {{$v->tapchi}}</td>
                                                     <td>
-                                                        {{-- In ra số Giờ --}}
+                                                        @php
+                                                            $thamgia = json_decode( $v->thamgia, true);
+                                                        @endphp
+                                                            @foreach($thamgia as $key => $value)
+                                                            @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                            @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td> {{$v->batdau}}</td>
+                                                        <td> {{$v->ketthuc}}</td>
+                                                    <td> {{$v->sotrang}}</td>
+                                                    <td> {{$v->ghichu}}</td>
+                                                    {{-- <td>
+                                                        In ra số Giờ
                                                         @switch($v->theloai)
                                                             @case(1)
                                                             {{ $gio_kh = ($v->sotrang/2.5)*8*4}} giờ
@@ -834,7 +516,7 @@
                                                             @default
                                                                 {{$gio_kh = $v->sotrang}} giờ
                                                         @endswitch
-                                                    </td>
+                                                    </td> --}}
                                                     @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -908,9 +590,6 @@
             data: {
                 ten: $("#form_add_nckh input[name='ten']").val(),
                 capbo: ($("#form_add_nckh input[name='capbo']").is(':checked')) ? 1 : 0,
-                capcoso: ($("#form_add_nckh input[name='capcoso']").is(':checked')) ? 1 : 0,
-                tapbaigiang: ($("#form_add_nckh input[name='tapbaigiang']").is(':checked')) ? 1 : 0,
-                chuyende: ($("#form_add_nckh input[name='chuyende']").is(':checked')) ? 1 : 0,
                 thamkhao: ($("#form_add_nckh input[name='thamkhao']").is(':checked')) ? 1 : 0,
                 sangkien: ($("#form_add_nckh input[name='sangkien']").is(':checked')) ? 1 : 0,
                 bao: ($("#form_add_nckh input[name='bao']").is(':checked')) ? 1 : 0,
@@ -920,7 +599,7 @@
                 sotrang: $("#form_add_nckh input[name='sotrang']").val(),
                 batdau: $("#form_add_nckh input[name='batdau']").val(),
                 ketthuc: $("#form_add_nckh input[name='ketthuc']").val(),
-                tapchi: $("#form_add_nckh input[name='tapchi']").val(),
+                ghichu: $("#form_add_nckh input[name='ghichu']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -986,13 +665,10 @@
                         $("#form_edit_nckh input[name='id']").val(data.data.id);
                         $("#form_edit_nckh input[name='ten']").val(data.data.ten);
                         $("#form_edit_nckh input[name='capbo']").prop('checked', (data.data.capbo == 1) ? true : false);
-                        $("#form_edit_nckh input[name='capcoso']").prop('checked', (data.data.capcoso == 1) ? true : false);
-                        $("#form_edit_nckh input[name='tapbaigiang']").prop('checked', (data.data.tapbaigiang == 1) ? true : false);
-                        $("#form_edit_nckh input[name='chuyende']").prop('checked', (data.data.chuyende == 1) ? true : false);
                         $("#form_edit_nckh input[name='thamkhao']").prop('checked', (data.data.thamkhao == 1) ? true : false);
                         $("#form_edit_nckh input[name='sangkien']").prop('checked', (data.data.sangkien == 1) ? true : false);
                         $("#form_edit_nckh input[name='bao']").prop('checked', (data.data.bao == 1) ? true : false);
-                        $("#form_edit_nckh input[name='tapchi']").val(data.data.tapchi);
+                        $("#form_edit_nckh input[name='ghichu']").val(data.data.ghichu);
                         $("#form_edit_nckh input[name='sotrang']").val(data.data.sotrang);
                         $("#form_edit_nckh input[name='batdau']").val(data.data.batdau);
                         $("#form_edit_nckh input[name='ketthuc']").val(data.data.ketthuc);
@@ -1024,9 +700,6 @@
                     id: $("#form_edit_nckh input[name='id']").val(),
                     ten: $("#form_edit_nckh input[name='ten']").val(),
                     capbo: ($("#form_edit_nckh input[name='capbo']").is(':checked')) ? 1 : 0,
-                    capcoso: ($("#form_edit_nckh input[name='capcoso']").is(':checked')) ? 1 : 0,
-                    tapbaigiang: ($("#form_edit_nckh input[name='tapbaigiang']").is(':checked')) ? 1 : 0,
-                    chuyende: ($("#form_edit_nckh input[name='chuyende']").is(':checked')) ? 1 : 0,
                     thamkhao: ($("#form_edit_nckh input[name='thamkhao']").is(':checked')) ? 1 : 0,
                     sangkien: ($("#form_edit_nckh input[name='sangkien']").is(':checked')) ? 1 : 0,
                     bao: ($("#form_edit_nckh input[name='bao']").is(':checked')) ? 1 : 0,
@@ -1036,7 +709,7 @@
                     sotrang: $("#form_edit_nckh input[name='sotrang']").val(),
                     batdau: $("#form_edit_nckh input[name='batdau']").val(),
                     ketthuc: $("#form_edit_nckh input[name='ketthuc']").val(),
-                    tapchi: $("#form_edit_nckh input[name='tapchi']").val(),
+                    ghichu: $("#form_edit_nckh input[name='ghichu']").val(),
 
                 },
                 success: function(data) {
@@ -1163,104 +836,9 @@
             ] // set first column as a default sort by asc
         });
 
-        var table = $('#ds_coso');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
+       
 
-        var table = $('#ds_tap');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
-
-        var table = $('#ds_chuyende');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
+       
 
         var table = $('#ds_thamkhao');
         var oTable = table.dataTable({
@@ -1362,8 +940,12 @@
     });
 </script>
 
-<!-- <script src="{{ asset('assets/global/scripts/datatable.js') }}" type="text/javascript"></script> -->
 <script src="{{ asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/jquery.input-ip-address-control-1.0.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/bootstrap-toastr/toastr.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js') }}" type="text/javascript"></script>
 @endsection

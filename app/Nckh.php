@@ -29,21 +29,18 @@ class Nckh extends Model
         }
         $nckh->ten = $data["ten"];
         $nckh->capbo = $data['capbo'];
-        $nckh->theloai = $data['theloai'];
-        $nckh->capcoso = $data['capcoso'];
-        $nckh->tapbaigiang = $data['tapbaigiang'];
-        $nckh->chuyende = $data['chuyende'];
         $nckh->thamkhao = $data['thamkhao'];
         $nckh->sangkien = $data['sangkien'];
         $nckh->bao = $data['bao'];
-        $nckh->sotrang = $data['sotrang'];
-        $nckh->tapchi = $data['tapchi'];
+        $nckh->theloai = $data['theloai'];
         foreach ($data['chubien'] as $key => $value) {
             $data['chubien'][$key] = (int)$value;         
         }
         foreach ($data['thamgia'] as $key => $value) {
             $data['thamgia'][$key] = (int)$value;         
         }
+        $nckh->sotrang = $data['sotrang'];
+        $nckh->ghichu = $data['ghichu'];
         $nckh->chubien = json_encode($data['chubien']);
         $nckh->thamgia = json_encode($data['thamgia']);
         $nckh->batdau = Carbon::parse($data['batdau'])->format('Y-m-d');

@@ -17,9 +17,6 @@ class NckhController extends Controller
 
     {
         $capbo = Nckh::where('capbo', true)->get();
-        $capcoso = Nckh::where('capcoso', true)->get();
-        $tapbaigiang = Nckh::where('tapbaigiang', true)->get();
-        $chuyende = Nckh::where('chuyende', true)->get();
         $thamkhao = Nckh::where('thamkhao', true)->get();
         $sangkien = Nckh::where('sangkien', true)->get();
         $bao = Nckh::where('bao', true)->get();
@@ -27,9 +24,6 @@ class NckhController extends Controller
         $theloai = LoaiNckh::all();
         return view('nckh.browser.index', [
             'capbo' => $capbo,
-            'capcoso' => $capcoso,
-            'tapbaigiang' => $tapbaigiang,
-            'chuyende' => $chuyende,
             'thamkhao' => $thamkhao,
             'sangkien' => $sangkien,
             'bao' => $bao,

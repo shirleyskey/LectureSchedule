@@ -21,32 +21,21 @@
                                     <label><b>Loại Tài Liệu:</b></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="capbo" name="capbo">
-                                        <label class="form-check-label" for="capbo">Đề tài cấp bộ:</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="capcoso" name="capcoso">
-                                        <label class="form-check-label" for="capcoso">Đề tài cơ sở:</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="tapbaigiang" name="tapbaigiang">
-                                        <label class="form-check-label" for="tapbaigiang">Tập Bài Giảng:</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="chuyende" name="chuyende">
-                                        <label class="form-check-label" for="chuyende">Chuyên Đề:</label>
+                                        <label class="form-check-label" for="capbo">Đề tài</label>
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="thamkhao" name="thamkhao">
-                                        <label class="form-check-label" for="chuyende">Tài Liệu Tham khảo:</label>
+                                        <label class="form-check-label" for="chuyende">Tài Liệu Dạy học:</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="bao" name="bao">
+                                        <label class="form-check-label" for="bao">Bài Báo, tham luận:</label>
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="sangkien" name="sangkien">
                                         <label class="form-check-label" for="chuyende">Sáng Kiến Cải Tiến:</label>
                                     </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="bao" name="bao">
-                                        <label class="form-check-label" for="bao">Bài Báo Khoa Học:</label>
-                                    </div>
+                                    
                                 </div> 
                                
                                 <div class="form-group">
@@ -58,7 +47,7 @@
                                     <input class="form-control" name="ketthuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Số Trang:</b></label>
+                                    <label><b>Số Giờ:</b></label>
                                     <input class="form-control" name="sotrang" type="number" required />
                                 </div>
                                 <div class="form-group">
@@ -105,6 +94,10 @@
                                                     @endforeach
                                                 @endif
                                             </select>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Ghi Chú:</b></label>
+                                    <input class="form-control" name="ghichu" type="text" required />
                                 </div>
                             <div class="col-md-6">
                                 
