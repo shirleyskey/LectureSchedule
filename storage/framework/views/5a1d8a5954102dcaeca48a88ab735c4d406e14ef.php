@@ -49,35 +49,124 @@
         <?php endif; ?>
         <div class="row box_gio">
             <div class="col-md-12">
-            <h2>Hoạt Động tính giờ</h2>
+            <h2>Thông Tin</h2>
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin</a>
+                            
                         </li>
-                        <li>
-                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
-                        </li>
-                        <li>
-                            <a href="#tab_hop" data-toggle="tab">Họp</a>
-                        </li>
-                        <li>
-                            <a href="#tab3" data-toggle="tab">Đi Thực Tế</a>
-                        </li>
-                        <li>
-                            <a href="#tab4" data-toggle="tab">Chấm Bài</a>
-                        </li>
-                        <li>
-                            <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
-                        </li>
-                        <li>
-                            <a href="#tab10" data-toggle="tab">Học Tập</a>
-                        </li>
+                        
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        <?php echo $__env->make('giangvien.edit.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        
+                        <form action="<?php echo e(route('giangvien.edit.post', $giangvien->id)); ?>" method="post" id="form_sample_2" class="form-horizontal">
+                            <?php echo csrf_field(); ?>
+                            <div class="tab-content">
+                                <!-- BEGIN TAB 1-->
+                                <div class="tab-pane active" id="tab1">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Mã Giảng Viên:
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" name="ma_giangvien" value="<?php echo e($giangvien->ma_giangvien); ?>" required maxlength="191" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Họ tên
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" name="ten" value="<?php echo e($giangvien->ten); ?>" required maxlength="191" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Chức Vụ:
+                                                        
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-building-o"></i>
+                                                            <input type="text" class="form-control" name="chucvu"  maxlength="191" value="<?php echo e($giangvien->chucvu); ?>" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Hệ Số Lương:
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-plus-circle"></i>
+                                                            <input type="number" step="any" class="form-control" name="hesoluong" value="<?php echo e($giangvien->hesoluong); ?>" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Chỗ Ở:
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-phone"></i>
+                                                            <input type="text" class="form-control" name="diachi" value="<?php echo e($giangvien->diachi); ?>" /> </div>
+                                                    </div>
+                                                </div>
+                        
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Chức Danh:</label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-briefcase"></i>
+                                                            <input type="text" class="form-control" name="chucdanh" value="<?php echo e($giangvien->chucdanh); ?>" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Trình Độ:</label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-book"></i>
+                                                            <input type="text" class="form-control" name="trinhdo" value="<?php echo e($giangvien->trinhdo); ?>" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Có Thể Giảng: <span>(Giảng nhập 1, không giảng nhập 0)</span><span class="required"> * </span></label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-envelope"></i>
+                                                            <input type="number" class="form-control" required name="cothegiang" value="<?php echo e($giangvien->cothegiang); ?>" /> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Bài Giảng:</label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-book"></i>
+                                                            <input type="text" class="form-control" name="bai_giang" value="<?php echo e($giangvien->bai_giang); ?>" /> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TAB 1-->
+                            </div>
+    
+                        </form>
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->
@@ -85,31 +174,11 @@
             </div>
         </div>
 
-        <div class="row box_gio">
-            <div class="col-md-12">
-            <h2>Hoạt Động không tính giờ</h2>
-                <div class="tabbable tabbable-tabdrop">
-                    <ul class="nav nav-pills" id="#myTab">
-                        <li class="active">
-                            <a href="#tab_vanban" data-toggle="tab">Xử Lý Văn Bản</a>
-                        </li>
-                        <li>
-                            <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
-                        </li>
-                       <li>
-                            <a href="#tab7" data-toggle="tab">Xây Dựng CT</a>
-                        </li> 
-                    </ul>
-                    <!-- BEGIN VALIDATION STATES-->
-                    <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
-                        <!-- BEGIN FORM-->
-                        <?php echo $__env->make('giangvien.edit.form_notgio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        
                         <!-- END FORM-->
-                    </div>
+                     
                     <!-- END VALIDATION STATES-->
-                </div>
-            </div>
-        </div>
+                
         <div class="clearfix"></div>
         <!-- END DASHBOARD STATS 1-->
     </div>
