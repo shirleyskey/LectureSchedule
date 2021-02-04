@@ -11,7 +11,7 @@ class Hdkh extends Model
      //
      protected $table = 'hdkh';
      public $timestamps = false;
-     protected $fillable = ['id_giangvien', 'khoa_luan', 'luan_van', 'luan_an', 'hoc_vien', 'khoa', 'so_gio','svnc'];
+     protected $fillable = ['id_giangvien', 'khoa_luan', 'luan_van', 'luan_an', 'hoc_vien', 'khoa', 'gio_giang', 'gio_khoahoc','sinhvien_nc', 'bat_dau', 'ket_thuc'];
      
      public function giangviens()
      {
@@ -27,12 +27,15 @@ class Hdkh extends Model
          }
          $hdkh->id_giangvien = $data["id_giangvien"];
          $hdkh->khoa_luan = $data['khoa_luan'];
-         $hdkh->svnc = $data['svnc'];
+         $hdkh->sinhvien_nc = $data['sinhvien_nc'];
          $hdkh->luan_van = $data['luan_van'];
          $hdkh->luan_an = $data['luan_an'];
          $hdkh->hoc_vien = $data['hoc_vien'];
+         $hdkh->bat_dau = Carbon::parse($data['bat_dau'])->format('Y-m-d');
+         $hdkh->ket_thuc = Carbon::parse($data['ket_thuc'])->format('Y-m-d');
          $hdkh->khoa = $data['khoa'];
-         $hdkh->so_gio = $data['so_gio'];
+         $hdkh->gio_giang = $data['gio_giang'];
+         $hdkh->gio_khoahoc = $data['gio_khoahoc'];
          $hdkh->ghichu = $data['ghichu'];
         
          $hdkh->save();

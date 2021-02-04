@@ -524,12 +524,14 @@
                                                 @if( $hdkh->count() > 0 )
                                                    
                                                     @foreach( $hdkh as $v_hdkh )
-                                                    @php $total_hdkh += $v_hdkh->so_gio; @endphp
+                                                    @php $total_hdkh += ($v_hdkh->gio_giang + $v_hdkh->gio_khoahoc); @endphp
                                                     
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> Hướng Dẫn Khoa Học </td>
+                                                        <td> {{ $v_hdkh->gio_giang}} </td>
+                                                        <td> {{ $v_hdkh->gio_khoahoc}} </td>
                                                         <td> {{ $total_hdkh }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -796,7 +798,10 @@
                                             <th> Loại Hướng Dẫn</th>
                                             <th> Học Viên</th>
                                             <th> Khóa</th>
-                                            <th> Số Giờ</th>
+                                            <th> Bắt Đầu</th>
+                                            <th> Kết Thúc</th>
+                                            <th> Giờ Giảng</th>
+                                            <th> Giờ Khoa Học</th>
                                             <th> Ghi Chú</th>
                                         </tr>
                                     </thead>
@@ -818,12 +823,18 @@
                                                      else if($v_hdkh->luan_an == 1) {
                                                          echo "Luận Án";
                                                      }   
+                                                     else if($v_hdkh->sinhvien_nc == 1) {
+                                                         echo "Sinh Viên NCKH";
+                                                     }   
                                                 @endphp
                                                  </td>
 
                                                 <td> {{ $v_hdkh->hoc_vien }} </td>
                                                 <td> {{ $v_hdkh->khoa }} </td>
-                                                <td> {{ $v_hdkh->so_gio }} </td>
+                                                <td> {{ $v_hdkh->bat_dau }} </td>
+                                                <td> {{ $v_hdkh->ket_thuc }} </td>
+                                                <td> {{ $v_hdkh->gio_giang }} </td>
+                                                <td> {{ $v_hdkh->gio_khoahoc }} </td>
                                                 <td> {{ $v_hdkh->ghichu }} </td>
                                             </tr>
                                             @php $stt++; @endphp

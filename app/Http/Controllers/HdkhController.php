@@ -14,10 +14,11 @@ class HdkhController extends Controller
      //AJAX
      public function postThemHdkh(Request $request)
      {
+         
          if ($request->ajax()) {
              try{
                  $hdkh = Hdkh::saveHdkh(0, $request->all());
-                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm hdkh ID:'.$hdkh->id.'-'.$hdkh->ten);
+                 Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm hdkh ID:'.$hdkh->id);
                  return response()->json([
                      'status' => true
                  ]);
@@ -25,6 +26,9 @@ class HdkhController extends Controller
              catch(\Exception $e){
                  Log::error($e);
              }
+         }
+         else {
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã thêm hdkh thất bại:');
          }
      }
  
@@ -62,7 +66,7 @@ class HdkhController extends Controller
          $id = $hdkh->id;
          try{
              $hdkh->delete();
-             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa hdkh id:'.$request->input('id').'-'.$hdkh->ten);
+             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa hdkh id:'.$request->input('id').'-');
              return response()->json([
                  'status' => true
              ]);

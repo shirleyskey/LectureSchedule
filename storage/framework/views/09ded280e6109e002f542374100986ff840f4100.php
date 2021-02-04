@@ -493,12 +493,14 @@
                                                 <?php if( $hdkh->count() > 0 ): ?>
                                                    
                                                     <?php $__currentLoopData = $hdkh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hdkh): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_hdkh += $v_hdkh->so_gio; ?>
+                                                    <?php $total_hdkh += ($v_hdkh->gio_giang + $v_hdkh->gio_khoahoc); ?>
                                                     
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> Hướng Dẫn Khoa Học </td>
+                                                        <td> <?php echo e($v_hdkh->gio_giang); ?> </td>
+                                                        <td> <?php echo e($v_hdkh->gio_khoahoc); ?> </td>
                                                         <td> <?php echo e($total_hdkh); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -765,7 +767,10 @@
                                             <th> Loại Hướng Dẫn</th>
                                             <th> Học Viên</th>
                                             <th> Khóa</th>
-                                            <th> Số Giờ</th>
+                                            <th> Bắt Đầu</th>
+                                            <th> Kết Thúc</th>
+                                            <th> Giờ Giảng</th>
+                                            <th> Giờ Khoa Học</th>
                                             <th> Ghi Chú</th>
                                         </tr>
                                     </thead>
@@ -787,12 +792,18 @@
                                                      else if($v_hdkh->luan_an == 1) {
                                                          echo "Luận Án";
                                                      }   
+                                                     else if($v_hdkh->sinhvien_nc == 1) {
+                                                         echo "Sinh Viên NCKH";
+                                                     }   
                                                 ?>
                                                  </td>
 
                                                 <td> <?php echo e($v_hdkh->hoc_vien); ?> </td>
                                                 <td> <?php echo e($v_hdkh->khoa); ?> </td>
-                                                <td> <?php echo e($v_hdkh->so_gio); ?> </td>
+                                                <td> <?php echo e($v_hdkh->bat_dau); ?> </td>
+                                                <td> <?php echo e($v_hdkh->ket_thuc); ?> </td>
+                                                <td> <?php echo e($v_hdkh->gio_giang); ?> </td>
+                                                <td> <?php echo e($v_hdkh->gio_khoahoc); ?> </td>
                                                 <td> <?php echo e($v_hdkh->ghichu); ?> </td>
                                             </tr>
                                             <?php $stt++; ?>

@@ -1385,3 +1385,6 @@ Stack trace:
 [2021-02-04 08:55:27] local.INFO: Người dùng ID:1 đã xóa Cuộc Họp id:14-Công tác Mường Nhé Dang  
 [2021-02-04 08:55:33] local.INFO: Người dùng ID:1 đã xóa Cuộc Họp id:11-rrrrrrrrrrrrr  
 [2021-02-04 08:55:39] local.INFO: Người dùng ID:1 đã xóa Cuộc Họp id:12-yyyyyyyyyyyyy  
+[2021-02-04 09:46:04] local.INFO: Người dùng ID:1 đã thêm hdkh ID:9  
+[2021-02-04 09:46:22] local.INFO: Người dùng ID:1 đã sửa hdkh ID:9-  
+[2021-02-04 09:47:48] local.INFO: Người dùng ID:1 đã xóa hdkh id:9-  

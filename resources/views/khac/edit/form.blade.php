@@ -181,7 +181,10 @@
                                     <th> Loại Hướng Dẫn</th>
                                     <th> Học Viên</th>
                                     <th> Khóa</th>
-                                    <th> Số Giờ</th>
+                                    <th> Bắt Đầu</th>
+                                    <th> Kết Thúc</th>
+                                    <th> Giờ Gỉang</th>
+                                    <th> Giờ Khoa Học</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -209,7 +212,7 @@
                                             else if($v->luan_an == 1) {
                                                 echo "Luận Án";
                                             }  
-                                            else if($v->svnc == 1) {
+                                            else if($v->sinhvien_nc == 1) {
                                                 echo "Sinh viên NCKH";
                                             }   
                                         @endphp
@@ -217,7 +220,10 @@
 
                                         <td> {{ $v->hoc_vien }} </td>
                                         <td> {{ $v->khoa }} </td>
-                                        <td> {{ $v->so_gio }} </td>
+                                        <td> {{ $v->bat_dau }} </td>
+                                        <td> {{ $v->ket_thuc }} </td>
+                                        <td> {{ $v->gio_giang }} </td>
+                                        <td> {{ $v->gio_khoahoc }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
                                             @permission('create-giangvien')

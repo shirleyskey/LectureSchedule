@@ -1010,8 +1010,8 @@
                                 <div class="form-group">
                                     <label><b>Loại Hướng Dẫn</b></label>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="svnc" name="svnc">
-                                        <label class="form-check-label" for="svnc">Sinh viên NCKH:</label>
+                                        <input type="checkbox" class="form-check-input" id="sinhvien_nc" name="sinhvien_nc">
+                                        <label class="form-check-label" for="sinhvien_nc">Sinh viên NCKH:</label>
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="khoa_luan" name="khoa_luan">
@@ -1035,8 +1035,20 @@
                                     <input  name="khoa" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Số Giờ: <span class="required">*</span></label>
-                                    <input  name="so_gio" type="number" class="form-control" required>
+                                    <label>Bắt Đầu: <span class="required">*</span></label>
+                                    <input  name="bat_dau" type="date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Thúc: <span class="required">*</span></label>
+                                    <input  name="ket_thuc" type="date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Giảng: <span class="required">*</span></label>
+                                    <input  name="gio_giang" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Khoa Học: <span class="required">*</span></label>
+                                    <input  name="gio_khoahoc" type="number" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
@@ -1093,8 +1105,8 @@
                                 <div class="form-group">
                                     <label><b>Loại Hướng Dẫn</b></label>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="svnc" name="svnc">
-                                        <label class="form-check-label" for="svnc">Sinh viên NCKH:</label>
+                                        <input type="checkbox" class="form-check-input" id="sinhvien_nc" name="sinhvien_nc">
+                                        <label class="form-check-label" for="sinhvien_nc">Sinh viên NCKH:</label>
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="khoa_luan" name="khoa_luan">
@@ -1118,8 +1130,20 @@
                                     <input  name="khoa" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Số Giờ: <span class="required">*</span></label>
-                                    <input  name="so_gio" type="number" class="form-control" required>
+                                    <label>Bắt Đầu: <span class="required">*</span></label>
+                                    <input  name="bat_dau" type="date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Thúc: <span class="required">*</span></label>
+                                    <input  name="ket_thuc" type="date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Giảng: <span class="required">*</span></label>
+                                    <input  name="gio_giang" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Khoa Học: <span class="required">*</span></label>
+                                    <input  name="gio_khoahoc" type="number" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
@@ -2972,11 +2996,14 @@ $.ajax({
             method: 'POST',
             data: {
                 id_giangvien: $("#form_add_hdkh select[name='id_giangvien']").val(),
-                svnc: ($("#form_add_hdkh input[name='svnc']").is(':checked')) ? 1 : 0,
+                sinhvien_nc: ($("#form_add_hdkh input[name='sinhvien_nc']").is(':checked')) ? 1 : 0,
                 khoa_luan: ($("#form_add_hdkh input[name='khoa_luan']").is(':checked')) ? 1 : 0,
                 luan_van: ($("#form_add_hdkh input[name='luan_van']").is(':checked')) ? 1 : 0,
                 luan_an: ($("#form_add_hdkh input[name='luan_an']").is(':checked')) ? 1 : 0,
-                so_gio: $("#form_add_hdkh input[name='so_gio']").val(),
+                bat_dau: $("#form_add_hdkh input[name='bat_dau']").val(),
+                ket_thuc: $("#form_add_hdkh input[name='ket_thuc']").val(),
+                gio_giang: $("#form_add_hdkh input[name='gio_giang']").val(),
+                gio_khoahoc: $("#form_add_hdkh input[name='gio_khoahoc']").val(),
                 hoc_vien: $("#form_add_hdkh input[name='hoc_vien']").val(),
                 khoa: $("#form_add_hdkh input[name='khoa']").val(),
                 ghichu: $("#form_add_hdkh input[name='ghichu']").val(),
@@ -3044,11 +3071,14 @@ $.ajax({
                          // console.log(data.data);
                          $("#form_edit_hdkh select[name='id_giangvien']").val(data.data.id_giangvien);
                          $("#form_edit_hdkh input[name='id']").val(data.data.id);
-                        $("#form_edit_hdkh input[name='svnc']").prop('checked', (data.data.svnc == 1) ? true : false);
+                        $("#form_edit_hdkh input[name='sinhvien_nc']").prop('checked', (data.data.sinhvien_nc == 1) ? true : false);
                         $("#form_edit_hdkh input[name='khoa_luan']").prop('checked', (data.data.khoa_luan == 1) ? true : false);
                         $("#form_edit_hdkh input[name='luan_van']").prop('checked', (data.data.luan_van == 1) ? true : false);
                         $("#form_edit_hdkh input[name='luan_an']").prop('checked', (data.data.luan_an == 1) ? true : false);
-                        $("#form_edit_hdkh input[name='so_gio']").val(data.data.so_gio);
+                        $("#form_edit_hdkh input[name='bat_dau']").val(data.data.bat_dau);
+                        $("#form_edit_hdkh input[name='ket_thuc']").val(data.data.ket_thuc);
+                        $("#form_edit_hdkh input[name='gio_giang']").val(data.data.gio_giang);
+                        $("#form_edit_hdkh input[name='gio_khoahoc']").val(data.data.gio_khoahoc);
                         $("#form_edit_hdkh input[name='hoc_vien']").val(data.data.hoc_vien);
                         $("#form_edit_hdkh input[name='khoa']").val(data.data.khoa);
                         $("#form_edit_hdkh input[name='ghichu']").val(data.data.ghichu);
@@ -3076,11 +3106,14 @@ $.ajax({
                  data: {
                      id: $("#form_edit_hdkh input[name='id']").val(),
                      id_giangvien: $("#form_edit_hdkh select[name='id_giangvien']").val(),
-                     svnc: ($("#form_edit_hdkh input[name='svnc']").is(':checked')) ? 1 : 0,
+                     sinhvien_nc: ($("#form_edit_hdkh input[name='sinhvien_nc']").is(':checked')) ? 1 : 0,
                      khoa_luan: ($("#form_edit_hdkh input[name='khoa_luan']").is(':checked')) ? 1 : 0,
                     luan_van: ($("#form_edit_hdkh input[name='luan_van']").is(':checked')) ? 1 : 0,
                     luan_an: ($("#form_edit_hdkh input[name='luan_an']").is(':checked')) ? 1 : 0,
-                    so_gio: $("#form_edit_hdkh input[name='so_gio']").val(),
+                    bat_dau: $("#form_edit_hdkh input[name='bat_dau']").val(),
+                    ket_thuc: $("#form_edit_hdkh input[name='ket_thuc']").val(),
+                    gio_giang: $("#form_edit_hdkh input[name='gio_giang']").val(),
+                    gio_khoahoc: $("#form_edit_hdkh input[name='gio_khoahoc']").val(),
                     hoc_vien: $("#form_edit_hdkh input[name='hoc_vien']").val(),
                     khoa: $("#form_edit_hdkh input[name='khoa']").val(),
                     ghichu: $("#form_edit_hdkh input[name='ghichu']").val(),
@@ -3139,7 +3172,7 @@ $.ajax({
                  }
              });
              swal({
-                 title: "Xóa Hướng dẫn Khoa họcc này?",
+                 title: "Xóa Hướng dẫn Khoa học này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,

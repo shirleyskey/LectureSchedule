@@ -210,6 +210,12 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postSuaHop', ['uses'=>'HopController@postSuaHop','as'=>'postSuaHop']);
     Route::post('/postXoaHop', ['uses'=>'HopController@postXoaHop','as'=>'postXoaHop']);
 
+     //NCS
+     Route::post('/postThemHdkh', ['uses'=>'HdkhController@postThemHdkh','as'=>'postThemHdkh']);
+     Route::post('/postTimHdkhTheoId', ['uses'=>'HdkhController@postTimHdkhTheoId','as'=>'postTimHdkhTheoId']);
+     Route::post('/postSuaHdkh', ['uses'=>'HdkhController@postSuaHdkh','as'=>'postSuaHdkh']);
+     Route::post('/postXoaHdkh', ['uses'=>'HdkhController@postXoaHdkh','as'=>'postXoaHdkh']);
+
 
     Route::post('/postThemHocTap', ['uses'=>'HocTapController@postThemHocTap','as'=>'postThemHocTap']);
     Route::post('/postTimHocTapTheoId', ['uses'=>'HocTapController@postTimHocTapTheoId','as'=>'postTimHocTapTheoId']);
@@ -237,14 +243,5 @@ Route::prefix('ajax')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/postSuaTuan', ['middleware' => ['permission:update-hocphan'], 'uses'=>'TuanController@postSuaTuan','as'=>'postSuaTuan']);
     Route::post('/postXoaTuan', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'TuanController@postXoaTuan','as'=>'postXoaTuan']);
 
- 
-
-
    
-
-    //NCS
-    Route::post('/postThemHdkh', ['middleware' => ['permission:create-hocphan'], 'uses'=>'HdkhController@postThemHdkh','as'=>'postThemHdkh']);
-    Route::post('/postTimHdkhTheoId', ['uses'=>'HdkhController@postTimHdkhTheoId','as'=>'postTimHdkhTheoId']);
-    Route::post('/postSuaHdkh', ['middleware' => ['permission:update-hocphan'], 'uses'=>'HdkhController@postSuaHdkh','as'=>'postSuaHdkh']);
-    Route::post('/postXoaHdkh', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'HdkhController@postXoaHdkh','as'=>'postXoaHdkh']);
 });
