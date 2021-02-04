@@ -352,9 +352,6 @@
             <?php endif; ?>
         </div>
         <!-- END TAB 4-->
-
-       
-
           <!-- BEGIN TAB 7-->
           <div class="tab-pane" id="tab6">
             <?php if($daygioi->isNotEmpty()): ?>
@@ -381,8 +378,10 @@
                                     <th> Tên Giảng Viên</th>
                                     <th> Tên Bài </th>
                                     <th> Cấp</th>
-                                    <th> Thời Gian</th>
-                                    <th> Số Giờ</th>
+                                    <th> Bắt Đầu</th>
+                                    <th> Kết Thúc</th>
+                                    <th> Giờ Giảng</th>
+                                    <th> Giờ Khoa Học</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -403,19 +402,21 @@
                                        
                                         <td> 
                                             <?php
-                                                if($v->cap == 1){
-                                                    echo "Cấp Khoa";
+                                                if($v->cap_bo == 1){
+                                                    echo "Cấp Bộ";
                                                 }
-                                                if($v->cap == 2){
+                                                if($v->cap_hoc_vien == 1){
                                                     echo "Cấp Học Viện";
                                                 }
-                                                if($v->cap == 3){
-                                                    echo "Cấp Bộ";
+                                                if($v->cap_khoa == 1){
+                                                    echo "Cấp Khoa";
                                                 }
                                             ?>
                                         </td>
-                                        <td> <?php echo e($v->thoigian); ?> </td>
-                                        <td> <?php echo e($v->so_gio); ?> </td>
+                                        <td> <?php echo e($v->bat_dau); ?> </td>
+                                        <td> <?php echo e($v->ket_thuc); ?> </td>
+                                        <td> <?php echo e($v->gio_giang); ?> </td>
+                                        <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
                                             <?php if (app('laratrust')->can('create-giangvien')) : ?>
@@ -432,7 +433,7 @@
                     </div>
                 </div>
                 <!-- END EXAMPLE TABLE PORTLET-->
-            <?php else: ?>
+                <?php else: ?>
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
                     <p> Không có hoạt động Dạy Giỏi nào.
                         <?php if (app('laratrust')->can('create-giangvien')) : ?>
@@ -443,80 +444,7 @@
         </div>
         <!-- END TAB 7-->
          <!-- BEGIN TAB 10-->
-         <div class="tab-pane" id="tab10">
-            <?php if($hoctap->isNotEmpty()): ?>
-                <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet light portlet-fit bordered">
-                    <div class="portlet-body">
-                        <div class="table-toolbar">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <?php if (app('laratrust')->can('create-giangvien')) : ?>
-                                    <div class="btn-group">
-                                        <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Học Tập Mới
-
-                                        </a>
-                                    </div>
-                                    <?php endif; // app('laratrust')->can ?>
-                                </div>
-                            </div>
-                        </div>
-                        <table class="table table-striped table-hover table-bordered" id="ds_hoctap">
-                            <thead>
-                                <tr>
-                                    <th> STT</th>
-                                    <th> Tên Giảng Viên</th>
-                                    <th> Tên Lớp </th>
-                                    <th> Loại Hình</th>
-                                    <th> Số Giờ</th>
-                                    <th> Bắt Đầu</th>
-                                    <th> Kết Thúc</th>
-                                    <th> Ghi Chú</th>
-                                    <th> Hành Động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if( $hoctap->count() > 0 ): ?>
-                                    <?php $stt = 1; ?>
-                                    <?php $__currentLoopData = $hoctap; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr>
-                                        <td> <?php echo e($stt); ?> </td>
-                                       <td>
-                                        <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
-                                        <?php echo e($v->giangviens->ten); ?>
-
-                                        <?php endif; ?>
-                                        </td>
-                                        <td> <?php echo e($v->ten); ?> </td>
-                                        <td> <?php echo e($v->loai_hinh); ?> </td>
-                                        <td> <?php echo e($v->so_gio); ?> </td>
-                                        <td> <?php echo e($v->thoigian); ?> </td>
-                                        <td> <?php echo e($v->thoigian_den); ?> </td>
-                                        <td> <?php echo e($v->ghichu); ?> </td>
-                                        <td>
-                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
-                                            <a data-hoctap-id="<?php echo e($v->id); ?>" class="btn_edit_hoctap btn btn-xs yellow-gold" href="#modal_edit_hoctap" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
-                                            <a class="btn_delete_hoctap btn btn-xs red-mint" href="#" data-hoctap-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                            <?php endif; // app('laratrust')->can ?>
-                                        </td>
-                                    </tr>
-                                    <?php $stt++; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- END EXAMPLE TABLE PORTLET-->
-            <?php else: ?>
-                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                    <p> Không tham gia Học Tập Nào nào.
-                        <?php if (app('laratrust')->can('create-giangvien')) : ?>
-                         <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hoctap"><i class="fa fa-plus"></i> Tạo Học Tập Mới</a></p>
-                        <?php endif; // app('laratrust')->can ?>
-                </div>
-            <?php endif; ?>
-        </div>
+         
         <!-- END TAB 10-->
         
     </div>

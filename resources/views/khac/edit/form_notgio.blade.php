@@ -153,7 +153,7 @@
 
          
          <!-- BEGIN TAB 7-->
-         <div class="tab-pane" id="tab7">
+         {{-- <div class="tab-pane" id="tab7">
             @if($xaydung->isNotEmpty())
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">
@@ -225,7 +225,7 @@
                         @endpermission
                 </div>
             @endif
-        </div>
+        </div> --}}
         <!-- END TAB 7-->
         
     </div>

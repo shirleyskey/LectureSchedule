@@ -368,9 +368,6 @@
                             <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
                         </li>
                         <li>
-                            <a href="#tab7" data-toggle="tab">Xây Dựng CT</a>
-                        </li>
-                        <li>
                             <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
                         </li>
                         <li>
@@ -385,9 +382,7 @@
                         <li>
                             <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
                         </li>
-                        <li>
-                            <a href="#tab10" data-toggle="tab">Học Tập</a>
-                        </li>
+                        
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
@@ -736,52 +731,7 @@
                         <?php endif; ?>
                     </div>
                     <!-- END BEGIN TAB 8-->
-                     <!-- BEGIN TAB 10-->
-                     <div class="tab-pane" id="tab10">
-                        <?php if($hoctap->isNotEmpty()): ?>
-                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                        <div class="portlet light portlet-fit bordered">
-                            <div class="portlet-body">
-                                <table class="table table-striped table-hover table-bordered" id="table_ds_hoctap">
-                                    <thead>
-                                        <tr>
-                                            <th> STT</th>
-                                            <th> Tên Lớp</th>
-                                            <th> Loại Hình</th>
-                                            <th> Số Giờ</th>
-                                            <th> Bắt Đầu</th>
-                                            <th> Kết Thúc</th>
-                                            <th> Ghi Chú</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php if( $hoctap->count() > 0 ): ?>
-                                            <?php $stt = 1; ?>
-                                            <?php $__currentLoopData = $hoctap; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hoctap): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <tr>
-                                                <td> <?php echo e($stt); ?> </td>
-                                                <td> <?php echo e($v_hoctap->ten); ?> </td>
-                                                <td> <?php echo e($v_hoctap->loai_hinh); ?> </td>
-                                                <td> <?php echo e($v_hoctap->so_gio); ?> </td>
-                                                <td> <?php echo e($v_hoctap->thoigian); ?> </td>
-                                                <td> <?php echo e($v_hoctap->thoigian_den); ?> </td>
-                                                <td> <?php echo e($v_hoctap->ghichu); ?> </td>
-                                            </tr>
-                                            <?php $stt++; ?>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <?php endif; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- END EXAMPLE TABLE PORTLET-->
-                        <?php else: ?>
-                            <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                <p> Không tham gia học tập!</p>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                    <!-- END BEGIN TAB 10-->
+                   
                      <!-- BEGIN TAB Hướng Dẫn Khoa Học-->
                      <div class="tab-pane" id="tab_hdkh">
                         <?php if($hdkh->isNotEmpty()): ?>
@@ -861,8 +811,10 @@
                                                 <th> STT</th>
                                                 <th> Bài Dạy Giỏi</th>
                                                 <th> Cấp</th>
-                                                <th> Thời Gian</th>
-                                                <th> Số Giờ</th>
+                                                <th> Bắt Đầu</th>
+                                                <th> Kết Thúc</th>
+                                                <th> Giờ Giảng</th>
+                                                <th> Giờ Khoa Học</th>
                                                 <th> Ghi Chú</th>
                                             </tr>
                                         </thead>
@@ -875,19 +827,21 @@
                                                     <td> <?php echo e($v->ten); ?> </td>
                                                     <td>
                                                         <?php
-                                                            if($v->cap == 1){
-                                                                echo "Cấp Khoa";
+                                                            if($v->cap_bo == 1){
+                                                                echo "Cấp Bộ";
                                                             }
-                                                            if($v->cap == 2){
+                                                            if($v->cap_hoc_vien == 1){
                                                                 echo "Cấp Học Viện";
                                                             }
-                                                            if($v->cap == 3){
-                                                                echo "Cấp Bộ";
+                                                            if($v->cap_khoa == 1){
+                                                                echo "Cấp Khoa";
                                                             }
                                                         ?>
                                                     </td>
-                                                    <td> <?php echo e($v->thoigian); ?> </td>
-                                                    <td> <?php echo e($v->so_gio); ?> </td>
+                                                    <td> <?php echo e($v->bat_dau); ?> </td>
+                                                    <td> <?php echo e($v->ket_thuc); ?> </td>
+                                                    <td> <?php echo e($v->gio_giang); ?> </td>
+                                                    <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                     <td> <?php echo e($v->ghichu); ?> </td>
                                                     
                                                     
@@ -951,53 +905,7 @@
                                 <?php endif; ?>
                             </div>
                             <!-- END BEGIN TAB 5-->
-                         <!-- BEGIN TAB 7-->
-                         <div class="tab-pane" id="tab7">
-                            <?php if($xaydung->isNotEmpty()): ?>
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light portlet-fit bordered">
-                                <div class="portlet-body">
-                                    <table class="table table-striped table-hover table-bordered" id="table_ds_xaydung">
-                                        <thead>
-                                            <tr>
-                                                <th> STT</th>
-                                                <th> Tên Chương Trình</th>
-                                                <th> Học Phần</th>
-                                                <th> Khóa</th>
-                                                <th> Vai Trò</th>
-                                                <th> Thời Gian</th>
-                                                <th> Ghi Chú</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php if( $xaydung->count() > 0 ): ?>
-                                                <?php $stt = 1; ?>
-                                                <?php $__currentLoopData = $xaydung; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_xaydung): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <tr>
-                                                    <td> <?php echo e($stt); ?> </td>
-                                                    <td> <?php echo e($v_xaydung->ten); ?> </td>
-                                                    <td> <?php echo e($v_xaydung->hocphan); ?> </td>
-                                                    <td> <?php echo e($v_xaydung->khoa); ?> </td>
-                                                    <td> <?php echo e($v_xaydung->vai_tro); ?> </td>
-                                                    <td> <?php echo e($v_xaydung->thoigian); ?> </td>
-                                                    <td> <?php echo e($v_xaydung->ghichu); ?> </td>
-                                                  
-                                                </tr>
-                                                <?php $stt++; ?>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
-                            <?php else: ?>
-                                <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không tham gia xây dựng chương trình nào!</p>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                        <!-- END BEGIN TAB 7-->
+                       
                         </div>
                         <!-- END FORM-->
                     </div>

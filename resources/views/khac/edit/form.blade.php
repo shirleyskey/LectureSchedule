@@ -348,9 +348,6 @@
             @endif
         </div>
         <!-- END TAB 4-->
-
-       
-
           <!-- BEGIN TAB 7-->
           <div class="tab-pane" id="tab6">
             @if($daygioi->isNotEmpty())
@@ -377,8 +374,10 @@
                                     <th> Tên Giảng Viên</th>
                                     <th> Tên Bài </th>
                                     <th> Cấp</th>
-                                    <th> Thời Gian</th>
-                                    <th> Số Giờ</th>
+                                    <th> Bắt Đầu</th>
+                                    <th> Kết Thúc</th>
+                                    <th> Giờ Giảng</th>
+                                    <th> Giờ Khoa Học</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -398,19 +397,21 @@
                                        
                                         <td> 
                                             @php
-                                                if($v->cap == 1){
-                                                    echo "Cấp Khoa";
+                                                if($v->cap_bo == 1){
+                                                    echo "Cấp Bộ";
                                                 }
-                                                if($v->cap == 2){
+                                                if($v->cap_hoc_vien == 1){
                                                     echo "Cấp Học Viện";
                                                 }
-                                                if($v->cap == 3){
-                                                    echo "Cấp Bộ";
+                                                if($v->cap_khoa == 1){
+                                                    echo "Cấp Khoa";
                                                 }
                                             @endphp
                                         </td>
-                                        <td> {{ $v->thoigian }} </td>
-                                        <td> {{ $v->so_gio }} </td>
+                                        <td> {{ $v->bat_dau }} </td>
+                                        <td> {{ $v->ket_thuc }} </td>
+                                        <td> {{ $v->gio_giang }} </td>
+                                        <td> {{ $v->gio_khoahoc }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
                                             @permission('create-giangvien')
@@ -427,7 +428,7 @@
                     </div>
                 </div>
                 <!-- END EXAMPLE TABLE PORTLET-->
-            @else
+                @else
                 <div class="alert alert-danger" style="margin-bottom: 0px;">
                     <p> Không có hoạt động Dạy Giỏi nào.
                         @permission('create-giangvien')
@@ -438,7 +439,7 @@
         </div>
         <!-- END TAB 7-->
          <!-- BEGIN TAB 10-->
-         <div class="tab-pane" id="tab10">
+         {{-- <div class="tab-pane" id="tab10">
             @if($hoctap->isNotEmpty())
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">
@@ -510,7 +511,7 @@
                         @endpermission
                 </div>
             @endif
-        </div>
+        </div> --}}
         <!-- END TAB 10-->
         
     </div>
