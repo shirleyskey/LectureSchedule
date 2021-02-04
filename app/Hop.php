@@ -26,9 +26,12 @@ class Hop extends Model
          }
          $hop->id_giangvien = $data['id_giangvien'];
          $hop->ten = $data['ten'];
+         $hop->dia_diem = $data['dia_diem'];
          $hop->ghichu = $data['ghichu'];
-         $hop->so_gio = $data['so_gio'];
-         $hop->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
+         $hop->giogiang = $data['giogiang'];
+         $hop->giokhoahoc = $data['giokhoahoc'];
+         $hop->batdau = Carbon::parse($data['batdau'])->format('Y-m-d');
+         $hop->ketthuc = Carbon::parse($data['ketthuc'])->format('Y-m-d');
          $hop->save();
          return $hop;
      }

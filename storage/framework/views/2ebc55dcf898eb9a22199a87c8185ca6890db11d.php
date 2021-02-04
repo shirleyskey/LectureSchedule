@@ -100,9 +100,12 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Tên Cuộc Họp</th>
+                                    <th> Địa Điểm</th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Thời Gian</th>
-                                    <th> Số Giờ</th>
+                                    <th> Bắt Đầu</th>
+                                    <th> Kết Thúc</th>
+                                    <th> Giờ Giảng</th>
+                                    <th> Giờ Khoa Học</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -114,6 +117,7 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->ten); ?> </td>
+                                        <td> <?php echo e($v->dia_diem); ?> </td>
                                         <td>
                                             <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
                                             <?php echo e($v->giangviens->ma_giangvien.'-'.$v->giangviens->ten); ?>
@@ -121,8 +125,10 @@
                                             <?php endif; ?>
 
                                          </td>
-                                        <td> <?php echo e($v->thoigian); ?> </td>
-                                        <td> <?php echo e($v->so_gio); ?> </td>
+                                        <td> <?php echo e($v->batdau); ?> </td>
+                                        <td> <?php echo e($v->ketthuc); ?> </td>
+                                        <td> <?php echo e($v->giogiang); ?> </td>
+                                        <td> <?php echo e($v->giokhoahoc); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
                                             <?php if (app('laratrust')->can('create-giangvien')) : ?>

@@ -436,6 +436,8 @@
                                                 <tr>
                                                     <th> STT</th>
                                                     <th> Thể Loại</th>
+                                                    <th> Giờ Giảng</th>
+                                                    <th> Giờ Khoa Học</th>
                                                     <th> Tổng Số Giờ</th>
                                                 </tr>
                                             </thead>
@@ -453,11 +455,13 @@
                                                 @if( $hop->count() > 0 )
                                                     @php  @endphp
                                                     @foreach( $hop as $v_hop )
-                                                    @php $total_hop += $v_hop->so_gio; @endphp
+                                                    @php $total_hop += ($v_hop->giogiang + $v_hop->giokhoahoc); @endphp
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> Họp </td>
+                                                        <td> {{ $v_hop->giogiang }} </td>
+                                                        <td> {{ $v_hop->giokhoahoc }} </td>
                                                         <td> {{ $total_hop }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -695,8 +699,11 @@
                                         <tr>
                                             <th> STT</th>
                                             <th> Nội Dung Cuộc Họp</th>
-                                            <th> Thời Gian</th>
-                                            <th> Số Giờ</th>
+                                            <th> Địa Điểm</th>
+                                            <th> Bắt Đầu</th>
+                                            <th> Kết Thúc</th>
+                                            <th> Giờ Giảng</th>
+                                            <th> Giờ Khoa Học</th>
                                             <th> Ghi Chú</th>
                                         </tr>
                                     </thead>
@@ -707,8 +714,11 @@
                                             <tr>
                                                 <td> {{ $stt }} </td>
                                                 <td> {{ $v_hop->ten }} </td>
-                                                <td> {{ $v_hop->thoigian }} </td>
-                                                <td> {{ $v_hop->so_gio }} </td>
+                                                <td> {{ $v_hop->dia_diem }} </td>
+                                                <td> {{ $v_hop->batdau }} </td>
+                                                <td> {{ $v_hop->ketthuc }} </td>
+                                                <td> {{ $v_hop->giogiang }} </td>
+                                                <td> {{ $v_hop->giokhoahoc }} </td>
                                                 <td> {{ $v_hop->ghichu }} </td>
                                                 
                                             </tr>

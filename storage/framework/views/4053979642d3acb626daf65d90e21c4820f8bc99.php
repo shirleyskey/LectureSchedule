@@ -21,7 +21,7 @@
                 <li>
                     <a href="<?php echo e(route('dashboard')); ?>">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="<?php echo e(route('khac.edit.get')); ?>">Công Việc Khác</a>
+                    <a href="<?php echo e(route('khac.edit.get')); ?>"> Công Việc Khác </a>
                 </li>
             </ul>
         </div>
@@ -846,6 +846,10 @@
                                     <input  name="ten" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
+                                    <label>Địa Điểm: <span class="required">*</span></label>
+                                    <input  name="dia_diem" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
                                     <label>Tên Giảng Viên: <span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
                                         <option name="gv_hientai"></option>
@@ -857,12 +861,20 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Số Giờ:<span class="required">*</span></label>
-                                    <input name="so_gio" type="number" class="form-control" required>
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
+                                    <input class="form-control" name="batdau" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="ketthuc" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Giảng:<span class="required">*</span></label>
+                                    <input name="giogiang" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Khoa Học:<span class="required">*</span></label>
+                                    <input name="giokhoahoc" type="number" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
@@ -905,8 +917,12 @@
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Cuộc Họp<span class="required">*</span></label>
+                                    <label>Tên Cuộc Họp:<span class="required">*</span></label>
                                     <input value="" name="ten" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Địa Điểm:<span class="required">*</span></label>
+                                    <input value="" name="dia_diem" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
@@ -919,13 +935,22 @@
                                             <?php endif; ?>
                                     </select>
                                 </div>
+                               
                                 <div class="form-group">
-                                    <label>Số Giờ:<span class="required">*</span></label>
-                                    <input name="so_gio" type="number" class="form-control" required>
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
+                                    <input class="form-control" name="batdau" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="ketthuc" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Giảng:<span class="required">*</span></label>
+                                    <input name="giogiang" type="number" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Khoa Học:<span class="required">*</span></label>
+                                    <input name="giokhoahoc" type="number" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
@@ -2725,9 +2750,12 @@ $.ajax({
             data: {
                 id_giangvien: $("#form_add_hop select[name='id_giangvien']").val(),
                 ten: $("#form_add_hop input[name='ten']").val(),
+                dia_diem: $("#form_add_hop input[name='dia_diem']").val(),
+                batdau: $("#form_add_hop input[name='batdau']").val(),
+                ketthuc: $("#form_add_hop input[name='ketthuc']").val(),
+                giogiang: $("#form_add_hop input[name='giogiang']").val(),
+                giokhoahoc: $("#form_add_hop input[name='giokhoahoc']").val(),
                 ghichu: $("#form_add_hop input[name='ghichu']").val(),
-                thoigian: $("#form_add_hop input[name='thoigian']").val(),
-                so_gio: $("#form_add_hop input[name='so_gio']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -2793,9 +2821,12 @@ $.ajax({
                          $("#form_edit_hop select[name='id_giangvien']").val(data.data.id_giangvien);
                          $("#form_edit_hop input[name='id']").val(data.data.id);
                          $("#form_edit_hop input[name='ten']").val(data.data.ten);
+                         $("#form_edit_hop input[name='dia_diem']").val(data.data.dia_diem);
                          $("#form_edit_hop input[name='ghichu']").val(data.data.ghichu);
-                         $("#form_edit_hop input[name='thoigian']").val(data.data.thoigian);
-                         $("#form_edit_hop input[name='so_gio']").val(data.data.so_gio);
+                         $("#form_edit_hop input[name='batdau']").val(data.data.batdau);
+                         $("#form_edit_hop input[name='ketthuc']").val(data.data.ketthuc);
+                         $("#form_edit_hop input[name='giogiang']").val(data.data.giogiang);
+                         $("#form_edit_hop input[name='giokhoahoc']").val(data.data.giokhoahoc);
                          $('#modal_edit_hop').modal('show');
                      }
                  }
@@ -2821,9 +2852,12 @@ $.ajax({
                      id: $("#form_edit_hop input[name='id']").val(),
                      id_giangvien: $("#form_edit_hop select[name='id_giangvien']").val(),
                      ten: $("#form_edit_hop input[name='ten']").val(),
+                     dia_diem: $("#form_edit_hop input[name='dia_diem']").val(),
                      ghichu: $("#form_edit_hop input[name='ghichu']").val(),
-                     thoigian: $("#form_edit_hop input[name='thoigian']").val(),
-                     so_gio: $("#form_edit_hop input[name='so_gio']").val(),
+                     batdau: $("#form_edit_hop input[name='batdau']").val(),
+                     ketthuc: $("#form_edit_hop input[name='ketthuc']").val(),
+                     giogiang: $("#form_edit_hop input[name='giogiang']").val(),
+                     giokhoahoc: $("#form_edit_hop input[name='giokhoahoc']").val(),
 
                  },
                  success: function(data) {

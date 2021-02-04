@@ -405,6 +405,8 @@
                                                 <tr>
                                                     <th> STT</th>
                                                     <th> Thể Loại</th>
+                                                    <th> Giờ Giảng</th>
+                                                    <th> Giờ Khoa Học</th>
                                                     <th> Tổng Số Giờ</th>
                                                 </tr>
                                             </thead>
@@ -422,11 +424,13 @@
                                                 <?php if( $hop->count() > 0 ): ?>
                                                     <?php  ?>
                                                     <?php $__currentLoopData = $hop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_hop += $v_hop->so_gio; ?>
+                                                    <?php $total_hop += ($v_hop->giogiang + $v_hop->giokhoahoc); ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> Họp </td>
+                                                        <td> <?php echo e($v_hop->giogiang); ?> </td>
+                                                        <td> <?php echo e($v_hop->giokhoahoc); ?> </td>
                                                         <td> <?php echo e($total_hop); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -664,8 +668,11 @@
                                         <tr>
                                             <th> STT</th>
                                             <th> Nội Dung Cuộc Họp</th>
-                                            <th> Thời Gian</th>
-                                            <th> Số Giờ</th>
+                                            <th> Địa Điểm</th>
+                                            <th> Bắt Đầu</th>
+                                            <th> Kết Thúc</th>
+                                            <th> Giờ Giảng</th>
+                                            <th> Giờ Khoa Học</th>
                                             <th> Ghi Chú</th>
                                         </tr>
                                     </thead>
@@ -676,8 +683,11 @@
                                             <tr>
                                                 <td> <?php echo e($stt); ?> </td>
                                                 <td> <?php echo e($v_hop->ten); ?> </td>
-                                                <td> <?php echo e($v_hop->thoigian); ?> </td>
-                                                <td> <?php echo e($v_hop->so_gio); ?> </td>
+                                                <td> <?php echo e($v_hop->dia_diem); ?> </td>
+                                                <td> <?php echo e($v_hop->batdau); ?> </td>
+                                                <td> <?php echo e($v_hop->ketthuc); ?> </td>
+                                                <td> <?php echo e($v_hop->giogiang); ?> </td>
+                                                <td> <?php echo e($v_hop->giokhoahoc); ?> </td>
                                                 <td> <?php echo e($v_hop->ghichu); ?> </td>
                                                 
                                             </tr>

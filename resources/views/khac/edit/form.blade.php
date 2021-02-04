@@ -99,9 +99,12 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Tên Cuộc Họp</th>
+                                    <th> Địa Điểm</th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Thời Gian</th>
-                                    <th> Số Giờ</th>
+                                    <th> Bắt Đầu</th>
+                                    <th> Kết Thúc</th>
+                                    <th> Giờ Giảng</th>
+                                    <th> Giờ Khoa Học</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -113,14 +116,17 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->ten }} </td>
+                                        <td> {{ $v->dia_diem }} </td>
                                         <td>
                                             @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
                                             {{ $v->giangviens->ma_giangvien.'-'.$v->giangviens->ten }}
                                             @endif
 
                                          </td>
-                                        <td> {{ $v->thoigian }} </td>
-                                        <td> {{ $v->so_gio }} </td>
+                                        <td> {{ $v->batdau }} </td>
+                                        <td> {{ $v->ketthuc }} </td>
+                                        <td> {{ $v->giogiang }} </td>
+                                        <td> {{ $v->giokhoahoc }} </td>
                                         <td> {{ $v->ghichu }} </td>
                                         <td>
                                             @permission('create-giangvien')
