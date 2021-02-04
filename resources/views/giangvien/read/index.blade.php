@@ -469,12 +469,14 @@
                                                
                                                 @if( $chambai->count() > 0 )
                                                     @foreach( $chambai as $v_chambai )
-                                                    @php $total_chambai += $v_chambai->so_gio; @endphp
+                                                    @php $total_chambai += ($v_chambai->gio_giang + $v_chambai->gio_khoahoc); @endphp
                                                     
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> Chấm Bài </td>
+                                                        <td> {{ $v_chambai->gio_giang }} </td>
+                                                        <td> {{ $v_chambai->gio_khoahoc }} </td>
                                                         <td> {{ $total_chambai }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -653,10 +655,12 @@
                                             <tr>
                                                 <th> STT</th>
                                                 <th> Tên Lớp</th>
-                                                <th> Tên Học Phần</th>
-                                                <th> Thời Gian</th>
+                                                <th> Hình Thúc</th>
                                                 <th> Số Bài</th>
-                                                <th> Số Giờ</th>
+                                                <th> Bắt Đầu</th>
+                                                <th> Kết Thúc</th>
+                                                <th> Giờ Giảng</th>
+                                                <th> Giờ Khoa Học</th>
                                                 <th>Ghi Chú</th>
                                             </tr>
                                         </thead>
@@ -666,11 +670,25 @@
                                                 @foreach( $chambai as $v_chambai )
                                                 <tr>
                                                     <td> {{ $stt }} </td>
-                                                    <td> {{ ($v_chambai->id_lop) ? ($v_chambai->lops->tenlop) : '' }} </td>
-                                                    <td> {{ ($v_chambai->id_hocphan) ? ($v_chambai->hocphans->mahocphan) : '' }} </td>
-                                                    <td> {{ $v_chambai->thoigian }} </td>
+                                                    <td> {{ ($v_chambai->lop) }} </td>
+                                                    <td> 
+                                                        @php 
+                                                            if($v_chambai->hoc_phan == 1) {
+                                                                echo "HP";
+                                                            } 
+                                                            else if($v_chambai->giua_hoc_phan == 1) {
+                                                                echo "GHP";
+                                                            }  
+                                                            else if($v_chambai->cdtn == 1) {
+                                                                echo "CĐTN";
+                                                            }  
+                                                        @endphp
+                                                    </td>
                                                     <td> {{ $v_chambai->so_bai }} </td>
-                                                    <td> {{ $v_chambai->so_gio }} </td>
+                                                    <td> {{ $v_chambai->bat_dau }} </td>
+                                                    <td> {{ $v_chambai->ket_thuc }} </td>
+                                                    <td> {{ $v_chambai->gio_giang }} </td>
+                                                    <td> {{ $v_chambai->gio_khoahoc }} </td>
                                                     <td> {{ $v_chambai->ghichu }} </td>
                                                 </tr>
                                                 @php $stt++; @endphp

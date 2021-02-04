@@ -11,7 +11,7 @@ class ChamBai extends Model
     protected $table = 'chambais';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','thoigian', 'id_lop', 'id_hocphan', 'so_bai', 'so_gio'];
+    protected $fillable = ['id_giangvien','bat_dau','ket_thuc', 'id_lop','so_bai', 'gio_giang', 'gio_khoahoc', 'hoc_phan', 'giua_hoc_phan', 'cdtn'];
 
     public function giangviens()
     {
@@ -33,12 +33,16 @@ class ChamBai extends Model
             $chambai = ChamBai::findOrFail($id);
         }
         $chambai->id_giangvien = $data['id_giangvien'];
-        $chambai->id_lop = $data['id_lop'];
-        $chambai->id_hocphan = $data['id_hocphan'];
+        $chambai->lop = $data['lop'];
+        $chambai->hoc_phan = $data['hoc_phan'];
+        $chambai->giua_hoc_phan = $data['giua_hoc_phan'];
+        $chambai->cdtn = $data['cdtn'];
         $chambai->so_bai = $data['so_bai'];
-        $chambai->so_gio = $data['so_gio'];
+        $chambai->gio_giang = $data['gio_giang'];
+        $chambai->gio_khoahoc = $data['gio_khoahoc'];
+        $chambai->bat_dau = Carbon::parse($data['bat_dau'])->format('Y-m-d');
+        $chambai->ket_thuc = Carbon::parse($data['ket_thuc'])->format('Y-m-d');
         $chambai->ghichu = $data['ghichu'];
-        $chambai->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
         $chambai->save();
         return $chambai;
     }

@@ -142,38 +142,43 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tên Lớp: <span class="required">*</span></label>
-                                    <select class="form-control" name="id_lop">
-                                        <option name="lop_hientai">Chọn Lớp</option>
-                                            <?php if($lop->count()>0): ?>
-                                                <?php $__currentLoopData = $lop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->tenlop); ?></option>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                    </select>
+                                    <label>Lớp:<span class="required">*</span></label>
+                                    <input class="form-control" name="lop" type="text" placeholder="" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Tên Học Phần: <span class="required">*</span></label>
-                                    <select class="form-control" name="id_hocphan">
-                                        <option name="hocphan_hientai">Chọn Học Phần</option>
-                                            <?php if($hocphan->count()>0): ?>
-                                                <?php $__currentLoopData = $hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->mahocphan); ?></option>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                    </select>
-                                </div>
+                                    <label><b>Hình Thức:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="hoc_phan" name="hoc_phan">
+                                        <label class="form-check-label" for="hoc_phan">Học Phần:</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="giua_hoc_phan" name="giua_hoc_phan">
+                                        <label class="form-check-label" for="giua_hoc_phan">Giữa Học Phần:</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="cdtn" name="cdtn">
+                                        <label class="form-check-label" for="cdtn">CĐTN:</label>
+                                    </div>
+                                </div> 
                                 <div class="form-group">
                                     <label>Số Bài:<span class="required">*</span></label>
                                     <input class="form-control" name="so_bai" type="number" placeholder="" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
+                                    <input class="form-control" name="bat_dau" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Giờ Quy Đổi:<span class="required">*</span></label>
-                                    <input class="form-control" name="so_gio" type="number" placeholder="" required />
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Giảng:<span class="required">*</span></label>
+                                    <input class="form-control" name="gio_giang" type="number" placeholder="" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Khoa Học:<span class="required">*</span></label>
+                                    <input class="form-control" name="gio_khoahoc" type="number" placeholder="" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
@@ -225,38 +230,43 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tên Lớp: <span class="required">*</span></label>
-                                    <select class="form-control" name="id_lop">
-                                        <option name="lop_hientai">Chọn Lớp</option>
-                                            <?php if($lop->count()>0): ?>
-                                                <?php $__currentLoopData = $lop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->tenlop); ?></option>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                    </select>
+                                    <label>Lớp:<span class="required">*</span></label>
+                                    <input class="form-control" name="lop" type="text" placeholder="" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Tên Học Phần: <span class="required">*</span></label>
-                                    <select class="form-control" name="id_hocphan">
-                                        <option name="hocphan_hientai"></option>
-                                            <?php if($hocphan->count()>0): ?>
-                                                <?php $__currentLoopData = $hocphan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->mahocphan); ?></option>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                    </select>
-                                </div>
+                                    <label><b>Hình Thức:</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="hoc_phan" name="hoc_phan">
+                                        <label class="form-check-label" for="hoc_phan">Học Phần:</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="giua_hoc_phan" name="giua_hoc_phan">
+                                        <label class="form-check-label" for="giua_hoc_phan">Giữa Học Phần:</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="cdtn" name="cdtn">
+                                        <label class="form-check-label" for="cdtn">CĐTN:</label>
+                                    </div>
+                                </div> 
                                 <div class="form-group">
                                     <label>Số Bài:<span class="required">*</span></label>
                                     <input class="form-control" name="so_bai" type="number" placeholder="" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
+                                    <input class="form-control" name="bat_dau" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Giờ Quy Đổi:<span class="required">*</span></label>
-                                    <input class="form-control" name="so_gio" type="number" placeholder="" required />
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Giảng:<span class="required">*</span></label>
+                                    <input class="form-control" name="gio_giang" type="number" placeholder="" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Khoa Học:<span class="required">*</span></label>
+                                    <input class="form-control" name="gio_khoahoc" type="number" placeholder="" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
@@ -1911,12 +1921,16 @@ $.ajax({
             method: 'POST',
             data: {
                 id_giangvien: $("#form_add_chambai select[name='id_giangvien']").val(),
-                id_lop: $("#form_add_chambai select[name='id_lop']").val(),
-                id_hocphan: $("#form_add_chambai select[name='id_hocphan']").val(),
-                ghichu: $("#form_add_chambai input[name='ghichu']").val(),
+                lop: $("#form_add_chambai input[name='lop']").val(),
+                hoc_phan: ($("#form_add_chambai input[name='hoc_phan']").is(':checked')) ? 1 : 0,
+                giua_hoc_phan: ($("#form_add_chambai input[name='giua_hoc_phan']").is(':checked')) ? 1 : 0,
+                cdtn: ($("#form_add_chambai input[name='cdtn']").is(':checked')) ? 1 : 0,
                 so_bai: $("#form_add_chambai input[name='so_bai']").val(),
-                so_gio: $("#form_add_chambai input[name='so_gio']").val(),
-                thoigian: $("#form_add_chambai input[name='thoigian']").val(),
+                bat_dau: $("#form_add_chambai input[name='bat_dau']").val(),
+                ket_thuc: $("#form_add_chambai input[name='ket_thuc']").val(),
+                gio_giang: $("#form_add_chambai input[name='gio_giang']").val(),
+                gio_khoahoc: $("#form_add_chambai input[name='gio_khoahoc']").val(),
+                ghichu: $("#form_add_chambai input[name='ghichu']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -1979,13 +1993,17 @@ $.ajax({
                  success: function(data) {
                      if(data.status == true){
                          $("#form_edit_chambai select[name='id_giangvien']").val(data.data.id_giangvien);
-                         $("#form_edit_chambai select[name='id_lop']").val(data.data.id_lop);
-                         $("#form_edit_chambai select[name='id_hocphan']").val(data.data.id_hocphan);
+                         $("#form_edit_chambai input[name='lop']").val(data.data.lop);
+                         $("#form_edit_chambai input[name='hoc_phan']").prop('checked', (data.data.hoc_phan == 1) ? true : false);
+                         $("#form_edit_chambai input[name='giua_hoc_phan']").prop('checked', (data.data.giua_hoc_phan == 1) ? true : false);
+                         $("#form_edit_chambai input[name='cdtn']").prop('checked', (data.data.cdtn == 1) ? true : false);
                          $("#form_edit_chambai input[name='id']").val(data.data.id);
-                         $("#form_edit_chambai input[name='ghichu']").val(data.data.ghichu);
-                         $("#form_edit_chambai input[name='so_gio']").val(data.data.so_gio);
+                         $("#form_edit_chambai input[name='gio_giang']").val(data.data.gio_giang);
+                         $("#form_edit_chambai input[name='gio_khoahoc']").val(data.data.gio_khoahoc);
                          $("#form_edit_chambai input[name='so_bai']").val(data.data.so_bai);
-                         $("#form_edit_chambai input[name='thoigian']").val(data.data.thoigian);
+                         $("#form_edit_chambai input[name='bat_dau']").val(data.data.bat_dau);
+                         $("#form_edit_chambai input[name='ket_thuc']").val(data.data.ket_thuc);
+                         $("#form_edit_chambai input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_chambai').modal('show');
                      }
                  }
@@ -2010,12 +2028,16 @@ $.ajax({
                  data: {
                     id: $("#form_edit_chambai input[name='id']").val(),
                      id_giangvien: $("#form_edit_chambai select[name='id_giangvien']").val(),
-                     id_lop: $("#form_edit_chambai select[name='id_lop']").val(),
-                     id_hocphan: $("#form_edit_chambai select[name='id_hocphan']").val(),
+                     lop: $("#form_edit_chambai input[name='lop']").val(),
+                     hoc_phan: ($("#form_edit_chambai input[name='hoc_phan']").is(':checked')) ? 1 : 0,
+                     giua_hoc_phan: ($("#form_edit_chambai input[name='giua_hoc_phan']").is(':checked')) ? 1 : 0,
+                     cdtn: ($("#form_edit_chambai input[name='cdtn']").is(':checked')) ? 1 : 0,
                      ghichu: $("#form_edit_chambai input[name='ghichu']").val(),
-                     so_gio: $("#form_edit_chambai input[name='so_gio']").val(),
+                     gio_giang: $("#form_edit_chambai input[name='gio_giang']").val(),
+                     gio_khoahoc: $("#form_edit_chambai input[name='gio_khoahoc']").val(),
                      so_bai: $("#form_edit_chambai input[name='so_bai']").val(),
-                     thoigian: $("#form_edit_chambai input[name='thoigian']").val(),
+                     bat_dau: $("#form_edit_chambai input[name='bat_dau']").val(),
+                     ket_thuc: $("#form_edit_chambai input[name='ket_thuc']").val(),
 
                  },
                  success: function(data) {

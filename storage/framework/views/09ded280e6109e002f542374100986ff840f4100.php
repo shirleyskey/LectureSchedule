@@ -438,12 +438,14 @@
                                                
                                                 <?php if( $chambai->count() > 0 ): ?>
                                                     <?php $__currentLoopData = $chambai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_chambai): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_chambai += $v_chambai->so_gio; ?>
+                                                    <?php $total_chambai += ($v_chambai->gio_giang + $v_chambai->gio_khoahoc); ?>
                                                     
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> Chấm Bài </td>
+                                                        <td> <?php echo e($v_chambai->gio_giang); ?> </td>
+                                                        <td> <?php echo e($v_chambai->gio_khoahoc); ?> </td>
                                                         <td> <?php echo e($total_chambai); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -622,10 +624,12 @@
                                             <tr>
                                                 <th> STT</th>
                                                 <th> Tên Lớp</th>
-                                                <th> Tên Học Phần</th>
-                                                <th> Thời Gian</th>
+                                                <th> Hình Thúc</th>
                                                 <th> Số Bài</th>
-                                                <th> Số Giờ</th>
+                                                <th> Bắt Đầu</th>
+                                                <th> Kết Thúc</th>
+                                                <th> Giờ Giảng</th>
+                                                <th> Giờ Khoa Học</th>
                                                 <th>Ghi Chú</th>
                                             </tr>
                                         </thead>
@@ -635,11 +639,25 @@
                                                 <?php $__currentLoopData = $chambai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_chambai): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
-                                                    <td> <?php echo e(($v_chambai->id_lop) ? ($v_chambai->lops->tenlop) : ''); ?> </td>
-                                                    <td> <?php echo e(($v_chambai->id_hocphan) ? ($v_chambai->hocphans->mahocphan) : ''); ?> </td>
-                                                    <td> <?php echo e($v_chambai->thoigian); ?> </td>
+                                                    <td> <?php echo e(($v_chambai->lop)); ?> </td>
+                                                    <td> 
+                                                        <?php 
+                                                            if($v_chambai->hoc_phan == 1) {
+                                                                echo "HP";
+                                                            } 
+                                                            else if($v_chambai->giua_hoc_phan == 1) {
+                                                                echo "GHP";
+                                                            }  
+                                                            else if($v_chambai->cdtn == 1) {
+                                                                echo "CĐTN";
+                                                            }  
+                                                        ?>
+                                                    </td>
                                                     <td> <?php echo e($v_chambai->so_bai); ?> </td>
-                                                    <td> <?php echo e($v_chambai->so_gio); ?> </td>
+                                                    <td> <?php echo e($v_chambai->bat_dau); ?> </td>
+                                                    <td> <?php echo e($v_chambai->ket_thuc); ?> </td>
+                                                    <td> <?php echo e($v_chambai->gio_giang); ?> </td>
+                                                    <td> <?php echo e($v_chambai->gio_khoahoc); ?> </td>
                                                     <td> <?php echo e($v_chambai->ghichu); ?> </td>
                                                 </tr>
                                                 <?php $stt++; ?>

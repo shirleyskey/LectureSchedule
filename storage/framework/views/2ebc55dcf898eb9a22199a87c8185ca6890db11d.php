@@ -279,10 +279,12 @@
                                     <th> STT</th>
                                     <th> Tên Giảng Viên</th>
                                     <th> Tên Lớp</th>
-                                    <th> Tên Học Phần </th>
+                                    <th> Hình Thức </th>
                                     <th> Số Bài</th>
-                                    <th> Số Giờ</th>
-                                    <th> Thời Gian </th>
+                                    <th> Bắt Đầu </th>
+                                    <th> Kết Thúc</th>
+                                    <th> Giờ Giảng</th>
+                                    <th> Giờ Khoa Học</th>
                                     <th> Ghi Chú </th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -299,11 +301,25 @@
 
                                         <?php endif; ?>
                                         </td>
-                                        <td> <?php echo e(($v->id_lop) ? ($v->lops->tenlop) : ''); ?> </td>
-                                        <td> <?php echo e(($v->id_hocphan) ? ($v->hocphans->mahocphan) : ''); ?> </td>
+                                        <td> <?php echo e(($v->lop)); ?> </td>
+                                        <td> 
+                                            <?php 
+                                                if($v->hoc_phan == 1) {
+                                                    echo "HP";
+                                                } 
+                                                else if($v->giua_hoc_phan == 1) {
+                                                    echo "GHP";
+                                                }  
+                                                else if($v->cdtn == 1) {
+                                                    echo "CĐTN";
+                                                }  
+                                            ?>
+                                        </td>
                                         <td> <?php echo e($v->so_bai); ?> </td>
-                                        <td> <?php echo e($v->so_gio); ?> </td>
-                                        <td> <?php echo e($v->thoigian); ?> </td>
+                                        <td> <?php echo e($v->bat_dau); ?> </td>
+                                        <td> <?php echo e($v->ket_thuc); ?> </td>
+                                        <td> <?php echo e($v->gio_giang); ?> </td>
+                                        <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                         <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
                                             <?php if (app('laratrust')->can('create-giangvien')) : ?>
