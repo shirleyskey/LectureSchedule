@@ -528,7 +528,7 @@
                             <!-- END GIỜ KHÁC-->
                               <!-- BEGIN XỬ LÝ VĂN BẢN 3-->
                               <div class="tab-pane " id="tab_vanban">
-                                <?php if($vanban->isNotEmpty()): ?>
+                                <?php if(!empty($vanban)): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -538,19 +538,56 @@
                                                     <th> STT</th>
                                                     <th> Nội Dung</th>
                                                     <th> Lãnh Đạo Xử Lý</th>
+                                                    <th> Chủ Trì</th>
+                                                    <th> Tham Gia</th>
                                                     <th> Thời Gian Nhận</th>
                                                     <th> Hạn</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php if( $vanban->count() > 0 ): ?>
+                                                <?php if( count($vanban) > 0 ): ?>
                                                     <?php $stt = 1; ?>
                                                     <?php $__currentLoopData = $vanban; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_vanban): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e($v_vanban->noi_dung); ?> </td>
                                                         <td> <?php echo e($v_vanban->lanhdao); ?> </td>
+                                                        <td>
+                                                            <?php
+                                                            $chu_tri = json_decode( $v_vanban->chu_tri, true);
+                                                            $so_chu_tri = 0;
+                                                            $is_chu_tri = false;
+                                                            ?>
+                                                            <?php $__currentLoopData = $chu_tri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                             <?php
+                                                                 $so_chu_tri = $so_chu_tri + 1;
+                                                             ?>
+                                                             <?php if($value == $id_giangvien): ?>
+                                                                 <?php
+                                                                     $is_chu_tri = true;
+                                                                 ?>
+                                                             <?php endif; ?> 
+                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                            <?php endif; ?>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                            $tham_gia = json_decode( $v_vanban->tham_gia, true);
+                                                            $so_tham_gia = 0;
+                                                            ?>
+                                                            <?php $__currentLoopData = $tham_gia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                           
+                                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                            <?php
+                                                            $so_tham_gia = $so_tham_gia + 1;
+                                                            ?>
+                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                            <?php endif; ?>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </td>
                                                         <td> <?php echo e($v_vanban->thoigian_nhan); ?> </td>
                                                         <td> <?php echo e($v_vanban->thoigian_den); ?> </td>
                                                         <td> <?php echo e($v_vanban->ghichu); ?> </td>

@@ -44,6 +44,16 @@ class GiangVienController extends Controller
                 array_push($nckh, $ds_nckh);
             };
         };
+        //Lấy Danh Sách Van Bản
+        $ds_vanbans = VanBan::all();
+        $vanban = array();
+        foreach($ds_vanbans as $ds_vanban){
+            $chu_tri = json_decode($ds_vanban->chu_tri, true);
+            $tham_gia = json_decode($ds_vanban->tham_gia, true);
+            if((in_array($id, $chu_tri)) || (in_array($id, $tham_gia))){
+                array_push($vanban, $ds_vanban);
+            };
+        };
 
         return view('giangvien.read.index', [
             'giangvien' => $giangvien,
@@ -54,8 +64,8 @@ class GiangVienController extends Controller
             'hop' => Hop::where('id_giangvien', $id)->get(),
             'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
             'nckh' => $nckh,
+            'vanban' => $vanban,
             'xaydung' => XayDung::where('id_giangvien', $id)->get(),
-            'vanban' => VanBan::where('id_giangvien', $id)->get(),
             'hdkh' => Hdkh::where('id_giangvien', $id)->get(),
             'hocphan' => HocPhan::all(),
         ]);

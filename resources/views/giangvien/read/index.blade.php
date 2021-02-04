@@ -559,7 +559,7 @@
                             <!-- END GIỜ KHÁC-->
                               <!-- BEGIN XỬ LÝ VĂN BẢN 3-->
                               <div class="tab-pane " id="tab_vanban">
-                                @if($vanban->isNotEmpty())
+                                @if(!empty($vanban))
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -569,19 +569,56 @@
                                                     <th> STT</th>
                                                     <th> Nội Dung</th>
                                                     <th> Lãnh Đạo Xử Lý</th>
+                                                    <th> Chủ Trì</th>
+                                                    <th> Tham Gia</th>
                                                     <th> Thời Gian Nhận</th>
                                                     <th> Hạn</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if( $vanban->count() > 0 )
+                                                @if( count($vanban) > 0 )
                                                     @php $stt = 1; @endphp
                                                     @foreach( $vanban as $v_vanban )
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> {{ $v_vanban->noi_dung }} </td>
                                                         <td> {{ $v_vanban->lanhdao }} </td>
+                                                        <td>
+                                                            @php
+                                                            $chu_tri = json_decode( $v_vanban->chu_tri, true);
+                                                            $so_chu_tri = 0;
+                                                            $is_chu_tri = false;
+                                                            @endphp
+                                                            @foreach($chu_tri as $key => $value)
+                                                            @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                             @php
+                                                                 $so_chu_tri = $so_chu_tri + 1;
+                                                             @endphp
+                                                             @if($value == $id_giangvien)
+                                                                 @php
+                                                                     $is_chu_tri = true;
+                                                                 @endphp
+                                                             @endif 
+                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                            @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td>
+                                                            @php
+                                                            $tham_gia = json_decode( $v_vanban->tham_gia, true);
+                                                            $so_tham_gia = 0;
+                                                            @endphp
+                                                            @foreach($tham_gia as $key => $value)
+                                                           
+                                                            @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                            @php
+                                                            $so_tham_gia = $so_tham_gia + 1;
+                                                            @endphp
+                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                            @endif
+                                                            @endforeach
+                                                        </td>
                                                         <td> {{ $v_vanban->thoigian_nhan }} </td>
                                                         <td> {{ $v_vanban->thoigian_den }} </td>
                                                         <td> {{ $v_vanban->ghichu }} </td>
