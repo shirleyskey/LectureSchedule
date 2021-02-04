@@ -39,10 +39,10 @@ class Nckh extends Model
         foreach ($data['thamgia'] as $key => $value) {
             $data['thamgia'][$key] = (int)$value;         
         }
-        $nckh->sotrang = $data['sotrang'];
-        $nckh->ghichu = $data['ghichu'];
         $nckh->chubien = json_encode($data['chubien']);
         $nckh->thamgia = json_encode($data['thamgia']);
+        $nckh->sotrang = $data['sotrang'];
+        $nckh->ghichu = $data['ghichu'];
         $nckh->batdau = Carbon::parse($data['batdau'])->format('Y-m-d');
         $nckh->ketthuc = Carbon::parse($data['ketthuc'])->format('Y-m-d');
         $nckh->save();

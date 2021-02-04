@@ -10,7 +10,7 @@ class VanBan extends Model
     //
     protected $table = 'vanbans';
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','id','lanhdao','noi_dung'];
+    protected $fillable = ['id','lanhdao','noi_dung'];
     
     public function giangviens()
     {
@@ -23,8 +23,15 @@ class VanBan extends Model
         }else{
             $vanban = VanBan::findOrFail($id);
         }
-        $vanban->id_giangvien = $data['id_giangvien'];
         $vanban->lanhdao = $data['lanhdao'];
+        foreach ($data['chu_tri'] as $key => $value) {
+            $data['chu_tri'][$key] = (int)$value;         
+        }
+        foreach ($data['tham_gia'] as $key => $value) {
+            $data['tham_gia'][$key] = (int)$value;         
+        }
+        $vanban->chu_tri = json_encode($data['chu_tri']);
+        $vanban->tham_gia = json_encode($data['tham_gia']);
         $vanban->noi_dung = $data['noi_dung'];
         $vanban->ghichu = $data['ghichu'];
         $vanban->thoigian_nhan = Carbon::parse($data['thoigian_nhan'])->format('Y-m-d');

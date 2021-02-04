@@ -296,7 +296,7 @@
                                                                 <?php endif; ?>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
-                                                    <td>
+                                                    <td>    
                                                     <?php
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     ?>

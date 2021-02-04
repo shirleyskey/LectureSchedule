@@ -76,6 +76,7 @@
                                             </select>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Tham Gia: </label>
                                         <div class="input-icon right">
@@ -88,6 +89,7 @@
                                                     @endforeach
                                                 @endif
                                             </select>
+                                        </div>
                                 </div>
                                 <div class="form-group">
                                     <label><b>Ghi Chú:</b></label>

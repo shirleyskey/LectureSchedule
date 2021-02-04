@@ -25,8 +25,9 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Nội Dung</th>
-                                    <th> Tên Giảng Viên</th>
                                     <th> Lãnh Đạo Xử Lý</th>
+                                    <th> Chủ Trì</th>
+                                    <th> Tham Gia</th>
                                     <th> Thời Gian Nhận</th>
                                     <th> Hạn</th>
                                     <th> Ghi Chú</th>
@@ -40,14 +41,30 @@
                                     <tr>
                                         <td> <?php echo e($stt); ?> </td>
                                         <td> <?php echo e($v->noi_dung); ?> </td>
-                                        <td>
-                                            <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
-                                            <?php echo e($v->giangviens->ten); ?>
-
-                                            <?php endif; ?>
-
-                                         </td>
                                         <td> <?php echo e($v->lanhdao); ?> </td>
+                                        <td>
+                                            <?php
+                                            if($v->chu_tri){
+                                                $chu_tri = json_decode( $v->chu_tri, true);
+                                            }
+                                            ?>
+                                                <?php $__currentLoopData = $chu_tri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                    <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                    <?php endif; ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </td>
+                                        <td>
+                                        <?php
+                                         if($v->tham_gia)
+                                            $tham_gia = json_decode( $v->tham_gia, true);
+                                        ?>
+                                            <?php $__currentLoopData = $tham_gia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                            <?php endif; ?>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </td>
                                          <td> <?php echo e($v->thoigian_nhan); ?> </td>
                                          <td> <?php echo e($v->thoigian_den); ?> </td>
                                          <td> <?php echo e($v->ghichu); ?> </td>

@@ -447,19 +447,8 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
+                            
                             <div class="col-md-6">
-                                
-                                <div class="form-group">
-                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
-                                        <option value="0">-------- Chọn Giảng Viên --------</option>
-                                            <?php if($giangvien->count()>0): ?>
-                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <option value="<?php echo e($v->id); ?>"  <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label>Nội Dung<span class="required">*</span></label>
                                     <input  name="noi_dung" type="text" class="form-control" required>
@@ -468,7 +457,36 @@
                                     <label>Lãnh Đạo Xử Lý:<span class="required">*</span></label>
                                     <input name="lanhdao" type="text" class="form-control" required>
                                 </div> 
-                               
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Chủ Trì:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chu_tri">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <?php if($giangvien->count()>0): ?>
+                                                    <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="tham_gia">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <?php if($giangvien->count()>0): ?>
+                                                    <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label>Thời Gian Nhận:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
@@ -515,28 +533,45 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
+
                             <div class="col-md-6">
-                                
-                                <div class="form-group">
-                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
-                                    <option name="gv_hientai"></option>
-                                            <?php if($giangvien->count()>0): ?>
-                                                <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <option value="<?php echo e($v->id); ?>" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>><?php echo e($v->ten); ?></option>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label>Nội Dung<span class="required">*</span></label>
                                     <input  name="noi_dung" type="text" class="form-control" required>
-                                </div>
+                                <div/>
                                 <div class="form-group">
                                     <label>Lãnh Đạo Xử Lý:<span class="required">*</span></label>
                                     <input name="lanhdao" type="text" class="form-control" required>
                                 </div> 
-                               
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Chủ Trì:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chu_tri">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <?php if($giangvien->count()>0): ?>
+                                                    <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="tham_gia">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <?php if($giangvien->count()>0): ?>
+                                                    <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
+                                </div>
                                 <div class="form-group">
                                     <label>Thời Gian Nhận:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
@@ -1479,12 +1514,13 @@ $.ajax({
     url: '<?php echo e(route('postThemVanBan')); ?>',
     method: 'POST',
     data: {
-        id_giangvien: $("#form_add_vanban select[name='id_giangvien']").val(),
-                noi_dung: $("#form_add_vanban input[name='noi_dung']").val(),
-                lanhdao: $("#form_add_vanban input[name='lanhdao']").val(),
-                thoigian_nhan: $("#form_add_vanban input[name='thoigian_nhan']").val(),
-                thoigian_den: $("#form_add_vanban input[name='thoigian_den']").val(),
-                ghichu: $("#form_add_vanban input[name='ghichu']").val(),
+        chu_tri: $("#form_add_vanban select[name='chu_tri']").val(),
+        tham_gia: $("#form_add_vanban select[name='tham_gia']").val(),
+        noi_dung: $("#form_add_vanban input[name='noi_dung']").val(),
+        lanhdao: $("#form_add_vanban input[name='lanhdao']").val(),
+        thoigian_nhan: $("#form_add_vanban input[name='thoigian_nhan']").val(),
+        thoigian_den: $("#form_add_vanban input[name='thoigian_den']").val(),
+        ghichu: $("#form_add_vanban input[name='ghichu']").val(),
     },
     success: function(data) {
         console.log("Hihi");
@@ -1547,8 +1583,9 @@ $.ajax({
          success: function(data) {
              if(data.status == true){
                  // console.log(data.data);
-                 $("#form_edit_vanban select[name='id_giangvien']").val(data.data.id_giangvien);
                          $("#form_edit_vanban input[name='id']").val(data.data.id);
+                         $("#form_edit_vanban select[name='chu_tri']").val($.parseJSON(data.data.chu_tri));
+                         $("#form_edit_vanban select[name='tham_gia']").val($.parseJSON(data.data.tham_gia));
                          $("#form_edit_vanban input[name='noi_dung']").val(data.data.noi_dung);
                          $("#form_edit_vanban input[name='lanhdao']").val(data.data.lanhdao);
                          $("#form_edit_vanban input[name='thoigian_nhan']").val(data.data.thoigian_nhan);
@@ -1577,7 +1614,8 @@ $.ajax({
          method: 'POST',
          data: {
             id: $("#form_edit_vanban input[name='id']").val(),
-                     id_giangvien: $("#form_edit_vanban select[name='id_giangvien']").val(),
+                     chu_tri: $("#form_edit_vanban select[name='chu_tri']").val(),
+                     tham_gia: $("#form_edit_vanban select[name='tham_gia']").val(),
                      noi_dung: $("#form_edit_vanban input[name='noi_dung']").val(),
                      lanhdao: $("#form_edit_vanban input[name='lanhdao']").val(),
                      thoigian_den: $("#form_edit_vanban input[name='thoigian_den']").val(),

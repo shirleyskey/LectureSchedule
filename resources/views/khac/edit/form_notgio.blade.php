@@ -25,8 +25,9 @@
                                 <tr>
                                     <th> STT</th>
                                     <th> Nội Dung</th>
-                                    <th> Tên Giảng Viên</th>
                                     <th> Lãnh Đạo Xử Lý</th>
+                                    <th> Chủ Trì</th>
+                                    <th> Tham Gia</th>
                                     <th> Thời Gian Nhận</th>
                                     <th> Hạn</th>
                                     <th> Ghi Chú</th>
@@ -40,13 +41,30 @@
                                     <tr>
                                         <td> {{ $stt }} </td>
                                         <td> {{ $v->noi_dung }} </td>
-                                        <td>
-                                            @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
-                                            {{ $v->giangviens->ten }}
-                                            @endif
-
-                                         </td>
                                         <td> {{ $v->lanhdao }} </td>
+                                        <td>
+                                            @php
+                                            if($v->chu_tri){
+                                                $chu_tri = json_decode( $v->chu_tri, true);
+                                            }
+                                            @endphp
+                                                @foreach($chu_tri as $key => $value)
+                                                    @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                    <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                    @endif
+                                                @endforeach
+                                        </td>
+                                        <td>
+                                        @php
+                                         if($v->tham_gia)
+                                            $tham_gia = json_decode( $v->tham_gia, true);
+                                        @endphp
+                                            @foreach($tham_gia as $key => $value)
+                                            @if(App\GiangVien::where('id', $value)->first() !== null)
+                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                            @endif
+                                            @endforeach
+                                        </td>
                                          <td> {{ $v->thoigian_nhan }} </td>
                                          <td> {{ $v->thoigian_den }} </td>
                                          <td> {{ $v->ghichu }} </td>

@@ -358,7 +358,7 @@
                                                                 @endif
                                                             @endforeach
                                                     </td>
-                                                    <td>
+                                                    <td>    
                                                     @php
                                                         $thamgia = json_decode( $v->thamgia, true);
                                                     @endphp
