@@ -24,10 +24,13 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên Địa Bàn</th>
+                                    <th> Tên</th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Thời Gian</th>
-                                    <th> Số Giờ</th>
+                                    <th> Địa Điểm</th>
+                                    <th> Bắt Đầu</th>
+                                    <th> Kết Thúc</th>
+                                    <th> Giờ Giảng</th>
+                                    <th> Giờ Khoa Học</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -46,8 +49,11 @@
                                             <?php endif; ?>
 
                                          </td>
-                                        <td> <?php echo e($v->thoigian); ?> </td>
-                                         <td> <?php echo e($v->so_gio); ?> </td>
+                                        <td> <?php echo e($v->dia_diem); ?> </td>
+                                        <td> <?php echo e($v->bat_dau); ?> </td>
+                                        <td> <?php echo e($v->ket_thuc); ?> </td>
+                                         <td> <?php echo e($v->gio_giang); ?> </td>
+                                         <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                          <td> <?php echo e($v->ghichu); ?> </td>
                                         <td>
                                             <?php if (app('laratrust')->can('create-giangvien')) : ?>

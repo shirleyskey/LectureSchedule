@@ -484,12 +484,14 @@
                                                
                                                 @if( $congtac->count() > 0 )
                                                     @foreach( $congtac as $v_congtac )
-                                                    @php $total_congtac += $v_congtac->so_gio; @endphp
+                                                    @php $total_congtac += ($v_congtac->gio_giang + $v_congtac->gio_khoahoc); @endphp
                                                    
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> Đi Thực Tế</td>
+                                                        <td> {{$v_congtac->gio_giang}}</td>
+                                                        <td> {{$v_congtac->gio_khoahoc}}</td>
                                                         <td> {{ $total_congtac }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -498,12 +500,14 @@
                                                 @if( $daygioi->count() > 0 )
                                                    
                                                     @foreach( $daygioi as $v_daygioi )
-                                                    @php $total_daygioi += $v_daygioi->so_gio; @endphp
+                                                    @php $total_daygioi += ($v_daygioi->gio_giang + $v_daygioi->gio_khoahoc); @endphp
                                                    
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> Dạy Giỏi</td>
+                                                        <td> {{ $v_daygioi->gio_giang}}</td>
+                                                        <td> {{ $v_daygioi->gio_khoahoc}}</td>
                                                         <td> {{ $total_daygioi }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -612,9 +616,12 @@
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th>Địa Bàn</th>
-                                                <th> Số Giờ</th>
-                                                <th> Thời Gian</th>
+                                                <th> Tên </th>
+                                                <th> Địa Điểm</th>
+                                                <th> Bắt Đầu</th>
+                                                <th> Kết Thúc</th>
+                                                <th> Giờ Giảng</th>
+                                                <th> Giờ Khoa Học</th>
                                                 <th> Ghi Chú</th>
                                             </tr>
                                         </thead>
@@ -625,8 +632,11 @@
                                                 <tr>
                                                     <td> {{ $stt }} </td>
                                                     <td> {{ $v_congtac->ten }} </td>
-                                                    <td> {{ $v_congtac->so_gio }} </td>
-                                                    <td> {{ $v_congtac->thoigian }} </td>
+                                                    <td> {{ $v_congtac->dia_diem }} </td>
+                                                    <td> {{ $v_congtac->bat_dau }} </td>
+                                                    <td> {{ $v_congtac->ket_thuc }} </td>
+                                                    <td> {{ $v_congtac->gio_giang }} </td>
+                                                    <td> {{ $v_congtac->gio_khoahoc }} </td>
                                                     <td> {{ $v_congtac->ghichu }} </td>
                                                 </tr>
                                                 @php $stt++; @endphp

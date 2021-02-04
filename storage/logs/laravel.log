@@ -1710,3 +1710,6 @@ Stack trace:
 #63 /opt/lampp/htdocs/lectureSchedule/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #64 {main}
 "} 
+[2021-02-04 13:51:54] local.INFO: Người dùng ID:1 đã thêm Công Tác ID:18-Bùi Văn C  
+[2021-02-04 13:52:03] local.INFO: Người dùng ID:1 đã sửa Công Tác ID:18-Bùi Văn C  
+[2021-02-04 13:52:09] local.INFO: Người dùng ID:1 đã xóa Công Tác id:18-Bùi Văn C  

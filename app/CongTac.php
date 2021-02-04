@@ -9,7 +9,7 @@ class CongTac extends Model
     //
     protected $table = 'congtacs';
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','so_gio', 'ten', 'thoigian'];
+    protected $fillable = ['id_giangvien','gio_giang', 'gio_khoahoc', 'ten', 'bat_dau', 'ket_thuc', 'dia_diem'];
     
     public function giangviens()
     {
@@ -24,9 +24,12 @@ class CongTac extends Model
         }
         $congtac->id_giangvien = $data['id_giangvien'];
         $congtac->ten = $data['ten'];
-        $congtac->so_gio = $data['so_gio'];
+        $congtac->dia_diem = $data['dia_diem'];
+        $congtac->gio_giang = $data['gio_giang'];
+        $congtac->gio_khoahoc = $data['gio_khoahoc'];
+        $congtac->bat_dau = Carbon::parse($data['bat_dau'])->format('Y-m-d');
+        $congtac->ket_thuc = Carbon::parse($data['ket_thuc'])->format('Y-m-d');
         $congtac->ghichu = $data['ghichu'];
-        $congtac->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
         $congtac->save();
         return $congtac;
     }

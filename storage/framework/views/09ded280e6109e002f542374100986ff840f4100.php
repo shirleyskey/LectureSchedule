@@ -453,12 +453,14 @@
                                                
                                                 <?php if( $congtac->count() > 0 ): ?>
                                                     <?php $__currentLoopData = $congtac; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_congtac): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_congtac += $v_congtac->so_gio; ?>
+                                                    <?php $total_congtac += ($v_congtac->gio_giang + $v_congtac->gio_khoahoc); ?>
                                                    
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> Đi Thực Tế</td>
+                                                        <td> <?php echo e($v_congtac->gio_giang); ?></td>
+                                                        <td> <?php echo e($v_congtac->gio_khoahoc); ?></td>
                                                         <td> <?php echo e($total_congtac); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -467,12 +469,14 @@
                                                 <?php if( $daygioi->count() > 0 ): ?>
                                                    
                                                     <?php $__currentLoopData = $daygioi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_daygioi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_daygioi += $v_daygioi->so_gio; ?>
+                                                    <?php $total_daygioi += ($v_daygioi->gio_giang + $v_daygioi->gio_khoahoc); ?>
                                                    
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> Dạy Giỏi</td>
+                                                        <td> <?php echo e($v_daygioi->gio_giang); ?></td>
+                                                        <td> <?php echo e($v_daygioi->gio_khoahoc); ?></td>
                                                         <td> <?php echo e($total_daygioi); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -581,9 +585,12 @@
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th>Địa Bàn</th>
-                                                <th> Số Giờ</th>
-                                                <th> Thời Gian</th>
+                                                <th> Tên </th>
+                                                <th> Địa Điểm</th>
+                                                <th> Bắt Đầu</th>
+                                                <th> Kết Thúc</th>
+                                                <th> Giờ Giảng</th>
+                                                <th> Giờ Khoa Học</th>
                                                 <th> Ghi Chú</th>
                                             </tr>
                                         </thead>
@@ -594,8 +601,11 @@
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
                                                     <td> <?php echo e($v_congtac->ten); ?> </td>
-                                                    <td> <?php echo e($v_congtac->so_gio); ?> </td>
-                                                    <td> <?php echo e($v_congtac->thoigian); ?> </td>
+                                                    <td> <?php echo e($v_congtac->dia_diem); ?> </td>
+                                                    <td> <?php echo e($v_congtac->bat_dau); ?> </td>
+                                                    <td> <?php echo e($v_congtac->ket_thuc); ?> </td>
+                                                    <td> <?php echo e($v_congtac->gio_giang); ?> </td>
+                                                    <td> <?php echo e($v_congtac->gio_khoahoc); ?> </td>
                                                     <td> <?php echo e($v_congtac->ghichu); ?> </td>
                                                 </tr>
                                                 <?php $stt++; ?>

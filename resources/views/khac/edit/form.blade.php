@@ -24,10 +24,13 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Tên Địa Bàn</th>
+                                    <th> Tên</th>
                                     <th> Tên Giảng Viên</th>
-                                    <th> Thời Gian</th>
-                                    <th> Số Giờ</th>
+                                    <th> Địa Điểm</th>
+                                    <th> Bắt Đầu</th>
+                                    <th> Kết Thúc</th>
+                                    <th> Giờ Giảng</th>
+                                    <th> Giờ Khoa Học</th>
                                     <th> Ghi Chú</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -45,8 +48,11 @@
                                             @endif
 
                                          </td>
-                                        <td> {{ $v->thoigian }} </td>
-                                         <td> {{ $v->so_gio }} </td>
+                                        <td> {{ $v->dia_diem }} </td>
+                                        <td> {{ $v->bat_dau }} </td>
+                                        <td> {{ $v->ket_thuc }} </td>
+                                         <td> {{ $v->gio_giang }} </td>
+                                         <td> {{ $v->gio_khoahoc }} </td>
                                          <td> {{ $v->ghichu }} </td>
                                         <td>
                                             @permission('create-giangvien')
