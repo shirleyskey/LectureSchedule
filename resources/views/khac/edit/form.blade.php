@@ -202,6 +202,9 @@
                                             }  
                                             else if($v->luan_an == 1) {
                                                 echo "Luận Án";
+                                            }  
+                                            else if($v->svnc == 1) {
+                                                echo "Sinh viên NCKH";
                                             }   
                                         @endphp
                                             </td>

@@ -16,6 +16,10 @@
                                 <div class="form-group">
                                     <label><b>Loại Hướng Dẫn</b></label>
                                     <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="svnc" name="svnc">
+                                        <label class="form-check-label" for="khoa_luan">Sinh viên NCKH :</label>
+                                    </div>
+                                    <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="khoa_luan" name="khoa_luan">
                                         <label class="form-check-label" for="khoa_luan">Khóa Luận:</label>
                                     </div>

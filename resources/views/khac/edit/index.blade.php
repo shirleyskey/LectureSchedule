@@ -23,7 +23,7 @@
                 <li>
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
-                    <a href="{{ route('khac.edit.get') }}">Công Việc Khác</a>
+                    <a href="{{ route('khac.edit.get') }}"> Công Việc Khác </a>
                 </li>
             </ul>
         </div>
@@ -985,6 +985,10 @@
                                 <div class="form-group">
                                     <label><b>Loại Hướng Dẫn</b></label>
                                     <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="svnc" name="svnc">
+                                        <label class="form-check-label" for="svnc">Sinh viên NCKH:</label>
+                                    </div>
+                                    <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="khoa_luan" name="khoa_luan">
                                         <label class="form-check-label" for="khoa_luan">Khóa Luận:</label>
                                     </div>
@@ -1063,6 +1067,10 @@
                                 
                                 <div class="form-group">
                                     <label><b>Loại Hướng Dẫn</b></label>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="svnc" name="svnc">
+                                        <label class="form-check-label" for="svnc">Sinh viên NCKH:</label>
+                                    </div>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="khoa_luan" name="khoa_luan">
                                         <label class="form-check-label" for="khoa_luan">Khóa Luận:</label>
@@ -2930,6 +2938,7 @@ $.ajax({
             method: 'POST',
             data: {
                 id_giangvien: $("#form_add_hdkh select[name='id_giangvien']").val(),
+                svnc: ($("#form_add_hdkh input[name='svnc']").is(':checked')) ? 1 : 0,
                 khoa_luan: ($("#form_add_hdkh input[name='khoa_luan']").is(':checked')) ? 1 : 0,
                 luan_van: ($("#form_add_hdkh input[name='luan_van']").is(':checked')) ? 1 : 0,
                 luan_an: ($("#form_add_hdkh input[name='luan_an']").is(':checked')) ? 1 : 0,
@@ -3001,6 +3010,7 @@ $.ajax({
                          // console.log(data.data);
                          $("#form_edit_hdkh select[name='id_giangvien']").val(data.data.id_giangvien);
                          $("#form_edit_hdkh input[name='id']").val(data.data.id);
+                        $("#form_edit_hdkh input[name='svnc']").prop('checked', (data.data.svnc == 1) ? true : false);
                         $("#form_edit_hdkh input[name='khoa_luan']").prop('checked', (data.data.khoa_luan == 1) ? true : false);
                         $("#form_edit_hdkh input[name='luan_van']").prop('checked', (data.data.luan_van == 1) ? true : false);
                         $("#form_edit_hdkh input[name='luan_an']").prop('checked', (data.data.luan_an == 1) ? true : false);
@@ -3032,6 +3042,7 @@ $.ajax({
                  data: {
                      id: $("#form_edit_hdkh input[name='id']").val(),
                      id_giangvien: $("#form_edit_hdkh select[name='id_giangvien']").val(),
+                     svnc: ($("#form_edit_hdkh input[name='svnc']").is(':checked')) ? 1 : 0,
                      khoa_luan: ($("#form_edit_hdkh input[name='khoa_luan']").is(':checked')) ? 1 : 0,
                     luan_van: ($("#form_edit_hdkh input[name='luan_van']").is(':checked')) ? 1 : 0,
                     luan_an: ($("#form_edit_hdkh input[name='luan_an']").is(':checked')) ? 1 : 0,
