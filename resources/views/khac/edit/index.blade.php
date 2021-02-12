@@ -579,7 +579,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
-                    <a href="#" class="btn green" id="btn_edit_dang"><i class="fa fa-save"></i> Lưu</a>
+                    <a href="#" class="btn green" id="btn_edit_vanban"><i class="fa fa-save"></i> Lưu</a>
                 </div>
             </form>
         </div>
@@ -604,31 +604,48 @@
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai">Chọn Giảng Viên</option>
-                                            @if($giangvien->count()>0)
-                                                @foreach($giangvien as $v)
-                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                                @endforeach
-                                            @endif
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label>Tên Hoạt Động:<span class="required">*</span></label>
                                     <input class="form-control" name="ten" type="text" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Kết Quả:<span class="required">*</span></label>
-                                    <input class="form-control" name="ket_qua" type="text" required />
+                                    <label>Địa Điểm:<span class="required">*</span></label>
+                                    <input class="form-control" name="dia_diem" type="text" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Vai Trò:<span class="required">*</span></label>
-                                    <input class="form-control" name="vai_tro" type="text" required />
+                                    <label class="control-label col-md-4">Chủ Trì:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chu_tri">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="tham_gia">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
+                                    <input class="form-control" name="bat_dau" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
@@ -666,31 +683,48 @@
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
-                                            @if($giangvien->count()>0)
-                                                @foreach($giangvien as $v)
-                                                    <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                                @endforeach
-                                            @endif
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label>Tên Hoạt Động:<span class="required">*</span></label>
                                     <input class="form-control" name="ten" type="text" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Kết Quả:<span class="required">*</span></label>
-                                    <input class="form-control" name="ket_qua" type="text" required />
+                                    <label>Địa Điểm:<span class="required">*</span></label>
+                                    <input class="form-control" name="dia_diem" type="text" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Vai Trò:<span class="required">*</span></label>
-                                    <input class="form-control" name="vai_tro" type="text" required />
+                                    <label class="control-label col-md-4">Chủ Trì:</label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="chu_tri">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
+                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                        <div class="input-icon right">
+                                            <i class="fa fa-key"></i>
+                                            <select class="form-control" multiple name="tham_gia">
+                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                @if($giangvien->count()>0)
+                                                    @foreach($giangvien as $v)
+                                                    <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
+                                    <input class="form-control" name="bat_dau" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kết Thúc:<span class="required">*</span></label>
+                                    <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
@@ -1882,11 +1916,12 @@ $.ajax({
             url: '{{route('postThemDang')}}',
             method: 'POST',
             data: {
-                id_giangvien: $("#form_add_dang select[name='id_giangvien']").val(),
                 ten: $("#form_add_dang input[name='ten']").val(),
-                thoigian: $("#form_add_dang input[name='thoigian']").val(),
-                ket_qua: $("#form_add_dang input[name='ket_qua']").val(),
-                vai_tro: $("#form_add_dang input[name='vai_tro']").val(),
+                dia_diem: $("#form_add_dang input[name='dia_diem']").val(),
+                chu_tri: $("#form_add_dang select[name='chu_tri']").val(),
+                tham_gia: $("#form_add_dang select[name='tham_gia']").val(),
+                bat_dau: $("#form_add_dang input[name='bat_dau']").val(),
+                ket_thuc: $("#form_add_dang input[name='ket_thuc']").val(),
                 ghichu: $("#form_add_dang input[name='ghichu']").val(),
             },
             success: function(data) {
@@ -1949,13 +1984,13 @@ $.ajax({
                  },
                  success: function(data) {
                      if(data.status == true){
-                         // console.log(data.data);
-                         $("#form_edit_dang select[name='id_giangvien']").val(data.data.id_giangvien);
+                         $("#form_edit_dang select[name='chu_tri']").val($.parseJSON(data.data.chu_tri));
+                         $("#form_edit_dang select[name='tham_gia']").val($.parseJSON(data.data.tham_gia));
                          $("#form_edit_dang input[name='id']").val(data.data.id);
                          $("#form_edit_dang input[name='ten']").val(data.data.ten);
-                         $("#form_edit_dang input[name='thoigian']").val(data.data.thoigian);
-                         $("#form_edit_dang input[name='vai_tro']").val(data.data.vai_tro);
-                         $("#form_edit_dang input[name='ket_qua']").val(data.data.ket_qua);
+                         $("#form_edit_dang input[name='dia_diem']").val(data.data.dia_diem);
+                         $("#form_edit_dang input[name='bat_dau']").val(data.data.bat_dau);
+                         $("#form_edit_dang input[name='ket_thuc']").val(data.data.ket_thuc);
                          $("#form_edit_dang input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_dang').modal('show');
                      }
@@ -1978,11 +2013,12 @@ $.ajax({
                  method: 'POST',
                  data: {
                     id: $("#form_edit_dang input[name='id']").val(),
-                     id_giangvien: $("#form_edit_dang select[name='id_giangvien']").val(),
+                     chu_tri: $("#form_edit_dang select[name='chu_tri']").val(),
+                     tham_gia: $("#form_edit_dang select[name='tham_gia']").val(),
                      ten: $("#form_edit_dang input[name='ten']").val(),
-                     thoigian: $("#form_edit_dang input[name='thoigian']").val(),
-                     ket_qua: $("#form_edit_dang input[name='ket_qua']").val(),
-                     vai_tro: $("#form_edit_dang input[name='vai_tro']").val(),
+                     dia_diem: $("#form_edit_dang input[name='dia_diem']").val(),
+                     bat_dau: $("#form_edit_dang input[name='bat_dau']").val(),
+                     ket_thuc: $("#form_edit_dang input[name='ket_thuc']").val(),
                      ghichu: $("#form_edit_dang input[name='ghichu']").val(),
                  },
                  success: function(data) {
@@ -2015,7 +2051,7 @@ $.ajax({
                          $('#modal_edit_dang').modal('hide');
                          swal({
                              "title":"Đã sửa!",
-                             "text":"Bạn đã sửa thành công hoạt động Đảng!",
+                             "text":"Bạn đã sửa thành công Đảng!",
                              "type":"success"
                          }, function() {
                                  localStorage.setItem('activeTab', '#tab5');

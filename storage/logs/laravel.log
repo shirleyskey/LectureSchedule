@@ -2821,3 +2821,7 @@ Stack trace:
 #57 /opt/lampp/htdocs/lectureSchedule/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #58 /opt/lampp/htdocs/lectureSchedule/public/index.php(55): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #59 {main}  
+[2021-02-12 11:30:20] local.INFO: Email: superadministrator@app.com đăng nhập thành công  
+[2021-02-12 11:43:17] local.INFO: Người dùng ID:1 đã thêm Đảng ID:16-Bùi Văn C  
+[2021-02-12 12:03:40] local.INFO: Người dùng ID:1 đã sửa Đảng ID:16-Bùi Văn C  
+[2021-02-12 12:09:26] local.INFO: Người dùng ID:1 đã xóa Đảng id:16-Bùi Văn C  
