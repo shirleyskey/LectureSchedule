@@ -936,7 +936,7 @@
                         <!-- END BEGIN TAB 6-->
                             <!-- BEGIN TAB 5-->
                             <div class="tab-pane" id="tab5">
-                                @if($dang->isNotEmpty())
+                                @if(!empty($dang))
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -944,10 +944,12 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Nội Dung</th>
-                                                    <th> Kết Quả</th>
-                                                    <th> Vai Trò</th>
-                                                    <th> Thời Gian</th>
+                                                    <th> Tên Hoạt Động</th>
+                                                    <th> Địa Điểm</th>
+                                                    <th> Chủ Trì</th>
+                                                    <th> Tham Gia</th>
+                                                    <th> Bắt Đầu</th>
+                                                    <th> Kết Thúc</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
@@ -958,9 +960,44 @@
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> {{ $v_dang->ten }} </td>
-                                                        <td> {{ $v_dang->ket_qua }} </td>
-                                                        <td> {{ $v_dang->vai_tro }} </td>
-                                                        <td> {{ $v_dang->thoigian }} </td>
+                                                        <td> {{ $v_dang->dia_diem }} </td>
+                                                        <td>
+                                                            @php
+                                                            $chu_tri = json_decode( $v_dang->chu_tri, true);
+                                                            $so_chu_tri = 0;
+                                                            $is_chu_tri = false;
+                                                            @endphp
+                                                            @foreach($chu_tri as $key => $value)
+                                                            @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                             @php
+                                                                 $so_chu_tri = $so_chu_tri + 1;
+                                                             @endphp
+                                                             @if($value == $id_giangvien)
+                                                                 @php
+                                                                     $is_chu_tri = true;
+                                                                 @endphp
+                                                             @endif 
+                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                            @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td>
+                                                            @php
+                                                            $tham_gia = json_decode( $v_dang->tham_gia, true);
+                                                            $so_tham_gia = 0;
+                                                            @endphp
+                                                            @foreach($tham_gia as $key => $value)
+                                                           
+                                                            @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                            @php
+                                                            $so_tham_gia = $so_tham_gia + 1;
+                                                            @endphp
+                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                            @endif
+                                                            @endforeach
+                                                        </td>
+                                                        <td> {{ $v_dang->bat_dau }} </td>
+                                                        <td> {{ $v_dang->ket_thuc }} </td>
                                                         <td> {{ $v_dang->ghichu }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp

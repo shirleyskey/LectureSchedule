@@ -55,11 +55,11 @@ class DashboardController extends Controller
 
     public function deadline(){
         $vanban = VanBan::whereBetween("thoigian_den",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $hop = Hop::whereBetween("thoigian",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $chambai = ChamBai::whereBetween("thoigian",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $dang = Dang::whereBetween("thoigian",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $daygioi = DayGioi::whereBetween("thoigian",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $congtac= CongTac::whereBetween("thoigian",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
+        $hop = Hop::whereBetween("ketthuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
+        $chambai = ChamBai::whereBetween("ket_thuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
+        $dang = Dang::whereBetween("ket_thuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
+        $daygioi = DayGioi::whereBetween("ket_thuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
+        $congtac= CongTac::whereBetween("ket_thuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
         $xaydung= XayDung::whereBetween("thoigian",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
         return view('dashboard.deadline', [
             'vanban' => $vanban,

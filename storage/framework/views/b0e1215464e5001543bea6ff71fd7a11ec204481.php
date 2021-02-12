@@ -2,7 +2,7 @@
     <?php echo csrf_field(); ?>
     <div class="tab-content">
          <!-- BEGIN XỬ LÝ VĂN BẢN-->
-         <div class="tab-pane active" id="tab_vanban">
+         <div class="tab-pane" id="tab_vanban">
             <?php if($vanban->isNotEmpty()): ?>
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">

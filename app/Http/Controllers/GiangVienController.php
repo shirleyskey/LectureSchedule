@@ -54,12 +54,22 @@ class GiangVienController extends Controller
                 array_push($vanban, $ds_vanban);
             };
         };
+         //Lấy Danh Sách Đảng
+         $ds_dangs = Dang::all();
+         $dang = array();
+         foreach($ds_dangs as $ds_dang){
+             $chu_tri = json_decode($ds_dang->chu_tri, true);
+             $tham_gia = json_decode($ds_dang->tham_gia, true);
+             if((in_array($id, $chu_tri)) || (in_array($id, $tham_gia))){
+                 array_push($vanban, $ds_vanban);
+             };
+         };
 
         return view('giangvien.read.index', [
             'giangvien' => $giangvien,
             'chambai' => ChamBai::where('id_giangvien', $id)->get(),
             'congtac' => CongTac::where('id_giangvien', $id)->get(),
-            'dang' => Dang::where('id_giangvien', $id)->get(),
+            'dang' => $dang,
             'hoctap' => HocTap::where('id_giangvien', $id)->get(),
             'hop' => Hop::where('id_giangvien', $id)->get(),
             'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
@@ -109,15 +119,15 @@ class GiangVienController extends Controller
     public function edit($id){
         return view('giangvien.edit.index', [
             'giangvien' => GiangVien::findOrFail($id),
-            'chambai' => ChamBai::where('id_giangvien', $id)->get(),
-            'congtac' => CongTac::where('id_giangvien', $id)->get(),
-            'dang' => Dang::where('id_giangvien', $id)->get(),
-            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
-            'hoctap' => HocTap::where('id_giangvien', $id)->get(),
-            'xaydung' => XayDung::where('id_giangvien', $id)->get(),
-            'hdkh' => Hdkh::where('id_giangvien', $id)->get(),
-            'hop' => Hop::where('id_giangvien', $id)->get(),
-            'vanban' => VanBan::where('id_giangvien', $id)->get(),
+            // 'chambai' => ChamBai::where('id_giangvien', $id)->get(),
+            // 'congtac' => CongTac::where('id_giangvien', $id)->get(),
+            // 'dang' => Dang::where('id_giangvien', $id)->get(),
+            // 'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
+            // 'hoctap' => HocTap::where('id_giangvien', $id)->get(),
+            // 'xaydung' => XayDung::where('id_giangvien', $id)->get(),
+            // 'hdkh' => Hdkh::where('id_giangvien', $id)->get(),
+            // 'hop' => Hop::where('id_giangvien', $id)->get(),
+            // 'vanban' => VanBan::where('id_giangvien', $id)->get(),
             'lop' => Lop::all(),
             'hocphan' => HocPhan::all(),
         ]);

@@ -900,7 +900,7 @@
                         <!-- END BEGIN TAB 6-->
                             <!-- BEGIN TAB 5-->
                             <div class="tab-pane" id="tab5">
-                                <?php if($dang->isNotEmpty()): ?>
+                                <?php if(!empty($dang)): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -908,10 +908,12 @@
                                             <thead>
                                                 <tr>
                                                     <th> STT</th>
-                                                    <th> Nội Dung</th>
-                                                    <th> Kết Quả</th>
-                                                    <th> Vai Trò</th>
-                                                    <th> Thời Gian</th>
+                                                    <th> Tên Hoạt Động</th>
+                                                    <th> Địa Điểm</th>
+                                                    <th> Chủ Trì</th>
+                                                    <th> Tham Gia</th>
+                                                    <th> Bắt Đầu</th>
+                                                    <th> Kết Thúc</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
@@ -922,9 +924,44 @@
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> <?php echo e($v_dang->ten); ?> </td>
-                                                        <td> <?php echo e($v_dang->ket_qua); ?> </td>
-                                                        <td> <?php echo e($v_dang->vai_tro); ?> </td>
-                                                        <td> <?php echo e($v_dang->thoigian); ?> </td>
+                                                        <td> <?php echo e($v_dang->dia_diem); ?> </td>
+                                                        <td>
+                                                            <?php
+                                                            $chu_tri = json_decode( $v_dang->chu_tri, true);
+                                                            $so_chu_tri = 0;
+                                                            $is_chu_tri = false;
+                                                            ?>
+                                                            <?php $__currentLoopData = $chu_tri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                             <?php
+                                                                 $so_chu_tri = $so_chu_tri + 1;
+                                                             ?>
+                                                             <?php if($value == $id_giangvien): ?>
+                                                                 <?php
+                                                                     $is_chu_tri = true;
+                                                                 ?>
+                                                             <?php endif; ?> 
+                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                            <?php endif; ?>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                            $tham_gia = json_decode( $v_dang->tham_gia, true);
+                                                            $so_tham_gia = 0;
+                                                            ?>
+                                                            <?php $__currentLoopData = $tham_gia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                           
+                                                            <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                            <?php
+                                                            $so_tham_gia = $so_tham_gia + 1;
+                                                            ?>
+                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                            <?php endif; ?>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </td>
+                                                        <td> <?php echo e($v_dang->bat_dau); ?> </td>
+                                                        <td> <?php echo e($v_dang->ket_thuc); ?> </td>
                                                         <td> <?php echo e($v_dang->ghichu); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
