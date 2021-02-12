@@ -24,11 +24,20 @@ class Dang extends Model
         }else{
             $dang = Dang::findOrFail($id);
         }
-        $dang->id_giangvien = $data['id_giangvien'];
         $dang->ten = $data['ten'];
-        $dang->ket_qua = $data['ket_qua'];
-        $dang->vai_tro = $data['vai_tro'];
-        $dang->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
+        $dang->dia_diem = $data['dia_diem'];
+        foreach ($data['chu_tri'] as $key => $value) {
+            $data['chu_tri'][$key] = (int)$value;         
+        }
+        foreach ($data['tham_gia'] as $key => $value) {
+            $data['tham_gia'][$key] = (int)$value;         
+        }
+       
+        $dang->chu_tri = json_encode($data['chu_tri']);
+        $dang->tham_gia = json_encode($data['tham_gia']);
+        $dang->bat_dau = Carbon::parse($data['bat_dau'])->format('Y-m-d');
+        $dang->ket_thuc = Carbon::parse($data['ket_thuc'])->format('Y-m-d');
+        $dang->ghichu = $data['ghichu'];
         $dang->save();
         return $dang;
     }

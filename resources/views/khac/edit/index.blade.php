@@ -100,6 +100,7 @@
                 </div>
             </div>
         </div>
+
         <div class="clearfix"></div>
         <!-- END DASHBOARD STATS 1-->
     </div>
@@ -113,7 +114,6 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form action="post" id="form_add_chambai">
-
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                     <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Chấm Bài</h4>
@@ -122,7 +122,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                            <div class="form-group">
+                                <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
                                         <option value="0">-------- Chọn Giảng Viên --------</option>
@@ -332,16 +332,12 @@
                                     <label>Giờ Khoa Học:<span class="required">*</span></label>
                                     <input name="gio_khoahoc" type="number" class="form-control" required>
                                 </div>
-
-                                
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div>
-
                             </div>
                             <div class="col-md-6">
-
                             </div>
                         </div>
                     </div>
@@ -372,7 +368,6 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tên Địa Bàn:<span class="required">*</span></label>
@@ -389,7 +384,6 @@
                                             @endif
                                     </select>
                                 </div>
-                                
                                     <div class="form-group">
                                         <label>Địa Điểm:<span class="required">*</span></label>
                                         <input name="dia_diem" type="text" class="form-control" required>
@@ -410,15 +404,12 @@
                                         <label>Giờ Khoa Học:<span class="required">*</span></label>
                                         <input name="gio_khoahoc" type="number" class="form-control" required>
                                     </div>
-    
-                                    
                                     <div class="form-group">
                                         <label>Ghi Chú:<span class="required">*</span></label>
                                         <input name="ghichu" type="text" class="form-control" required>
                                     </div>
                             </div>
                             <div class="col-md-6">
-
                             </div>
                         </div>
                     </div>
@@ -436,7 +427,6 @@
 <!-- /.modal -->
 <!-- -------------------------------------END CÔNG TÁC ADD -------------------------------------->
 
-<!-- -------------------------------------VĂN BẢN ADD ------------------------------------>
 <!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_add_vanban" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -449,7 +439,6 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nội Dung<span class="required">*</span></label>
@@ -471,9 +460,8 @@
                                                     @endforeach
                                                 @endif
                                             </select>
-                                    </div>
+                                        </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Tham Gia: </label>
                                         <div class="input-icon right">
@@ -488,7 +476,6 @@
                                             </select>
                                         </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Thời Gian Nhận:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
@@ -501,10 +488,8 @@
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div> 
-
                             </div>
                             <div class="col-md-6">
-
                             </div>
                         </div>
                     </div>
@@ -520,8 +505,6 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-<!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_edit_vanban" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -535,16 +518,15 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Nội Dung<span class="required">*</span></label>
-                                    <input  name="noi_dung" type="text" class="form-control" required>
-                                <div/>
+                                    <label>Nội Dung:<span class="required">*</span></label>
+                                    <input class="form-control" name="noi_dung" type="text" required />
+                                </div>
                                 <div class="form-group">
-                                    <label>Lãnh Đạo Xử Lý:<span class="required">*</span></label>
-                                    <input name="lanhdao" type="text" class="form-control" required>
-                                </div> 
+                                    <label>Lãnh đạo xử lý:<span class="required">*</span></label>
+                                    <input class="form-control" name="lanhdao" type="text" required />
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Chủ Trì:</label>
                                         <div class="input-icon right">
@@ -557,9 +539,8 @@
                                                     @endforeach
                                                 @endif
                                             </select>
-                                    </div>
+                                        </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Tham Gia: </label>
                                         <div class="input-icon right">
@@ -574,17 +555,20 @@
                                             </select>
                                         </div>
                                 </div>
+                                
                                 <div class="form-group">
                                     <label>Thời Gian Nhận:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
+
                                 <div class="form-group">
                                     <label>Hạn:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
+
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
+                                    <input name="ghichu" type="text" class="form-control" required />
                                 </div> 
                             </div>
                             <div class="col-md-6">
@@ -595,7 +579,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
-                    <a href="#" class="btn green" id="btn_edit_vanban"><i class="fa fa-save"></i> Lưu</a>
+                    <a href="#" class="btn green" id="btn_edit_dang"><i class="fa fa-save"></i> Lưu</a>
                 </div>
             </form>
         </div>
@@ -604,7 +588,8 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<!-- -------------------------------------END VĂN BẢn ADD -------------------------------------->
+
+
 <!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_add_dang" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -618,7 +603,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                               
                                 <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
@@ -650,10 +634,8 @@
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
-
                             </div>
                             <div class="col-md-6">
-
                             </div>
                         </div>
                     </div>
@@ -669,8 +651,6 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-<!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_edit_dang" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -685,7 +665,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                
                                 <div class="form-group">
                                     <label>Tên Giảng Viên:<span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
@@ -735,9 +714,6 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
- {{-- END ĐẢNG ĐOÀN --}}
-
 <!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_add_daygioi" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -802,10 +778,8 @@
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div> 
                             </div>
-
                             <div class="col-md-6">
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -820,8 +794,6 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-
 <!-- /.modal -->
 <div class="modal fade bs-modal-lg" id="modal_edit_daygioi" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -837,7 +809,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
-                            <div class="form-group">
+                                <div class="form-group">
                                     <label>Tên Dạy Giỏi:<span class="required">*</span></label>
                                     <input value="" name="ten" type="text" class="form-control" required>
                                 </div>
@@ -885,14 +857,12 @@
                                     <label>Giờ Khoa Học:<span class="required">*</span></label>
                                     <input class="form-control" name="gio_khoahoc" type="number" placeholder="" required />
                                 </div>
-                               
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div> 
                             </div>
                             <div class="col-md-6">
-
                             </div>
                         </div>
                     </div>
@@ -908,14 +878,12 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-{{-- END DẠY GIỎI  --}}
 
 <!-- /.modal Cuộc Họp -->
 <div class="modal fade bs-modal-lg" id="modal_add_hop" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form action="post" id="form_add_hop">
-
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                     <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Cuộc Họp</h4>
@@ -963,11 +931,8 @@
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div>
-
-
                             </div>
                             <div class="col-md-6">
-
                             </div>
                         </div>
                     </div>
@@ -1059,9 +1024,7 @@
 </div>
 <!-- /.modal -->
 
-{{-- END Cuộc Họp  --}}
-
-<!-- /.modal Hướng Dẫn Khoa Học-->
+<!-- /.modal Hướng Dẫn Khoa Học -->
 <div class="modal fade bs-modal-lg" id="modal_add_hdkh" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1202,6 +1165,7 @@
                                         <label class="form-check-label" for="luan_an">Luận Án:</label>
                                     </div>
                                 </div> 
+
                                 <div class="form-group">
                                     <label>Học Viên: <span class="required">*</span></label>
                                     <input  name="hoc_vien" type="text" class="form-control" required>
@@ -1230,10 +1194,8 @@
                                     <label>Ghi Chú:<span class="required">*</span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div> 
-
                             </div>
                             <div class="col-md-6">
-
                             </div>
                         </div>
                     </div>
@@ -1248,293 +1210,8 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- /.modal  Hướng Dẫn Khoa Học-->
 
-<!-- /.modal -->
-{{-- <div class="modal fade bs-modal-lg" id="modal_add_hoctap" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <form action="post" id="form_add_hoctap">
 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Học Tập</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-6">
-                            <div class="form-group">
-                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
-                                            @if($giangvien->count()>0)
-                                                @foreach($giangvien as $v)
-                                                    <option value="{{ $v->id }}" php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                                @endforeach
-                                            @endif
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tên Lớp: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Loại Hình: <span class="required">*</span></label>
-                                    <input  name="loai_hinh" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Số Giờ: <span class="required">*</span></label>
-                                    <input  name="so_gio" type="number" class="form-control" required>
-                                </div>
-                                
-                               
-                                <div class="form-group">
-                                    <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
-                                </div>
-                                <div class="form-group">
-                                    <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
-                                </div>
-                                <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
-                                </div> 
-
-                            </div>
-                            <div class="col-md-6">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
-                    <a href="#" class="btn green" id="btn_add_hoctap"><i class="fa fa-save"></i> Lưu</a>
-                </div>
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div> --}}
-<!-- /.modal -->
-
-<!-- /.modal -->
-{{-- <div class="modal fade bs-modal-lg" id="modal_edit_hoctap" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <form action="#" id="form_edit_hoctap">
-                @csrf
-                <input value="" name="id" type="hidden">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Học Tập</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-6">
-                            <div class="form-group">
-                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
-                                            @if($giangvien->count()>0)
-                                                @foreach($giangvien as $v)
-                                                    <option value="{{ $v->id }}" php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                                @endforeach
-                                            @endif
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tên Lớp: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Loại Hình: <span class="required">*</span></label>
-                                    <input  name="loai_hinh" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Số Giờ: <span class="required">*</span></label>
-                                    <input  name="so_gio" type="number" class="form-control" required>
-                                </div>
-                                
-                               
-                                <div class="form-group">
-                                    <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
-                                </div>
-                                <div class="form-group">
-                                    <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
-                                </div>
-                                <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
-                                </div> 
-
-                            </div>
-                            <div class="col-md-6">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
-                    <a href="#" class="btn green" id="btn_edit_hoctap"><i class="fa fa-save"></i> Lưu</a>
-                </div>
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div> --}}
-<!-- /.modal -->
-
-<!-- /.modal -->
-{{-- <div class="modal fade bs-modal-lg" id="modal_add_xaydung" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <form action="post" id="form_add_xaydung">
-
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Xây Dựng Chương Trình</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-6">
-                            <div class="form-group">
-                                    <label>Tên Giảng Viên: <span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
-                                            @if($giangvien->count()>0)
-                                                @foreach($giangvien as $v)
-                                                    <option value="{{ $v->id }}" php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                                @endforeach
-                                            @endif
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tên Chương Trình: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Học Phần:<span class="required">*</span></label>
-                                    <input name="hocphan" type="text" class="form-control" required>
-                                </div> 
-                                <div class="form-group">
-                                    <label>Khóa:<span class="required">*</span></label>
-                                    <input name="khoa" type="text" class="form-control" required>
-                                </div> 
-                                <div class="form-group">
-                                    <label>Vai Trò:<span class="required">*</span></label>
-                                    <input name="vai_tro" type="text" class="form-control" required>
-                                </div> 
-                                
-                               
-                                <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" type="date" placeholder="dd-mm-yyyy" required />
-                                </div>
-                                <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
-                                </div> 
-
-                            </div>
-                            <div class="col-md-6">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
-                    <a href="#" class="btn green" id="btn_add_xaydung"><i class="fa fa-save"></i> Lưu</a>
-                </div>
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div> --}}
-<!-- /.modal -->
-
-<!-- /.modal -->
-{{-- <div class="modal fade bs-modal-lg" id="modal_edit_xaydung" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <form action="#" id="form_edit_xaydung">
-                @csrf
-                <input value="" name="id" type="hidden">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Xây Dựng</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-6">
-                            <div class="form-group">
-                                    <label>Tên Giảng Viên:<span class="required">*</span></label>
-                                    <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
-                                            @if($giangvien->count()>0)
-                                                @foreach($giangvien as $v)
-                                                    <option value="{{ $v->id }}" php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ten }}</option>
-                                                @endforeach
-                                            @endif
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tên Chương Trình: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Học Phần:<span class="required">*</span></label>
-                                    <input name="hocphan" type="text" class="form-control" required>
-                                </div> 
-                                <div class="form-group">
-                                    <label>Khóa:<span class="required">*</span></label>
-                                    <input name="khoa" type="text" class="form-control" required>
-                                </div> 
-                                <div class="form-group">
-                                    <label>Vai Trò:<span class="required">*</span></label>
-                                    <input name="vai_tro" type="text" class="form-control" required>
-                                </div> 
-                               
-                               
-                                <div class="form-group">
-                                    <label>Thời Gian:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian" id="thoigian" type="date" placeholder="dd-mm-yyyy" value="" required />
-                                </div>
-                                <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input value="" name="ghichu" type="text" class="form-control" required>
-                                </div>
-
-                            </div>
-                            <div class="col-md-6">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Đóng</button>
-                    <a href="#" class="btn green" id="btn_edit_xaydung"><i class="fa fa-save"></i> Lưu</a>
-                </div>
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div> --}}
-<!-- /.modal -->
 
 @endsection
 
@@ -1542,7 +1219,6 @@
 <script>
     $(document).ready(function()
     {
-
        
         // Reload trang và giữ nguyên tab đã active
         var activeTab = localStorage.getItem('activeTab');
@@ -1553,7 +1229,6 @@
         // END Reload trang và giữ nguyên tab đã active
          // Ajax thêm Công Tác
          $("#btn_add_congtac").on('click', function(e){
-
         e.preventDefault();
         $("#btn_add_congtac").attr("disabled", "disabled");
         $("#btn_add_congtac").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -1651,8 +1326,6 @@
              });
          });
          // END Khi click vào nút sửa congtac, tìm congtac theo id và đỗ dữ liệu vào form
-
-
          // Ajax sửa congtac
          $("#btn_edit_congtac").on('click', function(e){
              e.preventDefault();
@@ -1676,7 +1349,6 @@
                      bat_dau: $("#form_edit_congtac input[name='bat_dau']").val(),
                      ket_thuc: $("#form_edit_congtac input[name='ket_thuc']").val(),
                      ghichu: $("#form_edit_congtac input[name='ghichu']").val(),
-
                  },
                  success: function(data) {
                      $("#btn_edit_congtac").removeAttr("disabled");
@@ -1720,7 +1392,6 @@
              });
          });
          // END Ajax sửa congtac
-
          // Xử lý khi click nút xóa congtac
          $(".btn_delete_congtac").on("click", function(e){
              e.preventDefault();
@@ -1765,15 +1436,11 @@
                          });
                      }
              });
-
          });
          // END Xử lý khi click nút xóa congtac
-
          // ==================================================================//
-
           // Ajax thêm Văn Bản Xử Lý
           $("#btn_add_vanban").on('click', function(e){
-
 e.preventDefault();
 $("#btn_add_vanban").attr("disabled", "disabled");
 $("#btn_add_vanban").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -1869,8 +1536,6 @@ $.ajax({
      });
  });
  // END Khi click vào nút sửa vanban, tìm vanban theo id và đỗ dữ liệu vào form
-
-
  // Ajax sửa vanban
  $("#btn_edit_vanban").on('click', function(e){
      e.preventDefault();
@@ -1893,7 +1558,6 @@ $.ajax({
                      thoigian_den: $("#form_edit_vanban input[name='thoigian_den']").val(),
                      thoigian_nhan: $("#form_edit_vanban input[name='thoigian_nhan']").val(),
                      ghichu: $("#form_edit_vanban input[name='ghichu']").val(),
-
          },
          success: function(data) {
              $("#btn_edit_vanban").removeAttr("disabled");
@@ -1937,7 +1601,6 @@ $.ajax({
      });
  });
  // END Ajax sửa vanban
-
  // Xử lý khi click nút xóa vanban
  $(".btn_delete_vanban").on("click", function(e){
      e.preventDefault();
@@ -1982,16 +1645,11 @@ $.ajax({
                  });
              }
      });
-
  });
  // END Xử lý khi click nút xóa vanban
-
  // ==================================================================//
-
-
          // Ajax thêm Chấm Bài
          $("#btn_add_chambai").on('click', function(e){
-
         e.preventDefault();
         $("#btn_add_chambai").attr("disabled", "disabled");
         $("#btn_add_chambai").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -2001,7 +1659,6 @@ $.ajax({
                  }
              });
         $.ajax({
-
             url: '{{route('postThemChamBai')}}',
             method: 'POST',
             data: {
@@ -2095,8 +1752,6 @@ $.ajax({
              });
          });
          // END Khi click vào nút sửa chấm Bài, tìm chấm Bài theo id và đỗ dữ liệu vào form
-
-
          // Ajax sửa chấm bài
          $("#btn_edit_chambai").on('click', function(e){
              e.preventDefault();
@@ -2123,7 +1778,6 @@ $.ajax({
                      so_bai: $("#form_edit_chambai input[name='so_bai']").val(),
                      bat_dau: $("#form_edit_chambai input[name='bat_dau']").val(),
                      ket_thuc: $("#form_edit_chambai input[name='ket_thuc']").val(),
-
                  },
                  success: function(data) {
                      $("#btn_edit_chambai").removeAttr("disabled");
@@ -2167,7 +1821,6 @@ $.ajax({
              });
          });
          // END Ajax sửa chấm Bài
-
          // Xử lý khi click nút xóa chấm Bài
          $(".btn_delete_chambai").on("click", function(e){
              e.preventDefault();
@@ -2212,14 +1865,11 @@ $.ajax({
                          });
                      }
              });
-
          });
          // END Xử lý khi click nút xóa chấm Bài
 // ========================================================================
-
          // Ajax thêm Đảng
     $("#btn_add_dang").on('click', function(e){
-
         e.preventDefault();
         $("#btn_add_dang").attr("disabled", "disabled");
         $("#btn_add_dang").html('<i class="fa fa-spinner fa-spin"></i> Lưu');
@@ -2229,7 +1879,6 @@ $.ajax({
                  }
              });
         $.ajax({
-
             url: '{{route('postThemDang')}}',
             method: 'POST',
             data: {
@@ -2314,8 +1963,6 @@ $.ajax({
              });
          });
          // END Khi click vào nút sửa dang, tìm dang theo id và đỗ dữ liệu vào form
-
-
          // Ajax sửa dang
          $("#btn_edit_dang").on('click', function(e){
              e.preventDefault();
@@ -2380,7 +2027,6 @@ $.ajax({
              });
          });
          // END Ajax sửa dang
-
          // Xử lý khi click nút xóa dang
          $(".btn_delete_dang").on("click", function(e){
              e.preventDefault();
@@ -2425,11 +2071,9 @@ $.ajax({
                          });
                      }
              });
-
          });
          // END Xử lý khi click nút xóa dang
  // ==================================================================//
-
          // Ajax thêm Dạy Giỏi
     $("#btn_add_daygioi").on('click', function(e){
         console.log("hihi");
@@ -2442,7 +2086,6 @@ $.ajax({
                  }
              });
         $.ajax({
-
             url: '{{route('postThemDayGioi')}}',
             method: 'POST',
             data: {
@@ -2535,8 +2178,6 @@ $.ajax({
              });
          });
          // END Khi click vào nút sửa daygioi, tìm daygioi theo id và đỗ dữ liệu vào form
-
-
          // Ajax sửa daygioi
          $("#btn_edit_daygioi").on('click', function(e){
              e.preventDefault();
@@ -2562,7 +2203,6 @@ $.ajax({
                      gio_giang: $("#form_edit_daygioi input[name='gio_giang']").val(),
                      gio_khoahoc: $("#form_edit_daygioi input[name='gio_khoahoc']").val(),
                      ghichu: $("#form_edit_daygioi input[name='ghichu']").val(),
-
                  },
                  success: function(data) {
                      $("#btn_edit_daygioi").removeAttr("disabled");
@@ -2606,7 +2246,6 @@ $.ajax({
              });
          });
          // END Ajax sửa daygioi
-
          // Xử lý khi click nút xóa daygioi
          $(".btn_delete_daygioi").on("click", function(e){
              e.preventDefault();
@@ -2651,13 +2290,10 @@ $.ajax({
                          });
                      }
              });
-
          });
          // END Xử lý khi click nút xóa daygioi
  // ==================================================================//
-
  // ==================================================================//
-
          // Ajax thêm Xây Dựng
          $("#btn_add_xaydung").on('click', function(e){
         e.preventDefault();
@@ -2669,7 +2305,6 @@ $.ajax({
                  }
              });
         $.ajax({
-
             url: '{{route('postThemXayDung')}}',
             method: 'POST',
             data: {
@@ -2756,8 +2391,6 @@ $.ajax({
              });
          });
          // END Khi click vào nút sửa xaydung, tìm xaydung theo id và đỗ dữ liệu vào form
-
-
          // Ajax sửa xaydung
          $("#btn_edit_xaydung").on('click', function(e){
              e.preventDefault();
@@ -2780,7 +2413,6 @@ $.ajax({
                      vai_tro: $("#form_edit_xaydung input[name='vai_tro']").val(),
                      ghichu: $("#form_edit_xaydung input[name='ghichu']").val(),
                      thoigian: $("#form_edit_xaydung input[name='thoigian']").val(),
-
                  },
                  success: function(data) {
                      $("#btn_edit_xaydung").removeAttr("disabled");
@@ -2824,7 +2456,6 @@ $.ajax({
              });
          });
          // END Ajax sửa xaydung
-
          // Xử lý khi click nút xóa xaydung
          $(".btn_delete_xaydung").on("click", function(e){
              e.preventDefault();
@@ -2869,14 +2500,10 @@ $.ajax({
                          });
                      }
              });
-
          });
          // END Xử lý khi click nút xóa xaydung
  // ==================================================================//
-
-
   // ==================================================================//
-
          // Ajax thêm Cuộc Họp
          $("#btn_add_hop").on('click', function(e){
         e.preventDefault();
@@ -2888,7 +2515,6 @@ $.ajax({
                  }
              });
         $.ajax({
-
             url: '{{route('postThemHop')}}',
             method: 'POST',
             data: {
@@ -2977,8 +2603,6 @@ $.ajax({
              });
          });
          // END Khi click vào nút sửa hop, tìm hop theo id và đỗ dữ liệu vào form
-
-
          // Ajax sửa hop
          $("#btn_edit_hop").on('click', function(e){
              e.preventDefault();
@@ -3002,7 +2626,6 @@ $.ajax({
                      ketthuc: $("#form_edit_hop input[name='ketthuc']").val(),
                      giogiang: $("#form_edit_hop input[name='giogiang']").val(),
                      giokhoahoc: $("#form_edit_hop input[name='giokhoahoc']").val(),
-
                  },
                  success: function(data) {
                      $("#btn_edit_hop").removeAttr("disabled");
@@ -3046,7 +2669,6 @@ $.ajax({
              });
          });
          // END Ajax sửa hop
-
          // Xử lý khi click nút xóa hop
          $(".btn_delete_hop").on("click", function(e){
              e.preventDefault();
@@ -3091,13 +2713,10 @@ $.ajax({
                          });
                      }
              });
-
          });
          // END Xử lý khi click nút xóa hop
  // ==================================================================//
-
   // ==================================================================//
-
          // Ajax thêm Hướng Dẫn Khoa Học 
          $("#btn_add_hdkh").on('click', function(e){
         e.preventDefault();
@@ -3109,7 +2728,6 @@ $.ajax({
                  }
              });
         $.ajax({
-
             url: '{{route('postThemHdkh')}}',
             method: 'POST',
             data: {
@@ -3206,8 +2824,6 @@ $.ajax({
              });
          });
          // END Khi click vào nút sửa hdkh, tìm hdkh theo id và đỗ dữ liệu vào form
-
-
          // Ajax sửa hdkh
          $("#btn_edit_hdkh").on('click', function(e){
              e.preventDefault();
@@ -3235,7 +2851,6 @@ $.ajax({
                     hoc_vien: $("#form_edit_hdkh input[name='hoc_vien']").val(),
                     khoa: $("#form_edit_hdkh input[name='khoa']").val(),
                     ghichu: $("#form_edit_hdkh input[name='ghichu']").val(),
-
                  },
                  success: function(data) {
                      $("#btn_edit_hdkh").removeAttr("disabled");
@@ -3279,7 +2894,6 @@ $.ajax({
              });
          });
          // END Ajax sửa hdkh
-
          // Xử lý khi click nút xóa hdkh
          $(".btn_delete_hdkh").on("click", function(e){
              e.preventDefault();
@@ -3324,7 +2938,6 @@ $.ajax({
                          });
                      }
              });
-
          });
          // END Xử lý khi click nút xóa Hướng Dẫn Khoa Học 
  // ==================================================================//
@@ -3339,7 +2952,6 @@ $.ajax({
                  }
              });
         $.ajax({
-
             url: '{{route('postThemHocTap')}}',
             method: 'POST',
             data: {
@@ -3426,8 +3038,6 @@ $.ajax({
              });
          });
          // END Khi click vào nút sửa hoctap, tìm hoctap theo id và đỗ dữ liệu vào form
-
-
          // Ajax sửa hoctap
          $("#btn_edit_hoctap").on('click', function(e){
              e.preventDefault();
@@ -3450,7 +3060,6 @@ $.ajax({
                      ghichu: $("#form_edit_hoctap input[name='ghichu']").val(),
                      thoigian: $("#form_edit_hoctap input[name='thoigian']").val(),
                      thoigian_den: $("#form_edit_hoctap input[name='thoigian_den']").val(),
-
                  },
                  success: function(data) {
                      $("#btn_edit_hoctap").removeAttr("disabled");
@@ -3494,7 +3103,6 @@ $.ajax({
              });
          });
          // END Ajax sửa hoctap
-
          // Xử lý khi click nút xóa hoctap
          $(".btn_delete_hoctap").on("click", function(e){
              e.preventDefault();
@@ -3539,7 +3147,6 @@ $.ajax({
                          });
                      }
              });
-
          });
          // End xử lý nút xóa học tập
          var table = $('#ds_hop');
@@ -3549,7 +3156,6 @@ $.ajax({
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
     "pageLength": 10,
-
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
@@ -3582,7 +3188,6 @@ var table = $('#ds_congtac');
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
     "pageLength": 10,
-
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
@@ -3615,7 +3220,6 @@ var table = $('#ds_chambai');
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
     "pageLength": 10,
-
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
@@ -3648,7 +3252,6 @@ var table = $('#ds_daygioi');
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
     "pageLength": 10,
-
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
@@ -3681,7 +3284,6 @@ var table = $('#ds_hoctap');
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
     "pageLength": 10,
-
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
@@ -3714,7 +3316,6 @@ var table = $('#ds_hdkh');
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
     "pageLength": 10,
-
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
@@ -3747,7 +3348,6 @@ var table = $('#ds_xaydung');
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
     "pageLength": 10,
-
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
@@ -3780,7 +3380,6 @@ var table = $('#ds_vanban');
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
     "pageLength": 10,
-
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
@@ -3813,7 +3412,6 @@ var table = $('#ds_dang');
                 [10, 20, 50, "Tất cả"] // change per page values here
             ],
     "pageLength": 10,
-
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
@@ -3839,11 +3437,8 @@ var table = $('#ds_dang');
         // [0, "asc"]
     ] // set first column as a default sort by asc
 });
-
         
     });
-
-
 </script>
 
 
