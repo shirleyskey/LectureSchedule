@@ -36,6 +36,7 @@
             <span class="label label-sm label-danger"> Không giảng </span>
             <?php endif; ?>
         </h1>
+        <?php echo $__env->make('partials.flash-message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->

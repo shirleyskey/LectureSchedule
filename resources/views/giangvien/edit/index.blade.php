@@ -37,6 +37,7 @@
             <span class="label label-sm label-danger"> Không giảng </span>
             @endif
         </h1>
+        @include('partials.flash-message')
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
