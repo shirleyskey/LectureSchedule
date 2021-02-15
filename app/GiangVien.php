@@ -25,21 +25,11 @@ class GiangVien extends Model
     {
         return $this->hasOne('App\User', 'id_giangvien');
     }
-
-    public function dangs()
+    public function daygiois()
     {
-        return $this->hasMany('App\Dang', 'id_giangvien');
-    }
-
-    public function hoctaps()
-    {
-        return $this->hasMany('App\HocTap', 'id_giangvien');
+        return $this->hasMany('App\DayGioi', 'id_giangvien');
     }
    
-    public function xaydungs()
-    {
-        return $this->hasMany('App\XayDung', 'id_giangvien');
-    }
     public function tiets()
     {
         return $this->hasMany('App\Tiet', 'id_giangvien');
@@ -47,6 +37,10 @@ class GiangVien extends Model
     public function hops()
     {
         return $this->hasMany('App\Hop', 'id_giangvien');
+    }
+    public function hdkhs()
+    {
+        return $this->hasMany('App\Hdkh', 'id_giangvien');
     }
 
 

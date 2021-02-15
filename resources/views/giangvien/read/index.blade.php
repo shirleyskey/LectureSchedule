@@ -48,7 +48,7 @@
 
         <div class="row box_gio">
             <div class="col-md-12">
-            <h2>1. Thông Tin</h2>
+            <h2>1. Thông tin cá nhân</h2>
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
@@ -392,28 +392,27 @@
                         <li class="active">
                             <a href="#tab_giokhac" data-toggle="tab">Giờ Hoạt Động Khác</a>
                         </li>
+                        <li>
+                            <a href="#tab_hop" data-toggle="tab">Họp</a>
+                        </li>
+                        <li>
+                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
+                        </li>
+                        <li>
+                            <a href="#tab4" data-toggle="tab">Chấm Bài</a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab"> Đi Thực Tế</a>
+                        </li>
+                        <li>
+                            <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
+                        </li>
                         <li >
                             <a href="#tab_vanban" data-toggle="tab">Xử Lý Văn Bản</a>
                         </li>
                         <li>
                             <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
                         </li>
-                        <li>
-                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
-                        </li>
-                        <li>
-                            <a href="#tab_hop" data-toggle="tab">Họp</a>
-                        </li>
-                        <li>
-                            <a href="#tab3" data-toggle="tab"> Đi Thực Tế</a>
-                        </li>
-                        <li>
-                            <a href="#tab4" data-toggle="tab">Chấm Bài</a>
-                        </li>
-                        <li>
-                            <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
-                        </li>
-                        
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
@@ -433,7 +432,6 @@
                                                     <th> Thể Loại</th>
                                                     <th> Giờ Giảng</th>
                                                     <th> Giờ Khoa Học</th>
-                                                    <th> Tổng Số Giờ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -445,49 +443,77 @@
                                                     $total_daygioi = 0; 
                                                     $total_hoctap = 0; 
                                                     $total_hdkh = 0; 
+                                                    $total_hop_khoahoc = 0;
+                                                    $total_chambai_khoahoc = 0;
+                                                    $total_congtac_khoahoc = 0;
+                                                    $total_daygioi_khoahoc = 0; 
+                                                    $total_hoctap_khoahoc = 0; 
+                                                    $total_hdkh_khoahoc = 0; 
                                                 
                                                 @endphp
                                                 @if( $hop->count() > 0 )
-                                                    @php  @endphp
                                                     @foreach( $hop as $v_hop )
-                                                    @php $total_hop += ($v_hop->giogiang + $v_hop->giokhoahoc); @endphp
+                                                    @php 
+                                                    $total_hop += $v_hop->giogiang; 
+                                                    $total_hop_khoahoc += $v_hop->giokhoahoc; 
+                                                    @endphp
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> Họp </td>
-                                                        <td> {{ $v_hop->giogiang }} </td>
-                                                        <td> {{ $v_hop->giokhoahoc }} </td>
                                                         <td> {{ $total_hop }} </td>
+                                                        <td> {{ $total_hop_khoahoc }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
                                                 @endif
+                                                @if( $hdkh->count() > 0 )
+                                                   
+                                                @foreach( $hdkh as $v_hdkh )
+                                                @php 
+                                                $total_hdkh += $v_hdkh->gio_giang; 
+                                                $total_hdkh_khoahoc += $v_hdkh->gio_khoahoc; 
+                                                @endphp
+                                                
+                                                @endforeach
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+                                                    <td> Hướng Dẫn Khoa Học </td>
+                                                    <td> {{ $total_hdkh}} </td>
+                                                    <td> {{ $total_hdkh_khoahoc}} </td>
+                                                </tr>
+                                                @php $stt++; @endphp
+                                            @endif
                                                
                                                 @if( $chambai->count() > 0 )
                                                     @foreach( $chambai as $v_chambai )
-                                                    @php $total_chambai += ($v_chambai->gio_giang + $v_chambai->gio_khoahoc); @endphp
+                                                    @php 
+                                                    $total_chambai += $v_chambai->gio_giang; 
+                                                    $total_chambai_khoahoc += $v_chambai->gio_khoahoc; 
+                                                    @endphp
                                                     
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> Chấm Bài </td>
-                                                        <td> {{ $v_chambai->gio_giang }} </td>
-                                                        <td> {{ $v_chambai->gio_khoahoc }} </td>
                                                         <td> {{ $total_chambai }} </td>
+                                                        <td> {{ $total_chambai_khoahoc }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
                                                 @endif
                                                
                                                 @if( $congtac->count() > 0 )
                                                     @foreach( $congtac as $v_congtac )
-                                                    @php $total_congtac += ($v_congtac->gio_giang + $v_congtac->gio_khoahoc); @endphp
+                                                    @php 
+                                                    $total_congtac += $v_congtac->gio_giang; 
+                                                    $total_congtac_khoahoc += $v_congtac->gio_khoahoc; 
+                                                    @endphp
                                                    
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> Đi Thực Tế</td>
-                                                        <td> {{$v_congtac->gio_giang}}</td>
-                                                        <td> {{$v_congtac->gio_khoahoc}}</td>
-                                                        <td> {{ $total_congtac }} </td>
+                                                        <td> {{$total_congtac}}</td>
+                                                        <td> {{ $total_congtac_khoahoc}}</td>
                                                     </tr>
                                                     @php $stt++; @endphp
                                                 @endif
@@ -495,54 +521,32 @@
                                                 @if( $daygioi->count() > 0 )
                                                    
                                                     @foreach( $daygioi as $v_daygioi )
-                                                    @php $total_daygioi += ($v_daygioi->gio_giang + $v_daygioi->gio_khoahoc); @endphp
+                                                    @php 
+                                                    $total_daygioi += $v_daygioi->gio_giang; 
+                                                    $total_daygioi_khoahoc += $v_daygioi->gio_khoahoc; 
+                                                    @endphp
                                                    
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
                                                         <td> Dạy Giỏi</td>
-                                                        <td> {{ $v_daygioi->gio_giang}}</td>
-                                                        <td> {{ $v_daygioi->gio_khoahoc}}</td>
-                                                        <td> {{ $total_daygioi }} </td>
+                                                        <td> {{ $total_daygioi}}</td>
+                                                        <td> {{ $total_daygioi_khoahoc}}</td>
                                                     </tr>
                                                     @php $stt++; @endphp
                                                 @endif
 
-                                                @if( $hoctap->count() > 0 )
-                                                   
-                                                    @foreach( $hoctap as $v_hoctap )
-                                                    @php $total_hoctap += $v_hoctap->so_gio; @endphp
-                                                    
-                                                    @endforeach
-                                                    <tr>
-                                                        <td> {{ $stt }} </td>
-                                                        <td> Tham Gia Học Tập</td>
-                                                        <td> {{ $total_hoctap }} </td>
-                                                    </tr>
-                                                    @php $stt++; @endphp
-                                                @endif
-
-                                                @if( $hdkh->count() > 0 )
-                                                   
-                                                    @foreach( $hdkh as $v_hdkh )
-                                                    @php $total_hdkh += ($v_hdkh->gio_giang + $v_hdkh->gio_khoahoc); @endphp
-                                                    
-                                                    @endforeach
-                                                    <tr>
-                                                        <td> {{ $stt }} </td>
-                                                        <td> Hướng Dẫn Khoa Học </td>
-                                                        <td> {{ $v_hdkh->gio_giang}} </td>
-                                                        <td> {{ $v_hdkh->gio_khoahoc}} </td>
-                                                        <td> {{ $total_hdkh }} </td>
-                                                    </tr>
-                                                    @php $stt++; @endphp
-                                                @endif
+                                               
                                                 @php $total = $total_hop + $total_chambai + $total_congtac + $total_daygioi + $total_hdkh + $total_hoctap; @endphp
+                                                @php $total_khoahoc = $total_hop_khoahoc + $total_chambai_khoahoc + $total_congtac_khoahoc + $total_daygioi_khoahoc + $total_hdkh_khoahoc + $total_hoctap_khoahoc; @endphp
 
                                                 <tr> 
-                                                    <td colspan="2"> Tổng Giờ: </td>
+                                                    <td colspan="3"> Tổng Giờ Giảng: </td>
                                                     <td> {{$total}} </td>
-
+                                                </tr>
+                                                <tr> 
+                                                    <td colspan="3"> Tổng Giờ Khoa Học: </td>
+                                                    <td> {{$total_khoahoc}} </td>
                                                 </tr>
 
                                             </tbody>
@@ -659,7 +663,7 @@
                                         </thead>
                                         <tbody>
                                             @if( $congtac->count() > 0 )
-                                                @php $stt = 1; @endphp
+                                                @php $stt = 1; $giang = 0; $khoahoc = 0; @endphp
                                                 @foreach( $congtac as $v_congtac )
                                                 <tr>
                                                     <td> {{ $stt }} </td>
@@ -671,8 +675,28 @@
                                                     <td> {{ $v_congtac->gio_khoahoc }} </td>
                                                     <td> {{ $v_congtac->ghichu }} </td>
                                                 </tr>
-                                                @php $stt++; @endphp
+                                                @php 
+                                                    $stt++; 
+                                                    $giang = $giang + $v_congtac->gio_giang; 
+                                                    $khoahoc = $khoahoc + $v_congtac->gio_khoahoc;
+                                                @endphp
                                                 @endforeach
+                                                <tr>
+                                                    <td colspan="7">
+                                                        Tổng Giờ Giảng:
+                                                    </td>
+                                                    <td colspan="0">
+                                                       {{ $giang }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="7">
+                                                        Tổng Giờ Khoa Học:
+                                                    </td>
+                                                    <td colspan="0">
+                                                       {{ $khoahoc }}
+                                                    </td>
+                                                </tr>
                                             @endif
                                         </tbody>
                                     </table>
@@ -708,7 +732,7 @@
                                         </thead>
                                         <tbody>
                                             @if( $chambai->count() > 0 )
-                                                @php $stt = 1; @endphp
+                                                @php $stt = 1; $giang = 0; $khoahoc = 0; @endphp
                                                 @foreach( $chambai as $v_chambai )
                                                 <tr>
                                                     <td> {{ $stt }} </td>
@@ -733,8 +757,28 @@
                                                     <td> {{ $v_chambai->gio_khoahoc }} </td>
                                                     <td> {{ $v_chambai->ghichu }} </td>
                                                 </tr>
-                                                @php $stt++; @endphp
+                                                @php 
+                                                $stt++; 
+                                                $giang = $giang + $v_chambai->gio_giang; 
+                                                $khoahoc = $khoahoc + $v_chambai->gio_khoahoc;
+                                                @endphp
                                                 @endforeach
+                                                <tr>
+                                                    <td colspan="8">
+                                                        Tổng Giờ Giảng:
+                                                    </td>
+                                                    <td colspan="0">
+                                                       {{ $giang }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="8">
+                                                        Tổng Giờ Khoa Học:
+                                                    </td>
+                                                    <td colspan="0">
+                                                       {{ $khoahoc }}
+                                                    </td>
+                                                </tr>
                                             @endif
                                         </tbody>
                                     </table>
@@ -771,7 +815,7 @@
                                     </thead>
                                     <tbody>
                                         @if( $hop->count() > 0 )
-                                            @php $stt = 1; @endphp
+                                            @php $stt = 1; $giang = 0; $khoahoc = 0; @endphp
                                             @foreach( $hop as $v_hop )
                                             <tr>
                                                 <td> {{ $stt }} </td>
@@ -784,8 +828,28 @@
                                                 <td> {{ $v_hop->ghichu }} </td>
                                                 
                                             </tr>
-                                            @php $stt++; @endphp
+                                            @php 
+                                            $stt++; 
+                                            $giang = $giang + $v_hop->giogiang; 
+                                            $khoahoc = $khoahoc + $v_hop->giokhoahoc;
+                                            @endphp
                                             @endforeach
+                                            <tr>
+                                                <td colspan="7">
+                                                    Tổng Giờ Giảng:
+                                                </td>
+                                                <td colspan="0">
+                                                   {{ $giang }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="7">
+                                                    Tổng Giờ Khoa Học:
+                                                </td>
+                                                <td colspan="0">
+                                                   {{ $khoahoc }}
+                                                </td>
+                                            </tr>
                                         @endif
                                     </tbody>
                                 </table>
@@ -822,7 +886,7 @@
                                     </thead>
                                     <tbody>
                                         @if( $hdkh->count() > 0 )
-                                            @php $stt = 1; @endphp
+                                        @php $stt = 1; $giang = 0; $khoahoc = 0; @endphp
                                             @foreach( $hdkh as $v_hdkh )
                                             <tr>
                                                 <td> {{ $stt }} </td>
@@ -852,8 +916,28 @@
                                                 <td> {{ $v_hdkh->gio_khoahoc }} </td>
                                                 <td> {{ $v_hdkh->ghichu }} </td>
                                             </tr>
-                                            @php $stt++; @endphp
+                                            @php 
+                                            $stt++; 
+                                            $giang = $giang + $v_hdkh->gio_giang; 
+                                            $khoahoc = $khoahoc + $v_hdkh->gio_khoahoc;
+                                            @endphp
                                             @endforeach
+                                            <tr>
+                                                <td colspan="8">
+                                                    Tổng Giờ Giảng:
+                                                </td>
+                                                <td colspan="0">
+                                                   {{ $giang }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="8">
+                                                    Tổng Giờ Khoa Học:
+                                                </td>
+                                                <td colspan="0">
+                                                   {{ $khoahoc }}
+                                                </td>
+                                            </tr>
                                         @endif
                                     </tbody>
                                 </table>
@@ -888,7 +972,7 @@
                                         </thead>
                                         <tbody>
                                             @if( count($daygioi) > 0 )
-                                                @php $stt = 1; @endphp
+                                                @php $stt = 1; $giang = 0; $khoahoc = 0; @endphp
                                                 @foreach( $daygioi as $v )
                                                 <tr>
                                                     <td> {{ $stt }} </td>
@@ -919,8 +1003,28 @@
                                                         @endpermission
                                                     </td> --}}
                                                 </tr>
-                                                @php $stt++; @endphp
+                                                @php 
+                                                $stt++; 
+                                                $giang = $giang + $v->gio_giang; 
+                                                $khoahoc = $khoahoc + $v->gio_khoahoc;
+                                                @endphp
                                                 @endforeach
+                                                <tr>
+                                                    <td colspan="7">
+                                                        Tổng Giờ Giảng:
+                                                    </td>
+                                                    <td colspan="1">
+                                                       {{ $giang }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="7">
+                                                        Tổng Giờ Khoa Học:
+                                                    </td>
+                                                    <td colspan="1">
+                                                       {{ $khoahoc }}
+                                                    </td>
+                                                </tr>
                                             @endif
                                         </tbody>
                                     </table>

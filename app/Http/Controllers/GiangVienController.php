@@ -157,16 +157,109 @@ class GiangVienController extends Controller
             $giangvien->hops()->delete();
             // tiet
             $giangvien->tiets()->delete();
-            //Xay Dung 
-            $giangvien->xaydungs()->delete();
-            //Dang
-            $giangvien->dangs()->delete();
-            //HocTap
-            $giangvien->hoctaps()->delete();
-            //Congtac
             $giangvien->congtacs()->delete();
             // Chambai 
             $giangvien->chambais()->delete();
+            $giangvien->daygiois()->delete();
+            $giangvien->hdkhs()->delete();
+
+            //Lấy Danh Sách Van Bản
+            $ds_vanbans = VanBan::all();
+            foreach($ds_vanbans as $ds_vanban){
+                $chu_tri = json_decode($ds_vanban->chu_tri, true);
+                $tham_gia = json_decode($ds_vanban->tham_gia, true);
+                
+                if((in_array($id, $chu_tri))){
+                    $key_chutri = array_search($id, $chu_tri);
+                    unset($chu_tri[$key_chutri]);
+                };
+                if((in_array($id, $tham_gia))){
+                    $key_thamgia = array_search($id, $tham_gia);
+                    unset($tham_gia[$key_thamgia]);
+                };
+                $chu_tri_sau = array();
+                foreach ($chu_tri as $key => $value) {
+                    array_push($chu_tri_sau, $value);
+                }
+                $chu_tri_sau = json_encode($chu_tri_sau);
+                $tham_gia_sau = array();
+                foreach ($tham_gia as $key => $value) {
+                    array_push($tham_gia_sau, $value);
+                }
+                $tham_gia_sau = json_encode($tham_gia_sau);
+                
+                
+                $vanban = VanBan::findOrFail($ds_vanban->id);
+                $vanban->chu_tri = $chu_tri_sau;
+                $vanban->tham_gia = $tham_gia_sau;
+                $vanban->save();
+            };
+
+             //Lấy Danh Sách Đảg
+             $ds_dangs = Dang::all();
+             foreach($ds_dangs as $ds_dang){
+                 $chu_tri = json_decode($ds_dang->chu_tri, true);
+                 $tham_gia = json_decode($ds_dang->tham_gia, true);
+                 
+                 if((in_array($id, $chu_tri))){
+                     $key_chutri = array_search($id, $chu_tri);
+                     unset($chu_tri[$key_chutri]);
+                 };
+                 if((in_array($id, $tham_gia))){
+                     $key_thamgia = array_search($id, $tham_gia);
+                     unset($tham_gia[$key_thamgia]);
+                 };
+                 $chu_tri_sau = array();
+                 foreach ($chu_tri as $key => $value) {
+                     array_push($chu_tri_sau, $value);
+                 }
+                 $chu_tri_sau = json_encode($chu_tri_sau);
+                 $tham_gia_sau = array();
+                 foreach ($tham_gia as $key => $value) {
+                     array_push($tham_gia_sau, $value);
+                 }
+                 $tham_gia_sau = json_encode($tham_gia_sau);
+                 
+                 
+                 $dang = Dang::findOrFail($ds_dang->id);
+                 $dang->chu_tri = $chu_tri_sau;
+                 $dang->tham_gia = $tham_gia_sau;
+                 $dang->save();
+             };
+
+             //Lấy Danh Sách Nckh
+             $ds_nckhs = Nckh::all();
+             foreach($ds_nckhs as $ds_nckh){
+                 $chubien = json_decode($ds_nckh->chubien, true);
+                 $thamgia = json_decode($ds_nckh->thamgia, true);
+                 
+                 if((in_array($id, $chubien))){
+                     $key_chubien = array_search($id, $chubien);
+                     unset($chubien[$key_chubien]);
+                 };
+                 if((in_array($id, $thamgia))){
+                     $key_thamgia = array_search($id, $thamgia);
+                     unset($thamgia[$key_thamgia]);
+                 };
+                 $chu_bien_sau = array();
+                 foreach ($chubien as $key => $value) {
+                     array_push($chu_bien_sau, $value);
+                 }
+                 $chu_bien_sau = json_encode($chu_bien_sau);
+                 $tham_gia_sau = array();
+                 foreach ($thamgia as $key => $value) {
+                     array_push($tham_gia_sau, $value);
+                 }
+                 $tham_gia_sau = json_encode($tham_gia_sau);
+                 
+                 
+                 $nckh = Nckh::findOrFail($ds_nckh->id);
+                 $nckh->chubien = $chu_bien_sau;
+                 $nckh->thamgia = $tham_gia_sau;
+                 $nckh->save();
+             };
+            
+
             $giangvien->delete();
             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa nhân sự id:'.$id.'-'.$name);
             return redirect()->route('giangvien.index')->with('status_success', 'Xóa Giảng Viên thành công!');

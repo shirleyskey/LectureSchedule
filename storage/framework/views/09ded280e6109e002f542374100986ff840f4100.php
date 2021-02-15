@@ -46,7 +46,7 @@
 
         <div class="row box_gio">
             <div class="col-md-12">
-            <h2>1. Thông Tin</h2>
+            <h2>1. Thông tin cá nhân</h2>
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
@@ -361,28 +361,27 @@
                         <li class="active">
                             <a href="#tab_giokhac" data-toggle="tab">Giờ Hoạt Động Khác</a>
                         </li>
+                        <li>
+                            <a href="#tab_hop" data-toggle="tab">Họp</a>
+                        </li>
+                        <li>
+                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
+                        </li>
+                        <li>
+                            <a href="#tab4" data-toggle="tab">Chấm Bài</a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab"> Đi Thực Tế</a>
+                        </li>
+                        <li>
+                            <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
+                        </li>
                         <li >
                             <a href="#tab_vanban" data-toggle="tab">Xử Lý Văn Bản</a>
                         </li>
                         <li>
                             <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
                         </li>
-                        <li>
-                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
-                        </li>
-                        <li>
-                            <a href="#tab_hop" data-toggle="tab">Họp</a>
-                        </li>
-                        <li>
-                            <a href="#tab3" data-toggle="tab"> Đi Thực Tế</a>
-                        </li>
-                        <li>
-                            <a href="#tab4" data-toggle="tab">Chấm Bài</a>
-                        </li>
-                        <li>
-                            <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
-                        </li>
-                        
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
@@ -402,7 +401,6 @@
                                                     <th> Thể Loại</th>
                                                     <th> Giờ Giảng</th>
                                                     <th> Giờ Khoa Học</th>
-                                                    <th> Tổng Số Giờ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -414,49 +412,77 @@
                                                     $total_daygioi = 0; 
                                                     $total_hoctap = 0; 
                                                     $total_hdkh = 0; 
+                                                    $total_hop_khoahoc = 0;
+                                                    $total_chambai_khoahoc = 0;
+                                                    $total_congtac_khoahoc = 0;
+                                                    $total_daygioi_khoahoc = 0; 
+                                                    $total_hoctap_khoahoc = 0; 
+                                                    $total_hdkh_khoahoc = 0; 
                                                 
                                                 ?>
                                                 <?php if( $hop->count() > 0 ): ?>
-                                                    <?php  ?>
                                                     <?php $__currentLoopData = $hop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_hop += ($v_hop->giogiang + $v_hop->giokhoahoc); ?>
+                                                    <?php 
+                                                    $total_hop += $v_hop->giogiang; 
+                                                    $total_hop_khoahoc += $v_hop->giokhoahoc; 
+                                                    ?>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> Họp </td>
-                                                        <td> <?php echo e($v_hop->giogiang); ?> </td>
-                                                        <td> <?php echo e($v_hop->giokhoahoc); ?> </td>
                                                         <td> <?php echo e($total_hop); ?> </td>
+                                                        <td> <?php echo e($total_hop_khoahoc); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                 <?php endif; ?>
+                                                <?php if( $hdkh->count() > 0 ): ?>
+                                                   
+                                                <?php $__currentLoopData = $hdkh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hdkh): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php 
+                                                $total_hdkh += $v_hdkh->gio_giang; 
+                                                $total_hdkh_khoahoc += $v_hdkh->gio_khoahoc; 
+                                                ?>
+                                                
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td> <?php echo e($stt); ?> </td>
+                                                    <td> Hướng Dẫn Khoa Học </td>
+                                                    <td> <?php echo e($total_hdkh); ?> </td>
+                                                    <td> <?php echo e($total_hdkh_khoahoc); ?> </td>
+                                                </tr>
+                                                <?php $stt++; ?>
+                                            <?php endif; ?>
                                                
                                                 <?php if( $chambai->count() > 0 ): ?>
                                                     <?php $__currentLoopData = $chambai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_chambai): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_chambai += ($v_chambai->gio_giang + $v_chambai->gio_khoahoc); ?>
+                                                    <?php 
+                                                    $total_chambai += $v_chambai->gio_giang; 
+                                                    $total_chambai_khoahoc += $v_chambai->gio_khoahoc; 
+                                                    ?>
                                                     
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> Chấm Bài </td>
-                                                        <td> <?php echo e($v_chambai->gio_giang); ?> </td>
-                                                        <td> <?php echo e($v_chambai->gio_khoahoc); ?> </td>
                                                         <td> <?php echo e($total_chambai); ?> </td>
+                                                        <td> <?php echo e($total_chambai_khoahoc); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                 <?php endif; ?>
                                                
                                                 <?php if( $congtac->count() > 0 ): ?>
                                                     <?php $__currentLoopData = $congtac; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_congtac): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_congtac += ($v_congtac->gio_giang + $v_congtac->gio_khoahoc); ?>
+                                                    <?php 
+                                                    $total_congtac += $v_congtac->gio_giang; 
+                                                    $total_congtac_khoahoc += $v_congtac->gio_khoahoc; 
+                                                    ?>
                                                    
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> Đi Thực Tế</td>
-                                                        <td> <?php echo e($v_congtac->gio_giang); ?></td>
-                                                        <td> <?php echo e($v_congtac->gio_khoahoc); ?></td>
-                                                        <td> <?php echo e($total_congtac); ?> </td>
+                                                        <td> <?php echo e($total_congtac); ?></td>
+                                                        <td> <?php echo e($total_congtac_khoahoc); ?></td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                 <?php endif; ?>
@@ -464,54 +490,32 @@
                                                 <?php if( $daygioi->count() > 0 ): ?>
                                                    
                                                     <?php $__currentLoopData = $daygioi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_daygioi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_daygioi += ($v_daygioi->gio_giang + $v_daygioi->gio_khoahoc); ?>
+                                                    <?php 
+                                                    $total_daygioi += $v_daygioi->gio_giang; 
+                                                    $total_daygioi_khoahoc += $v_daygioi->gio_khoahoc; 
+                                                    ?>
                                                    
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
                                                         <td> Dạy Giỏi</td>
-                                                        <td> <?php echo e($v_daygioi->gio_giang); ?></td>
-                                                        <td> <?php echo e($v_daygioi->gio_khoahoc); ?></td>
-                                                        <td> <?php echo e($total_daygioi); ?> </td>
+                                                        <td> <?php echo e($total_daygioi); ?></td>
+                                                        <td> <?php echo e($total_daygioi_khoahoc); ?></td>
                                                     </tr>
                                                     <?php $stt++; ?>
                                                 <?php endif; ?>
 
-                                                <?php if( $hoctap->count() > 0 ): ?>
-                                                   
-                                                    <?php $__currentLoopData = $hoctap; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hoctap): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_hoctap += $v_hoctap->so_gio; ?>
-                                                    
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                    <tr>
-                                                        <td> <?php echo e($stt); ?> </td>
-                                                        <td> Tham Gia Học Tập</td>
-                                                        <td> <?php echo e($total_hoctap); ?> </td>
-                                                    </tr>
-                                                    <?php $stt++; ?>
-                                                <?php endif; ?>
-
-                                                <?php if( $hdkh->count() > 0 ): ?>
-                                                   
-                                                    <?php $__currentLoopData = $hdkh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hdkh): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <?php $total_hdkh += ($v_hdkh->gio_giang + $v_hdkh->gio_khoahoc); ?>
-                                                    
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                    <tr>
-                                                        <td> <?php echo e($stt); ?> </td>
-                                                        <td> Hướng Dẫn Khoa Học </td>
-                                                        <td> <?php echo e($v_hdkh->gio_giang); ?> </td>
-                                                        <td> <?php echo e($v_hdkh->gio_khoahoc); ?> </td>
-                                                        <td> <?php echo e($total_hdkh); ?> </td>
-                                                    </tr>
-                                                    <?php $stt++; ?>
-                                                <?php endif; ?>
+                                               
                                                 <?php $total = $total_hop + $total_chambai + $total_congtac + $total_daygioi + $total_hdkh + $total_hoctap; ?>
+                                                <?php $total_khoahoc = $total_hop_khoahoc + $total_chambai_khoahoc + $total_congtac_khoahoc + $total_daygioi_khoahoc + $total_hdkh_khoahoc + $total_hoctap_khoahoc; ?>
 
                                                 <tr> 
-                                                    <td colspan="2"> Tổng Giờ: </td>
+                                                    <td colspan="3"> Tổng Giờ Giảng: </td>
                                                     <td> <?php echo e($total); ?> </td>
-
+                                                </tr>
+                                                <tr> 
+                                                    <td colspan="3"> Tổng Giờ Khoa Học: </td>
+                                                    <td> <?php echo e($total_khoahoc); ?> </td>
                                                 </tr>
 
                                             </tbody>
@@ -628,7 +632,7 @@
                                         </thead>
                                         <tbody>
                                             <?php if( $congtac->count() > 0 ): ?>
-                                                <?php $stt = 1; ?>
+                                                <?php $stt = 1; $giang = 0; $khoahoc = 0; ?>
                                                 <?php $__currentLoopData = $congtac; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_congtac): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
@@ -640,8 +644,30 @@
                                                     <td> <?php echo e($v_congtac->gio_khoahoc); ?> </td>
                                                     <td> <?php echo e($v_congtac->ghichu); ?> </td>
                                                 </tr>
-                                                <?php $stt++; ?>
+                                                <?php 
+                                                    $stt++; 
+                                                    $giang = $giang + $v_congtac->gio_giang; 
+                                                    $khoahoc = $khoahoc + $v_congtac->gio_khoahoc;
+                                                ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td colspan="7">
+                                                        Tổng Giờ Giảng:
+                                                    </td>
+                                                    <td colspan="0">
+                                                       <?php echo e($giang); ?>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="7">
+                                                        Tổng Giờ Khoa Học:
+                                                    </td>
+                                                    <td colspan="0">
+                                                       <?php echo e($khoahoc); ?>
+
+                                                    </td>
+                                                </tr>
                                             <?php endif; ?>
                                         </tbody>
                                     </table>
@@ -677,7 +703,7 @@
                                         </thead>
                                         <tbody>
                                             <?php if( $chambai->count() > 0 ): ?>
-                                                <?php $stt = 1; ?>
+                                                <?php $stt = 1; $giang = 0; $khoahoc = 0; ?>
                                                 <?php $__currentLoopData = $chambai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_chambai): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
@@ -702,8 +728,30 @@
                                                     <td> <?php echo e($v_chambai->gio_khoahoc); ?> </td>
                                                     <td> <?php echo e($v_chambai->ghichu); ?> </td>
                                                 </tr>
-                                                <?php $stt++; ?>
+                                                <?php 
+                                                $stt++; 
+                                                $giang = $giang + $v_chambai->gio_giang; 
+                                                $khoahoc = $khoahoc + $v_chambai->gio_khoahoc;
+                                                ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td colspan="8">
+                                                        Tổng Giờ Giảng:
+                                                    </td>
+                                                    <td colspan="0">
+                                                       <?php echo e($giang); ?>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="8">
+                                                        Tổng Giờ Khoa Học:
+                                                    </td>
+                                                    <td colspan="0">
+                                                       <?php echo e($khoahoc); ?>
+
+                                                    </td>
+                                                </tr>
                                             <?php endif; ?>
                                         </tbody>
                                     </table>
@@ -740,7 +788,7 @@
                                     </thead>
                                     <tbody>
                                         <?php if( $hop->count() > 0 ): ?>
-                                            <?php $stt = 1; ?>
+                                            <?php $stt = 1; $giang = 0; $khoahoc = 0; ?>
                                             <?php $__currentLoopData = $hop; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
                                                 <td> <?php echo e($stt); ?> </td>
@@ -753,8 +801,30 @@
                                                 <td> <?php echo e($v_hop->ghichu); ?> </td>
                                                 
                                             </tr>
-                                            <?php $stt++; ?>
+                                            <?php 
+                                            $stt++; 
+                                            $giang = $giang + $v_hop->giogiang; 
+                                            $khoahoc = $khoahoc + $v_hop->giokhoahoc;
+                                            ?>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <tr>
+                                                <td colspan="7">
+                                                    Tổng Giờ Giảng:
+                                                </td>
+                                                <td colspan="0">
+                                                   <?php echo e($giang); ?>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="7">
+                                                    Tổng Giờ Khoa Học:
+                                                </td>
+                                                <td colspan="0">
+                                                   <?php echo e($khoahoc); ?>
+
+                                                </td>
+                                            </tr>
                                         <?php endif; ?>
                                     </tbody>
                                 </table>
@@ -791,7 +861,7 @@
                                     </thead>
                                     <tbody>
                                         <?php if( $hdkh->count() > 0 ): ?>
-                                            <?php $stt = 1; ?>
+                                        <?php $stt = 1; $giang = 0; $khoahoc = 0; ?>
                                             <?php $__currentLoopData = $hdkh; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_hdkh): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
                                                 <td> <?php echo e($stt); ?> </td>
@@ -821,8 +891,30 @@
                                                 <td> <?php echo e($v_hdkh->gio_khoahoc); ?> </td>
                                                 <td> <?php echo e($v_hdkh->ghichu); ?> </td>
                                             </tr>
-                                            <?php $stt++; ?>
+                                            <?php 
+                                            $stt++; 
+                                            $giang = $giang + $v_hdkh->gio_giang; 
+                                            $khoahoc = $khoahoc + $v_hdkh->gio_khoahoc;
+                                            ?>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <tr>
+                                                <td colspan="8">
+                                                    Tổng Giờ Giảng:
+                                                </td>
+                                                <td colspan="0">
+                                                   <?php echo e($giang); ?>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="8">
+                                                    Tổng Giờ Khoa Học:
+                                                </td>
+                                                <td colspan="0">
+                                                   <?php echo e($khoahoc); ?>
+
+                                                </td>
+                                            </tr>
                                         <?php endif; ?>
                                     </tbody>
                                 </table>
@@ -857,7 +949,7 @@
                                         </thead>
                                         <tbody>
                                             <?php if( count($daygioi) > 0 ): ?>
-                                                <?php $stt = 1; ?>
+                                                <?php $stt = 1; $giang = 0; $khoahoc = 0; ?>
                                                 <?php $__currentLoopData = $daygioi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
                                                     <td> <?php echo e($stt); ?> </td>
@@ -883,8 +975,30 @@
                                                     
                                                     
                                                 </tr>
-                                                <?php $stt++; ?>
+                                                <?php 
+                                                $stt++; 
+                                                $giang = $giang + $v->gio_giang; 
+                                                $khoahoc = $khoahoc + $v->gio_khoahoc;
+                                                ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td colspan="7">
+                                                        Tổng Giờ Giảng:
+                                                    </td>
+                                                    <td colspan="1">
+                                                       <?php echo e($giang); ?>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="7">
+                                                        Tổng Giờ Khoa Học:
+                                                    </td>
+                                                    <td colspan="1">
+                                                       <?php echo e($khoahoc); ?>
+
+                                                    </td>
+                                                </tr>
                                             <?php endif; ?>
                                         </tbody>
                                     </table>
