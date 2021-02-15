@@ -22,6 +22,23 @@ class KhacController extends Controller
 {
     //
     public function edit(){
+        // Họp 
+        $gio_giang_hop = Hop::sum('giogiang');
+        $gio_khoahoc_hop = Hop::sum('giokhoahoc');
+        // HDKH 
+        $gio_giang_hdkh = Hdkh::sum('gio_giang');
+        $gio_khoahoc_hdkh = Hdkh::sum('gio_khoahoc');
+        // Chấm Bài 
+        $gio_giang_cham = ChamBai::sum('gio_giang');
+        $gio_khoahoc_cham = ChamBai::sum('gio_khoahoc');
+        // ĐI thực tế 
+        $gio_giang_ct = CongTac::sum('gio_giang');
+        $gio_khoahoc_ct = CongTac::sum('gio_khoahoc');
+        // Dạy Giỏi 
+        $gio_giang_day = DayGioi::sum('gio_giang');
+        $gio_khoahoc_day = DayGioi::sum('gio_khoahoc');
+        $gio_giang = $gio_giang_hop + $gio_giang_hdkh + $gio_giang_cham + $gio_giang_ct + $gio_giang_day;
+        $gio_khoa_hoc = $gio_khoahoc_hop + $gio_khoahoc_hdkh + $gio_khoahoc_cham + $gio_khoahoc_ct + $gio_khoahoc_day;
         return view('khac.edit.index', [
             'giangvien' => GiangVien::all(), 
             'chambai' => ChamBai::all(),
@@ -36,6 +53,8 @@ class KhacController extends Controller
             'hop' => Hop::all(),
             'vanban' => VanBan::all(),
             'hdkh' => Hdkh::all(),
+            'gio_giang' => $gio_giang,
+            'gio_khoa_hoc' => $gio_khoa_hoc
         ]);
     }
 

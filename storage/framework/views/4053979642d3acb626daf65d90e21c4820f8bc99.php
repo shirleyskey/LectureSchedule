@@ -47,6 +47,14 @@
         <div class="row box_gio">
             <div class="col-md-12">
             <h2>Công tác khác</h2>
+            <p>
+                Tổng Giờ Giảng: <?php echo e($gio_giang); ?>
+
+            </p>
+            <p>
+                Tổng Giờ Khoa Học: <?php echo e($gio_khoa_hoc); ?>
+
+            </p>
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
@@ -87,13 +95,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế Mới
                         
                                                                 </a>
                                                             </div>
-                                                            <?php endif; // app('laratrust')->can ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -133,10 +139,8 @@
                                                                  <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                                  <td> <?php echo e($v->ghichu); ?> </td>
                                                                 <td>
-                                                                    <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                                     <a data-congtac-id="<?php echo e($v->id); ?>" class="btn_edit_congtac btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_congtac btn btn-xs red-mint" href="#" data-congtac-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    <?php endif; // app('laratrust')->can ?>
                                                                 </td>
                                                             </tr>
                                                             <?php $stt++; ?>
@@ -150,9 +154,7 @@
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Đi Thưc Tế nào.
-                                                <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế</a></p>
-                                                <?php endif; // app('laratrust')->can ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -168,13 +170,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp Mới
                         
                                                                 </a>
                                                             </div>
-                                                            <?php endif; // app('laratrust')->can ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,10 +214,8 @@
                                                                 <td> <?php echo e($v->giokhoahoc); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
                                                                 <td>
-                                                                    <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                                     <a data-hop-id="<?php echo e($v->id); ?>" class="btn_edit_hop btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_hop btn btn-xs red-mint" href="#" data-hop-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    <?php endif; // app('laratrust')->can ?>
                                                                 </td>
                                                             </tr>
                                                             <?php $stt++; ?>
@@ -231,9 +229,7 @@
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Cuộc Họp  nào.
-                                                <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp</a></p>
-                                                <?php endif; // app('laratrust')->can ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -248,13 +244,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Tạo Hướng Dẫn Khoa Học Mới
                         
                                                                 </a>
                                                             </div>
-                                                            <?php endif; // app('laratrust')->can ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -312,10 +306,8 @@
                                                                 <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
                                                                 <td>
-                                                                    <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                                     <a data-hdkh-id="<?php echo e($v->id); ?>" class="btn_edit_hdkh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_hdkh btn btn-xs red-mint" href="#" data-hdkh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    <?php endif; // app('laratrust')->can ?>
                                                                 </td>
                                                             </tr>
                                                             <?php $stt++; ?>
@@ -329,9 +321,7 @@
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Cuộc Họp  nào.
-                                                <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Tạo Hướng Dẫn Khoa Học Mới </a></p>
-                                                <?php endif; // app('laratrust')->can ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -346,13 +336,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài Mới
                         
                                                                 </a>
                                                             </div>
-                                                            <?php endif; // app('laratrust')->can ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -405,10 +393,8 @@
                                                                 <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
                                                                 <td>
-                                                                    <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                                     <a data-chambai-id="<?php echo e($v->id); ?>" class="btn_edit_chambai btn btn-xs yellow-gold" href="#modal_edit_chambai" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_chambai btn btn-xs red-mint" href="#" data-chambai-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    <?php endif; // app('laratrust')->can ?>
                                                                 </td>
                                                             </tr>
                                                             <?php $stt++; ?>
@@ -422,9 +408,7 @@
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Chấm Bài nào.
-                                                <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài</a></p>
-                                                <?php endif; // app('laratrust')->can ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -438,13 +422,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới
                         
                                                                 </a>
                                                             </div>
-                                                            <?php endif; // app('laratrust')->can ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -496,10 +478,8 @@
                                                                 <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
                                                                 <td>
-                                                                    <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                                     <a data-daygioi-id="<?php echo e($v->id); ?>" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    <?php endif; // app('laratrust')->can ?>
                                                                 </td>
                                                             </tr>
                                                             <?php $stt++; ?>
@@ -513,9 +493,7 @@
                                         <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có hoạt động Dạy Giỏi nào.
-                                                <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới</a></p>
-                                                <?php endif; // app('laratrust')->can ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -532,13 +510,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Mới Văn Bản Xử Lý
                         
                                                                 </a>
                                                             </div>
-                                                            <?php endif; // app('laratrust')->can ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -591,10 +567,8 @@
                                                                  <td> <?php echo e($v->thoigian_den); ?> </td>
                                                                  <td> <?php echo e($v->ghichu); ?> </td>
                                                                 <td>
-                                                                    <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                                     <a data-vanban-id="<?php echo e($v->id); ?>" class="btn_edit_vanban btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_vanban btn btn-xs red-mint" href="#" data-vanban-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    <?php endif; // app('laratrust')->can ?>
                                                                 </td>
                                                             </tr>
                                                             <?php $stt++; ?>
@@ -608,9 +582,7 @@
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Văn Bản nào.
-                                                <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Văn Bản Xử Lý</a></p>
-                                                <?php endif; // app('laratrust')->can ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -626,13 +598,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động Mới
                         
                                                                 </a>
                                                             </div>
-                                                            <?php endif; // app('laratrust')->can ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -685,10 +655,8 @@
                                                                 <td> <?php echo e($v->ket_thuc); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
                                                                 <td>
-                                                                    <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                                     <a data-dang-id="<?php echo e($v->id); ?>" class="btn_edit_dang btn btn-xs yellow-gold" href="#modal_edit_dang" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_dang btn btn-xs red-mint" href="#" data-dang-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    <?php endif; // app('laratrust')->can ?>
                                                                 </td>
                                                             </tr>
                                                             <?php $stt++; ?>
@@ -702,9 +670,7 @@
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không tham gia hoạt động Đảng/Đoàn nào.
-                                                <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động</a></p>
-                                                <?php endif; // app('laratrust')->can ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>

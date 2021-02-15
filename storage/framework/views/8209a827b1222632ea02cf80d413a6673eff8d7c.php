@@ -117,7 +117,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                            <a href="<?php echo e(route('profile.edit.get', Auth::user()->id_giangvien)); ?>">
+                            <a href="<?php echo e(route('giangvien.read.get', Auth::user()->id_giangvien)); ?>">
                                 <img alt="" style="width: 18px; " src="<?php echo e(asset('images/info.png')); ?>" /> Thông Tin Cá Nhân
                             </a>
                         </li>
@@ -125,6 +125,12 @@
                         <li>
                             <a href="<?php echo e(route('profile.thongbao.get', Auth::user()->id_giangvien)); ?>">
                                 <img alt="" style="width: 18px; " src="<?php echo e(asset('images/calendar.png')); ?>" /> Lịch Trình Cá Nhân
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <a href="<?php echo e(route('profile.edit.get', Auth::user()->id_giangvien)); ?>">
+                                <img alt="" style="width: 18px; " src="<?php echo e(asset('images/setting.png')); ?>" /> Chỉnh Sửa Thông Tin
                             </a>
                         </li>
                         <li class="divider"> </li>
@@ -186,7 +192,17 @@
                 </h3>
             </li>
             <?php endif; // app('laratrust')->can ?>
-           
+            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/lichgiang/lichgiangtuan' ? 'active open' : ''); ?>">
+                <h3 class="uppercase custom-border">
+                    <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-calculator" style="color: #dbe7f2;"></i>
+                        <span class="title" >Lịch Giảng Theo Ngày</span>
+                        <span class="selected"></span>
+                    </a>
+                </h3>
+            </li>
+            <?php endif; // app('laratrust')->can ?>
             
             <li class="heading nav-item">
                 <h3 class="uppercase custom-border"> <a data-toggle="collapse" href="#sub-menu" class="nav-link nav-toggle"><i class="fa fa-building-o"></i>GIẢNG DẠY</a> <span class="caret"></span></h3>
@@ -206,12 +222,7 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item <?php echo e(Request::is('lichgiang/lichgiangtuan') ? 'active open' : ''); ?>">
-                <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" class="nav-link nav-toggle">
-                    <span class="title">Lịch Theo Ngày</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
+            
             </div>
             
             <?php if (app('laratrust')->can('read-giangvien')) : ?>

@@ -22,13 +22,15 @@ class NckhController extends Controller
         $bao = Nckh::where('bao', true)->get();
         $giangvien = GiangVien::all();
         $theloai = LoaiNckh::all();
+        $tong_gio = Nckh::sum('sotrang');
         return view('nckh.browser.index', [
             'capbo' => $capbo,
             'thamkhao' => $thamkhao,
             'sangkien' => $sangkien,
             'bao' => $bao,
             'giangvien' => $giangvien,
-            'theloai' => $theloai
+            'theloai' => $theloai,
+            'tong_gio' => $tong_gio
         ]);
     }
 

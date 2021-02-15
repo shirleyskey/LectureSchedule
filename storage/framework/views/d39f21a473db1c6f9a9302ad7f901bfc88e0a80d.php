@@ -18,6 +18,10 @@
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title text-center uppercase"> <b>Bảng Phân Công Lịch Giảng năm học 2020-2021</b> 
         </h1>
+        <p> <b>Tổng số Tiết:</b> <?php echo e($so_tiet); ?></p>
+        <p>Tổng số Giờ Cả Khoa (Tính Giờ): <?php echo e($so_gio); ?></p>
+        <p>Tổng số Giờ Cả Khoa (Tính Tiền): <?php echo e($so_gio_tien); ?></p>
+        <p>Tổng số Giờ: <?php echo e($tong_gio); ?></p>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->

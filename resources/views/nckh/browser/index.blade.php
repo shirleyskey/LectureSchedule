@@ -27,6 +27,10 @@
                 </li>
                 <li>
                     <span>Thống kê Khoa Học</span>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <p>Tổng Giờ NCKH Cả khoa: {{$tong_gio}}</p>
                 </li>
             </ul>
         </div>
@@ -45,6 +49,7 @@
                 </div>
             </div>
         </h1>
+        
 
 
         <!-- MESSAGE -->

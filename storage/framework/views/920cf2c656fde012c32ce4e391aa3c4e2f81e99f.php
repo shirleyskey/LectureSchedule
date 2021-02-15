@@ -32,6 +32,17 @@
                 </h3>
             </li>
             <?php endif; // app('laratrust')->can ?>
+            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/lichgiang/lichgiangtuan' ? 'active open' : ''); ?>">
+                <h3 class="uppercase custom-border">
+                    <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-calculator" style="color: #dbe7f2;"></i>
+                        <span class="title" >Lịch Giảng Theo Ngày</span>
+                        <span class="selected"></span>
+                    </a>
+                </h3>
+            </li>
+            <?php endif; // app('laratrust')->can ?>
            
             
             <li class="heading nav-item">
@@ -52,12 +63,7 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item <?php echo e(Request::is('lichgiang/lichgiangtuan') ? 'active open' : ''); ?>">
-                <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" class="nav-link nav-toggle">
-                    <span class="title">Lịch Theo Ngày</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
+            
             </div>
             
             <?php if (app('laratrust')->can('read-giangvien')) : ?>

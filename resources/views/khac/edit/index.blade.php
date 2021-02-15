@@ -49,6 +49,12 @@
         <div class="row box_gio">
             <div class="col-md-12">
             <h2>Công tác khác</h2>
+            <p>
+                Tổng Giờ Giảng: {{$gio_giang}}
+            </p>
+            <p>
+                Tổng Giờ Khoa Học: {{$gio_khoa_hoc}}
+            </p>
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
                         <li class="active">
