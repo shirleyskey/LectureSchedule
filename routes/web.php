@@ -92,8 +92,8 @@ Route::prefix('giangvien')->middleware(['auth', 'only_active_user'])->group(func
 // Sửa Profile Routes...
 Route::prefix('profile')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/lichtrinh/{id}', ['uses' =>'ThongBaoController@index','as'=>'profile.thongbao.get']);
-    Route::get('/edit/{id}', ['uses' =>'ProfileController@edit','as'=>'profile.edit.get']);
     Route::get('/taikhoan/{id}', ['uses' =>'ProfileController@taikhoan','as'=>'profile.taikhoan.get']);
+    Route::get('/edit/{id}', ['uses'=>'ProfileController@edit','as'=>'profile.edit.get']);
     Route::post('/edit/{id}', ['uses'=>'ProfileController@update','as'=>'profile.edit.post']);
 });
 

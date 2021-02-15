@@ -26,31 +26,10 @@ class ProfileController extends Controller
 {
     public function edit($id){
         $giangvien = GiangVien::findOrFail($id);
-        //Lấy Danh Sách NCKH
-        $ds_nckhs = Nckh::all();
-        $nckh = array();
-        foreach($ds_nckhs as $ds_nckh){
-            $chubien = json_decode($ds_nckh->chubien, true);
-            $thamgia = json_decode($ds_nckh->thamgia, true);
-            if((in_array($id, $chubien)) || (in_array($id, $thamgia))){
-                array_push($nckh, $ds_nckh);
-            };
-        };
+       
         
         return view('user.edit.index', [
             'giangvien' => $giangvien,
-            'nckh' => $nckh,
-            'daygioi' => DayGioi::where('id_giangvien', $id)->get(),
-            'chambai' => ChamBai::where('id_giangvien', $id)->get(),
-            'congtac' => CongTac::where('id_giangvien', $id)->get(),
-            'dang' => Dang::where('id_giangvien', $id)->get(),
-            'hoctap' => HocTap::where('id_giangvien', $id)->get(),
-            'xaydung' => XayDung::where('id_giangvien', $id)->get(),
-            'hdkh' => Hdkh::where('id_giangvien', $id)->get(),
-            'hop' => Hop::where('id_giangvien', $id)->get(),
-            'vanban' => VanBan::where('id_giangvien', $id)->get(),
-            'hocphan' => HocPhan::all(),
-            'lop' => Lop::all(),
             'taikhoan' => Auth::user(),
         ]);
     }

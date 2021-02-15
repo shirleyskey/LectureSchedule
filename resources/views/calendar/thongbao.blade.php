@@ -112,7 +112,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="{{route('profile.edit.get', Auth::user()->id_giangvien)}}">
+                                    <a href="{{route('giangvien.read.get', Auth::user()->id_giangvien)}}">
                                         <img alt="" style="width: 18px; " src="{{ asset('images/info.png')}}" /> Thông Tin Cá Nhân
                                     </a>
                                 </li>
@@ -120,6 +120,12 @@
                                 <li>
                                     <a href="{{route('profile.thongbao.get', Auth::user()->id_giangvien)}}">
                                         <img alt="" style="width: 18px; " src="{{ asset('images/calendar.png')}}" /> Lịch Trình Cá Nhân
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li>
+                                    <a href="{{route('profile.edit.get', Auth::user()->id_giangvien)}}">
+                                        <img alt="" style="width: 18px; " src="{{ asset('images/setting.png')}}" /> Chỉnh Sửa Thông Tin
                                     </a>
                                 </li>
                                 <li class="divider"> </li>

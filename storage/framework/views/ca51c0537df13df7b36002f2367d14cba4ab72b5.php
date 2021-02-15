@@ -50,7 +50,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                            <a href="<?php echo e(route('profile.edit.get', Auth::user()->id_giangvien)); ?>">
+                            <a href="<?php echo e(route('giangvien.read.get', Auth::user()->id_giangvien)); ?>">
                                 <img alt="" style="width: 18px; " src="<?php echo e(asset('images/info.png')); ?>" /> Thông Tin Cá Nhân
                             </a>
                         </li>
@@ -58,6 +58,12 @@
                         <li>
                             <a href="<?php echo e(route('profile.thongbao.get', Auth::user()->id_giangvien)); ?>">
                                 <img alt="" style="width: 18px; " src="<?php echo e(asset('images/calendar.png')); ?>" /> Lịch Trình Cá Nhân
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <a href="<?php echo e(route('profile.edit.get', Auth::user()->id_giangvien)); ?>">
+                                <img alt="" style="width: 18px; " src="<?php echo e(asset('images/setting.png')); ?>" /> Chỉnh Sửa Thông Tin
                             </a>
                         </li>
                         <li class="divider"> </li>
