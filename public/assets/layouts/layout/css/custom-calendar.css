@@ -1,5 +1,7 @@
 *{}
 
+
+
 .fc-day-grid-event > .fc-content {
     white-space: pre!important;
     height: 60px;
@@ -245,4 +247,56 @@ ul.page-sidebar-menu div.list-group-level1 li:hover a span{
 .footer .right .img{position: relative;text-align: center;margin-top: 60px;}
 .footer .right .img img{height: 152px;}
 .footer .right .img h2{font-weight: 600;font-size: 20px;color: #ffffffad;}
-.footer .right .img h3{text-transform: uppercase;font-weight: 600;font-size: 19px;}\
+.footer .right .img h3{text-transform: uppercase;font-weight: 600;font-size: 19px;}
+@media only screen and (max-width: 600px) {
+
+}
+@media only screen and (min-width: 600px) {
+    .fc-day-grid-event > .fc-content {
+        white-space: pre!important;
+        height: 90px;
+    }
+    .fc-day-grid-event .fc-content span.fc-title {
+        width: 58px!important;
+        display: block;
+        word-wrap: break-word!important;
+        height: 64px;
+        white-space: normal;
+        margin-right: 0px!important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .fc-day-grid-event .fc-content span.fc-title {
+        width: 80px!important;
+        display: block;
+        word-wrap: break-word!important;
+        height: 64px;
+        white-space: normal;
+        margin-right: 0px!important;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .fc-day-grid-event .fc-content span.fc-title {
+        width: 80px!important;
+        display: block;
+        word-wrap: break-word!important;
+        height: 64px;
+        white-space: normal;
+        margin-right: 0px!important;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .fc-day-grid-event .fc-content span.fc-title {
+        width: 117px!important;
+        display: block;
+        word-wrap: break-word!important;
+        height: 64px;
+        white-space: normal;
+        margin-right: 0px!important;
+    }
+    .fc-day-grid-event > .fc-content {
+        white-space: pre!important;
+        height: 65px;
+    }
+}

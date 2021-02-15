@@ -149,7 +149,7 @@
 
                 <div class="page-sidebar-wrapper">
                   
-               <!-- BEGIN SIDEBAR -->
+              <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar-wrapper">
     <!-- BEGIN SIDEBAR -->
     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -210,18 +210,18 @@
                 </a>
             </li>
             </div>
-            <li class="heading">
-                <h3 class="uppercase custom-border"> <i class="fa fa-briefcase "></i><a data-toggle="collapse" href="#sub-menu-nckh">QUẢN LÝ NCKH</a> <span class="caret"></span></h3>
+            
+            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/nckh' ? 'active open' : ''); ?>">
+                <h3 class="uppercase custom-border">
+                    <a href="<?php echo e(route('nckh.index')); ?>" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-briefcase " style="color: #dbe7f2;"></i>
+                        <span class="title" >Quản Lý NCKH</span>
+                        <span class="selected"></span>
+                    </a>
+                </h3>
             </li>
-            <div class="collapse list-group-level1" id="sub-menu-nckh">
-            <li class="nav-item <?php echo e(Request::is('nckh') ? 'active open' : ''); ?>">
-                <a href="<?php echo e(route('nckh.index')); ?>" class="nav-link nav-toggle">
-                   
-                    <span class="title"> Quản Lý NCKH</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
-            </div>
+            <?php endif; // app('laratrust')->can ?>
             <?php if (app('laratrust')->can('read-giangvien')) : ?>
             <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/khac' ? 'active open' : ''); ?>">
                 <h3 class="uppercase custom-border">

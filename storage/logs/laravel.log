@@ -3853,3 +3853,5 @@ Stack trace:
 #63 /opt/lampp/htdocs/lectureSchedule/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #64 {main}
 "} 
+[2021-02-15 07:33:15] local.INFO: Email: vuongthanglong@gmail.com đăng nhập thành công  
+[2021-02-15 07:49:51] local.INFO: Người dùng ID:12 đã xóa Lịch Tuần id:11-ggggeeee  

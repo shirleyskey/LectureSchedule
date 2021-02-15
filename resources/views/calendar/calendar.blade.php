@@ -151,7 +151,7 @@
             <div class="page-container">
 
                 <div class="page-sidebar-wrapper">
-                   <!-- BEGIN SIDEBAR -->
+                  <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar-wrapper">
     <!-- BEGIN SIDEBAR -->
     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -212,18 +212,18 @@
                 </a>
             </li>
             </div>
-            <li class="heading">
-                <h3 class="uppercase custom-border"> <i class="fa fa-briefcase "></i><a data-toggle="collapse" href="#sub-menu-nckh">QUẢN LÝ NCKH</a> <span class="caret"></span></h3>
+            
+            @permission('read-giangvien')
+            <li class="heading nav-item {{ Route::getCurrentRoute()->getPrefix() == '/nckh' ? 'active open' : '' }}">
+                <h3 class="uppercase custom-border">
+                    <a href="{{ route('nckh.index') }}" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-briefcase " style="color: #dbe7f2;"></i>
+                        <span class="title" >Quản Lý NCKH</span>
+                        <span class="selected"></span>
+                    </a>
+                </h3>
             </li>
-            <div class="collapse list-group-level1" id="sub-menu-nckh">
-            <li class="nav-item {{ Request::is('nckh') ? 'active open' : '' }}">
-                <a href="{{ route('nckh.index') }}" class="nav-link nav-toggle">
-                   
-                    <span class="title"> Quản Lý NCKH</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
-            </div>
+            @endpermission
             @permission('read-giangvien')
             <li class="heading nav-item {{ Route::getCurrentRoute()->getPrefix() == '/khac' ? 'active open' : '' }}">
                 <h3 class="uppercase custom-border">

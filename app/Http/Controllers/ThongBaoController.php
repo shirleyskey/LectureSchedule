@@ -76,7 +76,7 @@ class ThongBaoController extends Controller
                     [
                         'left' => 'prev,next today',
                         'center' => 'title',
-                        'right' => 'month,basicWeek,list',
+                        'right' => 'month,basicWeek',
                     ],
         ]);
         return view('calendar.thongbao', ['calendar' => $calendar]);

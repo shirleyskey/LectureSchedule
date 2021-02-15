@@ -21,8 +21,7 @@ class TuanController extends Controller
         $t6= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(4)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(4)->format('Y-m-d')." 23:59:59.000000"))->get();
         $t7= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(5)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(5)->format('Y-m-d')." 23:59:59.000000"))->get();
         $t8= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(6)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(6)->format('Y-m-d')." 23:59:59.000000"))->get();
-        // dd($t2);
-        return view('tuan.tuan', 
+        return view('tuan.tuan_test', 
         [
             't2' => $t2,
             't3' => $t3,
