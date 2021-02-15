@@ -11,7 +11,7 @@ class Hop extends Model
      //
      protected $table = 'hops';
      public $timestamps = false;
-     protected $fillable = ['id_giangvien','ten', 'so_gio', 'thoigian'];
+     protected $fillable = ['id_giangvien','ten','dia_diem', 'giogiang','giokhoahoc','batdau', 'ketthuc'];
  
      public function giangviens()
      {

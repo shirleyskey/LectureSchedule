@@ -11,7 +11,7 @@ class ChamBai extends Model
     protected $table = 'chambais';
 
     public $timestamps = false;
-    protected $fillable = ['id_giangvien','bat_dau','ket_thuc', 'id_lop','so_bai', 'gio_giang', 'gio_khoahoc', 'hoc_phan', 'giua_hoc_phan', 'cdtn'];
+    protected $fillable = ['id_giangvien','bat_dau','ket_thuc', 'lop','so_bai', 'gio_giang', 'gio_khoahoc', 'hoc_phan', 'giua_hoc_phan', 'cdtn'];
 
     public function giangviens()
     {

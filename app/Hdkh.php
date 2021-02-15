@@ -11,7 +11,7 @@ class Hdkh extends Model
      //
      protected $table = 'hdkh';
      public $timestamps = false;
-     protected $fillable = ['id_giangvien', 'khoa_luan', 'luan_van', 'luan_an', 'hoc_vien', 'khoa', 'gio_giang', 'gio_khoahoc','sinhvien_nc', 'bat_dau', 'ket_thuc'];
+     protected $fillable = ['id_giangvien', 'khoa_luan', 'luan_van', 'luan_an','hoc_vien', 'khoa', 'gio_giang', 'gio_khoahoc','sinhvien_nc', 'bat_dau', 'ket_thuc'];
      
      public function giangviens()
      {

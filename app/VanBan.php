@@ -10,7 +10,7 @@ class VanBan extends Model
     //
     protected $table = 'vanbans';
     public $timestamps = false;
-    protected $fillable = ['id','lanhdao','noi_dung'];
+    protected $fillable = ['id','lanhdao','noi_dung', 'chu_tri','tham_gia','thoigian_nhan', 'thoigian_den'];
     
     public function giangviens()
     {

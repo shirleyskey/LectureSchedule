@@ -783,7 +783,7 @@
                             <div class="form-actions">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
+                                        {{-- <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button> --}}
                                     </div>
                                 </div>
                             </div>
@@ -918,10 +918,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Lớp:<span class="required">*</span></label>
-                                    <input class="form-control" name="lop" type="text" placeholder="" required />
+                                    <input class="form-control" name="lop" type="text" placeholder="Nhập tên Lớp" required />
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Hình Thức:</b></label>
+                                    <label><b>Hình Thức:</b><span class="required">(Chỉ chọn 1 mục) *</span></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="hoc_phan" name="hoc_phan">
                                         <label class="form-check-label" for="hoc_phan">Học Phần:</label>
@@ -937,7 +937,7 @@
                                 </div> 
                                 <div class="form-group">
                                     <label>Số Bài:<span class="required">*</span></label>
-                                    <input class="form-control" name="so_bai" type="number" placeholder="" required />
+                                    <input class="form-control" name="so_bai" type="number" placeholder="Nhập Số Bài" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Bắt Đầu:<span class="required">*</span></label>
@@ -949,15 +949,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
-                                    <input class="form-control" name="gio_giang" type="number" placeholder="" required />
+                                    <input class="form-control" name="gio_giang" type="number" placeholder="Nhập Giờ Giảng" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Khoa Học:<span class="required">*</span></label>
-                                    <input class="form-control" name="gio_khoahoc" type="number" placeholder="" required />
+                                    <input class="form-control" name="gio_khoahoc" type="number" placeholder="Nhập Giờ Khoa Học" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input class="form-control" name="ghichu" type="text" required />
+                                    <label>Ghi Chú:<span class="required"></span></label>
+                                    <input class="form-control" name="ghichu" type="text" required placeholder="Nhập Ghi CHú"/>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -1009,7 +1009,7 @@
                                     <input class="form-control" name="lop" type="text" placeholder="" required />
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Hình Thức:</b></label>
+                                    <label><b>Hình Thức:</b><span class="required">(Chỉ chọn 1 mục) *</span></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="hoc_phan" name="hoc_phan">
                                         <label class="form-check-label" for="hoc_phan">Học Phần:</label>
@@ -1025,7 +1025,7 @@
                                 </div> 
                                 <div class="form-group">
                                     <label>Số Bài:<span class="required">*</span></label>
-                                    <input class="form-control" name="so_bai" type="number" placeholder="" required />
+                                    <input class="form-control" name="so_bai" type="number" placeholder="Nhập Số Bài" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Bắt Đầu:<span class="required">*</span></label>
@@ -1044,7 +1044,7 @@
                                     <input class="form-control" name="gio_khoahoc" type="number" placeholder="" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <label>Ghi Chú:<span class="required"></span></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
                             </div>
@@ -1082,7 +1082,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tên Địa Bàn: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required>
+                                    <input  name="ten" type="text" class="form-control" required placeholder="Nhập Tên Địa Bàn">
                                 </div>
                                 <div class="form-group">
                                     <label>Tên Giảng Viên: <span class="required">*</span></label>
@@ -1097,7 +1097,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Địa Điểm:<span class="required">*</span></label>
-                                    <input name="dia_diem" type="text" class="form-control" required>
+                                    <input name="dia_diem" type="text" class="form-control" required placeholder="Nhập Địa Điểm">
                                 </div>
                                 <div class="form-group">
                                     <label>Bắt Đầu:<span class="required">*</span></label>
@@ -1109,15 +1109,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
-                                    <input name="gio_giang" type="number" class="form-control" required>
+                                    <input name="gio_giang" type="number" class="form-control" required placeholder="Nhập Giờ Giảng">
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Khoa Học:<span class="required">*</span></label>
-                                    <input name="gio_khoahoc" type="number" class="form-control" required>
+                                    <input name="gio_khoahoc" type="number" class="form-control" required placeholder="Nhập Giờ Khoa Học">
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
+                                    <label>Ghi Chú:<span class="required"></span></label>
+                                    <input name="ghichu" type="text" class="form-control" required placeholder="Nhập Ghi Chú">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -1188,7 +1188,7 @@
                                         <input name="gio_khoahoc" type="number" class="form-control" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Ghi Chú:<span class="required">*</span></label>
+                                        <label>Ghi Chú:<span class="required"></span></label>
                                         <input name="ghichu" type="text" class="form-control" required>
                                     </div>
                             </div>
@@ -1225,14 +1225,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nội Dung<span class="required">*</span></label>
-                                    <input  name="noi_dung" type="text" class="form-control" required>
+                                    <input  name="noi_dung" type="text" class="form-control" required placeholder="Nhập Nội Dung Văn Bản">
                                 </div>
                                 <div class="form-group">
                                     <label>Lãnh Đạo Xử Lý:<span class="required">*</span></label>
-                                    <input name="lanhdao" type="text" class="form-control" required>
+                                    <input name="lanhdao" type="text" class="form-control" required placeholder="Nhập Tên Lãnh Đạo ">
                                 </div> 
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Chủ Trì:</label>
+                                    <label class="control-label col-md-4">Chủ Trì: <span class="required">*</span></label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="chu_tri">
@@ -1246,7 +1246,7 @@
                                         </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                    <label class="control-label col-md-4">Tham Gia: <span class="required">*</span> </label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="tham_gia">
@@ -1268,7 +1268,7 @@
                                     <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <label>Ghi Chú:<span class="required"></span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div> 
                             </div>
@@ -1311,7 +1311,7 @@
                                     <input class="form-control" name="lanhdao" type="text" required />
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Chủ Trì:</label>
+                                    <label class="control-label col-md-4">Chủ Trì: <span class="required">*</span></label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="chu_tri">
@@ -1325,7 +1325,7 @@
                                         </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                    <label class="control-label col-md-4">Tham Gia:  <span class="required">*</span></label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="tham_gia">
@@ -1350,7 +1350,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <label>Ghi Chú:<span class="required"></span></label>
                                     <input name="ghichu" type="text" class="form-control" required />
                                 </div> 
                             </div>
@@ -1388,18 +1388,18 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tên Hoạt Động:<span class="required">*</span></label>
-                                    <input class="form-control" name="ten" type="text" required />
+                                    <input class="form-control" name="ten" type="text" required placeholder="Nhập Tên Hoạt Động"/>
                                 </div>
                                 <div class="form-group">
                                     <label>Địa Điểm:<span class="required">*</span></label>
-                                    <input class="form-control" name="dia_diem" type="text" required />
+                                    <input class="form-control" name="dia_diem" type="text" required placeholder="Nhập Địa Điểm"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Chủ Trì:</label>
+                                    <label class="control-label col-md-4">Chủ Trì: <span class="required">*</span></label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="chu_tri">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">----Chọn Giảng Viên Chủ Trì----</option>
                                                 @if($giangvien->count()>0)
                                                     @foreach($giangvien as $v)
                                                     <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
@@ -1409,11 +1409,11 @@
                                         </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                    <label class="control-label col-md-4">Tham Gia:  <span class="required">*</span></label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="tham_gia">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">----Chọn Giảng Viên Tham Gia----</option>
                                                 @if($giangvien->count()>0)
                                                     @foreach($giangvien as $v)
                                                     <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
@@ -1431,7 +1431,7 @@
                                     <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <label>Ghi Chú:<span class="required"</span></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
                             </div>
@@ -1474,11 +1474,11 @@
                                     <input class="form-control" name="dia_diem" type="text" required />
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Chủ Trì:</label>
+                                    <label class="control-label col-md-4">Chủ Trì: <span class="required">*</span></label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="chu_tri">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">----Chọn Giảng Viên Chủ Trì----</option>
                                                 @if($giangvien->count()>0)
                                                     @foreach($giangvien as $v)
                                                     <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
@@ -1488,11 +1488,11 @@
                                         </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                    <label class="control-label col-md-4">Tham Gia:  <span class="required">*</span></label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="tham_gia">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">----Chọn Giảng Viên Tham Gia----</option>
                                                 @if($giangvien->count()>0)
                                                     @foreach($giangvien as $v)
                                                     <option value="{{ (int)$v->id }}">{{ $v->ten }}</option>
@@ -1510,7 +1510,7 @@
                                     <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <label>Ghi Chú:<span class="required"></span></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
                             </div>
@@ -1546,7 +1546,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tên Dạy Giỏi: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required>
+                                    <input  name="ten" type="text" class="form-control" required placeholder="Nhập Tên Dạy Giỏi">
                                 </div>
                                 <div class="form-group">
                                     <label>Tên Giảng Viên: <span class="required">*</span></label>
@@ -1560,7 +1560,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Cấp:</b></label>
+                                    <label><b>Cấp:</b><span class="required">(Chỉ chọn 1 mục) *</span></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="cap_bo" name="cap_bo">
                                         <label class="form-check-label" for="cap_bo">Cấp Bộ</label>
@@ -1584,15 +1584,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
-                                    <input class="form-control" name="gio_giang" type="number" placeholder="" required />
+                                    <input class="form-control" name="gio_giang" type="number" placeholder="Nhập Giờ Giảng" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Khoa Học:<span class="required">*</span></label>
-                                    <input class="form-control" name="gio_khoahoc" type="number" placeholder="" required />
+                                    <input class="form-control" name="gio_khoahoc" type="number" placeholder="Nhập Giờ Khoa Học" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
+                                    <label>Ghi Chú:<span class="required"></span></label>
+                                    <input name="ghichu" type="text" class="form-control" required placeholder="Nhập Ghi Chú">
                                 </div> 
                             </div>
                             <div class="col-md-6">
@@ -1711,16 +1711,16 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tên Cuộc Họp: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required>
+                                    <input  name="ten" type="text" class="form-control" required placeholder="Nhập Tên Cuộc Họp">
                                 </div>
                                 <div class="form-group">
                                     <label>Địa Điểm: <span class="required">*</span></label>
-                                    <input  name="dia_diem" type="text" class="form-control" required>
+                                    <input  name="dia_diem" type="text" class="form-control" required placeholder="Nhập Tên Địa Điểm">
                                 </div>
                                 <div class="form-group">
                                     <label>Tên Giảng Viên: <span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
+                                        <option name="gv_hientai">------------Chọn Giảng Viên----------</option>
                                             @if($giangvien->count()>0)
                                                 @foreach($giangvien as $v)
                                                     <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ma_giangvien.'-'.$v->ten }}</option>
@@ -1730,23 +1730,23 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input class="form-control" name="batdau" type="date" placeholder="dd-mm-yyyy" required />
+                                    <input class="form-control" name="batdau" type="date" placeholder="dd-mm-yyyy" required placeholder="Thời Gian BẮt Đầu" />
                                 </div>
                                 <div class="form-group">
                                     <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input class="form-control" name="ketthuc" type="date" placeholder="dd-mm-yyyy" required />
+                                    <input class="form-control" name="ketthuc" type="date" placeholder="dd-mm-yyyy" required placeholder="Thời Gian Kết Thúc" />
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
-                                    <input name="giogiang" type="number" class="form-control" required>
+                                    <input name="giogiang" type="number" class="form-control" required placeholder="Nhập Giờ Giảng">
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Khoa Học:<span class="required">*</span></label>
-                                    <input name="giokhoahoc" type="number" class="form-control" required>
+                                    <input name="giokhoahoc" type="number" class="form-control" required placeholder="Nhập Giờ Khoa Học">
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
+                                    <label>Ghi Chú:<span class="required"></span></label>
+                                    <input name="ghichu" type="text" class="form-control" required placeholder="Nhập Ghi Chú">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -1818,7 +1818,7 @@
                                     <input name="giokhoahoc" type="number" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <label>Ghi Chú:<span class="required"></span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div>
 
@@ -1859,7 +1859,7 @@
                                 <div class="form-group">
                                     <label>Tên Giảng Viên: <span class="required">*</span></label>
                                     <select class="form-control" name="id_giangvien">
-                                        <option name="gv_hientai"></option>
+                                        <option name="gv_hientai">------Chọn Giảng Viên--------</option>
                                             @if($giangvien->count()>0)
                                                 @foreach($giangvien as $v)
                                                     <option value="{{ $v->id }}" <?php echo (old('id') == $v->id) ? 'selected' : ''; ?>>{{ $v->ma_giangvien.'-'.$v->ten }}</option>
@@ -1869,7 +1869,7 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label><b>Loại Hướng Dẫn</b></label>
+                                    <label><b>Loại Hướng Dẫn</b><span class="required">* (Chỉ chọn 1 mục)</span></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="sinhvien_nc" name="sinhvien_nc">
                                         <label class="form-check-label" for="sinhvien_nc">Sinh viên NCKH:</label>
@@ -1889,31 +1889,31 @@
                                 </div> 
                                 <div class="form-group">
                                     <label>Học Viên: <span class="required">*</span></label>
-                                    <input  name="hoc_vien" type="text" class="form-control" required>
+                                    <input  name="hoc_vien" type="text" class="form-control" required placeholder="Nhập Tên Học Viên">
                                 </div>
                                 <div class="form-group">
                                     <label>Khóa: <span class="required">*</span></label>
-                                    <input  name="khoa" type="text" class="form-control" required>
+                                    <input  name="khoa" type="text" class="form-control" required placeholder="Nhập Tên Khóa">
                                 </div>
                                 <div class="form-group">
                                     <label>Bắt Đầu: <span class="required">*</span></label>
-                                    <input  name="bat_dau" type="date" class="form-control" required>
+                                    <input  name="bat_dau" type="date" class="form-control" required placeholder="Nhập Thời Gian Bắt Đầu">
                                 </div>
                                 <div class="form-group">
                                     <label>Kết Thúc: <span class="required">*</span></label>
-                                    <input  name="ket_thuc" type="date" class="form-control" required>
+                                    <input  name="ket_thuc" type="date" class="form-control" required placeholder="Nhập Thời Gian Kết Thúc">
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Giảng: <span class="required">*</span></label>
-                                    <input  name="gio_giang" type="number" class="form-control" required>
+                                    <input  name="gio_giang" type="number" class="form-control" required placeholder="Nhập Giờ Giảng">
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Khoa Học: <span class="required">*</span></label>
-                                    <input  name="gio_khoahoc" type="number" class="form-control" required>
+                                    <input  name="gio_khoahoc" type="number" class="form-control" required placeholder="Nhập Giờ Khoa Học">
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
-                                    <input name="ghichu" type="text" class="form-control" required>
+                                    <label>Ghi Chú:<span class="required"></span></label>
+                                    <input name="ghichu" type="text" class="form-control" required placeholder="Nhập Ghi Chú">
                                 </div> 
 
                             </div>
@@ -1964,7 +1964,7 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label><b>Loại Hướng Dẫn</b></label>
+                                    <label><b>Loại Hướng Dẫn</b><span class="required">(Chỉ chọn 1 mục) *</span></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="sinhvien_nc" name="sinhvien_nc">
                                         <label class="form-check-label" for="sinhvien_nc">Sinh viên NCKH:</label>
@@ -2008,7 +2008,7 @@
                                     <input  name="gio_khoahoc" type="number" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required">*</span></label>
+                                    <label>Ghi Chú:<span class="required"></span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div> 
                             </div>
