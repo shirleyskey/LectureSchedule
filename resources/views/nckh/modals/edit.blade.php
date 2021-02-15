@@ -18,7 +18,7 @@
                                     <input  name="ten" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Loại Tài Liệu:</b></label>
+                                    <label><b>Loại Tài Liệu:</b><span class="required">(Chỉ chọn 1 mục) *</span></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="capbo" name="capbo">
                                         <label class="form-check-label" for="capbo">Đề tài</label>
@@ -39,15 +39,15 @@
                                 </div> 
                                
                                 <div class="form-group">
-                                    <label><b>Bắt Đầu:</b></label>
+                                    <label><b>Bắt Đầu:</b><span class="required">*</span></label>
                                     <input class="form-control" name="batdau" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Kết Thúc:</b></label>
+                                    <label><b>Kết Thúc:</b><span class="required">*</span></label>
                                     <input class="form-control" name="ketthuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Số Giờ:</b></label>
+                                    <label><b>Số Giờ:</b><span class="required">*</span></label>
                                     <input class="form-control" name="sotrang" type="number" required />
                                 </div>
                                 <div class="form-group">
@@ -55,7 +55,8 @@
                                     <input class="form-control" name="tapchi" type="text" required />
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Thể Loại:</label>
+                                    <label class="control-label col-md-4">Thể Loại: <span class="required">*</span></label>
+                                    <span class="required">(Chọn thể loại phù hợp với Loại tài liệu)</span>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" name="theloai">
@@ -69,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Chủ Biên:</label>
+                                    <label class="control-label col-md-4">Chủ Biên:<span class="required">*</span></label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="chubien">
@@ -83,7 +84,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-4">Tham Gia: </label>
+                                    <label class="control-label col-md-4">Tham Gia:<span class="required">*</span> </label>
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="thamgia">

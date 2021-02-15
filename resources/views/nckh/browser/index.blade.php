@@ -38,13 +38,11 @@
                 THỐNG KÊ KHOA HỌC
             </strong>
             <div class="col-md-6">
-                @permission('create-nckh')
                 <div class="btn-group">
                     <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH
 
                     </a>
                 </div>
-                @endpermission
             </div>
         </h1>
 
@@ -76,6 +74,7 @@
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
                         <div class="tab-content">
+                            
                             <!-- BEGIN TAB 1 NCKH-->
                             <div class="tab-pane active" id="tab1">
                                 @if($capbo->isNotEmpty())
@@ -99,9 +98,7 @@
                                                         <th> Kết Thúc</th>
                                                         <th> Số Giờ</th>
                                                         <th> Ghi Chú</th>
-                                                        @permission('delete-nckh')
                                                         <th> Hành Động</th>
-                                                        @endpermission
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -168,14 +165,12 @@
                                                                         {{$gio_kh = $v->sotrang}}
                                                                 @endswitch
                                                             </td> --}}
-                                                            @permission('delete-nckh')
                                                             <td>
                                                            
                                                                 <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                            
                                                             </td>
-                                                            @endpermission
                                                         </tr>
                                                         @php $stt++; @endphp
                                                         @endforeach
@@ -220,9 +215,7 @@
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
                                                 <th> Ghi Chú</th>
-                                                @permission('delete-nckh')
                                                 <th> Hành Động</th>
-                                                @endpermission
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -289,12 +282,10 @@
                                                                 {{$gio_kh = $v->sotrang}}
                                                         @endswitch
                                                     </td> --}}
-                                                    @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
-                                                    @endpermission
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -335,9 +326,7 @@
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
                                                 <th> Ghi Chú</th>
-                                                @permission('delete-nckh')
                                                 <th> Hành Động</th>
-                                                @endpermission
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -404,12 +393,10 @@
                                                                 {{$gio_kh = $v->sotrang}}
                                                         @endswitch
                                                     </td> --}}
-                                                    @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
-                                                    @endpermission
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -449,9 +436,7 @@
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
                                                 <th> Ghi Chú</th>
-                                                @permission('delete-nckh')
                                                 <th> Hành Động</th>
-                                                @endpermission
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -517,12 +502,10 @@
                                                                 {{$gio_kh = $v->sotrang}} giờ
                                                         @endswitch
                                                     </td> --}}
-                                                    @permission('delete-nckh')
                                                     <td>
                                                         <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
-                                                    @endpermission
                                                 </tr>
                                                 @php $stt++; @endphp
                                                 @endforeach
@@ -555,6 +538,7 @@
     </div>
     <!-- END CONTENT BODY -->
 
+</div>
 </div>
 <!-- END CONTENT -->
 @include('nckh.modals.add')

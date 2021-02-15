@@ -9,7 +9,7 @@ class Nckh extends Model
     //
     protected $table = 'nckhs';
     public $timestamps = false;
-    protected $fillable = ['ten'];
+    protected $fillable = ['ten', 'capbo', 'thamkhao','sangkien','bao','theloai','chubien','thamgia','batdau','ketthuc','sotrang'];
     
     public function giangviens()
     {

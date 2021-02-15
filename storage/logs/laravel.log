@@ -3643,3 +3643,9 @@ Stack trace:
 [2021-02-15 05:35:32] local.INFO: Người dùng ID:1 đã sửa Đảng ID:19-Bùi Văn C  
 [2021-02-15 05:35:38] local.INFO: Người dùng ID:1 đã xóa Đảng id:19-Bùi Văn C  
 [2021-02-15 05:36:09] local.INFO: Người dùng ID:1 đã thêm Văn Bản ID:10-  
+[2021-02-15 05:48:22] local.INFO: Email: vuongthanglong@gmail.com đăng nhập thành công  
+[2021-02-15 05:55:30] local.INFO: Email: ducthuantran@gmail.com đăng nhập thành công  
+[2021-02-15 06:00:35] local.INFO: Người dùng ID:7 đã thêm Nckh ID:40-Công tác Mư  
+[2021-02-15 06:01:01] local.INFO: Người dùng ID:7 đã thêm Nckh ID:41-Công tác Mư  
+[2021-02-15 06:01:31] local.INFO: Người dùng ID:7 đã thêm Nckh ID:42-Công tác Mư  
+[2021-02-15 06:02:22] local.INFO: Người dùng ID:7 đã xóa NCKH id:42-Công tác Mư  

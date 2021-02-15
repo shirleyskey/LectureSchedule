@@ -36,13 +36,11 @@
                 THỐNG KÊ KHOA HỌC
             </strong>
             <div class="col-md-6">
-                <?php if (app('laratrust')->can('create-nckh')) : ?>
                 <div class="btn-group">
                     <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_nckh"><i class="fa fa-plus"></i> Tạo NCKH
 
                     </a>
                 </div>
-                <?php endif; // app('laratrust')->can ?>
             </div>
         </h1>
 
@@ -74,6 +72,7 @@
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
                         <div class="tab-content">
+                            
                             <!-- BEGIN TAB 1 NCKH-->
                             <div class="tab-pane active" id="tab1">
                                 <?php if($capbo->isNotEmpty()): ?>
@@ -97,9 +96,7 @@
                                                         <th> Kết Thúc</th>
                                                         <th> Số Giờ</th>
                                                         <th> Ghi Chú</th>
-                                                        <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                         <th> Hành Động</th>
-                                                        <?php endif; // app('laratrust')->can ?>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -136,14 +133,12 @@
                                                             <td> <?php echo e($v->sotrang); ?></td>
                                                             <td> <?php echo e($v->ghichu); ?></td>
                                                             
-                                                            <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                             <td>
                                                            
                                                                 <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                            
                                                             </td>
-                                                            <?php endif; // app('laratrust')->can ?>
                                                         </tr>
                                                         <?php $stt++; ?>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -188,9 +183,7 @@
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
                                                 <th> Ghi Chú</th>
-                                                <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                 <th> Hành Động</th>
-                                                <?php endif; // app('laratrust')->can ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -227,12 +220,10 @@
                                                     <td> <?php echo e($v->sotrang); ?></td>
                                                     <td> <?php echo e($v->ghichu); ?></td>
                                                     
-                                                    <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
-                                                    <?php endif; // app('laratrust')->can ?>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -273,9 +264,7 @@
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
                                                 <th> Ghi Chú</th>
-                                                <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                 <th> Hành Động</th>
-                                                <?php endif; // app('laratrust')->can ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -312,12 +301,10 @@
                                                     <td> <?php echo e($v->sotrang); ?></td>
                                                     <td> <?php echo e($v->ghichu); ?></td>
                                                     
-                                                    <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
-                                                    <?php endif; // app('laratrust')->can ?>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -357,9 +344,7 @@
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
                                                 <th> Ghi Chú</th>
-                                                <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                 <th> Hành Động</th>
-                                                <?php endif; // app('laratrust')->can ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -395,12 +380,10 @@
                                                     <td> <?php echo e($v->sotrang); ?></td>
                                                     <td> <?php echo e($v->ghichu); ?></td>
                                                     
-                                                    <?php if (app('laratrust')->can('delete-nckh')) : ?>
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                         <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                     </td>
-                                                    <?php endif; // app('laratrust')->can ?>
                                                 </tr>
                                                 <?php $stt++; ?>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -433,6 +416,7 @@
     </div>
     <!-- END CONTENT BODY -->
 
+</div>
 </div>
 <!-- END CONTENT -->
 <?php echo $__env->make('nckh.modals.add', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

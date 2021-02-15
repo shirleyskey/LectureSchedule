@@ -89,13 +89,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            @permission('create-giangvien')
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế Mới
                         
                                                                 </a>
                                                             </div>
-                                                            @endpermission
                                                         </div>
                                                     </div>
                                                 </div>
@@ -134,10 +132,8 @@
                                                                  <td> {{ $v->gio_khoahoc }} </td>
                                                                  <td> {{ $v->ghichu }} </td>
                                                                 <td>
-                                                                    @permission('create-giangvien')
                                                                     <a data-congtac-id="{{ $v->id }}" class="btn_edit_congtac btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_congtac btn btn-xs red-mint" href="#" data-congtac-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    @endpermission
                                                                 </td>
                                                             </tr>
                                                             @php $stt++; @endphp
@@ -151,9 +147,7 @@
                                     @else
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Đi Thưc Tế nào.
-                                                @permission('create-giangvien')
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế</a></p>
-                                                @endpermission
                                         </div>
                                     @endif
                                 </div>
@@ -169,13 +163,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            @permission('create-giangvien')
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp Mới
                         
                                                                 </a>
                                                             </div>
-                                                            @endpermission
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,10 +206,8 @@
                                                                 <td> {{ $v->giokhoahoc }} </td>
                                                                 <td> {{ $v->ghichu }} </td>
                                                                 <td>
-                                                                    @permission('create-giangvien')
                                                                     <a data-hop-id="{{ $v->id }}" class="btn_edit_hop btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_hop btn btn-xs red-mint" href="#" data-hop-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    @endpermission
                                                                 </td>
                                                             </tr>
                                                             @php $stt++; @endphp
@@ -231,9 +221,7 @@
                                     @else
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Cuộc Họp  nào.
-                                                @permission('create-giangvien')
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hop"><i class="fa fa-plus"></i> Tạo Cuộc Họp</a></p>
-                                                @endpermission
                                         </div>
                                     @endif
                                 </div>
@@ -248,13 +236,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            @permission('create-giangvien')
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Tạo Hướng Dẫn Khoa Học Mới
                         
                                                                 </a>
                                                             </div>
-                                                            @endpermission
                                                         </div>
                                                     </div>
                                                 </div>
@@ -311,10 +297,8 @@
                                                                 <td> {{ $v->gio_khoahoc }} </td>
                                                                 <td> {{ $v->ghichu }} </td>
                                                                 <td>
-                                                                    @permission('create-giangvien')
                                                                     <a data-hdkh-id="{{ $v->id }}" class="btn_edit_hdkh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_hdkh btn btn-xs red-mint" href="#" data-hdkh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    @endpermission
                                                                 </td>
                                                             </tr>
                                                             @php $stt++; @endphp
@@ -328,9 +312,7 @@
                                     @else
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Cuộc Họp  nào.
-                                                @permission('create-giangvien')
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Tạo Hướng Dẫn Khoa Học Mới </a></p>
-                                                @endpermission
                                         </div>
                                     @endif
                                 </div>
@@ -345,13 +327,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            @permission('create-giangvien')
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài Mới
                         
                                                                 </a>
                                                             </div>
-                                                            @endpermission
                                                         </div>
                                                     </div>
                                                 </div>
@@ -403,10 +383,8 @@
                                                                 <td> {{ $v->gio_khoahoc }} </td>
                                                                 <td> {{ $v->ghichu }} </td>
                                                                 <td>
-                                                                    @permission('create-giangvien')
                                                                     <a data-chambai-id="{{ $v->id }}" class="btn_edit_chambai btn btn-xs yellow-gold" href="#modal_edit_chambai" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_chambai btn btn-xs red-mint" href="#" data-chambai-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    @endpermission
                                                                 </td>
                                                             </tr>
                                                             @php $stt++; @endphp
@@ -420,9 +398,7 @@
                                     @else
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Chấm Bài nào.
-                                                @permission('create-giangvien')
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài</a></p>
-                                                @endpermission
                                         </div>
                                     @endif
                                 </div>
@@ -436,13 +412,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            @permission('create-giangvien')
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới
                         
                                                                 </a>
                                                             </div>
-                                                            @endpermission
                                                         </div>
                                                     </div>
                                                 </div>
@@ -493,10 +467,8 @@
                                                                 <td> {{ $v->gio_khoahoc }} </td>
                                                                 <td> {{ $v->ghichu }} </td>
                                                                 <td>
-                                                                    @permission('create-giangvien')
                                                                     <a data-daygioi-id="{{ $v->id }}" class="btn_edit_daygioi btn btn-xs yellow-gold" href="#modal_edit_daygioi" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_daygioi btn btn-xs red-mint" href="#" data-daygioi-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    @endpermission
                                                                 </td>
                                                             </tr>
                                                             @php $stt++; @endphp
@@ -510,9 +482,7 @@
                                         @else
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có hoạt động Dạy Giỏi nào.
-                                                @permission('create-giangvien')
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_daygioi"><i class="fa fa-plus"></i> Tạo Dạy Giỏi Mới</a></p>
-                                                @endpermission
                                         </div>
                                     @endif
                                 </div>
@@ -601,13 +571,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            @permission('create-giangvien')
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Mới Văn Bản Xử Lý
                         
                                                                 </a>
                                                             </div>
-                                                            @endpermission
                                                         </div>
                                                     </div>
                                                 </div>
@@ -660,10 +628,8 @@
                                                                  <td> {{ $v->thoigian_den }} </td>
                                                                  <td> {{ $v->ghichu }} </td>
                                                                 <td>
-                                                                    @permission('create-giangvien')
                                                                     <a data-vanban-id="{{ $v->id }}" class="btn_edit_vanban btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_vanban btn btn-xs red-mint" href="#" data-vanban-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    @endpermission
                                                                 </td>
                                                             </tr>
                                                             @php $stt++; @endphp
@@ -677,9 +643,7 @@
                                     @else
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Văn Bản nào.
-                                                @permission('create-giangvien')
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_vanban"><i class="fa fa-plus"></i> Thêm Văn Bản Xử Lý</a></p>
-                                                @endpermission
                                         </div>
                                     @endif
                                 </div>
@@ -695,13 +659,11 @@
                                                 <div class="table-toolbar">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            @permission('create-giangvien')
                                                             <div class="btn-group">
                                                                 <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động Mới
                         
                                                                 </a>
                                                             </div>
-                                                            @endpermission
                                                         </div>
                                                     </div>
                                                 </div>
@@ -754,10 +716,8 @@
                                                                 <td> {{ $v->ket_thuc }} </td>
                                                                 <td> {{ $v->ghichu }} </td>
                                                                 <td>
-                                                                    @permission('create-giangvien')
                                                                     <a data-dang-id="{{ $v->id }}" class="btn_edit_dang btn btn-xs yellow-gold" href="#modal_edit_dang" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_dang btn btn-xs red-mint" href="#" data-dang-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                                    @endpermission
                                                                 </td>
                                                             </tr>
                                                             @php $stt++; @endphp
@@ -771,9 +731,7 @@
                                     @else
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không tham gia hoạt động Đảng/Đoàn nào.
-                                                @permission('create-giangvien')
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động</a></p>
-                                                @endpermission
                                         </div>
                                     @endif
                                 </div>
