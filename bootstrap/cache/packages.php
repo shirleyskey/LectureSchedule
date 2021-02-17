@@ -1,4 +1,15 @@
 <?php return array (
+  'anlutro/l4-settings' => 
+  array (
+    'aliases' => 
+    array (
+      'Setting' => 'anlutro\\LaravelSettings\\Facade',
+    ),
+    'providers' => 
+    array (
+      0 => 'anlutro\\LaravelSettings\\ServiceProvider',
+    ),
+  ),
   'barryvdh/laravel-elfinder' => 
   array (
     'providers' => 

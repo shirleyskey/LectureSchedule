@@ -30,8 +30,7 @@ class Hop extends Model
          $hop->ghichu = $data['ghichu'];
          $hop->giogiang = $data['giogiang'];
          $hop->giokhoahoc = $data['giokhoahoc'];
-         $hop->batdau = Carbon::parse($data['batdau'])->format('Y-m-d');
-         $hop->ketthuc = Carbon::parse($data['ketthuc'])->format('Y-m-d');
+         $hop->thoigian = Carbon::parse($data['thoigian'])->format('Y-m-d');
          $hop->save();
          return $hop;
      }

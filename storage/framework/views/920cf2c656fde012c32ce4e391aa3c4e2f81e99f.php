@@ -37,7 +37,7 @@
                 <h3 class="uppercase custom-border">
                     <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" style="color: #dbe7f2;" class="nav-link">
                         <i class="fa fa-calculator" style="color: #dbe7f2;"></i>
-                        <span class="title" >Lịch Giảng Theo Ngày</span>
+                        <span class="title" >Lịch Giảng</span>
                         <span class="selected"></span>
                     </a>
                 </h3>
@@ -71,7 +71,7 @@
                 <h3 class="uppercase custom-border">
                     <a href="<?php echo e(route('nckh.index')); ?>" style="color: #dbe7f2;" class="nav-link">
                         <i class="fa fa-briefcase " style="color: #dbe7f2;"></i>
-                        <span class="title" >Quản Lý NCKH</span>
+                        <span class="title" >NCKH</span>
                         <span class="selected"></span>
                     </a>
                 </h3>
@@ -138,6 +138,14 @@
                 <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/users' ? 'active open' : ''); ?>">
                     <a href="<?php echo e(route('user.index')); ?>" class="nav-link nav-toggle">
                         <span class="title"> Người Dùng Hệ Thống</span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+                <?php endif; // app('laratrust')->can ?>
+                <?php if (app('laratrust')->can('read-users')) : ?>
+                <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/quanly' ? 'active open' : ''); ?>">
+                    <a href="<?php echo e(route('company.index')); ?>" class="nav-link nav-toggle">
+                        <span class="title"> Cài Đặt</span>
                         <span class="selected"></span>
                     </a>
                 </li>

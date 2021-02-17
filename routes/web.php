@@ -109,6 +109,8 @@ Route::prefix('tuan')->middleware(['auth', 'only_active_user'])->group(function 
 
 });
 
+
+
 // Lớp Routes...
 Route::prefix('lop')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/', ['middleware' => ['permission:read-lop'], 'uses'=>'LopController@index','as'=>'lop.index']);
@@ -161,6 +163,12 @@ Route::prefix('nckh')->middleware(['auth', 'only_active_user'])->group(function 
     Route::post('/edit/{id}', ['middleware' => ['permission:update-nckh'], 'uses'=>'NckhController@update','as'=>'nckh.edit.post']);
     Route::get('/delete/{id}', ['middleware' => ['permission:delete-nckh'], 'uses'=>'NckhController@destroy','as'=>'nckh.delete.get']);
 
+});
+
+Route::prefix('quanly')->middleware(['auth', 'only_active_user'])->group(function () {
+    Route::get('/init', ['middleware' => ['permission:create-users'], 'uses'=>'CompanyController@init','as'=>'company.init']);
+    Route::get('/', ['middleware' => ['permission:create-users'], 'uses'=>'CompanyController@index','as'=>'company.index']);
+    Route::post('/update', ['middleware' => ['permission:create-users'], 'uses'=>'CompanyController@update','as'=>'company.update']);
 });
 
 

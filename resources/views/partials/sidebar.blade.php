@@ -37,7 +37,7 @@
                 <h3 class="uppercase custom-border">
                     <a href="{{ route('lichgiang.lichgiangtuan') }}" style="color: #dbe7f2;" class="nav-link">
                         <i class="fa fa-calculator" style="color: #dbe7f2;"></i>
-                        <span class="title" >Lịch Giảng Theo Ngày</span>
+                        <span class="title" >Lịch Giảng</span>
                         <span class="selected"></span>
                     </a>
                 </h3>
@@ -76,7 +76,7 @@
                 <h3 class="uppercase custom-border">
                     <a href="{{ route('nckh.index') }}" style="color: #dbe7f2;" class="nav-link">
                         <i class="fa fa-briefcase " style="color: #dbe7f2;"></i>
-                        <span class="title" >Quản Lý NCKH</span>
+                        <span class="title" >NCKH</span>
                         <span class="selected"></span>
                     </a>
                 </h3>
@@ -143,6 +143,14 @@
                 <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/users' ? 'active open' : '' }}">
                     <a href="{{ route('user.index') }}" class="nav-link nav-toggle">
                         <span class="title"> Người Dùng Hệ Thống</span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+                @endpermission
+                @permission('read-users')
+                <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/quanly' ? 'active open' : '' }}">
+                    <a href="{{ route('company.index') }}" class="nav-link nav-toggle">
+                        <span class="title"> Cài Đặt</span>
                         <span class="selected"></span>
                     </a>
                 </li>

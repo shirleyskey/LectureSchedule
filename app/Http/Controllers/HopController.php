@@ -31,6 +31,7 @@ class HopController extends Controller
 
      public function postTimHopTheoId(Request $request){
          $hop = Hop::findOrFail($request->input('id'));
+         $hop->thoigian = Carbon::parse($hop->thoigian)->format('Y-m-d\TH:i:s');
              return response()->json([
                  'status' => true,
                  'data'   => $hop

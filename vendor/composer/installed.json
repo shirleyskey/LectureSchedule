@@ -1,5 +1,67 @@
 [
     {
+        "name": "anlutro/l4-settings",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/anlutro/laravel-settings.git",
+            "reference": "179b2719b13d37f054895193cfd82bd0f32adbca"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/anlutro/laravel-settings/zipball/179b2719b13d37f054895193cfd82bd0f32adbca",
+            "reference": "179b2719b13d37f054895193cfd82bd0f32adbca",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/cache": ">=4.2 <9.0",
+            "illuminate/support": ">=4.2 <9.0",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "laravel/framework": ">=4.2",
+            "mockery/mockery": "^1.2",
+            "phpunit/phpunit": "^8.0"
+        },
+        "suggest": {
+            "illuminate/database": "Save settings to a database table.",
+            "illuminate/filesystem": "Save settings to a JSON file."
+        },
+        "time": "2020-09-09T13:15:05+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "aliases": {
+                    "Setting": "anlutro\\LaravelSettings\\Facade"
+                },
+                "providers": [
+                    "anlutro\\LaravelSettings\\ServiceProvider"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/helpers.php"
+            ],
+            "psr-4": {
+                "anlutro\\LaravelSettings\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Andreas Lutro",
+                "email": "anlutro@gmail.com"
+            }
+        ],
+        "description": "Persistent settings in Laravel."
+    },
+    {
         "name": "barryvdh/elfinder-flysystem-driver",
         "version": "v0.2.1",
         "version_normalized": "0.2.1.0",
@@ -728,7 +790,8 @@
             "data",
             "faker",
             "fixtures"
-        ]
+        ],
+        "abandoned": true
     },
     {
         "name": "guzzlehttp/psr7",
@@ -1751,7 +1814,8 @@
                 "email": "shawn.tunney@gmail.com"
             }
         ],
-        "description": "Laravel helper for FullCalendar.io"
+        "description": "Laravel helper for FullCalendar.io",
+        "abandoned": true
     },
     {
         "name": "maennchen/zipstream-php",
@@ -6940,12 +7004,12 @@
         "version_normalized": "1.9.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/webmozart/assert.git",
+            "url": "https://github.com/webmozarts/assert.git",
             "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+            "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
             "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
             "shasum": ""
         },

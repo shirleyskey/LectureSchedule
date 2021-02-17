@@ -193,7 +193,7 @@
                 <h3 class="uppercase custom-border">
                     <a href="{{ route('lichgiang.lichgiangtuan') }}" style="color: #dbe7f2;" class="nav-link">
                         <i class="fa fa-calculator" style="color: #dbe7f2;"></i>
-                        <span class="title" >Lịch Giảng Theo Ngày</span>
+                        <span class="title" >Lịch Giảng</span>
                         <span class="selected"></span>
                     </a>
                 </h3>
@@ -231,7 +231,7 @@
                 <h3 class="uppercase custom-border">
                     <a href="{{ route('nckh.index') }}" style="color: #dbe7f2;" class="nav-link">
                         <i class="fa fa-briefcase " style="color: #dbe7f2;"></i>
-                        <span class="title" >Quản Lý NCKH</span>
+                        <span class="title" >NCKH</span>
                         <span class="selected"></span>
                     </a>
                 </h3>
@@ -302,7 +302,14 @@
                     </a>
                 </li>
                 @endpermission
-                
+                @permission('read-users')
+                <li class="nav-item {{ Route::getCurrentRoute()->getPrefix() == '/quanly' ? 'active open' : '' }}">
+                    <a href="{{ route('company.index') }}" class="nav-link nav-toggle">
+                        <span class="title"> Cài Đặt</span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+                @endpermission
             </div>
             <li class="heading custom-border">
                 <h3 class=""> 
@@ -376,18 +383,45 @@
             </div>
             <!-- END CONTAINER -->
 
-           <!-- BEGIN FOOTER -->
-        <div class="page-footer">
-            {{-- <div class="page-footer-inner pull-right">@2020 - Dung B14D48 - ATTT. All Right Reserved.
-            </div> --}}
-            {{-- <div class="page-footer-inner font-yellow-gold bold">
-                Chú ý: Đây là bản thử nghiệm. Vì vậy mọi dữ liệu trên ứng dụng đều được xem là dữ liệu mẫu, không có giá trị thực tế
-            </div> --}}
-            <div class="scroll-to-top">
-                <i class="icon-arrow-up"></i>
+               <!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 right">
+                <div class="img">
+                    <img src="{{ (setting('company.logo','') != '')?url('/uploads/logos/' . setting('company.logo') ): 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image'}}" alt="" />
+                    <h2>{{ setting('company.tenkhoa','') }}</h2>
+                    <h3>{{ setting('company.tenhocvien','') }}</h3>
+                </div>
             </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-6 left">
+                <h2 class="title">{{ setting('company.tenphanmem','') }}</h2>
+                <ul class="description">
+                    <li>
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                        Bản quyền <i class="fa fa-copyright" aria-hidden="true"></i>{{ setting('company.banquyen','') }}</li>
+                    <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        Địa chỉ: {{ setting('company.diachi','') }}</li>
+                    <li>
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        Liên hệ: {{ setting('company.lienhe','') }}</li>
+                    <li>
+                        <i class="fa fa-code" aria-hidden="true"></i>
+                        Phát triển: {{ setting('company.phattrien','') }}</li>
+                </ul>
+            </div>
+            
         </div>
-        <!-- END FOOTER -->
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>
+<!-- END FOOTER -->
+
+        
         </div>
         <script src="{{ asset('assets/global/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
         {{-- <script src="{{ asset('assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script> --}}

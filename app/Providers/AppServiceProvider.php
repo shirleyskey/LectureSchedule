@@ -14,21 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        try {
-            if (Schema::hasTable('settings')) {
-                $settings = Setting::pluck('value', 'key')->toArray();
-                if (isset($settings['media_lock'])) {
-                    if ($settings['media_lock'] == 'false') {
-                        \Config::set(["elfinder.root_options.attributes.0.locked" => false]);
-                    }else{
-                        \Config::set(["elfinder.root_options.attributes.0.locked" => true]);
-                    }
-                }
-            }
-        } catch (\Illuminate\Database\QueryException $e) {
-            app('log')->error($e->getMessage());
-        }
+        
     }
 
     /**

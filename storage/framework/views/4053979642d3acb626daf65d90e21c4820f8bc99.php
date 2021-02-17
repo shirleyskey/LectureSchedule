@@ -185,10 +185,9 @@
                                                             <th> Tên Cuộc Họp</th>
                                                             <th> Địa Điểm</th>
                                                             <th> Tên Giảng Viên</th>
-                                                            <th> Bắt Đầu</th>
-                                                            <th> Kết Thúc</th>
+                                                            <th> Thời Gian</th>
                                                             <th> Giờ Giảng</th>
-                                                            <th> Giờ Khoa Học</th>
+                                                            <th> Giờ KH</th>
                                                             <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
@@ -208,8 +207,7 @@
                                                                     <?php endif; ?>
                         
                                                                  </td>
-                                                                <td> <?php echo e($v->batdau); ?> </td>
-                                                                <td> <?php echo e($v->ketthuc); ?> </td>
+                                                                <td> <?php echo e($v->thoigian); ?> </td>
                                                                 <td> <?php echo e($v->giogiang); ?> </td>
                                                                 <td> <?php echo e($v->giokhoahoc); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
@@ -320,7 +318,7 @@
                                         <!-- END EXAMPLE TABLE PORTLET-->
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                            <p> Không có Cuộc Họp  nào.
+                                            <p> Không có Cuộc HDKH  nào.
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_hdkh"><i class="fa fa-plus"></i> Tạo Hướng Dẫn Khoa Học Mới </a></p>
                                         </div>
                                     <?php endif; ?>
@@ -1554,13 +1552,10 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input class="form-control" name="batdau" type="date" placeholder="dd-mm-yyyy" required placeholder="Thời Gian BẮt Đầu" />
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="datetime-local" placeholder="dd-mm-yyyy H:s:i" required placeholder="Thời Gian" />
                                 </div>
-                                <div class="form-group">
-                                    <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input class="form-control" name="ketthuc" type="date" placeholder="dd-mm-yyyy" required placeholder="Thời Gian Kết Thúc" />
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
                                     <input name="giogiang" type="number" class="form-control" required placeholder="Nhập Giờ Giảng">
@@ -1627,13 +1622,10 @@
                                 </div>
                                
                                 <div class="form-group">
-                                    <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input class="form-control" name="batdau" type="date" placeholder="dd-mm-yyyy" required />
+                                    <label>Thời Gian:<span class="required">*</span></label>
+                                    <input class="form-control" name="thoigian" type="datetime-local" placeholder="dd-mm-yyyy H:s:i" required />
                                 </div>
-                                <div class="form-group">
-                                    <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input class="form-control" name="ketthuc" type="date" placeholder="dd-mm-yyyy" required />
-                                </div>
+                    
                                 <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
                                     <input name="giogiang" type="number" class="form-control" required>
@@ -3165,8 +3157,7 @@ $.ajax({
                 id_giangvien: $("#form_add_hop select[name='id_giangvien']").val(),
                 ten: $("#form_add_hop input[name='ten']").val(),
                 dia_diem: $("#form_add_hop input[name='dia_diem']").val(),
-                batdau: $("#form_add_hop input[name='batdau']").val(),
-                ketthuc: $("#form_add_hop input[name='ketthuc']").val(),
+                thoigian: $("#form_add_hop input[name='thoigian']").val(),
                 giogiang: $("#form_add_hop input[name='giogiang']").val(),
                 giokhoahoc: $("#form_add_hop input[name='giokhoahoc']").val(),
                 ghichu: $("#form_add_hop input[name='ghichu']").val(),
@@ -3237,8 +3228,7 @@ $.ajax({
                          $("#form_edit_hop input[name='ten']").val(data.data.ten);
                          $("#form_edit_hop input[name='dia_diem']").val(data.data.dia_diem);
                          $("#form_edit_hop input[name='ghichu']").val(data.data.ghichu);
-                         $("#form_edit_hop input[name='batdau']").val(data.data.batdau);
-                         $("#form_edit_hop input[name='ketthuc']").val(data.data.ketthuc);
+                         $("#form_edit_hop input[name='thoigian']").val(data.data.thoigian);
                          $("#form_edit_hop input[name='giogiang']").val(data.data.giogiang);
                          $("#form_edit_hop input[name='giokhoahoc']").val(data.data.giokhoahoc);
                          $('#modal_edit_hop').modal('show');
@@ -3266,8 +3256,7 @@ $.ajax({
                      ten: $("#form_edit_hop input[name='ten']").val(),
                      dia_diem: $("#form_edit_hop input[name='dia_diem']").val(),
                      ghichu: $("#form_edit_hop input[name='ghichu']").val(),
-                     batdau: $("#form_edit_hop input[name='batdau']").val(),
-                     ketthuc: $("#form_edit_hop input[name='ketthuc']").val(),
+                     thoigian: $("#form_edit_hop input[name='thoigian']").val(),
                      giogiang: $("#form_edit_hop input[name='giogiang']").val(),
                      giokhoahoc: $("#form_edit_hop input[name='giokhoahoc']").val(),
                  },

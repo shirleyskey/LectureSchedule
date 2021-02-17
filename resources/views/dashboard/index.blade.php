@@ -18,9 +18,9 @@
               </ol>
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
-                <div class="item active" style="background-image: url({{ asset('/images/andt01.jpg') }}); background-size: cover; background-position: center;">
+                <div class="item active" style="background-image: url({{ (setting('company.slide1','') != '')?url('/uploads/slides/' . setting('company.slide1') ): 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image'}}); background-size: cover; background-position: center;">
                 </div>
-                <div class="item" style="background-image: url({{ asset('/images/andt03.jpg') }}); background-size: cover; background-position: center;">
+                <div class="item" style="background-image: url({{(setting('company.slide2','') != '')?url('/uploads/slides/' . setting('company.slide2') ): 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image' }}); background-size: cover; background-position: center;">
                 </div>
               </div>
               <!-- Left and right controls -->

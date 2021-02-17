@@ -33,7 +33,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-home"></i>
-                                    <input type="number" class="form-control" name="quymo" required maxlength="191" value="<?php echo e($lop->quymo); ?>" /> </div>
+                                    <input type="float" class="form-control" name="quymo" required maxlength="191" value="<?php echo e($lop->quymo); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
