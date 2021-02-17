@@ -49,8 +49,7 @@
                                    <th> Tên Cuộc Họp</th>
                                    <th> Địa Điểm</th>
                                    <th> Tên Giảng Viên</th>
-                                   <th> Bắt Đầu</th>
-                                   <th> Kết Thúc</th>
+                                   <th> Thời Gian</th>
                                    <th> Hạn</th>
                                </tr>
                            </thead>
@@ -68,8 +67,7 @@
                                            @endif
 
                                         </td>
-                                       <td> {{ $v->batdau }} </td>
-                                       <td> {{ $v->ketthuc }} </td>
+                                       <td> {{ $v->thoigian }} </td>
                                        <td> 
                                             <a class="btn_edit_congtac btn btn-xs yellow-gold" > <i class="fa fa-edit"></i> 1 Ngày </a>
                                        </td>
@@ -93,7 +91,7 @@
                <div class="portlet-body">
                    <div class="table-toolbar">
                        <div class="row">
-                           <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-pencil-square-o" aria-hidden="true"></i>2. Chấm Bài</p>
+                           <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-pencil-square-o" aria-hidden="true"></i>2. Chấm thi, coi thi</p>
                        </div>
                    </div>
                    <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
@@ -160,14 +158,14 @@
            <div class="portlet-body">
                <div class="table-toolbar">
                    <div class="row">
-                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-tachometer" aria-hidden="true"></i>3. Đi Thực Tế</p>
+                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-tachometer" aria-hidden="true"></i>3. Học, thực tế, luân chuyển</p>
                    </div>
                </div>
                <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
                    <thead>
                        <tr>
                            <th> STT</th>
-                           <th> Tên</th>
+                           <th> Tên Loại Hình</th>
                            <th> Tên Giảng Viên</th>
                            <th> Địa Điểm</th>
                            <th> Bắt Đầu</th>
@@ -356,7 +354,7 @@
                     <div class="portlet-body">
                         <div class="table-toolbar">
                             <div class="row">
-                                <p class=""><i class="fa fa-building-o" style="color: aqua; opacity: 0.5;"></i>6. Hoạt Động Đảng/Đoàn</p>
+                                <p class=""><i class="fa fa-building-o" style="color: aqua; opacity: 0.5;"></i>6. Khác</p>
                             </div>
                         </div>
                         <table class="table table-striped table-hover table-bordered" id="ds_giangvien">

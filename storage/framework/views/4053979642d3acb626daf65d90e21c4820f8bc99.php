@@ -64,10 +64,10 @@
                             <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học </a>
                         </li>
                         <li class="">
-                            <a href="#tab4" data-toggle="tab">Chấm Bài</a>
+                            <a href="#tab4" data-toggle="tab">Chấm thi, coi thi</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab">Đi Thực Tế</a>
+                            <a href="#tab3" data-toggle="tab">Học, thực tế, luân chuyển</a>
                         </li>
                         <li>
                             <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
@@ -76,7 +76,7 @@
                             <a href="#tab_vanban" data-toggle="tab">Xử Lý Văn Bản</a>
                         </li>
                         <li>
-                            <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
+                            <a href="#tab5" data-toggle="tab">Khác</a>
                         </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
@@ -96,7 +96,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="btn-group">
-                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế Mới
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Học, thực tế, luân chuyển Mới
                         
                                                                 </a>
                                                             </div>
@@ -107,7 +107,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th> STT</th>
-                                                            <th> Tên</th>
+                                                            <th> Tên Loại Hình</th>
                                                             <th> Tên Giảng Viên</th>
                                                             <th> Địa Điểm</th>
                                                             <th> Bắt Đầu</th>
@@ -154,7 +154,7 @@
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
                                             <p> Không có Đi Thưc Tế nào.
-                                                <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Thực Tế</a></p>
+                                                <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Học, thực tế, luân chuyển</a></p>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -335,7 +335,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="btn-group">
-                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài Mới
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm thi, coi thi Mới
                         
                                                                 </a>
                                                             </div>
@@ -405,8 +405,8 @@
                                         <!-- END EXAMPLE TABLE PORTLET-->
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                            <p> Không có Chấm Bài nào.
-                                                <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm Bài</a></p>
+                                            <p> Không có Chấm thi, coi thi nào.
+                                                <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_chambai"><i class="fa fa-plus"></i> Tạo Chấm thi, coi thi</a></p>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -449,14 +449,14 @@
                                                             <?php $__currentLoopData = $daygioi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                             <tr>
                                                                 <td> <?php echo e($stt); ?> </td>
-                                                                <td> <?php echo e($v->ten); ?> </td>
+                                                                
                                                                 <td>
                                                                     <?php if(App\GiangVien::where('id', $v->id_giangvien)->first() !== null): ?>
                                                                     <?php echo e($v->giangviens->ten); ?>
 
                                                                     <?php endif; ?>
                                                                 </td>
-                                                               
+                                                                <td> <?php echo e($v->ten); ?> </td>
                                                                 <td> 
                                                                     <?php
                                                                         if($v->cap_bo == 1){
@@ -667,7 +667,7 @@
                                         <!-- END EXAMPLE TABLE PORTLET-->
                                     <?php else: ?>
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                            <p> Không tham gia hoạt động Đảng/Đoàn nào.
+                                            <p> Không tham gia hoạt động Khác nào.
                                                 <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_dang"><i class="fa fa-plus"></i> Tạo Hoạt Động</a></p>
                                         </div>
                                     <?php endif; ?>
@@ -722,7 +722,7 @@
             <form action="post" id="form_add_chambai">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Chấm Bài</h4>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Chấm thi, coi thi</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -810,7 +810,7 @@
                 <input value="" name="id" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Chấm Bài</h4>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Chấm thi, coi thi</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -897,15 +897,15 @@
             <form action="post" id="form_add_congtac">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Đi Thực Tế</h4>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Đi Học, thực tế, luân chuyển</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Địa Bàn: <span class="required">*</span></label>
-                                    <input  name="ten" type="text" class="form-control" required placeholder="Nhập Tên Địa Bàn">
+                                    <label>Tên Loại Hình (đi học, thực tế, luân chuyển): <span class="required">*</span></label>
+                                    <input  name="ten" type="text" class="form-control" required placeholder="Nhập Tên Loại Hình">
                                 </div>
                                 <div class="form-group">
                                     <label>Tên Giảng Viên: <span class="required">*</span></label>
@@ -969,14 +969,14 @@
                 <input value="" name="id" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Đi Thực Tế</h4>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Đi Học, thực tế, luân chuyển</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Địa Bàn:<span class="required">*</span></label>
+                                    <label>Tên Loại Hình (đi học, thực tế, luân chuyển):<span class="required">*</span></label>
                                     <input value="" name="ten" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
@@ -1203,7 +1203,7 @@
             <form action="post" id="form_add_dang">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Hoạt Động Đảng Đoàn</h4>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Hoạt Động Khác</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -1282,7 +1282,7 @@
                 <input value="" name="id" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Hoạt Động Đảng Đoàn</h4>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Hoạt Động Khác</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -1915,7 +1915,7 @@
                     $('#modal_add_congtac').modal('hide');
                     swal({
                         "title":"Đã tạo!",
-                        "text":"Bạn đã tạo thành công Đi Thực Tế!",
+                        "text":"Bạn đã tạo thành công Đi Học, thực tế, luân chuyển!",
                         "type":"success"
                     }, function() {
                             localStorage.setItem('activeTab', '#tab3');
@@ -2014,7 +2014,7 @@
                          $('#modal_edit_congtac').modal('hide');
                          swal({
                              "title":"Đã sửa!",
-                             "text":"Bạn đã sửa thành công Đi Thực Tế!",
+                             "text":"Bạn đã sửa thành công Đi Học, thực tế, luân chuyển!",
                              "type":"success"
                          }, function() {
                                  localStorage.setItem('activeTab', '#tab3');
@@ -2036,7 +2036,7 @@
                  }
              });
              swal({
-                 title: "Xóa Hoạt động Thực tế này?",
+                 title: "Xóa Hoạt động  Đi Học, thực tế, luân chuyển này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -2058,7 +2058,7 @@
                                  if(data.status == true){
                                      swal({
                                          "title":"Đã xóa!",
-                                         "text":"Bạn đã xóa thành công Đi Thực Tế!",
+                                         "text":"Bạn đã xóa thành công Đi Học, thực tế, luân chuyển!",
                                          "type":"success"
                                      }, function() {
                                              localStorage.setItem('activeTab', '#tab3');
@@ -2339,7 +2339,7 @@ $.ajax({
                     $('#modal_add_chambai').modal('hide');
                     swal({
                         "title":"Đã tạo!",
-                        "text":"Bạn đã tạo thành công Chấm Bài!",
+                        "text":"Bạn đã tạo thành công Chấm thi, coi thi!",
                         "type":"success"
                     }, function() {
                             localStorage.setItem('activeTab', '#tab4');
@@ -2443,7 +2443,7 @@ $.ajax({
                          $('#modal_edit_chambai').modal('hide');
                          swal({
                              "title":"Đã sửa!",
-                             "text":"Bạn đã sửa thành công Chấm Bài!",
+                             "text":"Bạn đã sửa thành công Chấm thi, coi thi!",
                              "type":"success"
                          }, function() {
                                  localStorage.setItem('activeTab', '#tab4');
@@ -2487,7 +2487,7 @@ $.ajax({
                                  if(data.status == true){
                                      swal({
                                          "title":"Đã xóa!",
-                                         "text":"Bạn đã xóa thành công Chấm Bài!",
+                                         "text":"Bạn đã xóa thành công Chấm thi, coi thi!",
                                          "type":"success"
                                      }, function() {
                                              localStorage.setItem('activeTab', '#tab4');
@@ -2651,7 +2651,7 @@ $.ajax({
                          $('#modal_edit_dang').modal('hide');
                          swal({
                              "title":"Đã sửa!",
-                             "text":"Bạn đã sửa thành công Đảng!",
+                             "text":"Bạn đã sửa thành công Khác!",
                              "type":"success"
                          }, function() {
                                  localStorage.setItem('activeTab', '#tab5');
@@ -2673,7 +2673,7 @@ $.ajax({
                  }
              });
              swal({
-                 title: "Xóa Hoạt động Đảng này?",
+                 title: "Xóa Hoạt động Khác này?",
                  text: "Bạn có chắc không, nó sẽ bị xóa vĩnh viễn!",
                  type: "warning",
                  showCancelButton: true,
@@ -2695,7 +2695,7 @@ $.ajax({
                                  if(data.status == true){
                                      swal({
                                          "title":"Đã xóa!",
-                                         "text":"Bạn đã xóa thành công Hoạt Động Đảng!",
+                                         "text":"Bạn đã xóa thành công Hoạt Động Khác!",
                                          "type":"success"
                                      }, function() {
                                              localStorage.setItem('activeTab', '#tab5');
@@ -3824,7 +3824,7 @@ var table = $('#ds_congtac');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Đi Thực Tế: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Đi Học, thực tế, luân chuyển: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",
@@ -3856,7 +3856,7 @@ var table = $('#ds_chambai');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Chấm Bài: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Chấm thi, coi thi: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",

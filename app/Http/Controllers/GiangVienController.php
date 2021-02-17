@@ -98,8 +98,8 @@ class GiangVienController extends Controller
         $giangvien->ten = $request->ten;
         $giangvien->ma_giangvien = $request->ma_giangvien;
         $giangvien->bai_giang = $request->bai_giang;
-        $giangvien->chucvu = $request->chucvu;
-        $giangvien->hesoluong = $request->hesoluong;
+        $giangvien->congviec = $request->congviec;
+        $giangvien->capbac = $request->capbac;
         $giangvien->diachi = $request->diachi;
         $giangvien->chucdanh = $request->chucdanh;
         $giangvien->trinhdo = $request->trinhdo;

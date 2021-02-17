@@ -88,12 +88,11 @@
                                     <th> STT</th>
                                     <th> Mã Giảng Viên</th>
                                     <th> Tên </th>
-                                    <th> Chức Vụ </th>
-                                    <th> Hệ Số Lương</th>
+                                    <th> Công Việc </th>
+                                    <th> Cấp Bậc</th>
                                     <th> Chỗ Ở </th>
                                     <th> Chức Danh</th>
                                     <th> Trình Độ</th>
-                                    <th> Có Thể Giảng</th>
                                     <th> Bài Giảng</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -108,19 +107,15 @@
                                         <td>
                                             <a href="<?php echo e(route('giangvien.read.get', $v->id)); ?>"><?php echo e($v->ten); ?></a>
                                         </td>
+                                        
                                         <td> <?php echo e($v->chucvu); ?>  </td>
+                                        
                                         <td> <?php echo e($v->hesoluong); ?> </td>
                                         <td> <?php echo e($v->diachi); ?> </td>
                                         <td> <?php echo e($v->chucdanh); ?> </td>
                                         <td> <?php echo e($v->trinhdo); ?> </td>
 
-                                        <td>
-                                            <?php if( $v->cothegiang ==1 ): ?>
-                                            <span class="label label-sm label-success" style="font-size: 12px;"> Có Thể Giảng </span>
-                                            <?php else: ?>
-                                            <span class="label label-sm label-danger" style="font-size: 12px;"> Không Giảng </span>
-                                            <?php endif; ?>
-                                        </td>
+                                        
                                         <td> <?php echo e($v->bai_giang); ?> </td>
                                         <td>
                                             <?php if (app('laratrust')->can('read-giangvien')) : ?>

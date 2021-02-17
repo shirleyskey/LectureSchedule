@@ -27,21 +27,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Chức Vụ
+                            <label class="control-label col-md-4">Công Việc
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-building-o"></i>
-                                    <input type="text" class="form-control" name="chucvu" value="{{ old('chucvu') }}" /> </div>
+                                    <input type="text" class="form-control" name="congviec" value="{{ old('congviec') }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Hệ Số Lương:
+                            <label class="control-label col-md-4">Cấp Bậc:
                             </label>
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-plus-circle"></i>
-                                    <input type="number" step="any" class="form-control" name="hesoluong" value="{{ old('hesoluong') }}" /> </div>
+                                    <input type="text" class="form-control" name="capbac" value="{{ old('capbac') }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">

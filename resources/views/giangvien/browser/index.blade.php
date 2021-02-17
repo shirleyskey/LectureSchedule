@@ -90,12 +90,11 @@
                                     <th> STT</th>
                                     <th> Mã Giảng Viên</th>
                                     <th> Tên </th>
-                                    <th> Chức Vụ </th>
-                                    <th> Hệ Số Lương</th>
+                                    <th> Công Việc </th>
+                                    <th> Cấp Bậc</th>
                                     <th> Chỗ Ở </th>
                                     <th> Chức Danh</th>
                                     <th> Trình Độ</th>
-                                    <th> Có Thể Giảng</th>
                                     <th> Bài Giảng</th>
                                     <th> Hành Động</th>
                                 </tr>
@@ -110,19 +109,21 @@
                                         <td>
                                             <a href="{{ route('giangvien.read.get', $v->id) }}">{{ $v->ten }}</a>
                                         </td>
+                                        {{-- Công Việc  --}}
                                         <td> {{ $v->chucvu }}  </td>
+                                        {{-- Cấp Bậc  --}}
                                         <td> {{ $v->hesoluong }} </td>
                                         <td> {{ $v->diachi }} </td>
                                         <td> {{ $v->chucdanh }} </td>
                                         <td> {{ $v->trinhdo }} </td>
 
-                                        <td>
+                                        {{-- <td>
                                             @if( $v->cothegiang ==1 )
                                             <span class="label label-sm label-success" style="font-size: 12px;"> Có Thể Giảng </span>
                                             @else
                                             <span class="label label-sm label-danger" style="font-size: 12px;"> Không Giảng </span>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td> {{ $v->bai_giang }} </td>
                                         <td>
                                             @permission('read-giangvien')

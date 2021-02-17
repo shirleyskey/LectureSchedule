@@ -365,19 +365,19 @@
                             <a href="#tab_hop" data-toggle="tab">Họp</a>
                         </li>
                         <li>
-                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn Khoa Học</a>
+                            <a href="#tab_hdkh" data-toggle="tab">Hướng Dẫn KH</a>
                         </li>
                         <li>
-                            <a href="#tab4" data-toggle="tab">Chấm Bài</a>
+                            <a href="#tab4" data-toggle="tab">Chấm thi, CT</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab"> Đi Thực Tế</a>
+                            <a href="#tab3" data-toggle="tab"> Học, TTế, LC</a>
                         </li>
                         <li>
                             <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
                         </li>
                         <li >
-                            <a href="#tab_vanban" data-toggle="tab">Xử Lý Văn Bản</a>
+                            <a href="#tab_vanban" data-toggle="tab">Xử Lý VB</a>
                         </li>
                         <li>
                             <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
@@ -463,7 +463,7 @@
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
-                                                        <td> Chấm Bài </td>
+                                                        <td> Chấm thi, coi thi </td>
                                                         <td> <?php echo e($total_chambai); ?> </td>
                                                         <td> <?php echo e($total_chambai_khoahoc); ?> </td>
                                                     </tr>
@@ -480,7 +480,7 @@
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
-                                                        <td> Đi Thực Tế</td>
+                                                        <td> Đi Học, thực tế, luân chuyển</td>
                                                         <td> <?php echo e($total_congtac); ?></td>
                                                         <td> <?php echo e($total_congtac_khoahoc); ?></td>
                                                     </tr>
@@ -621,7 +621,7 @@
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th> Tên </th>
+                                                <th> Tên Loại Hình</th>
                                                 <th> Địa Điểm</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
@@ -676,7 +676,7 @@
                             <!-- END EXAMPLE TABLE PORTLET-->
                             <?php else: ?>
                                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không có Hoạt động Đi thực tế nào!</p>
+                                    <p> Không có Hoạt động Đi Học, thực tế, luân chuyển nào!</p>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -760,7 +760,7 @@
                             <!-- END EXAMPLE TABLE PORTLET-->
                             <?php else: ?>
                                 <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                    <p> Không có chấm bài nào!</p>
+                                    <p> Không có chấm thi, coi thi nào!</p>
                                 </div>
                             <?php endif; ?>
 
@@ -779,8 +779,7 @@
                                             <th> STT</th>
                                             <th> Nội Dung Cuộc Họp</th>
                                             <th> Địa Điểm</th>
-                                            <th> Bắt Đầu</th>
-                                            <th> Kết Thúc</th>
+                                            <th> Thời Gian</th>
                                             <th> Giờ Giảng</th>
                                             <th> Giờ Khoa Học</th>
                                             <th> Ghi Chú</th>
@@ -794,8 +793,7 @@
                                                 <td> <?php echo e($stt); ?> </td>
                                                 <td> <?php echo e($v_hop->ten); ?> </td>
                                                 <td> <?php echo e($v_hop->dia_diem); ?> </td>
-                                                <td> <?php echo e($v_hop->batdau); ?> </td>
-                                                <td> <?php echo e($v_hop->ketthuc); ?> </td>
+                                                <td> <?php echo e($v_hop->thoigian); ?> </td>
                                                 <td> <?php echo e($v_hop->giogiang); ?> </td>
                                                 <td> <?php echo e($v_hop->giokhoahoc); ?> </td>
                                                 <td> <?php echo e($v_hop->ghichu); ?> </td>

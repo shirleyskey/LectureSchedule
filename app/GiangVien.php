@@ -52,8 +52,8 @@ class GiangVien extends Model
             $giangvien = GiangVien::findOrFail($id);
         }
         $giangvien->ten = $data['ten'];
-        $giangvien->chucvu = $data['chucvu'];
-        $giangvien->hesoluong = $data['hesoluong'];
+        $giangvien->congviec = $data['congviec'];
+        $giangvien->capbac = $data['capbac'];
         $giangvien->diachi = $data['diachi'];
         $giangvien->ma_giangvien = $data['ma_giangvien'];
         $giangvien->bai_giang = $data['bai_giang'];
