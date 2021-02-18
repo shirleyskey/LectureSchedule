@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tuan;
 use Carbon\Carbon;
+use App\GiangVien;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,6 +32,7 @@ class TuanController extends Controller
             't7' => $t7,
             't8' => $t8,
             'ds_tuan' => Tuan::all(),
+            'giangvien' => GiangVien::all(),
             ]);
     }
 

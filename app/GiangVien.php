@@ -42,6 +42,14 @@ class GiangVien extends Model
     {
         return $this->hasMany('App\Hdkh', 'id_giangvien');
     }
+    public function trucbans()
+    {
+        return $this->hasMany('App\Tuan', 'truc_ban');
+    }
+    public function trucgvs()
+    {
+        return $this->hasMany('App\Tuan', 'truc_gv');
+    }
 
 
 

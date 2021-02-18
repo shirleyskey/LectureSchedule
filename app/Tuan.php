@@ -9,8 +9,18 @@ class Tuan extends Model
 {
     //
     protected $table = 'tuans';
-    protected $fillable = ['id','thoi_gian','gio','dia_diem', 'noi_dung', 'thanh_phan', 'truc_ban'];
+    protected $fillable = ['id','thoi_gian','truc_gv','dia_diem', 'noi_dung', 'thanh_phan', 'truc_ban'];
     public $timestamps = false;
+
+    public function trucbans()
+    {
+        return $this->belongsTo('App\GiangVien', 'truc_ban');
+    }
+    public function trucgvs()
+    {
+        return $this->belongsTo('App\GiangVien', 'truc_gv');
+    }
+
 
     public static function saveTuan($id, $data){
         if($id == 0 || $id == -1){
@@ -23,6 +33,7 @@ class Tuan extends Model
         $tuan->noi_dung = $data['noi_dung'];
         $tuan->thanh_phan = $data['thanh_phan'];
         $tuan->truc_ban = $data['truc_ban'];
+        $tuan->truc_gv = $data['truc_gv'];
         $tuan->ghi_chu = $data['ghi_chu'];
         $tuan->save();
         return $tuan;
