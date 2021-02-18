@@ -54,21 +54,19 @@ class DashboardController extends Controller
     }
 
     public function deadline(){
-        $vanban = VanBan::whereBetween("thoigian_den",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $hop = Hop::whereBetween("ketthuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $chambai = ChamBai::whereBetween("ket_thuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $dang = Dang::whereBetween("ket_thuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $daygioi = DayGioi::whereBetween("ket_thuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $congtac= CongTac::whereBetween("ket_thuc",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
-        $xaydung= XayDung::whereBetween("thoigian",array(Carbon::now(),Carbon::now()->addDays(2)))->get();
+        $vanban = VanBan::where("hoan_thanh", NULL)->get();
+        $chambai = ChamBai::where("hoan_thanh", NULL)->get();
+        $dang = Dang::where("hoan_thanh", NULL)->get();
+        $daygioi = DayGioi::where("hoan_thanh", NULL)->get();
+        $congtac= CongTac::where("hoan_thanh", NULL)->get();
+        $hdkh= Hdkh::where("hoan_thanh", NULL)->get();
         return view('dashboard.deadline', [
             'vanban' => $vanban,
-            'hop' => $hop,
             'chambai' => $chambai,
             'dang' => $dang,
             'daygioi' => $daygioi,
             'congtac' => $congtac,
-            'xaydung' => $xaydung,
+            'hdkh' => $hdkh,
 
         ]);
     }

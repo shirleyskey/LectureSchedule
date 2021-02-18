@@ -42,6 +42,7 @@ class ChamBai extends Model
         $chambai->gio_khoahoc = $data['gio_khoahoc'];
         $chambai->bat_dau = Carbon::parse($data['bat_dau'])->format('Y-m-d');
         $chambai->ket_thuc = Carbon::parse($data['ket_thuc'])->format('Y-m-d');
+        $chambai->hoan_thanh = ($data['hoan_thanh']) ? Carbon::parse($data['hoan_thanh'])->format('Y-m-d') : NULL ;
         $chambai->ghichu = $data['ghichu'];
         $chambai->save();
         return $chambai;

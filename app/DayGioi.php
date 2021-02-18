@@ -33,6 +33,7 @@ class DayGioi extends Model
         $daygioi->gio_khoahoc = $data['gio_khoahoc'];
         $daygioi->bat_dau = Carbon::parse($data['bat_dau'])->format('Y-m-d');
         $daygioi->ket_thuc = Carbon::parse($data['ket_thuc'])->format('Y-m-d');
+        $daygioi->hoan_thanh = ($data['hoan_thanh']) ? Carbon::parse($data['hoan_thanh'])->format('Y-m-d') : NULL ;
         $daygioi->ghichu = $data['ghichu'];
         $daygioi->save();
         return $daygioi;

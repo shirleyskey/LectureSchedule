@@ -1912,7 +1912,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
-                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="Nhập Thời Gian Hoàn Thành" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Giảng: <span class="required">*</span></label>

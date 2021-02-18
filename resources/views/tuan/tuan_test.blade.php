@@ -102,12 +102,12 @@
                                                     <thead>
                                                         <tr>
                                                             <th> Thứ</th>
-                                                            <th> Ngày Tháng</th>
-                                                            <th> Giờ </th>
+                                                            <th> Ngày Giờ</th>
+                                                            <th> Trực Lãnh Đạo</th>
+                                                            <th> Trực Giảng Viên</th>
                                                             <th> Địa Điểm </th>
                                                             <th> Nội Dung</th>
                                                             <th> Thành Phần </th>
-                                                            <th> Trực Ban</th>
                                                             <th> Ghi CHú</th>
                                                             @permission('read-users')
                                                             <th> Hành Động</th>
@@ -126,7 +126,10 @@
                                                                 {{ $v_t2->thoi_gian }}
                                                             </td>
                                                             <td>
-                                                                {{ $v_t2->gio }}
+                                                                {{ $v_t2->truc_ban }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $v_t2->truc_gv }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t2->dia_diem }}
@@ -136,9 +139,6 @@
                                                             </td>
                                                             <td>
                                                                 {{ $v_t2->thanh_phan }}
-                                                            </td>
-                                                            <td>
-                                                                {{ $v_t2->truc_ban }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t2->ghi_chu }}
@@ -165,7 +165,10 @@
                                                                 {{ $v_t3->thoi_gian }}
                                                             </td>
                                                             <td>
-                                                                {{ $v_t3->gio }}
+                                                                {{ $v_t3->truc_ban }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $v_t3->truc_gv }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t3->dia_diem }}
@@ -175,9 +178,6 @@
                                                             </td>
                                                             <td>
                                                                 {{ $v_t3->thanh_phan }}
-                                                            </td>
-                                                            <td>
-                                                                {{ $v_t3->truc_ban }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t3->ghi_chu }}
@@ -203,7 +203,10 @@
                                                                 {{ $v_t4->thoi_gian }}
                                                             </td>
                                                             <td>
-                                                                {{ $v_t4->gio }}
+                                                                {{ $v_t4->truc_ban }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $v_t4->truc_gv }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t4->dia_diem }}
@@ -213,9 +216,6 @@
                                                             </td>
                                                             <td>
                                                                 {{ $v_t4->thanh_phan }}
-                                                            </td>
-                                                            <td>
-                                                                {{ $v_t4->truc_ban }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t4->ghi_chu }}
@@ -240,7 +240,10 @@
                                                                 {{ $v_t5->thoi_gian }}
                                                             </td>
                                                             <td>
-                                                                {{ $v_t5->gio }}
+                                                                {{ $v_t5->truc_ban }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $v_t5->truc_gv }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t5->dia_diem }}
@@ -250,9 +253,6 @@
                                                             </td>
                                                             <td>
                                                                 {{ $v_t5->thanh_phan }}
-                                                            </td>
-                                                            <td>
-                                                                {{ $v_t5->truc_ban }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t5->ghi_chu }}
@@ -278,7 +278,10 @@
                                                                 {{ $v_t6->thoi_gian }}
                                                             </td>
                                                             <td>
-                                                                {{ $v_t6->gio }}
+                                                                {{ $v_t6->truc_ban }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $v_t6->truc_gv }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t6->dia_diem }}
@@ -288,9 +291,6 @@
                                                             </td>
                                                             <td>
                                                                 {{ $v_t6->thanh_phan }}
-                                                            </td>
-                                                            <td>
-                                                                {{ $v_t6->truc_ban }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t6->ghi_chu }}
@@ -315,7 +315,10 @@
                                                                 {{ $v_t7->thoi_gian }}
                                                             </td>
                                                             <td>
-                                                                {{ $v_t7->gio }}
+                                                                {{ $v_t7->truc_ban }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $v_t7->truc_gv }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t7->dia_diem }}
@@ -325,9 +328,6 @@
                                                             </td>
                                                             <td>
                                                                 {{ $v_t7->thanh_phan }}
-                                                            </td>
-                                                            <td>
-                                                                {{ $v_t7->truc_ban }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t7->ghi_chu }}
@@ -352,7 +352,10 @@
                                                                 {{ $v_t8->thoi_gian }}
                                                             </td>
                                                             <td>
-                                                                {{ $v_t8->gio }}
+                                                                {{ $v_t8->truc_ban }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $v_t8->truc_gv }}
                                                             </td>
                                                             <td>
                                                                 {{ $v_t8->dia_diem }}
@@ -363,9 +366,7 @@
                                                             <td>
                                                                 {{ $v_t8->thanh_phan }}
                                                             </td>
-                                                            <td>
-                                                                {{ $v_t8->truc_ban }}
-                                                            </td>
+                                                            
                                                             <td>
                                                                 {{ $v_t8->ghi_chu }}
                                                             </td>
@@ -408,12 +409,12 @@
                                                     <thead>
                                                         <tr>
                                                             <th> STT</th>
-                                                            <th> Ngày Tháng</th>
-                                                            <th> Giờ </th>
+                                                            <th> Ngày Giờ</th>
+                                                            <th> Trực Lãnh Đạo</th>
+                                                            <th> Trực GV</th>
                                                             <th> Địa Điểm </th>
                                                             <th> Nội Dung</th>
                                                             <th> Thành Phần </th>
-                                                            <th> Trực Ban</th>
                                                             <th> Ghi CHú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
@@ -425,11 +426,11 @@
                                                             <tr>
                                                                 <td> {{ $stt }} </td>
                                                                 <td> {{ $v->thoi_gian }} </td>
-                                                                <td> {{ $v->gio }} </td>
+                                                                <td> {{ $v->truc_ban }} </td>
+                                                                <td> {{ $v->truc_gv }} </td>
                                                                 <td> {{ $v->dia_diem }}  </td>
                                                                 <td> {{ $v->noi_dung }} </td>
                                                                 <td> {{ $v->thanh_phan }} </td>
-                                                                <td> {{ $v->truc_ban }} </td>
                                                                 <td> {{ $v->ghi_chu }} </td>
                                                                 <td>
                                                                    
@@ -485,12 +486,16 @@
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Ngày Tháng: <span class="required">*</span></label>
+                                    <label>Ngày Giờ: <span class="required">*</span></label>
                                     <input  name="thoi_gian" type="datetime-local" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Giờ: <span class="required">*</span></label>
-                                    <input  name="gio" type="text" class="form-control" required placeholder="8:00AM - 9:00AM">
+                                    <label>Trực Lãnh Đạo: <span class="required">*</span></label>
+                                    <input  name="truc_ban" type="text" class="form-control" required placeholder="Trực lãnh đạo...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Trực Giảng Viên: <span class="required">*</span></label>
+                                    <input  name="truc_gv" type="text" class="form-control" required placeholder="Trực giảng viên...">
                                 </div>
                                 <div class="form-group">
                                     <label>Địa Điểm: <span class="required">*</span></label>
@@ -504,10 +509,7 @@
                                     <label>Thành Phần: <span class="required">*</span></label>
                                     <input  name="thanh_phan" type="text" class="form-control" required placeholder="Thành Phần tham gia...">
                                 </div>
-                                <div class="form-group">
-                                    <label>Trực Ban: <span class="required">*</span></label>
-                                    <input  name="truc_ban" type="text" class="form-control" required placeholder="Trực ban...">
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Ghi Chú: <span class="required">*</span></label>
                                     <input  name="ghi_chu" type="text" class="form-control" required>
@@ -548,12 +550,16 @@
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Ngày Tháng: <span class="required">*</span></label>
+                                    <label>Ngày Giờ: <span class="required">*</span></label>
                                     <input  name="thoi_gian" type="datetime-local" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Giờ: <span class="required">*</span></label>
-                                    <input  name="gio" type="text" class="form-control" required>
+                                    <label>Trực Lãnh Đạo: <span class="required">*</span></label>
+                                    <input  name="truc_ban" type="text" class="form-control" required placeholder="Trực lãnh đạo...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Trực Giảng Viên: <span class="required">*</span></label>
+                                    <input  name="truc_gv" type="text" class="form-control" required placeholder="Trực giảng viên...">
                                 </div>
                                 <div class="form-group">
                                     <label>Địa Điểm: <span class="required">*</span></label>
@@ -664,11 +670,11 @@
            method: 'POST',
            data: {
                thoi_gian: $("#form_add_tuan input[name='thoi_gian']").val(),
-               gio: $("#form_add_tuan input[name='gio']").val(),
+               truc_ban: $("#form_add_tuan input[name='truc_ban']").val(),
+               truc_gv: $("#form_add_tuan input[name='truc_gv']").val(),
                dia_diem: $("#form_add_tuan input[name='dia_diem']").val(),
                noi_dung: $("#form_add_tuan input[name='noi_dung']").val(),
                thanh_phan: $("#form_add_tuan input[name='thanh_phan']").val(),
-               truc_ban: $("#form_add_tuan input[name='truc_ban']").val(),
                ghi_chu: $("#form_add_tuan input[name='ghi_chu']").val(),
                
            },
@@ -739,11 +745,10 @@
                         console.log(data.data);
                         $("#form_edit_tuan input[name='id']").val(data.data.id);
                         $("#form_edit_tuan input[name='thoi_gian']").val(data.data.thoi_gian);
-                        $("#form_edit_tuan input[name='gio']").val(data.data.gio);
+                        $("#form_edit_tuan input[name='truc_gv']").val(data.data.truc_gv);
                         $("#form_edit_tuan input[name='dia_diem']").val(data.data.dia_diem);
                         $("#form_edit_tuan input[name='noi_dung']").val(data.data.noi_dung);
                         $("#form_edit_tuan input[name='thanh_phan']").val(data.data.thanh_phan);
-                        $("#form_edit_tuan input[name='truc_ban']").val(data.data.truc_ban);
                         $("#form_edit_tuan input[name='ghi_chu']").val(data.data.ghi_chu);
                         $('#modal_edit_tuan').modal('show');
                     }
@@ -768,11 +773,10 @@
                 data: {
                     id: $("#form_edit_tuan input[name='id']").val(),
                     thoi_gian: $("#form_edit_tuan input[name='thoi_gian']").val(),
-                    gio: $("#form_edit_tuan input[name='gio']").val(),
+                    truc_gv: $("#form_edit_tuan input[name='truc_gv']").val(),
                     dia_diem: $("#form_edit_tuan input[name='dia_diem']").val(),
                     noi_dung: $("#form_edit_tuan input[name='noi_dung']").val(),
                     thanh_phan: $("#form_edit_tuan input[name='thanh_phan']").val(),
-                    truc_ban: $("#form_edit_tuan input[name='truc_ban']").val(),
                     ghi_chu: $("#form_edit_tuan input[name='ghi_chu']").val(),
                     
                 },

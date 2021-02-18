@@ -30,59 +30,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-12">
-                        @if($hop->isNotEmpty())
-               <!-- BEGIN EXAMPLE TABLE PORTLET-->
-               <div class="portlet light portlet-fit bordered deadline deadline-hop">
-                   <div class="portlet-body">
-                       
-                       <div class="table-toolbar">
-                           <div class="row">
-                               <p class=""> <i style="color: aqua; opacity: 0.5;" class="fa fa-briefcase "></i>1. Họp</p>
-                           </div>
-                       </div>
-                      
-                       <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
-                           <thead>
-                               <tr>
-                                   <th> STT</th>
-                                   <th> Tên Cuộc Họp</th>
-                                   <th> Địa Điểm</th>
-                                   <th> Tên Giảng Viên</th>
-                                   <th> Thời Gian</th>
-                                   <th> Hạn</th>
-                               </tr>
-                           </thead>
-                           <tbody>
-                                @if($hop->count() > 0 )
-                                   @php $stt = 1; @endphp
-                                   @foreach( $hop as $v )
-                                    <tr>
-                                       <td> {{ $stt }} </td>
-                                       <td> {{ $v->ten }} </td>
-                                       <td> {{ $v->dia_diem }} </td>
-                                       <td>
-                                           @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
-                                           {{ $v->giangviens->ma_giangvien.'-'.$v->giangviens->ten }}
-                                           @endif
-
-                                        </td>
-                                       <td> {{ $v->thoigian }} </td>
-                                       <td> 
-                                            <a class="btn_edit_congtac btn btn-xs yellow-gold" > <i class="fa fa-edit"></i> 1 Ngày </a>
-                                       </td>
-                                       
-                                   </tr>
-                                   @php $stt++; @endphp
-                                   @endforeach
-                               @endif
-                           </tbody>
-                       </table>
-                   </div>
-               </div>
-               <!-- END EXAMPLE TABLE PORTLET-->
-                @endif
-                   </div>
+                    
 
                    <div class="col-md-12">
                     @if($chambai->isNotEmpty())
@@ -104,7 +52,7 @@
                                <th> Số Bài</th>
                                <th> Bắt Đầu </th>
                                <th> Kết Thúc</th>
-                               <th> Hạn</th>
+                               <th> </th>
                                
                            </tr>
                        </thead>
@@ -137,7 +85,7 @@
                                        <td> {{ $v->bat_dau }} </td>
                                        <td> {{ $v->ket_thuc }} </td>
                                   <td> 
-                                        <a class="btn_edit_congtac btn btn-xs yellow-gold" > <i class="fa fa-edit"></i> 1 Ngày </a>
+                                        <a class="btn_edit_congtac btn btn-xs yellow-gold" > Chưa hoàn thành</a>
                                    </td>
                                </tr>
                                @php $stt++; @endphp
@@ -150,6 +98,82 @@
            <!-- END EXAMPLE TABLE PORTLET-->
             @endif
                </div>
+
+
+               <div class="col-md-12">
+                @if($hdkh->isNotEmpty())
+       <!-- BEGIN EXAMPLE TABLE PORTLET-->
+       <div class="portlet light portlet-fit bordered deadline deadline-chambai">
+           <div class="portlet-body">
+               <div class="table-toolbar">
+                   <div class="row">
+                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-pencil-square-o" aria-hidden="true"></i>2. Chấm thi, coi thi</p>
+                   </div>
+               </div>
+               <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
+                   <thead>
+                       <tr>
+                        <th> STT</th>
+                        <th> Tên Giảng Viên</th>
+                        <th> Loại Hướng Dẫn</th>
+                        <th> Học Viên</th>
+                        <th> Khóa</th>
+                        <th> Bắt Đầu</th>
+                        <th> Kết Thúc</th>
+                        <th> Ghi Chú</th>
+                        <th> </th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                    @if( $hdkh->count() > 0 )
+                        @php $stt = 1; @endphp
+                        @foreach( $hdkh as $v )
+                        <tr>
+                            <td> {{ $stt }} </td>
+                            <td>
+                                @if (App\GiangVien::where('id', $v->id_giangvien)->first() !== null)
+                                {{ $v->giangviens->ma_giangvien.'-'.$v->giangviens->ten }}
+                                @endif
+
+                             </td>
+                             <td> 
+                            @php 
+                                if($v->khoa_luan == 1) {
+                                    echo "Khóa Luận";
+                                } 
+                                else if($v->luan_van == 1) {
+                                    echo "Luận Văn";
+                                }  
+                                else if($v->luan_an == 1) {
+                                    echo "Luận Án";
+                                }  
+                                else if($v->sinhvien_nc == 1) {
+                                    echo "Sinh viên NCKH";
+                                }   
+                            @endphp
+                                </td>
+
+                            <td> {{ $v->hoc_vien }} </td>
+                            <td> {{ $v->khoa }} </td>
+                            <td> {{ $v->bat_dau }} </td>
+                            <td> {{ $v->ket_thuc }} </td>
+                            <td> {{ $v->ghichu }} </td>
+                            <td> 
+                                <a class="btn_edit_congtac btn btn-xs yellow-gold" > Chưa hoàn thành</a>
+                            </td>
+                        </tr>
+                        @php $stt++; @endphp
+                        @endforeach
+                    @endif
+                </tbody>
+               </table>
+           </div>
+       </div>
+       <!-- END EXAMPLE TABLE PORTLET-->
+        @endif
+           </div>
+
+
                <div class="col-md-12">
 
                 @if($congtac->isNotEmpty())
@@ -170,7 +194,7 @@
                            <th> Địa Điểm</th>
                            <th> Bắt Đầu</th>
                            <th> Kết Thúc</th>
-                           <th> Hạn</th>
+                           <th> </th>
                        </tr>
                    </thead>
                    <tbody>
@@ -189,9 +213,9 @@
                                <td> {{ $v->dia_diem }} </td>
                                <td> {{ $v->bat_dau }} </td>
                                <td> {{ $v->ket_thuc }} </td>
-                              <td> 
-                                    <a class="btn_edit_congtac btn btn-xs yellow-gold" > <i class="fa fa-edit"></i> 1 Ngày </a>
-                               </td>
+                               <td> 
+                                <a class="btn_edit_congtac btn btn-xs yellow-gold" > Chưa hoàn thành</a>
+                                </td>
                                
                            </tr>
                            @php $stt++; @endphp
@@ -223,7 +247,7 @@
                       <th> Cấp</th>
                       <th> Bắt Đầu</th>
                       <th> Kết Thúc</th>
-                      <th> Hạn</th>
+                      <th> </th>
                   </tr>
               </thead>
               <tbody>
@@ -255,9 +279,9 @@
                           </td>
                           <td> {{ $v->bat_dau }} </td>
                           <td> {{ $v->ket_thuc }} </td>
-                         <td> 
-                               <a class="btn_edit_congtac btn btn-xs yellow-gold" > <i class="fa fa-edit"></i> 1 Ngày </a>
-                          </td>
+                          <td> 
+                            <a class="btn_edit_congtac btn btn-xs yellow-gold" > Chưa hoàn thành</a>
+                        </td>
                           
                       </tr>
                       @php $stt++; @endphp
@@ -291,7 +315,7 @@
                                     <th> Tham Gia</th>
                                     <th> Bắt Đầu</th>
                                     <th> Kết Thúc</th>
-                                    <th> Hạn</th>
+                                    <th> </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -327,8 +351,8 @@
                                         </td>
                                         <td> {{ $v->thoigian_nhan }} </td>
                                          <td> {{ $v->thoigian_den }} </td>
-                                        <td> 
-                                             <a class="btn_edit_congtac btn btn-xs yellow-gold" > <i class="fa fa-edit"></i> 1 Ngày </a>
+                                         <td> 
+                                            <a class="btn_edit_congtac btn btn-xs yellow-gold" > Chưa hoàn thành</a>
                                         </td>
                                         
                                     </tr>
@@ -366,7 +390,7 @@
                                     <th> Tham Gia </th>
                                     <th> Bắt Đầu</th>
                                     <th> Kết Thúc</th>
-                                    <th> Hạn</th>
+                                    <th> </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -401,8 +425,8 @@
                                         </td>
                                         <td> {{ $v->bat_dau }} </td>
                                         <td> {{ $v->ket_thuc }} </td>
-                                       <td> 
-                                             <a class="btn_edit_congtac btn btn-xs yellow-gold" > <i class="fa fa-edit"></i> 1 Ngày </a>
+                                        <td> 
+                                            <a class="btn_edit_congtac btn btn-xs yellow-gold" > Chưa hoàn thành</a>
                                         </td>
                                         
                                     </tr>

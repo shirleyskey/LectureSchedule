@@ -548,6 +548,7 @@
                                                     <th> Tham Gia</th>
                                                     <th> Thời Gian Nhận</th>
                                                     <th> Hạn</th>
+                                                    <th> Hoàn Thành</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
@@ -596,6 +597,7 @@
                                                         </td>
                                                         <td> <?php echo e($v_vanban->thoigian_nhan); ?> </td>
                                                         <td> <?php echo e($v_vanban->thoigian_den); ?> </td>
+                                                        <td> <?php echo e($v_vanban->hoan_thanh); ?> </td>
                                                         <td> <?php echo e($v_vanban->ghichu); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>
@@ -627,6 +629,7 @@
                                                 <th> Địa Điểm</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Hoàn Thành</th>
                                                 <th> Giờ Giảng</th>
                                                 <th> Giờ Khoa Học</th>
                                                 <th> Ghi Chú</th>
@@ -642,6 +645,7 @@
                                                     <td> <?php echo e($v_congtac->dia_diem); ?> </td>
                                                     <td> <?php echo e($v_congtac->bat_dau); ?> </td>
                                                     <td> <?php echo e($v_congtac->ket_thuc); ?> </td>
+                                                    <td> <?php echo e($v_congtac->hoan_thanh); ?> </td>
                                                     <td> <?php echo e($v_congtac->gio_giang); ?> </td>
                                                     <td> <?php echo e($v_congtac->gio_khoahoc); ?> </td>
                                                     <td> <?php echo e($v_congtac->ghichu); ?> </td>
@@ -698,6 +702,7 @@
                                                 <th> Số Bài</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Hoàn Thành</th>
                                                 <th> Giờ Giảng</th>
                                                 <th> Giờ Khoa Học</th>
                                                 <th>Ghi Chú</th>
@@ -726,6 +731,7 @@
                                                     <td> <?php echo e($v_chambai->so_bai); ?> </td>
                                                     <td> <?php echo e($v_chambai->bat_dau); ?> </td>
                                                     <td> <?php echo e($v_chambai->ket_thuc); ?> </td>
+                                                    <td> <?php echo e($v_chambai->hoan_thanh); ?> </td>
                                                     <td> <?php echo e($v_chambai->gio_giang); ?> </td>
                                                     <td> <?php echo e($v_chambai->gio_khoahoc); ?> </td>
                                                     <td> <?php echo e($v_chambai->ghichu); ?> </td>
@@ -854,6 +860,7 @@
                                             <th> Khóa</th>
                                             <th> Bắt Đầu</th>
                                             <th> Kết Thúc</th>
+                                            <th> Hoàn Thành</th>
                                             <th> Giờ Giảng</th>
                                             <th> Giờ Khoa Học</th>
                                             <th> Ghi Chú</th>
@@ -887,6 +894,7 @@
                                                 <td> <?php echo e($v_hdkh->khoa); ?> </td>
                                                 <td> <?php echo e($v_hdkh->bat_dau); ?> </td>
                                                 <td> <?php echo e($v_hdkh->ket_thuc); ?> </td>
+                                                <td> <?php echo e($v_hdkh->hoan_thanh); ?> </td>
                                                 <td> <?php echo e($v_hdkh->gio_giang); ?> </td>
                                                 <td> <?php echo e($v_hdkh->gio_khoahoc); ?> </td>
                                                 <td> <?php echo e($v_hdkh->ghichu); ?> </td>
@@ -942,6 +950,7 @@
                                                 <th> Cấp</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Hoàn Thành</th>
                                                 <th> Giờ Giảng</th>
                                                 <th> Giờ Khoa Học</th>
                                                 <th> Ghi Chú</th>
@@ -969,6 +978,7 @@
                                                     </td>
                                                     <td> <?php echo e($v->bat_dau); ?> </td>
                                                     <td> <?php echo e($v->ket_thuc); ?> </td>
+                                                    <td> <?php echo e($v->hoan_thanh); ?> </td>
                                                     <td> <?php echo e($v->gio_giang); ?> </td>
                                                     <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                     <td> <?php echo e($v->ghichu); ?> </td>
@@ -1028,6 +1038,7 @@
                                                     <th> Tham Gia</th>
                                                     <th> Bắt Đầu</th>
                                                     <th> Kết Thúc</th>
+                                                    <th> Hoàn Thành</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
@@ -1076,6 +1087,7 @@
                                                         </td>
                                                         <td> <?php echo e($v_dang->bat_dau); ?> </td>
                                                         <td> <?php echo e($v_dang->ket_thuc); ?> </td>
+                                                        <td> <?php echo e($v_dang->hoan_thanh); ?> </td>
                                                         <td> <?php echo e($v_dang->ghichu); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>

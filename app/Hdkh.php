@@ -33,6 +33,7 @@ class Hdkh extends Model
          $hdkh->hoc_vien = $data['hoc_vien'];
          $hdkh->bat_dau = Carbon::parse($data['bat_dau'])->format('Y-m-d');
          $hdkh->ket_thuc = Carbon::parse($data['ket_thuc'])->format('Y-m-d');
+         $hdkh->hoan_thanh = ($data['hoan_thanh']) ? Carbon::parse($data['hoan_thanh'])->format('Y-m-d') : NULL ;
          $hdkh->khoa = $data['khoa'];
          $hdkh->gio_giang = $data['gio_giang'];
          $hdkh->gio_khoahoc = $data['gio_khoahoc'];

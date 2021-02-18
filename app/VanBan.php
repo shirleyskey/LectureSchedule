@@ -36,6 +36,7 @@ class VanBan extends Model
         $vanban->ghichu = $data['ghichu'];
         $vanban->thoigian_nhan = Carbon::parse($data['thoigian_nhan'])->format('Y-m-d');
         $vanban->thoigian_den = Carbon::parse($data['thoigian_den'])->format('Y-m-d');
+        $vanban->hoan_thanh = ($data['hoan_thanh']) ? Carbon::parse($data['hoan_thanh'])->format('Y-m-d') : NULL ;
         $vanban->save();
         return $vanban;
     }

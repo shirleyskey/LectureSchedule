@@ -579,6 +579,7 @@
                                                     <th> Tham Gia</th>
                                                     <th> Thời Gian Nhận</th>
                                                     <th> Hạn</th>
+                                                    <th> Hoàn Thành</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
@@ -627,6 +628,7 @@
                                                         </td>
                                                         <td> {{ $v_vanban->thoigian_nhan }} </td>
                                                         <td> {{ $v_vanban->thoigian_den }} </td>
+                                                        <td> {{ $v_vanban->hoan_thanh }} </td>
                                                         <td> {{ $v_vanban->ghichu }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp
@@ -658,6 +660,7 @@
                                                 <th> Địa Điểm</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Hoàn Thành</th>
                                                 <th> Giờ Giảng</th>
                                                 <th> Giờ Khoa Học</th>
                                                 <th> Ghi Chú</th>
@@ -673,6 +676,7 @@
                                                     <td> {{ $v_congtac->dia_diem }} </td>
                                                     <td> {{ $v_congtac->bat_dau }} </td>
                                                     <td> {{ $v_congtac->ket_thuc }} </td>
+                                                    <td> {{ $v_congtac->hoan_thanh }} </td>
                                                     <td> {{ $v_congtac->gio_giang }} </td>
                                                     <td> {{ $v_congtac->gio_khoahoc }} </td>
                                                     <td> {{ $v_congtac->ghichu }} </td>
@@ -727,6 +731,7 @@
                                                 <th> Số Bài</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Hoàn Thành</th>
                                                 <th> Giờ Giảng</th>
                                                 <th> Giờ Khoa Học</th>
                                                 <th>Ghi Chú</th>
@@ -755,6 +760,7 @@
                                                     <td> {{ $v_chambai->so_bai }} </td>
                                                     <td> {{ $v_chambai->bat_dau }} </td>
                                                     <td> {{ $v_chambai->ket_thuc }} </td>
+                                                    <td> {{ $v_chambai->hoan_thanh }} </td>
                                                     <td> {{ $v_chambai->gio_giang }} </td>
                                                     <td> {{ $v_chambai->gio_khoahoc }} </td>
                                                     <td> {{ $v_chambai->ghichu }} </td>
@@ -879,6 +885,7 @@
                                             <th> Khóa</th>
                                             <th> Bắt Đầu</th>
                                             <th> Kết Thúc</th>
+                                            <th> Hoàn Thành</th>
                                             <th> Giờ Giảng</th>
                                             <th> Giờ Khoa Học</th>
                                             <th> Ghi Chú</th>
@@ -912,6 +919,7 @@
                                                 <td> {{ $v_hdkh->khoa }} </td>
                                                 <td> {{ $v_hdkh->bat_dau }} </td>
                                                 <td> {{ $v_hdkh->ket_thuc }} </td>
+                                                <td> {{ $v_hdkh->hoan_thanh }} </td>
                                                 <td> {{ $v_hdkh->gio_giang }} </td>
                                                 <td> {{ $v_hdkh->gio_khoahoc }} </td>
                                                 <td> {{ $v_hdkh->ghichu }} </td>
@@ -965,6 +973,7 @@
                                                 <th> Cấp</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Hoàn Thành</th>
                                                 <th> Giờ Giảng</th>
                                                 <th> Giờ Khoa Học</th>
                                                 <th> Ghi Chú</th>
@@ -992,6 +1001,7 @@
                                                     </td>
                                                     <td> {{ $v->bat_dau }} </td>
                                                     <td> {{ $v->ket_thuc }} </td>
+                                                    <td> {{ $v->hoan_thanh }} </td>
                                                     <td> {{ $v->gio_giang }} </td>
                                                     <td> {{ $v->gio_khoahoc }} </td>
                                                     <td> {{ $v->ghichu }} </td>
@@ -1054,6 +1064,7 @@
                                                     <th> Tham Gia</th>
                                                     <th> Bắt Đầu</th>
                                                     <th> Kết Thúc</th>
+                                                    <th> Hoàn Thành</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
@@ -1102,6 +1113,7 @@
                                                         </td>
                                                         <td> {{ $v_dang->bat_dau }} </td>
                                                         <td> {{ $v_dang->ket_thuc }} </td>
+                                                        <td> {{ $v_dang->hoan_thanh }} </td>
                                                         <td> {{ $v_dang->ghichu }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp

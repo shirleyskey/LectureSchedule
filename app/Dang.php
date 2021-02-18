@@ -37,6 +37,7 @@ class Dang extends Model
         $dang->tham_gia = json_encode($data['tham_gia']);
         $dang->bat_dau = Carbon::parse($data['bat_dau'])->format('Y-m-d');
         $dang->ket_thuc = Carbon::parse($data['ket_thuc'])->format('Y-m-d');
+        $dang->hoan_thanh = ($data['hoan_thanh']) ? Carbon::parse($data['hoan_thanh'])->format('Y-m-d') : NULL ;
         $dang->ghichu = $data['ghichu'];
         $dang->save();
         return $dang;

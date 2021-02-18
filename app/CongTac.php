@@ -29,6 +29,7 @@ class CongTac extends Model
         $congtac->gio_khoahoc = $data['gio_khoahoc'];
         $congtac->bat_dau = Carbon::parse($data['bat_dau'])->format('Y-m-d');
         $congtac->ket_thuc = Carbon::parse($data['ket_thuc'])->format('Y-m-d');
+        $congtac->hoan_thanh = ($data['hoan_thanh']) ? Carbon::parse($data['hoan_thanh'])->format('Y-m-d') : NULL ;
         $congtac->ghichu = $data['ghichu'];
         $congtac->save();
         return $congtac;

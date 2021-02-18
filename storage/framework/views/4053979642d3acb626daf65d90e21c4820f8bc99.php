@@ -112,6 +112,7 @@
                                                             <th> Địa Điểm</th>
                                                             <th> Bắt Đầu</th>
                                                             <th> Kết Thúc</th>
+                                                            <th> Hoàn Thành</th>
                                                             <th> Giờ Giảng</th>
                                                             <th> Giờ Khoa Học</th>
                                                             <th> Ghi Chú</th>
@@ -135,6 +136,7 @@
                                                                 <td> <?php echo e($v->dia_diem); ?> </td>
                                                                 <td> <?php echo e($v->bat_dau); ?> </td>
                                                                 <td> <?php echo e($v->ket_thuc); ?> </td>
+                                                                <td> <?php echo e($v->hoan_thanh); ?> </td>
                                                                  <td> <?php echo e($v->gio_giang); ?> </td>
                                                                  <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                                  <td> <?php echo e($v->ghichu); ?> </td>
@@ -260,6 +262,7 @@
                                                             <th> Khóa</th>
                                                             <th> Bắt Đầu</th>
                                                             <th> Kết Thúc</th>
+                                                            <th> Hoàn Thành</th>
                                                             <th> Giờ Gỉang</th>
                                                             <th> Giờ Khoa Học</th>
                                                             <th> Ghi Chú</th>
@@ -300,6 +303,7 @@
                                                                 <td> <?php echo e($v->khoa); ?> </td>
                                                                 <td> <?php echo e($v->bat_dau); ?> </td>
                                                                 <td> <?php echo e($v->ket_thuc); ?> </td>
+                                                                <td> <?php echo e($v->hoan_thanh); ?> </td>
                                                                 <td> <?php echo e($v->gio_giang); ?> </td>
                                                                 <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
@@ -352,6 +356,7 @@
                                                             <th> Số Bài</th>
                                                             <th> Bắt Đầu </th>
                                                             <th> Kết Thúc</th>
+                                                            <th> Hoàn Thành</th>
                                                             <th> Giờ Giảng</th>
                                                             <th> Giờ Khoa Học</th>
                                                             <th> Ghi Chú </th>
@@ -387,6 +392,7 @@
                                                                 <td> <?php echo e($v->so_bai); ?> </td>
                                                                 <td> <?php echo e($v->bat_dau); ?> </td>
                                                                 <td> <?php echo e($v->ket_thuc); ?> </td>
+                                                                <td> <?php echo e($v->hoan_thanh); ?> </td>
                                                                 <td> <?php echo e($v->gio_giang); ?> </td>
                                                                 <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
@@ -437,6 +443,7 @@
                                                             <th> Cấp</th>
                                                             <th> Bắt Đầu</th>
                                                             <th> Kết Thúc</th>
+                                                            <th> Hoàn Thành</th>
                                                             <th> Giờ Giảng</th>
                                                             <th> Giờ Khoa Học</th>
                                                             <th> Ghi Chú</th>
@@ -472,6 +479,7 @@
                                                                 </td>
                                                                 <td> <?php echo e($v->bat_dau); ?> </td>
                                                                 <td> <?php echo e($v->ket_thuc); ?> </td>
+                                                                <td> <?php echo e($v->hoan_thanh); ?> </td>
                                                                 <td> <?php echo e($v->gio_giang); ?> </td>
                                                                 <td> <?php echo e($v->gio_khoahoc); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
@@ -526,6 +534,7 @@
                                                             <th> Tham Gia</th>
                                                             <th> Thời Gian Nhận</th>
                                                             <th> Hạn</th>
+                                                            <th> Hoàn Thành</th>
                                                             <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
@@ -563,6 +572,7 @@
                                                                 </td>
                                                                  <td> <?php echo e($v->thoigian_nhan); ?> </td>
                                                                  <td> <?php echo e($v->thoigian_den); ?> </td>
+                                                                 <td> <?php echo e($v->hoan_thanh); ?> </td>
                                                                  <td> <?php echo e($v->ghichu); ?> </td>
                                                                 <td>
                                                                     <a data-vanban-id="<?php echo e($v->id); ?>" class="btn_edit_vanban btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -614,6 +624,7 @@
                                                             <th> Tham Gia</th>
                                                             <th> Bắt Đầu</th>
                                                             <th> Kết Thúc</th>
+                                                            <th> Hoàn Thành</th>
                                                             <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
@@ -651,6 +662,7 @@
                                                                 </td>
                                                                 <td> <?php echo e($v->bat_dau); ?> </td>
                                                                 <td> <?php echo e($v->ket_thuc); ?> </td>
+                                                                <td> <?php echo e($v->hoan_thanh); ?> </td>
                                                                 <td> <?php echo e($v->ghichu); ?> </td>
                                                                 <td>
                                                                     <a data-dang-id="<?php echo e($v->id); ?>" class="btn_edit_dang btn btn-xs yellow-gold" href="#modal_edit_dang" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -771,6 +783,10 @@
                                     <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
                                     <input class="form-control" name="gio_giang" type="number" placeholder="Nhập Giờ Giảng" required />
                                 </div>
@@ -859,6 +875,10 @@
                                     <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
                                     <input class="form-control" name="gio_giang" type="number" placeholder="" required />
                                 </div>
@@ -931,6 +951,10 @@
                                     <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
                                     <input name="gio_giang" type="number" class="form-control" required placeholder="Nhập Giờ Giảng">
                                 </div>
@@ -1001,6 +1025,10 @@
                                     <div class="form-group">
                                         <label>Kết Thúc:<span class="required">*</span></label>
                                         <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                        <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Giờ Giảng:<span class="required">*</span></label>
@@ -1091,6 +1119,10 @@
                                     <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Ghi Chú:<span class="required"></span></label>
                                     <input name="ghichu" type="text" class="form-control" required>
                                 </div> 
@@ -1171,7 +1203,10 @@
                                     <label>Hạn:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
-
+                                <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required"></span></label>
                                     <input name="ghichu" type="text" class="form-control" required />
@@ -1254,6 +1289,10 @@
                                     <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Ghi Chú:<span class="required"</span></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
@@ -1333,6 +1372,10 @@
                                     <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Ghi Chú:<span class="required"></span></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
@@ -1404,6 +1447,10 @@
                                 <div class="form-group">
                                     <label>Kết Thúc:<span class="required">*</span></label>
                                     <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
@@ -1488,6 +1535,10 @@
                                 <div class="form-group">
                                     <label>Kết Thúc:<span class="required">*</span></label>
                                     <input class="form-control" name="ket_thuc" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Giờ Giảng:<span class="required">*</span></label>
@@ -1721,6 +1772,10 @@
                                     <input  name="ket_thuc" type="date" class="form-control" required placeholder="Nhập Thời Gian Kết Thúc">
                                 </div>
                                 <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="Nhập Thời Gian Hoàn Thành" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Giờ Giảng: <span class="required">*</span></label>
                                     <input  name="gio_giang" type="number" class="form-control" required placeholder="Nhập Giờ Giảng">
                                 </div>
@@ -1817,6 +1872,10 @@
                                     <input  name="ket_thuc" type="date" class="form-control" required>
                                 </div>
                                 <div class="form-group">
+                                    <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
                                     <label>Giờ Giảng: <span class="required">*</span></label>
                                     <input  name="gio_giang" type="number" class="form-control" required>
                                 </div>
@@ -1882,6 +1941,7 @@
                 gio_khoahoc: $("#form_add_congtac input[name='gio_khoahoc']").val(),
                 bat_dau: $("#form_add_congtac input[name='bat_dau']").val(),
                 ket_thuc: $("#form_add_congtac input[name='ket_thuc']").val(),
+                hoan_thanh: $("#form_add_congtac input[name='hoan_thanh']").val(),
                 ghichu: $("#form_add_congtac input[name='ghichu']").val(),
             },
             success: function(data) {
@@ -1953,6 +2013,7 @@
                          $("#form_edit_congtac input[name='gio_khoahoc']").val(data.data.gio_khoahoc);
                          $("#form_edit_congtac input[name='bat_dau']").val(data.data.bat_dau);
                          $("#form_edit_congtac input[name='ket_thuc']").val(data.data.ket_thuc);
+                         $("#form_edit_congtac input[name='hoan_thanh']").val(data.data.hoan_thanh);
                          $("#form_edit_congtac input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_congtac').modal('show');
                      }
@@ -1982,6 +2043,7 @@
                      gio_khoahoc: $("#form_edit_congtac input[name='gio_khoahoc']").val(),
                      bat_dau: $("#form_edit_congtac input[name='bat_dau']").val(),
                      ket_thuc: $("#form_edit_congtac input[name='ket_thuc']").val(),
+                     hoan_thanh: $("#form_edit_congtac input[name='hoan_thanh']").val(),
                      ghichu: $("#form_edit_congtac input[name='ghichu']").val(),
                  },
                  success: function(data) {
@@ -2093,6 +2155,7 @@ $.ajax({
         lanhdao: $("#form_add_vanban input[name='lanhdao']").val(),
         thoigian_nhan: $("#form_add_vanban input[name='thoigian_nhan']").val(),
         thoigian_den: $("#form_add_vanban input[name='thoigian_den']").val(),
+        hoan_thanh: $("#form_add_vanban input[name='hoan_thanh']").val(),
         ghichu: $("#form_add_vanban input[name='ghichu']").val(),
     },
     success: function(data) {
@@ -2163,6 +2226,7 @@ $.ajax({
                          $("#form_edit_vanban input[name='lanhdao']").val(data.data.lanhdao);
                          $("#form_edit_vanban input[name='thoigian_nhan']").val(data.data.thoigian_nhan);
                          $("#form_edit_vanban input[name='thoigian_den']").val(data.data.thoigian_den);
+                         $("#form_edit_vanban input[name='hoan_thanh']").val(data.data.hoan_thanh);
                          $("#form_edit_vanban input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_vanban').modal('show');
              }
@@ -2191,6 +2255,7 @@ $.ajax({
                      lanhdao: $("#form_edit_vanban input[name='lanhdao']").val(),
                      thoigian_den: $("#form_edit_vanban input[name='thoigian_den']").val(),
                      thoigian_nhan: $("#form_edit_vanban input[name='thoigian_nhan']").val(),
+                     hoan_thanh: $("#form_edit_vanban input[name='hoan_thanh']").val(),
                      ghichu: $("#form_edit_vanban input[name='ghichu']").val(),
          },
          success: function(data) {
@@ -2304,6 +2369,7 @@ $.ajax({
                 so_bai: $("#form_add_chambai input[name='so_bai']").val(),
                 bat_dau: $("#form_add_chambai input[name='bat_dau']").val(),
                 ket_thuc: $("#form_add_chambai input[name='ket_thuc']").val(),
+                hoan_thanh: $("#form_add_chambai input[name='hoan_thanh']").val(),
                 gio_giang: $("#form_add_chambai input[name='gio_giang']").val(),
                 gio_khoahoc: $("#form_add_chambai input[name='gio_khoahoc']").val(),
                 ghichu: $("#form_add_chambai input[name='ghichu']").val(),
@@ -2379,6 +2445,7 @@ $.ajax({
                          $("#form_edit_chambai input[name='so_bai']").val(data.data.so_bai);
                          $("#form_edit_chambai input[name='bat_dau']").val(data.data.bat_dau);
                          $("#form_edit_chambai input[name='ket_thuc']").val(data.data.ket_thuc);
+                         $("#form_edit_chambai input[name='hoan_thanh']").val(data.data.hoan_thanh);
                          $("#form_edit_chambai input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_chambai').modal('show');
                      }
@@ -2412,6 +2479,7 @@ $.ajax({
                      so_bai: $("#form_edit_chambai input[name='so_bai']").val(),
                      bat_dau: $("#form_edit_chambai input[name='bat_dau']").val(),
                      ket_thuc: $("#form_edit_chambai input[name='ket_thuc']").val(),
+                     hoan_thanh: $("#form_edit_chambai input[name='hoan_thanh']").val(),
                  },
                  success: function(data) {
                      $("#btn_edit_chambai").removeAttr("disabled");
@@ -2522,6 +2590,7 @@ $.ajax({
                 tham_gia: $("#form_add_dang select[name='tham_gia']").val(),
                 bat_dau: $("#form_add_dang input[name='bat_dau']").val(),
                 ket_thuc: $("#form_add_dang input[name='ket_thuc']").val(),
+                hoan_thanh: $("#form_add_dang input[name='hoan_thanh']").val(),
                 ghichu: $("#form_add_dang input[name='ghichu']").val(),
             },
             success: function(data) {
@@ -2591,6 +2660,7 @@ $.ajax({
                          $("#form_edit_dang input[name='dia_diem']").val(data.data.dia_diem);
                          $("#form_edit_dang input[name='bat_dau']").val(data.data.bat_dau);
                          $("#form_edit_dang input[name='ket_thuc']").val(data.data.ket_thuc);
+                         $("#form_edit_dang input[name='hoan_thanh']").val(data.data.hoan_thanh);
                          $("#form_edit_dang input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_dang').modal('show');
                      }
@@ -2619,6 +2689,7 @@ $.ajax({
                      dia_diem: $("#form_edit_dang input[name='dia_diem']").val(),
                      bat_dau: $("#form_edit_dang input[name='bat_dau']").val(),
                      ket_thuc: $("#form_edit_dang input[name='ket_thuc']").val(),
+                     hoan_thanh: $("#form_edit_dang input[name='hoan_thanh']").val(),
                      ghichu: $("#form_edit_dang input[name='ghichu']").val(),
                  },
                  success: function(data) {
@@ -2732,6 +2803,7 @@ $.ajax({
                 cap_khoa: ($("#form_add_daygioi input[name='cap_khoa']").is(':checked')) ? 1 : 0,
                 bat_dau: $("#form_add_daygioi input[name='bat_dau']").val(),
                 ket_thuc: $("#form_add_daygioi input[name='ket_thuc']").val(),
+                hoan_thanh: $("#form_add_daygioi input[name='hoan_thanh']").val(),
                 gio_giang: $("#form_add_daygioi input[name='gio_giang']").val(),
                 gio_khoahoc: $("#form_add_daygioi input[name='gio_khoahoc']").val(),
                 ghichu: $("#form_add_daygioi input[name='ghichu']").val(),
@@ -2805,6 +2877,7 @@ $.ajax({
                          $("#form_edit_daygioi input[name='cap_khoa']").prop('checked', (data.data.cap_khoa == 1) ? true : false);
                          $("#form_edit_daygioi input[name='bat_dau']").val(data.data.bat_dau);
                          $("#form_edit_daygioi input[name='ket_thuc']").val(data.data.ket_thuc);
+                         $("#form_edit_daygioi input[name='hoan_thanh']").val(data.data.hoan_thanh);
                          $("#form_edit_daygioi input[name='gio_giang']").val(data.data.gio_giang);
                          $("#form_edit_daygioi input[name='gio_khoahoc']").val(data.data.gio_khoahoc);
                          $("#form_edit_daygioi input[name='ghichu']").val(data.data.ghichu);
@@ -2836,6 +2909,7 @@ $.ajax({
                      cap_khoa: ($("#form_edit_daygioi input[name='cap_khoa']").is(':checked')) ? 1 : 0,
                      bat_dau: $("#form_edit_daygioi input[name='bat_dau']").val(),
                      ket_thuc: $("#form_edit_daygioi input[name='ket_thuc']").val(),
+                     hoan_thanh: $("#form_edit_daygioi input[name='hoan_thanh']").val(),
                      gio_giang: $("#form_edit_daygioi input[name='gio_giang']").val(),
                      gio_khoahoc: $("#form_edit_daygioi input[name='gio_khoahoc']").val(),
                      ghichu: $("#form_edit_daygioi input[name='ghichu']").val(),
@@ -3371,6 +3445,7 @@ $.ajax({
                 luan_an: ($("#form_add_hdkh input[name='luan_an']").is(':checked')) ? 1 : 0,
                 bat_dau: $("#form_add_hdkh input[name='bat_dau']").val(),
                 ket_thuc: $("#form_add_hdkh input[name='ket_thuc']").val(),
+                hoan_thanh: $("#form_add_hdkh input[name='hoan_thanh']").val(),
                 gio_giang: $("#form_add_hdkh input[name='gio_giang']").val(),
                 gio_khoahoc: $("#form_add_hdkh input[name='gio_khoahoc']").val(),
                 hoc_vien: $("#form_add_hdkh input[name='hoc_vien']").val(),
@@ -3446,6 +3521,7 @@ $.ajax({
                         $("#form_edit_hdkh input[name='luan_an']").prop('checked', (data.data.luan_an == 1) ? true : false);
                         $("#form_edit_hdkh input[name='bat_dau']").val(data.data.bat_dau);
                         $("#form_edit_hdkh input[name='ket_thuc']").val(data.data.ket_thuc);
+                        $("#form_edit_hdkh input[name='hoan_thanh']").val(data.data.hoan_thanh);
                         $("#form_edit_hdkh input[name='gio_giang']").val(data.data.gio_giang);
                         $("#form_edit_hdkh input[name='gio_khoahoc']").val(data.data.gio_khoahoc);
                         $("#form_edit_hdkh input[name='hoc_vien']").val(data.data.hoc_vien);
@@ -3479,6 +3555,7 @@ $.ajax({
                     luan_an: ($("#form_edit_hdkh input[name='luan_an']").is(':checked')) ? 1 : 0,
                     bat_dau: $("#form_edit_hdkh input[name='bat_dau']").val(),
                     ket_thuc: $("#form_edit_hdkh input[name='ket_thuc']").val(),
+                    hoan_thanh: $("#form_edit_hdkh input[name='hoan_thanh']").val(),
                     gio_giang: $("#form_edit_hdkh input[name='gio_giang']").val(),
                     gio_khoahoc: $("#form_edit_hdkh input[name='gio_khoahoc']").val(),
                     hoc_vien: $("#form_edit_hdkh input[name='hoc_vien']").val(),
