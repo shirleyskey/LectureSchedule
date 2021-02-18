@@ -37,7 +37,7 @@
                <div class="portlet-body">
                    <div class="table-toolbar">
                        <div class="row">
-                           <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-pencil-square-o" aria-hidden="true"></i>2. Chấm thi, coi thi</p>
+                           <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-pencil-square-o" aria-hidden="true"></i>1. Chấm thi, coi thi</p>
                        </div>
                    </div>
                    <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
@@ -106,7 +106,7 @@
            <div class="portlet-body">
                <div class="table-toolbar">
                    <div class="row">
-                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-pencil-square-o" aria-hidden="true"></i>2. Chấm thi, coi thi</p>
+                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-pencil-square-o" aria-hidden="true"></i>2. Hướng Dẫn Khoa Học</p>
                    </div>
                </div>
                <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
