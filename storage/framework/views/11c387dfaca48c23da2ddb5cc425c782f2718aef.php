@@ -100,7 +100,7 @@
                                                         <th> Bắt Đầu</th>
                                                         <th> Kết Thúc</th>
                                                         <th> Số Giờ</th>
-                                                        <th> Ghi Chú</th>
+                                                        <th> Số Người</th>
                                                         <th> Hành Động</th>
                                                     </tr>
                                                 </thead>
@@ -136,7 +136,7 @@
                                                             <td> <?php echo e($v->ketthuc); ?></td>
                                                             
                                                             <td> <?php echo e($v->sotrang); ?></td>
-                                                            <td> <?php echo e($v->ghichu); ?></td>
+                                                            <td> <?php echo e($v->songuoi); ?></td>
                                                             
                                                             <td>
                                                            
@@ -187,7 +187,7 @@
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
-                                                <th> Ghi Chú</th>
+                                                <th> Số Người</th>
                                                 <th> Hành Động</th>
                                             </tr>
                                         </thead>
@@ -223,7 +223,7 @@
                                                     <td> <?php echo e($v->ketthuc); ?></td>
                                                     
                                                     <td> <?php echo e($v->sotrang); ?></td>
-                                                    <td> <?php echo e($v->ghichu); ?></td>
+                                                    <td> <?php echo e($v->songuoi); ?></td>
                                                     
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -268,7 +268,7 @@
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
-                                                <th> Ghi Chú</th>
+                                                <th> Số Người</th>
                                                 <th> Hành Động</th>
                                             </tr>
                                         </thead>
@@ -304,7 +304,7 @@
                                                     <td> <?php echo e($v->ketthuc); ?></td>
                                                    
                                                     <td> <?php echo e($v->sotrang); ?></td>
-                                                    <td> <?php echo e($v->ghichu); ?></td>
+                                                    <td> <?php echo e($v->songuoi); ?></td>
                                                     
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -348,7 +348,7 @@
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
-                                                <th> Ghi Chú</th>
+                                                <th> Số Người</th>
                                                 <th> Hành Động</th>
                                             </tr>
                                         </thead>
@@ -383,7 +383,7 @@
                                                         <td> <?php echo e($v->batdau); ?></td>
                                                         <td> <?php echo e($v->ketthuc); ?></td>
                                                     <td> <?php echo e($v->sotrang); ?></td>
-                                                    <td> <?php echo e($v->ghichu); ?></td>
+                                                    <td> <?php echo e($v->songuoi); ?></td>
                                                     
                                                     <td>
                                                         <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -466,7 +466,7 @@
                 sotrang: $("#form_add_nckh input[name='sotrang']").val(),
                 batdau: $("#form_add_nckh input[name='batdau']").val(),
                 ketthuc: $("#form_add_nckh input[name='ketthuc']").val(),
-                ghichu: $("#form_add_nckh input[name='ghichu']").val(),
+                songuoi: $("#form_add_nckh input[name='songuoi']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -535,7 +535,7 @@
                         $("#form_edit_nckh input[name='thamkhao']").prop('checked', (data.data.thamkhao == 1) ? true : false);
                         $("#form_edit_nckh input[name='sangkien']").prop('checked', (data.data.sangkien == 1) ? true : false);
                         $("#form_edit_nckh input[name='bao']").prop('checked', (data.data.bao == 1) ? true : false);
-                        $("#form_edit_nckh input[name='ghichu']").val(data.data.ghichu);
+                        $("#form_edit_nckh input[name='songuoi']").val(data.data.songuoi);
                         $("#form_edit_nckh input[name='sotrang']").val(data.data.sotrang);
                         $("#form_edit_nckh input[name='batdau']").val(data.data.batdau);
                         $("#form_edit_nckh input[name='ketthuc']").val(data.data.ketthuc);
@@ -576,7 +576,7 @@
                     sotrang: $("#form_edit_nckh input[name='sotrang']").val(),
                     batdau: $("#form_edit_nckh input[name='batdau']").val(),
                     ketthuc: $("#form_edit_nckh input[name='ketthuc']").val(),
-                    ghichu: $("#form_edit_nckh input[name='ghichu']").val(),
+                    songuoi: $("#form_edit_nckh input[name='songuoi']").val(),
 
                 },
                 success: function(data) {

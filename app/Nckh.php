@@ -9,7 +9,7 @@ class Nckh extends Model
     //
     protected $table = 'nckhs';
     public $timestamps = false;
-    protected $fillable = ['ten', 'capbo', 'thamkhao','sangkien','bao','theloai','chubien','thamgia','batdau','ketthuc','sotrang'];
+    protected $fillable = ['ten', 'capbo', 'thamkhao','sangkien','bao','theloai','chubien','thamgia','batdau','ketthuc','sotrang', 'songuoi'];
     
     public function giangviens()
     {
@@ -42,7 +42,7 @@ class Nckh extends Model
         $nckh->chubien = json_encode($data['chubien']);
         $nckh->thamgia = json_encode($data['thamgia']);
         $nckh->sotrang = $data['sotrang'];
-        $nckh->ghichu = $data['ghichu'];
+        $nckh->songuoi = $data['songuoi'];
         $nckh->batdau = Carbon::parse($data['batdau'])->format('Y-m-d');
         $nckh->ketthuc = Carbon::parse($data['ketthuc'])->format('Y-m-d');
         $nckh->save();

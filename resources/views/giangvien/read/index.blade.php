@@ -254,6 +254,7 @@
                                                     <th> Kết Thúc</th>
                                                     {{-- <th> Số Trang</th> --}}
                                                     <th> Số Giờ</th>
+                                                    <th> Số Người</th>
                                                     <th> Giờ Của Giảng Viên</th>
                                                 </tr>
                                             </thead>
@@ -311,6 +312,7 @@
                                                         <td> {{$v->batdau}}</td>
                                                         <td> {{$v->ketthuc}}</td>
                                                         <td> {{$v->sotrang}} giờ</td>
+                                                        <td> {{$v->songuoi}}</td>
                                                         {{-- <td>
                                                             In ra số Giờ
                                                             @switch($v->theloai)
@@ -345,10 +347,10 @@
                                                         <td>
                                                             @php
                                                                 if($is_chubien == true){
-                                                                    $so_gio_nc = ($v->sotrang)*1/3 + (2*($v->sotrang))/(3*($so_chubien+$so_thamgia));
+                                                                    $so_gio_nc = ($v->sotrang)*1/3 + (2*($v->sotrang))/(3*($v->songuoi));
                                                                 }
                                                                 else{
-                                                                    $so_gio_nc = (2*($v->sotrang))/(3*($so_chubien+$so_thamgia));
+                                                                    $so_gio_nc = (2*($v->sotrang))/(3*($v->songuoi));
                                                                 }
                                                                 echo $so_gio_nc;
                                                                 // echo $so_chubien;

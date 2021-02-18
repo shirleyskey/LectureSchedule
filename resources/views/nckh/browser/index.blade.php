@@ -102,7 +102,7 @@
                                                         <th> Bắt Đầu</th>
                                                         <th> Kết Thúc</th>
                                                         <th> Số Giờ</th>
-                                                        <th> Ghi Chú</th>
+                                                        <th> Số Người</th>
                                                         <th> Hành Động</th>
                                                     </tr>
                                                 </thead>
@@ -138,7 +138,7 @@
                                                             <td> {{$v->ketthuc}}</td>
                                                             
                                                             <td> {{$v->sotrang}}</td>
-                                                            <td> {{$v->ghichu}}</td>
+                                                            <td> {{$v->songuoi}}</td>
                                                             {{-- <td>
                                                                 In ra số Giờ
                                                                 @switch($v->theloai)
@@ -219,7 +219,7 @@
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
-                                                <th> Ghi Chú</th>
+                                                <th> Số Người</th>
                                                 <th> Hành Động</th>
                                             </tr>
                                         </thead>
@@ -255,7 +255,7 @@
                                                     <td> {{$v->ketthuc}}</td>
                                                     
                                                     <td> {{$v->sotrang}}</td>
-                                                    <td> {{$v->ghichu}}</td>
+                                                    <td> {{$v->songuoi}}</td>
                                                     {{-- <td>
                                                         In ra số Giờ
                                                         @switch($v->theloai)
@@ -330,7 +330,7 @@
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
-                                                <th> Ghi Chú</th>
+                                                <th> Số Người</th>
                                                 <th> Hành Động</th>
                                             </tr>
                                         </thead>
@@ -366,7 +366,7 @@
                                                     <td> {{$v->ketthuc}}</td>
                                                    
                                                     <td> {{$v->sotrang}}</td>
-                                                    <td> {{$v->ghichu}}</td>
+                                                    <td> {{$v->songuoi}}</td>
                                                     {{-- <td>
                                                         In ra số Giờ
                                                         @switch($v->theloai)
@@ -440,7 +440,7 @@
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
                                                 <th> Số Giờ</th>
-                                                <th> Ghi Chú</th>
+                                                <th> Số Người</th>
                                                 <th> Hành Động</th>
                                             </tr>
                                         </thead>
@@ -475,7 +475,7 @@
                                                         <td> {{$v->batdau}}</td>
                                                         <td> {{$v->ketthuc}}</td>
                                                     <td> {{$v->sotrang}}</td>
-                                                    <td> {{$v->ghichu}}</td>
+                                                    <td> {{$v->songuoi}}</td>
                                                     {{-- <td>
                                                         In ra số Giờ
                                                         @switch($v->theloai)
@@ -588,7 +588,7 @@
                 sotrang: $("#form_add_nckh input[name='sotrang']").val(),
                 batdau: $("#form_add_nckh input[name='batdau']").val(),
                 ketthuc: $("#form_add_nckh input[name='ketthuc']").val(),
-                ghichu: $("#form_add_nckh input[name='ghichu']").val(),
+                songuoi: $("#form_add_nckh input[name='songuoi']").val(),
             },
             success: function(data) {
                 console.log("Hihi");
@@ -657,7 +657,7 @@
                         $("#form_edit_nckh input[name='thamkhao']").prop('checked', (data.data.thamkhao == 1) ? true : false);
                         $("#form_edit_nckh input[name='sangkien']").prop('checked', (data.data.sangkien == 1) ? true : false);
                         $("#form_edit_nckh input[name='bao']").prop('checked', (data.data.bao == 1) ? true : false);
-                        $("#form_edit_nckh input[name='ghichu']").val(data.data.ghichu);
+                        $("#form_edit_nckh input[name='songuoi']").val(data.data.songuoi);
                         $("#form_edit_nckh input[name='sotrang']").val(data.data.sotrang);
                         $("#form_edit_nckh input[name='batdau']").val(data.data.batdau);
                         $("#form_edit_nckh input[name='ketthuc']").val(data.data.ketthuc);
@@ -698,7 +698,7 @@
                     sotrang: $("#form_edit_nckh input[name='sotrang']").val(),
                     batdau: $("#form_edit_nckh input[name='batdau']").val(),
                     ketthuc: $("#form_edit_nckh input[name='ketthuc']").val(),
-                    ghichu: $("#form_edit_nckh input[name='ghichu']").val(),
+                    songuoi: $("#form_edit_nckh input[name='songuoi']").val(),
 
                 },
                 success: function(data) {

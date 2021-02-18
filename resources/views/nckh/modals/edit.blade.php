@@ -97,8 +97,8 @@
                                             </select>
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Ghi Chú:</b></label>
-                                    <input class="form-control" name="ghichu" type="text" required />
+                                    <label><b>Số Người:</b></label>
+                                    <input class="form-control" name="songuoi" type="number" required />
                                 </div>
                             <div class="col-md-6">
                                 

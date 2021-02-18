@@ -252,6 +252,7 @@
                                                     <th> Kết Thúc</th>
                                                     
                                                     <th> Số Giờ</th>
+                                                    <th> Số Người</th>
                                                     <th> Giờ Của Giảng Viên</th>
                                                 </tr>
                                             </thead>
@@ -309,14 +310,15 @@
                                                         <td> <?php echo e($v->batdau); ?></td>
                                                         <td> <?php echo e($v->ketthuc); ?></td>
                                                         <td> <?php echo e($v->sotrang); ?> giờ</td>
+                                                        <td> <?php echo e($v->songuoi); ?></td>
                                                         
                                                         <td>
                                                             <?php
                                                                 if($is_chubien == true){
-                                                                    $so_gio_nc = ($v->sotrang)*1/3 + (2*($v->sotrang))/(3*($so_chubien+$so_thamgia));
+                                                                    $so_gio_nc = ($v->sotrang)*1/3 + (2*($v->sotrang))/(3*($v->songuoi));
                                                                 }
                                                                 else{
-                                                                    $so_gio_nc = (2*($v->sotrang))/(3*($so_chubien+$so_thamgia));
+                                                                    $so_gio_nc = (2*($v->sotrang))/(3*($v->songuoi));
                                                                 }
                                                                 echo $so_gio_nc;
                                                                 // echo $so_chubien;
@@ -380,7 +382,7 @@
                             <a href="#tab_vanban" data-toggle="tab">Xử Lý VB</a>
                         </li>
                         <li>
-                            <a href="#tab5" data-toggle="tab">Đảng Đoàn</a>
+                            <a href="#tab5" data-toggle="tab">Khác</a>
                         </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
@@ -1086,7 +1088,7 @@
                                 <!-- END EXAMPLE TABLE PORTLET-->
                                 <?php else: ?>
                                     <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                        <p> Không có hoạt động đảng/đoàn nào!</p>
+                                        <p> Không có hoạt động Khác nào!</p>
                                     </div>
                                 <?php endif; ?>
                             </div>
