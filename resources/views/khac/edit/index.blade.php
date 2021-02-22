@@ -1250,11 +1250,11 @@
                                         </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Thời Gian Nhận:<span class="required">*</span></label>
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Hạn:<span class="required">*</span></label>
+                                    <label>Kết Thúc:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
@@ -1334,12 +1334,12 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label>Thời Gian Nhận:<span class="required">*</span></label>
+                                    <label>Bắt Đầu:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Hạn:<span class="required">*</span></label>
+                                    <label>Kết Thúc:<span class="required">*</span></label>
                                     <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
