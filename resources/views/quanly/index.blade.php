@@ -80,6 +80,19 @@
                                             <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Hủy </a>
                                         </div>
                                     </div>
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: auto;">
+                                            <img src="{{ (setting('company.slide3','') != '')?url('/uploads/slides/' . setting('company.slide3') ): 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image'}}" alt="" />
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px;"> </div>
+                                        <div>
+                                            <span class="btn default btn-file">
+                                                <span class="fileinput-new"> Thay đổi Ảnh Slide 3 </span>
+                                                <span class="fileinput-exists"> Thay đổi </span>
+                                                <input type="file" name="slide3"> </span>
+                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Hủy </a>
+                                        </div>
+                                    </div>
                                 </div>
                                 
                                 

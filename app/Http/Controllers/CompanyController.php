@@ -66,6 +66,14 @@ class CompanyController extends Controller
             \Setting::set('company.slide2', $filename);
         }
 
+         // Handle the user upload of Slide 2
+    	if($request->hasFile('slide3')){
+    		$slide3 = $request->file('slide3');
+    		$filename = time() .'-slide3.'. $slide3->getClientOriginalExtension();
+            Image::make($slide3)->save( public_path('/uploads/slides/' . $filename ) );
+            \Setting::set('company.slide3', $filename);
+        }
+
         try{
             \Setting::save();
             Log::info('Người dùng ID:'.Auth::user()->id.' đã cập nhật thông tin công ty');

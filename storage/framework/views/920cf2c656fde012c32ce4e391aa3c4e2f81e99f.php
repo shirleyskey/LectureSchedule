@@ -21,7 +21,7 @@
             </li>
             <!-- END SIDEBAR TOGGLER BUTTON -->
             <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
-            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <?php if (app('laratrust')->can('read-dashboard')) : ?>
             <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/tuan' ? 'active open' : ''); ?>">
                 <h3 class="uppercase custom-border">
                     <a href="<?php echo e(route('tuan.get')); ?>" style="color: #dbe7f2;" class="nav-link">
@@ -32,7 +32,7 @@
                 </h3>
             </li>
             <?php endif; // app('laratrust')->can ?>
-            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <?php if (app('laratrust')->can('read-dashboard')) : ?>
             <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/lichgiang/lichgiangtuan' ? 'active open' : ''); ?>">
                 <h3 class="uppercase custom-border">
                     <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" style="color: #dbe7f2;" class="nav-link">
@@ -49,7 +49,7 @@
                 <h3 class="uppercase custom-border"> <a data-toggle="collapse" href="#sub-menu" class="nav-link nav-toggle"><i class="fa fa-building-o"></i>GIẢNG DẠY</a> <span class="caret"></span></h3>
             </li>
             <div class="collapse list-group-level1" id="sub-menu">
-            <?php if (app('laratrust')->can('read-lop')) : ?>
+            <?php if (app('laratrust')->can('read-dashboard')) : ?>
             <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/lop' ? 'active open' : ''); ?>">
                 <a href="<?php echo e(route('lop.index')); ?>" class="nav-link nav-toggle" data-parent="#sub-menu">
                     <span class="title">Lịch Theo Lớp</span>
@@ -66,7 +66,7 @@
             
             </div>
             
-            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <?php if (app('laratrust')->can('read-dashboard')) : ?>
             <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/nckh' ? 'active open' : ''); ?>">
                 <h3 class="uppercase custom-border">
                     <a href="<?php echo e(route('nckh.index')); ?>" style="color: #dbe7f2;" class="nav-link">
@@ -77,7 +77,7 @@
                 </h3>
             </li>
             <?php endif; // app('laratrust')->can ?>
-            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <?php if (app('laratrust')->can('read-dashboard')) : ?>
             <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/khac' ? 'active open' : ''); ?>">
                 <h3 class="uppercase custom-border">
                     <a href="<?php echo e(route('khac.edit.get')); ?>" style="color: #dbe7f2;" class="nav-link">
@@ -88,7 +88,7 @@
                 </h3>
             </li>
             <?php endif; // app('laratrust')->can ?>
-            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <?php if (app('laratrust')->can('read-dashboard')) : ?>
             <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/giangvien' ? 'active open' : ''); ?>">
                 <h3 class="uppercase custom-border">
                     <a href="<?php echo e(route('giangvien.index')); ?>" style="color: #dbe7f2;" class="nav-link">
@@ -99,7 +99,7 @@
                 </h3>
             </li>
             <?php endif; // app('laratrust')->can ?>
-            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <?php if (app('laratrust')->can('read-dashboard')) : ?>
             <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/dashboard' ? 'active open' : ''); ?>">
                 <h3 class="uppercase custom-border">
                     <a href="<?php echo e(route('dashboard.deadline')); ?>" style="color: #dbe7f2;" class="nav-link">
@@ -113,12 +113,12 @@
 
 
             
-            <?php if (app('laratrust')->can('read-file-manager')) : ?>
+            <?php if (app('laratrust')->can('read-dashboard')) : ?>
             <li class="heading">
-                <h3 class="uppercase custom-border"> <i class="fa fa-file-code-o"></i><a data-toggle="collapse" href="#sub-menu-nangcao">Quản Trị Nâng Cao</a> <span class="caret"></span></h3>
+                <h3 class="uppercase custom-border"> <i class="fa fa-file-code-o"></i><a data-toggle="collapse" href="#sub-menu-nangcao">Quản Trị</a> <span class="caret"></span></h3>
             </li>
             <div class="collapse list-group-level1" id="sub-menu-nangcao">
-                <?php if (app('laratrust')->can('read-users')) : ?>
+                <?php if (app('laratrust')->can('create-giangvien')) : ?>
                 <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/hocphan' ? 'active open' : ''); ?>">
                     <a href="<?php echo e(route('hocphan.index')); ?>" class="nav-link nav-toggle">
                        
@@ -134,7 +134,7 @@
                     </a>
                 </li>
                 <?php endif; // app('laratrust')->can ?>
-                <?php if (app('laratrust')->can('read-users')) : ?>
+                <?php if (app('laratrust')->can('create-users')) : ?>
                 <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/users' ? 'active open' : ''); ?>">
                     <a href="<?php echo e(route('user.index')); ?>" class="nav-link nav-toggle">
                         <span class="title"> Người Dùng Hệ Thống</span>
@@ -142,7 +142,7 @@
                     </a>
                 </li>
                 <?php endif; // app('laratrust')->can ?>
-                <?php if (app('laratrust')->can('read-users')) : ?>
+                <?php if (app('laratrust')->can('create-giangvien')) : ?>
                 <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/quanly' ? 'active open' : ''); ?>">
                     <a href="<?php echo e(route('company.index')); ?>" class="nav-link nav-toggle">
                         <span class="title"> Cài Đặt</span>

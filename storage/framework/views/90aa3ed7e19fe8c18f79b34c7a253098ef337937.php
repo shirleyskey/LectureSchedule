@@ -124,6 +124,12 @@
                                     </a>
                                 </li>
                                 <li class="divider"> </li>
+                                <li>
+                                    <a href="<?php echo e(route('profile.edit.get', Auth::user()->id_giangvien)); ?>">
+                                        <img alt="" style="width: 18px; " src="<?php echo e(asset('images/setting.png')); ?>" /> Chỉnh Sửa Thông Tin
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
                                 <li >
                                     <a href="<?php echo e(route('logout.get')); ?>" style="color: #e63946">
                                         <img alt="" style="width: 18px; " src="<?php echo e(asset('images/logout2.png')); ?>" />
@@ -183,7 +189,17 @@
                 </h3>
             </li>
             <?php endif; // app('laratrust')->can ?>
-           
+            <?php if (app('laratrust')->can('read-giangvien')) : ?>
+            <li class="heading nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/lichgiang/lichgiangtuan' ? 'active open' : ''); ?>">
+                <h3 class="uppercase custom-border">
+                    <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" style="color: #dbe7f2;" class="nav-link">
+                        <i class="fa fa-calculator" style="color: #dbe7f2;"></i>
+                        <span class="title" >Lịch Giảng</span>
+                        <span class="selected"></span>
+                    </a>
+                </h3>
+            </li>
+            <?php endif; // app('laratrust')->can ?>
             
             <li class="heading nav-item">
                 <h3 class="uppercase custom-border"> <a data-toggle="collapse" href="#sub-menu" class="nav-link nav-toggle"><i class="fa fa-building-o"></i>GIẢNG DẠY</a> <span class="caret"></span></h3>
@@ -203,12 +219,7 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item <?php echo e(Request::is('lichgiang/lichgiangtuan') ? 'active open' : ''); ?>">
-                <a href="<?php echo e(route('lichgiang.lichgiangtuan')); ?>" class="nav-link nav-toggle">
-                    <span class="title">Lịch Theo Ngày</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
+            
             </div>
             
             <?php if (app('laratrust')->can('read-giangvien')) : ?>
@@ -216,7 +227,7 @@
                 <h3 class="uppercase custom-border">
                     <a href="<?php echo e(route('nckh.index')); ?>" style="color: #dbe7f2;" class="nav-link">
                         <i class="fa fa-briefcase " style="color: #dbe7f2;"></i>
-                        <span class="title" >Quản Lý NCKH</span>
+                        <span class="title" >NCKH</span>
                         <span class="selected"></span>
                     </a>
                 </h3>
@@ -260,7 +271,7 @@
             
             <?php if (app('laratrust')->can('read-file-manager')) : ?>
             <li class="heading">
-                <h3 class="uppercase custom-border"> <i class="fa fa-file-code-o"></i><a data-toggle="collapse" href="#sub-menu-nangcao">Quản Trị Nâng Cao</a> <span class="caret"></span></h3>
+                <h3 class="uppercase custom-border"> <i class="fa fa-file-code-o"></i><a data-toggle="collapse" href="#sub-menu-nangcao">Quản Trị</a> <span class="caret"></span></h3>
             </li>
             <div class="collapse list-group-level1" id="sub-menu-nangcao">
                 <?php if (app('laratrust')->can('read-users')) : ?>
@@ -287,7 +298,14 @@
                     </a>
                 </li>
                 <?php endif; // app('laratrust')->can ?>
-                
+                <?php if (app('laratrust')->can('read-users')) : ?>
+                <li class="nav-item <?php echo e(Route::getCurrentRoute()->getPrefix() == '/quanly' ? 'active open' : ''); ?>">
+                    <a href="<?php echo e(route('company.index')); ?>" class="nav-link nav-toggle">
+                        <span class="title"> Cài Đặt</span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+                <?php endif; // app('laratrust')->can ?>
             </div>
             <li class="heading custom-border">
                 <h3 class=""> 
@@ -347,15 +365,45 @@
             </div>
             <!-- END CONTAINER -->
 
-           <!-- BEGIN FOOTER -->
-        <div class="page-footer">
-            
-            
-            <div class="scroll-to-top">
-                <i class="icon-arrow-up"></i>
+               <!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 right">
+                <div class="img">
+                    <img src="<?php echo e((setting('company.logo','') != '')?url('/uploads/logos/' . setting('company.logo') ): 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image'); ?>" alt="" />
+                    <h2><?php echo e(setting('company.tenkhoa','')); ?></h2>
+                    <h3><?php echo e(setting('company.tenhocvien','')); ?></h3>
+                </div>
             </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-6 left">
+                <h2 class="title"><?php echo e(setting('company.tenphanmem','')); ?></h2>
+                <ul class="description">
+                    <li>
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                        Bản quyền <i class="fa fa-copyright" aria-hidden="true"></i><?php echo e(setting('company.banquyen','')); ?></li>
+                    <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        Địa chỉ: <?php echo e(setting('company.diachi','')); ?></li>
+                    <li>
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        Liên hệ: <?php echo e(setting('company.lienhe','')); ?></li>
+                    <li>
+                        <i class="fa fa-code" aria-hidden="true"></i>
+                        Phát triển: <?php echo e(setting('company.phattrien','')); ?></li>
+                </ul>
+            </div>
+            
         </div>
-        <!-- END FOOTER -->
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>
+<!-- END FOOTER -->
+
+        
         </div>
         <script src="<?php echo e(asset('assets/global/plugins/pace/pace.min.js')); ?>" type="text/javascript"></script>
         

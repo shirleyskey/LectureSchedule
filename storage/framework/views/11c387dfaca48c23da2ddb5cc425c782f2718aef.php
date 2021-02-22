@@ -118,7 +118,7 @@
                                                                 ?>
                                                                     <?php $__currentLoopData = $chubien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                     <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                                      <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                                      <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
                                                                     <?php endif; ?>
                                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                             </td>
@@ -128,7 +128,7 @@
                                                             ?>
                                                                 <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                                     <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                                     <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                                 <?php endif; ?>
                                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                             </td>
@@ -205,7 +205,7 @@
                                                         ?>
                                                             <?php $__currentLoopData = $chubien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                             <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                              <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                              <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
                                                               <?php endif; ?>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
@@ -215,7 +215,7 @@
                                                     ?>
                                                         <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                             <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                            <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                             <?php endif; ?>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
@@ -286,7 +286,7 @@
                                                         ?>
                                                             <?php $__currentLoopData = $chubien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                                <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                                <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
                                                                 <?php endif; ?>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
@@ -296,7 +296,7 @@
                                                     ?>
                                                         <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                         <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                        <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                        <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                         <?php endif; ?>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
@@ -366,7 +366,7 @@
                                                         ?>
                                                             <?php $__currentLoopData = $chubien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                 <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                                    <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                                    <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
                                                                 <?php endif; ?>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </td>
@@ -376,7 +376,7 @@
                                                         ?>
                                                             <?php $__currentLoopData = $thamgia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                             <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                            <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                             <?php endif; ?>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </td>
@@ -502,7 +502,7 @@
                         "text":"Bạn đã tạo thành công NCKH!",
                         "type":"success"
                     }, function() {
-                            localStorage.setItem('activeTab', '#tab2');
+                            localStorage.setItem('activeTab', '#tab1');
                             location.reload();
                         }
                     );
@@ -612,7 +612,7 @@
                             "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                             "type":"success"
                         }, function() {
-                                localStorage.setItem('activeTab', '#tab2');
+                                localStorage.setItem('activeTab', '#tab1');
                                 location.reload();
                             }
                         );
@@ -657,7 +657,7 @@
                                         "text":"Bạn đã xóa thành công NCKH!",
                                         "type":"success"
                                     }, function() {
-                                            localStorage.setItem('activeTab', '#tab2');
+                                            localStorage.setItem('activeTab', '#tab1');
                                             location.reload();
                                         }
                                     );
@@ -680,7 +680,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Đề Tài: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -717,7 +717,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Tài Liệu Dạy Học: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -750,7 +750,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Sáng kiến cải tiến: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -782,7 +782,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Bài báo, tham luận: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",

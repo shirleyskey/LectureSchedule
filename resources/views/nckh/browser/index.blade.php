@@ -120,7 +120,7 @@
                                                                 @endphp
                                                                     @foreach($chubien as $key => $value)
                                                                     @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                                      <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                                      <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
                                                                     @endif
                                                                     @endforeach
                                                             </td>
@@ -130,7 +130,7 @@
                                                             @endphp
                                                                 @foreach($thamgia as $key => $value)
                                                                 @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                                     <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                                     <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                                 @endif
                                                                 @endforeach
                                                             </td>
@@ -237,7 +237,7 @@
                                                         @endphp
                                                             @foreach($chubien as $key => $value)
                                                             @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                              <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                              <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
                                                               @endif
                                                             @endforeach
                                                     </td>
@@ -247,7 +247,7 @@
                                                     @endphp
                                                         @foreach($thamgia as $key => $value)
                                                             @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                            <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                             @endif
                                                         @endforeach
                                                     </td>
@@ -348,7 +348,7 @@
                                                         @endphp
                                                             @foreach($chubien as $key => $value)
                                                                 @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                                <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                                <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
                                                                 @endif
                                                             @endforeach
                                                     </td>
@@ -358,7 +358,7 @@
                                                     @endphp
                                                         @foreach($thamgia as $key => $value)
                                                         @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                        <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                        <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                         @endif
                                                         @endforeach
                                                     </td>
@@ -458,7 +458,7 @@
                                                         @endphp
                                                             @foreach($chubien as $key => $value)
                                                                 @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                                    <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                                    <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
                                                                 @endif
                                                             @endforeach
                                                     </td>
@@ -468,7 +468,7 @@
                                                         @endphp
                                                             @foreach($thamgia as $key => $value)
                                                             @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                                            <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                                             @endif
                                                             @endforeach
                                                         </td>
@@ -624,7 +624,7 @@
                         "text":"Bạn đã tạo thành công NCKH!",
                         "type":"success"
                     }, function() {
-                            localStorage.setItem('activeTab', '#tab2');
+                            localStorage.setItem('activeTab', '#tab1');
                             location.reload();
                         }
                     );
@@ -734,7 +734,7 @@
                             "text":"Bạn đã sửa thành công Nghiên Cứu Khoa Học!",
                             "type":"success"
                         }, function() {
-                                localStorage.setItem('activeTab', '#tab2');
+                                localStorage.setItem('activeTab', '#tab1');
                                 location.reload();
                             }
                         );
@@ -779,7 +779,7 @@
                                         "text":"Bạn đã xóa thành công NCKH!",
                                         "type":"success"
                                     }, function() {
-                                            localStorage.setItem('activeTab', '#tab2');
+                                            localStorage.setItem('activeTab', '#tab1');
                                             location.reload();
                                         }
                                     );
@@ -802,7 +802,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Đề Tài: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -839,7 +839,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Tài Liệu Dạy Học: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -872,7 +872,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Sáng kiến cải tiến: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -904,7 +904,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Nckh: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Bài báo, tham luận: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",

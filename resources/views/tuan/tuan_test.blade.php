@@ -103,13 +103,13 @@
                                                         <tr>
                                                             <th> Thứ</th>
                                                             <th> Ngày Giờ</th>
-                                                            <th> Trực Lãnh Đạo</th>
-                                                            <th> Trực Giảng Viên</th>
+                                                            <th> Trực LĐ</th>
+                                                            <th> Trực GV</th>
                                                             <th> Địa Điểm </th>
                                                             <th> Nội Dung</th>
                                                             <th> Thành Phần </th>
                                                             <th> Ghi CHú</th>
-                                                            @permission('read-users')
+                                                            @permission('create-giangvien')
                                                             <th> Hành Động</th>
                                                             @endpermission
                                                         </tr>
@@ -120,7 +120,7 @@
                                                         
                                                         <tr>
                                                             <td>
-                                                                Thứ Hai
+                                                                Hai
                                                             </td>
                                                             <td>
                                                                 {{ $v_t2->thoi_gian }}
@@ -149,7 +149,7 @@
                                                             </td>
                                                             <td>
                                                                    
-                                                                @permission('read-users')
+                                                                @permission('create-giangvien')
                                                                 <a class="btn_edit_tuan btn btn-xs yellow-gold" data-tuan-id="{{ $v_t2->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_tuan btn btn-xs red-mint" data-tuan-id="{{ $v_t2->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                                @endpermission
@@ -163,7 +163,7 @@
                                                             @foreach( $t3 as $v_t3 )
                                                             <tr>
                                                             <td>
-                                                                Thứ Ba
+                                                                Ba
                                                             </td>
                                                             <td>
                                                                 {{ $v_t3->thoi_gian }}
@@ -192,7 +192,7 @@
                                                             </td>
                                                             <td>
                                                                    
-                                                                @permission('read-users')
+                                                                @permission('create-giangvien')
                                                                 <a class="btn_edit_tuan btn btn-xs yellow-gold" data-tuan-id="{{ $v_t3->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_tuan btn btn-xs red-mint" data-tuan-id="{{ $v_t3->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                                 @endpermission
@@ -205,7 +205,7 @@
                                                         @foreach( $t4 as $v_t4 )
                                                         <tr>
                                                             <td>
-                                                                Thứ Tư
+                                                                Tư
                                                             </td>
                                                             <td>
                                                                 {{ $v_t4->thoi_gian }}
@@ -234,7 +234,7 @@
                                                             </td>
                                                             <td>
                                                                    
-                                                                @permission('read-users')
+                                                                @permission('create-giangvien')
                                                                 <a class="btn_edit_tuan btn btn-xs yellow-gold" data-tuan-id="{{ $v_t4->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_tuan btn btn-xs red-mint" data-tuan-id="{{ $v_t4->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                                @endpermission
@@ -246,7 +246,7 @@
                                                             @foreach( $t5 as $v_t5 )
                                                             <tr>
                                                             <td>
-                                                                Thứ Năm
+                                                                Năm
                                                             </td>
                                                             <td>
                                                                 {{ $v_t5->thoi_gian }}
@@ -275,7 +275,7 @@
                                                             </td>
                                                             <td>
                                                                    
-                                                                @permission('read-users')
+                                                                @permission('create-giangvien')
                                                                 <a class="btn_edit_tuan btn btn-xs yellow-gold" data-tuan-id="{{ $v_t5->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_tuan btn btn-xs red-mint" data-tuan-id="{{ $v_t5->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                                @endpermission
@@ -288,7 +288,7 @@
                                                             @foreach( $t6 as $v_t6 )
                                                             <tr>
                                                             <td>
-                                                                Thứ Sáu
+                                                                Sáu
                                                             </td>
                                                             <td>
                                                                 {{ $v_t6->thoi_gian }}
@@ -317,7 +317,7 @@
                                                             </td>
                                                             <td>
                                                                    
-                                                                @permission('read-users')
+                                                                @permission('create-giangvien')
                                                                 <a class="btn_edit_tuan btn btn-xs yellow-gold" data-tuan-id="{{ $v_t6->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_tuan btn btn-xs red-mint" data-tuan-id="{{ $v_t6->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                                @endpermission
@@ -329,7 +329,7 @@
                                                             @foreach( $t7 as $v_t7 )
                                                             <tr>
                                                             <td>
-                                                                Thứ Bảy
+                                                                Bảy
                                                             </td>
                                                             <td>
                                                                 {{ $v_t7->thoi_gian }}
@@ -358,7 +358,7 @@
                                                             </td>
                                                             <td>
                                                                    
-                                                                @permission('read-users')
+                                                                @permission('create-giangvien')
                                                                 <a class="btn_edit_tuan btn btn-xs yellow-gold" data-tuan-id="{{ $v_t7->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_tuan btn btn-xs red-mint" data-tuan-id="{{ $v_t7->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                                @endpermission
@@ -400,7 +400,7 @@
                                                             </td>
                                                             <td>
                                                                    
-                                                                @permission('read-users')
+                                                                @permission('create-giangvien')
                                                                 <a class="btn_edit_tuan btn btn-xs yellow-gold" data-tuan-id="{{ $v_t8->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_tuan btn btn-xs red-mint" data-tuan-id="{{ $v_t8->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                                @endpermission
@@ -437,14 +437,17 @@
                                                     <thead>
                                                         <tr>
                                                             <th> STT</th>
+                                                            <th> Thứ</th>
                                                             <th> Ngày Giờ</th>
-                                                            <th> Trực Lãnh Đạo</th>
+                                                            <th> Trực LĐ</th>
                                                             <th> Trực GV</th>
                                                             <th> Địa Điểm </th>
                                                             <th> Nội Dung</th>
                                                             <th> Thành Phần </th>
                                                             <th> Ghi CHú</th>
+                                                            @permission('create-giangvien')
                                                             <th> Hành Động</th>
+                                                            @endpermission
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -453,6 +456,20 @@
                                                             @foreach( $ds_tuan as $v )
                                                             <tr>
                                                                 <td> {{ $stt }} </td>
+                                                                <td> 
+                                                                    @php
+                                                                    $day = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v->thoi_gian)->dayOfWeek;
+                                                                    if($day == 1 ) echo " Hai";
+                                                                    if($day == 2 ) echo " Ba";
+                                                                    if($day == 3 ) echo " Tư";
+                                                                    if($day == 4 ) echo " Năm";
+                                                                    if($day == 5 ) echo " Sáu";
+                                                                    if($day == 6 ) echo " Bảy";
+                                                                    if($day == 7 ) echo " CN";
+
+
+                                                                    @endphp 
+                                                                </td>
                                                                 <td> {{ $v->thoi_gian }} </td>
                                                                 <td>
                                                                     @if (App\GiangVien::where('id', $v->truc_ban)->first() !== null)
@@ -470,7 +487,7 @@
                                                                 <td> {{ $v->ghi_chu }} </td>
                                                                 <td>
                                                                    
-                                                                    @permission('read-users')
+                                                                    @permission('create-giangvien')
                                                                     <a class="btn_edit_tuan btn btn-xs yellow-gold" data-tuan-id="{{ $v->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                     <a class="btn_delete_tuan btn btn-xs red-mint" data-tuan-id="{{ $v->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
                                                                    @endpermission
@@ -637,10 +654,7 @@
                                     <label>Thành Phần: <span class="required">*</span></label>
                                     <input  name="thanh_phan" type="text" class="form-control" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Trực Ban: <span class="required">*</span></label>
-                                    <input  name="truc_ban" type="text" class="form-control" required>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Ghi Chú: <span class="required">*</span></label>
                                     <input  name="ghi_chu" type="text" class="form-control" required>

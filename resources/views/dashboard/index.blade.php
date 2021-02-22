@@ -18,10 +18,18 @@
               </ol>
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
+                @if((setting('company.slide1','') != ''))
                 <div class="item active" style="background-image: url({{ (setting('company.slide1','') != '')?url('/uploads/slides/' . setting('company.slide1') ): 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image'}}); background-size: cover; background-position: center;">
                 </div>
+                @endif
+                @if((setting('company.slide2','') != ''))
                 <div class="item" style="background-image: url({{(setting('company.slide2','') != '')?url('/uploads/slides/' . setting('company.slide2') ): 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image' }}); background-size: cover; background-position: center;">
                 </div>
+                @endif
+                @if((setting('company.slide3','') != ''))
+                <div class="item" style="background-image: url({{(setting('company.slide3','') != '')?url('/uploads/slides/' . setting('company.slide3') ): 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image' }}); background-size: cover; background-position: center;">
+                </div>
+                @endif
               </div>
               <!-- Left and right controls -->
               <a class="left carousel-control" href="#myCarousel" data-slide="prev">

@@ -38,6 +38,7 @@
             <i class="fa fa-edit"></i> Chỉnh sửa | <?php echo e($tiet->hocphans->mahocphan); ?>
 
         </h1>
+        <?php echo $__env->make('partials.flash-message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
@@ -138,24 +139,60 @@
                                                             required /> </div>
                                                     </div>
                                                 </div>
+                                                
+                                               
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Buổi <br>(Nhập S or C):
+                                                    <label class="control-label col-md-4">Buổi:
+                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
-                                                            <input type="text" class="form-control" name="buoi" value="<?php echo e($tiet->buoi); ?>" required /> </div>
+                                                            <select class="form-control" name="buoi">
+                                                                <option value="<?php echo e(($tiet->buoi) ? ($tiet->buoi) : null); ?>"><?php echo e(($tiet->buoi == "S") ? "Sáng ": "Chiều "); ?></option>
+                                                                <?php if($tiet->buoi =="C"): ?>
+                                                                <option value="S">Sáng</option>
+                                                                <?php endif; ?>
+                                                                <?php if($tiet->buoi =="S"): ?>
+                                                                <option value="C">Chiều</option>
+                                                                <?php endif; ?>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-4">Ca <br>(Nhập 1 or 2. Nếu cả buổi nhập 0):
+                                                    <label class="control-label col-md-4">Ca:
+                                                        <span class="required"> * </span>
                                                     </label>
                                                     <div class="col-md-7">
                                                         <div class="input-icon right">
                                                             <i class="fa fa-user"></i>
-                                                            <input type="number" class="form-control" name="ca" value="<?php echo e($tiet->ca); ?>" required /> </div>
+                                                            <select class="form-control" name="ca">
+                                                                <option value="<?php echo e(($tiet->ca) ? ($tiet->ca) : null); ?>">
+                                                                <?php
+                                                                    if($tiet->ca == 1) echo "Ca 1";
+                                                                    if($tiet->ca == 2) echo "Ca 2";
+                                                                    if($tiet->ca == 0) echo "Cả Buổi";
+                                                                ?>
+                                                                </option>
+                                                                <?php if($tiet->ca == 1): ?>
+                                                                <option value="2">Ca 2</option>
+                                                                <option value="0">Cả Buổi</option>
+                                                                <?php endif; ?>
+                                                                <?php if($tiet->ca == 2): ?>
+                                                                <option value="1">Ca 1</option>
+                                                                <option value="0">Cả Buổi</option>
+                                                                <?php endif; ?>
+                                                                <?php if($tiet->ca == 0): ?>
+                                                                <option value="1">Ca 1</option>
+                                                                <option value="2">Ca 2</option>
+                                                                <?php endif; ?>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                               
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Số Tiết:
                                                     </label>

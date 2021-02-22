@@ -532,8 +532,8 @@
                                                             <th> Lãnh Đạo Xử Lý</th>
                                                             <th> Chủ Trì</th>
                                                             <th> Tham Gia</th>
-                                                            <th> Thời Gian Nhận</th>
-                                                            <th> Hạn</th>
+                                                            <th> Bắt Đầu</th>
+                                                            <th> Kết Thúc </th>
                                                             <th> Hoàn Thành</th>
                                                             <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
@@ -555,7 +555,7 @@
                                                                     ?>
                                                                         <?php $__currentLoopData = $chu_tri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                             <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                                            <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
                                                                             <?php endif; ?>
                                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                 </td>
@@ -566,7 +566,7 @@
                                                                 ?>
                                                                     <?php $__currentLoopData = $tham_gia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                     <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                                    <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                                    <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                                     <?php endif; ?>
                                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                 </td>
@@ -645,7 +645,7 @@
                                                                     ?>
                                                                         <?php $__currentLoopData = $chu_tri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                             <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                                            <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
+                                                                            <p class="gian_dong"><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?> </p>
                                                                             <?php endif; ?>
                                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                 </td>
@@ -656,7 +656,7 @@
                                                                 ?>
                                                                     <?php $__currentLoopData = $tham_gia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                                     <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
-                                                                    <p><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
+                                                                    <p class="gian_dong" ><?php echo e($key + 1); ?>. <?php echo e($tengv = App\GiangVien::where('id', $value)->first()->ten); ?>  </p>
                                                                     <?php endif; ?>
                                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                 </td>
@@ -771,7 +771,7 @@
                                     </div>
                                 </div> 
                                 <div class="form-group">
-                                    <label>Số Bài:<span class="required">*</span></label>
+                                    <label>Số Bài:<span class="required"></span></label>
                                     <input class="form-control" name="so_bai" type="number" placeholder="Nhập Số Bài" required />
                                 </div>
                                 <div class="form-group">
@@ -863,7 +863,7 @@
                                     </div>
                                 </div> 
                                 <div class="form-group">
-                                    <label>Số Bài:<span class="required">*</span></label>
+                                    <label>Số Bài:<span class="required"></span></label>
                                     <input class="form-control" name="so_bai" type="number" placeholder="Nhập Số Bài" required />
                                 </div>
                                 <div class="form-group">
@@ -4125,7 +4125,7 @@ var table = $('#ds_dang');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Đảng: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Khác : _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",

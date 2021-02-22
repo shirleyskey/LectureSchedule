@@ -224,7 +224,7 @@ ul.page-sidebar-menu div.list-group-level1 li:hover a span{
 }
 .footer{
     color: #fff;
-    background-color: #00101978;
+    background-color: #01334e;
     padding-bottom: 10px;
 }
 .footer .left .title{
@@ -248,6 +248,16 @@ ul.page-sidebar-menu div.list-group-level1 li:hover a span{
 .footer .right .img img{height: 152px;}
 .footer .right .img h2{font-weight: 600;font-size: 20px;color: #ffffffad;}
 .footer .right .img h3{text-transform: uppercase;font-weight: 600;font-size: 19px;}
+.page-sidebar.collapse {
+    display: block;
+    max-height: none!important;
+    position: fixed;
+}
+p.gian_dong {
+    margin-top: 2px!important;
+    margin-bottom: 6px!important;
+    padding: 0px;
+}
 @media only screen and (max-width: 600px) {
 
 }

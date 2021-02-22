@@ -9,7 +9,7 @@ class Tuan extends Model
 {
     //
     protected $table = 'tuans';
-    protected $fillable = ['id','thoi_gian','truc_gv','dia_diem', 'noi_dung', 'thanh_phan', 'truc_ban'];
+    protected $fillable = ['id','thoi_gian'];
     public $timestamps = false;
 
     public function trucbans()

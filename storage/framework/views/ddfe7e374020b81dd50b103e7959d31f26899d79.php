@@ -2,6 +2,7 @@
 <div class="footer">
     <div class="container">
         <div class="row">
+            <div class="col-md-2"></div>
             <div class="col-md-4 right">
                 <div class="img">
                     <img src="<?php echo e((setting('company.logo','') != '')?url('/uploads/logos/' . setting('company.logo') ): 'http://www.placehold.it/200x200/EFEFEF/AAAAAA&amp;text=no+image'); ?>" alt="" />
@@ -9,7 +10,6 @@
                     <h3><?php echo e(setting('company.tenhocvien','')); ?></h3>
                 </div>
             </div>
-            <div class="col-md-2"></div>
             <div class="col-md-6 left">
                 <h2 class="title"><?php echo e(setting('company.tenphanmem','')); ?></h2>
                 <ul class="description">

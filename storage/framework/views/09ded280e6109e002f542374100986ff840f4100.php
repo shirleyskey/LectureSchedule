@@ -361,7 +361,7 @@
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills">
                         <li class="active">
-                            <a href="#tab_giokhac" data-toggle="tab">Giờ Hoạt Động Khác</a>
+                            <a href="#tab_giokhac" data-toggle="tab">Tổng Giờ</a>
                         </li>
                         <li>
                             <a href="#tab_hop" data-toggle="tab">Họp</a>

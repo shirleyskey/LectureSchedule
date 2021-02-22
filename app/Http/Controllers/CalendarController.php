@@ -27,7 +27,7 @@ class CalendarController extends Controller
                 
                 if($tiet->buoi == "S" && $tiet->ca == "1"){
                     $startDate->addHours(7);
-                    $startDate->addMinute(50);
+                    $startDate->addMinute(30);
                 }
                 else if($tiet->buoi == "S" && $tiet->ca == "2"){
                     $startDate->addHours(9);

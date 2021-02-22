@@ -86,7 +86,7 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Mã Giảng Viên</th>
+                                    <th> Mã Giảng Viên </th>
                                     <th> Tên </th>
                                     <th> Công Việc </th>
                                     <th> Cấp Bậc</th>
@@ -108,9 +108,9 @@
                                             <a href="<?php echo e(route('giangvien.read.get', $v->id)); ?>"><?php echo e($v->ten); ?></a>
                                         </td>
                                         
-                                        <td> <?php echo e($v->chucvu); ?>  </td>
+                                        <td> <?php echo e($v->congviec); ?>  </td>
                                         
-                                        <td> <?php echo e($v->hesoluong); ?> </td>
+                                        <td> <?php echo e($v->capbac); ?> </td>
                                         <td> <?php echo e($v->diachi); ?> </td>
                                         <td> <?php echo e($v->chucdanh); ?> </td>
                                         <td> <?php echo e($v->trinhdo); ?> </td>

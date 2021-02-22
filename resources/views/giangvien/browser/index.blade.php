@@ -88,7 +88,7 @@
                             <thead>
                                 <tr>
                                     <th> STT</th>
-                                    <th> Mã Giảng Viên</th>
+                                    <th> Mã Giảng Viên </th>
                                     <th> Tên </th>
                                     <th> Công Việc </th>
                                     <th> Cấp Bậc</th>
@@ -110,9 +110,9 @@
                                             <a href="{{ route('giangvien.read.get', $v->id) }}">{{ $v->ten }}</a>
                                         </td>
                                         {{-- Công Việc  --}}
-                                        <td> {{ $v->chucvu }}  </td>
+                                        <td> {{ $v->congviec }}  </td>
                                         {{-- Cấp Bậc  --}}
-                                        <td> {{ $v->hesoluong }} </td>
+                                        <td> {{ $v->capbac }} </td>
                                         <td> {{ $v->diachi }} </td>
                                         <td> {{ $v->chucdanh }} </td>
                                         <td> {{ $v->trinhdo }} </td>

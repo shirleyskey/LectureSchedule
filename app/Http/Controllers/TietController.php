@@ -25,9 +25,10 @@ class TietController extends Controller
 
      public function update(Request $request, $id){
         try{
+
             $tiet = Tiet::saveTiet($id, $request->all());
             Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Tiết Học:'.$tiet->id);
-            return redirect()->route('lichgiang.lichgiangtuan.get', $tiet->id)->with('status_success', 'Chỉnh sửa Thông tin Tiết Học!');
+            return redirect()->route('lichgiang.lichgiangtuan.get', $tiet->id)->with('status_success', 'Chỉnh sửa Thông tin Tiết Học thành công!');
         }
         catch(\Exception $e){
             Log::error($e);

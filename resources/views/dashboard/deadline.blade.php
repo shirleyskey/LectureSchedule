@@ -334,7 +334,7 @@
                                             @endphp
                                                 @foreach($chu_tri as $key => $value)
                                                     @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                    <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                    <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
                                                     @endif
                                                 @endforeach
                                         </td>
@@ -345,7 +345,7 @@
                                         @endphp
                                             @foreach($tham_gia as $key => $value)
                                             @if(App\GiangVien::where('id', $value)->first() !== null)
-                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                            <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                             @endif
                                             @endforeach
                                         </td>
@@ -408,7 +408,7 @@
                                             @endphp
                                                 @foreach($chu_tri as $key => $value)
                                                     @if(App\GiangVien::where('id', $value)->first() !== null)
-                                                    <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                                    <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
                                                     @endif
                                                 @endforeach
                                         </td>
@@ -419,7 +419,7 @@
                                         @endphp
                                             @foreach($tham_gia as $key => $value)
                                             @if(App\GiangVien::where('id', $value)->first() !== null)
-                                            <p>{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                            <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
                                             @endif
                                             @endforeach
                                         </td>
