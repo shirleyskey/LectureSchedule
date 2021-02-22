@@ -46,7 +46,7 @@
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">
                     <div class="portlet-body">
-                        @permission('create-lop')
+                        @permission('create-giangvien')
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
@@ -83,13 +83,13 @@
                                         <td> {{ $v->quymo }} </td>
                                         <td> {{ ($v->he == 1) ? 'Tính Giờ' : 'Tính Tiền' }} </td>
                                         <td>
-                                            @permission('read-lop')
+                                            @permission('create-giangvien')
                                             <a class="btn btn-xs blue-sharp" href="{{ route('lop.read.get', $v->id) }}" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
                                             @endpermission
                                             @permission('create-giangvien')
                                             <a class="btn btn-xs yellow-gold" href="{{ route('lop.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             @endpermission
-                                            @permission('delete-lop')
+                                            @permission('create-giangvien')
                                             <a class="btn btn-xs red-mint" href="{{ route('lop.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Lớp này không? Bạn lưu ý, xóa lớp, sẽ xóa hết dữ liệu liên quan đến lớp bị xóa');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                             @endpermission
                                         </td>

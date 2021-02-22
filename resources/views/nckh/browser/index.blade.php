@@ -138,45 +138,11 @@
                                                             <td> {{$v->batdau}}</td>
                                                             <td> {{$v->ketthuc}}</td>
                                                             <td> {{$v->hoan_thanh}}</td>
-                                                            
                                                             <td> {{$v->sotrang}}</td>
                                                             <td> {{$v->songuoi}}</td>
-                                                            {{-- <td>
-                                                                In ra số Giờ
-                                                                @switch($v->theloai)
-                                                                    @case(1)
-                                                                    {{ $gio_kh = ($v->sotrang/2.5)*8*4}}
-                                                                        @break
-                                                                    @case(2)
-                                                                       {{ $gio_kh = ($v->sotrang/2.5)*4*4}}
-                                                                        @break
-                                                                    @case(3)
-                                                                        {{ $gio_kh = 6*4}}
-                                                                        @break
-                                                                    @case(4)
-                                                                    {{ $gio_kh =($v->sotrang/2.5)*10*4}}
-                                                                        @break
-                                                                    @case(5)
-                                                                    {{ $gio_kh = $v->sotrang*1.5}}
-                                                                        @break
-                                                                    @case(6)
-                                                                        {{$gio_kh = $v->sotrang*4.27}}
-                                                                        @break
-                                                                    @case(7)
-                                                                        {{$gio_kh = $v->sotrang*2}}
-                                                                        @break
-                                                                    @case(8)
-                                                                        {{$gio_kh = $v->sotrang}}
-                                                                        @break
-                                                                    @default
-                                                                        {{$gio_kh = $v->sotrang}}
-                                                                @endswitch
-                                                            </td> --}}
                                                             <td>
-                                                           
                                                                 <a data-nckh-id="{{ $v->id }}" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="{{ $v->id }}" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                           
                                                             </td>
                                                         </tr>
                                                         @php $stt++; @endphp

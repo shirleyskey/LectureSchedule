@@ -50,7 +50,7 @@
                     <div class="tabbable tabbable-tabdrop">
                         <ul class="nav nav-pills" id="#myTab">
                         <li>
-                        @permission('create-users')
+                        @permission('create-giangvien')
                             <div class="content text-center" style="">
                                 <a class="btn btn-primary yellow-gold" data-toggle="modal" href='#modal-add'>Import Lịch Học Phần bằng Excel</a><br><br>
                                 <div class="modal fade" id="modal-add">

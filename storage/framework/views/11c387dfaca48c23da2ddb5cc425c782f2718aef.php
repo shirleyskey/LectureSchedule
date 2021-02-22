@@ -136,15 +136,11 @@
                                                             <td> <?php echo e($v->batdau); ?></td>
                                                             <td> <?php echo e($v->ketthuc); ?></td>
                                                             <td> <?php echo e($v->hoan_thanh); ?></td>
-                                                            
                                                             <td> <?php echo e($v->sotrang); ?></td>
                                                             <td> <?php echo e($v->songuoi); ?></td>
-                                                            
                                                             <td>
-                                                           
                                                                 <a data-nckh-id="<?php echo e($v->id); ?>" class="btn_edit_nckh btn btn-xs yellow-gold" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
                                                                 <a class="btn_delete_nckh btn btn-xs red-mint" href="#" data-nckh-id="<?php echo e($v->id); ?>" title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
-                                                           
                                                             </td>
                                                         </tr>
                                                         <?php $stt++; ?>

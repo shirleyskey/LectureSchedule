@@ -7045,3 +7045,13 @@ Stack trace:
 [2021-02-22 11:28:11] local.INFO: Người dùng ID:1 đã thêm Nckh ID:44-aaaaaac  
 [2021-02-22 11:29:50] local.INFO: Người dùng ID:1 đã sửa Nckh ID:40-Công tác Mưrrr  
 [2021-02-22 11:29:58] local.INFO: Người dùng ID:1 đã xóa NCKH id:44-aaaaaac  
+[2021-02-22 12:38:52] local.INFO: Người dùng ID:1 đã cập nhật thông tin công ty  
+[2021-02-22 12:38:59] local.INFO: Người dùng ID:1 đã cập nhật thông tin công ty  
+[2021-02-22 12:39:40] local.INFO: Email: vuongthanglong@gmail.com đăng nhập thành công  
+[2021-02-22 12:40:54] local.INFO: Email: leluongson@gmail.com đăng nhập thành công  
+[2021-02-22 12:59:03] local.INFO: Email: superadministrator@app.com đăng nhập thành công  
+[2021-02-22 12:59:28] local.INFO: Email: vuongthanglong@gmail.com đăng nhập thành công  
+[2021-02-22 13:00:02] local.INFO: Email: lethithuylinh@gmail.com đăng nhập thành công  
+[2021-02-22 13:05:35] local.INFO: Email: leluongson@gmail.com đăng nhập thành công  
+[2021-02-22 13:09:08] local.INFO: Email: vuongthanglong@gmail.com đăng nhập thành công  
+[2021-02-22 13:09:43] local.INFO: Email: lethaison@gmail.com đăng nhập thành công  

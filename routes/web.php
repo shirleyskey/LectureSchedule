@@ -73,7 +73,7 @@ Route::prefix('users')->middleware(['auth', 'only_active_user'])->group(function
 
 // File Manager
 Route::prefix('file-manager')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-file-manager'], 'uses'=>'FileManagerController@index','as'=>'file-manager.index']);
+    Route::get('/', ['middleware' => ['read-dashboard'], 'uses'=>'FileManagerController@index','as'=>'file-manager.index']);
 });
 
 // Giảng Viên Routes...
@@ -119,29 +119,29 @@ Route::prefix('lop')->middleware(['auth', 'only_active_user'])->group(function (
     Route::post('/add', ['middleware' => ['permission:create-lop'], 'uses'=>'LopController@store','as'=>'lop.add.post']);
     Route::get('/edit/{id}', ['middleware' => ['permission:update-lop'], 'uses' =>'LopController@edit','as'=>'lop.edit.get']);
     Route::post('/edit/{id}', ['middleware' => ['permission:update-lop'], 'uses'=>'LopController@update','as'=>'lop.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-lop'], 'uses'=>'LopController@destroy','as'=>'lop.delete.get']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'LopController@destroy','as'=>'lop.delete.get']);
 });
 
 // Học Phần Routes...
 Route::prefix('hocphan')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/', ['middleware' => ['permission:read-hocphan'], 'uses'=>'HocPhanController@index','as'=>'hocphan.index']);
     Route::get('/read/{id}', ['middleware' => ['permission:read-hocphan'], 'uses'=>'HocPhanController@read','as'=>'hocphan.read.get']);
-    Route::get('/add', ['middleware' => ['permission:create-hocphan'], 'uses'=>'HocPhanController@create','as'=>'hocphan.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-hocphan'], 'uses'=>'HocPhanController@store','as'=>'hocphan.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-hocphan'], 'uses' =>'HocPhanController@edit','as'=>'hocphan.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-hocphan'], 'uses'=>'HocPhanController@update','as'=>'hocphan.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'HocPhanController@destroy','as'=>'hocphan.delete.get']);
-    Route::post('/import/{id}', ['middleware' => ['permission:delete-hocphan'], 'uses'=>'HocPhanController@import','as'=>'hocphan.lichgiang.import']);
+    Route::get('/add', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@create','as'=>'hocphan.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@store','as'=>'hocphan.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:create-giangvien'], 'uses' =>'HocPhanController@edit','as'=>'hocphan.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:create-giangvienn'], 'uses'=>'HocPhanController@update','as'=>'hocphan.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@destroy','as'=>'hocphan.delete.get']);
+    Route::post('/import/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@import','as'=>'hocphan.lichgiang.import']);
 });
 
 // Học Phần Routes...
 Route::prefix('bai')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/read/{id}', ['middleware' => ['permission:read-bai'], 'uses'=>'BaiController@read','as'=>'bai.read.get']);
-    Route::get('/add', ['middleware' => ['permission:create-bai'], 'uses'=>'BaiController@create','as'=>'bai.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-bai'], 'uses'=>'BaiController@store','as'=>'bai.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-bai'], 'uses' =>'BaiController@edit','as'=>'bai.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-bai'], 'uses'=>'BaiController@update','as'=>'bai.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-bai'], 'uses'=>'BaiController@destroy','as'=>'bai.delete.get']);
+    Route::get('/add', ['middleware' => ['permission:create-giangvien'], 'uses'=>'BaiController@create','as'=>'bai.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-giangvien'], 'uses'=>'BaiController@store','as'=>'bai.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:create-giangvien'], 'uses' =>'BaiController@edit','as'=>'bai.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'BaiController@update','as'=>'bai.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'BaiController@destroy','as'=>'bai.delete.get']);
 
 });
 
@@ -149,26 +149,26 @@ Route::prefix('bai')->middleware(['auth', 'only_active_user'])->group(function (
 Route::prefix('lichgiang')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/phancong', ['uses'=>'LichGiangController@phancong','as'=>'lichgiang.phancong']);
     Route::get('/lichgiangtuan', ['uses'=>'CalendarController@index','as'=>'lichgiang.lichgiangtuan']);
-    Route::post('/lichgiangtuan/import', ['uses'=>'CalendarController@import','as'=>'lichgiang.lichgiangtuan.import']);
-    Route::get('/lichgiangtuan/edit/{id}', ['uses'=>'TietController@edit','as'=>'lichgiang.lichgiangtuan.get']);
-    Route::post('/lichgiangtuan/edit/{id}', ['uses'=>'TietController@update','as'=>'lichgiang.lichgiangtuan.post']);
+    Route::post('/lichgiangtuan/import', ['permission:create-giangvien','uses'=>'CalendarController@import','as'=>'lichgiang.lichgiangtuan.import']);
+    Route::get('/lichgiangtuan/edit/{id}', ['permission:create-giangvien','uses'=>'TietController@edit','as'=>'lichgiang.lichgiangtuan.get']);
+    Route::post('/lichgiangtuan/edit/{id}', ['permission:create-giangvien','uses'=>'TietController@update','as'=>'lichgiang.lichgiangtuan.post']);
 });
 
 // NCKH Routes...
 Route::prefix('nckh')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['permission:read-nckh'], 'uses'=>'NckhController@index','as'=>'nckh.index']);
-    Route::get('/add', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@create','as'=>'nckh.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-nckh'], 'uses'=>'NckhController@store','as'=>'nckh.add.post']);
-    Route::get('/edit/{id}', ['middleware' => ['permission:update-nckh'], 'uses' =>'NckhController@edit','as'=>'nckh.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:update-nckh'], 'uses'=>'NckhController@update','as'=>'nckh.edit.post']);
-    Route::get('/delete/{id}', ['middleware' => ['permission:delete-nckh'], 'uses'=>'NckhController@destroy','as'=>'nckh.delete.get']);
+    Route::get('/', ['middleware' => ['permission:read-dashboard'], 'uses'=>'NckhController@index','as'=>'nckh.index']);
+    Route::get('/add', ['middleware' => ['permission:read-dashboard'], 'uses'=>'NckhController@create','as'=>'nckh.add.get']);
+    Route::post('/add', ['middleware' => ['permission:read-dashboard'], 'uses'=>'NckhController@store','as'=>'nckh.add.post']);
+    Route::get('/edit/{id}', ['middleware' => ['permission:read-dashboard'], 'uses' =>'NckhController@edit','as'=>'nckh.edit.get']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:read-dashboard'], 'uses'=>'NckhController@update','as'=>'nckh.edit.post']);
+    Route::get('/delete/{id}', ['middleware' => ['permission:read-dashboard'], 'uses'=>'NckhController@destroy','as'=>'nckh.delete.get']);
 
 });
 
 Route::prefix('quanly')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/init', ['middleware' => ['permission:create-users'], 'uses'=>'CompanyController@init','as'=>'company.init']);
-    Route::get('/', ['middleware' => ['permission:create-users'], 'uses'=>'CompanyController@index','as'=>'company.index']);
-    Route::post('/update', ['middleware' => ['permission:create-users'], 'uses'=>'CompanyController@update','as'=>'company.update']);
+    Route::get('/init', ['middleware' => ['permission:create-giangvien'], 'uses'=>'CompanyController@init','as'=>'company.init']);
+    Route::get('/', ['middleware' => ['permission:create-giangvien'], 'uses'=>'CompanyController@index','as'=>'company.index']);
+    Route::post('/update', ['middleware' => ['permission:create-giangvien'], 'uses'=>'CompanyController@update','as'=>'company.update']);
 });
 
 

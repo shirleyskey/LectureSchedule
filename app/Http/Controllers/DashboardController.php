@@ -60,6 +60,7 @@ class DashboardController extends Controller
         $daygioi = DayGioi::where("hoan_thanh", NULL)->get();
         $congtac= CongTac::where("hoan_thanh", NULL)->get();
         $hdkh= Hdkh::where("hoan_thanh", NULL)->get();
+        $nckh= Nckh::where("hoan_thanh", NULL)->get();
         return view('dashboard.deadline', [
             'vanban' => $vanban,
             'chambai' => $chambai,
@@ -67,6 +68,7 @@ class DashboardController extends Controller
             'daygioi' => $daygioi,
             'congtac' => $congtac,
             'hdkh' => $hdkh,
+            'nckh' => $nckh,
 
         ]);
     }

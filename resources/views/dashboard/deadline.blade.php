@@ -30,7 +30,76 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    
+                    <div class="col-md-12">
+                        @if($chambai->isNotEmpty())
+               <!-- BEGIN EXAMPLE TABLE PORTLET-->
+               <div class="portlet light portlet-fit bordered deadline deadline-chambai">
+                   <div class="portlet-body">
+                       <div class="table-toolbar">
+                           <div class="row">
+                               <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="" aria-hidden="true"></i>NCKH</p>
+                           </div>
+                       </div>
+                       <table class="table table-striped table-hover table-bordered" id="ds_nckh">
+                           <thead>
+                               <tr>
+                                <th> STT</th>
+                                <th style="width: 20%;"> Tên Đề Tài</th>
+                                <th> Loại</th>
+                                <th> Chủ Biên</th>
+                                <th> Tham Gia</th>
+                                <th> Bắt Đầu</th>
+                                <th> Kết Thúc</th>
+                                <th> Số Người</th>
+                                   <th> </th>
+                                   
+                               </tr>
+                           </thead>
+                           <tbody>
+                            @if( $nckh->count() > 0 )
+                            @php $stt = 1; @endphp
+                            @foreach( $nckh as $v )
+                            <tr>
+                                <td> {{ $stt }} </td>
+                                <td> {{ $v->ten }} </td>
+                                <td> {{($v->theloai) ? $v->theloais->ten : ''}}</td>
+                                <td>
+                                    @php
+                                        $chubien = json_decode( $v->chubien, true);
+                                    @endphp
+                                        @foreach($chubien as $key => $value)
+                                        @if(App\GiangVien::where('id', $value)->first() !== null)
+                                          <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}} </p>
+                                        @endif
+                                        @endforeach
+                                </td>
+                                <td>
+                                @php
+                                    $thamgia = json_decode( $v->thamgia, true);
+                                @endphp
+                                    @foreach($thamgia as $key => $value)
+                                    @if(App\GiangVien::where('id', $value)->first() !== null)
+                                         <p class="gian_dong">{{$key + 1}}. {{$tengv = App\GiangVien::where('id', $value)->first()->ten}}  </p>
+                                    @endif
+                                    @endforeach
+                                </td>
+                                <td> {{$v->batdau}}</td>
+                                <td> {{$v->ketthuc}}</td>
+                                <td> {{$v->songuoi}}</td>
+                                <td> 
+                                    <a class="btn_edit_congtac btn btn-xs yellow-gold" > Chưa hoàn thành</a>
+                               </td>
+                            </tr>
+                            @php $stt++; @endphp
+                            @endforeach
+                        @endif
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+               <!-- END EXAMPLE TABLE PORTLET-->
+                @endif
+                   </div>
 
                    <div class="col-md-12">
                     @if($chambai->isNotEmpty())
@@ -39,10 +108,10 @@
                <div class="portlet-body">
                    <div class="table-toolbar">
                        <div class="row">
-                           <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-pencil-square-o" aria-hidden="true"></i>1. Chấm thi, coi thi</p>
+                           <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="" aria-hidden="true"></i>Chấm thi, coi thi</p>
                        </div>
                    </div>
-                   <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
+                   <table class="table table-striped table-hover table-bordered" id="ds_chambai">
                        <thead>
                            <tr>
                                <th> STT</th>
@@ -107,10 +176,10 @@
            <div class="portlet-body">
                <div class="table-toolbar">
                    <div class="row">
-                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-pencil-square-o" aria-hidden="true"></i>2. Hướng Dẫn Khoa Học</p>
+                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="" aria-hidden="true"></i>Hướng Dẫn Khoa Học</p>
                    </div>
                </div>
-               <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
+               <table class="table table-striped table-hover table-bordered" id="ds_hdkh">
                    <thead>
                        <tr>
                         <th> STT</th>
@@ -182,10 +251,10 @@
            <div class="portlet-body">
                <div class="table-toolbar">
                    <div class="row">
-                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="fa fa-tachometer" aria-hidden="true"></i>3. Học, thực tế, luân chuyển</p>
+                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="" aria-hidden="true"></i>Học, thực tế, luân chuyển</p>
                    </div>
                </div>
-               <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
+               <table class="table table-striped table-hover table-bordered" id="ds_congtac">
                    <thead>
                        <tr>
                            <th> STT</th>
@@ -235,10 +304,10 @@
       <div class="portlet-body">
           <div class="table-toolbar">
               <div class="row">
-                  <p class=""><i class="fa fa-star-half-o" style="color: #ffc93c; opacity: 0.8;" aria-hidden="true"></i>4. Dạy Giỏi</p>
+                  <p class=""><i class="" style="color: #ffc93c; opacity: 0.8;" aria-hidden="true"></i>Dạy Giỏi</p>
               </div>
           </div>
-          <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
+          <table class="table table-striped table-hover table-bordered" id="ds_daygioi">
               <thead>
                   <tr>
                       <th> STT</th>
@@ -302,10 +371,10 @@
                     <div class="portlet-body">
                         <div class="table-toolbar">
                             <div class="row">
-                                <p class=""><i class="fa fa-book" aria-hidden="true" style="color: #ec0101; opacity: 0.5;"></i>5. Xử Lý Văn Bản</p>
+                                <p class=""><i class="" aria-hidden="true" style="color: #ec0101; opacity: 0.5;"></i>Xử Lý Văn Bản</p>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
+                        <table class="table table-striped table-hover table-bordered" id="ds_vanban">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -378,10 +447,10 @@
                     <div class="portlet-body">
                         <div class="table-toolbar">
                             <div class="row">
-                                <p class=""><i class="fa fa-building-o" style="color: aqua; opacity: 0.5;"></i>6. Khác</p>
+                                <p class=""><i class="" style="color: aqua; opacity: 0.5;"></i>Khác</p>
                             </div>
                         </div>
-                        <table class="table table-striped table-hover table-bordered" id="ds_giangvien">
+                        <table class="table table-striped table-hover table-bordered" id="ds_khac">
                             <thead>
                                 <tr>
                                     <th> STT</th>
@@ -461,4 +530,256 @@
     <!-- END CONTENT BODY -->
 </div>
 <!-- END CONTENT -->
+@endsection
+@section('script')
+<script>
+    jQuery(document).ready(function() {
+         // Reload trang và giữ nguyên tab đã active
+         var activeTab = localStorage.getItem('activeTab');
+        if (activeTab) {
+            $('a[href="' + activeTab + '"]').tab('show');
+            localStorage.removeItem('activeTab');
+        }
+        // END Reload trang và giữ nguyên tab đã active
+        var table = $('#ds_nckh');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng NCKH: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_chambai');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Chấm Bài: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        // END Xử lý khi click nút xóa NCKH
+        var table = $('#ds_hdkh');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng HDKH: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_congtac');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Công Tác: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_daygioi');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Dạy Giỏi: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
+        var table = $('#ds_vanban');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Văn bản Xử lý: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        var table = $('#ds_khac');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng hoạt động Khác: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            }],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+    });
+</script>
+
+<script src="{{ asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/jquery.input-ip-address-control-1.0.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/bootstrap-toastr/toastr.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/bootstrap-sweetalert/sweetalert.min.js') }}" type="text/javascript"></script>
 @endsection

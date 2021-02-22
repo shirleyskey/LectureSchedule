@@ -44,7 +44,7 @@
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light portlet-fit bordered">
                     <div class="portlet-body">
-                        <?php if (app('laratrust')->can('create-lop')) : ?>
+                        <?php if (app('laratrust')->can('create-giangvien')) : ?>
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
@@ -81,13 +81,13 @@
                                         <td> <?php echo e($v->quymo); ?> </td>
                                         <td> <?php echo e(($v->he == 1) ? 'Tính Giờ' : 'Tính Tiền'); ?> </td>
                                         <td>
-                                            <?php if (app('laratrust')->can('read-lop')) : ?>
+                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                             <a class="btn btn-xs blue-sharp" href="<?php echo e(route('lop.read.get', $v->id)); ?>" title="Xem"> <i class="fa fa-eye"></i> Xem</a>
                                             <?php endif; // app('laratrust')->can ?>
                                             <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                             <a class="btn btn-xs yellow-gold" href="<?php echo e(route('lop.edit.get', $v->id)); ?>" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                             <?php endif; // app('laratrust')->can ?>
-                                            <?php if (app('laratrust')->can('delete-lop')) : ?>
+                                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                                             <a class="btn btn-xs red-mint" href="<?php echo e(route('lop.delete.get', $v->id)); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa Lớp này không? Bạn lưu ý, xóa lớp, sẽ xóa hết dữ liệu liên quan đến lớp bị xóa');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                             <?php endif; // app('laratrust')->can ?>
                                         </td>
