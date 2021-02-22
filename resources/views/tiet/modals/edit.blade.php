@@ -52,12 +52,27 @@
                                     <input  name="thoigian" type="date" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Buổi: <span class="required">*</span></label>
-                                    <input  name="buoi" type="text" class="form-control" required>
+                                    <label>Buổi:</label>
+                                    <span class="required">*</span>
+                                    <select class="form-control" name="buoi">
+                                        <option name="chonbuoi">-------- Chọn Buổi --------</option>
+                                        <option value="S">Sáng</option>
+                                        <option value="C">Chiều</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ca:<span class="required">*</span></label>
-                                    <input name="ca" type="number" class="form-control" required>
+                                    <label>Ca</label>
+                                    <span class="required">*</span>
+                                    <select class="form-control" name="ca">
+                                        <option name="chonbuoi">-------- Chọn Ca --------</option>
+                                        <option value="1">Ca 1</option>
+                                        <option value="2">Ca 2</option>
+                                        <option value="0">Cả buổi</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số Tiết:<span class="required">*</span></label>
+                                    <input name="so_tiet" type="number" class="form-control" required>
                                 </div> 
                                 <div class="form-group">
                                     <label>Tiến Độ:<span class="required">*</span></label>

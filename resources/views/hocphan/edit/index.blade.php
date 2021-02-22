@@ -559,8 +559,8 @@
                 id_lop: $("#form_add_tiet input[name='id_lop']").val(),
                 id_hocphan: $("#form_add_tiet input[name='id_hocphan']").val(),
                 thoigian: $("#form_add_tiet input[name='thoigian']").val(),
-                buoi: $("#form_add_tiet input[name='buoi']").val(),
-                ca: $("#form_add_tiet input[name='ca']").val(),
+                buoi: $("#form_add_tiet select[name='buoi']").val(),
+                ca: $("#form_add_tiet select[name='ca']").val(),
                 so_tiet: $("#form_add_tiet input[name='so_tiet']").val(),
                 tiendo: $("#form_add_tiet input[name='tiendo']").val(),
                 id_giangvien: $("#form_add_tiet select[name='id_giangvien']").val(),
@@ -633,8 +633,8 @@
                          $("#form_edit_tiet input[name='id_lop']").val(data.data.id_lop);
                          $("#form_edit_tiet input[name='id_hocphan']").val(data.data.id_hocphan);
                          $("#form_edit_tiet input[name='thoigian']").val(data.data.thoigian);
-                         $("#form_edit_tiet input[name='buoi']").val(data.data.buoi);
-                         $("#form_edit_tiet input[name='ca']").val(data.data.ca);
+                         $("#form_edit_tiet select[name='buoi']").val(data.data.buoi);
+                         $("#form_edit_tiet select[name='ca']").val(data.data.ca);
                          $("#form_edit_tiet input[name='so_tiet']").val(data.data.so_tiet);
                          $("#form_edit_tiet input[name='tiendo']").val(data.data.tiendo);
                          $("#form_edit_tiet select[name='id_giangvien']").val(data.data.id_giangvien);
@@ -666,8 +666,8 @@
                      id_lop: $("#form_edit_tiet input[name='id_lop']").val(),
                      id_hocphan: $("#form_edit_tiet input[name='id_hocphan']").val(),
                      thoigian: $("#form_edit_tiet input[name='thoigian']").val(),
-                     buoi: $("#form_edit_tiet input[name='buoi']").val(),
-                     ca: $("#form_edit_tiet input[name='ca']").val(),
+                     buoi: $("#form_edit_tiet select[name='buoi']").val(),
+                     ca: $("#form_edit_tiet select[name='ca']").val(),
                      so_tiet: $("#form_edit_tiet input[name='so_tiet']").val(),
                      tiendo: $("#form_edit_tiet input[name='tiendo']").val(),
                      id_giangvien: $("#form_edit_tiet select[name='id_giangvien']").val(),

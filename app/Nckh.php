@@ -45,6 +45,7 @@ class Nckh extends Model
         $nckh->songuoi = $data['songuoi'];
         $nckh->batdau = Carbon::parse($data['batdau'])->format('Y-m-d');
         $nckh->ketthuc = Carbon::parse($data['ketthuc'])->format('Y-m-d');
+        $nckh->hoan_thanh = ($data['hoan_thanh']) ? Carbon::parse($data['hoan_thanh'])->format('Y-m-d') : NULL ;
         $nckh->save();
         return $nckh;
     }

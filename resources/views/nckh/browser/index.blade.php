@@ -101,6 +101,7 @@
                                                         <th> Tham Gia</th>
                                                         <th> Bắt Đầu</th>
                                                         <th> Kết Thúc</th>
+                                                        <th> Hoàn Thành</th>
                                                         <th> Số Giờ</th>
                                                         <th> Số Người</th>
                                                         <th> Hành Động</th>
@@ -136,6 +137,7 @@
                                                             </td>
                                                             <td> {{$v->batdau}}</td>
                                                             <td> {{$v->ketthuc}}</td>
+                                                            <td> {{$v->hoan_thanh}}</td>
                                                             
                                                             <td> {{$v->sotrang}}</td>
                                                             <td> {{$v->songuoi}}</td>
@@ -218,6 +220,7 @@
                                                 <th> Tham Gia</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Hoàn Thành</th>
                                                 <th> Số Giờ</th>
                                                 <th> Số Người</th>
                                                 <th> Hành Động</th>
@@ -253,6 +256,7 @@
                                                     </td>
                                                     <td> {{$v->batdau}}</td>
                                                     <td> {{$v->ketthuc}}</td>
+                                                    <td> {{$v->hoan_thanh}}</td>
                                                     
                                                     <td> {{$v->sotrang}}</td>
                                                     <td> {{$v->songuoi}}</td>
@@ -329,6 +333,7 @@
                                                 <th> Tham Gia</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Hoàn Thành</th>
                                                 <th> Số Giờ</th>
                                                 <th> Số Người</th>
                                                 <th> Hành Động</th>
@@ -364,6 +369,7 @@
                                                     </td>
                                                     <td> {{$v->batdau}}</td>
                                                     <td> {{$v->ketthuc}}</td>
+                                                    <td> {{$v->hoan_thanh}}</td>
                                                    
                                                     <td> {{$v->sotrang}}</td>
                                                     <td> {{$v->songuoi}}</td>
@@ -439,6 +445,7 @@
                                                 <th> Tham Gia</th>
                                                 <th> Bắt Đầu</th>
                                                 <th> Kết Thúc</th>
+                                                <th> Hoàn Thành </th>
                                                 <th> Số Giờ</th>
                                                 <th> Số Người</th>
                                                 <th> Hành Động</th>
@@ -474,6 +481,7 @@
                                                         </td>
                                                         <td> {{$v->batdau}}</td>
                                                         <td> {{$v->ketthuc}}</td>
+                                                        <td> {{$v->hoan_thanh}}</td>
                                                     <td> {{$v->sotrang}}</td>
                                                     <td> {{$v->songuoi}}</td>
                                                     {{-- <td>
@@ -588,6 +596,7 @@
                 sotrang: $("#form_add_nckh input[name='sotrang']").val(),
                 batdau: $("#form_add_nckh input[name='batdau']").val(),
                 ketthuc: $("#form_add_nckh input[name='ketthuc']").val(),
+                hoan_thanh: $("#form_add_nckh input[name='hoan_thanh']").val(),
                 songuoi: $("#form_add_nckh input[name='songuoi']").val(),
             },
             success: function(data) {
@@ -661,6 +670,7 @@
                         $("#form_edit_nckh input[name='sotrang']").val(data.data.sotrang);
                         $("#form_edit_nckh input[name='batdau']").val(data.data.batdau);
                         $("#form_edit_nckh input[name='ketthuc']").val(data.data.ketthuc);
+                        $("#form_edit_nckh input[name='hoan_thanh']").val(data.data.hoan_thanh);
                         $("#form_edit_nckh select[name='theloai']").val(data.data.theloai);
                         $("#form_edit_nckh select[name='chubien']").val($.parseJSON(data.data.chubien));
                         $("#form_edit_nckh select[name='thamgia']").val($.parseJSON(data.data.thamgia));
@@ -698,6 +708,7 @@
                     sotrang: $("#form_edit_nckh input[name='sotrang']").val(),
                     batdau: $("#form_edit_nckh input[name='batdau']").val(),
                     ketthuc: $("#form_edit_nckh input[name='ketthuc']").val(),
+                    hoan_thanh: $("#form_edit_nckh input[name='hoan_thanh']").val(),
                     songuoi: $("#form_edit_nckh input[name='songuoi']").val(),
 
                 },

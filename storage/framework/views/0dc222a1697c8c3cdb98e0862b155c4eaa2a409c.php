@@ -45,6 +45,10 @@
                                     <input class="form-control" name="ketthuc" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
+                                    <label><b>Hoàn Thành:</b><span class="required"></span></label>
+                                    <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
                                     <label><b>Số Giờ:</b><span class="required">*</span></label>
                                     <input class="form-control" name="sotrang" type="number" required placeholder="Nhập Số Giờ"/>
                                 </div>
@@ -93,7 +97,7 @@
                                         </div>
                                 </div>
                                 <div class="form-group">
-                                    <label><b>Số Người:</b></label>
+                                    <label><b>Số Người:</b><span class="required">*</span></label>
                                     <input class="form-control" name="songuoi" type="number" required />
                                 </div>
                             <div class="col-md-6">
