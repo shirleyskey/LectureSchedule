@@ -263,7 +263,7 @@
                                                             <th> Bắt Đầu</th>
                                                             <th> Kết Thúc</th>
                                                             <th> Hoàn Thành</th>
-                                                            <th> Giờ Gỉang</th>
+                                                            <th> Giờ Giảng</th>
                                                             <th> Giờ Khoa Học</th>
                                                             <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
