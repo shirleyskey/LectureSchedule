@@ -543,7 +543,7 @@
                                     <input  name="thoi_gian" type="datetime-local" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Trực Lãnh Đạo:<span class="required">*</span></label>
+                                    <label>Trực Lãnh Đạo:<span class="required"></span></label>
                                     <select class="form-control" name="truc_ban">
                                         <option name="gv_hientai"></option>
                                             @if($giangvien->count()>0)
@@ -554,7 +554,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Trực Giảng Viên:<span class="required">*</span></label>
+                                    <label>Trực Giảng Viên:<span class="required"></span></label>
                                     <select class="form-control" name="truc_gv">
                                         <option name="gv_hientai"></option>
                                             @if($giangvien->count()>0)
@@ -565,21 +565,21 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Địa Điểm: <span class="required">*</span></label>
-                                    <input  name="dia_diem" type="text" class="form-control" required placeholder="Nhập địa điểm">
+                                    <label>Địa Điểm: <span class="required"></span></label>
+                                    <input  name="dia_diem" type="text" class="form-control" placeholder="Nhập địa điểm">
                                 </div>
                                 <div class="form-group">
-                                    <label>Nội Dung: <span class="required">*</span></label>
-                                    <input  name="noi_dung" type="text" class="form-control" required placeholder="Nội Dung...">
+                                    <label>Nội Dung: <span class="required"></span></label>
+                                    <input  name="noi_dung" type="text" class="form-control" placeholder="Nội Dung...">
                                 </div>
                                 <div class="form-group">
-                                    <label>Thành Phần: <span class="required">*</span></label>
-                                    <input  name="thanh_phan" type="text" class="form-control" required placeholder="Thành Phần tham gia...">
+                                    <label>Thành Phần: <span class="required"></span></label>
+                                    <input  name="thanh_phan" type="text" class="form-control" placeholder="Thành Phần tham gia...">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>Ghi Chú: <span class="required"></span></label>
-                                    <input  name="ghi_chu" type="text" class="form-control" required>
+                                    <input  name="ghi_chu" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -621,7 +621,7 @@
                                     <input  name="thoi_gian" type="datetime-local" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Trực Lãnh Đạo:<span class="required">*</span></label>
+                                    <label>Trực Lãnh Đạo:<span class="required"></span></label>
                                     <select class="form-control" name="truc_ban">
                                         <option name="gv_hientai"></option>
                                             @if($giangvien->count()>0)
@@ -632,7 +632,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Trực Giảng Viên:<span class="required">*</span></label>
+                                    <label>Trực Giảng Viên:<span class="required"></span></label>
                                     <select class="form-control" name="truc_gv">
                                         <option name="gv_hientai"></option>
                                             @if($giangvien->count()>0)
@@ -643,21 +643,21 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Địa Điểm: <span class="required">*</span></label>
-                                    <input  name="dia_diem" type="text" class="form-control" required>
+                                    <label>Địa Điểm: <span class="required"></span></label>
+                                    <input  name="dia_diem" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Nội Dung: <span class="required">*</span></label>
-                                    <input  name="noi_dung" type="text" class="form-control" required>
+                                    <label>Nội Dung: <span class="required"></span></label>
+                                    <input  name="noi_dung" type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Thành Phần: <span class="required">*</span></label>
-                                    <input  name="thanh_phan" type="text" class="form-control" required>
+                                    <label>Thành Phần: <span class="required"></span></label>
+                                    <input  name="thanh_phan" type="text" class="form-control">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>Ghi Chú: <span class="required">*</span></label>
-                                    <input  name="ghi_chu" type="text" class="form-control" required>
+                                    <input  name="ghi_chu" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">

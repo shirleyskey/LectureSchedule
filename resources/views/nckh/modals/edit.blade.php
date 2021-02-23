@@ -54,10 +54,10 @@
                                     <label><b>Số Giờ:</b><span class="required">*</span></label>
                                     <input class="form-control" name="sotrang" type="number" required />
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label><b>Tạp Chí (Nếu có Bài Báo Khoa Học):</b></label>
                                     <input class="form-control" name="tapchi" type="text" required />
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label class="control-label col-md-4">Thể Loại: <span class="required">*</span></label>
                                     <span class="required">(Chọn thể loại phù hợp với Loại tài liệu)</span>
