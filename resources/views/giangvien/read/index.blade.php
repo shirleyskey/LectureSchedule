@@ -74,12 +74,12 @@
                                                 <label class="control-label col-md-7 col-xs-6">{{ $giangvien->ten }}</label>
                                             </div>
                                             <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Chức Vụ:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $giangvien->chucvu }}</label>
+                                                <label class="control-label col-md-4 col-xs-6 bold">Công Việc:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $giangvien->congviec }}</label>
                                             </div>
                                             <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Hệ Số Lương:</label>
-                                                <label class="control-label col-md-7 col-xs-6">{{ $giangvien->hesoluong }}</label>
+                                                <label class="control-label col-md-4 col-xs-6 bold">Cấp bậc:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $giangvien->capbac }}</label>
                                             </div>
 
                                         </div>

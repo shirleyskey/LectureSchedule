@@ -72,12 +72,12 @@
                                                 <label class="control-label col-md-7 col-xs-6"><?php echo e($giangvien->ten); ?></label>
                                             </div>
                                             <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Chức Vụ:</label>
-                                                <label class="control-label col-md-7 col-xs-6"><?php echo e($giangvien->chucvu); ?></label>
+                                                <label class="control-label col-md-4 col-xs-6 bold">Công Việc:</label>
+                                                <label class="control-label col-md-7 col-xs-6"><?php echo e($giangvien->congviec); ?></label>
                                             </div>
                                             <div class="row">
-                                                <label class="control-label col-md-4 col-xs-6 bold">Hệ Số Lương:</label>
-                                                <label class="control-label col-md-7 col-xs-6"><?php echo e($giangvien->hesoluong); ?></label>
+                                                <label class="control-label col-md-4 col-xs-6 bold">Cấp bậc:</label>
+                                                <label class="control-label col-md-7 col-xs-6"><?php echo e($giangvien->capbac); ?></label>
                                             </div>
 
                                         </div>
