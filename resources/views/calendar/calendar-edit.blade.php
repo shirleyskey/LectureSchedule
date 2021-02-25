@@ -56,15 +56,16 @@
                         <li class="active">
                             <a href="">Thông tin Tiết Học</a>
                         </li>
-                      
+                        @permission('create-giangvien')
                         <li >
                             <a href="{{route('hocphan.edit.get',$tiet->id_hocphan )}}">Xem Học Phần</a>
                         </li>
+                        @endpermission 
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        @permission('read-users')
+                       
                         <form action="{{ route('lichgiang.lichgiangtuan.post', $tiet->id) }}" method="post" id="form_sample_2" class="form-horizontal">
                             @csrf
                             <div class="tab-content">
@@ -236,6 +237,7 @@
                                 </div>
                                 <!-- END TAB 1-->
                             </div>
+                            @permission('create-giangvien')
                             <div class="form-actions">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -243,10 +245,10 @@
                                     </div>
                                 </div>
                             </div>
+                            @endpermission 
 
                         
                         </form>
-                        @endpermission
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->

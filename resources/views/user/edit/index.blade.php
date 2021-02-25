@@ -28,12 +28,6 @@
             </ul>
         </div>
         @include('partials.flash-message')
-        <!-- END PAGE BAR -->
-        <!-- BEGIN PAGE TITLE-->
-      
-        <!-- END PAGE TITLE-->
-        <!-- END PAGE HEADER-->
-        <!-- BEGIN DASHBOARD STATS 1-->
         @if($errors->any())
         <div class="alert alert-danger">
             <button class="close" data-close="alert"></button>
@@ -42,9 +36,93 @@
             @endforeach
         </div>
         @endif
+        <!-- END PAGE BAR -->
+        <!-- BEGIN PAGE TITLE-->
+      
+        <!-- END PAGE TITLE-->
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN DASHBOARD STATS 1-->
+        
         <div class="row box_gio">
             <div class="col-md-12">
-            <h2>Thông tin Cá nhân</h2>
+            <h2>Thông tin Tài khoản</h2>
+                <div class="tabbable tabbable-tabdrop">
+                   
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
+                        <!-- BEGIN FORM-->
+                        <form action="{{ route('profile.edit_user.post', $taikhoan->id) }}" method="post" id="form_sample_2" class="form-horizontal">
+                            @csrf
+                            <div class="tab-content">
+                                  <!-- BEGIN TAB 1-->
+                                  <div class="tab-pane active" id="tab_tk">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                            <input value="{{ $taikhoan->id}}" name="id" type="hidden">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Email:
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control" name="email" value="{{ $taikhoan->email}}" required maxlength="191" /> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Nhập Password: 
+                                                    <br>
+                                                    <span></span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <input type="password" class="form-control" name="password"  maxlength="191" id="password-field" > 
+                                                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4">Nhập Password Mới (Để trống nếu giữ nguyên): 
+                                                    <br>
+                                                    <span></span>
+                                                    </label>
+                                                    <div class="col-md-7">
+                                                        <div class="input-icon right">
+                                                            <input type="password" class="form-control" name="password_new"  maxlength="191" id="password-field-new" > 
+                                                            <span toggle="#password-field-new" class="fa fa-fw fa-eye field-icon toggle-password-new"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TAB 1-->
+                               
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn green"><i class="fa fa-save"></i> Lưu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                    <!-- END VALIDATION STATES-->
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- END DASHBOARD STATS 1-->
+        <div class="row box_gio">
+            <div class="col-md-12">
+            <h2>Thông tin Giảng viên</h2>
                 <div class="tabbable tabbable-tabdrop">
                    
                     <!-- BEGIN VALIDATION STATES-->
@@ -57,32 +135,8 @@
                                   <div class="tab-pane active" id="tab_tk">
                                     <div class="form-body">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                            <input value="{{ $taikhoan->id}}" name="id_user" type="hidden">
-                                            <div class="form-group">
-                                                    <label class="control-label col-md-4">Email:
-                                                        <span class="required"> * </span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-icon right">
-                                                            <i class="fa fa-user"></i>
-                                                            <input type="text" class="form-control" name="email" value="{{ $taikhoan->email}}" required maxlength="191" /> </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-4">Password Mới: 
-                                                    <br>
-                                                    <span> (Để trống nếu không thay đổi) </span>
-                                                    </label>
-                                                    <div class="col-md-7">
-                                                        <div class="input-icon right">
-                                                            <i class="fa fa-password"></i>
-                                                            <input type="text" class="form-control" name="password"  maxlength="191" /> </div>
-                                                    </div>
-                                                </div>
-                                               
-                                            </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
+                                                <input value="{{ $giangvien->id}}" name="id" type="hidden">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-4">Mã Giảng Viên:
                                                         <span class="required"> * </span>
@@ -182,13 +236,6 @@
                                     </div>
                                 </div>
                                 <!-- END TAB 1-->
-                                  
-                             
-                        
-                               
-                             
-                        
-                               
                             </div>
                             <div class="form-actions">
                                 <div class="row">
@@ -198,22 +245,6 @@
                                 </div>
                             </div>
                         </form>
-                        
-                        
-                        <!-- END FORM-->
-                    </div>
-                    <!-- END VALIDATION STATES-->
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <!-- END DASHBOARD STATS 1-->
-
-                            </div>
-                        </form>
-                        
-                        
-                        
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->
@@ -229,8 +260,28 @@
 
 @section('script')
 <script>
+    
+
     $(document).ready(function()
     {
+        $(".toggle-password").click(function() {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+            input.attr("type", "text");
+            } else {
+            input.attr("type", "password");
+            }
+            });
+            $(".toggle-password-new").click(function() {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+            input.attr("type", "text");
+            } else {
+            input.attr("type", "password");
+            }
+            });
         // Reload trang và giữ nguyên tab đã active
         var activeTab = localStorage.getItem('activeTab');
         if (activeTab) {

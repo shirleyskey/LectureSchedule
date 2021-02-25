@@ -57,15 +57,16 @@
                         <li class="active">
                             <a href="">Thông tin Tiết Học</a>
                         </li>
-                      
+                        <?php if (app('laratrust')->can('create-giangvien')) : ?>
                         <li >
                             <a href="<?php echo e(route('hocphan.edit.get',$tiet->id_hocphan )); ?>">Xem Học Phần</a>
                         </li>
+                        <?php endif; // app('laratrust')->can ?> 
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->
                     <div class="portlet light portlet-fit portlet-form" id="form_wizard_1">
                         <!-- BEGIN FORM-->
-                        <?php if (app('laratrust')->can('read-users')) : ?>
+                       
                         <form action="<?php echo e(route('lichgiang.lichgiangtuan.post', $tiet->id)); ?>" method="post" id="form_sample_2" class="form-horizontal">
                             <?php echo csrf_field(); ?>
                             <div class="tab-content">
@@ -221,6 +222,7 @@
                                 </div>
                                 <!-- END TAB 1-->
                             </div>
+                            <?php if (app('laratrust')->can('create-giangvien')) : ?>
                             <div class="form-actions">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -228,10 +230,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php endif; // app('laratrust')->can ?> 
 
                         
                         </form>
-                        <?php endif; // app('laratrust')->can ?>
                         <!-- END FORM-->
                     </div>
                     <!-- END VALIDATION STATES-->

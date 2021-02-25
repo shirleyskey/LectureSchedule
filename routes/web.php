@@ -73,7 +73,7 @@ Route::prefix('users')->middleware(['auth', 'only_active_user'])->group(function
 
 // File Manager
 Route::prefix('file-manager')->middleware(['auth', 'only_active_user'])->group(function () {
-    Route::get('/', ['middleware' => ['read-dashboard'], 'uses'=>'FileManagerController@index','as'=>'file-manager.index']);
+    Route::get('/', ['middleware' => ['permission:read-dashboard'], 'uses'=>'FileManagerController@index','as'=>'file-manager.index']);
 });
 
 // Giảng Viên Routes...
@@ -95,6 +95,7 @@ Route::prefix('profile')->middleware(['auth', 'only_active_user'])->group(functi
     Route::get('/taikhoan/{id}', ['uses' =>'ProfileController@taikhoan','as'=>'profile.taikhoan.get']);
     Route::get('/edit/{id}', ['uses'=>'ProfileController@edit','as'=>'profile.edit.get']);
     Route::post('/edit/{id}', ['uses'=>'ProfileController@update','as'=>'profile.edit.post']);
+    Route::post('/edit_user/{id}', ['uses'=>'ProfileController@update_user','as'=>'profile.edit_user.post']);
 });
 
 // Công Việc Khác Routes...

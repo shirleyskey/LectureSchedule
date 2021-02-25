@@ -258,6 +258,36 @@ p.gian_dong {
     margin-bottom: 6px!important;
     padding: 0px;
 }
+
+  input#password-field {
+    position: relative;
+    }
+
+  span.fa.fa-fw.field-icon.toggle-password.fa-eye {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+}
+span.fa.fa-fw.field-icon.toggle-password.fa-eye-slash {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+}
+input#password-field-new {
+    position: relative;
+    }
+
+  span.fa.fa-fw.field-icon.toggle-password-new.fa-eye {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+}
+span.fa.fa-fw.field-icon.toggle-password-new.fa-eye-slash {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+}
+
 @media only screen and (max-width: 600px) {
 
 }
