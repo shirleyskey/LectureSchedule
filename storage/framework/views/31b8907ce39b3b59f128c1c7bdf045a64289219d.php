@@ -75,7 +75,7 @@
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="chubien">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">-------- Chưa có Giảng Viên --------</option>
                                                 <?php if($giangvien->count()>0): ?>
                                                     <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="<?php echo e($v->id); ?>"><?php echo e($v->ten); ?></option>
@@ -89,7 +89,7 @@
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="thamgia">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">-------- Chưa có Giảng Viên --------</option>
                                                 <?php if($giangvien->count()>0): ?>
                                                     <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="<?php echo e($v->id); ?>"><?php echo e($v->ten); ?></option>

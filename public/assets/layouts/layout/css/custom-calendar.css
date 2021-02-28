@@ -287,7 +287,9 @@ span.fa.fa-fw.field-icon.toggle-password-new.fa-eye-slash {
     top: 9px;
     right: 5px;
 }
-
+textarea:focus{
+    outline: none;
+}
 @media only screen and (max-width: 600px) {
 
 }

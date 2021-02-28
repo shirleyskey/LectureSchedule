@@ -38,7 +38,8 @@ class Nckh extends Model
         }
         foreach ($data['thamgia'] as $key => $value) {
             $data['thamgia'][$key] = (int)$value;         
-        }
+            }
+        
         $nckh->chubien = json_encode($data['chubien']);
         $nckh->thamgia = json_encode($data['thamgia']);
         $nckh->sotrang = $data['sotrang'];

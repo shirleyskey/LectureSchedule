@@ -58,7 +58,7 @@
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" name="theloai">
-                                                <option value="0">-------- Chọn Loại --------</option>
+                                                <option value="0">-------- Chọn Thể Loại --------</option>
                                                 <?php if($theloai->count()>0): ?>
                                                     <?php $__currentLoopData = $theloai; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
@@ -72,7 +72,7 @@
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="chubien">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">-------- Chưa có Giảng Viên --------</option>
                                                 <?php if($giangvien->count()>0): ?>
                                                     <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
@@ -87,7 +87,7 @@
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="thamgia">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">-------- Chưa có Giảng Viên  --------</option>
                                                 <?php if($giangvien->count()>0): ?>
                                                     <?php $__currentLoopData = $giangvien; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="<?php echo e((int)$v->id); ?>"><?php echo e($v->ten); ?></option>
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label><b>Số Người:</b><span class="required">*</span></label>
-                                    <input class="form-control" name="songuoi" type="number" required />
+                                    <input class="form-control" name="songuoi" type="number" min="1" step="1" required />
                                 </div>
                             <div class="col-md-6">
                                 

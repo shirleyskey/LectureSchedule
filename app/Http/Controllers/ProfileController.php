@@ -90,6 +90,7 @@ class ProfileController extends Controller
                 $giangvien->chucdanh = $request->chucdanh;
                 $giangvien->trinhdo = $request->trinhdo;
                 $giangvien->cothegiang = $request->cothegiang;
+                $giangvien->khenthuong = $request->khenthuong;
                 $giangvien->save();
             }
             Log::info('Người dùng ID:'.Auth::user()->id.' đã sửa Giảng viên ID:'.$giangvien->id.'-'.$giangvien->ten);

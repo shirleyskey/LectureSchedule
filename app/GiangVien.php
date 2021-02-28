@@ -68,6 +68,7 @@ class GiangVien extends Model
         $giangvien->chucdanh = $data['chucdanh'];
         $giangvien->trinhdo = $data['trinhdo'];
         $giangvien->cothegiang = $data['cothegiang'];
+        $giangvien->khenthuong = $data['khenthuong'];
 
         $giangvien->save();
         return $giangvien;

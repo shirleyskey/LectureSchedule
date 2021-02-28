@@ -100,6 +100,10 @@
                                                 <label class="control-label col-md-4 col-xs-6 bold">Bài Giảng:</label>
                                                 <label class="control-label col-md-7 col-xs-6">{{ $giangvien->bai_giang }}</label>
                                             </div>
+                                            <div class="row">
+                                                <label class="control-label col-md-4 col-xs-6 bold">Khen Thưởng:</label>
+                                                <label class="control-label col-md-7 col-xs-6">{{ $giangvien->khenthuong }}</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -345,13 +349,19 @@
                                                             @endswitch
                                                         </td> --}}
                                                         <td>
-                                                            @php
+                                                              @php 
+                                                              if($v->songuoi !== 0){
                                                                 if($is_chubien == true){
                                                                     $so_gio_nc = ($v->sotrang)*1/3 + (2*($v->sotrang))/(3*($v->songuoi));
                                                                 }
                                                                 else{
                                                                     $so_gio_nc = (2*($v->sotrang))/(3*($v->songuoi));
                                                                 }
+                                                              }
+                                                              if($v->songuoi == 0 ){
+                                                                 $so_gio_nc = 0;
+                                                              }
+                                                                
                                                                 echo $so_gio_nc;
                                                                 // echo $so_chubien;
                                                                 $tong_so_gio_nc = $tong_so_gio_nc + $so_gio_nc;

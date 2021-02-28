@@ -28,7 +28,7 @@ class Tuan extends Model
         }else{
             $tuan = Tuan::findOrFail($id);
         }
-        $tuan->thoi_gian =  Carbon::parse($data['thoi_gian'])->format('Y-m-d h:i:s');
+        $tuan->thoi_gian =  Carbon::parse($data['thoi_gian'])->format('Y-m-d\TH:i');
         $tuan->dia_diem = $data['dia_diem'];
         $tuan->noi_dung = $data['noi_dung'];
         $tuan->thanh_phan = $data['thanh_phan'];

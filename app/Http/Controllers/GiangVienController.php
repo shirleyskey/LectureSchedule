@@ -104,6 +104,7 @@ class GiangVienController extends Controller
         $giangvien->chucdanh = $request->chucdanh;
         $giangvien->trinhdo = $request->trinhdo;
         $giangvien->cothegiang = $request->cothegiang;
+        $giangvien->khenthuong = $request->khenthuong;
 
         try{
             $giangvien->save();

@@ -78,7 +78,7 @@
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="chubien">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">-------- Chưa có Giảng Viên --------</option>
                                                 @if($giangvien->count()>0)
                                                     @foreach($giangvien as $v)
                                                     <option value="{{ $v->id }}">{{ $v->ten }}</option>
@@ -92,7 +92,7 @@
                                         <div class="input-icon right">
                                             <i class="fa fa-key"></i>
                                             <select class="form-control" multiple name="thamgia">
-                                                <option value="0">-------- Chọn Giảng Viên --------</option>
+                                                <option value="0">-------- Chưa có Giảng Viên --------</option>
                                                 @if($giangvien->count()>0)
                                                     @foreach($giangvien as $v)
                                                     <option value="{{ $v->id }}">{{ $v->ten }}</option>

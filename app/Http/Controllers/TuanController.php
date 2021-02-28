@@ -16,12 +16,12 @@ class TuanController extends Controller
     {
         $now = Carbon::now();
         $t2= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->format('Y-m-d')." 23:59:59.000000"))->get();
-        $t3= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(1)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(1)->format('Y-m-d')." 23:59:59.000000"))->get();
-        $t4= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(2)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(2)->format('Y-m-d')." 23:59:59.000000"))->get();
-        $t5= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(3)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(3)->format('Y-m-d')." 23:59:59.000000"))->get();
-        $t6= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(4)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(4)->format('Y-m-d')." 23:59:59.000000"))->get();
-        $t7= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(5)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(5)->format('Y-m-d')." 23:59:59.000000"))->get();
-        $t8= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(6)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(6)->format('Y-m-d')." 23:59:59.000000"))->get();
+        $t3= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(1)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(1)->format('Y-m-d')." 23:59:59.000000"))->orderBy('thoi_gian', 'ASC')->get();
+        $t4= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(2)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(2)->format('Y-m-d')." 23:59:59.000000"))->orderBy('thoi_gian', 'ASC')->get();
+        $t5= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(3)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(3)->format('Y-m-d')." 23:59:59.000000"))->orderBy('thoi_gian', 'ASC')->get();
+        $t6= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(4)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(4)->format('Y-m-d')." 23:59:59.000000"))->orderBy('thoi_gian', 'ASC')->get();
+        $t7= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(5)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(5)->format('Y-m-d')." 23:59:59.000000"))->orderBy('thoi_gian', 'ASC')->get();
+        $t8= Tuan::whereBetween('thoi_gian',array($now->startOfWeek()->addDays(6)->format('Y-m-d')." 00:00:00.000000", $now->startOfWeek()->addDays(6)->format('Y-m-d')." 23:59:59.000000"))->orderBy('thoi_gian', 'ASC')->get();
         return view('tuan.tuan_test', 
         [
             't2' => $t2,
