@@ -4021,13 +4021,15 @@ $.ajax({
         },
     },
     "columnDefs": [
-        { "width": "30px", "targets": 0 },
-        { "width": "150px", "targets": 1 },
-        { "width": "100px", "targets": 2 },
-        { "width": "100px", "targets": 3 },
-        { "width": "80px", "targets": 4 },
-        { "width": "60px", "targets": 5 },
-        { "width": "50px", "targets": 6 },
+        { "width": "5%", "targets": 0 },
+        { "width": "20%", "targets": 1 },
+        { "width": "15%", "targets": 2 },
+        { "width": "10%", "targets": 3 },
+        { "width": "10%", "targets": 4 },
+        { "width": "10%", "targets": 5 },
+        { "width": "10%", "targets": 6 },
+        { "width": "10%", "targets": 7 },
+        { "width": "10%", "targets": 8 },
     ],
     "order": [
         // [0, "asc"]
