@@ -290,6 +290,15 @@ span.fa.fa-fw.field-icon.toggle-password-new.fa-eye-slash {
 textarea:focus{
     outline: none;
 }
+table{
+    margin: 0 auto;
+    width: 100%!important;
+    clear: both!important;
+    border-collapse: collapse;
+    table-layout: fixed!important; 
+    word-wrap:break-word; 
+}
+
 @media only screen and (max-width: 600px) {
 
 }
@@ -341,4 +350,34 @@ textarea:focus{
         white-space: pre!important;
         height: 65px;
     }
+
+}
+
+@media only screen  and (min-width : 1224px) {
+    /* Styles */
+    .col-md-10.col-lg-10.custom-click-sidebar {
+    }
+    .custom-container{
+
+    }
+    .custom-row{
+
+    }
+    .carousel.slide .carousel-inner .item {
+        height: 550px;
+    }
+
+}
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+/* Styles */
+.col-md-10.col-lg-10.custom-click-sidebar {width: 100%!important;}
+.custom-container{margin: 0px!important;width: 100%;}
+.custom-row{
+    
+}
+.carousel.slide .carousel-inner .item {
+    height: 863px;
+}
+
 }

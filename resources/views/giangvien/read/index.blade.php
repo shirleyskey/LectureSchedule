@@ -414,7 +414,7 @@
                             <a href="#tab4" data-toggle="tab">Chấm thi, CT</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab"> Học, TTế, LC</a>
+                            <a href="#tab3" data-toggle="tab"> Học,TTế,LC, Quy Hoạch</a>
                         </li>
                         <li>
                             <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
@@ -523,7 +523,7 @@
                                                     @endforeach
                                                     <tr>
                                                         <td> {{ $stt }} </td>
-                                                        <td> Đi Học, thực tế, luân chuyển</td>
+                                                        <td> Đi Học, thực tế, luân chuyển, Quy hoạch</td>
                                                         <td> {{$total_congtac}}</td>
                                                         <td> {{ $total_congtac_khoahoc}}</td>
                                                     </tr>

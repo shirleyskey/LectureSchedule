@@ -7,14 +7,15 @@
 <div class="page-content-wrapper">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 custom-click-sidebar">
+        <div class="container custom-container">
+            <div class="row custom-row">
+                <div class="col-md-10 col-lg-10 custom-click-sidebar">
             <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 30px">
               <!-- Indicators -->
               <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
               </ol>
               <!-- Wrapper for slides -->
               <div class="carousel-inner">

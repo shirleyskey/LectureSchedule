@@ -67,7 +67,7 @@
                             <a href="#tab4" data-toggle="tab">Chấm thi, coi thi</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab">Học, thực tế, luân chuyển</a>
+                            <a href="#tab3" data-toggle="tab">Học, TT, LC, Quy Hoạch</a>
                         </li>
                         <li>
                             <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
@@ -96,7 +96,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="btn-group">
-                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Học, thực tế, luân chuyển Mới
+                                                                <a id="sample_editable_1_new" class="btn green" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Học, TT, LC, Quy Hoạch Mới
                         
                                                                 </a>
                                                             </div>
@@ -108,13 +108,13 @@
                                                         <tr>
                                                             <th> STT</th>
                                                             <th> Tên Loại Hình</th>
-                                                            <th> Tên Giảng Viên</th>
+                                                            <th> Tên GV</th>
                                                             <th> Địa Điểm</th>
                                                             <th> Bắt Đầu</th>
                                                             <th> Kết Thúc</th>
                                                             <th> Hoàn Thành</th>
                                                             <th> Giờ Giảng</th>
-                                                            <th> Giờ Khoa Học</th>
+                                                            <th> Giờ KH</th>
                                                             <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
@@ -154,8 +154,8 @@
                                         <!-- END EXAMPLE TABLE PORTLET-->
                                     @else
                                         <div class="alert alert-danger" style="margin-bottom: 0px;">
-                                            <p> Không có Đi Thưc Tế nào.
-                                                <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Học, thực tế, luân chuyển</a></p>
+                                            <p> Không có Học,TT,LC,Quy Hoạch nào.
+                                                <a class="btn green btn-sm" data-toggle="modal" href="#modal_add_congtac"><i class="fa fa-plus"></i> Tạo Đi Học, TT, LC, Quy Hoạch</a></p>
                                         </div>
                                     @endif
                                 </div>
@@ -185,7 +185,7 @@
                                                             <th> STT</th>
                                                             <th> Tên Cuộc Họp</th>
                                                             <th> Địa Điểm</th>
-                                                            <th> Tên Giảng Viên</th>
+                                                            <th> Tên GV</th>
                                                             <th> Thời Gian</th>
                                                             <th> Giờ Giảng</th>
                                                             <th> Giờ KH</th>
@@ -254,15 +254,15 @@
                                                     <thead>
                                                         <tr>
                                                             <th> STT</th>
-                                                            <th> Tên Giảng Viên</th>
-                                                            <th> Loại Hướng Dẫn</th>
+                                                            <th> Tên GV</th>
+                                                            <th> Loại HD</th>
                                                             <th> Học Viên</th>
                                                             <th> Khóa</th>
                                                             <th> Bắt Đầu</th>
                                                             <th> Kết Thúc</th>
                                                             <th> Hoàn Thành</th>
                                                             <th> Giờ Giảng</th>
-                                                            <th> Giờ Khoa Học</th>
+                                                            <th> Giờ KH</th>
                                                             <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
@@ -347,7 +347,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th> STT</th>
-                                                            <th> Tên Giảng Viên</th>
+                                                            <th> Tên GV</th>
                                                             <th> Tên Lớp</th>
                                                             <th> Hình Thức </th>
                                                             <th> Số Bài</th>
@@ -355,7 +355,7 @@
                                                             <th> Kết Thúc</th>
                                                             <th> Hoàn Thành</th>
                                                             <th> Giờ Giảng</th>
-                                                            <th> Giờ Khoa Học</th>
+                                                            <th> Giờ KH</th>
                                                             <th> Ghi Chú </th>
                                                             <th> Hành Động</th>
                                                         </tr>
@@ -434,14 +434,14 @@
                                                     <thead>
                                                         <tr>
                                                             <th> STT</th>
-                                                            <th> Tên Giảng Viên</th>
+                                                            <th> Tên GV</th>
                                                             <th> Tên Bài </th>
                                                             <th> Cấp</th>
                                                             <th> Bắt Đầu</th>
                                                             <th> Kết Thúc</th>
                                                             <th> Hoàn Thành</th>
                                                             <th> Giờ Giảng</th>
-                                                            <th> Giờ Khoa Học</th>
+                                                            <th> Giờ KH</th>
                                                             <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
@@ -596,7 +596,7 @@
                                                         <tr>
                                                             <th> STT</th>
                                                             <th> Nội Dung</th>
-                                                            <th> Lãnh Đạo Xử Lý</th>
+                                                            <th> LĐ Xử lý</th>
                                                             <th> Chủ Trì</th>
                                                             <th> Tham Gia</th>
                                                             <th> Bắt Đầu</th>
@@ -1056,14 +1056,14 @@
             <form action="post" id="form_add_congtac">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Đi Học, thực tế, luân chuyển</h4>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Thêm mới Đi Học, TT, LC,  Quy Hoạch</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Loại Hình (đi học, thực tế, luân chuyển): <span class="required">*</span></label>
+                                    <label>Tên Loại Hình (đi học, thực tế, luân chuyển, Quy hoạch): <span class="required">*</span></label>
                                     <input  name="ten" type="text" class="form-control" required placeholder="Nhập Tên Loại Hình">
                                 </div>
                                 <div class="form-group">
@@ -1132,14 +1132,14 @@
                 <input value="" name="id" type="hidden">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Đi Học, thực tế, luân chuyển</h4>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> Chỉnh sửa Đi Học, TT, LC, Quy hoạch</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tên Loại Hình (đi học, thực tế, luân chuyển):<span class="required">*</span></label>
+                                    <label>Tên Loại Hình (đi học, thực tế, luân chuyển, Quy hoạch):<span class="required">*</span></label>
                                     <input value="" name="ten" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
@@ -4019,18 +4019,21 @@ $.ajax({
             "previous":   "Trước"
         },
     },
-    "columnDefs": [{ // set default column settings
-        'orderable': true,
-        'targets': [0]
-    }, {
-        "searchable": true,
-        "targets": [0]
-    }],
+    "columnDefs": [
+        { "width": "30px", "targets": 0 },
+        { "width": "150px", "targets": 1 },
+        { "width": "100px", "targets": 2 },
+        { "width": "100px", "targets": 3 },
+        { "width": "80px", "targets": 4 },
+        { "width": "60px", "targets": 5 },
+        { "width": "50px", "targets": 6 },
+    ],
     "order": [
         // [0, "asc"]
     ] // set first column as a default sort by asc
 });
-var table = $('#ds_congtac');
+
+var table = $('#ds_hdkh');
         var oTable = table.dataTable({
             "lengthMenu": [
                 [10, 20, 50, -1],
@@ -4040,7 +4043,7 @@ var table = $('#ds_congtac');
     "language": {
         "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
         "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Đi Học, thực tế, luân chuyển: _TOTAL_",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng HDKH: _TOTAL_",
         "infoEmpty": "Không có bản ghi nào",
         "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
         "search": "Tìm kiếm",
@@ -4051,17 +4054,25 @@ var table = $('#ds_congtac');
             "previous":   "Trước"
         },
     },
-    "columnDefs": [{ // set default column settings
-        'orderable': true,
-        'targets': [0]
-    }, {
-        "searchable": true,
-        "targets": [0]
-    }],
+    "columnDefs": [
+        { "width": "30px", "targets": 0 },
+        { "width": "120px", "targets": 1 },
+        { "width": "80px", "targets": 2 },
+        { "width": "120px", "targets": 3 },
+        { "width": "50px", "targets": 4 },
+        { "width": "60px", "targets": 5 },
+        { "width": "50px", "targets": 6 },
+        { "width": "50px", "targets": 7 },
+        { "width": "60px", "targets": 8 },
+        { "width": "50px", "targets": 9 },
+        { "width": "50px", "targets": 10 },
+        { "width": "50px", "targets": 11 },
+    ],
     "order": [
         // [0, "asc"]
     ] // set first column as a default sort by asc
 });
+
 var table = $('#ds_chambai');
         var oTable = table.dataTable({
             "lengthMenu": [
@@ -4083,17 +4094,67 @@ var table = $('#ds_chambai');
             "previous":   "Trước"
         },
     },
-    "columnDefs": [{ // set default column settings
-        'orderable': true,
-        'targets': [0]
-    }, {
-        "searchable": true,
-        "targets": [0]
-    }],
+    "columnDefs": [
+        { "width": "30px", "targets": 0 },
+        { "width": "150px", "targets": 1 },
+        { "width": "100px", "targets": 2 },
+        { "width": "100px", "targets": 3 },
+        { "width": "80px", "targets": 4 },
+        { "width": "60px", "targets": 5 },
+        { "width": "50px", "targets": 6 },
+        { "width": "60px", "targets": 7 },
+        { "width": "60px", "targets": 8 },
+        { "width": "50px", "targets": 9 },
+        { "width": "50px", "targets": 10 },
+        { "width": "50px", "targets": 11 },
+    ],
     "order": [
         // [0, "asc"]
     ] // set first column as a default sort by asc
 });
+
+var table = $('#ds_congtac');
+        var oTable = table.dataTable({
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+    "pageLength": 10,
+    "language": {
+        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+        "zeroRecords": "Không tìm thấy dữ liệu",
+        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Hoạt Động Đi Học, thực tế, luân chuyển, Quy hoạch: _TOTAL_",
+        "infoEmpty": "Không có bản ghi nào",
+        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+        "search": "Tìm kiếm",
+        "paginate": {
+            "first":      "Đầu",
+            "last":       "Cuối",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+    },
+    "columnDefs": [
+        { "width": "30px", "targets": 0 },
+        { "width": "150px", "targets": 1 },
+        { "width": "100px", "targets": 2 },
+        { "width": "100px", "targets": 3 },
+        { "width": "80px", "targets": 4 },
+        { "width": "60px", "targets": 5 },
+        { "width": "50px", "targets": 6 },
+        { "width": "60px", "targets": 7 },
+        { "width": "60px", "targets": 8 },
+        { "width": "50px", "targets": 9 },
+        { "width": "50px", "targets": 10 },
+    ],
+    "order": [
+        // [0, "asc"]
+    ], // set first column as a default sort by asc
+   
+});
+
+
+
 var table = $('#ds_daygioi');
         var oTable = table.dataTable({
             "lengthMenu": [
@@ -4121,107 +4182,24 @@ var table = $('#ds_daygioi');
     }, {
         "searchable": true,
         "targets": [0]
-    }],
-    "order": [
-        // [0, "asc"]
-    ] // set first column as a default sort by asc
-});
-var table = $('#ds_hoctap');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-    "pageLength": 10,
-    "language": {
-        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-        "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Tham Gia Học Tập: _TOTAL_",
-        "infoEmpty": "Không có bản ghi nào",
-        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-        "search": "Tìm kiếm",
-        "paginate": {
-            "first":      "Đầu",
-            "last":       "Cuối",
-            "next":       "Sau",
-            "previous":   "Trước"
-        },
     },
-    "columnDefs": [{ // set default column settings
-        'orderable': true,
-        'targets': [0]
-    }, {
-        "searchable": true,
-        "targets": [0]
-    }],
+    { "width": "30px", "targets": 0 },
+    { "width": "30px", "targets": 1 },
+    { "width": "100px", "targets": 2 },
+    { "width": "100px", "targets": 3 },
+    { "width": "80px", "targets": 4 },
+    { "width": "60px", "targets": 5 },
+    { "width": "50px", "targets": 6 },
+    { "width": "60px", "targets": 7 },
+    { "width": "60px", "targets": 8 },
+    { "width": "50px", "targets": 9 },
+    { "width": "50px", "targets": 10 },
+    ],
     "order": [
         // [0, "asc"]
     ] // set first column as a default sort by asc
 });
-var table = $('#ds_hdkh');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-    "pageLength": 10,
-    "language": {
-        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-        "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng HDKH: _TOTAL_",
-        "infoEmpty": "Không có bản ghi nào",
-        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-        "search": "Tìm kiếm",
-        "paginate": {
-            "first":      "Đầu",
-            "last":       "Cuối",
-            "next":       "Sau",
-            "previous":   "Trước"
-        },
-    },
-    "columnDefs": [{ // set default column settings
-        'orderable': true,
-        'targets': [0]
-    }, {
-        "searchable": true,
-        "targets": [0]
-    }],
-    "order": [
-        // [0, "asc"]
-    ] // set first column as a default sort by asc
-});
-var table = $('#ds_xaydung');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-    "pageLength": 10,
-    "language": {
-        "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-        "zeroRecords": "Không tìm thấy dữ liệu",
-        "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Xây Dựng Chương Trình: _TOTAL_",
-        "infoEmpty": "Không có bản ghi nào",
-        "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-        "search": "Tìm kiếm",
-        "paginate": {
-            "first":      "Đầu",
-            "last":       "Cuối",
-            "next":       "Sau",
-            "previous":   "Trước"
-        },
-    },
-    "columnDefs": [{ // set default column settings
-        'orderable': true,
-        'targets': [0]
-    }, {
-        "searchable": true,
-        "targets": [0]
-    }],
-    "order": [
-        // [0, "asc"]
-    ] // set first column as a default sort by asc
-});
+
 var table = $('#ds_vanban');
         var oTable = table.dataTable({
             "lengthMenu": [
@@ -4249,11 +4227,24 @@ var table = $('#ds_vanban');
     }, {
         "searchable": true,
         "targets": [0]
-    }],
+    },
+    { "width": "30px", "targets": 0 },
+    { "width": "30px", "targets": 1 },
+    { "width": "100px", "targets": 2 },
+    { "width": "100px", "targets": 3 },
+    { "width": "80px", "targets": 4 },
+    { "width": "60px", "targets": 5 },
+    { "width": "50px", "targets": 6 },
+    { "width": "60px", "targets": 7 },
+    { "width": "60px", "targets": 8 },
+    { "width": "50px", "targets": 9 },
+    ],
     "order": [
         // [0, "asc"]
     ] // set first column as a default sort by asc
 });
+
+
 var table = $('#ds_dang');
         var oTable = table.dataTable({
             "lengthMenu": [
@@ -4275,13 +4266,26 @@ var table = $('#ds_dang');
             "previous":   "Trước"
         },
     },
-    "columnDefs": [{ // set default column settings
+    "columnDefs": [
+        { // set default column settings
         'orderable': true,
         'targets': [0]
-    }, {
+    }, 
+    {
         "searchable": true,
         "targets": [0]
-    }],
+    },
+    { "width": "30px", "targets": 0 },
+    { "width": "30px", "targets": 1 },
+    { "width": "100px", "targets": 2 },
+    { "width": "100px", "targets": 3 },
+    { "width": "80px", "targets": 4 },
+    { "width": "60px", "targets": 5 },
+    { "width": "50px", "targets": 6 },
+    { "width": "60px", "targets": 7 },
+    { "width": "60px", "targets": 8 },
+    { "width": "50px", "targets": 9 },
+    ],
     "order": [
         // [0, "asc"]
     ] // set first column as a default sort by asc
