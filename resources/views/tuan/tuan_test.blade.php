@@ -694,7 +694,7 @@
         var table = $('#ds_tuan');
 
         var oTable = table.dataTable({
-
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -722,7 +722,18 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "30px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
+            { "width": "100px", "targets": 3 },
+            { "width": "100px", "targets": 4 },
+            { "width": "100px", "targets": 5 },
+            { "width": "150px", "targets": 6 },
+            { "width": "100px", "targets": 7 },
+            { "width": "100px", "targets": 8 },
+            { "width": "80px", "targets": 9 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc

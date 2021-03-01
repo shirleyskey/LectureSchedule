@@ -135,7 +135,7 @@
         var table_phancong = $('#table_ds_phancong');
 
         var oTable_phancong = table_phancong.dataTable({
-
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -163,7 +163,14 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "5%", "targets": 0 },
+            { "width": "10%", "targets": 1 },
+            { "width": "10%", "targets": 2 },
+            { "width": "10%", "targets": 3 },
+            { "width": "10%", "targets": 4 },
+            { "width": "55%", "targets": 5 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc

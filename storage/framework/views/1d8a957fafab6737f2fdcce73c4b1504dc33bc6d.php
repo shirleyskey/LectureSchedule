@@ -145,7 +145,14 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "10px", "targets": 0 },
+            { "width": "150px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
+            { "width": "100px", "targets": 3 },
+            { "width": "80px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc

@@ -116,7 +116,7 @@
                                                             <th> Giờ Giảng</th>
                                                             <th> Giờ KH</th>
                                                             <th> Ghi Chú</th>
-                                                            <th> Hành Động</th>
+                                                            <th> HĐ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -190,7 +190,7 @@
                                                             <th> Giờ Giảng</th>
                                                             <th> Giờ KH</th>
                                                             <th> Ghi Chú</th>
-                                                            <th> Hành Động</th>
+                                                            <th> HĐ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -264,7 +264,7 @@
                                                             <th> Giờ Giảng</th>
                                                             <th> Giờ KH</th>
                                                             <th> Ghi Chú</th>
-                                                            <th> Hành Động</th>
+                                                            <th> HĐ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -357,7 +357,7 @@
                                                             <th> Giờ Giảng</th>
                                                             <th> Giờ KH</th>
                                                             <th> Ghi Chú </th>
-                                                            <th> Hành Động</th>
+                                                            <th> HĐ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -443,7 +443,7 @@
                                                             <th> Giờ Giảng</th>
                                                             <th> Giờ KH</th>
                                                             <th> Ghi Chú</th>
-                                                            <th> Hành Động</th>
+                                                            <th> HĐ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -603,7 +603,7 @@
                                                             <th> Kết Thúc </th>
                                                             <th> Hoàn Thành</th>
                                                             <th> Ghi Chú</th>
-                                                            <th> Hành Động</th>
+                                                            <th> HĐ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -693,7 +693,7 @@
                                                             <th> Kết Thúc</th>
                                                             <th> Hoàn Thành</th>
                                                             <th> Ghi Chú</th>
-                                                            <th> Hành Động</th>
+                                                            <th>HĐ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -4000,6 +4000,7 @@ $.ajax({
          // End xử lý nút xóa học tập
          var table = $('#ds_hop');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -4035,6 +4036,7 @@ $.ajax({
 
 var table = $('#ds_hdkh');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -4061,8 +4063,8 @@ var table = $('#ds_hdkh');
         { "width": "120px", "targets": 3 },
         { "width": "50px", "targets": 4 },
         { "width": "60px", "targets": 5 },
-        { "width": "50px", "targets": 6 },
-        { "width": "50px", "targets": 7 },
+        { "width": "60px", "targets": 6 },
+        { "width": "80px", "targets": 7 },
         { "width": "60px", "targets": 8 },
         { "width": "50px", "targets": 9 },
         { "width": "50px", "targets": 10 },
@@ -4075,6 +4077,7 @@ var table = $('#ds_hdkh');
 
 var table = $('#ds_chambai');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -4096,13 +4099,13 @@ var table = $('#ds_chambai');
     },
     "columnDefs": [
         { "width": "30px", "targets": 0 },
-        { "width": "150px", "targets": 1 },
+        { "width": "100px", "targets": 1 },
         { "width": "100px", "targets": 2 },
-        { "width": "100px", "targets": 3 },
-        { "width": "80px", "targets": 4 },
+        { "width": "80px", "targets": 3 },
+        { "width": "60px", "targets": 4 },
         { "width": "60px", "targets": 5 },
-        { "width": "50px", "targets": 6 },
-        { "width": "60px", "targets": 7 },
+        { "width": "60px", "targets": 6 },
+        { "width": "80px", "targets": 7 },
         { "width": "60px", "targets": 8 },
         { "width": "50px", "targets": 9 },
         { "width": "50px", "targets": 10 },
@@ -4115,6 +4118,7 @@ var table = $('#ds_chambai');
 
 var table = $('#ds_congtac');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -4139,9 +4143,9 @@ var table = $('#ds_congtac');
         { "width": "150px", "targets": 1 },
         { "width": "100px", "targets": 2 },
         { "width": "100px", "targets": 3 },
-        { "width": "80px", "targets": 4 },
+        { "width": "60px", "targets": 4 },
         { "width": "60px", "targets": 5 },
-        { "width": "50px", "targets": 6 },
+        { "width": "80px", "targets": 6 },
         { "width": "60px", "targets": 7 },
         { "width": "60px", "targets": 8 },
         { "width": "50px", "targets": 9 },
@@ -4157,6 +4161,7 @@ var table = $('#ds_congtac');
 
 var table = $('#ds_daygioi');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -4184,12 +4189,12 @@ var table = $('#ds_daygioi');
         "targets": [0]
     },
     { "width": "30px", "targets": 0 },
-    { "width": "30px", "targets": 1 },
-    { "width": "100px", "targets": 2 },
-    { "width": "100px", "targets": 3 },
+    { "width": "130px", "targets": 1 },
+    { "width": "130px", "targets": 2 },
+    { "width": "60px", "targets": 3 },
     { "width": "80px", "targets": 4 },
     { "width": "60px", "targets": 5 },
-    { "width": "50px", "targets": 6 },
+    { "width": "80px", "targets": 6 },
     { "width": "60px", "targets": 7 },
     { "width": "60px", "targets": 8 },
     { "width": "50px", "targets": 9 },
@@ -4202,6 +4207,7 @@ var table = $('#ds_daygioi');
 
 var table = $('#ds_vanban');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -4229,13 +4235,13 @@ var table = $('#ds_vanban');
         "targets": [0]
     },
     { "width": "30px", "targets": 0 },
-    { "width": "30px", "targets": 1 },
-    { "width": "100px", "targets": 2 },
-    { "width": "100px", "targets": 3 },
+    { "width": "130px", "targets": 1 },
+    { "width": "80px", "targets": 2 },
+    { "width": "80px", "targets": 3 },
     { "width": "80px", "targets": 4 },
     { "width": "60px", "targets": 5 },
-    { "width": "50px", "targets": 6 },
-    { "width": "60px", "targets": 7 },
+    { "width": "60px", "targets": 6 },
+    { "width": "80px", "targets": 7 },
     { "width": "60px", "targets": 8 },
     { "width": "50px", "targets": 9 },
     ],
@@ -4247,6 +4253,7 @@ var table = $('#ds_vanban');
 
 var table = $('#ds_dang');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -4276,13 +4283,13 @@ var table = $('#ds_dang');
         "targets": [0]
     },
     { "width": "30px", "targets": 0 },
-    { "width": "30px", "targets": 1 },
+    { "width": "150px", "targets": 1 },
     { "width": "100px", "targets": 2 },
-    { "width": "100px", "targets": 3 },
+    { "width": "80px", "targets": 3 },
     { "width": "80px", "targets": 4 },
     { "width": "60px", "targets": 5 },
-    { "width": "50px", "targets": 6 },
-    { "width": "60px", "targets": 7 },
+    { "width": "60px", "targets": 6 },
+    { "width": "80px", "targets": 7 },
     { "width": "60px", "targets": 8 },
     { "width": "50px", "targets": 9 },
     ],

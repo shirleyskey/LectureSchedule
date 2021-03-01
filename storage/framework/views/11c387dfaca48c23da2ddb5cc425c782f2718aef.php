@@ -89,11 +89,11 @@
 
                                                 </div>
                                             </div>
-                                            <table class="table table-striped table-hover table-bordered" id="ds_bo">
+                                            <table class="table table-striped table-hover table-bordered" id="ds_bo" width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th> STT</th>
-                                                        <th style="width: 20%;"> Tên Đề Tài</th>
+                                                        <th> Tên Đề Tài</th>
                                                         <th> Cấp</th>
                                                         <th> Chủ Biên</th>
                                                         <th> Tham Gia</th>
@@ -102,7 +102,7 @@
                                                         <th> Hoàn Thành</th>
                                                         <th> Số Giờ</th>
                                                         <th> Số Người</th>
-                                                        <th> Hành Động</th>
+                                                        <th> HĐ</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -174,11 +174,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <table class="table table-striped table-hover table-bordered" id="ds_thamkhao">
+                                    <table class="table table-striped table-hover table-bordered" id="ds_thamkhao" width="100%">
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th style="width: 20%;"> Tên</th>
+                                                <th> Tên</th>
                                                 <th> Thể Loại</th>
                                                 <th> Chủ Biên</th>
                                                 <th> Tham Gia</th>
@@ -187,7 +187,7 @@
                                                 <th> Hoàn Thành</th>
                                                 <th> Số Giờ</th>
                                                 <th> Số Người</th>
-                                                <th> Hành Động</th>
+                                                <th> HĐ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -257,11 +257,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <table class="table table-striped table-hover table-bordered" id="ds_caitien">
+                                    <table class="table table-striped table-hover table-bordered" id="ds_caitien" width="100%">
                                         <thead>
                                             <tr>
                                                 <th> STT</th>
-                                                <th style="width: 20%;"> Tên</th>
+                                                <th> Tên</th>
                                                 <th> Thể Loại</th>
                                                 <th> Chủ Biên</th>
                                                 <th> Tham Gia</th>
@@ -270,7 +270,7 @@
                                                 <th> Hoàn Thành</th>
                                                 <th> Số Giờ</th>
                                                 <th> Số Người</th>
-                                                <th> Hành Động</th>
+                                                <th> HĐ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -339,20 +339,20 @@
 
                                         </div>
                                     </div>
-                                    <table class="table table-striped table-hover table-bordered" id="ds_bao">
+                                    <table class="table table-striped table-hover table-bordered" id="ds_bao" width="100%">
                                         <thead>
                                             <tr>
-                                                <th> STT</th>
-                                                <th style="width: 20%;"> Tên Bài Báo khoa Học</th>
-                                                <th> Loại</th>
-                                                <th> Chủ Biên</th>
-                                                <th> Tham Gia</th>
-                                                <th> Bắt Đầu</th>
-                                                <th> Kết Thúc</th>
-                                                <th> Hoàn Thành </th>
-                                                <th> Số Giờ</th>
-                                                <th> Số Người</th>
-                                                <th> Hành Động</th>
+                                                <th style="width: 30px"> STT</th>
+                                                <th style="width: 150px"> Tên Bài Báo khoa Học</th>
+                                                <th style="width: 100px"> Loại</th>
+                                                <th style="width: 100px"> Chủ Biên</th>
+                                                <th style="width: 100px"> Tham Gia</th>
+                                                <th style="width: 80px"> Bắt Đầu</th>
+                                                <th style="width: 80px"> Kết Thúc</th>
+                                                <th style="width: 80px"> Hoàn Thành </th>
+                                                <th style="width: 60px"> Số Giờ</th>
+                                                <th style="width: 80px"> Số Người</th>
+                                                <th style="width: 100px"> HĐ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -444,7 +444,52 @@
         }
         // END Reload trang và giữ nguyên tab đã active
 
-       
+        var table1 = $('#ds_thamkhao');
+        var oTable1 = table1.dataTable({
+            "autoWidth":false,
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+            "pageLength": 10,
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Tài Liệu Dạy Học: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "150px", "targets": 1 },
+            { "width": "120px", "targets": 2 },
+            { "width": "80px", "targets": 3 },
+            { "width": "80px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            { "width": "80px", "targets": 7 },
+            { "width": "50px", "targets": 8 },
+            { "width": "60px", "targets": 9 },
+            { "width": "60px", "targets": 10 },
+            ],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
+        });
+
     //Thêm NCKH
     $("#btn_add_nckh").on('click', function(e){
         e.preventDefault();
@@ -679,6 +724,7 @@
 
         var table = $('#ds_bo');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -704,51 +750,29 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
-
-       
-
-       
-
-        var table = $('#ds_thamkhao');
-        var oTable = table.dataTable({
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-            "pageLength": 10,
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Tài Liệu Dạy Học: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
             },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            }],
+            { "width": "30px", "targets": 0 },
+            { "width": "150px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
+            { "width": "80px", "targets": 3 },
+            { "width": "80px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            { "width": "80px", "targets": 7 },
+            { "width": "50px", "targets": 8 },
+            { "width": "60px", "targets": 9 },
+            { "width": "60px", "targets": 10 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
+
+      
 
         var table = $('#ds_caitien');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -774,13 +798,26 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            }, 
+            { "width": "30px", "targets": 0 },
+            { "width": "150px", "targets": 1 },
+            { "width": "80px", "targets": 2 },
+            { "width": "80px", "targets": 3 },
+            { "width": "80px", "targets": 4 },
+            { "width": "80px", "targets": 5 },
+            { "width": "80px", "targets": 6 },
+            { "width": "80px", "targets": 7 },
+            { "width": "60px", "targets": 8 },
+            { "width": "80px", "targets": 9 },
+            { "width": "50px", "targets": 10 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
         var table = $('#ds_bao');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -806,7 +843,19 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "150px", "targets": 1 },
+            { "width": "80px", "targets": 2 },
+            { "width": "80px", "targets": 3 },
+            { "width": "80px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "80px", "targets": 6 },
+            { "width": "80px", "targets": 7 },
+            { "width": "60px", "targets": 8 },
+            { "width": "50px", "targets": 9 },
+            { "width": "50px", "targets": 10 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc

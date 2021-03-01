@@ -98,7 +98,7 @@
                                         <table class="table table-striped table-hover table-bordered" id="table_ds_hp">
                                             <thead>
                                                 <tr>
-                                                    <th> STT</th>
+                                                    <th style="width:20px!important" class="small-column"> STT</th>
                                                     <th> Mã Học Phần</th>
                                                     <th> Tên Học Phần</th>
                                                     <th> Số Tiết</th>
@@ -188,7 +188,7 @@
         // Cấu hình bảng ds hợp đồng
         var table = $('#table_ds_hp');
         var oTable = table.dataTable({
-
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -198,6 +198,7 @@
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
                 "info": "Trang hiển thị _PAGE_ / _PAGES_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Học Phần: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -214,7 +215,16 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "150px", "targets": 1 },
+            { "width": "150px", "targets": 2 },
+            { "width": "60px", "targets": 3 },
+            { "width": "80px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "100px", "targets": 6 },
+            { "width": "100px", "targets": 7 },
+            { "width": "60px", "targets": 8 },],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
