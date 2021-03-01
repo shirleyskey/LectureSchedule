@@ -21,6 +21,7 @@ class CalendarController extends Controller
     public function index(){
         $events = [];
         $tiets = Tiet::all();
+        
         if($tiets->count()){
             foreach($tiets as $tiet){
                 $startDate = Carbon::parse($tiet->thoigian);

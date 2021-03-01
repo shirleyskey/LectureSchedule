@@ -251,7 +251,7 @@
            <div class="portlet-body">
                <div class="table-toolbar">
                    <div class="row">
-                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="" aria-hidden="true"></i>Học, thực tế, luân chuyển</p>
+                       <p class=""><i style="color: #ffc93c; opacity: 0.8;" class="" aria-hidden="true"></i>Học, thực tế, luân chuyển, Quy Hoạch</p>
                    </div>
                </div>
                <table class="table table-striped table-hover table-bordered" id="ds_congtac">
@@ -545,6 +545,7 @@
         // END Reload trang và giữ nguyên tab đã active
         var table = $('#ds_nckh');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -570,7 +571,17 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "130px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
+            { "width": "60px", "targets": 3 },
+            { "width": "60px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            { "width": "60px", "targets": 7 },
+            { "width": "60px", "targets": 8 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
@@ -578,6 +589,7 @@
 
         var table = $('#ds_chambai');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -603,7 +615,16 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "80px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
+            { "width": "60px", "targets": 3 },
+            { "width": "50px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            { "width": "60px", "targets": 7 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
@@ -612,6 +633,7 @@
         // END Xử lý khi click nút xóa NCKH
         var table = $('#ds_hdkh');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -637,7 +659,17 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "80px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
+            { "width": "60px", "targets": 3 },
+            { "width": "50px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            { "width": "60px", "targets": 7 },
+            { "width": "60px", "targets": 8 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
@@ -645,6 +677,7 @@
 
         var table = $('#ds_congtac');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -653,7 +686,7 @@
             "language": {
                 "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
                 "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Công Tác: _TOTAL_",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng Học, Thực tế, Luân chuyển, Quy Hoạch: _TOTAL_",
                 "infoEmpty": "Không có bản ghi nào",
                 "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
                 "search": "Tìm kiếm",
@@ -670,7 +703,15 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "130px", "targets": 1 },
+            { "width": "80px", "targets": 2 },
+            { "width": "60px", "targets": 3 },
+            { "width": "60px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
@@ -678,6 +719,7 @@
 
         var table = $('#ds_daygioi');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -703,7 +745,15 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "100px", "targets": 1 },
+            { "width": "130px", "targets": 2 },
+            { "width": "60px", "targets": 3 },
+            { "width": "60px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
@@ -711,6 +761,7 @@
 
         var table = $('#ds_vanban');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -736,13 +787,23 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "130px", "targets": 1 },
+            { "width": "60px", "targets": 2 },
+            { "width": "60px", "targets": 3 },
+            { "width": "60px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            { "width": "60px", "targets": 7 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
         var table = $('#ds_khac');
         var oTable = table.dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -768,7 +829,15 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            }, 
+            { "width": "30px", "targets": 0 },
+            { "width": "150px", "targets": 1 },
+            { "width": "80px", "targets": 2 },
+            { "width": "80px", "targets": 3 },
+            { "width": "60px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc

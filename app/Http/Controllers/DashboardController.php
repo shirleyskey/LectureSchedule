@@ -54,13 +54,14 @@ class DashboardController extends Controller
     }
 
     public function deadline(){
-        $vanban = VanBan::where("hoan_thanh", NULL)->get();
-        $chambai = ChamBai::where("hoan_thanh", NULL)->get();
-        $dang = Dang::where("hoan_thanh", NULL)->get();
-        $daygioi = DayGioi::where("hoan_thanh", NULL)->get();
-        $congtac= CongTac::where("hoan_thanh", NULL)->get();
-        $hdkh= Hdkh::where("hoan_thanh", NULL)->get();
-        $nckh= Nckh::where("hoan_thanh", NULL)->get();
+        $now = Carbon::now('Asia/Ho_Chi_Minh')->format('Y-m-d');
+        $vanban = VanBan::where("hoan_thanh", NULL)->where('thoigian_den','<',$now )->get();
+        $chambai = ChamBai::where("hoan_thanh", NULL)->where('ket_thuc','<',$now )->get();
+        $dang = Dang::where("hoan_thanh", NULL)->where('ket_thuc','<',$now )->get();
+        $daygioi = DayGioi::where("hoan_thanh", NULL)->where('ket_thuc','<',$now )->get();
+        $congtac= CongTac::where("hoan_thanh", NULL)->where('ket_thuc','<',$now )->get();
+        $hdkh= Hdkh::where("hoan_thanh", NULL)->where('ket_thuc','<',$now )->get();
+        $nckh= Nckh::where("hoan_thanh", NULL)->where('ketthuc','<',$now )->get();
         return view('dashboard.deadline', [
             'vanban' => $vanban,
             'chambai' => $chambai,
