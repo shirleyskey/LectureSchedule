@@ -10033,3 +10033,5 @@ Stack trace:
 [2021-02-28 01:25:39] local.INFO: Email: superadministrator@app.com đăng nhập thành công  
 [2021-02-28 04:01:41] local.INFO: Email: superadministrator@app.com đăng nhập thành công  
 [2021-03-01 04:16:11] local.INFO: Email: superadministrator@app.com đăng nhập thành công  
+[2021-03-01 12:34:13] local.INFO: Email: superadministrator@app.com đăng nhập thành công  
+[2021-03-01 12:52:24] local.INFO: Người dùng ID:1 đã cập nhật thông tin công ty  
