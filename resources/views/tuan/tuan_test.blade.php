@@ -465,7 +465,7 @@
                                                                     if($day == 4 ) echo " Năm";
                                                                     if($day == 5 ) echo " Sáu";
                                                                     if($day == 6 ) echo " Bảy";
-                                                                    if($day == 7 ) echo " CN";
+                                                                    if($day == 0 ) echo " CN";
 
 
                                                                     @endphp 
@@ -724,7 +724,7 @@
                 "targets": [0]
             },
             { "width": "30px", "targets": 0 },
-            { "width": "30px", "targets": 1 },
+            { "width": "60px", "targets": 1 },
             { "width": "100px", "targets": 2 },
             { "width": "100px", "targets": 3 },
             { "width": "100px", "targets": 4 },
