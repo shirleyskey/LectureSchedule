@@ -2,7 +2,7 @@
     @csrf
     <div class="tab-content">
         <!-- BEGIN TAB 1-->
-        <div class="tab-pane active" id="tab1">
+        <div class="tab-pane" id="tab1">
             <div class="form-body">
                 <div class="row">
                     <div class="col-md-6">
@@ -54,7 +54,7 @@
         </div>
         <!-- END TAB 1-->
         <!-- BEGIN TAB 2 NCKH-->
-        <div class="tab-pane" id="tab2">
+        <div class="tab-pane active" id="tab2">
            
             @if($hocphan->isNotEmpty())
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -129,9 +129,10 @@
                                                 <a class="btn btn-xs yellow-gold" href="{{ route('hocphan.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a>
                                                 @endpermission
                                                 @permission('delete-hocphan')
-                                                {{-- <a class="btn btn-xs red-mint" href="{{ route('hocphan.delete.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Học Phần này không?Lưu ý: Học Phần sẽ bị xóa vĩnh viễn cùng những bài học, tiết học, và hoạt động chấm bài liên quan!');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a> --}}
+                                                <a class="btn btn-xs red-mint" href="{{ route('hocphan.delete_lop.get', $v->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa Học Phần này không?Lưu ý: Học Phần sẽ bị xóa vĩnh viễn cùng những bài học, tiết học, và hoạt động chấm bài liên quan!');" title="Xóa"> <i class="fa fa-trash"></i> Xóa</a>
                                                 {{-- <a class="btn_edit_hocphan btn btn-xs yellow-gold" data-hocphan-id="{{ $v->id }}" href="" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a> --}}
-                                                <a class="btn_delete_hocphan btn btn-xs red-mint" data-hocphan-id="{{ $v->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a>
+                                                {{-- <a class="btn_delete_hocphan btn btn-xs red-mint" data-hocphan-id="{{ $v->id }}" href=""  title="Xóa"> <i class="fa fa-trash"></i> Xóa </a> --}}
+                                                {{-- <a class="btn btn-xs yellow-gold" href="{{ route('hocphan.edit.get', $v->id) }}" title="Sửa"> <i class="fa fa-edit"></i> Sửa</a> --}}
                                                 @endpermission
                                             </td>
                                         </tr>

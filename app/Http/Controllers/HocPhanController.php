@@ -87,7 +87,6 @@ class HocPhanController extends Controller
         try{
             $hocphan->tiets()->delete();
             $hocphan->bais()->delete();
-            $hocphan->chambais()->delete();
             $hocphan->delete();
             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Học Phần id:'.$id.'-'.$name);
             return redirect()->route('hocphan.index')->with('status_success', 'Xóa Học Phần thành công!');
@@ -95,6 +94,22 @@ class HocPhanController extends Controller
         catch(\Exception $e){
             Log::error($e);
             return redirect()->route('hocphan.index')->with('status_error', 'Xảy ra lỗi khi xóa Học Phần!');
+        }
+    }
+
+    public function destroy_lop($id){
+        $hocphan = HocPhan::findOrFail($id);
+        $name = $hocphan->tenhocphan;
+        try{
+            $hocphan->tiets()->delete();
+            $hocphan->bais()->delete();
+            $hocphan->delete();
+            Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Học Phần id:'.$id.'-'.$name);
+            return redirect()->route('lop.edit.get', $hocphan->id_lop)->with('status_success', 'Xóa Học Phần thành công!');
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            return redirect()->route('lop.edit.get', $hocphan->id_lop)->with('status_error', 'Xảy ra lỗi khi xóa Học Phần!');
         }
     }
 

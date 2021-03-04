@@ -22,7 +22,7 @@
                     <a href="<?php echo e(route('dashboard')); ?>">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
                     
-                    <a href="<?php echo e(route('lop.edit.get', $hocphan->id_lop)); ?>">Quay lại chỉnh sửa lớp học</a>
+                    
                 </li>
             </ul>
         </div>

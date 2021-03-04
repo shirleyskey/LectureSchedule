@@ -51,9 +51,9 @@
             </thead>
             <tbody>
             <tr>
-                <td>superadministrator@app.com</td>
+                <td>trantuantu@gmail.com</td>
                 <td>password</td>
-                <td><a class="copy-account" href="#" data-account="superadministrator@app.com" data-password="password">copy</a></td>
+                <td><a class="copy-account" href="#" data-account="trantuantu@gmail.com" data-password="password">copy</a></td>
             </tr>
             <tr>
                 <td>lethaison@gmail.com</td>

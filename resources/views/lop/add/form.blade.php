@@ -36,7 +36,7 @@
                             <div class="col-md-7">
                                 <div class="input-icon right">
                                     <i class="fa fa-book"></i>
-                                    <input type="number" class="form-control" name="quymo" required value="{{ old('quymo') }}" /> </div>
+                                    <input type="float" class="form-control" name="quymo" required value="{{ old('quymo') }}" /> </div>
                             </div>
                         </div>
                         <div class="form-group">

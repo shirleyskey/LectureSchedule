@@ -34,6 +34,9 @@
             <i class="fa fa-edit"></i> Chỉnh sửa Lớp: {{ $lop->tenlop }} 
         </strong>
         </h1>
+
+         <!-- MESSAGE -->
+         @include('partials.flash-message')
         <!-- END PAGE TITLE-->
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
@@ -49,11 +52,12 @@
             <div class="col-md-12">
                 <div class="tabbable tabbable-tabdrop">
                     <ul class="nav nav-pills" id="#myTab">
-                        <li class="active">
-                            <a href="#tab1" data-toggle="tab">Thông tin</a>
+                        
+                        <li  class="active">
+                            <a href="#tab2" data-toggle="tab">Danh Sách Học Phần</a>
                         </li>
                         <li>
-                            <a href="#tab2" data-toggle="tab">Danh Sách Học Phần</a>
+                            <a href="#tab1" data-toggle="tab">Thông tin</a>
                         </li>
                     </ul>
                     <!-- BEGIN VALIDATION STATES-->

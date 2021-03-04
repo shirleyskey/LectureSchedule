@@ -24,7 +24,7 @@
                     <a href="{{ route('dashboard') }}">Bảng Điều Khiển</a>
                     <i class="fa fa-circle"></i>
                     {{-- Quay lại chỉnh sửa danh sách lớp học  --}}
-                    <a href="{{ route('lop.edit.get', $hocphan->id_lop) }}">Quay lại chỉnh sửa lớp học</a>
+                    {{-- <a href="{{ route('hocphan.index') }}">Quay lại chỉnh sửa danh sách Học phần</a> --}}
                 </li>
             </ul>
         </div>
