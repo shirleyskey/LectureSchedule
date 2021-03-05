@@ -10845,3 +10845,6 @@ Stack trace:
 [2021-03-04 11:24:39] local.INFO: Người dùng ID:5 đã thêm Học Phần ID:366-THEM HOC PHAN  
 [2021-03-04 11:26:49] local.INFO: Người dùng ID:5 đã xóa Học Phần id:366-THEM HOC PHAN  
 [2021-03-05 05:23:16] local.INFO: Email: lethaison@gmail.com đăng nhập thành công  
+[2021-03-05 05:32:10] local.INFO: Người dùng ID:27 đã cập nhật thông tin công ty  
+[2021-03-05 05:34:10] local.INFO: Người dùng ID:27 đã thêm Học Phần ID:359-  
+[2021-03-05 05:34:23] local.INFO: Người dùng ID:27 đã xóa Học Phần id:359-THEM  
