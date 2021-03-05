@@ -116,8 +116,8 @@ Route::prefix('tuan')->middleware(['auth', 'only_active_user'])->group(function 
 Route::prefix('lop')->middleware(['auth', 'only_active_user'])->group(function () {
     Route::get('/', ['middleware' => ['permission:read-lop'], 'uses'=>'LopController@index','as'=>'lop.index']);
     Route::get('/read/{id}', ['middleware' => ['permission:read-lop'], 'uses'=>'LopController@read','as'=>'lop.read.get']);
-    Route::get('/add', ['middleware' => ['permission:create-lop'], 'uses'=>'LopController@create','as'=>'lop.add.get']);
-    Route::post('/add', ['middleware' => ['permission:create-lop'], 'uses'=>'LopController@store','as'=>'lop.add.post']);
+    Route::get('/add', ['middleware' => ['permission:create-giangvien'], 'uses'=>'LopController@create','as'=>'lop.add.get']);
+    Route::post('/add', ['middleware' => ['permission:create-giangvien'], 'uses'=>'LopController@store','as'=>'lop.add.post']);
     Route::get('/edit/{id}', ['middleware' => ['permission:update-lop'], 'uses' =>'LopController@edit','as'=>'lop.edit.get']);
     Route::post('/edit/{id}', ['middleware' => ['permission:update-lop'], 'uses'=>'LopController@update','as'=>'lop.edit.post']);
     Route::get('/delete/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'LopController@destroy','as'=>'lop.delete.get']);
