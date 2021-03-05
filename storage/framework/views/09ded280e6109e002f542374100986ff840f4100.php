@@ -144,8 +144,8 @@
                                                 <th> Lớp</th>
                                                 <th> Hệ</th>
                                                 <th> Quy Mô</th>
-                                                <th> Số Giờ Nghĩa Vụ</th>
-                                                <th> Số Giờ Tính Tiền</th>
+                                                <th> Giờ Nghĩa Vụ</th>
+                                                <th> Giờ Tính Tiền</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -383,7 +383,7 @@
                             <a href="#tab4" data-toggle="tab">Chấm thi, CT</a>
                         </li>
                         <li>
-                            <a href="#tab3" data-toggle="tab"> Học, TTế, LC</a>
+                            <a href="#tab3" data-toggle="tab"> Học,TTế,LC, Quy Hoạch</a>
                         </li>
                         <li>
                             <a href="#tab6" data-toggle="tab">Dạy Giỏi</a>
@@ -492,7 +492,7 @@
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
                                                         <td> <?php echo e($stt); ?> </td>
-                                                        <td> Đi Học, thực tế, luân chuyển</td>
+                                                        <td> Đi Học, thực tế, luân chuyển, Quy hoạch</td>
                                                         <td> <?php echo e($total_congtac); ?></td>
                                                         <td> <?php echo e($total_congtac_khoahoc); ?></td>
                                                     </tr>
@@ -1359,6 +1359,7 @@
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
+
         $('#table_ds_dang').dataTable({
             "lengthMenu": [
                 [10, 20, 50, -1],
@@ -1390,6 +1391,7 @@
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
+
         $('#table_ds_vanban').dataTable({
             "lengthMenu": [
                 [10, 20, 50, -1],
@@ -1421,7 +1423,9 @@
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
+
         $('#table_ds_giogiang').dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -1447,7 +1451,16 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "80px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
+            { "width": "100px", "targets": 3 },
+            { "width": "80px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            { "width": "60px", "targets": 7 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc

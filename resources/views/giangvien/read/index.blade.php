@@ -146,8 +146,8 @@
                                                 <th> Lớp</th>
                                                 <th> Hệ</th>
                                                 <th> Quy Mô</th>
-                                                <th> Số Giờ Nghĩa Vụ</th>
-                                                <th> Số Giờ Tính Tiền</th>
+                                                <th> Giờ Nghĩa Vụ</th>
+                                                <th> Giờ Tính Tiền</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1385,6 +1385,7 @@
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
+
         $('#table_ds_dang').dataTable({
             "lengthMenu": [
                 [10, 20, 50, -1],
@@ -1416,6 +1417,7 @@
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
+
         $('#table_ds_vanban').dataTable({
             "lengthMenu": [
                 [10, 20, 50, -1],
@@ -1447,7 +1449,9 @@
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
+
         $('#table_ds_giogiang').dataTable({
+            "autoWidth":false,
             "lengthMenu": [
                 [10, 20, 50, -1],
                 [10, 20, 50, "Tất cả"] // change per page values here
@@ -1473,7 +1477,16 @@
             }, {
                 "searchable": true,
                 "targets": [0]
-            }],
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "80px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
+            { "width": "100px", "targets": 3 },
+            { "width": "80px", "targets": 4 },
+            { "width": "60px", "targets": 5 },
+            { "width": "60px", "targets": 6 },
+            { "width": "60px", "targets": 7 },
+            ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
