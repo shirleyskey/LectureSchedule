@@ -71,7 +71,17 @@ class LopController extends Controller
         $lop = Lop::findOrFail($id);
         $ten = $lop->tenlop;
         try{
-            $lop->hocphans()->delete();
+            // $lop->hocphans()->delete();
+            // Bắt Đầu 
+            $hocphans = HocPhan::where('id_lop', $id)->get();
+            foreach($hocphans as $hocphan){
+                $mahocphan = $hocphan->id;
+                $hocphanxoa = HocPhan::findOrFail($mahocphan);
+                $hocphanxoa->tiets()->delete();
+                $hocphanxoa->bais()->delete();
+                $hocphanxoa->delete();
+            }
+            // Kết Thúc 
             $lop->delete();
             Log::info('Người dùng ID:'.Auth::user()->id.' đã xóa Lớp id:'.$id.'-'.$ten);
             return redirect()->route('lop.index')->with('status_success', 'Xóa Lớp thành công!');
