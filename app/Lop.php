@@ -15,9 +15,14 @@ class Lop extends Model
     {
         return $this->hasMany('App\HocPhan', 'id_lop');
     }
+    public function tiets()
+    {
+        return $this->hasMany('App\Tiet', 'id_lop');
+    }
     
     public function delete() {
         $this->hocphans()->delete();
+        $this->tiets()->delete();
         parent::delete();
     }
 
