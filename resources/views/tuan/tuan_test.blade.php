@@ -691,53 +691,6 @@
 
 
 
-        var table = $('#ds_tuan');
-
-        var oTable = table.dataTable({
-            "autoWidth":false,
-            "lengthMenu": [
-                [10, 20, 50, -1],
-                [10, 20, 50, "Tất cả"] // change per page values here
-            ],
-
-            "pageLength": 10,
-
-            "language": {
-                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
-                "zeroRecords": "Không tìm thấy dữ liệu",
-                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
-                "infoEmpty": "Không có bản ghi nào",
-                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
-                "search": "Tìm kiếm",
-                "paginate": {
-                    "first":      "Đầu",
-                    "last":       "Cuối",
-                    "next":       "Sau",
-                    "previous":   "Trước"
-                },
-            },
-            "columnDefs": [{ // set default column settings
-                'orderable': true,
-                'targets': [0]
-            }, {
-                "searchable": true,
-                "targets": [0]
-            },
-            { "width": "30px", "targets": 0 },
-            { "width": "60px", "targets": 1 },
-            { "width": "100px", "targets": 2 },
-            { "width": "100px", "targets": 3 },
-            { "width": "100px", "targets": 4 },
-            { "width": "100px", "targets": 5 },
-            { "width": "150px", "targets": 6 },
-            { "width": "100px", "targets": 7 },
-            { "width": "100px", "targets": 8 },
-            { "width": "80px", "targets": 9 },
-            ],
-            "order": [
-                // [0, "asc"]
-            ] // set first column as a default sort by asc
-        });
 
 
 
@@ -960,6 +913,55 @@
                     }   
             });
 
+        });
+
+
+        var table = $('#ds_tuan');
+
+        var oTable = table.dataTable({
+            "autoWidth":false,
+            "lengthMenu": [
+                [10, 20, 50, -1],
+                [10, 20, 50, "Tất cả"] // change per page values here
+            ],
+
+            "pageLength": 10,
+
+            "language": {
+                "lengthMenu": "Hiển thị _MENU_ bản ghi / trang",
+                "zeroRecords": "Không tìm thấy dữ liệu",
+                "info": "Trang hiển thị _PAGE_ / _PAGES_ <br> Tổng: _TOTAL_",
+                "infoEmpty": "Không có bản ghi nào",
+                "infoFiltered": "(chọn lọc từ _MAX_ bản ghi)",
+                "search": "Tìm kiếm",
+                "paginate": {
+                    "first":      "Đầu",
+                    "last":       "Cuối",
+                    "next":       "Sau",
+                    "previous":   "Trước"
+                },
+            },
+            "columnDefs": [{ // set default column settings
+                'orderable': true,
+                'targets': [0]
+            }, {
+                "searchable": true,
+                "targets": [0]
+            },
+            { "width": "30px", "targets": 0 },
+            { "width": "60px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
+            { "width": "100px", "targets": 3 },
+            { "width": "100px", "targets": 4 },
+            { "width": "100px", "targets": 5 },
+            { "width": "150px", "targets": 6 },
+            { "width": "100px", "targets": 7 },
+            { "width": "100px", "targets": 8 },
+            { "width": "80px", "targets": 9 },
+            ],
+            "order": [
+                // [0, "asc"]
+            ] // set first column as a default sort by asc
         });
 
         // END Xử lý khi click nút xóa Lịch Tuan
