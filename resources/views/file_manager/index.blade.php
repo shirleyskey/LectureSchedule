@@ -4,7 +4,7 @@
 
 @section('style')
 <!-- jQuery and jQuery UI (REQUIRED) -->
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="{{ asset('/css/jquery-ui.css') }}" />
 
     <!-- elFinder CSS (REQUIRED) -->
     <link rel="stylesheet" type="text/css" href="<?= asset('packages/barryvdh/elfinder/css/elfinder.min.css') ?>">
@@ -58,7 +58,7 @@
 @section('script')
 <!-- jQuery and jQuery UI (REQUIRED) -->
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="{{ asset('/js/jquery-ui.min.js') }}"></script>
 <!-- elFinder JS (REQUIRED) -->
 <script src="<?= asset('packages/barryvdh/elfinder/js/elfinder.min.js') ?>"></script>
 <!-- elFinder translation (OPTIONAL) -->

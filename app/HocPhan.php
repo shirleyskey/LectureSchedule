@@ -26,14 +26,12 @@ class HocPhan extends Model
         return $this->hasMany('App\Tiet', 'id_hocphan');
     }
 
-   
-
     public function delete() {
         $this->tiets()->delete();
         $this->bais()->delete();
         parent::delete();
     }
-
+   
 
     public static function saveHocPhan($id, $data){
         if($id == 0){

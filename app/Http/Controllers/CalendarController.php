@@ -63,7 +63,7 @@ class CalendarController extends Controller
                 $giangvien = GiangVien::where('id', $tiet->id_giangvien)->first();
                 $tengiangvien = ($giangvien) ? ($giangvien["ten"]) : "Chưa Phân";
 
-                $title = $tenhocphan. " - ".$tenbai.'-'.$tiendo.'-'.$tengiangvien;
+                $title = $tenhocphan. " - ".$tenbai.'-'.$tiendo."-".$tengiangvien;
                 $events[] = Calendar::event(
                     $title,
                     false,
