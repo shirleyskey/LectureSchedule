@@ -5,7 +5,7 @@
 @section('content')
     <!-- BEGIN LOGO -->
     <div class="logo">
-        <h3 class="font-green">PHẦN MỀM QUẢN LÝ GIỜ GIẢNG KHOA AN NINH ĐIỀU TRA</h3>
+        <h3 class="font-green">PHẦN MỀM QUẢN LÝ KHOA AN NINH ĐIỀU TRA</h3>
     </div>
     <!-- END LOGO -->
     <!-- BEGIN LOGIN -->
