@@ -33,7 +33,7 @@
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9">Mật khẩu</label>
                 <input value="" class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Mật khẩu" name="password" /> </div>
-            <div class="form-group">
+            <div class="form-group login-btn">
                 <button type="submit" class="btn green uppercase">Đăng nhập</button>
                 <!-- <label class="rememberme check mt-checkbox mt-checkbox-outline">
                     <input type="checkbox" name="remember" value="1" />Nhớ mật khẩu?

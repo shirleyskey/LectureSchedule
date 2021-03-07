@@ -302,6 +302,9 @@ table.dataTable thead tr th {
     word-wrap: break-word;
     word-break: break-all;
 }
+.form-group.login-btn{text-align: center;}
+button.btn.green.uppercase[type=submit] {
+}
 
 
 
