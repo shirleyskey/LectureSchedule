@@ -39,47 +39,7 @@
                 </label> -->
             </div>
         </form>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Email</th>
-                <th>Mật khẩu</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>trantuantu@gmail.com</td>
-                <td>password</td>
-                <td><a class="copy-account" href="#" data-account="trantuantu@gmail.com" data-password="password">copy</a></td>
-            </tr>
-            <tr>
-                <td>lethaison@gmail.com</td>
-                <td>password</td>
-                <td><a class="copy-account" href="#" data-account="lethaison@gmail.com" data-password="password">copy</a></td>
-            </tr>
-            <tr>
-                <td>leluongson@gmail.com</td>
-                <td>password</td>
-                <td><a class="copy-account" href="#" data-account="leluongson@gmail.com" data-password="password">copy</a></td>
-            </tr>
-            <tr>
-                <td>ducthuantran@gmail.com</td>
-                <td>password</td>
-                <td><a class="copy-account" href="#" data-account="ducthuantran@gmail.com" data-password="password">copy</a></td>
-            </tr>
-            <tr>
-                <td>lethithuylinh@gmail.com</td>
-                <td>password</td>
-                <td><a class="copy-account" href="#" data-account="lethithuylinh@gmail.com" data-password="password">copy</a></td>
-            </tr>
-            <tr>
-                <td>vuongthanglong@gmail.com</td>
-                <td>password</td>
-                <td><a class="copy-account" href="#" data-account="vuongthanglong@gmail.com" data-password="password">copy</a></td>
-            </tr>
-            </tbody>
-        </table>
+        
         <!-- END LOGIN FORM -->
     </div>
     
