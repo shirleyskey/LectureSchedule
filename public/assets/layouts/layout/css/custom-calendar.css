@@ -372,6 +372,15 @@ table.dataTable thead tr th {
     .carousel.slide .carousel-inner .item {
         height: 550px;
     }
+    body.login.pace-done{
+        
+    }
+    .login .content{
+        height: 100vh!important;
+    }
+    .logo{
+
+    }
 
 }
 /* Large screens ----------- */
