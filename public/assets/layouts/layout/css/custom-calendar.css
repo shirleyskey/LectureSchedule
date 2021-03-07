@@ -384,18 +384,7 @@ button.btn.green.uppercase[type=submit] {
     top: 50%;
     transform: translate(-50%, -50%);
     }
-    .logo{
-
-position: absolute;
-
-left: 50%;
-
-transform: translate(-50%, -50%);
-
-top: 20%;
-
-width: 80%;
-}
+   
 
 h3.font-green{
 	
@@ -415,6 +404,18 @@ font-weight: 400;
 }
 .carousel.slide .carousel-inner .item {
     height: 863px;
+}
+ .logo{
+
+position: absolute;
+
+left: 50%;
+
+transform: translate(-50%, -50%);
+
+top: 20%;
+
+width: 80%;
 }
 
 }
