@@ -402,7 +402,7 @@
 
                             <!-- BEGIN GIỜ KHÁC-->
                             <div class="tab-pane active" id="tab_giokhac">
-                                <?php if(($hop->isNotEmpty()) || ($chambai->isNotEmpty()) || ($congtac->isNotEmpty()) || ($daygioi->isNotEmpty()) || ($hoctap->isNotEmpty()) || ($hdkh->isNotEmpty())): ?>
+                                <?php if(($hop->isNotEmpty()) || ($chambai->isNotEmpty()) || ($congtac->isNotEmpty()) || ($daygioi->isNotEmpty()) || ($hoctap->isNotEmpty()) || ($hdkh->isNotEmpty()) || (count($dang) > 0)): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -424,6 +424,7 @@
                                                     $total_daygioi = 0; 
                                                     $total_hoctap = 0; 
                                                     $total_hdkh = 0; 
+                                                    $total_dang = 0; 
                                                     $total_hop_khoahoc = 0;
                                                     $total_chambai_khoahoc = 0;
                                                     $total_congtac_khoahoc = 0;
@@ -517,8 +518,54 @@
                                                     <?php $stt++; ?>
                                                 <?php endif; ?>
 
+                                                
+                                                <?php if( count($dang) > 0 ): ?>
+                                                <?php $__currentLoopData = $dang; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_dang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php
+                                                        $chu_tri = json_decode( $v_dang->chu_tri, true);
+                                                        $so_chu_tri = 0;
+                                                        $is_chu_tri = false;
+                                                        ?>
+                                                        <?php $__currentLoopData = $chu_tri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                         <?php
+                                                             $so_chu_tri = $so_chu_tri + 1;
+                                                         ?>
+                                                         <?php if($value == $id_giangvien): ?>
+                                                             <?php
+                                                                 $is_chu_tri = true;
+                                                             ?>
+                                                         <?php endif; ?> 
+                                                        <?php endif; ?>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php
+                                                        $tham_gia = json_decode( $v_dang->tham_gia, true);
+                                                        $so_tham_gia = 0;
+                                                        ?>
+                                                        <?php $__currentLoopData = $tham_gia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                       
+                                                        <?php if(App\GiangVien::where('id', $value)->first() !== null): ?>
+                                                        <?php
+                                                        $so_tham_gia = $so_tham_gia + 1;
+                                                        ?>
+                                                        <?php endif; ?>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <?php $stt++; ?>
+                                                <?php 
+                                                    $total_dang += ($v_dang->gio_giang)/($so_chu_tri + $so_tham_gia); 
+                                                    ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                <tr>
+                                                    <td> <?php echo e($stt); ?> </td>
+                                                    <td> Hoạt Động Khác</td>
+                                                    <td> <?php echo e($total_dang); ?></td>
+                                                    <td> 0 </td>
+                                                </tr>
+                                                <?php $stt++; ?>
+                                            <?php endif; ?>
+
                                                
-                                                <?php $total = $total_hop + $total_chambai + $total_congtac + $total_daygioi + $total_hdkh + $total_hoctap; ?>
+                                                <?php $total = $total_hop + $total_chambai + $total_congtac + $total_daygioi + $total_hdkh + $total_hoctap + $total_dang; ?>
                                                 <?php $total_khoahoc = $total_hop_khoahoc + $total_chambai_khoahoc + $total_congtac_khoahoc + $total_daygioi_khoahoc + $total_hdkh_khoahoc + $total_hoctap_khoahoc; ?>
 
                                                 <tr> 
@@ -1034,7 +1081,7 @@
                         <!-- END BEGIN TAB 6-->
                             <!-- BEGIN TAB 5-->
                             <div class="tab-pane" id="tab5">
-                                <?php if(!empty($dang)): ?>
+                                <?php if( count($dang) > 0 ): ?>
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -1049,11 +1096,12 @@
                                                     <th> Bắt Đầu</th>
                                                     <th> Kết Thúc</th>
                                                     <th> Hoàn Thành</th>
+                                                    <th> Giờ Giảng</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php if( $dang->count() > 0 ): ?>
+                                                <?php if( count($dang) > 0 ): ?>
                                                     <?php $stt = 1; ?>
                                                     <?php $__currentLoopData = $dang; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v_dang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <tr>
@@ -1098,6 +1146,7 @@
                                                         <td> <?php echo e($v_dang->bat_dau); ?> </td>
                                                         <td> <?php echo e($v_dang->ket_thuc); ?> </td>
                                                         <td> <?php echo e($v_dang->hoan_thanh); ?> </td>
+                                                        <td> <?php echo e(($v_dang->gio_giang)/($so_chu_tri + $so_tham_gia)); ?> </td>
                                                         <td> <?php echo e($v_dang->ghichu); ?> </td>
                                                     </tr>
                                                     <?php $stt++; ?>

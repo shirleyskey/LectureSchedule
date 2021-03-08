@@ -433,7 +433,7 @@
 
                             <!-- BEGIN GIỜ KHÁC-->
                             <div class="tab-pane active" id="tab_giokhac">
-                                @if(($hop->isNotEmpty()) || ($chambai->isNotEmpty()) || ($congtac->isNotEmpty()) || ($daygioi->isNotEmpty()) || ($hoctap->isNotEmpty()) || ($hdkh->isNotEmpty()))
+                                @if(($hop->isNotEmpty()) || ($chambai->isNotEmpty()) || ($congtac->isNotEmpty()) || ($daygioi->isNotEmpty()) || ($hoctap->isNotEmpty()) || ($hdkh->isNotEmpty()) || (count($dang) > 0))
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -455,6 +455,7 @@
                                                     $total_daygioi = 0; 
                                                     $total_hoctap = 0; 
                                                     $total_hdkh = 0; 
+                                                    $total_dang = 0; 
                                                     $total_hop_khoahoc = 0;
                                                     $total_chambai_khoahoc = 0;
                                                     $total_congtac_khoahoc = 0;
@@ -548,8 +549,54 @@
                                                     @php $stt++; @endphp
                                                 @endif
 
+                                                {{-- Đảng  --}}
+                                                @if( count($dang) > 0 )
+                                                @foreach( $dang as $v_dang )
+                                                        @php
+                                                        $chu_tri = json_decode( $v_dang->chu_tri, true);
+                                                        $so_chu_tri = 0;
+                                                        $is_chu_tri = false;
+                                                        @endphp
+                                                        @foreach($chu_tri as $key => $value)
+                                                        @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                         @php
+                                                             $so_chu_tri = $so_chu_tri + 1;
+                                                         @endphp
+                                                         @if($value == $id_giangvien)
+                                                             @php
+                                                                 $is_chu_tri = true;
+                                                             @endphp
+                                                         @endif 
+                                                        @endif
+                                                        @endforeach
+                                                        @php
+                                                        $tham_gia = json_decode( $v_dang->tham_gia, true);
+                                                        $so_tham_gia = 0;
+                                                        @endphp
+                                                        @foreach($tham_gia as $key => $value)
+                                                       
+                                                        @if(App\GiangVien::where('id', $value)->first() !== null)
+                                                        @php
+                                                        $so_tham_gia = $so_tham_gia + 1;
+                                                        @endphp
+                                                        @endif
+                                                        @endforeach
+                                                @php $stt++; @endphp
+                                                @php 
+                                                    $total_dang += ($v_dang->gio_giang)/($so_chu_tri + $so_tham_gia); 
+                                                    @endphp
+                                                @endforeach
+                                                <tr>
+                                                    <td> {{ $stt }} </td>
+                                                    <td> Hoạt Động Khác</td>
+                                                    <td> {{ $total_dang}}</td>
+                                                    <td> 0 </td>
+                                                </tr>
+                                                @php $stt++; @endphp
+                                            @endif
+
                                                
-                                                @php $total = $total_hop + $total_chambai + $total_congtac + $total_daygioi + $total_hdkh + $total_hoctap; @endphp
+                                                @php $total = $total_hop + $total_chambai + $total_congtac + $total_daygioi + $total_hdkh + $total_hoctap + $total_dang; @endphp
                                                 @php $total_khoahoc = $total_hop_khoahoc + $total_chambai_khoahoc + $total_congtac_khoahoc + $total_daygioi_khoahoc + $total_hdkh_khoahoc + $total_hoctap_khoahoc; @endphp
 
                                                 <tr> 
@@ -1060,7 +1107,7 @@
                         <!-- END BEGIN TAB 6-->
                             <!-- BEGIN TAB 5-->
                             <div class="tab-pane" id="tab5">
-                                @if(!empty($dang))
+                                @if( count($dang) > 0 )
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light portlet-fit bordered">
                                     <div class="portlet-body">
@@ -1075,11 +1122,12 @@
                                                     <th> Bắt Đầu</th>
                                                     <th> Kết Thúc</th>
                                                     <th> Hoàn Thành</th>
+                                                    <th> Giờ Giảng</th>
                                                     <th> Ghi Chú</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if( $dang->count() > 0 )
+                                                @if( count($dang) > 0 )
                                                     @php $stt = 1; @endphp
                                                     @foreach( $dang as $v_dang )
                                                     <tr>
@@ -1124,6 +1172,7 @@
                                                         <td> {{ $v_dang->bat_dau }} </td>
                                                         <td> {{ $v_dang->ket_thuc }} </td>
                                                         <td> {{ $v_dang->hoan_thanh }} </td>
+                                                        <td> {{ ($v_dang->gio_giang)/($so_chu_tri + $so_tham_gia) }} </td>
                                                         <td> {{ $v_dang->ghichu }} </td>
                                                     </tr>
                                                     @php $stt++; @endphp

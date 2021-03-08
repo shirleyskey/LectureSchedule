@@ -692,6 +692,7 @@
                                                             <th> Bắt Đầu</th>
                                                             <th> Kết Thúc</th>
                                                             <th> Hoàn Thành</th>
+                                                            <th> Giờ Giảng</th>
                                                             <th> Ghi Chú</th>
                                                             <th>HĐ</th>
                                                         </tr>
@@ -730,6 +731,7 @@
                                                                 <td> {{ $v->bat_dau }} </td>
                                                                 <td> {{ $v->ket_thuc }} </td>
                                                                 <td> {{ $v->hoan_thanh }} </td>
+                                                                <td> {{ $v->gio_giang }} </td>
                                                                 <td> {{ $v->ghichu }} </td>
                                                                 <td>
                                                                     <a data-dang-id="{{ $v->id }}" class="btn_edit_dang btn btn-xs yellow-gold" href="#modal_edit_dang" title="Sửa"> <i class="fa fa-edit"></i> Sửa </a>
@@ -1251,11 +1253,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
+                                    <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
+                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
@@ -1335,12 +1337,12 @@
                                 
                                 <div class="form-group">
                                     <label>Bắt Đầu:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
+                                    <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
 
                                 <div class="form-group">
                                     <label>Kết Thúc:<span class="required">*</span></label>
-                                    <input class="form-control" name="thoigian_nhan" type="date" placeholder="dd-mm-yyyy" required />
+                                    <input class="form-control" name="thoigian_den" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
@@ -1432,7 +1434,11 @@
                                     <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
                                 </div>
                                 <div class="form-group">
-                                    <label>Ghi Chú:<span class="required"</span></label>
+                                    <label>Giờ Giảng:<span class="required">*</span></label>
+                                    <input class="form-control" name="gio_giang" type="number" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú:<span class="required"></span></label>
                                     <input class="form-control" name="ghichu" type="text" required />
                                 </div>
                             </div>
@@ -1513,6 +1519,10 @@
                                 <div class="form-group">
                                     <label>Ngày Hoàn Thành:<span class="required">(Nếu chưa hoàn thành, thì không nhập)</span></label>
                                     <input class="form-control" name="hoan_thanh" type="date" placeholder="dd-mm-yyyy" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Giờ Giảng:<span class="required">*</span></label>
+                                    <input class="form-control" name="gio_giang" type="number" required />
                                 </div>
                                 <div class="form-group">
                                     <label>Ghi Chú:<span class="required"></span></label>
@@ -2730,6 +2740,7 @@ $.ajax({
                 bat_dau: $("#form_add_dang input[name='bat_dau']").val(),
                 ket_thuc: $("#form_add_dang input[name='ket_thuc']").val(),
                 hoan_thanh: $("#form_add_dang input[name='hoan_thanh']").val(),
+                gio_giang: $("#form_add_dang input[name='gio_giang']").val(),
                 ghichu: $("#form_add_dang input[name='ghichu']").val(),
             },
             success: function(data) {
@@ -2800,6 +2811,7 @@ $.ajax({
                          $("#form_edit_dang input[name='bat_dau']").val(data.data.bat_dau);
                          $("#form_edit_dang input[name='ket_thuc']").val(data.data.ket_thuc);
                          $("#form_edit_dang input[name='hoan_thanh']").val(data.data.hoan_thanh);
+                         $("#form_edit_dang input[name='gio_giang']").val(data.data.gio_giang);
                          $("#form_edit_dang input[name='ghichu']").val(data.data.ghichu);
                          $('#modal_edit_dang').modal('show');
                      }
@@ -2829,6 +2841,7 @@ $.ajax({
                      bat_dau: $("#form_edit_dang input[name='bat_dau']").val(),
                      ket_thuc: $("#form_edit_dang input[name='ket_thuc']").val(),
                      hoan_thanh: $("#form_edit_dang input[name='hoan_thanh']").val(),
+                     gio_giang: $("#form_edit_dang input[name='gio_giang']").val(),
                      ghichu: $("#form_edit_dang input[name='ghichu']").val(),
                  },
                  success: function(data) {
@@ -4294,6 +4307,7 @@ var table = $('#ds_dang');
     { "width": "80px", "targets": 7 },
     { "width": "60px", "targets": 8 },
     { "width": "50px", "targets": 9 },
+    { "width": "50px", "targets": 10 },
     ],
     "order": [
         // [0, "asc"]

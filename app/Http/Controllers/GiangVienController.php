@@ -58,13 +58,13 @@ class GiangVienController extends Controller
          $ds_dangs = Dang::all();
          $dang = array();
          foreach($ds_dangs as $ds_dang){
-             $chu_tri = json_decode($ds_dang->chu_tri, true);
-             $tham_gia = json_decode($ds_dang->tham_gia, true);
-             if((in_array($id, $chu_tri)) || (in_array($id, $tham_gia))){
-                 array_push($vanban, $ds_vanban);
+             $chu_tri_dang = json_decode($ds_dang->chu_tri, true);
+             $tham_gia_dang = json_decode($ds_dang->tham_gia, true);
+             if((in_array($id, $chu_tri_dang)) || (in_array($id, $tham_gia_dang))){
+                 array_push($dang, $ds_dang);
              };
          };
-
+        //  dd($dang);
         return view('giangvien.read.index', [
             'giangvien' => $giangvien,
             'chambai' => ChamBai::where('id_giangvien', $id)->get(),
