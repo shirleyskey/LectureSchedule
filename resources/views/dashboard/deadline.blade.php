@@ -31,7 +31,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
-                        @if($chambai->isNotEmpty())
+                        @if($nckh->isNotEmpty())
                <!-- BEGIN EXAMPLE TABLE PORTLET-->
                <div class="portlet light portlet-fit bordered deadline deadline-chambai">
                    <div class="portlet-body">
