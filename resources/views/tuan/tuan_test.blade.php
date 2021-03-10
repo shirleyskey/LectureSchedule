@@ -103,9 +103,9 @@
                                                             <th> Ngày Giờ</th>
                                                             <th> Trực LĐ</th>
                                                             <th> Trực GV</th>
-                                                            <th> Địa Điểm </th>
-                                                            <th style="width:180px"> Nội Dung</th>
-                                                            <th> Thành Phần </th>
+                                                            <th style="width:100px"> Địa Điểm </th>
+                                                            <th style="width:200px"> Nội Dung</th>
+                                                            <th style="width:100px"> Thành Phần </th>
                                                             <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
