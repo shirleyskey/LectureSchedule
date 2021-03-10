@@ -370,52 +370,42 @@ button.btn.green.uppercase[type=submit] {
 
     }
     .custom-row{
-
     }
     .carousel.slide .carousel-inner .item {
         height: 550px;
     }
     body.login.pace-done{
-        
     }
     .login .content{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        }
+    h3.font-green{
+    font-size: 43px;
+    font-weight: 400;
     }
-   
-
-h3.font-green{
-	
-font-size: 43px;
-	
-font-weight: 400;
-}
 
 }
 /* Large screens ----------- */
-@media only screen  and (min-width : 1824px) {
+@media only screen  and (min-width : 1800px) {
 /* Styles */
-.col-md-10.col-lg-10.custom-click-sidebar {width: 100%!important;}
-.custom-container{margin: 0px!important;width: 100%;}
-.custom-row{
-    
-}
-.carousel.slide .carousel-inner .item {
-    height: 863px;
-}
- .logo{
-
-position: absolute;
-
-left: 50%;
-
-transform: translate(-50%, -50%);
-
-top: 20%;
-
-width: 80%;
-}
+    .col-md-10.col-lg-10.custom-click-sidebar {
+        width: 100%!important;
+    }
+    .custom-container{
+        margin: 0px!important;width: 100%;
+    }
+    .carousel.slide .carousel-inner .item {
+        height: 863px;
+    }
+    .logo{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 20%;
+        width: 80%;
+    }
 
 }
