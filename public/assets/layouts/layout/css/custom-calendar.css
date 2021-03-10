@@ -363,9 +363,7 @@ button.btn.green.uppercase[type=submit] {
 }
 
 @media only screen  and (min-width : 1224px) {
-    /* Styles */
-    .col-md-10.col-lg-10.custom-click-sidebar {
-    }
+   
     .custom-container{
 
     }
@@ -389,13 +387,14 @@ button.btn.green.uppercase[type=submit] {
 
 }
 /* Large screens ----------- */
-@media only screen  and (min-width : 1800px) {
-/* Styles */
+@media only screen  and (min-width : 1824px) {
+
     .col-md-10.col-lg-10.custom-click-sidebar {
         width: 100%!important;
     }
     .custom-container{
-        margin: 0px!important;width: 100%;
+        margin: 0px!important;
+		width: 100%;
     }
     .carousel.slide .carousel-inner .item {
         height: 863px;
