@@ -99,14 +99,14 @@
                                                 <table class="table table-striped table-hover table-bordered" id="ds_tuan_nay">
                                                     <thead>
                                                         <tr>
-                                                            <th> Thứ</th>
+                                                            <th style="width:60px"> Thứ</th>
                                                             <th> Ngày Giờ</th>
                                                             <th> Trực LĐ</th>
                                                             <th> Trực GV</th>
                                                             <th> Địa Điểm </th>
-                                                            <th> Nội Dung</th>
+                                                            <th style="width:180px"> Nội Dung</th>
                                                             <th> Thành Phần </th>
-                                                            <th> Ghi CHú</th>
+                                                            <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
                                                     </thead>
@@ -426,7 +426,7 @@
                                                             <th> Địa Điểm </th>
                                                             <th> Nội Dung</th>
                                                             <th> Thành Phần </th>
-                                                            <th> Ghi CHú</th>
+                                                            <th> Ghi Chú</th>
                                                             <th> Hành Động</th>
                                                         </tr>
                                                     </thead>
@@ -894,6 +894,8 @@
         });
 
 
+
+
         var table = $('#ds_tuan');
 
         var oTable = table.dataTable({
@@ -928,19 +930,20 @@
             },
             { "width": "30px", "targets": 0 },
             { "width": "60px", "targets": 1 },
-            { "width": "100px", "targets": 2 },
-            { "width": "100px", "targets": 3 },
-            { "width": "100px", "targets": 4 },
+            { "width": "80px", "targets": 2 },
+            { "width": "80px", "targets": 3 },
+            { "width": "80px", "targets": 4 },
             { "width": "100px", "targets": 5 },
-            { "width": "150px", "targets": 6 },
-            { "width": "100px", "targets": 7 },
-            { "width": "100px", "targets": 8 },
+            { "width": "180px", "targets": 6 },
+            { "width": "120px", "targets": 7 },
+            { "width": "120px", "targets": 8 },
             { "width": "80px", "targets": 9 },
             ],
             "order": [
                 // [0, "asc"]
             ] // set first column as a default sort by asc
         });
+
 
         // END Xử lý khi click nút xóa Lịch Tuan
 
