@@ -130,7 +130,7 @@ Route::prefix('hocphan')->middleware(['auth', 'only_active_user'])->group(functi
     Route::get('/add', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@create','as'=>'hocphan.add.get']);
     Route::post('/add', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@store','as'=>'hocphan.add.post']);
     Route::get('/edit/{id}', ['middleware' => ['permission:create-giangvien'], 'uses' =>'HocPhanController@edit','as'=>'hocphan.edit.get']);
-    Route::post('/edit/{id}', ['middleware' => ['permission:create-giangvienn'], 'uses'=>'HocPhanController@update','as'=>'hocphan.edit.post']);
+    Route::post('/edit/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@update','as'=>'hocphan.edit.post']);
     Route::get('/delete/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@destroy','as'=>'hocphan.delete.get']);
     Route::get('/delete_lop/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@destroy_lop','as'=>'hocphan.delete_lop.get']);
     Route::post('/import/{id}', ['middleware' => ['permission:create-giangvien'], 'uses'=>'HocPhanController@import','as'=>'hocphan.lichgiang.import']);

@@ -33,6 +33,10 @@ class ThongBaoController extends Controller
                     $startDate->addHours(9);
                     $startDate->addMinute(30);
                 }
+				 else if($tiet->buoi == "S" && $tiet->ca == "0"){
+                    $startDate->addHours(7);
+                    $startDate->addMinute(30);
+                }
                 else if($tiet->buoi == "C" && $tiet->ca == "1"){
                     $startDate->addHours(13);
                 }
@@ -40,17 +44,25 @@ class ThongBaoController extends Controller
                     $startDate->addHours(15);
                     
                 }
+				else if($tiet->buoi == "C" && $tiet->ca == "0"){
+                    $startDate->addHours(13);
+                    
+                }
+				$tenhocphan = ($tiet->hocphans->mahocphan) ? $tiet->hocphans->mahocphan : "";
+				
                 //Tên Lớp
                 $tenlop = ($tiet->lops->malop) ? $tiet->lops->malop : "";
 
                 //Tên Bài 
                 $tenbai = ($tiet->bais->tenbai) ? $tiet->bais->tenbai : "";
 
+ 
+                $tiendo = $tiet->tiendo;
                 // Tên Giáo Viên 
                 $giangvien = GiangVien::where('id', $tiet->id_giangvien)->first();
                 $tengiangvien = $giangvien["ten"];
 
-                $title = $tenlop. " - ".$tenbai.'-'.$tengiangvien;
+                $title = $tenhocphan. " - ".$tenbai.'-'.$tiendo."-".$tengiangvien;
                 $events[] = Calendar::event(
                     $title,
                     false,
